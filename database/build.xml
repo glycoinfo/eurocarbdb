@@ -1,0 +1,1176 @@
+<project name="eurocarb-core-database" default="install">
+
+    <!--
+    !   this import defines the following:
+    !
+    !   1) 'project.*' properties  
+    !   2) 'project.classpath' path, containing all external and eurocarb-compiled jars.
+    !   3) 'build-XXX' tasks, where 'XXX' is the name of a sub-project                
+    !
+    -->
+    <import file="../build.common.xml"/>
+    
+    <!--========================== PROPERTIES ==============================-->
+
+    <property name="sql.dir" value="${project.dir}/database/sql"/> 
+    <property name="database.config.dir" value="${project.dir}/database/conf"/> 
+    
+ 
+    <!-- 
+    this is the SQL file that is expected to contain a complete dump 
+    of a Eurocarb database, including schema creation statements 
+    -->
+    <property name="ecdb.refdata.sql" location="${project.data.dir}/ecdb.data.sql" />
+    
+    <property name="ecdb.database.version" value="0.1.0"/>
+    
+    <!-- 
+    this is the prefix used for files to which output is piped during
+    various build targets herein. 
+    -->
+    <property name="output.file.prefix" value="build-output" />
+    
+
+    <!--============================ TARGETS  ==============================-->
+    <!--                  (in alphabetical order please)                    -->
+    
+
+    <!-- TARGET: check ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    An init target to check running environment
+    -->
+    <target name="check" depends="">
+        <!-- nothing to do here atm -->
+        <!-- <echo>${global.properties.file}</echo> -->
+        <!-- <echo>${ecdb.db.name}</echo> -->
+        <!--<echoproperties/>-->
+    </target>
+    
+    <!--
+    <target name="-disp-environment" unless="build.skip.interactive_db">
+        <echo>Pre-configured properties:</echo>
+        <echo>Database username is: "${ecdb.db.username}"</echo>
+        <echo>Database password is: "${ecdb.db.password}"</echo>
+        <echo>Database hostname is: "${ecdb.db.hostname}"</echo>
+        <echo>Database DB name  is: "${ecdb.db.name}"</echo>
+        <echo>Please review these settings checking for extra spaces</echo>
+        <echo>Add 'build.skip.interactive_db=true' to your default.global.properties to skip this check from now on</echo>
+        <input message="Enter Y to confirm these settings:"
+               addproperty="build.valueschecked"
+               defaultvalue="Y"        
+               />        
+    </target>
+    -->
+    
+    <!-- TARGET: setup-environment ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <target name="setup-environment" depends="check-db-superuser,createDistDirectories">
+      <echo file="${project.dir}/database/conf/psql_conf_perl.properties">${db.superuser},${db.superuser.pwd},5432,127.0.0.1,eurocarb_devel,,psql</echo>
+      <chmod file="${project.dir}/database/conf/psql_conf_perl.properties" perm="600"/>
+    </target>
+    
+    
+    <!-- TARGET: check-perl-prereqs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Ensures that Perl is installed, as well as some key libraries.
+    
+    @deprecated to be rewritten in java
+    -->
+    <target name="check-perl-prereqs">
+        <!-- is Perl even installed? -->
+        <exec executable="perl" outputproperty="perl.works">
+            <arg line="-e 'print q!perl works!'" />
+        </exec>
+
+        <fail>
+            <condition>
+                <not>
+                    <equals arg1="${perl.works}" arg2="perl works" />
+                </not>
+            </condition>
+            Perl does not appear to be installed or is not on PATH. 
+            Perl is required to checkially install NCBI and MeSH reference data.
+        </fail>
+        
+        <echo>OK, Perl is installed</echo>
+        
+        <!-- is the DBI module installed? -->
+        <exec executable="perl" outputproperty="perl.dbi.works">
+            <arg line="-e 'use DBI; print q!dbi works!';" />
+        </exec>
+        
+        <fail>
+            <condition>
+                <not>
+                    <equals arg1="${perl.dbi.works}" arg2="dbi works" />
+                </not>
+            </condition>
+            Missing dependency!
+            
+            The Perl-DBI module does not appear to be installed or is not in perl's 
+            library path (environment variable 'PERL5LIB'). 
+            
+            This module is required to install NCBI and MeSH reference data.
+            
+            Perl's error message was: 
+            -> ${perl.dbi.works}
+        </fail>
+        
+        <echo>OK, Perl-DBI is installed</echo>
+        
+        <!-- is the Perl Postgres DBI driver module installed? -->
+        <exec executable="perl" outputproperty="perl.dbi.driver.works">
+            <arg line="-e 'use DBD::PgPP; print q!pgpp works!';" />
+        </exec>
+        
+        <fail>
+            <condition>
+                <not>
+                    <equals arg1="${perl.dbi.driver.works}" arg2="pgpp works" />
+                </not>
+            </condition>
+            Missing dependency!
+            
+            The DBD::PgPP postgres database driver module does not appear to be 
+            installed or is not in perl's library path (environment variable 'PERL5LIB'). 
+            
+            This module is required to access a Postgres database using Perl.
+            
+            Perl's error message was: 
+            -> ${perl.dbi.driver.works}
+        </fail>
+        
+        <echo>OK, Perl PgPP postgres driver is installed</echo>
+        
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    todo: is this even used anymore?
+    -->
+    <target name="generate-encrypted-password">
+        <tempfile property="temp.pwfile"/>
+        <echo file="temp.pwfile">${ecdb.db.username}${ecdb.db.password}</echo>
+        <checksum file="temp.pwfile" property="ecdb.encrypted_db.password" />
+        <delete file="temp.pwfile"/>
+    </target>
+    
+    
+    
+    <!-- TARGET: build ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="build" 
+            depends="check,build-db,build-core,build-core-comments,build-ms,build-hplc,build-nmr"
+            description="Builds eurocarb database from original sources (takes a long time)" >
+    </target>
+    
+
+    <!-- TARGET: build-db ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="build-db" depends="check-db-superuser,build-db-sql"
+            description="Creates checkial DB user and database only; no tables" >
+        <echo>Creating checkial database '${ecdb.db.name}'</echo>
+        <exec dir="." executable="${postgres.binary}" 
+              output="${output.file.prefix}.db.txt">
+            <arg value="-a"/>
+            <arg value="-f"/>
+            <arg value="${sql.dir}/init_eurocarb.sql"/>
+            <arg value="-U"/>
+            <arg value="${db.superuser}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+        </exec>
+        <echo>See local file '${output.file.prefix}.db.txt' for details</echo>
+    </target>
+
+    
+    <!-- TARGET: build-db-sql ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="build-db-sql" depends="generate-encrypted-password">
+        <echo>Generating db creation SQL from template</echo>
+        <copy file="${sql.dir}/init_eurocarb.sql.template" 
+            tofile="${sql.dir}/init_eurocarb.sql" overwrite="true" /> 
+        <replace file="${sql.dir}/init_eurocarb.sql">
+            <replacefilter token="$DBNAME" value="${ecdb.db.name}" />
+            <replacefilter token="$USERNAME" value="${ecdb.db.username}" />
+            <replacefilter token="$PASSWORD" value="md5${ecdb.encrypted_db.password}" />
+        </replace>
+    </target>
+    
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-core
+    -->
+    <target name="build-core" 
+            depends="check-psql-binary"
+            description="Creates the 'core' schema tables in the DB">
+        <echo>Adding core schema to the database</echo>
+        <exec 
+            dir="." 
+            executable="${postgres.binary}" 
+            error="${output.file.prefix}.core.txt" 
+            output="${output.file.prefix}.core.txt" 
+        >
+            <arg value="-a"/>
+            <arg value="-f"/>
+            <arg value="${sql.dir}/create_schema_core.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+        <echo>See local file '${output.file.prefix}.core.txt' for details</echo>
+    </target>
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-core-indexes
+    -->
+    <target name="build-core-indexes" depends="check-psql-binary"
+        description="Creates the 'core' indexes in the DB">
+        <echo>Adding core indexes to the database</echo>
+        <exec dir="." executable="${postgres.binary}" 
+              error="${output.file.prefix}.core.indexes.txt" 
+              output="${output.file.prefix}.core.indexes.txt" 
+              >
+            <arg value="-a"/>
+            <arg value="-f"/>
+            <arg value="${sql.dir}/create_indexes_core.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+    </target>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-core-comments
+    -->
+    <target name="build-core-comments" depends="check-psql-binary">
+        <echo>Adding Core table comments to the database</echo>
+        <exec dir="." executable="${postgres.binary}"
+              error="${output.file.prefix}.core.comments.txt" 
+              output="${output.file.prefix}.core.comments.txt" 
+        >
+            <arg value="-a"/>
+            <arg value="-f"/>
+            <arg value="${sql.dir}/create_schema_core_comments.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+    </target>
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-hplc
+    -->
+    <target name="build-hplc"
+            depends="check-psql-binary"
+            description="Creates the HPLC schema tables in the DB" >
+	    <echo>Adding HPLC schema to the database</echo>
+        <exec dir="." 
+              executable="${postgres.binary}" 
+              error="${output.file.prefix}.hplc.txt" 
+              output="${output.file.prefix}.hplc.txt" 
+              >
+            <arg value="-a"/>
+            <arg value="-f"/>
+            <arg value="${sql.dir}/create_schema_hplc.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+        <echo>See local file '${output.file.prefix}.hplc.txt' for details</echo>
+    </target>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-ms
+    -->
+    <target name="build-ms"
+            depends="check-psql-binary"
+            description="Creates the mass-spec schema tables in the DB" >
+        
+        <echo>Adding MS schema to the database</echo>
+        
+        <exec dir="." 
+              executable="${postgres.binary}" 
+              error="${output.file.prefix}.ms.txt" 
+              output="${output.file.prefix}.ms.txt" 
+              >
+            <arg value="-a"/>
+            <arg value="-f"/>
+            <arg value="${sql.dir}/create_schema_ms.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+        <echo>See local file '${output.file.prefix}.ms.txt' for details</echo>
+    </target>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-nmr
+    -->
+    <target name="build-nmr"
+            depends="check-psql-binary"
+            description="Creates the NMR schema tables in the DB" >
+        <echo>Adding NMR schema to the database</echo>
+
+        <exec dir="." executable="${postgres.binary}" 
+              error="${output.file.prefix}.nmr.txt" output="${output.file.prefix}.nmr.txt" >
+            <arg value="-a"/>
+            <arg value="-f"/>
+            <arg value="${sql.dir}/create_schema_nmr.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+        <echo>See local file '${output.file.prefix}.nmr.txt' for details</echo>
+    </target>
+
+    <target name="build-seq" depends="check-psql-binary" description="Creates seq schema tables in the DB">
+      <echo>Adding Seq schema to the database</echo>
+      <exec dir="." executable="${postgres.binary}" 
+	    error="${output.file.prefix}.seq.txt" output="${output.file.prefix}.seq.txt" >
+	  <arg value="-a"/>
+	  <arg value="-f"/>
+	  <arg value="${sql.dir}/create_schema_seq.sql"/>
+	  <arg value="-U"/>
+	  <arg value="${ecdb.db.username}"/>
+	  <arg value="-h"/>
+	  <arg value="${ecdb.db.hostname}"/>
+	  <arg value="-d"/>
+	  <arg value="${ecdb.db.name}"/>
+      </exec>
+      <echo>See local file '${output.file.prefix}.seq.txt' for details</echo>
+    </target>
+ 
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-tools
+    -->
+    <target name="build-tools"
+            depends="check-psql-binary"
+            description="Creates the various schema" >
+        <echo>Adding NMR schema to the database</echo>
+        <echo>(there is no NMR schema yet; this is a dummy target)</echo>
+    </target>
+        
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: clean
+    
+    Removes build/debugging files.
+    -->
+    <target name="clean" depends="">
+    
+        <echo>Removing schema creation files</echo>
+        <delete includeemptydirs="true" verbose="true">
+            <fileset dir="." includes="build.*.txt" />
+        </delete>
+        
+        <echo>Removing reference data load files</echo>
+        <delete includeemptydirs="true" verbose="true">
+            <fileset dir="." includes="load.*.txt" />
+        </delete>
+
+        <echo>Removing tmp files</echo>
+        <defaultexcludes remove="**/*~"/>
+        <delete includeemptydirs="true">
+            <fileset dir="${basedir}" includes="**/*~"/>    
+        </delete>
+        <defaultexcludes default="true"/>
+
+    </target>   
+    
+
+    
+
+    
+    
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: load
+
+    Loads all static reference data into the DB. 
+    -->
+    <target name="load" depends="check-db-superuser, load-ms, generate-and-load-mesh, generate-and-load-ncbi, load-techniques, vacuum" 
+            description="Loads checkial reference data into the database" >
+        <echo>Load finished. Check the *.txt files for further info.</echo>
+    </target>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: load-techniques
+    -->
+    <target name="load-techniques" depends="check-perl-prereqs,check-db-superuser">
+        <echo>Loading core.technique table</echo>
+        <echo>See 'load.core.technique.txt' for progress/output/errors</echo>
+        
+        <exec dir="scripts" executable="${postgres.binary}" 
+              error="load.core.technique.txt" failonerror="true" >
+            <arg value="-c"/>
+            <arg value="COPY core.technique ( technique_abbrev, technique_name ) FROM '${basedir}/data/core.technique/data.csv' WITH CSV"/>
+            <arg value="-U"/>
+            <arg value="${db.superuser}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+    </target>
+    
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: load-ms
+    -->
+
+    <target name="load-ms" depends="build-ms">
+        <echo>Loading static ms data into tables</echo>
+        <echo>See 'load.ms.data.txt' for progress/output/errors</echo>
+        <echo>Disabled</echo>
+        <!--<exec dir="scripts" executable="${postgres.binary}" error="load.ms.data.txt" failonerror="true" >
+            <arg value="-q"/>
+            <arg value="-f"/>
+            <arg value="${basedir}/${sql.dir}/load_ms_data.sql"/>
+            <arg value="-U"/>
+            <arg value="${db.superuser}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>-->
+    </target>
+
+  
+    <target name="check-db-exists" depends="">
+        <echo>Connecting to DB '${ecdb.db.name}' on host '${ecdb.db.hostname}' as user '${ecdb.db.username}'</echo>
+        <exec dir="." executable="${postgres.binary}" failonerror="true" >
+            <arg value="-q"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}"/>
+            <arg value="-c"/>
+            <arg value="select count(*) from core.glycan_sequence"/>
+        </exec>
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: generate-and-load-carbbank
+
+    Parses entire carbbank dump and loads them into eurocarb.
+    -->
+    <target name="generate-and-load-carbbank" depends="check-db-exists,build-core-api, fetch-carbbank">
+        
+        <echo></echo>
+        <echo>Importing Carbbank, this will take a while...</echo>
+        <echo></echo>
+        
+        <java classname="org.eurocarbdb.util.carbbank.CarbbankManager$CLI" 
+              fork="true"
+        >
+            <classpath refid="project.classpath" />
+        </java>
+    </target>    
+    
+    <target name="fetch-carbbank" depends="createDistDirectories">
+      <exec dir="." executable="wget">
+	<arg value="http://www.glycome-db.org/getDownload.action?file=carbbank"/>
+	<arg value="-O"/>
+	<arg value="${project.dir}/database/data/carbbank.zip"/>
+      </exec>
+      
+      <exec dir="${project.dir}/database/data" executable="unzip">
+	<arg value="${project.dir}/database/data/carbbank.zip"/>
+      </exec>
+      
+      <move file="${project.dir}/database/data/carbbank.txt" tofile="${project.dir}/database/data/carbbank.raw"/>
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: generate-substructs
+    -->
+    <target 
+        name="generate-substructs" 
+        depends="check-db-exists,build-core-api"
+        description="Populates the substructure query tables from structures in the glycan sequence table"
+    >
+        <echo></echo>
+        <echo>trying to generate substructs...</echo>
+        <echo></echo>
+        
+        <java classname="org.eurocarbdb.dataaccess.core.seq.GlycanResidue$Generator" 
+        >
+            <classpath refid="project.classpath" />
+        </java>
+        
+    </target>    
+    
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: test-substructs
+    -->
+    <target name="test-substructs" depends="check-db-exists,build-core-api">
+        
+        <echo></echo>
+        <echo>testing substructs...</echo>
+        <echo></echo>
+        
+        <java classname="test.eurocarbdb.dataaccess.core.seq.SubstructureQueryTest">
+            <classpath refid="project.classpath" />
+        </java>
+        
+    </target>    
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: test-xml
+    -->
+    <target name="test-xml" depends="check-db-exists,build-core-api">
+        
+        <echo></echo>
+        <echo>testing xml serialisation...</echo>
+        <echo></echo>
+        
+        <java classname="org.eurocarbdb.util.XmlSerialiser" >
+            <classpath refid="project.classpath" />
+        </java>
+        
+    </target>    
+    
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: generate-and-load-mesh
+
+    Parses MeSH reference file and loads the disease, perturbation, and tissue_taxonomy tables.
+    -->
+    
+    <target name="fetch-mesh">
+      <echo>MeSH vocabulary download...</echo>
+      <if>
+	<equals arg1="${os.name}" arg2="Linux"/>
+	<then>
+	  <echo>You must first register with the NIH by filling in the form at the address shown below</echo>
+	  <echo>http://www.nlm.nih.gov/mesh/termscon.html</echo>
+	  <input 
+		  message="Confirm that you have read and accepted the terms and conditions outlinned at the above web page: "
+		  addproperty="mesh.accept"
+		  validargs="y,n"
+	  />  
+	  <if>
+	    <equals arg1="${mesh.accept}" arg2="y" />
+	    <then>
+	      <!-- 	   
+		There seems to be something wrong with the FTP setup at the nih.gov, there's a few bug reports about on the internet.
+		<get  src="nlmpubs.nlm.nih.gov/online/mesh/.meshtrees/mtrees2010.bin" dest="${project.temp.dir}/mesh.bin" verbose="true"/>
+		So, lets use the backup plan of using wget...
+	      -->
+	      <exec executable="wget" error="retrieve.mesh_data.txt" failonerror="true">
+<!-- 		<arg value="ftp://nlmpubs.nlm.nih.gov/online/mesh/.meshtrees/mtrees2010.bin"/> -->
+		<arg value="ftp://nlmpubs.nlm.nih.gov/online/mesh/.asciimesh/d2010.bin"/>
+		<arg value="-O"/>
+		<arg file="${project.temp.dir}/mesh.bin"/>
+	      </exec>
+	      <property name="ecdb.db.mesh_datafile" location="${project.temp.dir}/mesh.bin"/>
+	    </then>
+	    <else>
+	      <echo message="Can't proceed until you accept the license" />
+	    </else>
+	  </if>
+	</then>
+	<else>
+	  <echo>Your operating system (${os.name}) is not supported for MeSH download</echo>
+	</else>
+      </if>
+    </target>
+    
+    <target name="generate-and-load-mesh" depends="check-perl-prereqs, fetch-mesh" if="ecdb.db.mesh_datafile">
+        <echo>Loading MeSH disease/perturbation/tissue_taxonomy (this may take a few mins...)</echo>
+        <echo>See 'load.mesh_data.txt' for progress/output/errors</echo>
+	<exec dir="scripts" executable="perl" error="load.mesh_data.txt" failonerror="true" >
+	  <arg value="reference_data.pl" />      
+	  <arg value="--load-mesh" />
+	  <arg value="--mesh"/>
+	  <arg value="${ecdb.db.mesh_datafile}"/>
+	  <arg value="--username" /> 
+	  <arg value="${ecdb.db.username}" /> 
+	  <arg value="--userdb" />
+	  <arg value="${ecdb.db.name}"/>
+	  <arg value="--userpwd" />
+	  <arg value="${ecdb.db.password}"/>
+	  <arg value="--verbose"/>
+	</exec>
+    </target>
+    
+   
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: generate-and-load-ncbi
+
+    Parses NCBI reference file and loads the taxonomy table.
+    -->
+    
+    <target name="fetch-net">
+      <echo>Fetch NCBI Entrez Taxonomy dumps...</echo>
+      <echo>Please be patient this will only take a couple of minutes</echo>
+      <exec dir="${project.dir}/database" executable="perl" error="fetch.ncbi_data.txt" failonerror="true">
+	<env key="PERL5LIB" path="env.PERL5LIB:${project.dir}/database/scripts/lib:${project.dir}/database/scripts/"/>
+	<env key="eurocarb.dir" path="${project.dir}"/>
+	<arg value="scripts/org/eurocarb/database/FetchNET.pm"/>
+	<arg value="${project.temp.dir}"/>
+      </exec>
+      <property name="ecdb.db.ncbi_namesfile" location="${project.temp.dir}/names.dmp"/>
+      <property name="ecdb.db.ncbi_nodesfile" location="${project.temp.dir}/nodes.dmp"/>
+    </target>
+    
+    <target name="generate-and-load-ncbi" depends="check-perl-prereqs, fetch-net">
+        <echo>Loading NCBI taxonomy (this may take a few mins...)</echo>
+        <echo>See 'load.ncbi_data.txt' for progress/output/errors</echo>
+        
+        <exec dir="scripts" executable="perl" error="load.ncbi_data.txt" failonerror="true" >
+            <arg value="reference_data.pl" />      
+            <arg value="--load-ncbi" />
+            <arg value="--ncbi-names"/>
+            <arg value="${ecdb.db.ncbi_namesfile}"/>
+            <arg value="--ncbi-nodes"/>
+            <arg value="${ecdb.db.ncbi_nodesfile}"/>
+            
+            <arg value="--username" /> 
+            <arg value="${ecdb.db.username}" /> 
+            <arg value="--userdb" />
+            <arg value="${ecdb.db.name}"/>
+            <arg value="--userpwd" />
+            <arg value="${ecdb.db.password}"/>
+            <arg value="--verbose"/>
+        </exec>
+    </target>
+    
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: install
+
+    Creates DB from scratch, including all tables and all static reference data.
+    -->
+    <target name="install" 
+            depends="install-entire-db,vacuum" 
+            description="Creates DB from scratch, including all tables and all reference data (fast)." >
+        <echo>Eurocarb database is installed</echo>
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: install-entire-db
+
+    Creates DB from scratch, including all tables and all static reference data.
+    -->
+    <target name="install-entire-db" depends="check-psql-binary,build-db">
+    
+        <echo></echo>
+        <echo>*********************************************************************</echo>
+        <echo>*  Installing Eurocarb database from ref file '${ecdb.refdata.sql}'</echo>
+        <echo>*  Alternative snapshot can be loaded with the command "ant install -Decdb.refdata.sql=[your-snapshot.sql]"</echo>
+        <echo>*********************************************************************</echo>
+        <echo></echo>
+        
+        <input message="Hit return to continue... (Ctrl-C to abort)" />
+        
+        <exec dir="." executable="psql" errorproperty="install-entire-db.error">
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-f"/>
+            <arg value="${ecdb.refdata.sql}"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+
+        <condition property="install.error">
+            <length string="${install-entire-db.error}" trim="true" when="greater" length="3" />
+        </condition>
+        
+        <fail if="install.error">Install failed: ${install-entire-db.error}</fail>
+        
+        <echo>Eurocarb database installed successfully</echo>
+    </target>
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: install-from-scratch
+
+    Creates DB from scratch, and pre-loads all static reference data.
+    -->
+    <target name="install-from-scratch" 
+            depends="build,load,build-core-indexes,vacuum" 
+            description="Creates DB from scratch, re-parsing and re-loading all static reference data from raw files (SLOW!)." >
+        <echo>Eurocarb database is installed</echo>
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: nuke
+    
+    Drops the DB (!!!)
+    -->
+    <target name="nuke" depends="check-psql-binary,check-db-superuser" 
+            description="Drops the DB, destroying all data. Use with caution !!!">
+
+        <echo></echo>
+        <echo>************************************************************</echo>
+        <echo>*  Dropping database '${ecdb.db.name}' on host '${ecdb.db.hostname}'</echo>
+        <echo>*        This will result in ALL data being LOST            </echo>
+        <echo>*         Doing this using username '${db.superuser}'       </echo>
+        <echo>************************************************************</echo>
+        <echo></echo>
+        
+        <input message="Hit return key to continue (Ctrl-C to abort)" />
+        
+        <exec dir="." executable="psql" failonerror="true">
+            <arg value="-U"/>
+            <arg value="${db.superuser}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-c"/>
+            <arg value="drop database if exists ${ecdb.db.name}"/>
+        </exec>
+	
+	<exec dir="." executable="psql" failonerror="true">
+            <arg value="-U"/>
+            <arg value="${db.superuser}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-c"/>
+            <arg value="create database ${ecdb.db.name}"/>
+        </exec>
+        
+        
+    </target>
+    
+    <target name="create-admin-user" depends="check-psql-binary" description="Creates an administrator user with credentials taken from user">
+      <echo>Create admnistrator user for EuroCarbDB web application</echo>
+      <input message="Username" addproperty="ecdb.admin.username"/>
+      <input message="Password" addproperty="ecdb.admin.userpassword"/>
+      <input message="Real name" addproperty="ecdb.admin.realname"/>
+      <echo>Warning your password will be exposed to anyone running ps</echo>
+      <echo>Press ctrl+c to exit or press any key to continue</echo>
+      <input message="..."/>
+      <exec dir="." executable="psql" failonerror="true">
+      <arg value="-U"/>
+	  <arg value="${ecdb.db.username}"/>
+	  <arg value="-h"/>
+	  <arg value="${ecdb.db.hostname}"/>
+	  <arg value="-c"/>
+	  <arg value="insert into core.contributor (contributor_name,password,full_name,is_admin) values('${ecdb.admin.username}','${ecdb.admin.userpassword}','${ecdb.admin.realname}',true)"/>
+	  <arg value="eurocarb_devel"/>
+      </exec>
+    </target>
+    
+    <target name="create-default-user" depends="check-psql-binary" description="Creates a user with default permissions for testing purposes">
+      <echo>Create a user for EuroCarbDB web application</echo>
+      <input message="Username" addproperty="ecdb.defaultAccess.username"/>
+      <input message="Password" addproperty="ecdb.defaultAccess.userpassword"/>
+      <input message="Real name" addproperty="ecdb.defaultAccess.realname"/>
+      <echo>Warning your password will be exposed to anyone running ps</echo>
+      <echo>Press ctrl+c to exit or press any key to continue</echo>
+      <input message="..."/>
+      <exec dir="." executable="psql" failonerror="true">
+      <arg value="-U"/>
+	  <arg value="${ecdb.db.username}"/>
+	  <arg value="-h"/>
+	  <arg value="${ecdb.db.hostname}"/>
+	  <arg value="-c"/>
+	  <arg value="insert into core.contributor (contributor_name,password,full_name,is_admin) values('${ecdb.defaultAccess.username}','${ecdb.defaultAccess.userpassword}','${ecdb.defaultAccess.realname}',false)"/>
+	  <arg value="eurocarb_devel"/>
+      </exec>
+    </target>
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: dist-bootstrap
+    
+    Generate a minimal bootstrap file for creating an empty database.
+    This file can be uploaded to the common project files area so that
+    the basic bootstrap data for a particular database schema version is 
+    available. Currently, the database version is hard-coded into this
+    file, but needs to be retrieved from the database.
+    
+    TODO: Read database schema version from the database. The reference data
+    should not need to change for minor version number increments on the
+    schema.
+    
+    -->
+    <target name="dist-bootstrap" depends="" description="Generate a compressed data dump that can be used for bootstrapping the database. Only retrieves reference data such as Taxonomy and Tissue data.">
+
+
+         <property name="bootstrap.file" location="${project.temp.dir}/ecdb.bootstrap.sql" />
+
+         <property name="compressed.bootstrap.file" location="ecdb.${ecdb.database.version}.bootstrap.sql.gz"/>
+
+         <taskdef resource="net/sf/antcontrib/antcontrib.properties"> 
+             <classpath>
+                 <path refid="project.classpath"/>
+             </classpath>             
+         </taskdef>
+
+         <property name="core.bootstrap_tables" value="core.disease,core.disease_relations,core.disease_synonym,core.perturbation,core.perturbation_relations,core.taxonomy,core.taxonomy_relations,core.taxonomy_subtype,core.taxonomy_synonym,core.technique,core.tissue_taxonomy,core.tissue_taxonomy_relations,core.tissue_taxonomy_synonym"/>
+
+         <property name="ms.bootstrap_tables" value="ms.ion,ms.persubstitution,ms.reducing_end,ms.manufacturer"/>
+
+         <delete file="${bootstrap.file}"/>
+         <delete file="${compressed.bootstrap.file}"/>
+         
+         <propertyregex 
+             property="core.tables" 
+             input="${core.bootstrap_tables}" 
+             regexp="," 
+             replace=" -t "/>
+
+         <propertyregex 
+             property="ms.tables" 
+             input="${ms.bootstrap_tables}" 
+             regexp="," 
+             replace=" -t "/>
+
+         <echo>Taking snapshot of database '${ecdb.db.name}' for minimal bootstrapping data</echo>
+         <exec dir="." executable="pg_dump" >
+             <arg value="-a"/>
+             <arg line="-t ${core.tables}"/>
+             <arg line="-t ${ms.tables}"/>
+             <arg value="-U"/>
+             <arg value="${ecdb.db.username}"/>
+             <arg value="-h"/>
+             <arg value="${ecdb.db.hostname}"/>
+             <arg value="-O"/>
+             <arg value="-x"/>
+             <arg value="-f"/>
+             <arg value="${bootstrap.file}.1"/>
+             <arg value="${ecdb.db.name}"/>
+         </exec>
+
+         <!--   Dirty, dirty hack because pg_dump doesn't respect
+                the order of tables that you pass to it, so we need
+                to concatenate two dump files
+         -->
+         <exec dir="." executable="pg_dump" >
+             <arg value="-a"/>
+             <arg line="-t ms.device"/>
+             <arg value="-U"/>
+             <arg value="${ecdb.db.username}"/>
+             <arg value="-h"/>
+             <arg value="${ecdb.db.hostname}"/>
+             <arg value="-O"/>
+             <arg value="-x"/>
+             <arg value="-f"/>
+             <arg value="${bootstrap.file}.2"/>
+             <arg value="${ecdb.db.name}"/>
+         </exec>
+
+         <concat destfile="${bootstrap.file}">
+             <fileset file="${bootstrap.file}.1"/>
+             <fileset file="${bootstrap.file}.2"/>                 
+         </concat>
+
+         <gzip src="${bootstrap.file}" destfile="${compressed.bootstrap.file}"/>
+
+         <echo>wrote ${compressed.bootstrap.file}</echo>
+         
+     </target>
+
+     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TARGET: load-bootstrap
+
+     From a freshly created database (i.e. schema loaded, but with no data),
+     retrieve the bootstrap file for this version of the schema, and load
+     the data into the database. Currently, the database version is 
+     hard-coded. No sequences are loaded into the database, and only reference 
+     such as Taxonomy, Perturbation and tissue data are loaded.
+     
+     TODO: Read database schema version from the database itself. The 
+     reference data should not need to change for minor version number 
+     increments on the schema.
+     
+     -->
+     <target name="load-bootstrap" depends="" description="Bootstrap a minimal database from basic data dumps. Retrieves data from central repository, and loads only the minimal data to have a functioning application.">
+
+         <property name="bootstrap.file" location="${project.temp.dir}/ecdb.${ecdb.database.version}.bootstrap.sql" />
+
+         <property name="compressed.bootstrap.file" location="${project.temp.dir}/ecdb.${ecdb.database.version}.bootstrap.sql.gz"/>
+
+         
+         <get src="http://eurocarb.googlecode.com/files/ecdb.${ecdb.database.version}.bootstrap.sql.gz"
+              dest="${compressed.bootstrap.file}" 
+              usetimestamp="true" 
+          />
+          
+          <gunzip src="${compressed.bootstrap.file}" dest="${project.temp.dir}"/>
+          
+          <exec dir="." executable="psql">
+              <arg value="-U"/>
+              <arg value="${ecdb.db.username}"/>
+              <arg value="-h"/>
+              <arg value="${ecdb.db.hostname}"/>
+              <arg value="-f"/>
+              <arg value="${bootstrap.file}"/>
+              <arg value="${ecdb.db.name}"/>
+          </exec>          
+          
+     </target>
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: snapshot
+    
+    Dumps a copy of the entire current database, including data and all 
+    schema creation statements. includes current date/time in filename.
+    -->
+    <target name="snapshot" depends="" 
+            description="Dumps a copy of the entire current database, including data and all schema creation statements">
+
+        <echo>Taking snapshot of database '${ecdb.db.name}'</echo>
+        
+        <tstamp />
+        
+        <property name="snapshot.file" location="${project.data.dir}/ecdb_snapshot.${DSTAMP}.${ecdb.db.name}.sql" />
+        
+        <exec dir="." executable="pg_dump" >
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-O"/>
+            <arg value="-x"/>
+            <arg value="-f"/>
+            <arg value="${snapshot.file}"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+        
+        <echo>wrote ${snapshot.file}</echo>
+    </target>
+    
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: snapshot-data
+    
+    Dumps a copy of the entire current database, including only the data and 
+    no schema creation statements. includes current date/time in filename.
+    -->
+    <target name="snapshot-data" depends="" 
+            description="Dumps a copy of the entire current database, data ONLY">
+
+        <echo>Taking snapshot of database '${ecdb.db.name}', data only</echo>
+        
+        <tstamp />
+        <property name="snapshot.file" location="ecdb_snapshot.${DSTAMP}.${ecdb.db.name}.data.sql" />
+        
+        <exec dir="." executable="pg_dump" >
+            <arg value="--data-only"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-f"/>
+            <arg value="${snapshot.file}"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+        
+        <echo>wrote ${snapshot.file}</echo>
+    </target>
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: snapshot-schema
+    
+    Dumps a copy of the current database schema; includes current date/time in filename.
+    -->
+    <target name="snapshot-schema" depends="" 
+            description="Dumps a copy of the entire current database, schema only">
+
+        <echo>Taking snapshot of database '${ecdb.db.name}', schema only</echo>
+        
+        <tstamp />
+        <property name="snapshot.file" location="ecdb_snapshot.${DSTAMP}.${ecdb.db.name}.schema.sql" />
+        
+        <exec dir="." executable="pg_dump" >
+            <arg value="--schema-only"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-O"/>
+            <arg value="-x"/>
+            <arg value="-f"/>
+            <arg value="${snapshot.file}"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+        
+        <echo>wrote ${snapshot.file}</echo>
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: vacuum
+    
+    Run standard maintenance tasks on an existing Eurocarb database
+    -->
+    <target name="vacuum" depends="" 
+            description="Run standard maintenance tasks on an existing Eurocarb database">
+        <echo>Optimising database '${ecdb.db.name}'</echo>
+        <exec dir="." executable="${postgres.binary}" >
+            <arg value="-c"/>
+            <arg value="VACUUM ANALYZE"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="${ecdb.db.name}"/>
+        </exec>
+    </target>
+
+    <target name="build-uniprot" depends="check-psql-binary" description="Builds the UniProtKB tables">
+      <echo>Adding uniprot schema to the database: ${database.config.dir}</echo>
+      <exec dir="." executable="${postgres.binary}" 
+	    error="${output.file.prefix}.uniprotkb.stderr.txt" output="${output.file.prefix}.uniprotkb.stdout.txt" >
+	  <arg value="-a"/>
+	  <arg value="-f"/>
+	  <arg value="${sql.dir}/create_schema_core_uniprotkb.sql"/>
+	  <arg value="-U"/>
+	  <arg value="${ecdb.db.username}"/>
+	  <arg value="-h"/>
+	  <arg value="${ecdb.db.hostname}"/>
+	  <arg value="-d"/>
+	  <arg value="${ecdb.db.name}"/>
+      </exec>
+      <echo>See local file '${output.file.prefix}.uniprotkb.txt' for details</echo>
+    </target>
+    
+    <target name="build-core-views" depends="check-psql-binary,build-core" description="Builds the views for the core tables">
+      <echo>Adding Seq schema to the database</echo>
+      <exec dir="." executable="${postgres.binary}" 
+	    error="${output.file.prefix}.views.txt" output="${output.file.prefix}.views.txt" >
+	  <arg value="-a"/>
+	  <arg value="-f"/>
+	  <arg value="${sql.dir}/create_schema_views_core.sql"/>
+	  <arg value="-U"/>
+	  <arg value="${ecdb.db.username}"/>
+	  <arg value="-h"/>
+	  <arg value="${ecdb.db.hostname}"/>
+	  <arg value="-d"/>
+	  <arg value="${ecdb.db.name}"/>
+      </exec>
+      <echo>See local file '${output.file.prefix}.uniprotkb.txt' for details</echo>
+    </target>
+    
+    <target name="populate-net-cached-paths" depends="check-perl-prereqs,fetch-net" description="Populates a table with cached paths from every NET node to the root">
+      <echo>Populating NCBI Entrez Taxonomy table with cached paths from every node to the root node</echo>
+      <exec dir="${project.dir}/database" executable="perl">
+	<env key="PERL5LIB" path="env.PERL5LIB:${project.dir}/database/scripts/lib:${project.dir}/database/scripts/"/>
+	<env key="eurocarb.dir" path="${project.dir}"/>
+	<arg value="scripts/org/eurocarb/database/ncbi/NetDb.pm"/>
+	<arg value="${project.temp.dir}/nodes.dmp"/>
+	<arg value="${project.temp.dir}/"/>
+      </exec>
+    </target>
+    
+    
+    <target name="create-ox-constrained-uniprot-dat-file" depends="fetch-uniprot-dat,initialiseSiteProperties,check-db-superuser,setup-environment">
+      <exec dir="${project.dir}/database" executable="perl">
+	  <env key="PERL5LIB" path="env.PERL5LIB:${project.dir}/database/scripts/lib:${project.dir}/database/scripts/"/>
+	  <env key="eurocarb.dir" path="${project.dir}"/>
+	  <arg value="scripts/org/eurocarb/database/uniprotkb/UniProtKBParser.pm"/>
+	  <arg value="${project.temp.dir}/uniprot_sprot.dat"/>
+	  <arg value="${project.temp.dir}/uniprot_trembl.dat"/>
+	  <arg value="${project.temp.dir}/"/>
+	  <arg value="${project.dir}/database/data/ox-constrained-file"/>
+	</exec>
+    </target>
+    
+    <target name="fetch-uniprot-dat" depends="createDistDirectories">
+      <if><available file="${project.temp.dir}/uniprot_sprot.dat"/><then>
+	  <echo>Swiss-Prot dat file found</echo>
+      </then>
+      <else>
+	<if><available file="${project.temp.dir}/uniprot_sprot.dat.gz"/><then>
+	  <echo>Swiss-Prot compressed dat file found</echo>
+	</then>
+	<else>
+	  <echo>Downloading Swiss-Prot flat file...(please wait)</echo>
+	  <!-- EBI Servers tend to be at least one order of magnitude faster than the uniprot servers. -->
+	  <get  src="ftp://ftp.ebi.ac.uk/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.dat.gz" dest="${project.temp.dir}/uniprot_sprot.dat.gz"/>
+	</else>
+	</if>
+	<echo>Uncompressing Swiss-Prot file...(please wait)</echo>
+	<exec dir="${project.temp.dir}" executable="gunzip">
+	  <arg value="-d"/>
+	  <arg value="${project.temp.dir}/uniprot_sprot.dat.gz"/>
+	</exec>
+      </else>
+      </if>
+      
+      <if><available file="${project.temp.dir}/uniprot_trembl.dat"/><then>
+	  <echo>TrEMBL dat file found</echo>
+      </then>
+      <else>
+	<if><available file="${project.temp.dir}/uniprot_trembl.dat.gz"/><then>
+	  <echo>TrEMBL compressed dat file found</echo>
+	</then>
+	<else>
+	  <echo>Downloading TrEMBL flat file...(please wait)</echo>
+	  <!-- EBI Servers tend to be at least one order of magnitude faster than the uniprot servers. -->
+	  <get  src="ftp://ftp.ebi.ac.uk/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_trembl.dat.gz" dest="${project.temp.dir}/uniprot_trembl.dat.gz"/>
+	</else>
+	</if>
+	<echo>Uncompressing TrEMBL file...(please wait)</echo>
+	<exec dir="${project.temp.dir}" executable="gunzip">
+	  <arg value="-d"/>
+	  <arg value="${project.temp.dir}/uniprot_trembl.dat.gz"/>
+	</exec>
+      </else>
+      </if>
+    </target>
+    
+    <target name="populate-uniprotkb" depends="check-perl-prereqs,build-uniprot" description="Populates the UniProtKB flat files">
+      <echo>Generating taxa to proteome size tables</echo>
+      <if><available file="${project.dir}/database/data/ox-constrained-file"/><then>
+	<echo>Found existing ox-constrained file, to get this updated remove the file ${project.dir}/database/data/ox-constrained-file and rerun this task.</echo>
+      </then>
+      <else>
+	<echo>Fetching ox-constrained-file</echo>
+	<get src="http://www.nixbioinf.org/eurocarb/ox-constrained-file" dest="${project.dir}/database/data/ox-constrained-file" verbose="false"/>
+      </else>
+      </if>
+      
+      <echo>Starting UniProtKB parse and upload tasks.... (please be patient this will take a while)</echo>
+	<exec dir="${project.dir}/database" executable="perl">
+	  <env key="PERL5LIB" path="env.PERL5LIB:${project.dir}/database/scripts/lib:${project.dir}/database/scripts/"/>
+	  <env key="eurocarb.dir" path="${project.dir}"/>
+	  <arg value="scripts/org/eurocarb/database/uniprotkb/UniProtKBParser.pm"/>
+	  <arg value="${project.dir}/database/data/ox-constrained-file"/>
+	  <arg value="${project.temp.dir}/"/>
+       </exec>
+    </target>
+
+    <!-- Test build chain-->
+    <target name="test" depends="nuke, build-db, build-core,build-seq, build-core-indexes, generate-and-load-mesh, generate-and-load-ncbi, build-uniprot, build-nmr, build-hplc, build-ms, build-tools, populate-uniprotkb, create-admin-user, create-default-user"/>
+</project>
+
+
+
+

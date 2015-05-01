@@ -1,0 +1,33 @@
+### major changes ###
+
+# added lots of foreign keys
+
+### minor changes ###
+
+# replaced 'publications' with 'publication'
+
+# replaced 'enzymes' with 'enzyme'
+
+# replaced 'detector_hplc' with 'detector'
+
+# replaced 'column_hplc' with 'column'
+
+# replaced 'hplc_instrument' with 'instrument'
+
+# added surrogate PK to table digest_profile
+
+# renamed 'enzyme.ref_id' to 'enzyme.enzyme_id'
+
+# renamed instrument.hplc_id to instrument.instrument_id
+
+# added surrogate PK to table integration_method
+
+# renamed parent_profile.profile_id PK to parent_profile.parent_profile_id
+
+# replaced 'peaks_annotated_hplc' with 'peaks_annotated'
+
+# added surrogate PK to peaks_annotated
+
+# added surrogate PK to peaks_integrated
+
+

@@ -1,0 +1,83 @@
+-- This unique index was missing from the upgrade script, but it's present within the core schema.
+CREATE UNIQUE INDEX unique_index_biological_context_contributor ON core.biological_context_contributor (contributor_id, biological_context_id);
+
+-- Merge identical rows, which are contributed by the "guest" contributor but for-which the contributor_ids are different
+DROP FUNCTION mergeGuestTuplesWithDifferentContributorIdsForTable(text,text);
+CREATE FUNCTION mergeGuestTuplesWithDifferentContributorIdsForTable(text,text) RETURNS integer AS $$
+DECLARE
+    guestRecord RECORD;
+    tableName ALIAS FOR $2;
+    tableSchemaName ALIAS FOR $1;
+    primaryColumn Text;
+    guestContributorId Integer;
+BEGIN
+
+    SELECT INTO guestContributorId contributor_id FROM core.contributor WHERE contributor_name='guest' ORDER BY contributor_id ASC LIMIT 1;
+
+    EXECUTE 'SELECT column_name FROM information_schema.key_column_usage where table_schema=' || quote_literal(tableSchemaName) ||  'and table_name=' || quote_literal(tableName) || ' and constraint_name LIKE ' || quote_literal('%pkey%') INTO primaryColumn;
+
+--     Test
+    IF primaryColumn IS NULL THEN
+      return 0;
+    END IF;
+
+    RAISE NOTICE 'Processing table %.%', tableSchemaName,tableName;
+
+    FOR guestRecord IN EXECUTE 'SELECT ' || quote_ident(primaryColumn) || ' AS primaryIdentifier, contributor_id FROM ' || quote_ident(tableSchemaName)  || '.' || quote_ident(tableName) || ' WHERE contributor_id=ANY(select contributor_id from core.contributor where contributor_name=' ||quote_literal('guest') || ' AND contributor_id<>' || quote_literal(guestContributorId) || ' )'  LOOP
+--       RAISE NOTICE 'Current tuple (%) for contributor id: %',guestRecord.primaryIdentifier, guestRecord.contributor_id;  
+      BEGIN
+-- 	RAISE NOTICE 'Reseting contributor_id';
+	EXECUTE 'UPDATE ' || quote_ident(tableSchemaName) || '.' || quote_ident(tableName) || ' SET contributor_id=' || quote_literal(guestContributorId) || ' WHERE ' || quote_ident(primaryColumn) || '=' || quote_literal(guestRecord.primaryIdentifier);
+      EXCEPTION WHEN unique_violation THEN
+	RAISE NOTICE 'Current tuple appears to duplicate an existing one, deleting row: %/%',guestRecord.primaryIdentifier,guestRecord.contributor_id;  
+	EXECUTE 'DELETE FROM ' || quote_ident(tableSchemaName) || '.' || quote_ident(tableName) || ' WHERE ' || quote_ident(primaryColumn) || '=' || quote_literal(guestRecord.primaryIdentifier); 
+      END;
+
+      
+    END LOOP;
+
+    RAISE NOTICE 'Finished processing table: %',tableName;
+
+    RETURN 1;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Function to find tables which are dependent upon the contributor_id and call mergeGuestTuplesWithDifferentContributorIdsForTable with each table name.
+DROP FUNCTION mergeGuestTuplesWithDifferentContributorIds();
+CREATE FUNCTION mergeGuestTuplesWithDifferentContributorIds() RETURNS INTEGER AS $$
+DECLARE
+  contributorDependentRecord RECORD;
+BEGIN
+  FOR contributorDependentRecord IN  SELECT table_schema, table_name FROM information_schema.columns WHERE column_name='contributor_id' AND (table_schema='core' OR table_schema='hplc' OR table_schema='ms') LOOP
+    IF contributorDependentRecord.table_schema IS NOT NULL AND contributorDependentRecord.table_name IS NOT NULL THEN
+      -- Ignore the contributor table.
+      IF contributorDependentRecord.table_schema='core' AND contributorDependentRecord.table_name='contributor' THEN
+	CONTINUE;
+      ELSE
+	PERFORM  mergeGuestTuplesWithDifferentContributorIdsForTable(contributorDependentRecord.table_schema,contributorDependentRecord.table_name);
+      END IF;
+    END IF;
+  END LOOP;
+  RETURN 1;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Delete the duplicate guest accounts, except for the first one.
+DROP FUNCTION deleteAdditionalGuestAccounts();
+CREATE FUNCTION deleteAdditionalGuestAccounts() RETURNS INTEGER AS $$
+DECLARE
+  guestContributorId Integer;
+BEGIN
+  SELECT INTO guestContributorId contributor_id FROM core.contributor WHERE contributor_name='guest' ORDER BY contributor_id ASC LIMIT 1;
+  DELETE FROM core.contributor WHERE contributor_name='guest' and contributor_id<>guestContributorId;
+  RETURN 1;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Uncomment to test without commiting the changes.
+-- BEGIN;
+-- SAVEPOINT A;
+SELECT mergeGuestTuplesWithDifferentContributorIds();
+SELECT deleteAdditionalGuestAccounts();
+-- ROLLBACK TO A;
+-- COMMIT;

@@ -1,0 +1,186 @@
+<project name="eurocarb-core-database-upgrades" default="install">
+    <import file="../../../../../build.xml"/>
+    
+    <property name="schema.upgrade.dir" value="${project.dir}/database/scripts/org/eurocarb/database/upgrade"/>    
+    
+    <!-- TARGET: upgrade-ebi_2nd_dec_2009-r1804-schema
+    Upgrade schema to the new r1804 definition.
+    Also generates new NET and UniProtKB tables for use my the new autocompletor.
+    -->
+    <target name="upgrade-ebi_2nd_dec_2009-r1804-schema" depends="initialiseSiteProperties,check-db-superuser,setup-environment,build-net-extra,build-uniprot-extra">
+      <echo>Attempting to upgrade your schema to r1804</echo>
+        <exec dir="."  executable="${postgres.binary}" error="${project.log.dir}/r1804_upgrade.stderr" output="${project.log.dir}/r1804_upgrade.stdout">
+            <arg value="-f"/>
+            <arg value="${schema.upgrade.dir}/r1804/upgrade_script.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+	<echo>Please see the stderr log (${project.log.dir}/r1804_upgrade.stderr) and stdout log(${project.log.dir}/r1804_upgrade.stdout) for more details</echo>
+    </target>
+    
+    <!-- TARGET: upgrade-ebi_2nd_dec_2009-r1804-schema-only
+    Upgrade schema to the new r1804 definition.
+    The new NET and UniProtKB tables aren't generated, this task is therefore faster, but incomplete.
+    -->
+    <target name="upgrade-ebi_2nd_dec_2009-r1804-schema-only" depends="initialiseSiteProperties,check-db-superuser,setup-environment">
+      <echo>Attempting to upgrade your schema to r1804</echo>
+        <exec dir="."  executable="${postgres.binary}" error="${project.log.dir}/r1804_upgrade.stderr" output="${project.log.dir}/r1804_upgrade.stdout">
+            <arg value="-f"/>
+            <arg value="${schema.upgrade.dir}/r1804/upgrade_script.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+	<echo>Please see the stderr log (${project.log.dir}/r1804_upgrade.stderr) and stdout log(${project.log.dir}/r1804_upgrade.stdout) for more details</echo>
+    </target>
+    
+    <!-- TARGET: upgrade-ebi_2nd_dec_2009-r1804
+    Perform r1804 upgrade, and merge duplicate tuples caused by guest accounts with different contributor ids.
+    Set property "skip.long" to skip the NET and UniProtKB time consuming steps.
+    -->
+    <target name="upgrade-ebi_2nd_dec_2009-r1804">
+      <if><isset property="skip.long"/><then>
+	<antcall target="upgrade-ebi_2nd_dec_2009-r1804-schema-only"/>
+      </then>
+      <else>
+	<antcall target="upgrade-ebi_2nd_dec_2009-r1804-schema"/>
+      </else>
+      </if>
+      <antcall target="mergeGuestTuplesWithDifferentContributorIds"/>
+    </target>
+
+     <target name="upgrade-ebi_10th_mar_2010-r1894">	
+	<echo>Attempting to upgrade your schema to r1894</echo>
+        <exec dir="."  executable="${postgres.binary}" error="${project.log.dir}/r1894_upgrade.stderr" output="${project.log.dir}/r1894_upgrade.stdout">
+            <arg value="-f"/>
+            <arg value="${schema.upgrade.dir}/r1894/r1894.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+	<echo>Updating the email address</echo>
+	<antcall target="update_email"/>
+	<echo>Please see the stderr log (${project.log.dir}/r1894_upgrade.stderr) and stdout log(${project.log.dir}/r1894_upgrade.stdout) for more details</echo>
+    </target>   
+    <target name="update_email">
+	<echo>Attempting to update the email address of each and every contributor.</echo>
+        <echo>Please enter a valid email address.</echo>
+	<echo>This email address will be used to update all the records in the core.contributor.</echo>
+	<input message="please enter a valid email address:" addproperty="db.emailAddress"/>
+	<echo>the email address is ${db.emailAddress}</echo>
+	 <exec dir="."  executable="${postgres.binary}" error="${project.log.dir}/r1894_upgrade.stderr" output="${project.log.dir}/r1894_upgrade.stdout">
+            <arg value="-c"/>
+            <arg value="update core.contributor set email='${db.emailAddress}' where contributor_name='admin'"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+    </target>
+   
+
+    <!-- TARGET: upgrade-ebi_2nd_dec_2009-r1804-clean
+    Perform a clean upgrade to the r1804 schema from the 2nd December 2009 EBI database dump.
+    Removes existing eurocarb_devel database, and reloads it from the EBI database dump. 
+    The r1804 upgrade is then applied to the schema, followed by purging of duplicate guest tuples.
+    Set property "skip.long" to prevent the time consuming NET and UniProtKB table generation processes from occuring.
+    The database dump taken by the EBI on 2nd December 2009 needs to be available within the following directory, ${project.dir}/database/data/ebi_2nd_dec_2009.sql
+    -->
+    <target name="upgrade-ebi_2nd_dec_2009-r1804-clean" depends="initialiseSiteProperties,check-db-superuser,setup-environment,nuke">
+      <echo>Uploading schema dump into database</echo>
+      <if> <isset property="skip.long"/> <then>
+	<echo>We are going to skip the additional NCBI Entrez and UniProt tables, autocompletion will be broken in the webapp</echo>
+      </then>
+      </if>
+      
+      <if> <available file="${project.dir}/database/data/ebi_2nd_dec_2009.sql"/> <then>
+	<exec dir="."  executable="${postgres.binary}" error="${project.log.dir}/r1804_upgrade.stderr" output="${project.log.dir}/r1804_upgrade.stdout">
+            <arg value="-f"/>
+            <arg value="${project.dir}/database/data/ebi_2nd_dec_2009.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+	    <arg value="-d"/>
+	    <arg value="${ecdb.db.name}"/>	    
+        </exec>
+	<antcall target="upgrade-ebi_2nd_dec_2009-r1804"/>
+      </then>
+      <else>
+	<echo>Could not find the 2nd Dec 2009 EBI dump, please make it available here ${project.dir}/database/data/ebi_2nd_dec_2009.sql</echo>
+      </else>
+      </if>
+    </target>
+    
+    <!-- TARGET: mergeGuestTuplesWithDifferentContributorIds
+    Merges tuples which are contributed by contributors with the same value for contributor_name of "guest" but different contributor_id values.
+    This task attempts to automatically determine which tables contain a dependency on contributor, dependent tables must have a primary key and suitable
+    UNIQUE index.  The unique index must be present so that a unique_violation exception can be thrown by postgresql if an update to the contributor_id
+    duplicates a tuple.
+    -->
+    <target name="mergeGuestTuplesWithDifferentContributorIds" depends="initialiseSiteProperties,check-db-superuser,add-pgplsql-to-eurocarb_devel">
+      <exec dir="." executable="${postgres.binary}" 
+	    error="${output.file.prefix}.mergeGuestTuples_stderr.txt" output="${output.file.prefix}.mergeGuestTuples_stdout.txt" >
+	  <arg value="-a"/>
+	  <arg value="-f"/>
+	  <arg value="${schema.upgrade.dir}/r1804/mergeGuestTuplesWithDifferentContributorIds.pgplsql"/>
+	  <arg value="-U"/>
+	  <arg value="${ecdb.db.username}"/>
+	  <arg value="-h"/>
+	  <arg value="${ecdb.db.hostname}"/>
+	  <arg value="-d"/>
+	  <arg value="${ecdb.db.name}"/>
+      </exec>
+    </target>
+    
+    <target name="build-net-extra" depends="initialiseSiteProperties,check-db-superuser">
+      <echo>Building new NCBI Entrez Taxonomy support tables</echo>
+      <exec dir="." executable="${postgres.binary}" 
+	    error="${output.file.prefix}.net_extra_stderr.txt" output="${output.file.prefix}.net_extra_stdout.txt" >
+	  <arg value="-a"/>
+	  <arg value="-f"/>
+	  <arg value="${schema.upgrade.dir}/r1804/create_schema_core_net_extra.sql"/>
+	  <arg value="-U"/>
+	  <arg value="${ecdb.db.username}"/>
+	  <arg value="-h"/>
+	  <arg value="${ecdb.db.hostname}"/>
+	  <arg value="-d"/>
+	  <arg value="${ecdb.db.name}"/>
+      </exec>
+      <echo>See local file '${output.file.prefix}.net_extra.txt' for details</echo>
+    </target>
+    
+    <target name="build-uniprot-extra" depends="initialiseSiteProperties,check-db-superuser,setup-environment,build-uniprot,populate-uniprotkb">
+      <echo>Building new uniprot support tables</echo>
+    </target>
+
+<!-- TARGET: upgrade-ebi_13th_jun_2010-r1916-schema
+    Drop the old MS schema and create a the last updated one which created by Khalifeh AlJadda and Rene Ranzinger
+    -->
+    <target name="upgrade-ebi_13th_jun_2010-r1916-schema" depends="initialiseSiteProperties,check-db-superuser,setup-environment">
+      <echo>Attempting to upgrade your schema to r1916</echo>
+        <exec dir="."  executable="${postgres.binary}" error="${project.log.dir}/r1916_upgrade.stderr" output="${project.log.dir}/r1916_upgrade.stdout">
+            <arg value="-f"/>
+            <arg value="${schema.upgrade.dir}/r1916/r1916.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+	<echo>Please see the stderr log (${project.log.dir}/r116_upgrade.stderr) and stdout log(${project.log.dir}/r1916_upgrade.stdout) for more details</echo>
+    </target>
+</project>

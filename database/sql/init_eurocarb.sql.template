@@ -1,0 +1,33 @@
+/*	
+*	create_eurocarb.sql
+*	
+*	SQL for initial setup, including initial database and user creation,
+*	tablespaces, etc.
+*
+*   All incidences of variable '$LIKE_THIS' are variables that will be
+*   replaced with static text by Ant during build-time.
+*
+*   @author mjh [matt@ebi.ac.uk]
+*/
+
+
+/**	
+*   Create the database owner/user. This is the user that the application
+*	will use to connect as to execute regular queries.  
+*/
+CREATE USER $USERNAME
+	ENCRYPTED PASSWORD '$PASSWORD'
+  	CREATEDB 
+  	NOCREATEUSER
+;
+
+
+/** 
+*   Create the database.  
+*/
+CREATE DATABASE $DBNAME
+  	WITH OWNER = $USERNAME
+	ENCODING = 'UTF8'
+	TABLESPACE = pg_default
+;
+
