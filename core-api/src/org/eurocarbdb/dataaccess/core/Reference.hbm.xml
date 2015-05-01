@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 23, 2007 1:31:25 PM by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping default-cascade="save-update" >
+
+    <class name="org.eurocarbdb.dataaccess.core.Reference" 
+           table="reference" schema="core" node="reference" >
+    
+        <id name="referenceId" type="int" access="field" node="@id">
+            <column name="reference_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.reference_reference_id_seq</param>
+			</generator>
+        </id>
+ 
+        <discriminator formula="CASE WHEN external_reference_name NOT IN ('Pubmed', 'bcsdb', 'Carbbank', 'cfg', 'glyaffinity', 'glycobase(dublin)', 'glycobase(lille)', 'glycosciences.de', 'kegg') THEN 'generic' ELSE external_reference_name END" type="string" />       
+        
+        <!--======================  properties  =============================-->
+        
+        <property name="referenceType" type="string" access="field" node="@type">
+            <column name="reference_type" length="8" not-null="true" />
+        </property>
+        
+        <property name="externalReferenceId" type="string" node="@external_reference_id">
+            <column name="external_reference_id" length="32" not-null="true" />
+        </property>
+        
+        <property name="externalReferenceName" type="string" node="@external_reference_name">
+            <column name="external_reference_name" length="32" not-null="false" />
+        </property>
+        
+        <property name="url" type="string">
+            <column name="url" length="256" />
+        </property>
+        
+        <property name="referenceComments" type="string" node="comments">
+            <column name="reference_comments" />
+        </property>
+        
+        <!-- dateEntered: determined by the database on INSERT -->
+        <property name="dateEntered" type="timestamp" 
+            insert="false" update="false" generated="insert" access="field">
+            <column name="date_entered" length="8" not-null="true" />
+        </property>
+        
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="contributor" 
+                     class="org.eurocarbdb.dataaccess.core.Contributor" 
+                     fetch="select" node="contributor/@id" embed-xml="false" >
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>
+        
+        <set name="referencedEvidence" inverse="true" access="field" embed-xml="false">
+            <key>
+                <column name="reference_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.ReferencedEvidence" />
+        </set>
+        
+        <set name="glycanSequenceReferences" inverse="true" access="field" embed-xml="false">
+            <key>
+                <column name="reference_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.GlycanSequenceReference" />
+        </set>
+        
+        <!--=====================  named queries  ==============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+	<query name="LOOKUP">
+            SELECT  ref
+            FROM    Reference as ref
+            WHERE   ref.referenceType = :type AND
+	            ref.externalReferenceId = :ext_id AND
+	            ref.externalReferenceName = :ext_name	    
+        </query>
+
+        <!--  
+        query : COUNT_ALL
+        author: mjh
+        -->
+        <query name="COUNT_ALL"> 
+            select count(*) from Reference
+        </query>
+        
+	<!--  
+        query : IDLOOKUP
+        author: Ki Tae Myoung
+        -->
+	<query name="IDLOOKUP">
+            SELECT  ref
+            FROM    Reference as ref
+            WHERE   ref.externalReferenceId = :ext_id AND
+		    ref.externalReferenceName = :ext_name AND
+		    ref.contributor = :cont	
+	</query>
+
+	<!--  
+        query : IDLOOKUP
+        author: Ki Tae Myoung
+        -->
+	<query name="IDLOOKUPBYUSER">
+            SELECT  ref
+            FROM    Reference as ref
+            WHERE   ref.contributor = :cont	
+	</query>
+
+	<!--  
+        query : GET_CROSSREFERENCE_BY_USER
+        author: Ki Tae Myoung
+        -->
+	<query name="GET_CROSSREFERENCE_BY_USER">
+            select r1.referenceId, r1.externalReferenceName, r1.externalReferenceId, r2.glycanSequenceReferenceId, r3.glycanSequenceId 
+	    from Reference r1 join r1.glycanSequenceReferences r2 join r2.glycanSequence r3 
+	    WHERE r1.contributor = :cont order by r1.referenceId ASC
+	</query>
+    </class>
+    
+</hibernate-mapping>

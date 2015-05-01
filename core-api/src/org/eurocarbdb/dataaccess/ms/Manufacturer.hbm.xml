@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:06 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.ms.Manufacturer" table="manufacturer" schema="ms">
+    
+        <id name="manufacturerId" type="int" access="field">
+            <column name="manufacturer_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.manufacturer_manufacturer_id_seq</param>
+            </generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+        
+        <property name="name" type="string">
+            <column name="name" not-null="true" unique="true" />
+        </property>
+        
+        <property name="url" type="string">
+            <column name="url" length="1000" />
+        </property>
+        
+        <set name="devices" inverse="true">
+            <key>
+                <column name="manufacturer_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.Device" />
+        </set>
+
+        <!--=====================  named queries  ===========================-->
+
+        <!-- 
+        query : GET_ALL
+        desc  : returns all Manufacturers in the db
+        author: mjh
+        -->
+        <query name="GET_ALL"> 
+            from Manufacturer
+        </query>
+        <query name="GET_MAN">
+        select man
+        from Manufacturer as man
+        where man.name = :name
+        </query>
+     
+    </class>
+    
+</hibernate-mapping>

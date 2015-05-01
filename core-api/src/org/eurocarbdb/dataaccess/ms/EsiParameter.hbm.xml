@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:05 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+    <class name="org.eurocarbdb.dataaccess.ms.EsiParameter" table="esi_parameter" schema="ms">
+        <id name="esiParameterId" type="int">
+            <column name="esi_parameter_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.esi_parameter_esi_parameter_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="deviceSettings" class="org.eurocarbdb.dataaccess.ms.DeviceSettings" fetch="select">
+            <column name="device_settings_id" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="dryGas" type="string">
+            <column name="dry_gas" length="50" />
+        </property>
+        <property name="flowRate" type="java.lang.Double">
+            <column name="flow_rate" precision="8" scale="0" />
+        </property>
+        <property name="temperatur" type="java.lang.Double">
+            <column name="temperatur" precision="8" scale="0" />
+        </property>
+        <property name="voltageCapillary" type="java.lang.Double">
+            <column name="voltage_capillary" precision="8" scale="0" />
+        </property>
+        <property name="voltageEndPlate" type="java.lang.Double">
+            <column name="voltage_end_plate" precision="8" scale="0" />
+        </property>
+        <property name="solvent" type="string">
+            <column name="solvent" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <subclass name="org.eurocarbdb.dataaccess.core.seq.GlycanMonosaccharide" 
+        extends="org.eurocarbdb.dataaccess.core.seq.GlycanResidue"
+        discriminator-value="m" >
+            
+        <!-- property: residue --><!--
+        <property name="residueName" type="string">
+            <column name="residue_name" length="32" />
+        </property>
+        -->
+        
+        <!-- property: basetypeId -->
+        <property name="basetypeId" type="int" access="field">
+            <column name="basetype_id" length="8" />
+        </property>
+        
+        <!-- property: basetypeId -->
+        <property name="stereochemId" type="int" access="field">
+            <column name="stereochem_id" length="8" />
+        </property>
+        
+        <property name="anomer" access="field">
+            <column name="anomer" length="1"/>
+            <type name="org.eurocarbdb.dataaccess.hibernate.GenericEnumUserType">
+                <param name="enumClassName">org.eurocarbdb.sugar.Anomer</param>
+                <param name="identifierMethod">toChar</param>
+                <param name="valueOfMethod">forName</param>
+            </type>
+        </property>
+            
+        <property name="ringConformation" access="field">
+            <column name="conformation" length="1" />
+            <type name="org.eurocarbdb.dataaccess.hibernate.GenericEnumUserType">
+                <param name="enumClassName">org.eurocarbdb.sugar.RingConformation</param>
+                <param name="identifierMethod">toChar</param>
+                <param name="valueOfMethod">forName</param>
+            </type>
+        </property>
+       
+        <property name="superclass" access="field">
+            <column name="superclass" length="2"/>
+            <type name="org.eurocarbdb.dataaccess.hibernate.GenericEnumUserType">
+                <param name="enumClassName">org.eurocarbdb.sugar.Superclass</param>
+                <param name="identifierMethod">size</param>
+                <param name="valueOfMethod">forSize</param>
+            </type>
+        </property>
+
+    </subclass>
+    
+</hibernate-mapping>
+

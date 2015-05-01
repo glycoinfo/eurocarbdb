@@ -1,0 +1,27 @@
+// $ANTLR 2.7.7 (20080103): glycoct_grammar.py.g -> GlycoctParserTokenTypes.txt$
+GlycoctParser    // output token vocab name
+RES("a RES (residue) section start identifier")=4
+LIN("a LIN (linkage) section start identifier")=5
+PRO("a PRO (heterogeneity due to uncertainty) section start identifier")=6
+REP("a REP (repeat) section start identifier")=7
+INTEGER("a positive integer or zero")=8
+SEMICOLON("a residue/linkage token separator ';'")=9
+MONOSAC_DECLARATION("a basetype declaration 'b:'")=10
+SUBSTIT_DECLARATION("a substituent declaration 's:'")=11
+HYPHEN("a hyphen '-'")=12
+IDENTIFIER("an alphabetic identifier")=13
+LITERAL_hex="hex"=14
+LITERAL_pen="pen"=15
+LITERAL_hept="hept"=16
+LITERAL_non="non"=17
+COLON("a colon separator ':'")=18
+UNKNOWN_TERMINUS("an unknown terminal position '?'")=19
+PIPE("a residue substitution delimiter '|'")=20
+COMMA("a comma ','")=21
+LPARENTHESIS("a linkage start delimiter '('")=22
+RPARENTHESIS("a linkage end delimiter ')'")=23
+INCHI_DECLARATION("an inchi section declaration 'i:'")=24
+STA("a STA (heterogeneity due to a statistical distribution) section start identifier")=25
+ISO("an ISO (isotope) section start identifier")=26
+AGL("an AGL (aglycon) section start identifier")=27
+WS=28

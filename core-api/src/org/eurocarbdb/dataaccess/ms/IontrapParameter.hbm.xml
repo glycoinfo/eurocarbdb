@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:04 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.IontrapParameter" table="iontrap_parameter" schema="ms">
+    
+        <id name="iontrapParameterId" type="int">
+            <column name="iontrap_parameter_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.iontrap_parameter_iontrap_parameter_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="deviceSettings" class="org.eurocarbdb.dataaccess.ms.DeviceSettings" fetch="select">
+            <column name="device_settings_id" not-null="true" unique="true" />
+        </many-to-one>
+        
+        <property name="ionCount" type="int">
+            <column name="ion_count" not-null="true" />
+        </property>
+        
+    </class>
+    
+</hibernate-mapping>

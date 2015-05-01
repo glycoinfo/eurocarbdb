@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-May-2008 14:42:48 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.GlycanPerturbation" table="glycan_perturbation" schema="hplc">
+        <id name="glycanPertId" type="int">
+            <column name="glycan_pert_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+        <property name="meshId" type="string">
+            <column name="mesh_id" length="250" />
+    </property>
+
+    <query name="SELECT_ALL">
+       SELECT p.meshId, g.ogbitranslation from GlycanPerturbation p, Glycan g
+       where g.glycanId = p.glycanId and p.meshId > 0
+    </query>
+    <query name="SELECT_AND_GROUP">
+       SELECT G.ogbitranslation, P.meshId, P.glycanId
+       FROM Glycan G, GlycanPerturbation P
+       WHERE P.glycanId = G.glycanId
+       GROUP BY P.meshId, P.glycanId, G.ogbitranslation
+       ORDER BY P.glycanId
+     </query>
+
+    </class>
+</hibernate-mapping>

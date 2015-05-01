@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:04 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.DeviceSettings" table="device_settings" schema="ms">
+    
+        <id name="deviceSettingsId" type="int">
+            <column name="device_settings_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.device_settings_device_settings_id_seq</param>
+            </generator>
+        </id>
+	
+        <many-to-one name="acquisition" class="org.eurocarbdb.dataaccess.ms.Acquisition">
+            <column name="acquisition_id" not-null="true" />
+        </many-to-one>
+
+        <property name="contributorQuality" type="double">
+            <column name="contributor_quality" precision="8" scale="0" not-null="true" />
+        </property>
+        
+        <set name="iontrapParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.IontrapParameter" />
+        </set>
+        
+        <set name="sourceParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.SourceParameter" />
+        </set>
+        
+        <set name="esiParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.EsiParameter" />
+        </set>
+        
+        <set name="massDetectorParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.MassDetectorParameter" />
+        </set>
+        
+        <set name="laserParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.LaserParameter" />
+        </set>
+        
+        <set name="fragmentationParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.FragmentationParameter" />
+        </set>
+        
+        <set name="analyserParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.AnalyserParameter" />
+        </set>
+        
+        <set name="tofParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.TofParameter" />
+        </set>
+        
+        <set name="maldiParameters" inverse="true">
+            <key>
+                <column name="device_settings_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.MaldiParameter" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:55 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.DigestSingle" table="digest_single" schema="hplc">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.digest_single_digest_single_id_seq</param>
+            </generator>
+        </id>
+        <property name="glycanId" type="int">
+            <column name="glycan_id" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="0" not-null="true" />
+        </property>
+        <property name="enzyme" type="string">
+            <column name="enzyme" length="0" not-null="true" />
+        </property>
+        <property name="productId" type="int">
+            <column name="product_id" not-null="true" />
+        </property>
+
+
+<query name="POT_PRODUCT_FIND">
+FROM DigestSingle DS where DS.enzyme like :enzyme AND DS.glycanId IN (select HP.glycan from HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = 0)
+</query>
+
+<query name="GLYCAN_ENTRY_DIGESTS">
+SELECT DS.enzyme, DS.productId, G.name, G.ogbitranslation FROM DigestSingle DS, Glycan G where DS.glycanId = :glycan_id and G.glycanId = DS.productId and DS.enzyme != '0'
+</query>
+
+<!-- dead since translation change
+<query name="GLYCAN_ENTRY_DIGESTS_MULTIPLE">
+SELECT DS.enzyme, DS.productId, G.name, G.ogbitranslation, M.sequenceId FROM DigestSingle DS, Glycan G, Multipleglycoct M  where M.glycanId = :glycan_id and DS.glycanId = :glycan_id and G.glycanId = DS.productId and DS.enzyme != 0
+</query>
+-->
+
+<query name="GLYCAN_ENTRY_DIGESTS_MULTIPLE">
+SELECT DS.enzyme, DS.productId, G.name, G.ogbitranslation, M.glycanSequenceId FROM DigestSingle DS, Glycan G, MultistructuresGlycoct M  where M.glycanId = :glycan_id and DS.glycanId = :glycan_id and G.glycanId = DS.productId and DS.enzyme !='0'
+</query>
+
+
+
+<!--<query name="GLYCAN_ENTRY_DIGESTS_MULTIPLE">
+SELECT DS.enzyme, DS.productId, G.name, G.ogbitranslation, M.sequenceId FROM DigestSingle DS, Glycan G, Multipleglycoct M  where M.glycanId = :glycan_id DS.glycanId = :glycan_id and G.glycanId = DS.productId and DS.enzyme != 0
+</query>
+-->
+    </class>
+</hibernate-mapping>

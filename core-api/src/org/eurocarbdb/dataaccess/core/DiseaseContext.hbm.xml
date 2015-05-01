@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.DiseaseContext" 
+           table="biological_context_to_disease" 
+           schema="core"
+           node="disease_context"
+    >
+        
+        <id name="diseaseContextId" type="int" node="@id">
+            <column name="biological_context_to_disease_id" />
+            <generator class="sequence" >
+            	<param name="sequence">core.biological_context_to_disease_biological_context_to_disease_seq</param>
+            </generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+        
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="biologicalContext" 
+                     class="org.eurocarbdb.dataaccess.core.BiologicalContext" 
+                     fetch="select"
+                     node="biological_context/@id"
+                     embed-xml="false"
+                     >
+            <column name="biological_context_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="disease" 
+                     class="org.eurocarbdb.dataaccess.core.Disease" 
+                     fetch="select"
+                     node="biological_context/@id"
+                     embed-xml="false"
+                     >
+            <column name="disease_id" not-null="true" />
+        </many-to-one>
+        
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+
+    <subclass name="org.eurocarbdb.dataaccess.core.ref.GlycobaseDublinReference"
+                     extends="org.eurocarbdb.dataaccess.core.Reference"
+                     discriminator-value="glycobase(dublin)" 
+    >
+                     
+        <!--========================= properties ============================-->
+        
+        
+        <!--======================== associations ===========================-->
+        
+        
+        <!--========================  named queries  ===========================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+    </subclass>
+    
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<!--
+Note: this is for illustrative purposes only. needs real values.    
+-->
+<hibernate-configuration>
+
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory
+        name="java:hibernate/SessionFactory">
+
+        <!-- properties -->
+        <property name="connection.datasource">java:/comp/env/jdbc/ecdb-postgres</property>
+        <property name="dialect">org.hibernate.dialect.PostgresDialect</property>
+        <property name="show_sql">false</property>
+        <property name="transaction.factory_class">
+            org.hibernate.transaction.JTATransactionFactory
+        </property>
+        <property name="jta.UserTransaction">java:comp/UserTransaction</property>
+
+        <!-- mapping files -->
+        <!-- <mapping resource="org/hibernate/auction/Item.hbm.xml"/> -->
+
+        <!-- cache settings -->
+        <!-- <class-cache class="org.hibernate.auction.Item" usage="read-write"/> -->
+
+    </session-factory>
+
+</hibernate-configuration>
+

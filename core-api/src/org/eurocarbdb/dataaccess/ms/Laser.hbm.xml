@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:05 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+    <class name="org.eurocarbdb.dataaccess.ms.Laser" table="laser" schema="ms">
+        <id name="laserId" type="int">
+            <column name="laser_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.laser_laser_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="device" class="org.eurocarbdb.dataaccess.ms.Device" fetch="select">
+            <column name="device_id" not-null="true" />
+        </many-to-one>
+        <property name="model" type="string">
+            <column name="model" />
+        </property>
+        <property name="laserType" type="string">
+            <column name="laser_type" not-null="true" />
+        </property>
+        <property name="focus" type="double">
+            <column name="focus" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="energy" type="java.lang.Double">
+            <column name="energy" precision="8" scale="0" />
+        </property>
+        <property name="frequency" type="java.lang.Double">
+            <column name="frequency" precision="8" scale="0" />
+        </property>
+        <property name="waveLength" type="java.lang.Double">
+            <column name="wave_length" precision="8" scale="0" />
+        </property>
+        <set name="laserParameters" inverse="true">
+            <key>
+                <column name="laser_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.LaserParameter" />
+        </set>
+    </class>
+</hibernate-mapping>

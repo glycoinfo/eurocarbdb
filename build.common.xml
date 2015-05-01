@@ -1,0 +1,460 @@
+<!--
+This build.xml file is pulled in by all Eurocarb sub-projects, including the top-level one.
+Its main purpose is to provide a common set of build/dependency targets that other sub-projects
+can call to build eurocarb libs they depend on, and to define a "system" classpath that includes
+all external libs as well as built eurocarb libs. External libs dependencies are resolved using
+Ivy (http://ivy.apache.org) in the "resolve-external-dependencies" target.
+
+The convention is for all sub-projects to declare a build-XXX target here (where XXX refers
+to the sub-project) and for that target to simply list its build dependencies in the normal
+Ant way ('depends' attribute).
+
+    PROPERTIES:
+        project.*                       - various top-level directories & properties
+        project.[sub-project-name].dir  - where [sub-project-name] is located
+        project.[sub-project-name].jar  - the name of the created sub-project jar
+       
+    PATHS
+        project.classpath               - system classpath that includes all external and internal libs
+       
+    TASKS
+        build-*                         - build targets for sub-projects
+        build-check                     - checks for built sub-project jars preventing unecessary re-builds
+        quick                           - prevents rebuilding of dependencies if they are already built
+        resolve-external-dependencies   - downloads external libs as needed, using Ivy
+       
+author: mjh
+-->
+<project name="eurocarb-common" basedir="." default="build-check" xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:ac="antlib:net.sf.antcontrib" >
+   
+    <!--========================== PROPERTIES ==============================-->
+
+    <!-- property 'eurocarb-common.basedir' will always be set to the directory in which
+     !   this file resides, regardless of where it is imported from. -->
+    <dirname property="eurocarb-common.basedir" file="${ant.file.eurocarb-common}"/>
+   
+   
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+      <classpath>
+        <pathelement location="${eurocarb-common.basedir}/external-libs/java/ant-contrib-1.0b3.jar"/>
+      </classpath>
+    </taskdef>
+   
+    <property environment="env"/>
+
+    <property name="project.dir" value="${eurocarb-common.basedir}"/>    
+   
+    <property name="project.conf.dir" value="${project.dir}/conf"/>    
+   
+    <!-- Site-specific project properties. -->
+    <property name="project.conf" value="${project.conf.dir}/site.properties"/>
+    <property file="${project.conf}"/>
+   
+    <property name="project.java.lib.dir" value="${project.dir}/lib"/>
+
+    <property name="project.java.extlib.dir" value="${project.dir}/external-libs/java"/>
+   
+    <property name="project.binary.dir" value="${project.dir}/bin"/>
+
+    <property name="project.data.dir" value="${project.dir}/database/data"/>
+   
+    <property name="project.log.dir" value="${project.dir}/logs"/>
+   
+    <property name="project.webapp.dir" value="${project.dir}/webapps"/>
+   
+    <property name="project.doc.dir" value="${project.dir}/doc"/>
+   
+    <property name="project.api.doc.dir" value="${project.doc.dir}/api"/>
+
+    <property name="project.temp.dir" value="${project.dir}/temp"/>
+
+    <property name="project.ccpn.top.dir" value="${project.dir}/external-libs/ccpn/ccpnmr2.0" />
+   
+    <property name="ivy.install.version" value="2.1.0-rc1" />
+
+    <property name="ivy.jar.filename" value="ivy-${ivy.install.version}.jar"/>
+
+    <property name="ivy.jar.file" value="${project.java.extlib.dir}/${ivy.jar.filename}" />
+
+
+   
+    <!-- just a default; users should set this in their ${project.conf} (conf/site.properties) -->
+    <property name="tomcat.home" value="/usr/local/tomcat" />
+   
+    <!-- just a default; users should set this in their ${project.conf} (conf/site.properties) -->
+    <property name="postgres.binary" value="psql" />
+   
+   
+    <!--========================== SUB-PROJECTS ============================-->
+   
+    <!-- versions -->
+    <property name="project.coreapi.version" value="1.0rc" />
+    <property name="project.eurocarbdb.version" value="1.0rc" />
+    <property name="project.glycanbuilder.version" value="1.0rc" />
+    <property name="project.glycopeakfinder.version" value="1.0rc" />
+    <property name="project.glycoworkbench.version" value="1.0rc" />
+    <property name="project.molframework.version" value="1.0rc" />
+    <property name="project.resourcesdb.version" value="1.0rc" />
+   
+    <!-- CASPER -->
+    <property name="project.casper.dir" value="${project.dir}/application/Casper" />
+
+    <!-- core-api -->
+    <property name="project.coreapi.dir" value="${project.dir}/core-api" />
+    <property name="project.coreapi.jar" value="eurocarbdb-core-${project.coreapi.version}.jar" />
+   
+    <!-- eurocarbdb -->
+    <property name="project.eurocarbdb.dir" value="${project.dir}/application/Eurocarbdb" />
+    <property name="project.eurocarbdb.jar" value="eurocarbdb-app-${project.eurocarbdb.version}.jar" />
+    <property name="project.eurocarbdb.warname" value="eurocarb"/>
+    <property name="project.eurocarbdb.war" value="${project.eurocarbdb.warname}.war" />
+   
+    <!-- glycanbuilder -->
+    <property name="project.glycanbuilder.dir" value="${project.dir}/application/GlycanBuilder" />
+    <property name="project.glycanbuilder.jar" value="eurocarb-glycanbuilder-${project.glycanbuilder.version}.jar" />
+    <property name="project.glycanbuilder.applet.jar" value="GlycanBuilderApplet.jar" />
+   
+    <!-- glycopeakfinder -->
+    <property name="project.glycopeakfinder.dir" value="${project.dir}/application/GlycoPeakfinder" />
+    <property name="project.glycopeakfinder.jar" value="eurocarb-glycopeakfinder-${project.glycopeakfinder.version}.jar" />
+    <property name="project.glycopeakfinder.app.jar" value="eurocarb-glycopeakfinder-app-${project.glycopeakfinder.version}.jar" />
+   
+    <!-- glycoworkbench -->
+    <property name="project.glycoworkbench.dir" value="${project.dir}/application/GlycoWorkbench" />
+    <property name="project.glycoworkbench.jar" value="eurocarb-glycoworkbench-${project.glycoworkbench.version}.jar" />
+    <property name="project.glycoworkbench.applet.jar" value="AnnotationReport.applet.jar" />
+   
+    <!-- molframework -->
+    <property name="project.molframework.dir" value="${project.dir}/application/MolecularFramework" />
+    <property name="project.molframework.jar" value="eurocarb-molecularframework-${project.molframework.version}.jar" />
+   
+    <!-- resourcesdb -->
+    <property name="project.resourcesdb.dir" value="${project.dir}/application/ResourcesDB" />
+    <property name="project.resourcesdb.jar" value="eurocarb-resourcesdb-${project.resourcesdb.version}.jar" />
+   
+   
+    <!--============================= PATHS ================================-->
+   
+    <!-- PATH: project.classpath ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    - includes all external library jars
+    - includes all eurocarb-compiled jars
+    - includes eurocarb SVN jars (temporary)
+    -->
+    <path id="project.classpath">
+        <fileset dir="${project.java.lib.dir}" includes="*.jar" />
+        <fileset dir="${project.java.extlib.dir}" includes="*.jar" />
+        <fileset dir="${project.java.extlib.dir}/prefetched" includes="*.jar" />
+    </path>
+   
+    <path id="project.glycoworkbench.classpath">
+        <fileset dir="${project.java.lib.dir}" includes="*.jar" />
+        <fileset dir="${project.dir}/GlycoWorkbench_external_lib" includes="*.jar" />
+    </path>
+
+   
+   
+    <!-- MACRO: call-subproject ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Calls targets on sub-projects.
+    -->
+    <macrodef name="call-subproject">
+        <attribute name="name" description="the name of for the sub-project" />
+        <attribute name="dir" description="the directory for the sub-project" />
+        <attribute name="target" description="the target to call" />
+        <sequential>
+            <echo>Building @{name} for project ${ant.project.name}:</echo>
+            <ant target="@{target}" dir="@{dir}" inheritAll="false" inheritRefs="true" >
+                <propertyset dynamic="false">
+                    <propertyref prefix="project"/>
+                    <propertyref name="quick"/>
+                </propertyset>
+            </ant>
+            <property name="project.@{name}.jar.built" value="true" />
+            <echo>Finished building @{name}</echo>
+        </sequential>
+    </macrodef>
+   
+   
+    <!--============================ TARGETS  ==============================-->
+    <!--                  (in alphabetical order please)                    -->
+   
+    <!-- TARGET: build-casper ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds casper and all dependencies.
+    -->
+    <target name="build-casper"
+            depends="build-check, build-ccpn, build-ccpn-fail"
+            if="project.ccpn.lib.built"
+            unless="project.casper.bin.built"
+            description="Builds casper"
+            >
+      <call-subproject name="casper" target="build" dir="${project.casper.dir}" />
+    </target>
+
+   
+    <!-- TARGET: build-ccpn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Will build external project, CCPN, and its dependencies, sometime soon...
+   
+    This target is a placeholder.
+    -->
+    <target name="build-ccpn"
+        depends="build-check"
+        description="Builds CCPN lib. This target is a placeholder; CCPN must be built manually."
+        >
+        <available file="${project.ccpn.top.dir}/c/xmlApi/lib/libccp.a" property="project.ccpn.lib.built" />
+    </target>
+
+
+    <target name="build-ccpn-fail" unless="project.ccpn.lib.built"
+            description="Just gives a warning if CCPN is not built.">
+        <echo>WARNING: CCPN C Api is not built. This needs to be built manually to compile some targets. Skipping dependent targets...</echo>
+    </target>
+
+
+    <target name="createDistDirectories" description="Creates global directories which are used by various tasks to store dist output">
+      <mkdir dir="${project.dir}/lib"/>
+      <mkdir dir="${project.dir}/bin"/>
+      <mkdir dir="${project.dir}/webapps"/>
+      <mkdir dir="${project.dir}/GlycoWorkbench_external_lib"/>
+      <mkdir dir="${project.dir}/temp"/>
+      <mkdir dir="${project.dir}/database/conf"/>
+      <mkdir dir="${project.dir}/logs"/>
+    </target>
+     
+   
+    <!-- TARGET: build-check ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    If the 'quick' property is set (by -D or through the 'quick' target), then
+    this target looks for sub-project libs and sets properties if libs are found
+    that will prevent that sub-project from recompiling.
+    ie: if quick is set, compile against library jars, as opposed to raw sources.
+    -->
+    <target name="build-check" if="quick" >
+        <echo>Checking for dependencies that are already built:</echo>
+        <echo>these dependencies will NOT be rebuilt because 'quick' property is set</echo>
+        <available file="${project.casper.dir}/bin/casper" property="project.casper.bin.built" />
+        <available file="${project.java.lib.dir}/${project.coreapi.jar}" property="project.core-api.jar.built" />
+        <available file="${project.java.lib.dir}/${project.glycanbuilder.jar}" property="project.glycanbuilder.jar.built" />
+        <available file="${project.java.lib.dir}/${project.glycopeakfinder.jar}" property="project.glycopeakfinder.jar.built" />
+        <available file="${project.java.lib.dir}/${project.glycoworkbench.jar}" property="project.glycoworkbench.jar.built" />
+        <available file="${project.java.lib.dir}/${project.molframework.jar}" property="project.molframework.jar.built" />
+        <available file="${project.java.lib.dir}/${project.resourcesdb.jar}" property="project.resourcesdb.jar.built" />
+        <!--<property name="quick" value="set" />-->
+    </target>
+
+
+    <!-- TARGET: build-core-api ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds core-api and all dependencies.
+    -->
+    <target name="build-core-api"
+        depends="build-check, build-resourcesdb, build-molframework, build-glycanbuilder, build-glycoworkbench, build-glycopeakfinder, build-casper"
+        unless="project.core-api.jar.built"
+        description="Builds core-api library"
+        >
+        <call-subproject name="core-api" target="dist" dir="${project.coreapi.dir}" />
+    </target>
+       
+
+    <!-- TARGET: build-eurocarbdb ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds core-api and all dependencies.
+    -->
+    <target name="build-eurocarbdb"
+        depends="build-check, build-core-api"
+        unless="project.eurocarbdb.jar.built"
+        description="Builds eurocarbdb application library and webapp"
+        >
+        <call-subproject name="eurocarbdb" target="dist" dir="${project.eurocarbdb.dir}" />
+    </target>
+       
+
+    <!-- TARGET: build-glycanbuilder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds glycanbuilder and all dependencies.
+    -->
+    <target name="build-glycanbuilder"
+        depends="build-check, build-resourcesdb, build-molframework"
+        unless="project.glycanbuilder.jar.built"
+        description="Builds glycanbuilder"
+        >
+        <call-subproject name="glycanbuilder" target="dist" dir="${project.glycanbuilder.dir}" />
+    </target>
+       
+   
+    <!-- TARGET: build-glycopeakfinder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds glycopeakfinder and all dependencies.
+    -->
+    <target name="build-glycopeakfinder"
+        depends="build-check"
+        unless="project.glycopeakfinder.jar.built"
+        description="Builds glycopeakfinder"
+        >
+        <call-subproject name="glycopeakfinder" target="dist" dir="${project.glycopeakfinder.dir}" />
+    </target>
+   
+   
+    <!-- TARGET: build-glycoworkbench ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds glycoworkbench and all dependencies.
+    -->
+    <target name="build-glycoworkbench"
+        depends="build-check, build-resourcesdb, build-molframework, build-glycanbuilder, build-glycopeakfinder"
+        unless="project.glycoworkbench.jar.built"
+        description="Builds glycoworkbench"
+        >
+        <call-subproject name="glycoworkbench" target="dist" dir="${project.glycoworkbench.dir}" />
+    </target>
+   
+   
+    <!-- TARGET: build-molframework ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds molecular framework and all its dependencies.
+    -->
+    <target name="build-molframework"
+        depends="build-check,build-resourcesdb"
+        unless="project.molframework.jar.built"
+        description="Builds molecular framework library"
+        >
+        <call-subproject name="molframework" target="dist" dir="${project.molframework.dir}" />
+    </target>
+
+   
+    <!-- TARGET: build-resourcesdb ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds resourcesdb and all its dependencies.
+    -->
+    <target name="build-resourcesdb"
+        depends="build-check"
+        unless="project.resourcesdb.jar.built"
+        description="Builds ResourcesDB"
+        >
+        <call-subproject name="resourcesdb" target="dist" dir="${project.resourcesdb.dir}" />
+    </target>
+
+   
+    <!-- TARGET: quick ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Sets 'quick' property, which allows 'build-check' to execute, which
+    stops dependencies from being built if their libs already exist.
+    -->
+    <target name="quick" description="When used in combination with other build target, compiles against library jars, as opposed to raw sources.">
+        <echo>Skipping dependency re-build:</echo>
+        <echo>Builds will be compiled against library jars, not sources</echo>
+        <property name="quick" value="true" />
+    </target>
+   
+   
+    <!-- TARGET: resolve-external-dependencies ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Uses Ivy to resolve and download dependant library jars for the project.
+    -->
+    <target name="resolve-external-dependencies" depends="install-ivy" description="Check and update 3rd party project dependencies">
+        <echo>Deleting old jars from ${project.java.extlib.dir}</echo>
+        <delete>
+            <fileset dir="${project.java.extlib.dir}" includes="*.jar" excludes="${ivy.jar.filename}"/>
+        </delete>
+        <ivy:settings file="ivysettings.xml" />
+        <ivy:retrieve pattern="${project.java.extlib.dir}/[artifact]-[revision].[ext]" />
+    </target>
+   
+
+    <!-- TARGET: install-ivy ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Installs ivy after downloading.
+    -->
+    <target name="install-ivy" depends="" description="Installs ivy">
+
+        <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar"
+             dest="${ivy.jar.file}"
+             usetimestamp="true"
+         />
+       
+         <path id="ivy.lib.path">
+            <fileset dir="${project.java.extlib.dir}" includes="*.jar"/>
+        </path>
+        <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+    </target>    
+   
+   
+    <!-- TARGET: update ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="update" depends="resolve-external-dependencies" description="Updates entire project for 1) libs 2) database changes" />
+   
+    <target name="build-database" description="Build the database and populates it with some data">
+      <call-subproject name="eurocarb-core-database" target="test" dir="${project.dir}/database"/>
+    </target>
+   
+    <target name="initialiseSiteProperties">
+      <echo>initialising site project properties from default:</echo>
+        <echo>    ${project.conf.dir}/default.site.properties</echo>
+        <copy file="${project.conf.dir}/default.site.properties"
+            tofile="${project.conf}"
+            verbose="true" />
+    </target>
+   
+      <!-- TARGET: setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="setup"
+        depends="createDistDirectories,resolve-external-dependencies,initialiseSiteProperties"
+        description="Initialises config files from a fresh checkout of eurocarb, or when config properties have been changed"
+        >
+    </target>
+   
+    <!-- TARGET: add-pgplsql-to-eurocarb-devel
+    Adds the PG/PLSQL language to the eurocarb_devel database.
+    -->
+    <target name="add-pgplsql-to-eurocarb_devel" depends="initialiseSiteProperties,check-db-superuser">
+      <echo>Adding the language PG/PLSQL to the eurocarb_devel database</echo>
+      <exec dir="." executable="createlang">
+        <arg value="-U"/>
+        <arg value="${ecdb.db.username}"/>
+        <arg value="plpgsql"/>
+        <arg value="${ecdb.db.name}"/>      
+      </exec>
+    </target>
+   
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: check-db-superuser
+    -->
+    <target name="check-db-superuser" depends="check-psql-binary" unless="db.superuser">
+   
+        <echo>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</echo>
+        <echo>The requested operations require database superuser privileges.</echo>
+        <echo>Please enter the name and password of a database user that has </echo>
+        <echo>such privileges. For Postgres, the 'postgres' user that was created</echo>
+        <echo>during the Postgres installation process will suffice.         </echo>
+        <echo>To accept the default option, just press enter.                </echo>
+        <echo>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</echo>
+
+
+        <input message="Enter database superuser name [default='${ecdb.db.username}']:"
+               addproperty="db.superuser"
+               defaultvalue="${ecdb.db.username}"        
+               />        
+       
+        <input message="Enter database superuser password [default='${ecdb.db.password}']:"
+               addproperty="db.superuser.pwd"
+               defaultvalue="${ecdb.db.password}"        
+               />
+       
+    </target>  
+   
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: check-psql-binary
+    -->
+    <target name="check-psql-binary" unless="postgres.binary">
+        <input  message="Enter path to psql binary [default=psql]:"
+                                addproperty="postgres.binary"
+                                defaultvalue="psql"
+        />
+    </target>
+<!-- TARGET: upgrade-ebi_13th_jun_2010-r1916-empty-core-schema
+    delete the data from core schema's tables and create a dump one
+    -->
+    <target name="upgrade-ebi_13th_jun_2010-r1916-empty-core-schema">
+      <echo>Attempting to upgrade your schema to r1916</echo>
+        <exec dir="."  executable="${postgres.binary}" error="${project.log.dir}/r1916_upgrade.stderr" output="${project.log.dir}/r1916_upgrade.stdout">
+            <arg value="-f"/>
+            <arg value="${schema.upgrade.dir}/r1916/empty_core_schema.sql"/>
+            <arg value="-U"/>
+            <arg value="${ecdb.db.username}"/>
+            <arg value="-h"/>
+            <arg value="${ecdb.db.hostname}"/>
+            <arg value="-d"/>
+            <arg value="${ecdb.db.name}" />
+        </exec>
+        <echo>Please see the stderr log (${project.log.dir}/r116_upgrade.stderr) and stdout log(${project.log.dir}/r1916_upgrade.stdout) for more details</echo>
+    </target>
+</project>
+
+
+

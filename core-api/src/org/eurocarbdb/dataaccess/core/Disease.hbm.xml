@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:30 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.Disease" table="disease" schema="core" node="disease">
+    
+        <id name="diseaseId" type="int" node="@id">
+            <column name="disease_id" />
+            <generator class="sequence" >
+                <param name="sequence">core.disease_disease_id_seq</param>
+            </generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+        
+        <property name="diseaseName" type="string">
+            <column name="disease_name" length="128" not-null="true" />
+        </property>
+        
+        <property name="meshId" type="string">
+            <column name="mesh_id" length="64" not-null="true" />
+        </property>
+        
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        
+        <property name="dateLastModified" type="timestamp" insert="false">
+            <column name="date_last_modified" length="8" />
+        </property>
+        
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="parentDisease" class="org.eurocarbdb.dataaccess.core.Disease" node="@parent" embed-xml="false">
+            <column name="parent_disease_id" />
+        </many-to-one>
+
+        <set name="childDiseases" inverse="true" node="children" embed-xml="false">
+            <key>
+                <column name="parent_disease_id" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.Disease" node="child" embed-xml="false" />
+        </set>
+        
+        <set name="diseaseContexts" inverse="true" node="context" embed-xml="false">
+            <key>
+                <column name="disease_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.DiseaseContext" />
+        </set>
+
+        <set name="diseaseSynonyms" inverse="true" node="synonyms" >
+            <key>
+                <column name="disease_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.DiseaseSynonym" node="synonym" />
+        </set>
+
+        <!-- 
+        diseaseRelations:
+        there is a direct 1-1 primary key relationship between this and
+        its associated Relations class.
+        -->
+        <one-to-one name="relations" 
+                    class="org.eurocarbdb.dataaccess.core.DiseaseRelations" 
+                    cascade="save-update"
+        />
+
+        
+        <!--=====================  named queries  ===========================-->
+        <!--
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+        <!-- 
+        query : MATCHING_NAME_OR_SYNONYM
+        desc  : Retrieves all diseases whose name or synonyms match the given name.
+        author: mjh
+        -->
+        <query name="MATCHING_NAME_OR_SYNONYM" cacheable="true"> 
+            SELECT  distinct dis
+            FROM    Disease AS dis
+                    LEFT OUTER JOIN dis.diseaseSynonyms AS syn 
+            WHERE   lower( dis.diseaseName ) LIKE lower( :disease_name )
+            OR      lower( syn.synonym )     LIKE lower( :disease_name ) 
+        </query>
+
+        <!-- 
+        query : DISEASE_BY_MESH_ID
+        desc  : Retrieves all diseases whose meshId matches the given id.
+        author: hirenj
+        -->        
+        <query name="DISEASE_BY_MESH_ID" cacheable="true">
+        	SELECT 	dis
+        	FROM	Disease as dis
+        	WHERE	lower( dis.meshId ) = lower( :mesh_id )
+        </query>
+
+        <!--
+        query : count_structures_for_sub_diseases
+        desc  : Retrieves top 50 tissues descending from the dieseaseId'd disease that have structures
+        author: hirenj
+        -->
+        <sql-query name="count_structures_for_sub_diseases"
+            comment="Counts the number of glycan sequences associated to given :disease_id and all its sub-diseases">
+            <return-scalar column="diseaseId" type="int" />
+            <return-scalar column="diseaseName" type="string" />
+            <return-scalar column="structure_count" type="int" />
+            select  
+                dis.disease_id as diseaseId,
+                dis.disease_name as diseaseName,
+                count( distinct gc.glycan_sequence_id ) as structure_count
+            from  
+                core.disease as dis
+            inner join 
+                core.disease_relations as child
+                on dis.disease_id = child.disease_id 
+            inner join
+                core.disease_relations as parent 
+                on child.left_index between parent.left_index and parent.right_index
+            inner join
+                core.biological_context_to_disease as dc
+                on dc.disease_id = child.disease_id
+            inner join
+                core.biological_context as bc
+                on bc.biological_context_id = dc.biological_context_id
+            inner join 
+                core.glycan_sequence_to_biological_context as gc 
+                on gc.biological_context_id = bc.biological_context_id
+            where   
+                parent.disease_id = :disease_id 
+                and child.disease_id != :disease_id
+            group by 
+                dis.disease_id,
+                dis.disease_name
+            order by
+                structure_count desc
+            limit 50
+        </sql-query>
+
+        <!-- 
+        Counts the number of glycan sequences associated to given :disease_id and all its sub-diseases
+        -->
+        <sql-query 
+            name="count_structures_for_this_disease"
+            comment="Counts the number of glycan sequences associated to given :disease_id and all its sub-diseases">
+            <return-scalar column="structure_count" type="int" />
+        select 
+            count( distinct gc.glycan_sequence_id ) as structure_count             
+        from
+            core.disease_relations as child   
+        inner join
+            core.disease_relations as parent 
+                on child.left_index between parent.left_index and parent.right_index
+        inner join
+            core.biological_context_to_disease as dc
+            on dc.disease_id = child.disease_id
+        inner join
+            core.biological_context as bc
+            on bc.biological_context_id = dc.biological_context_id
+        inner join
+            core.glycan_sequence_to_biological_context as gc                  
+                on bc.biological_context_id = gc.biological_context_id             
+        where
+            parent.disease_id = :disease_id
+        </sql-query>
+        
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,62 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.Persubstitution" table="persubstitution" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="persubstitutionId" type="integer">
+            <column name="persubstitution_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.persubstitution_persubstitution_id_seq</param>
+            </generator>
+        </id>
+        <property name="abbreviation" type="string">
+            <column name="abbreviation" length="10"/>
+        </property>
+        <property name="name" type="string">
+            <column name="name"/>
+        </property>
+        <set name="peakAnnotateds" inverse="true">
+            <key>
+                <column name="persubstitution_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotated"/>
+        </set>
+        <set name="AcquisitionToPersubstitutions" inverse="true">
+            <key>
+                <column name="persubstitution_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.AcquisitionToPersubstitution"/>
+        </set>
+<!-- 
+        query : GET_ALL
+        desc  : returns all Persubstitutions in the db
+        author: ac
+        -->
+        <query name="GET_ALL"> 
+            SELECT p
+            from Persubstitution as p
+	    order by p.persubstitutionId 
+        </query>
+        
+	<!-- 
+        query : BY_ID
+        desc  : Retrieve an persubsitution of a certain type
+        author: ac
+        -->
+        <query name="BY_ID" cacheable="true"> 
+            SELECT  p_id
+            FROM    Persubstitution AS p_id
+            WHERE   p_id.persubstitutionId = :pid
+        </query>
+<!-- 
+        query : BY_ABBREVIATION
+        desc  : Retrieve an persubsitution of a certain type
+        author: Khalifeh
+        -->
+       <query name="BY_ABBREVIATION" cacheable="true">
+            SELECT p
+            FROM   Persubstitution AS p
+            WHERE  p.abbreviation = :abbreviation
+      </query>
+
+
+    </class>
+</hibernate-mapping>

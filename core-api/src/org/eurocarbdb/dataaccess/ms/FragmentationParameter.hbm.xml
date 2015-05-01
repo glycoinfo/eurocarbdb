@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:07 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+    <class name="org.eurocarbdb.dataaccess.ms.FragmentationParameter" table="fragmentation_parameter" schema="ms">
+        <id name="fragmentationParameterId" type="int">
+            <column name="fragmentation_parameter_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.fragmentation_parameter_fragmentation_parameter_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="deviceSettings" class="org.eurocarbdb.dataaccess.ms.DeviceSettings" fetch="select">
+            <column name="device_settings_id" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="fragmentationType" class="org.eurocarbdb.dataaccess.ms.FragmentationType" fetch="select">
+            <column name="fragmentation_type_id" not-null="true" />
+        </many-to-one>
+        <property name="collisionGas" type="string">
+            <column name="collision_gas" length="100" not-null="true" />
+        </property>
+        <property name="pressure" type="double">
+            <column name="pressure" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="collisionEnergie" type="double">
+            <column name="collision_energie" precision="8" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

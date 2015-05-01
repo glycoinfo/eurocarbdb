@@ -1,0 +1,46 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.PeakLabeled" table="peak_labeled" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="peakLabeledId" type="integer">
+            <column name="peak_labeled_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.peak_labeled_peak_labeled_id_seq</param>
+            </generator>
+        </id>
+        <property name="mzValue" type="double">
+            <column name="mz_value" precision="17" not-null="true"/>
+        </property>
+        <property name="intensityValue" type="double">
+            <column name="intensity_value" precision="17" not-null="true"/>
+        </property>
+        <property name="monoisotopic" type="boolean">
+            <column name="monoisotopic" not-null="true"/>
+        </property>
+        <property name="chargeCount" type="integer">
+            <column name="charge_count"/>
+        </property>
+        <property name="fwhm" type="double">
+            <column name="fwhm" precision="17"/>
+        </property>
+        <property name="signalToNoise" type="double">
+            <column name="signal_to_noise" precision="17"/>
+        </property>
+        <many-to-one name="peakList" class="org.eurocarbdb.dataaccess.ms.PeakList" cascade="none">
+            <column name="peak_list_id" not-null="true"/>
+        </many-to-one>
+        <set name="peakAnnotateds" inverse="true">
+            <key>
+                <column name="peak_labeled_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotated"/>
+        </set>
+        <query name="GET_Number_OF_PEAKS">
+        SELECT COUNT(peakLabeledId)
+        FROM PeakLabeled as plb
+        WHERE plb.peakList.scan.scanId = :scanId AND
+              plb.peakList.dateEntered = :dateEntered AND
+              plb.peakList.scan.acquisition.contributor.contributorName = :contributorName              
+        GROUP BY plb.peakList.scan.scanId
+        </query>
+    </class>
+</hibernate-mapping>

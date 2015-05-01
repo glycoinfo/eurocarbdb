@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:04 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.Analyser" table="analyser" schema="ms">
+    
+        <id name="analyserId" type="int">
+            <column name="analyser_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.analyser_analyser_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="device" class="org.eurocarbdb.dataaccess.ms.Device" fetch="select">
+            <column name="device_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="model" type="string">
+            <column name="model" />
+        </property>
+        
+        <property name="analyserType" type="string">
+            <column name="analyser_type" not-null="true" />
+        </property>
+        
+        <property name="accuracy" type="double">
+            <column name="accuracy" precision="8" scale="0" not-null="true" />
+        </property>
+        
+        <property name="scanRate" type="double">
+            <column name="scan_rate" precision="8" scale="0" not-null="true" />
+        </property>
+        
+        <property name="scanTime" type="double">
+            <column name="scan_time" precision="8" scale="0" not-null="true" />
+        </property>
+        
+        <property name="scanDirection" type="string">
+            <column name="scan_direction" length="5" not-null="true" />
+        </property>
+        
+        <property name="scanLaw" type="string">
+            <column name="scan_law" length="20" not-null="true" />
+        </property>
+        
+        <property name="tofPathLength" type="java.lang.Double">
+            <column name="tof_path_length" precision="8" scale="0" />
+        </property>
+        
+        <property name="isolationWidth" type="java.lang.Double">
+            <column name="isolation_width" precision="8" scale="0" />
+        </property>
+        
+        <property name="magneticFieldStrengh" type="java.lang.Double">
+            <column name="magnetic_field_strengh" precision="8" scale="0" />
+        </property>
+        
+        <property name="finalMsExponent" type="int">
+            <column name="final_ms_exponent" not-null="true" />
+        </property>
+        
+        <set name="tandemScanMethods" inverse="true">
+            <key>
+                <column name="analyser_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.TandemScanMethod" />
+        </set>
+        
+        <set name="analyserParameters" inverse="true">
+            <key>
+                <column name="analyser_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.AnalyserParameter" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

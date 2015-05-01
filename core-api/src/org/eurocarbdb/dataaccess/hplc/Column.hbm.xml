@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:55 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Column" table="column" schema="hplc">
+        <id name="columnId" type="int">
+            <column name="column_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.column_column_id_seq</param>
+            </generator>
+        </id>
+        <property name="manufacturer" type="string">
+            <column name="manufacturer" length="150" not-null="true" />
+        </property>
+        <property name="model" type="string">
+            <column name="model" length="150" not-null="true" />
+        </property>
+        <property name="packingMaterial" type="string">
+            <column name="packing_material" length="100" not-null="true" />
+        </property>
+        <property name="columnSizeWidth" type="double">
+            <column name="column_size_width" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="columnSizeLength" type="double">
+            <column name="column_size_length" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="particleSize" type="string">
+            <column name="particle_size" length="20" not-null="true" />
+        </property>
+        <set name="profiles" inverse="true">
+            <key>
+                <column name="column_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.Profile" />
+        </set>
+
+<query name="SELECT_ALL">
+FROM Column
+</query>
+
+    </class>
+</hibernate-mapping>

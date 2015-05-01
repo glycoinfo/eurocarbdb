@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.PeakListToDataProcessing" table="peak_list_to_data_processing" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="PeakListToDataProcessingId" type="integer">
+            <column name="peak_list_to_data_processing_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.peak_list_to_data_processing_peak_list_to_data_processing_i_seq</param>
+            </generator>
+        </id>
+        <property name="softwareOrder" type="integer">
+            <column name="software_order" not-null="true"/>
+        </property>
+        <many-to-one name="dataProcessing" class="org.eurocarbdb.dataaccess.ms.DataProcessing" cascade="none">
+            <column name="data_processing_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="peakList" class="org.eurocarbdb.dataaccess.ms.PeakList" cascade="none">
+            <column name="peak_list_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

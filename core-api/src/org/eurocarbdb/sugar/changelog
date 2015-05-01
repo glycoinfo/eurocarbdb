@@ -1,0 +1,43 @@
+rough changelog for sugar object merge:
+
+General
+-   all classes copied into package org.eurocarbdb.sugar
+-   renamed variable names as per standard Java naming conventions
+-   most GlycoconjugateExceptions changed to IllegalArgumentExceptions 
+    (Glycoconjugate exceptions were only being thrown for errors in arguments anyway)
+
+Molecule
+-   merged with MassEntity, all references to MassEntity updated
+
+Superclass 
+-   changed all references to CAtoms to RingAtoms (since oxygen is 
+    also in ring, not just carbon) (bugfix?)
+-   added some doco
+
+Monosaccharide
+-   merged complementary methods.
+-   added doco for most methods and attributes.
+-   renamed getModificationList() to getModifications(), made returned list unmodifiable.
+-   renamed getBaseTypeList() to getBaseTypes(), made returned list unmodifiable.
+-   added setRingStart(int) & setRingEnd(int) methods
+-   getGlycoctName(String) method moved to org.eurocarbdb.sugar.seq.GlycoctSequenceFormat
+    class, since it's a sequence format-specific method
+-   removed getModification(int) & getBasetype(int) methods, indexed access to
+    list items can be obtained through getModifications() & getBaseTypes()
+
+Modification
+-   changed Integer arguments to int 
+-   made modification name, position1 & position2 final
+
+ModificationType
+-   renamed UNKNOWN_BOUBLEBOND to UNKNOWN_DOUBLEBOND (typo)
+
+SugarVisitor
+-   remodelled into more Java-ish version using reflection to eliminate the need
+    for "accept" methods.
+-   made into an abstract class with default implementations of visit( XXX ).
+
+Sugar
+-   all "graph" operations moved into the Graph object member, accessible with getGraph().
+-   renamed all incidences of 'Aglyca' to 'Aglycon' (typo - Aglyca is plural, Aglycon is the singular)
+-   isConnected method moved to util.GraphUtils#isConnected accepting any Graph argument.

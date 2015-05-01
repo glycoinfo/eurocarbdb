@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:06 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+    <class name="org.eurocarbdb.dataaccess.ms.AnalyserParameter" table="analyser_parameter" schema="ms">
+        <id name="analyserParameterId" type="int">
+            <column name="analyser_parameter_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.analyser_parameter_analyser_parameter_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="deviceSettings" class="org.eurocarbdb.dataaccess.ms.DeviceSettings" fetch="select">
+            <column name="device_settings_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="analyser" class="org.eurocarbdb.dataaccess.ms.Analyser" fetch="select">
+            <column name="analyser_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tandemScanMethod" class="org.eurocarbdb.dataaccess.ms.TandemScanMethod" fetch="select">
+            <column name="tandem_scan_method_id" not-null="true" />
+        </many-to-one>
+        <property name="resolutionType" type="string">
+            <column name="resolution_type" length="45" not-null="true" />
+        </property>
+        <property name="resolutionMethod" type="string">
+            <column name="resolution_method" length="45" not-null="true" />
+        </property>
+        <property name="resolution" type="double">
+            <column name="resolution" precision="8" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

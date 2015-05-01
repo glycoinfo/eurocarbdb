@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:55 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Glycan" table="glycan" schema="hplc">
+        <id name="glycanId" type="int">
+            <column name="glycan_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.glycan_glycan_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" />
+        </property>
+        <property name="gu" type="double">
+            <column name="gu" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="ms" type="string">
+            <column name="ms" length="5" />
+        </property>
+        <property name="msMs" type="string">
+            <column name="ms_ms" length="5" />
+        </property>
+        <property name="hex" type="java.lang.Short">
+            <column name="hex" />
+        </property>
+        <property name="hexnac" type="java.lang.Short">
+            <column name="hexnac" />
+        </property>
+        <property name="neunac" type="java.lang.Short">
+            <column name="neunac" />
+        </property>
+        <property name="fucose" type="java.lang.Short">
+            <column name="fucose" />
+        </property>
+        <property name="xylose" type="java.lang.Short">
+            <column name="xylose" />
+        </property>
+        <property name="neugc" type="java.lang.Short">
+            <column name="neugc" />
+        </property>
+        <property name="a1" type="java.lang.Short">
+            <column name="a1" />
+        </property>
+        <property name="a2" type="java.lang.Short">
+            <column name="a2" />
+        </property>
+        <property name="a3" type="java.lang.Short">
+            <column name="a3" />
+        </property>
+        <property name="a4" type="java.lang.Short">
+            <column name="a4" />
+        </property>
+        <property name="s" type="java.lang.Short">
+            <column name="s" />
+        </property>
+        <property name="f6" type="java.lang.Short">
+            <column name="f_6" />
+        </property>
+        <property name="b" type="java.lang.Short">
+            <column name="b" />
+        </property>
+        <property name="bgal" type="java.lang.Short">
+            <column name="bgal" />
+        </property>
+        <property name="agal" type="java.lang.Short">
+            <column name="agal" />
+        </property>
+        <property name="galnac" type="java.lang.Short">
+            <column name="galnac" />
+        </property>
+        <property name="polylac" type="java.lang.Short">
+            <column name="polylac" />
+        </property>
+        <property name="fouterarm" type="java.lang.Short">
+            <column name="fouterarm" />
+        </property>
+        <property name="hybrid" type="java.lang.Short">
+            <column name="hybrid" />
+        </property>
+        <property name="mannose" type="java.lang.Short">
+            <column name="mannose" />
+        </property>
+        <property name="allGroups" type="java.lang.Short">
+            <column name="all_groups" />
+        </property>
+        <property name="plant" type="java.lang.Short">
+            <column name="plant" />
+        </property>
+        <property name="serum" type="java.lang.Short">
+            <column name="serum" />
+        </property>
+        <property name="normalIgg" type="java.lang.Short">
+            <column name="normal_igg" />
+        </property>
+        <property name="std" type="java.lang.Double">
+            <column name="std" precision="8" scale="0" />
+        </property>
+        <property name="ogbitranslation" type="java.lang.Integer">
+            <column name="ogbitranslation" />
+        </property>
+
+<!-- testing area/relations with source table -->
+
+	<set name="glycanSourceLinks" inverse="true">
+		<key>
+			<column name="glycan_id" not-null="true" />
+		</key>
+		<one-to-many class="org.eurocarbdb.dataaccess.hplc.GlycanSourceLink" />
+	</set>
+
+	<set name="hplcPeaksAnnotateds" inverse="true">
+		<key>
+			<column name="glycan_id" not-null="true" />
+		</key>
+	        <one-to-many class="org.eurocarbdb.dataaccess.hplc.HplcPeaksAnnotated"/>
+	</set>
+
+
+
+        <query name="PRELIM_ASSIGN">
+		SELECT  structures
+		FROM    Glycan AS structures
+   <!--         WHERE   structures.gu-structures.std &lt;= 15 AND structures.gu+structures.std  &gt;= 10 -->
+		WHERE   structures.gu-structures.std &lt;= :gu_value + 0.00001 AND structures.gu+structures.std &gt;= :gu_value + 0.00001
+        </query>
+
+	<query name="GLYCOBASE">
+		<!-- FROM Glycan where gu > 0 ORDER BY gu -->
+		SELECT g.name, g.ogbitranslation, g.glycanId, avg(r.paperGu)
+		FROM Glycan g, RefLink r
+		WHERE  r.glycanId = g.glycanId
+		GROUP BY g.name, g.ogbitranslation, g.glycanId
+		ORDER BY avg(r.paperGu)
+	</query>     
+
+	<query name="SELECT_ALL">
+		<!-- SELECT glycanId, ogbitranslation FROM Glycan -->
+		FROM Glycan where ogbitranslation > 0 order by ogbitranslation
+	</query>
+
+	<query name="UPDATE_GLYCOCT">
+		UPDATE Glycan set ogbitranslation = :id where name like :name
+	</query>
+
+	<query name="GLYCOBASE_SEARCH">
+		from Glycan where gu &gt; :gu -0.2 and gu &lt; :gu +0.2 order by gu
+	</query>
+
+	<query name="GLYCOBASE_NAME_SEARCH">
+		FROM Glycan where name like :name ORDER BY name
+	</query>
+
+	<query name="UPDATE_CT">
+		UPDATE Glycan set ogbitranslation = :idCTNew where glycanId = :glycanId
+	</query>
+
+	<query name="BY_SEQUENCE_ID" comment="Retrieve a GlycanSequence id from glycan id.">
+		SELECT ogbitranslation FROM Glycan WHERE glycanId = :glycanId
+	</query>
+
+	<query name="UPDATE_STORED_CT" comment="Going to update glycan_sequence_id">
+		UPDATE Glycan set ogbitranslation = :id where glycanId = :glycanId
+	</query>
+
+	<query name="LOOKUP_BY_GWS" comment="Lookup by stored GlycanSequenceId">
+		FROM Glycan where ogbitranslation = :ogbitranslation 
+	</query>
+
+	<query name="LOOKUP_BY_GLYCANID" comment="Lookup glycan by id">
+		FROM Glycan where glycanId = :glycanId
+	</query>
+
+
+    </class>
+</hibernate-mapping>

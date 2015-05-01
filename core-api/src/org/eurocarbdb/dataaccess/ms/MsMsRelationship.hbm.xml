@@ -1,0 +1,48 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.MsMsRelationship" table="ms_ms_relationship" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="msMsRelationshipId" type="integer">
+            <column name="ms_ms_relationship_id"/>
+             <generator class="sequence">
+                <param name="sequence">ms.ms_ms_relationship_ms_ms_relationship_id_seq</param>
+            </generator>
+        </id>
+        <property name="precursorMz" type="double">
+            <column name="precursor_mz" precision="17" not-null="true"/>
+        </property>
+        <property name="precursorIntensity" type="double">
+            <column name="precursor_intensity" precision="17" not-null="true"/>
+        </property>
+        <property name="precursorMassWindowLow" type="double">
+            <column name="precursor_mass_window_low" precision="17"/>
+        </property>
+        <property name="precursorMassWindowHigh" type="double">
+            <column name="precursor_mass_window_high" precision="17"/>
+        </property>
+        <property name="precursorCharge" type="integer">
+            <column name="precursor_charge" not-null="true"/>
+        </property>
+        <property name="msMsMethode" type="string">
+            <column name="ms_ms_methode" length="100" not-null="true"/>
+        </property>
+        <many-to-one name="scanByScanId" class="org.eurocarbdb.dataaccess.ms.Scan" cascade="none">
+            <column name="scan_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="scanByParentId" class="org.eurocarbdb.dataaccess.ms.Scan" cascade="none">
+            <column name="parent_id" not-null="true"/>
+        </many-to-one>
+        <!-- Queries' Section
+             Author: Khalifeh Al Jadda
+         -->
+        <query name="GET_BY_SCAN_ID">
+        SELECT r
+        FROM MsMsRelationship as r
+        WHERE r.scanByScanId.scanId = :scanId
+        </query>
+        <query name="GET_BY_PARENT_ID">
+        SELECT r.scanByScanId
+        FROM MsMsRelationship as r
+        WHERE r.scanByParentId.scanId = :parentId
+        </query>
+    </class>
+</hibernate-mapping>

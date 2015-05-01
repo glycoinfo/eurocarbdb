@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:54 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Instrument" table="instrument" schema="hplc">
+        <id name="instrumentId" type="int">
+            <column name="instrument_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.instrument_instrument_id_seq</param>
+            </generator>
+        </id>
+        <property name="manufacturer" type="string">
+            <column name="manufacturer" length="150" not-null="true" />
+        </property>
+        <property name="model" type="string">
+            <column name="model" length="50" not-null="true" />
+        </property>
+        <property name="temperature" type="java.lang.Double">
+            <column name="temperature" precision="8" scale="0" />
+        </property>
+        <property name="solventA" type="string">
+            <column name="solvent_a" length="100" />
+        </property>
+        <property name="solventB" type="string">
+            <column name="solvent_b" length="100" />
+        </property>
+        <property name="solventC" type="string">
+            <column name="solvent_c" length="100" />
+        </property>
+        <property name="solventD" type="string">
+            <column name="solvent_d" length="100" />
+        </property>
+        <property name="flowRate" type="java.lang.Double">
+            <column name="flow_rate" precision="8" scale="0" />
+        </property>
+        <property name="flowGradient" type="string">
+            <column name="flow_gradient" length="50" />
+        </property>
+        <set name="profiles" inverse="true">
+            <key>
+                <column name="instrument_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.Profile" />
+    </set>
+
+    <query name="SELECT_ALL">
+	    FROM Column
+    </query>
+    </class>
+</hibernate-mapping>

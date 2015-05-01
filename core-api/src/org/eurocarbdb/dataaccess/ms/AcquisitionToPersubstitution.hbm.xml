@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.AcquisitionToPersubstitution" table="acquisition_to_persubstitution" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="AcquisitiontoPersubstitutionId" type="integer">
+            <column name="acquisition_to_persubstitution_id"/>
+           <generator class="sequence">
+                <param name="sequence">ms.acquisition_to_persubstitutio_acquisition_to_persubstitutio_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="acquisition" class="org.eurocarbdb.dataaccess.ms.Acquisition">
+            <column name="acquisition_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persubstitution" class="org.eurocarbdb.dataaccess.ms.Persubstitution" cascade="none">
+            <column name="persubstitution_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

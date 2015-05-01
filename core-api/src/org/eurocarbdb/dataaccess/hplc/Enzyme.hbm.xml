@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:55 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Enzyme" table="enzyme" schema="hplc">
+        <id name="enzymeId" type="int">
+            <column name="enzyme_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.enzyme_enzyme_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="abbreviationId" type="string">
+            <column name="abbreviation_id" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="accessionNumber" type="string">
+            <column name="accession_number" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200" not-null="true" />
+        </property>
+        <property name="supplier" type="string">
+            <column name="supplier" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

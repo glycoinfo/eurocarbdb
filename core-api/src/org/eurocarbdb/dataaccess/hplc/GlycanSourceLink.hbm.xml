@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-Apr-2008 11:32:05 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.GlycanSourceLink" table="glycan_source_link" schema="hplc">
+        <id name="sourceId" type="int">
+            <column name="source_id" />
+            <generator class="assigned" />
+        </id>
+	<!--
+	<property name="glycanId" type="int">
+            <column name="glycan_id" not-null="true" />
+    </property>
+    -->
+        <property name="refId" type="int">
+            <column name="ref_id" not-null="true" />
+        </property>
+        <property name="meshPertId" type="int">
+            <column name="mesh_pert_id" not-null="true" />
+        </property>
+        <property name="meshDiseaseId" type="int">
+            <column name="mesh_disease_id" not-null="true" />
+        </property>
+        <property name="meshTissueId" type="int">
+            <column name="mesh_tissue_id" not-null="true" />
+        </property>
+        <property name="taxSpeciesId" type="int">
+            <column name="tax_species_id" not-null="true" />
+        </property>
+        <property name="biologicalContextId" type="java.lang.Integer">
+            <column name="biological_context_id" />
+        </property>
+<!-- testing relationships -->
+
+	<many-to-one name="glycan" class="org.eurocarbdb.dataaccess.hplc.Glycan" fetch="select">
+            <column name="glycan_id" not-null="true" />
+        </many-to-one>
+
+<query name="ALL">
+	FROM GlycanSourceLink
+</query>
+
+<query name="SELECT_SOURCE">
+	<!--
+
+SELECT G.glycanId, G.ogbitranslation, source.taxSpeciesId from Glycan G, GlycanSourceLink source
+WHERE source.glycanId = G.glycanId AND source.taxSpeciesId > 0
+GROUP BY G.glycanId, source.taxSpeciesId, G.ogbitranslation
+ORDER BY G.glycanId
+
+from GlycanSourceLink as source inner join  source.glycanId as glycan
+
+-->
+
+SELECT g.glycanId, g.ogbitranslation, source.taxSpeciesId FROM  GlycanSourceLink source inner join source.glycan g
+WHERE source.taxSpeciesId > 0 
+GROUP BY g.glycanId, g.ogbitranslation, source.taxSpeciesId
+ORDER BY g.glycanId
+
+</query>
+
+    </class>
+</hibernate-mapping>

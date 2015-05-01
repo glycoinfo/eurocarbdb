@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:54 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Digest" table="digest" schema="hplc">
+        <id name="digestId" type="int">
+            <column name="digest_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.digest_digest_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="enzymeOne" type="string">
+            <column name="enzyme_one" length="20" not-null="true" />
+        </property>
+        <property name="targetOne" type="int">
+            <column name="target_one" not-null="true" />
+        </property>
+        <property name="enzymeTwo" type="string">
+            <column name="enzyme_two" length="20" not-null="true" />
+        </property>
+        <property name="targetTwo" type="int">
+            <column name="target_two" not-null="true" />
+        </property>
+        <property name="enzymeThree" type="string">
+            <column name="enzyme_three" length="20" not-null="true" />
+        </property>
+        <property name="targetThree" type="int">
+            <column name="target_three" not-null="true" />
+        </property>
+        <property name="enzymeFour" type="string">
+            <column name="enzyme_four" length="20" not-null="true" />
+        </property>
+        <property name="targetFour" type="int">
+            <column name="target_four" not-null="true" />
+        </property>
+        <property name="enzymeFive" type="string">
+            <column name="enzyme_five" length="20" not-null="true" />
+        </property>
+        <property name="targetFive" type="int">
+            <column name="target_five" not-null="true" />
+        </property>
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+        <set name="profileDatas" inverse="true">
+            <key>
+                <column name="digest_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.ProfileData" />
+        </set>
+        <set name="hplcPeaksIntegrateds" inverse="true">
+            <key>
+                <column name="digest_id" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.HplcPeaksIntegrated" />
+        </set>
+        <set name="integrationMethods" inverse="true">
+            <key>
+                <column name="digest_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.IntegrationMethod" />
+        </set>
+    </class>
+</hibernate-mapping>

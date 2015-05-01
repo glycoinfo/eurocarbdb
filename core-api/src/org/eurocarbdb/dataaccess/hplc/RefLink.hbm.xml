@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 2, 2007 4:31:28 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.RefLink" table="ref_link" schema="hplc">
+        <id name="refLinkId" type="int">
+            <column name="ref_link_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.ref_link_ref_link_seq</param>
+            </generator>
+        </id>
+        <property name="refId" type="int">
+            <column name="ref_id" />
+        </property>
+	<property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+	</property>
+        <property name="paperGu" type="java.lang.Double">
+            <column name="paper_gu" precision="8" scale="0" />
+        </property>
+        <property name="ms" type="string">
+            <column name="ms" length="5" />
+        </property>
+        <property name="msMs" type="string">
+            <column name="ms_ms" length="5" />
+	</property>
+	<property name="coreReferenceId" type="java.lang.Integer">
+		<column name="core_reference_id" />
+	</property>
+	
+	<many-to-one name="contributor" class="org.eurocarbdb.dataaccess.core.Contributor" fetch="select" embed-xml="false">
+		<column name="contributor_id" not-null="true" />
+	</many-to-one>
+	
+	<property name="dateEntered" type="timestamp" 
+                  insert="false" update="false" generated="insert" access="field">
+                 <column name="date_entered" length="8" not-null="true" />
+        </property>
+
+<query name="SELECT_ALL">
+	FROM RefLink
+</query>
+
+<query name="PUBS">
+SELECT link.paperGu, link.msMs, link.ms, Ref.author, Ref.medUi, Ref.pubYear, Ref.ogbiId, link.refId from RefLink AS link, Ref as Ref  where Ref.ogbiId = link.refId and link.glycanId = :glycan_id
+</query>
+
+<query name="SELECT_GROUP_ID">
+	select ref.glycanId, count(ref) from RefLink ref where ref.glycanId > 0 group by ref.glycanId
+</query>
+
+<query name="SELECT_REFERENCE">
+	SELECT r.author, r.title, r.journal, r.pubYear, r.volume, r.medUi, l.glycanId
+	FROM Ref r, RefLink l 
+	where l.glycanId = :glycanId and r.ogbiId = l.refId 
+</query>
+
+<query name="REFERENCE_IMPORT">
+	SELECT r.author, r.title, r.journal, r.pubYear, r.volume, r.medUi, r.startPage, r.endPage, l.glycanId, g.ogbitranslation, l.refId
+        FROM Ref r, RefLink l, Glycan g
+        where l.glycanId = :glycanId and r.ogbiId = l.refId and g.glycanId = :glycanId
+ </query>
+
+
+<query name="IMPORT_REFERENCE_GWS">
+	SELECT r.medUi, g.ogbitranslation, l.glycanId, l.refId
+	FROM Ref r, Glycan g, RefLink l
+	WHERE l.glycanId = :glycanId and r.ogbiId = l.refId and g.glycanId = :glycanId and g.ogbitranslation > 0
+</query>
+
+<query name="UPDATE_CORE_REFERENCE_ID">
+	UPDATE RefLink SET coreReferenceId = :storedCoreRefId where glycanId = :glycanId and refId = :lookupRefId
+</query>
+
+<query name="STATS">
+        SELECT stddev(paperGu), avg(paperGu), count(*) FROM RefLink where glycanId = :glycanId
+</query>
+
+<!-- SELECT link.paperGu, link.msMs, link.ms, Ref.author, Ref.medUi, Ref.pubYear from RefLink AS link left outer join link.ref as Ref where link.glycanId = :glycan_id -->
+<!--
+<query name="PUBS">
+SELECT link.paperGu, link.msMs, link.ms, Ref.author, Ref.medUi, Ref.pubYear from RefLink AS link, Ref AS Ref where link.glycanId = :glycan_id and link.glycanId = Ref.refId
+</query>
+-->
+
+    </class>
+</hibernate-mapping>

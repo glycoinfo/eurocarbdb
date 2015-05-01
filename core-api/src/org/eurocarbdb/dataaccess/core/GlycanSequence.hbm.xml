@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update" >
+
+    <class name="org.eurocarbdb.dataaccess.core.GlycanSequence" 
+           table="glycan_sequence" schema="core" node="glycan" >
+        
+        <id name="glycanSequenceId" type="int" access="field" node="@id">
+            <column name="glycan_sequence_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.glycan_sequence_glycan_sequence_id_seq</param>
+			</generator>
+        </id>
+        
+        <!--==========================  properties  ===================================-->
+        
+        <property name="sequenceIupac" type="string" node="sequence/iupac" access="field">
+            <column name="sequence_iupac" length="65535" />
+        </property>
+        
+        <property name="sequenceCt" type="string" node="sequence/iupac" access="field">
+            <column name="sequence_ct" length="65535" not-null="true" unique="true" />
+        </property>
+        
+        <property name="sequenceGWS" type="string" node="sequence/iupac" access="field">
+            <column name="sequence_gws" length="65535" not-null="true" />
+        </property>
+        
+        <!-- residueCount: derived from sugar sequence -->
+        <property name="residueCount" type="int" access="field">
+            <column name="residue_count" />
+        </property>
+        
+        <!-- massMonoisotopic: derived from sugar sequence -->
+        <property name="massMonoisotopic" type="big_decimal" access="field">
+            <column name="mass_monoisotopic" precision="65535" scale="65531" />
+        </property>
+        
+        <!-- massAverage: derived from sugar sequence -->
+        <property name="massAverage" type="big_decimal" access="field">
+            <column name="mass_average" precision="65535" scale="65531" />
+        </property>
+        
+        <!-- dateEntered: determined by the database on INSERT -->
+        <property name="dateEntered" type="timestamp" 
+            insert="false" update="false" generated="insert" access="field">
+            <column name="date_entered" length="8" not-null="true" />
+        </property>
+        
+        <!-- dateContributed: determined by the database on INSERT -->
+        <property name="dateContributed" type="timestamp" 
+            insert="false" update="false" generated="insert" access="field">
+            <column name="date_contributed" length="8" not-null="true" />
+        </property>
+        
+        <!-- isDefinite: derived from sugar sequence -->
+        <!--<property name="isDefinite" type="boolean" access="field">
+            <column name="is_definite" length="1" />
+        </property>-->
+        
+        
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="contributor" 
+                     class="org.eurocarbdb.dataaccess.core.Contributor" 
+                     fetch="select" 
+                     embed-xml="false"
+                     >
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>
+        
+        <set name="glycanContexts" inverse="true" access="field" embed-xml="true">
+            <key>
+                <column name="glycan_sequence_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.GlycanSequenceContext" />
+        </set>
+        
+        <set name="glycanReferences" inverse="true" access="field" embed-xml="false">
+            <key>
+                <column name="glycan_sequence_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.GlycanSequenceReference" />
+        </set>
+        
+        <set name="glycanEvidence" inverse="true" access="field" embed-xml="false">
+            <key>
+                <column name="glycan_sequence_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.GlycanSequenceEvidence" />
+        </set>
+        
+        <set name="glycanResidues" inverse="true" access="field" fetch="select">
+            <key>
+                <column name="glycan_sequence_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.seq.GlycanResidue" />
+        </set>
+	
+        
+        <!--=====================  named queries  ===========================-->
+        
+	
+	<!-- 
+        query : ALL_SEQUENCES
+        desc  : returns All GlycanSequence sequence string.
+        author: Ki Tae Myoung
+        -->
+	<query name="ALL_SEQUENCES"> 
+            FROM GlycanSequence gs 
+        </query>
+	<!-- 
+        query : BY_EXACT_SEQUENCE
+        desc  : returns a GlycanSequence by an exactly matching sequence string.
+        author: mjh
+        -->
+        <query name="BY_EXACT_SEQUENCE"> 
+            FROM GlycanSequence gs 
+            WHERE gs.sequenceCt = :seq
+        </query>
+
+        <!-- 
+        query : BY_RESIDUE_COUNT_GREATER
+        desc  : returns all GlycanSequences with a
+        		residue count greater than x
+        author: ss
+        -->
+        <query name="BY_RESIDUE_COUNT_GREATER"> 
+            SELECT  gs
+            FROM    GlycanSequence gs WHERE gs.residueCount > :residueCount
+        </query>
+
+        <!-- 
+        query : BY_RESIDUE_COUNT_EQUAL
+        desc  : returns all GlycanSequences with a equal to x
+        author: ss
+        -->
+        <query name="BY_RESIDUE_COUNT_EQUAL"> 
+            SELECT  gs
+            FROM    GlycanSequence gs WHERE gs.residueCount = :residueCount
+        </query>
+
+        <!-- 
+        query : GET_EVIDENCE_FOR_SEQUENCE
+        desc  : gets a list of all evidence records for a given sequence
+        author: mjh
+        -->
+        <query name="GET_EVIDENCE_FOR_SEQUENCE"> 
+            SELECT  ev
+            FROM    Evidence AS ev
+            LEFT JOIN ev.glycanSequenceEvidence AS gs2ev
+            WHERE   gs2ev.glycanSequence.glycanSequenceId = :sequence_id
+        </query>
+
+        <!-- 
+        query : GET_REFERENCES_FOR_SEQUENCE
+        desc  : gets a list of all references for a given sequence id
+        author: mjh
+        -->
+        <query name="GET_REFERENCES_FOR_SEQUENCE"> 
+            from Reference as ref
+            join fetch ref.glycanSequenceReferences AS gs_refs
+            where gs_refs.glycanSequence.glycanSequenceId = :sequence_id
+        </query>
+
+        <!-- 
+        query : GET_REFERENCES_FOR_SEQUENCE_AND_CONTRIBUTOR
+        desc  : gets a list of all references for a given sequence id and contributor id
+        author: hirenj
+        -->
+        <query name="GET_REFERENCES_FOR_SEQUENCE_AND_CONTRIBUTOR"> 
+            from Reference as ref
+            join fetch ref.glycanSequenceReferences AS gs_refs
+            where gs_refs.glycanSequence.glycanSequenceId = :sequence_id
+            and   gs_refs.contributor.contributorId = :contributor_id
+        </query>
+        
+        <!--  
+        query : GET_ALL_BCS_FOR_SEQUENCE
+        desc  : gets all biological contexts in which a given sequence
+                has been observed.
+        author: mjh
+        -->
+        <query name="GET_ALL_BCS_FOR_SEQUENCE"> 
+            select  bc
+            from    GlycanSequenceContext gsc
+            inner join gsc.biologicalContext AS bc
+            where   gsc.glycanSequence.glycanSequenceId = :sequence_id
+        </query>
+
+        <!--  
+        query : BY_EXTERNAL_REFERENCE
+        author: mjh
+        -->
+        <query name="BY_EXTERNAL_REFERENCE"> 
+            select gsr.glycanSequence
+            from   GlycanSequenceReference gsr
+                   inner join gsr.reference ref 
+            where  ref.externalReferenceId = :ext_ref_id
+            and    ref.externalReferenceName = :ext_ref_name
+        </query>
+
+        <!--  
+        query : 
+        author: mjh
+        -->
+        <query name="by_missing_substructure_info"> 
+            select gs.id
+            from GlycanSequence gs
+            where size( gs.glycanResidues ) = 0
+            order by gs.id 
+        </query>
+
+        <!--  
+        query : 
+        author: mjh
+        -->
+        <query name="GET_TAXONOMIES">
+            select distinct(gc.biologicalContext.taxonomy)
+            from GlycanSequence gs
+            left join gs.glycanContexts gc
+            where gs.glycanSequenceId = :id
+            order by gc.biologicalContext.taxonomy.taxon asc 
+        </query>
+
+        <!--  
+        query : 
+        author: hirenj
+        -->
+        <query name="GET_DISEASES">
+            select distinct(d)
+            from GlycanSequence gs
+            inner join gs.glycanContexts gc
+            inner join gc.biologicalContext bc
+            inner join bc.diseaseContexts dc
+            inner join dc.disease d
+            where gs.glycanSequenceId = :id
+            order by d.diseaseName asc 
+        </query>
+
+        <!--  
+        query : 
+        author: hirenj
+        -->
+        <query name="GET_TISSUES">
+            select distinct(gc.biologicalContext.tissueTaxonomy)
+            from GlycanSequence gs
+            left join gs.glycanContexts gc
+            where gs.glycanSequenceId = :id
+            order by gc.biologicalContext.tissueTaxonomy.tissueTaxon asc 
+        </query>
+
+        
+        <query name="HPLC_REFERENCE">
+            from Reference as ref
+            <!-- from Reference as ref,  RefLink as gu -->
+            join fetch ref.glycanSequenceReferences AS gs_refs
+            where gs_refs.glycanSequence.glycanSequenceId = :sequence_id
+    
+            <!--and hplc.ogbitranslation = :sequence_id
+            and gu.glycanId = hplc.glycanId
+            -->
+            <!--
+            and gu.coreReferenceId = ref.referenceId 
+            -->
+    
+        </query>
+
+	<query name="GET_ALL_ID_SEQUENCE">
+	select r1.glycanSequenceId, r1.sequenceCt from GlycanSequence r1        
+	</query>
+        
+    </class>
+    
+</hibernate-mapping>

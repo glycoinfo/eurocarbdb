@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 2, 2007 9:17:34 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.DisRefine" table="dis_refine" schema="hplc">
+        <id name="disRefId" type="int">
+            <column name="dis_ref_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.dis_refine_dis_ref_id_seq</param>
+            </generator>
+        </id>
+        <property name="profileId" type="java.lang.Integer">
+            <column name="profile_id" />
+        </property>
+        <property name="digestId" type="java.lang.Integer">
+            <column name="digest_id" />
+        </property>
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+        <property name="enzyme" type="string">
+            <column name="enzyme" length="0" />
+        </property>
+        <property name="product" type="string">
+            <column name="product" length="0" />
+        </property>
+        <property name="productId" type="java.lang.Integer">
+            <column name="product_id" />
+        </property>
+
+
+<query name="DIS_REFINE">
+from DisRefine DS where DS.profileId = 29
+</query>
+
+<query name="DIS_REFINE_GLYCANS">
+select glycanId from DisRefine where profileId = :parent
+</query>
+
+
+<query name="FIND_ENZYME_DISAPPEARED">
+select r.profileId, r.digestId, r.glycanId, d.sequentialDigest from DisRefine r, DigestProfile d where r.profileId = :parent and r.profileId = :parent and d.digestId = r.digestId + 1 and r.glycanId = :glycan 
+</query>
+
+
+<query name="PRODUCT_FIND">
+SELECT r.profileId, r.digestId, r.glycanId, r.enzyme, d.productId from DisRefine r, DigestSingle d where d.glycanId = :glycan and r.enzyme = d.enzyme and d.productId > 0 and r.profileId = :parent and r.glycanId = :glycan 
+</query>
+
+
+<query name="UPDATE">
+update DisRefine set product = 'present'  where profileId = :parent  and digestId = :digest and productId IN (select glycan from HplcPeaksAnnotated where profileId = :parent and digestId = :digest +1)
+</query>
+
+<query name="UPDATE_TEST">
+	FROM DisRefine where profileId = :parent  and digestId = :digest and productId IN (select glycan from HplcPeaksAnnotated where profileId = :parent and digestId = :digest +1)
+</query>
+
+<query name="UPDATE_FIRST_DIGEST">
+update DisRefine set product = 'present'  where profileId = :parent  and digestId = 0 and productId IN (select glycan from HplcPeaksAnnotated where profileId = :parent and digestId = 1)
+</query>
+
+<query name="UPDATE_ANNOTATED">
+update HplcPeaksAnnotated set refined = 1 where profileId = :parent and digestId=0 and glycan IN (select glycanId from DisRefine where profileId = :parent and product like '%present%')
+</query>
+
+
+
+    </class>
+</hibernate-mapping>

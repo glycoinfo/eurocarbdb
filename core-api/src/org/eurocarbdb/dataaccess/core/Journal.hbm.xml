@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 23, 2007 1:31:25 PM by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.Journal" table="journal" schema="core">
+    
+        <id name="journalId" type="int">
+            <column name="journal_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.journal_journal_id_seq</param>
+			</generator>
+        </id>
+        
+        <property name="journalTitle" type="string">
+            <column name="journal_title" length="128" not-null="true" />
+        </property>
+        
+        <property name="journalAbbrev" type="string">
+            <column name="journal_abbrev" length="64" not-null="true" />
+        </property>
+        
+        <!-- mjh: doesn't need to be bidirectional
+        <set name="journalReferences" inverse="true" access="field">
+            <key>
+                <column name="journal_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.JournalReference" />
+        </set>
+        -->
+        
+        
+        <!--=====================  named queries  =============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+        
+
+        <!-- 
+        query : BY_MATCHING_JOURNAL_NAME
+        desc  : Retrieves all journals whose name matches the given name.
+        author: mjh
+        -->
+        <query name="BY_MATCHING_JOURNAL_NAME">
+            from Journal as j
+            where j.journalTitle = :journal_name
+        </query>
+        
+        
+        <!-- 
+        query : GET_ALL_REFERENCES
+        desc  : Retrieves all journal references that refer to the given journal id
+        author: mjh
+        -->
+        <query name="GET_ALL_REFERENCES">
+            from JournalReference as jr
+            where jr.journal.journalId = :journal_id
+        </query>
+        
+    </class>
+    
+</hibernate-mapping>

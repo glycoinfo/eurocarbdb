@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.Annotation" table="annotation" schema="ms">
+    
+        <id name="annotationId" type="int">
+            <column name="annotation_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.annotation_annotation_id_seq</param>
+            </generator>
+        </id>
+
+        <property name="dateEntered" type="timestamp" insert="false">
+            <column name="date_entered" length="8" />
+        </property>
+	
+	<property name="contributorQuality" type="double">
+            <column name="contributor_quality" precision="8" scale="0" not-null="true" />
+        </property>
+
+	<!--======================  associations  ===========================-->
+	<many-to-one name="scan" class="org.eurocarbdb.dataaccess.ms.Scan" fetch="select">
+            <column name="scan_id" not-null="true" />
+        </many-to-one>
+
+	<many-to-one name="contributor" class="org.eurocarbdb.dataaccess.core.Contributor" fetch="select">
+            <column name="contributor_id" not-null="true" />
+        </many-to-one> 
+
+	<many-to-one name="parentStructure" class="org.eurocarbdb.dataaccess.core.GlycanSequence" fetch="select">
+            <column name="parent_structure_id" />
+	</many-to-one>
+
+	<many-to-one name="persubstitution" class="org.eurocarbdb.dataaccess.ms.Persubstitution" fetch="select">
+            <column name="persubstitution_id" not-null="true" />
+        </many-to-one> 
+
+	<many-to-one name="reducingEnd" class="org.eurocarbdb.dataaccess.ms.ReducingEnd" fetch="select">
+            <column name="reducing_end_id" not-null="true" />
+        </many-to-one> 
+
+	<set name="peakAnnotations" inverse="true">
+            <key>
+                <column name="annotation_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotation" />
+        </set>    
+ 
+    </class>
+    
+</hibernate-mapping>

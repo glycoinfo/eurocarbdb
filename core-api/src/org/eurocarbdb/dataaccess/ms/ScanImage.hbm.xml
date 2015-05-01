@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.ScanImage" table="scan_image" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="scanImageId" type="integer">
+            <column name="scan_image_id"/>
+             <generator class="sequence">
+                <param name="sequence">ms.scan_image_scan_image_id_seq</param>
+            </generator>
+        </id>
+        <property name="fullSize" type="binary">
+            <column name="full_size" not-null="true"/>
+        </property>
+        <property name="mediumSize" type="binary">
+            <column name="medium_size" not-null="true"/>
+        </property>
+        <property name="thumbnail" type="binary">
+            <column name="thumbnail" not-null="true"/>
+        </property>
+        <property name="fileName" type="string">
+            <column name="file_name" length="256" not-null="true"/>
+        </property>
+        <property name="annotationReport" type="binary">
+            <column name="annotation_report"/>
+        </property>
+        <many-to-one name="scan" class="org.eurocarbdb.dataaccess.ms.Scan" cascade="none">
+            <column name="scan_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

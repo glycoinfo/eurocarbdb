@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.ScanToDataProcessing" table="scan_to_data_processing" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="ScanToDataProcessingId" type="integer">
+            <column name="scan_to_data_processing_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.scan_to_data_processing_scan_to_data_processing_id_seq</param>
+            </generator>
+        </id>
+        <property name="spotIntegration" type="boolean">
+            <column name="spot_integration" not-null="true"/>
+        </property>
+        <property name="softwareOrder" type="integer">
+            <column name="software_order" not-null="true"/>
+        </property>
+        <many-to-one name="scan" class="org.eurocarbdb.dataaccess.ms.Scan" cascade="none">
+            <column name="scan_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="dataProcessing" class="org.eurocarbdb.dataaccess.ms.DataProcessing" cascade="none">
+            <column name="data_processing_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

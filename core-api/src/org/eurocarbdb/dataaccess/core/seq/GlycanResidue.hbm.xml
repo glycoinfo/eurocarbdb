@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2008 12:11:02 PM by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.core.seq.GlycanResidue" table="glycan_residue" schema="seq">
+    
+        <id name="glycanResidueId" type="int" access="field">
+            <column name="glycan_residue_id" />
+			<generator class="sequence" >
+				<param name="sequence">seq.glycan_residue_glycan_residue_id_seq</param>
+			</generator>
+        </id>
+        
+        <discriminator column="residue_type" type="string" not-null="true" />
+        
+        <!--=========================== properties ====================================-->         
+        
+        <!-- property: linkage -->
+        <component name="linkage" class="org.eurocarbdb.sugar.GlycosidicLinkage">
+        
+            <property name="childTerminus" type="int" access="field">
+                <column name="linkage_child" />
+            </property>
+            
+            <property name="parentTerminus" type="int" access="field">
+                <column name="linkage_parent" />
+            </property>
+            
+            <!--
+            <property name="anomer" access="field">
+                <column name="linkage_a" length="1" />
+                <type name="org.eurocarbdb.dataaccess.hibernate.GenericEnumUserType">
+                    <param name="enumClassName">org.eurocarbdb.sugar.Anomer</param>
+                    <param name="identifierMethod">toChar</param>
+                    <param name="valueOfMethod">forName</param>
+                </type>
+            </property>
+            -->
+        </component>
+        
+        <!-- property: residue -->
+        <property name="residueName" type="string">
+            <column name="residue_name" length="32" />
+        </property>
+        
+
+        <property name="leftIndex" type="int" access="field">
+            <column name="left_index" not-null="true" unique="true" />
+        </property>
+        
+        <property name="rightIndex" type="int" access="field">
+            <column name="right_index" not-null="true" unique="true" />
+        </property>
+
+        <!--=========================== associations ==================================-->         
+        
+        <many-to-one name="glycanSequence" class="org.eurocarbdb.dataaccess.core.GlycanSequence" fetch="select">
+            <column name="glycan_sequence_id" not-null="true" />
+        </many-to-one>
+        
+        <!--
+        <many-to-one name="residue" class="org.eurocarbdb.dataaccess.core.seq.EcdbResidue" fetch="select">
+            <column name="residue_id" not-null="true" />
+        </many-to-one>
+        -->
+        
+        <many-to-one name="parent" class="org.eurocarbdb.dataaccess.core.seq.GlycanResidue" access="field" fetch="select">
+            <column name="parent_id" />
+        </many-to-one>
+        
+        <set name="children" inverse="true" access="field">
+            <key><column name="parent_id" /></key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.seq.GlycanResidue" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

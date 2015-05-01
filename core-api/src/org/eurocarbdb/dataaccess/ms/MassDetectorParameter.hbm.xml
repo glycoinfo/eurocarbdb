@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:07 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+    <class name="org.eurocarbdb.dataaccess.ms.MassDetectorParameter" table="mass_detector_parameter" schema="ms">
+    
+        <id name="massDetectorParameterId" type="int">
+            <column name="mass_detector_parameter_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.mass_detector_parameter_mass_detector_parameter_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="deviceSettings" class="org.eurocarbdb.dataaccess.ms.DeviceSettings" fetch="select">
+            <column name="device_settings_id" not-null="true" unique="true" />
+        </many-to-one>
+        
+        <many-to-one name="massDetector" class="org.eurocarbdb.dataaccess.ms.MassDetector" fetch="select">
+            <column name="mass_detector_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="digitalResolution" type="int">
+            <column name="digital_resolution" not-null="true" />
+        </property>
+        
+        <property name="samplingFrequency" type="int">
+            <column name="sampling_frequency" not-null="true" />
+        </property>
+        
+    </class>
+    
+</hibernate-mapping>

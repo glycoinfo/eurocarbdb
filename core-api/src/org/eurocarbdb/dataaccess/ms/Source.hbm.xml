@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:07 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.Source" table="source" schema="ms">
+    
+        <id name="sourceId" type="int">
+            <column name="source_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.source_source_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="device" class="org.eurocarbdb.dataaccess.ms.Device" fetch="select">
+            <column name="device_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="model" type="string">
+            <column name="model" />
+        </property>
+        
+        <property name="sourceType" type="string">
+            <column name="source_type" not-null="true" />
+        </property>
+        
+        <set name="sourceParameters" inverse="true">
+            <key>
+                <column name="source_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.SourceParameter" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

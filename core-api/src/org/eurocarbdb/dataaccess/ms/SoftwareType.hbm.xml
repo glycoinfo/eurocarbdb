@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.SoftwareType" table="software_type" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="softwareTypeId" type="integer">
+            <column name="software_type_id"/>
+             <column name="software_type_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.software_type_software_type_id_seq</param>
+            </generator>
+        </id>
+        <property name="softwareType" type="string">
+            <column name="software_type" length="100" not-null="true"/>
+        </property>
+        <set name="dataProcessings" inverse="true">
+            <key>
+                <column name="software_type_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.DataProcessing"/>
+        </set>
+ <!-- Quiries -->       
+        <query name="GET_BY_TYPE">
+        SELECT st
+        FROM SoftwareType as st
+        WHERE st.softwareType = :softwareType
+        
+        </query>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+
+#if($embeddedid)
+   <composite-id>
+#foreach($keyproperty in $embeddedid.propertyIterator)
+	#if(!$c2h.isManyToOne($keyproperty))
+        <key-property name="$keyproperty.name" type="$keyproperty.value.typeName">
+        #foreach($column in $keyproperty.columnIterator)
+	       #parse("hbm/pkcolumn.hbm.vm")
+        #end		
+		</key-property>
+	#else
+		<key-many-to-one name="$keyproperty.name" class="$c2j.getJavaTypeName($keyproperty, false)">
+        #foreach($column in $keyproperty.columnIterator)
+	       #parse("hbm/pkcolumn.hbm.vm")
+        #end		
+		</key-many-to-one>
+	#end
+#end
+   </composite-id>   
+#elseif(!$c2j.isComponent($property)) 
+	<id 
+        name="$property.name"
+        type="$property.value.typeName"
+#if ($c2h.isUnsavedValue($property))
+        unsaved-value="$c2h.getUnsavedValue($property)"
+#end
+#if(! $property.basicPropertyAccessor)
+        access="$property.propertyAccessorName"
+#end
+    >
+#foreach($column in $property.columnIterator)
+	    #parse("hbm/pkcolumn.hbm.vm")
+#end
+#*
+=========  this section replaced by matt  =========
+#if(! $c2h.isIdentifierGeneratorProperties($property))
+	    <generator class="$property.Value.identifierGeneratorStrategy" />
+#else
+	    <generator class="$property.Value.identifierGeneratorStrategy">
+#set ($parameters = $c2h.getIdentifierGeneratorProperties($property))
+#foreach($paramkey in $c2h.getFilteredIdentifierGeneratorKeySet($property))
+            <param name="$paramkey">$parameters.get($paramkey)</param>
+#end
+		</generator>
+#end
+#^^^^^^^^^^^  this section replaced by matt  ^^^^^^^^^^^^
+*#
+        <generator class="sequence" >
+            <param name="sequence">${clazz.table.schema}.${clazz.table.name}_${clazz.table.name}_id_seq</param>
+        </generator>
+        ##^^^^ my section ^^^^
+    </id>
+	
+#else
+    <composite-id
+		name="$property.name"
+        class="$property.value.getComponentClassName()"
+#if ($c2h.isUnsavedValue($property))
+        unsaved-value="$c2h.getUnsavedValue($property)"
+#end
+#if(! $property.basicPropertyAccessor)
+        access="$property.propertyAccessorName"
+#end
+    >		
+#foreach($keyproperty in $property.value.propertyIterator)
+	#if(!$c2h.isManyToOne($keyproperty))
+        <key-property name="$keyproperty.name" type="$keyproperty.value.typeName">
+        #foreach($column in $keyproperty.columnIterator)
+	       #parse("hbm/pkcolumn.hbm.vm")
+        #end		
+		</key-property>
+	#else
+		<key-many-to-one name="$keyproperty.name" class="$c2j.getJavaTypeName($keyproperty, false)">
+        #foreach($column in $keyproperty.columnIterator)
+	       #parse("hbm/pkcolumn.hbm.vm")
+        #end		
+		</key-many-to-one>
+	#end
+#end
+    </composite-id>
+	
+#end
+    

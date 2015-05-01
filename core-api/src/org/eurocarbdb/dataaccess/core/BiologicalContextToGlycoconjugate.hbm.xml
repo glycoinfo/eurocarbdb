@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:28 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.BiologicalContextToGlycoconjugate" table="biological_context_to_glycoconjugate" schema="core">
+        <id name="biologicalContextToGlycoconjugateId" type="int">
+            <column name="biological_context_to_glycoconjugate_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.biological_context_to_glycoco_biological_context_to_glycoco_seq</param>
+			</generator>
+        </id>
+        <many-to-one name="biologicalContext" class="org.eurocarbdb.dataaccess.core.BiologicalContext" fetch="select">
+            <column name="biological_context_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="glycoconjugate" class="org.eurocarbdb.dataaccess.core.Glycoconjugate" fetch="select">
+            <column name="glycoconjugate_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

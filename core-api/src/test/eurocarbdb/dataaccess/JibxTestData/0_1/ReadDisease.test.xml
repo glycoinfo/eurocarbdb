@@ -1,0 +1,6 @@
+<disease xmlns="http://xml.eurocarbdb.org/0">
+<mesh_id>1</mesh_id>
+<name>Ebola</name>
+<description>Nasty stuff</description>
+<should>ignore</should>
+</disease>

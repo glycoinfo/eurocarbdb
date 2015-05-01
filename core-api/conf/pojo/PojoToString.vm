@@ -1,0 +1,18 @@
+#if($pojo.needsToString())
+    /*  toString  *//************************************************
+    * 
+    */
+    public String toString() 
+    {
+	    StringBuffer buffer = new StringBuffer();
+
+        buffer.append(getClass().getName()).append("@").append(Integer.toHexString(hashCode())).append(" [");
+#foreach($property in $pojo.getToStringPropertiesIterator())
+        buffer.append("$property.getName()").append("='").append($pojo.getGetterSignature($property)()).append("' ");			
+#end
+        buffer.append("]");
+      
+        return buffer.toString();
+    }
+#end
+    

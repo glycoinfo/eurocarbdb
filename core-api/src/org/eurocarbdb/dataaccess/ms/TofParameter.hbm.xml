@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:07 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.TofParameter" table="tof_parameter" schema="ms">
+    
+        <id name="tofParameterId" type="int">
+            <column name="tof_parameter_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.tof_parameter_tof_parameter_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="deviceSettings" class="org.eurocarbdb.dataaccess.ms.DeviceSettings" fetch="select">
+            <column name="device_settings_id" not-null="true" unique="true" />
+        </many-to-one>
+        
+        <property name="reflectorState" type="java.lang.Boolean">
+            <column name="reflector_state" />
+        </property>
+        
+        <property name="acceleratorGridVoltage" type="java.lang.Double">
+            <column name="accelerator_grid_voltage" precision="8" scale="0" />
+        </property>
+        
+        <property name="delayExtrationTime" type="java.lang.Double">
+            <column name="delay_extration_time" precision="8" scale="0" />
+        </property>
+        
+    </class>
+    
+</hibernate-mapping>

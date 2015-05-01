@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:54 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.PictorialRepresentation" table="pictorial_representation" schema="hplc">
+        <id name="glycanId" type="int">
+            <column name="glycan_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.pictorial_representation_pictorial_representation_id_seq</param>
+            </generator>
+        </id>
+        <property name="pictorialRepresentation" type="string">
+            <column name="pictorial_representation" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

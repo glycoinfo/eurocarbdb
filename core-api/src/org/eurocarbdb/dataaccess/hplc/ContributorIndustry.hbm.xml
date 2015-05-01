@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.hplc.ContributorIndustry" table="contributor_industry" schema="hplc">
+    
+        <id name="contributorId" type="int" access="field">
+            <column name="contributor_id" />
+            <generator class="sequence" >
+            	<param name="sequence">hplc.contributor_contributor_id_seq</param>
+            </generator>
+        </id>
+        
+        <!--=======================  properties  ============================-->
+        
+        <property name="contributorName" type="string" >
+            <column name="contributor_name" length="128" />
+        </property>
+
+        <property name="password" type="string" >
+            <column name="password" length="128" />
+        </property>
+
+        <property name="fullName" type="string" >
+            <column name="full_name" length="128" />
+        </property>
+
+        <property name="institution" type="string" >
+            <column name="institution" length="128" />
+        </property>
+        
+        <property name="email" type="string" not-null="true">
+            <column name="email" length="128" />
+        </property>
+
+        <property name="dateEntered" type="timestamp" insert="false" update="false">
+            <column name="date_entered" length="8" />
+        </property>
+        
+    </class>    
+    
+</hibernate-mapping>

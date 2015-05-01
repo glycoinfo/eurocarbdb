@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:27 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+    
+    <!-- 
+    see http://www.ebi.ac.uk/~matt/eurocarb/core-api/doc/api/org/eurocarbdb/dataaccess/hibernate/GenericEnumUserType.html
+    and http://www.hibernate.org/272.html for info on using mapped enums 
+    -->
+    <typedef name="enum_evidence_type" class="org.eurocarbdb.dataaccess.hibernate.GenericEnumUserType">
+        <param name="enumClassName">org.eurocarbdb.dataaccess.core.Evidence$Type</param>
+    </typedef>
+
+    <class name="org.eurocarbdb.dataaccess.core.Evidence" table="evidence" schema="core" node="evidence">
+        
+        <id name="evidenceId" type="int" node="@id">
+            <column name="evidence_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.evidence_evidence_id_seq</param>
+			</generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+
+        <property name="evidenceType" type="enum_evidence_type" node="@type">
+            <column name="evidence_type" />
+        </property>
+      
+        <property name="dateEntered" type="timestamp" insert="false">
+            <column name="date_entered" length="8" />
+        </property>
+                
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="contributor" class="org.eurocarbdb.dataaccess.core.Contributor" >
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="experiment" class="org.eurocarbdb.dataaccess.core.Experiment">
+            <column name="experiment_id" />
+        </many-to-one>
+        
+        <many-to-one name="technique" class="org.eurocarbdb.dataaccess.core.Technique">
+            <column name="technique_id" not-null="true" />
+        </many-to-one>
+        
+        <one-to-one name="experimentStep" 
+            class="org.eurocarbdb.dataaccess.core.ExperimentStep" />
+
+        <set name="evidenceContexts" access="field" node="evidence_contexts" embed-xml="false">
+            <key>
+                <column name="evidence_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.EvidenceContext" />
+        </set>
+        
+        <set name="glycanSequenceEvidence" inverse="true" access="field" node="glycan_sequence_contexts" embed-xml="false">
+            <key>
+                <column name="evidence_id" not-null="true" />
+            </key>     
+            <one-to-many class="org.eurocarbdb.dataaccess.core.GlycanSequenceEvidence" />
+        </set>
+        
+        <set name="referencedEvidence" inverse="true" access="field" node="references" embed-xml="false">
+            <key>
+                <column name="evidence_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.ReferencedEvidence" />
+        </set>
+        
+        <!--=====================  named queries  ==============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+        <!--  
+        query : 
+        author: mjh
+        -->
+        <query name="COUNT_BY_EVIDENCE_TYPE"> 
+            select distinct(ev.evidenceType), count(ev.evidenceId) 
+            from Evidence as ev  
+            group by ev.evidenceType
+        </query>
+        
+        <!-- 
+        query : GET_REFERENCES_FOR_EVIDENCE
+        desc  : gets a list of all references for a given evidence id
+        author: mjh
+        -->
+        <query name="GET_REFERENCES_FOR_EVIDENCE"> 
+            select ref
+            from Reference as ref
+            join fetch ref.referencedEvidence as re
+            where re.evidence.evidenceId = :evidence_id
+        </query>
+        
+        <!-- 
+        query : GET_SEQUENCES_FOR_EVIDENCE
+        desc  : gets a list of all glycan sequence records for a given evidence
+        author: ac
+        -->
+        <query name="GET_SEQUENCES_FOR_EVIDENCE"> 
+            SELECT  gs
+            FROM    GlycanSequence AS gs
+            LEFT JOIN gs.glycanEvidence AS gs2ev
+            WHERE   gs2ev.evidence.evidenceId = :evidence_id
+        </query>
+
+        <!-- 
+        query : GET_SEQUENCE_CONTEXTS_FOR_EVIDENCE
+        desc  : gets a list of all glycan sequence context records for a given evidence
+        author: hirenj
+        -->
+        <query name="GET_SEQUENCE_CONTEXTS_FOR_EVIDENCE"> 
+            SELECT  gsc
+            FROM    GlycanSequenceContext AS gsc
+            RIGHT JOIN gsc.biologicalContext.evidenceContexts AS bc2ev
+            WHERE   bc2ev.evidence.evidenceId = :evidence_id
+        </query>
+
+        <!-- 
+        query : ALL
+        desc  : returns all Evidences in the db
+        author: ac
+        -->
+        <query name="ALL"> 
+            select e
+            from Evidence e
+            <!--join fetch e.evidenceContexts as ec
+            join ec.biologicalContext             
+            join fetch e.evidenceReferences as er
+            join er.reference
+            -->
+        </query>
+
+        <!-- 
+        query : GET_EVIDENCE_COUNT_BY_EVIDENCE_TYPE
+        desc  : 
+        author: mjh
+        -->
+        <query name="GET_EVIDENCE_COUNT_BY_EVIDENCE_TYPE"> 
+            select 
+                ev.evidenceType,
+                count( ev.evidenceId )
+            from 
+                Evidence ev
+            group by
+                ev.evidenceType
+        </query>
+        
+    </class>
+    
+</hibernate-mapping>

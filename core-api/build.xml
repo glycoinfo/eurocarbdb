@@ -1,0 +1,332 @@
+<project name="eurocarbdb-core-api" default="build" xmlns:ac="antlib:net.sf.antcontrib">
+    
+    <!--
+    !   this import defines the following:
+    !
+    !   1) 'project.*' properties  
+    !   2) 'project.classpath' path, containing all external and eurocarb-compiled jars.
+    !   3) 'build-XXX' tasks, where 'XXX' is the name of a sub-project                
+    !
+    -->
+    <import file="../build.common.xml" />
+
+    <!--===================== PROPERTIES =========================-->
+
+    <property name="config.dir" value="${basedir}/conf" />
+    <property file="${config.dir}/eurocarbdb-core.properties" />
+    
+    
+    <property name="doc.dir" value="${basedir}/doc" />
+    <property name="apidoc.dir" value="${doc.dir}/api" />
+    
+    <property name="java.source.dir" value="${basedir}/src" />
+    <property name="java.build.dir" value="${basedir}/build" />
+    <property name="java.dist.dir" value="${project.java.lib.dir}" />
+    
+    <!-- unit testing properties -->
+    <property name="test.output.dir" value="${basedir}/test-output" />
+    <property name="test.groups" value="" />
+
+    <!-- ANTLR sugar sequence format grammar sources -->    
+    <property name="sugar.grammar.source.dir" value="${java.source.dir}/org/eurocarbdb/sugar/seq/grammar" />
+    
+    
+    <!--======================= TARGETS  =========================-->
+    <!--            (in alphabetical order please)                -->
+
+    
+    <!-- TARGET: build ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds local source, resolving dependencies if any.
+    -->
+    <target name="build" 
+        depends="build-molframework, build-glycoworkbench, build-glycanbuilder, build-glycopeakfinder, build-grammar"
+        description="Compiles all source files" 
+    >
+        <mkdir dir="${java.build.dir}" />
+        
+        <javac srcdir="${java.source.dir}" 
+               destdir="${java.build.dir}" 
+               deprecation="true"
+               debug="true" 
+               >
+            <!-- enable line below for all javac warnings -->
+            <!--<compilerarg value="-Xlint" />--> 
+            <compilerarg value="-Xlint:deprecation" />
+            <classpath refid="project.classpath"/>
+        </javac>
+        
+        <!-- copy essential config files to build.dir -->
+        <copy todir="${java.build.dir}">
+            <filelist dir="${config.dir}" id="core-api config files">
+                <file name="hibernate.cfg.xml"/><!-- hibernate mapping file collection -->
+                <file name="hibernate.properties"/><!-- hibernate properties -->
+                <file name="log4j.properties"/><!-- log4j properties -->
+            </filelist>
+            <fileset dir="${java.source.dir}" >
+                <include name="**/*.hbm.xml" /><!-- hibernate mapping files -->            
+                <include name="**/*.xml.ftl" /><!-- XML templates -->            
+            </fileset>
+        </copy>
+        
+        <!-- 
+        dynamically generate core-api-specific properties - contains the following:  
+            1) top-level conf/site.properties included by build.common.xml
+            2) local conf/eurocarbdb-core.properties
+            3) misc build properties from Ant build
+        -->
+        <echoproperties destfile="${java.build.dir}/eurocarbdb-core.properties" >
+            <propertyset negate="true">
+                <propertyref prefix="java" />
+                <propertyref prefix="sun" />
+                <propertyref prefix="awt" />
+            </propertyset>
+        </echoproperties>
+        
+    </target>
+    
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-apidocs
+    -->
+    <target 
+        name="build-apidocs" 
+        depends="" 
+        description="Creates javadoc from java sources" 
+        >
+        <echo>Building EurocarbDB core API documentation</echo>     
+        <mkdir dir="${apidoc.dir}" />
+        <javadoc 
+            sourcepath="${java.source.dir}"
+            classpathref="project.classpath"
+            destdir="${apidoc.dir}"
+            Author="true"
+            Use="true"
+            Version="true"
+            linksource="true"
+            stylesheetfile="${doc.dir}/eurocarb_apidoc.css"
+            windowtitle="Eurocarb Core API"
+            doctitle="Eurocarb Core API"
+        >
+            <!-- link to java stdlib API -->
+            <link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
+
+            <!-- link to commons logging -->
+            <link href="http://commons.apache.org/logging/apidocs/" />
+            
+            <!-- link to hibernate API -->
+            <link href="https://www.hibernate.org/hib_docs/v3/api/" />
+            
+            <!-- link to webwork API -->
+            <link href="http://www.opensymphony.com/webwork/api/" />
+            
+            <!-- link to ANTLR API, grammar/parser generator -->
+            <link href="http://www.antlr2.org/javadoc/" />
+            
+            <!-- link to TestNG API, unit testing framework -->
+            <link href="http://testng.org/javadocs/" />
+            
+            <!-- link to google collections -->
+            <link href="http://google-collections.googlecode.com/svn/trunk/javadoc/" />
+            
+            <!-- other eurocarb projects -->
+            <link href="../../../application/Eurocarbdb/doc/api/" />
+            <link href="../../../application/ResourcesDB/doc/api/" />
+            <link href="../../../application/GlycoWorkbench/doc/api/" />
+            <link href="../../../application/GlycanBuilder/doc/api/" />
+            <link href="../../../application/MolecularFramework/doc/api/" />
+            
+            <group title="Data access objects" packages="org.eurocarbdb.dataaccess*"/>
+            <group title="Objects for working with carbohydrates" packages="org.eurocarbdb.sugar*"/>
+            <group title="Utility classes" packages="org.eurocarbdb.util*"/>
+            <group title="Unit and functional tests" packages="test*"/>
+            
+        </javadoc>
+        <echo>See ${apidoc.dir} for generated javadoc</echo>
+        
+        <exec executable="open" os="Mac OS X">
+            <arg value="${apidoc.dir}/index.html"/>
+        </exec>
+
+    </target>
+
+    
+    <!-- TARGET: build-grammar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    Creates java code for sugar parsing from ANTLR grammar(s). 
+    See http://ant.apache.org/manual/OptionalTasks/antlr.html for Ant task info
+    and http://www.antlr2.org/doc/index.html for ANTLR info.
+    
+    Notable options to the antlr task are "traceParser", which when set to
+    true and the grammar regenerated ("ant clean-grammar"), will get ANTLR
+    to spam STDERR with useful rule tracing progress, which when combined 
+    with a log level of debug ("log4j.logger.org.eurocarbdb.sugar.seq.grammar = debug"
+    in log4j.properties), is pretty useful.
+    
+    Note that the grammar WILL NOT be regenerated unless a modification
+    has been made to the grammar, or (better) "ant clean-grammar" used.
+    -->
+    <target name="build-grammar" 
+        depends="" 
+        description="Creates java source for sugar parsing grammar(s)" >
+
+        <echo>Building ANTLR grammars</echo>        
+        
+        <taskdef name="antlr" 
+            classname="org.apache.tools.ant.taskdefs.optional.ANTLR" 
+            classpathref="project.classpath" 
+        />
+        
+        <!-- iupac grammar -->
+        <antlr  target="${sugar.grammar.source.dir}/iupac_grammar.g"
+                html="false"
+                diagnostic="false"
+                traceParser="false"
+                traceLexer="false"    
+        >
+            <classpath refid="project.classpath" />
+        </antlr>
+
+        <!-- glyco-ct grammar -->
+        <antlr  target="${sugar.grammar.source.dir}/glycoct_grammar.g"
+                html="false"
+                diagnostic="false"
+                traceParser="false"
+                traceLexer="false"    
+        >
+            <classpath refid="project.classpath" />
+        </antlr>
+                
+        <!-- glyco-ct python grammar -->
+        <!--
+        <antlr  target="${sugar.grammar.source.dir}/glycoct_grammar.py.g"
+                html="false"
+                diagnostic="false"
+                traceParser="false"
+                traceLexer="false"    
+        >
+            <classpath refid="project.classpath" />
+        </antlr>
+        -->
+    </target>       
+
+    
+    <!-- TARGET: clean ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Removes locally-compiled source only.
+    -->
+    <target name="clean" depends="">
+        <echo>Cleaning ${ant.project.name}</echo>
+        <mkdir dir="${java.build.dir}" />
+        <delete includeemptydirs="true">
+            <fileset dir="${java.build.dir}" includes="**/*"/>
+        </delete>
+    </target>
+    
+    
+    <!-- TARGET: clean-grammar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Deletes auto-generated java parser sources.
+    -->
+    <target name="clean-grammar" 
+        depends="" 
+        description="Deletes auto-generated parser sources for sugar grammars"
+        >
+        <delete file="${sugar.grammar.source.dir}/IupacLexer.java" />
+        <delete file="${sugar.grammar.source.dir}/IupacParser.java" />
+        <delete file="${sugar.grammar.source.dir}/IupacParserTokenTypes.java" />
+        <delete file="${sugar.grammar.source.dir}/GlycoctLexer.java" />
+        <delete file="${sugar.grammar.source.dir}/GlycoctParser.java" />
+        <delete file="${sugar.grammar.source.dir}/GlycoctParserTokenTypes.java" />
+    </target>   
+    
+    
+    <!-- TARGET: dist ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Creates library jar.
+    -->
+    <target name="dist" depends="build">
+        <jar 
+            destfile="${java.dist.dir}/${project.coreapi.jar}" 
+            basedir="${java.build.dir}" 
+            update="true" 
+        />
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: test
+    
+    Testing target, used to run the automated tests on Eurocarb code.
+    
+    Note that 'test.FileReporterListener' is Eurocarb code, which redirects
+    the output of tests that are run into individual files for each test for
+    ease of debugging.
+    -->
+    <target 
+        name="test" 
+        depends="dist,-timestamp" 
+        description="Compiles code and runs all unit tests." 
+    >
+        <echo>**************************************************************</echo>
+        <echo>                   Running unit tests</echo>
+        <echo></echo>
+        <echo>Specific test groups can be run using the syntax below to test a </echo>
+        <echo>specific group or groups.</echo>
+        <echo></echo>
+        <echo>    ant test -Dtest.groups=[list-of-test-groups] </echo>
+        <echo></echo>
+        <echo>**************************************************************</echo>
+        <echo></echo>
+        <echo>Using test classes found in ${java.source.dir}/test/</echo>
+        <echo>Using database ${ecdb.db.name} as user ${ecdb.db.username} on host ${ecdb.db.hostname}</echo>
+        <echo></echo>
+        
+        <!-- TestNG: unit/functional test suite -->
+        <taskdef name="testng" classname="org.testng.TestNGAntTask" onerror="ignore">
+            <classpath>
+                <path refid="project.classpath"/>
+            </classpath>
+        </taskdef>
+        
+        <mkdir dir="${test.output.dir}" />
+        <property name="test.name" value="test_${date.string}" />
+        <!--<property name="test.name" value="core-api" />-->
+        
+        <testng classpathref="project.classpath" 
+                annotations="JDK"
+                dumpCommand="false" 
+                enableAssert="true"
+                groups="${test.groups}"
+                listeners="test.FileReporterListener"
+                outputdir="${test.output.dir}"
+                parallel="false"
+                suitename="${test.name}" 
+                verbose="1"
+                >
+
+            <classfileset dir="${java.build.dir}" includes="test/**/*.class"/>
+        </testng>
+        <echo>Test results can be viewed at ${test.output.dir}/index.html</echo>
+
+        <!-- open HTML test result page -->
+        <exec executable="open" os="Mac OS X">
+            <arg value="${test.output.dir}/index.html"/>
+        </exec>
+        
+        <!-- open dir to test output -->
+        <exec executable="open" os="Mac OS X">
+            <arg value="${test.output.dir}/${test.name}"/>
+        </exec>
+        
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    TARGET: -timestamp
+    Sets property 'date.string' to current timestamp 
+    -->    
+    <target name="-timestamp">
+        <tstamp>
+            <format property="date.string" pattern="yyyy_MM_dd" />
+        </tstamp>
+    </target>
+     
+    
+</project>

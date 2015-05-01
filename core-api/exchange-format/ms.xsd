@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema id="MSSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="manufacturer">
+          <xs:complexType>
+            <xs:attribute name="manufacturer_id" type="xs:int" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="url" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="devices">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="device">
+                <xs:complexType>
+                  <xs:attribute name="device_id" type="xs:int" use="required" />
+                  <xs:attribute name="detector_id" type="xs:int" use="required" />
+                  <xs:attribute name="source_id" type="xs:int" use="required" />
+                  <xs:attribute name="manufacturer_id" type="xs:int" use="required" />
+                  <xs:attribute name="model" type="xs:string" use="required" />
+                  <xs:attribute name="ionisation_type_id" type="xs:int" use="required" />
+                  <xs:attribute name="scimmer_cid" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="ionisation_type">
+                <xs:complexType>
+                  <xs:attribute name="ionisation_type_id" type="xs:int" use="required" />
+                  <xs:attribute name="ionisation_type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="fragmentation_type">
+                <xs:complexType>
+                  <xs:attribute name="fragmentation_type_id" type="xs:int" use="required" />
+                  <xs:attribute name="fragmentation_type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="divices_supports_framentation_type">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:int" use="required" />
+                  <xs:attribute name="device_id" type="xs:int" use="required" />
+                  <xs:attribute name="fragmentation_type_id" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="source">
+                <xs:complexType>
+                  <xs:attribute name="source_id" type="xs:int" use="required" />
+                  <xs:attribute name="model" type="xs:string" use="required" />
+                  <xs:attribute name="source_type_id" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="source_type">
+                <xs:complexType>
+                  <xs:attribute name="source_type_id" type="xs:int" use="required" />
+                  <xs:attribute name="source_type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="detector">
+                <xs:complexType>
+                  <xs:attribute name="detector_id" type="xs:int" use="required" />
+                  <xs:attribute name="detector_type" type="xs:string" use="required" />
+                  <xs:attribute name="detector_resolution" type="xs:float" use="required" />
+                  <xs:attribute name="digital_resolution" type="xs:float" use="required" />
+                  <xs:attribute name="sampling_frequency" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="analyser_has_tandem_scan_method">
+                <xs:complexType>
+                  <xs:attribute name="tandem_scan_method_id" type="xs:int" use="required" />
+                  <xs:attribute name="analyzer_id" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="tandem_scan_method">
+                <xs:complexType>
+                  <xs:attribute name="tandem_scan_method_id" type="xs:int" use="required" />
+                  <xs:attribute name="tandem_scan_methode" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="analyzer">
+                <xs:complexType>
+                  <xs:attribute name="analyzer_id" type="xs:int" use="required" />
+                  <xs:attribute name="model" type="xs:string" use="optional" />
+                  <xs:attribute name="analyzer_type" type="xs:string" use="required" />
+                  <xs:attribute name="resolution" type="xs:float" use="required" />
+                  <xs:attribute name="accuracy" type="xs:float" use="required" />
+                  <xs:attribute name="scan_rate" type="xs:float" use="required" />
+                  <xs:attribute name="scan_time" type="xs:float" use="required" />
+                  <xs:attribute name="scan_direction" type="xs:string" use="required" />
+                  <xs:attribute name="scan_law" type="xs:string" use="required" />
+                  <xs:attribute name="reflector_state" type="xs:boolean" use="optional" />
+                  <xs:attribute name="tof_path_length" type="xs:float" use="optional" />
+                  <xs:attribute name="isolation_width" type="xs:float" use="optional" />
+                  <xs:attribute name="magnetic_field_strengh" type="xs:float" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="device_has_analyser">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:int" use="required" />
+                  <xs:attribute name="analyzer_id" type="xs:int" use="required" />
+                  <xs:attribute name="device_id" type="xs:int" use="required" />
+                  <xs:attribute name="ms_exponent" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="software">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="software">
+                <xs:complexType>
+                  <xs:attribute name="software_id" type="xs:int" use="required" />
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="version" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="data_processing">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:int" use="required" />
+                  <xs:attribute name="scan_id" type="xs:int" use="required" />
+                  <xs:attribute name="software_id" type="xs:int" use="required" />
+                  <xs:attribute name="software_type_id" type="xs:int" use="required" />
+                  <xs:attribute name="spot_integration" type="xs:boolean" use="required" />
+                  <xs:attribute name="intensity_cutoff" type="xs:float" use="required" />
+                  <xs:attribute name="format" type="xs:string" use="required" />
+                  <xs:attribute name="sequence" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="software_type">
+                <xs:complexType>
+                  <xs:attribute name="software_type_id" type="xs:int" use="required" />
+                  <xs:attribute name="software_type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+	    <xs:element maxOccurs="unbounded" name="method_of_combination">
+	      <xs:complexType>
+		<xs:attribute name="combination_id" type="xs:int" use="required" />
+		<xs:attribute name="methode_of_combination" type="xs:string" use="required" />
+	      </xs:complexType>
+            </xs:element>
+	    <xs:element maxOccurs="unbounded" name="peak_processing">
+	      <xs:complexType>
+		<xs:attribute name="peak_processing_id" type="xs:int" use="required" />
+		<xs:attribute name="peak_processing_type" type="xs:string" use="required" />
+	      </xs:complexType>
+	    </xs:element>
+	    <xs:element maxOccurs="unbounded" name="scan">
+                <xs:complexType>
+                  <xs:attribute name="scan_id" type="xs:int" use="required" />
+                  <xs:attribute name="device_id" type="xs:int" use="required" />
+                  <xs:attribute name="experiment_id" type="xs:int" use="required" />
+                  <xs:attribute name="ms_exponent" type="xs:int" use="required" />
+                  <xs:attribute name="polarity" type="xs:boolean" use="required" />
+                  <xs:attribute name="peak_processing" type="xs:string" use="required" />
+                  <xs:attribute name="deisotoped" type="xs:boolean" use="required" />
+                  <xs:attribute name="charge_deconvoluted" type="xs:boolean" use="required" />
+                  <xs:attribute name="scimmer" type="xs:boolean" use="required" />
+                  <xs:attribute name="collision_energy" type="xs:float" use="optional" />
+                  <xs:attribute name="base_peak_mz" type="xs:float" use="required" />
+                  <xs:attribute name="base_peak_intensity" type="xs:float" use="required" />
+                  <xs:attribute name="mothode_of_combination" type="xs:int" use="required" />
+                  <xs:attribute name="start_mz" type="xs:float" use="required" />
+                  <xs:attribute name="end_mz" type="xs:float" use="required" />
+                  <xs:attribute name="low_mz" type="xs:float" use="required" />
+                  <xs:attribute name="high_mz" type="xs:float" use="required" />
+		  <xs:attribute name="resolution_type" type="xs:string" use="optional" />
+		  <xs:attribute name="resolution_methode" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="ms_ms_relationship">
+                <xs:complexType>
+                  <xs:attribute name="scan_id" type="xs:int" use="required" />
+                  <xs:attribute name="parent_id" type="xs:int" use="required" />
+                  <xs:attribute name="precursor_mass" type="xs:float" use="required" />
+                  <xs:attribute name="precursor_intensity" type="xs:float" use="required" />
+		  <xs:attribute name="precursor_mass_window_low" type="xs:float" use="required" />
+                  <xs:attribute name="precursor_mass_window_high" type="xs:float" use="required" />
+                  <xs:attribute name="precursor_charge" type="xs:int" use="required" />
+                  <xs:attribute name="ms_ms_methode" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="sum_average_relationship">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:int" use="required" />
+                  <xs:attribute name="subset_scan_id" type="xs:int" use="required" />
+                  <xs:attribute name="scan_id" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="experiment">
+                <xs:complexType>
+                  <xs:attribute name="experiment_id" type="xs:int" use="required" />
+                  <xs:attribute name="filename" type="xs:string" use="required" />
+                  <xs:attribute name="filetype" type="xs:string" use="required" />
+                  <xs:attribute name="time_start" type="xs:time" use="optional" />
+                  <xs:attribute name="time_end" type="xs:time" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="peaks_labeled">
+                <xs:complexType>
+                  <xs:attribute name="peak_id" type="xs:int" use="required" />
+                  <xs:attribute name="scan_id" type="xs:int" use="required" />
+                  <xs:attribute name="mz_value" type="xs:float" use="required" />
+                  <xs:attribute name="intensity_value" type="xs:float" use="required" />
+                  <xs:attribute name="monoisitopic" type="xs:boolean" use="required" />
+                  <xs:attribute name="charge_count" type="xs:int" use="required" />
+                  <xs:attribute name="FWHM" type="xs:float" use="required" />
+                  <xs:attribute name="signal_to_noise" type="xs:float" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="annotation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="peaks_annotated">
+                <xs:complexType>
+                  <xs:attribute name="annotated_peak_id" type="xs:int" use="required" />
+                  <xs:attribute name="peaks_labeled_id" type="xs:int" use="required" />
+                  <xs:attribute name="sugar_id" type="xs:int" use="required" />
+                  <xs:attribute name="formula" type="xs:string" use="required" />
+                  <xs:attribute name="formula_carry" type="xs:float" use="required" />
+                  <xs:attribute name="calculated_mass" type="xs:float" use="required" />
+                  <xs:attribute name="quality_user" type="xs:float" use="required" />
+                  <xs:attribute name="quality_calculated" type="xs:float" use="optional" />
+                </xs:complexType>
+              </xs:element>
+	      <xs:element maxOccurs="unbounded" name="fragment">
+                <xs:complexType>
+		  <xs:attribute name="fragment_id" type="xs:int" use="required" />
+                  <xs:attribute name="fragment_type" type="xs:string" use="required" />
+	          <xs:attribute name="fragment_dc" type="xs:string" use="required" />
+	          <xs:attribute name="fragment_alt" type="xs:string" use="required" />
+	        </xs:complexType>
+              </xs:element>
+	      <xs:element maxOccurs="unbounded" name="peaks_annotated_to_ion">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:int" use="required" />
+                  <xs:attribute name="annotated_peak_id" type="xs:int" use="required" />
+                  <xs:attribute name="ion_id" type="xs:int" use="required" />
+                  <xs:attribute name="charge" type="xs:int" use="required" />
+                  <xs:attribute name="operation" type="xs:boolean" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="ion">
+                <xs:complexType>
+                  <xs:attribute name="ion_id" type="xs:int" use="required" />
+                  <xs:attribute name="ion_type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="settings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="plate">
+                <xs:complexType>
+                  <xs:attribute name="plate_id" type="xs:int" use="required" />
+                  <xs:attribute name="manufacturer_id" type="xs:int" use="required" />
+                  <xs:attribute name="model" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="robot">
+                <xs:complexType>
+                  <xs:attribute name="robot_id" type="xs:int" use="required" />
+                  <xs:attribute name="manufacturer_id" type="xs:int" use="required" />
+                  <xs:attribute name="model" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="maldi_parameter">
+                <xs:complexType>
+                  <xs:attribute name="scan_id" type="xs:int" use="required" />
+                  <xs:attribute name="plate_id" type="xs:int" use="required" />
+		  <xs:attribute name="maldi_matrix_id" type="xs:int" use="required" />
+                  <xs:attribute name="robot_id" type="xs:int" use="optional" />
+                  <xs:attribute name="laser_shoot_count" type="xs:int" use="required" />
+                  <xs:attribute name="laser_frequency" type="xs:int" use="required" />
+                  <xs:attribute name="laser_intensity" type="xs:float" use="required" />
+                  <xs:attribute name="ionisation_energy" type="xs:float" use="optional" />
+                </xs:complexType>
+              </xs:element>
+	      <xs:element maxOccurs="unbounded" name="maldi_matrix">
+	        <xs:complexType>
+		  <xs:attribute name="maldi_matrix_id" type="xs:int" use="required" />
+		  <xs:attribute name="matrix" type="xs:string" use="required" />
+	        </xs:complexType>
+	      </xs:element>
+	      <xs:element maxOccurs="unbounded" name="tof_parameter">
+		<xs:complexType>
+		  <xs:attribute name="scan_id" type="xs:int" use="required" />
+		  <xs:attribute name="reflector_state" type="xs:boolean" use="required" />
+		  <xs:attribute name="accelerator_grid_voltage" type="xs:float" use="optional" />
+		  <xs:attribute name="delay_extration_time" type="xs:float" use="optional" />
+	        </xs:complexType>
+	      </xs:element>
+	      <xs:element maxOccurs="unbounded" name="esi_parameter">
+		      <xs:complexType>
+			      <xs:attribute name="scan_id" type="xs:int" use="required" />
+			      <xs:attribute name="dry_gas" type="xs:string" use="required" />
+			      <xs:attribute name="flow_rate" type="xs:float" use="required" />
+			      <xs:attribute name="temperatur" type="xs:float" use="required" />
+			      <xs:attribute name="voltage_capilary" type="xs:float" use="required" />
+			      <xs:attribute name="voltage_end_plate" type="xs:float" use="required" />
+		      </xs:complexType>
+	      </xs:element>
+	      <xs:element maxOccurs="unbounded" name="iontrap_parameter">
+		      <xs:complexType>
+			      <xs:attribute name="scan_id" type="xs:int" use="required" />
+			      <xs:attribute name="ion_count" type="xs:int" use="required" />
+		      </xs:complexType>
+	      </xs:element>
+	      <xs:element maxOccurs="unbounded" name="used_fragmentation">
+		      <xs:complexType>
+			      <xs:attribute name="scan_id" type="xs:int" use="required" />
+			      <xs:attribute name="fragmentation_type_id" type="xs:int" use="required" />
+		      </xs:complexType>
+	      </xs:element>
+	      <xs:element maxOccurs="unbounded" name="cid_parameter">
+		      <xs:complexType>
+			<xs:attribute name="scan_id" type="xs:int" use="required" />
+			<xs:attribute name="fragmentation_type_id" type="xs:int" use="required" />
+			<xs:attribute name="cid_gas_pressure" type="xs:float" use="required" />
+			<xs:attribute name="collision_gas" type="xs:string" use="required" />
+		      </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

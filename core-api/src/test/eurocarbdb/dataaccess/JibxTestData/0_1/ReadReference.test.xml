@@ -1,0 +1,10 @@
+<reference xmlns="http://xml.eurocarbdb.org/0">
+	<authors>Baaaa!</authors>
+	<publication_year>2005</publication_year>
+	<journal>
+		<start_page>1000</start_page>
+		<end_page>2000</end_page>
+		<should>ignore</should>		
+	</journal>
+	<should>ignore</should>
+</reference>

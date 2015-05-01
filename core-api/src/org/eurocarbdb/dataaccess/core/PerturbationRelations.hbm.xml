@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:28 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.PerturbationRelations" table="perturbation_relations" schema="core">
+        <id name="perturbationId" type="int">
+            <column name="perturbation_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.peturbation_peturbation_id_seq</param>
+			</generator>
+        </id>
+        <many-to-one name="perturbation" class="org.eurocarbdb.dataaccess.core.Perturbation" update="false" insert="false" fetch="select">
+            <column name="perturbation_id" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="leftIndex" type="int">
+            <column name="left_index" not-null="true" unique="true" />
+        </property>
+        <property name="rightIndex" type="int">
+            <column name="right_index" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>

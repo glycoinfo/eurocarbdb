@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:04 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+    <class name="org.eurocarbdb.dataaccess.ms.PeakAnnotation" table="peak_annotation" schema="ms">
+        <id name="peakAnnotationId" type="int">
+            <column name="peak_annotation_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.peak_annotation_peak_annotation_id_seq</param>
+            </generator>
+        </id>   
+
+        <many-to-one name="peakLabeled" class="org.eurocarbdb.dataaccess.ms.PeakLabeled" fetch="select">
+            <column name="peak_labeled_id" not-null="true" />
+        </many-to-one>
+
+	<many-to-one name="annotation" class="org.eurocarbdb.dataaccess.ms.Annotation" fetch="select">
+            <column name="annotation_id" not-null="true" />
+        </many-to-one>
+
+        <set name="peakAnnotateds" inverse="true">
+            <key>
+                <column name="peak_annotation_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotated" />
+        </set>     
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.Glycoprotein" table="glycoprotein" schema="core">
+        <id name="glycoproteinId" type="int">
+            <column name="glycoprotein_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.glycoprotein_glycoprotein_id_seq</param>
+			</generator>
+        </id>
+        <property name="glycoproteinName" type="string">
+            <column name="glycoprotein_name" length="256" not-null="true" />
+        </property>
+        <property name="accessionUniprot" type="string">
+            <column name="accession_uniprot" length="32" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>

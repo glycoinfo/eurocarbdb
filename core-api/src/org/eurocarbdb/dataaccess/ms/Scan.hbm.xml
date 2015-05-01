@@ -1,0 +1,89 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.Scan" table="scan" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="scanId" type="integer">
+            <column name="scan_id"/>
+           <generator class="sequence">
+                <param name="sequence">ms.scan_scan_id_seq</param>
+            </generator>
+        </id>
+        <property name="msExponent" type="integer">
+            <column name="ms_exponent" not-null="true"/>
+        </property>
+        <property name="polarity" type="boolean">
+            <column name="polarity" not-null="true"/>
+        </property>
+        <property name="startMz" type="double">
+            <column name="start_mz" precision="17" not-null="true"/>
+        </property>
+        <property name="endMz" type="double">
+            <column name="end_mz" precision="17" not-null="true"/>
+        </property>
+        <property name="contributorQuality" type="double">
+            <column name="contributor_quality" precision="17" not-null="true"/>
+        </property>
+        <property name="originalScanId" type="integer">
+            <column name="original_scan_id" not-null="true"/>
+        </property>
+        <many-to-one name="acquisition" class="org.eurocarbdb.dataaccess.ms.Acquisition">
+            <column name="acquisition_id" not-null="true"/>
+        </many-to-one>
+        <set name="sumAverageRelationshipsForScanId" inverse="true">
+            <key>
+                <column name="scan_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.SumAverageRelationship"/>
+        </set>
+        <set name="peakLists" inverse="true">
+            <key>
+                <column name="scan_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakList"/>
+        </set>
+        <set name="msMsRelationshipsForParentId" inverse="true">
+            <key>
+                <column name="parent_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.MsMsRelationship"/>
+        </set>
+        <set name="ScanToDataProcessings" inverse="true">
+            <key>
+                <column name="scan_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.ScanToDataProcessing"/>
+        </set>
+        <set name="sumAverageRelationshipsForSubsetScanId" inverse="true">
+            <key>
+                <column name="subset_scan_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.SumAverageRelationship"/>
+        </set>
+        <set name="scanImages" inverse="true">
+            <key>
+                <column name="scan_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.ScanImage"/>
+        </set>
+        <set name="msMsRelationshipsForScanId" inverse="true">
+            <key>
+                <column name="scan_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.MsMsRelationship"/>
+        </set>
+        <query name="GET_SCAN_BY_ORIGINAL_ID">
+        SELECT scan
+        FROM Scan as scan
+        WHERE scan.originalScanId = :originalScanId AND scan.acquisition.evidenceId = :acquisitionId
+        </query>
+        <query name="GET_SCAN_BY_ID">
+        SELECT scan
+        FROM Scan as scan
+        WHERE scan.scanId = :scanId
+        </query>
+        <query name="GET_ALL">
+        SELECT scan
+        FROM Scan as scan
+        WHERE scan.acquisition.evidenceId = :acquisitionId
+        </query>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.PeakProcessing" table="peak_processing" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="peakProcessingId" type="integer">
+            <column name="peak_processing_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.peak_processing_peak_processing_id_seq</param>
+            </generator>
+        </id>
+        <property name="peakProcessingType" type="string">
+            <column name="peak_processing_type" length="50"/>
+        </property>
+        <set name="peakLists" inverse="true">
+            <key>
+                <column name="peak_processing_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakList"/>
+        </set>
+       <query name="BY_TYPE" cacheable="true"> 
+            SELECT  pp
+            FROM    PeakProcessing AS pp
+            WHERE   pp.peakProcessingType = :type
+        </query>
+      <query name="GET_ALL_TYPES" cacheable="true">
+           SELECT pp.peakProcessingType
+           FROM PeakProcessing AS pp
+      </query>
+    </class>
+</hibernate-mapping>

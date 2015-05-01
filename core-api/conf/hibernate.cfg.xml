@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+                    Hibernate configuration file
+
+Mapping files not listed in here won't get loaded.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<hibernate-configuration>
+
+    <session-factory>
+       
+    <!-- core mapping files -->
+        <mapping resource="org/eurocarbdb/dataaccess/core/Contributor.hbm.xml" />
+        
+        <!-- core evidence stuff -->
+        <mapping resource="org/eurocarbdb/dataaccess/core/Evidence.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/EvidenceContext.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Experiment.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ExperimentContext.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ExperimentStep.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Technique.hbm.xml" />
+
+        <!-- core glycan sequence -->
+        <mapping resource="org/eurocarbdb/dataaccess/core/GlycanSequence.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/GlycanSequenceContext.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/GlycanSequenceEvidence.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/GlycanSequenceReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Glycoconjugate.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Glycoprotein.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Perturbation.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/PerturbationContext.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/PerturbationRelations.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ReferencedEvidence.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/BiologicalContextToGlycoconjugate.hbm.xml" />
+        
+        <!-- core biological context -->
+        <mapping resource="org/eurocarbdb/dataaccess/core/BiologicalContext.hbm.xml" />
+	<mapping resource="org/eurocarbdb/dataaccess/core/BiologicalContextContributor.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Taxonomy.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/TaxonomyRelations.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/TaxonomySynonym.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/TaxonomySubtype.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/TissueTaxonomy.hbm.xml" />
+	<mapping resource="org/eurocarbdb/dataaccess/core/TaxonomyProteomeSkRanked.hbm.xml"/>
+        <mapping resource="org/eurocarbdb/dataaccess/core/TissueTaxonomyRelations.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/TissueTaxonomySynonym.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Disease.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/DiseaseContext.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/DiseaseRelations.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/DiseaseSynonym.hbm.xml" />
+
+        <!-- core references -->
+        <mapping resource="org/eurocarbdb/dataaccess/core/Reference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/Journal.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/JournalReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ExternalDatabaseReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/BcsdbReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/CarbbankReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/CfgReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/GlyaffinityReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/GlycobaseDublinReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/GlycobaseLilleReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/GlycosciencesDeReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/KeggReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/ref/GenericReference.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/seq/GlycanResidue.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/seq/GlycanMonosaccharide.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/core/seq/GlycanSubstituent.hbm.xml" />
+        
+    <!-- HPLC mapping files -->
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Autogu.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Column.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Content.hbm.xml" />
+    <!--<mapping resource="org/eurocarbdb/dataaccess/hplc/ContractGlycans.hbm.xml" />-->
+    <!--<mapping resource="org/eurocarbdb/dataaccess/hplc/ContractSample.hbm.xml" />-->
+    <!--<mapping resource="org/eurocarbdb/dataaccess/hplc/ContractValues.hbm.xml" />-->
+    <!--<mapping resource="org/eurocarbdb/dataaccess/hplc/Report.hbm.xml" />-->
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Detector.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Digest.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/DigestProfile.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/DigestSingle.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/DisRefine.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Disappeared.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Enzyme.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Glycan.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/GlycanDisease.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/GlycanPerturbation.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/GlycanSequenceTemp.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/GlycanSourceLink.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/GlycanTaxonomy.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/GlycanTissue.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/HplcPeaksAnnotated.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/HplcPeaksIntegrated.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Instrument.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/IntegrationMethod.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Mandetector.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/MethodRun.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Multipleglycoct.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/MultistructuresGlycoct.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/ParentProfile.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/PictorialRepresentation.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Profile.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/ProfileData.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/Ref.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/RefLink.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/RefTaxLink.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/hplc/StructuresGlycoct.hbm.xml" />
+        
+    <!-- MS mapping files -->
+          <!-- MS mapping files -->
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Acquisition.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/AcquisitionToPersubstitution.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Analyser.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/AnalyserParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Annotation.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/DataProcessing.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Device.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/DeviceSettings.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/EsiParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Fragmentation.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/FragmentationParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/FragmentationType.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Ion.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/IonComposition.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/IontrapParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Laser.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/LaserParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/MaldiMatrix.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/MaldiParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Manufacturer.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/MassDetector.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/MassDetectorParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/MethodOfCombination.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/MsMsRelationship.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakAnnotated.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakAnnotatedToIon.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakAnnotatedToSmallMolecule.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakAnnotation.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakLabeled.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakList.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakListToDataProcessing.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/PeakProcessing.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Persubstitution.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/ReducingEnd.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Scan.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/ScanImage.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/ScanToDataProcessing.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/SmallMolecule.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/SmallMoleculeComposition.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Software.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/SoftwareType.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/Source.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/SourceParameter.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/SumAverageRelationship.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/TandemScanMethod.hbm.xml" />
+        <mapping resource="org/eurocarbdb/dataaccess/ms/TofParameter.hbm.xml" />
+       
+        
+    </session-factory>
+</hibernate-configuration>
+

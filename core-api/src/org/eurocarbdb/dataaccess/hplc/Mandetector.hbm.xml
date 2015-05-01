@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2007 10:38:53 AM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Mandetector" table="mandetector" schema="hplc">
+        <id name="mandetectorId" type="int">
+            <column name="mandetector_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.mandetector_mandetector_id_seq</param>
+            </generator>
+        </id>
+        <property name="manufacturerId" type="int">
+            <column name="manufacturer_id" not-null="true" />
+        </property>
+        <property name="model" type="string">
+            <column name="model" length="200" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

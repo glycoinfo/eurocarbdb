@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.PeakAnnotatedToIon" table="peak_annotated_to_ion" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="peakAnnotatedToIonId" type="integer">
+            <column name="peak_annotated_to_ion_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.peak_annotated_to_ion_peak_annotated_to_ion_id_seq</param>
+            </generator>
+        </id>
+        <property name="number" type="integer">
+            <column name="number" not-null="true"/>
+        </property>
+        <property name="gain" type="boolean">
+            <column name="gain" not-null="true"/>
+        </property>
+        <many-to-one name="ion" class="org.eurocarbdb.dataaccess.ms.Ion" cascade="none">
+            <column name="ion_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="peakAnnotated" class="org.eurocarbdb.dataaccess.ms.PeakAnnotated" cascade="none">
+            <column name="peak_annotated_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

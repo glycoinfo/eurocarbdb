@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 28, 2007 2:06:05 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Disappeared" table="disappeared" schema="hplc">
+        <id name="disappearedId" type="int">
+            <column name="disappeared_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.disappeared_disappeared_id_seq</param>
+            </generator>
+        </id>
+        <property name="profileId" type="java.lang.Integer">
+            <column name="profile_id" />
+        </property>
+        <property name="digestId" type="java.lang.Integer">
+            <column name="digest_id" />
+        </property>
+        <property name="assignedPeak" type="java.lang.Integer">
+            <column name="assigned_peak" />
+        </property>
+        <property name="peakArea" type="java.lang.Double">
+            <column name="peak_area" precision="8" scale="0" />
+        </property>
+        <property name="gu" type="java.lang.Double">
+            <column name="gu" precision="8" scale="0" />
+        </property>
+        <property name="dbGu" type="java.lang.Double">
+            <column name="db_gu" precision="8" scale="0" />
+        </property>
+        <property name="nameAbbreviation" type="string">
+            <column name="name_abbreviation" length="0" />
+        </property>
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+        <property name="refined" type="java.lang.Integer">
+            <column name="refined" />
+        </property>
+        <property name="enzyme" type="string">
+            <column name="enzyme" length="0" />
+        </property>
+
+	<!--from HplcPeaksAnnotated  h, HplcPeaksAnnotated  h1  where h1.profileId = 29 and h.
+	-->
+
+	
+<query name="WHERE">
+from HplcPeaksAnnotated HP where HP.profileId = 29 and HP.digestId = 0 and HP.glycan in (select H.glycan from HplcPeaksAnnotated H where H.profileId=29 and H.digestId =1)
+</query>
+
+<query name="DIS_REFINE">
+select max(digestId) as max, DS.glycanId, DS.profileId, DS.assignedPeak, DS.peakArea, DS.gu, DS.dbGu, DS.nameAbbreviation, DS.refined, DS.enzyme from Disappeared DS where DS.profileId = :parent group by DS.glycanId, DS.profileId
+</query>
+
+<query name="FIND_DIS_ENZ">
+select enzyme from Disappeared where profileId = :parent and digestId = :max
+</query>
+
+<query name="FIND_ENZYME">
+SELECT R.profileId, R.digestId, R.glycanId, D.sequentialDigest from DisRefine R, DigestProfile D where R.profileId = :parent and D.profile = :parent and D.digestId = R.digestId and R.glycanId = :glycan
+</query>
+
+<query name="MAX_DIGEST">
+	SELECT max(digestId), glycanId, profileId from Disappeared where profileId = :parent group by glycanId, profileId
+</query>
+
+
+    </class>
+</hibernate-mapping>

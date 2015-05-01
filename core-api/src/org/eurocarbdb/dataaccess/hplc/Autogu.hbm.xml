@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 22, 2007 2:11:08 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Autogu" table="autogu" schema="hplc">
+        <id name="autoguId" type="int">
+            <column name="autogu_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.autogu_autogu_id_seq</param>
+            </generator>
+        </id>
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+        <property name="productId" type="java.lang.Integer">
+            <column name="product_id" />
+        </property>
+        <property name="enzyme" type="string">
+            <column name="enzyme" length="0" />
+        </property>
+        <property name="profileId" type="java.lang.Integer">
+            <column name="profile_id" />
+        </property>
+        <property name="refinedId" type="java.lang.Integer">
+            <column name="refined_id" />
+        </property>
+        <property name="digestId" type="java.lang.Integer">
+            <column name="digest_id" />
+        </property>
+
+
+<query name="REFINE_POT_PRODUCT">
+FROM Autogu AG where AG.profileId = :parent and AG.digestId = :digest and AG.enzyme like :enzyme and AG.productId IN (select HP.glycan from HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = :digest)
+</query>
+
+<query name="REFINE_POT_PRODUCT_TRY">
+SELECT ag.enzyme, ag.digestId, ag.productId, ag.glycanId, ag.profileId FROM Autogu ag, HplcPeaksAnnotated hp where hp.glycan = ag.productId and ag.profileId = :parent and ag.digestId = :digest AND hp.digestId = :digest and hp.profileId = :parent 
+</query>
+
+
+<!-- ignore
+<query name="WHERE">
+FROM HplcPeaksAnnotated hp where hp.profileId = 29 and hp.digestId =0 and hp.glycanId not in (select hp.glycanId from HplcPeaksAnnotated where hp.profileId = 29 and hp.digestId = 1)
+</query>
+-->
+
+</class>
+</hibernate-mapping>

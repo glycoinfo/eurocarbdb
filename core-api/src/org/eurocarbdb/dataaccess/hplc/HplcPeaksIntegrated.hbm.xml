@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:55 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.HplcPeaksIntegrated" table="hplc_peaks_integrated" schema="hplc">
+        <id name="hplcPeaksIntegratedId" type="int">
+            <column name="hplc_peaks_integrated_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.hplc_peaks_integrated_hplc_peaks_integrated_id_seq</param>
+            </generator>
+        </id>
+	<many-to-one name="profile" class="org.eurocarbdb.dataaccess.hplc.Profile" fetch="select" property-ref="profileId">
+	  <column name="profile" not-null="true" />
+        </many-to-one>
+        <many-to-one name="digest" class="org.eurocarbdb.dataaccess.hplc.Digest" fetch="select">
+            <column name="digest_id" />
+        </many-to-one>
+        <property name="assignedPeak" type="java.lang.Integer">
+            <column name="assigned_peak" />
+        </property>
+        <property name="peakArea" type="double">
+            <column name="peak_area" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="gu" type="int">
+            <column name="gu" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

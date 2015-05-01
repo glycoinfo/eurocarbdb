@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:56 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Ref" table="ref" schema="hplc">
+        <id name="refId" type="int">
+            <column name="ref_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.ref_ref_id_seq</param>
+            </generator>
+        </id>
+        <property name="author" type="string">
+            <column name="author" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" />
+        </property>
+        <property name="journal" type="string">
+            <column name="journal" />
+        </property>
+        <property name="abstract_" type="string">
+            <column name="abstract" />
+        </property>
+        <property name="pubYear" type="java.lang.Short">
+            <column name="pub_year" />
+        </property>
+        <property name="pubDate" type="string">
+            <column name="pub_date" length="12" />
+        </property>
+        <property name="volume" type="java.lang.Integer">
+            <column name="volume" length="25" />
+        </property>
+        <property name="issue" type="string">
+            <column name="issue" length="10" />
+        </property>
+        <property name="pages" type="string">
+            <column name="pages" length="20" />
+        </property>
+        <property name="medUi" type="java.lang.Integer">
+            <column name="med_ui" />
+        </property>
+        <property name="ogbiId" type="short">
+            <column name="ogbi_id" not-null="true" />
+        </property>
+	<property name="startPage" type="java.lang.Integer">
+	    <column name="start_page" />
+	</property>
+	<property name="endPage" type="java.lang.Integer">
+	    <column name="end_page" />
+	</property>
+
+	<query name="FULL_PUBLICATION">
+	FROM Ref where ogbiId = :ref_id
+	</query>
+
+	<query name="SELECT_REFERENCES_CORE">
+	SELECT r.author, r.title, r.journal, r.volume, r.pubYear, r.medUi, r.startPage, r.endPage
+	FROM Ref r where r.ogbiId > 0
+	</query>
+
+	<query name="SELECT_ALL">
+	FROM Ref where ogbiId > 0
+	</query>
+
+	<query name="LOOKUP_PUBMEDID">
+	FROM Ref where medUi = :pubmedId
+	</query>
+
+	<query name="MAX_OGBI">
+	SELECT MAX(ogbiId) FROM Ref
+	</query>
+
+</class>
+</hibernate-mapping>

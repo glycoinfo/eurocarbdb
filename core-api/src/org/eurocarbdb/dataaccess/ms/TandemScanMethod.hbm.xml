@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:05 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.TandemScanMethod" table="tandem_scan_method" schema="ms">
+    
+        <id name="tandemScanMethodId" type="int">
+            <column name="tandem_scan_method_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.tandem_scan_method_tandem_scan_method_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="analyser" class="org.eurocarbdb.dataaccess.ms.Analyser" fetch="select">
+            <column name="analyser_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="tandemScanMethod" type="string">
+            <column name="tandem_scan_method" not-null="true" unique="true" />
+        </property>
+        
+        <set name="analyserParameters" inverse="true">
+            <key>
+                <column name="tandem_scan_method_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.AnalyserParameter" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

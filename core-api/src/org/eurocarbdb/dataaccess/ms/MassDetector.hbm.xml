@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2007 6:49:04 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update">
+
+    <class name="org.eurocarbdb.dataaccess.ms.MassDetector" table="mass_detector" schema="ms">
+    
+        <id name="massDetectorId" type="int">
+            <column name="mass_detector_id" />
+            <generator class="sequence">
+                <param name="sequence">ms.mass_detector_mass_detector_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="device" class="org.eurocarbdb.dataaccess.ms.Device" fetch="select">
+            <column name="device_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="model" type="string">
+            <column name="model" />
+        </property>
+        
+        <property name="massDetectorType" type="string">
+            <column name="mass_detector_type" not-null="true" />
+        </property>
+        
+        <property name="massDetectorResolution" type="double">
+            <column name="mass_detector_resolution" precision="8" scale="0" not-null="true" />
+        </property>
+        
+        <property name="digitalResolution" type="double">
+            <column name="digital_resolution" precision="8" scale="0" not-null="true" />
+        </property>
+        
+        <property name="samplingFrequency" type="int">
+            <column name="sampling_frequency" not-null="true" />
+        </property>
+        
+        <set name="massDetectorParameters" inverse="true">
+            <key>
+                <column name="mass_detector_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.MassDetectorParameter" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

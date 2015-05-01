@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 16, 2007 10:40:13 AM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.Composition" table="composition" schema="core">
+    
+        <composite-id name="compositionId" class="org.eurocarbdb.dataaccess.core.CompositionId">
+            <key-property name="glycanSequenceId" type="int" column="glycan_sequence_id" />       
+            <key-property name="component" type="string" column="component" />
+        </composite-id>
+
+        <property name="occurances" type="int">
+            <column name="occurances" not-null="true" />
+        </property>
+        
+        <!--=====================  named queries  ============================= -->
+        
+        <!-- 
+        query : DELETE_BY_GLYCANSEQUENCE_ID
+        desc  : Deletes all composition entries for a specific glycan_sequence
+        author: ss
+        -->
+        <query name="DELETE_BY_GLYCANSEQUENCE_ID"> 
+            DELETE FROM Composition WHERE glycan_sequence_id = :glycan_sequence_id
+        </query>
+        
+        <!-- 
+        query : QUERY_COMPONENTS
+        desc  : Retrieves all distinct components (hex, man, ...) 
+        author: ss
+        -->
+        <query name="QUERY_COMPONENTS" cacheable="true"> 
+            SELECT DISTINCT c.compositionId.component FROM Composition as c
+        </query>
+        
+        <!-- 
+        query : QUERY_BY_COMPOSITION_EQUALS
+        desc  : Fetches the ids of the matching glyco_sequences
+        author: ss
+        -->
+        <query name="QUERY_BY_COMPOSITION_EQUALS" cacheable="true"> 
+	        SELECT DISTINCT c.compositionId.glycanSequenceId FROM Composition as c 
+	        	WHERE compositionId.component = :component AND occurances = :occurances
+        </query>
+
+        <!-- 
+        query : QUERY_BY_COMPOSITION_GREATER
+        desc  : Fetches the ids of the matching glyco_sequences
+        author: ss
+        -->
+        <query name="QUERY_BY_COMPOSITION_GREATER" cacheable="true"> 
+        	SELECT DISTINCT compositionId.glycanSequenceId FROM Composition as c 
+        		WHERE compositionId.component = :component AND occurances &gt; :occurances
+        </query>
+
+        <!-- 
+        query : QUERY_BY_COMPOSITION_LESS
+        desc  : Fetches the ids of the matching glyco_sequences
+        author: ss
+        -->
+        <query name="QUERY_BY_COMPOSITION_LESS" cacheable="true"> 
+        	SELECT DISTINCT compositionId.glycanSequenceId FROM Composition as c 
+        		WHERE compositionId.component = :component AND occurances &lt; :occurances
+        </query>
+        
+    </class>
+</hibernate-mapping>

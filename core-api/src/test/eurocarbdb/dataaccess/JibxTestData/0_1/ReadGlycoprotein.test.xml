@@ -1,0 +1,5 @@
+<glycoprotein xmlns="http://xml.eurocarbdb.org/0">
+	<name>Nasty stuff</name>
+	<uniprot-id>p12345</uniprot-id>
+	<should>ignore</should>
+</glycoprotein>

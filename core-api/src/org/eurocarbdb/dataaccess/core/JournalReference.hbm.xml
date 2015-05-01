@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 23, 2007 1:31:25 PM by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping >
+
+<!--     <joined-subclass name="org.eurocarbdb.dataaccess.core.JournalReference"
+                     extends="org.eurocarbdb.dataaccess.core.Reference"
+                     table="journal_reference" 
+                     schema="core"
+                     lazy="false"
+    >
+ -->
+    <subclass 
+        name="org.eurocarbdb.dataaccess.core.JournalReference"
+        extends="org.eurocarbdb.dataaccess.core.Reference"
+        discriminator-value="Pubmed"
+    >
+    <join table="journal_reference" schema="core">
+                     
+        <!-- joins reference table on fkey reference_id -->
+        <key column="reference_id" />
+
+        <!--======================== associations ===========================-->
+        
+        <!-- 
+        primary key of journal_reference table. this value is created by the DB
+        from a sequence as per all other surrogate keys. The main ID of this
+        class as far as hibernate is concerned though is reference_id.
+        -->
+        <property name="journalReferenceId" type="int" insert="false" generated="insert">
+            <column name="journal_reference_id" />
+        </property>
+
+        <property name="pubmedId" type="int">
+            <column name="pubmed_id" />
+        </property>
+        
+        <!-- 
+        concatenated list of author names. 
+        mjh TODO: make this into a hibernate 'component' in near future. 
+        -->
+        <property name="authors" type="string" access="field">
+            <column name="authors" length="256" not-null="true" />
+        </property>
+        
+        <property name="title" type="string">
+            <column name="title" length="512" />
+        </property>
+        
+        <property name="publicationYear" type="int">
+            <column name="publication_year" not-null="true" />
+        </property>
+        
+        <property name="journalVolume" type="int">
+            <column name="journal_volume" />
+        </property>
+        
+        <property name="firstPage" type="int">
+            <column name="journal_start_page" />
+        </property>
+        
+        <property name="lastPage" type="int">
+            <column name="journal_end_page" />
+        </property>
+        
+        <!--======================== associations ===========================-->
+        
+        <!-- 
+        since this is almost always used when a JournalReference is accessed, lookup
+        associated Journal at same time. 
+        -->
+        <many-to-one name="journal" class="org.eurocarbdb.dataaccess.core.Journal" 
+            fetch="select" not-null="true" >
+            <column name="journal_id" not-null="true" />
+        </many-to-one>
+        
+    </join>        
+        
+        <!--========================  named queries  ===========================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+        <!-- 
+        query : BY_AUTHOR
+        desc  : Retrieves the list of journal references containing
+                the given author's name.
+        author: mjh
+        -->
+        <query name="BY_AUTHOR">
+            from JournalReference as jr
+            where jr.authors like upper( :name )
+        </query>
+        
+
+        <!-- 
+        query : BY_PUBMED_ID
+        desc  : Retrieves the journal with the given pubmed_id.
+        author: mjh
+        -->
+        <query name="BY_PUBMED_ID">
+            from JournalReference as jr
+            where jr.pubmedId = :pubmed_id
+        </query>
+        
+        
+        <!-- 
+        query : BY_JOURNAL_YEAR_VOLUME_PAGE
+        author: mjh
+        -->
+        <query name="BY_JOURNAL_YEAR_VOLUME_PAGE">
+            from JournalReference as jr
+            where jr.journal.journalTitle = :title
+            and   jr.publicationYear = :year
+            and   jr.journalVolume = :volume
+            and   jr.firstPage = :page
+        </query>
+        
+        <!--  
+        query : COUNT_ALL
+        author: mjh
+        -->
+        <query name="COUNT_ALL"> 
+            select count(*) from JournalReference  
+        </query>
+        
+    <!-- </joined-subclass> -->
+    
+    </subclass>
+    
+</hibernate-mapping>

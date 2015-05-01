@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-Aug-2007 16:04:01 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.MethodRun" table="method_run" schema="hplc">
+        <id name="methodRunId" type="int">
+            <column name="method_run_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.method_run_method_run_id_seq</param>
+            </generator>
+        </id>
+	<many-to-one name="profile" class="org.eurocarbdb.dataaccess.hplc.Profile" fetch="select" property-ref="profileId">
+            <column name="profile" not-null="true" />
+        </many-to-one>
+        <property name="temperature" type="java.lang.Double">
+            <column name="temperature" precision="8" scale="0" />
+        </property>
+        <property name="solventA" type="string">
+            <column name="solvent_a" length="100" />
+        </property>
+        <property name="solventB" type="string">
+            <column name="solvent_b" length="100" />
+        </property>
+        <property name="solventC" type="string">
+            <column name="solvent_c" length="100" />
+        </property>
+        <property name="solventD" type="string">
+            <column name="solvent_d" length="100" />
+        </property>
+        <property name="flowRate" type="java.lang.Double">
+            <column name="flow_rate" precision="8" scale="0" />
+        </property>
+        <property name="flowGradient" type="string">
+            <column name="flow_gradient" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

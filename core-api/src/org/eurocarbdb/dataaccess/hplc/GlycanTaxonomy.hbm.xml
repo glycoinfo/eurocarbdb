@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-May-2008 14:42:48 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.GlycanTaxonomy" table="glycan_taxonomy" schema="hplc">
+        <id name="glycanTaxId" type="int">
+            <column name="glycan_tax_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+        <property name="ncbiId" type="java.lang.Integer">
+            <column name="ncbi_id" />
+        </property>
+
+	<query name="SELECT_ALL">
+            SELECT t.ncbiId, g.ogbitranslation from GlycanTaxonomy t, Glycan g
+            where g.glycanId = t.glycanId
+	</query>
+
+	<query name="SELECT_ALL_WITH_ID">
+		 FROM GlycanTaxonomy WHERE glycanId = :glycan_id
+	</query>
+
+	<query name="SELECT_AND_GROUP">
+	SELECT G.ogbitranslation, T.ncbiId, T.glycanId
+	FROM Glycan G, GlycanTaxonomy T
+	WHERE
+	T.glycanId = G.glycanId
+	GROUP BY T.ncbiId, T.glycanId, G.ogbitranslation
+	ORDER BY T.glycanId
+	</query>
+    </class>
+</hibernate-mapping>

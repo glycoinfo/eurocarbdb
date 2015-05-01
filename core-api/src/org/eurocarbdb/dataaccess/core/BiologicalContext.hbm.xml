@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update" >
+
+    <class name="org.eurocarbdb.dataaccess.core.BiologicalContext" 
+           table="biological_context" 
+           schema="core" 
+           node="biological_context"
+           >
+       
+        <id name="biologicalContextId" type="int" access="field" node="@id">
+            <column name="biological_context_id" />
+            <generator class="sequence" >
+            	<param name="sequence">core.biological_context_biological_context_id_seq</param>
+            </generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+
+        <!-- dateEntered: determined by the database on INSERT -->
+        <property name="dateEntered" type="timestamp" 
+            insert="false" update="false" generated="insert" access="field" node="date_entered">
+            <column name="date_entered" length="8" not-null="true" />
+        </property>
+	
+	<set embed-xml="false" inverse="true" name="biologicalContextContributors" sort="unsorted">
+	<key>
+	  <column name="biological_context_id" not-null="true"/>
+	</key>
+	<one-to-many class="org.eurocarbdb.dataaccess.core.BiologicalContextContributor"/>
+	</set>
+        
+        <!--<property name="comments" type="string">
+            <column name="comments" />
+        </property>-->
+        
+        
+        <!--======================  associations  ===========================-->
+        
+        <!-- Contributor association -->
+        <!--<many-to-one name="contributor" 
+                     class="org.eurocarbdb.dataaccess.core.Contributor" 
+                     fetch="select" 
+                     node="contributor/@id" 
+                     embed-xml="false" 
+                     >
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>-->
+        
+        <!-- Taxonomy association -->
+        <many-to-one name="taxonomy" 
+                     class="org.eurocarbdb.dataaccess.core.Taxonomy" 
+                     fetch="select"
+                     >
+            <column name="taxonomy_id" not-null="true" />
+        </many-to-one>
+        
+        <!-- TissueTaxonomy association -->
+        <many-to-one name="tissueTaxonomy" 
+                     class="org.eurocarbdb.dataaccess.core.TissueTaxonomy" 
+                     fetch="select"
+                     >
+            <column name="tissue_taxonomy_id" not-null="true" />
+        </many-to-one>
+        
+        <!-- Disease association -->
+        <set name="diseaseContexts" inverse="true" embed-xml="false">
+            <key>
+                <column name="biological_context_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.DiseaseContext" />
+        </set>
+
+        <!-- 
+        GlycanSequence association.
+        we keep this mapping to the join table public in this case because 
+        the join table stores heterogeneity information.
+        -->
+        <set name="glycanSequenceContexts" inverse="true" embed-xml="false">
+            <key>
+                <column name="biological_context_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.GlycanSequenceContext" />
+        </set>
+        
+        <!-- Perturbation association -->
+        <set name="perturbationContexts" inverse="true" embed-xml="false">
+            <key>
+                <column name="biological_context_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.PerturbationContext" />
+        </set>
+        
+        <!-- Glycoconjugate association -->
+        <set name="glycoconjugates" 
+             table="biological_context_to_glycoconjugate" 
+             schema="core"
+             embed-xml="false" >
+            <key column="biological_context_id" not-null="true" />
+            <many-to-many column="glycoconjugate_id" class="org.eurocarbdb.dataaccess.core.Glycoconjugate" />
+        </set>  
+        
+        <!-- Experiment association -->
+        <set name="experimentContexts" inverse="true" access="field" embed-xml="false">
+            <key>
+                <column name="biological_context_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.ExperimentContext" />
+        </set>
+
+        <!-- Evidence association -->
+        <set name="evidenceContexts" inverse="true" access="field" embed-xml="false">
+            <key>
+                <column name="biological_context_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.EvidenceContext" />
+        </set>
+
+        
+        <!--=====================  named queries  =============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+        
+    
+        <!-- 
+        query : ALL_CONTEXTS
+        desc  : Retrieves all BCs in the DB (!!!).
+        author: mjh
+        -->
+        <query name="ALL_CONTEXTS">
+            SELECT  bc
+            FROM    BiologicalContext as bc
+        </query>
+        
+    </class>
+
+</hibernate-mapping>
+
+

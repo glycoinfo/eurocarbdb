@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-Nov-2007 12:20:42 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.RefTaxLink" table="ref_tax_link" schema="hplc">
+        <id name="refTaxId" type="int">
+            <column name="ref_tax_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="ogbiLinkId" type="int">
+            <column name="ogbi_link_id" not-null="true" />
+        </property>
+        <property name="meshPertId" type="java.lang.Integer">
+            <column name="mesh_pert_id" length="50" />
+        </property>
+        <property name="meshDiseaseId" type="java.lang.Integer">
+            <column name="mesh_disease_id" length="50" />
+        </property>
+        <property name="meshTissueId" type="java.lang.Integer">
+            <column name="mesh_tissue_id" length="50" />
+        </property>
+        <property name="taxOrderId" type="java.lang.Integer">
+            <column name="tax_order_id" />
+        </property>
+        <property name="taxSpeciesId" type="java.lang.Integer">
+            <column name="tax_species_id" />
+        </property>
+        <property name="pertName" type="string">
+            <column name="pert_name" length="100" />
+        </property>
+        <property name="diseaseName" type="string">
+            <column name="disease_name" length="100" />
+        </property>
+        <property name="tissueName" type="string">
+            <column name="tissue_name" length="100" />
+        </property>
+
+<query name="TAX_SEARCH">
+FROM RefTaxLink where ogbiLinkId = :refId
+</query>
+    </class>
+</hibernate-mapping>

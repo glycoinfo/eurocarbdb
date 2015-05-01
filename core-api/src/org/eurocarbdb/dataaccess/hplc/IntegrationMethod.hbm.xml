@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:54 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.IntegrationMethod" table="integration_method" schema="hplc">
+        <id name="integrationMethod" type="int">
+            <column name="integration_method" />
+            <generator class="sequence">
+                <param name="sequence">hplc.integration_method_integration_method_id_seq</param>
+            </generator>
+        </id>
+	<many-to-one name="profile" class="org.eurocarbdb.dataaccess.hplc.Profile" fetch="select" property-ref="profileId">
+            <column name="profile" not-null="true" />
+        </many-to-one>
+        <many-to-one name="digest" class="org.eurocarbdb.dataaccess.hplc.Digest" fetch="select">
+            <column name="digest_id" not-null="true" />
+        </many-to-one>
+        <property name="rtRangeEnd" type="short">
+            <column name="rt_range_end" not-null="true" />
+        </property>
+        <property name="rtRangeStart" type="short">
+            <column name="rt_range_start" not-null="true" />
+        </property>
+        <property name="peakWidth" type="double">
+            <column name="peak_width" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="peakThreshold" type="java.lang.Double">
+            <column name="peak_threshold" precision="8" scale="0" />
+        </property>
+        <property name="peakMinHeight" type="double">
+            <column name="peak_min_height" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="peakMinArea" type="double">
+            <column name="peak_min_area" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="calibrationCurveType" type="string">
+            <column name="calibration_curve_type" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

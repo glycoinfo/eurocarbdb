@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.Technique" table="technique" schema="core">
+        <id name="techniqueId" type="int">
+            <column name="technique_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.technique_technique_id_seq</param>
+			</generator>
+        </id>
+        <property name="techniqueAbbrev" type="string">
+            <column name="technique_abbrev" length="10" not-null="true" />
+        </property>
+        <property name="techniqueName" type="string">
+            <column name="technique_name" length="50" not-null="true" />
+        </property>
+        <set name="evidences" inverse="true">
+            <key>
+                <column name="technique_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.Evidence" />
+        </set>
+        <set name="experimentSteps" inverse="true">
+            <key>
+                <column name="technique_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.ExperimentStep" />
+        </set>
+        
+        <!--=====================  named queries  =============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+        <!-- 
+        query : ALL_TECHNIQUES
+        desc  : Retrieves all techniques.
+        author: mjh
+        -->
+        <query name="ALL_TECHNIQUES" cacheable="true" >
+            SELECT  tech
+            FROM    Technique AS tech
+        </query>
+     
+	<!-- 
+        query : BY_ABBREV
+        author: ac
+        -->
+        <query name="BY_ABBREV" cacheable="true"> 
+            SELECT  t
+            FROM    Technique AS t
+            WHERE   t.techniqueAbbrev = :abbrev
+        </query>
+
+    </class>
+</hibernate-mapping>

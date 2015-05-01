@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:30 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.TissueTaxonomy" table="tissue_taxonomy" schema="core">
+    
+        <id name="tissueTaxonomyId" type="int">
+            <column name="tissue_taxonomy_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.tissue_taxonomy_tissue_taxonomy_id_seq</param>
+			</generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+        
+        <property name="tissueTaxon" type="string">
+            <column name="tissue_taxon" length="128" not-null="true" />
+        </property>
+        
+        <property name="meshId" type="string">
+            <column name="mesh_id" length="64" not-null="true" />
+        </property>
+        
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        
+        <property name="dateLastModified" type="timestamp" insert="false">
+            <column name="date_last_modified" length="8" />
+        </property>
+        
+        <!--
+        <property name="importance" type="int" insert="false" />
+        -->
+        
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="parentTissueTaxonomy" 
+                     class="org.eurocarbdb.dataaccess.core.TissueTaxonomy" 
+                     fetch="select"
+                     node="@parent"
+                     embed-xml="false"
+                     >
+            <column name="parent_tissue_taxonomy_id" not-null="true" />
+        </many-to-one>
+        
+        <set name="childTissueTaxonomies" inverse="true" order-by="tissue_taxon desc" node="children" embed-xml="false">
+            <key>
+                <column name="parent_tissue_taxonomy_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.TissueTaxonomy" />
+        </set>
+        
+        <set name="tissueTaxonomySynonyms" inverse="true" node="synonyms" >
+            <key>
+                <column name="tissue_taxonomy_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.TissueTaxonomySynonym" />
+        </set>
+        
+        <set name="biologicalContexts" inverse="true" embed-xml="false">
+            <key>
+                <column name="tissue_taxonomy_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.BiologicalContext" />
+        </set>
+        
+        <one-to-one name="relations" 
+                    class="org.eurocarbdb.dataaccess.core.TissueTaxonomyRelations"
+                    cascade="save-update"
+        />
+                    
+        
+        <!--=====================  named queries  =============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+        <!-- 
+        query : MATCHING_NAME_OR_SYNONYM
+        desc  : Retrieves all tissue taxonomies whose name or synonyms match the given name.
+                The ORDER BY clause sorts tissues that are closer to the root of 
+                the tree higher than the leaves.
+        author: mjh
+        -->
+        <query name="MATCHING_NAME_OR_SYNONYM" cacheable="true">
+            SELECT  
+                tis
+            FROM    
+                TissueTaxonomy AS tis
+            LEFT OUTER JOIN 
+                tis.tissueTaxonomySynonyms AS syn 
+            JOIN fetch 
+                tis.relations AS rel
+            WHERE   
+                lower( tis.tissueTaxon ) LIKE lower( :taxon_name )
+                OR lower( syn.synonym )  LIKE lower( :taxon_name ) 
+            ORDER BY 
+                rel.rightIndex - rel.leftIndex DESC
+        </query>
+
+        <!-- 
+        query : TISSUE_TAXONOMY_BY_MESH_ID
+        desc  : Retrieves all tissue taxonomies whose meshId the given id.
+        author: hirenj
+        -->     
+     	<query name="TISSUE_TAXONOMY_BY_MESH_ID" cacheable="true">
+     		SELECT	tax
+     		FROM	TissueTaxonomy AS tax
+     		WHERE	lower( tax.meshId ) = lower ( :mesh_id )
+     	</query>
+
+      <!--
+        query : count_structures_for_sub_tissues
+        desc  : Retrieves top 50 tissues descending from the tissueTaxonomyId'd tissue that have structures
+        author: hirenj
+      -->
+        <sql-query name="count_structures_for_sub_tissues"
+            comment="Counts the number of glycan sequences associated to given :tissue_taxonomy_id and all its sub-tissues">
+            <return-scalar column="tissueTaxonomyId" type="int" />
+            <return-scalar column="tissueTaxon" type="string" />
+            <return-scalar column="structure_count" type="int" />
+            select  
+                tis.tissue_taxonomy_id as tissueTaxonomyId,
+                tis.tissue_taxon as tissueTaxon,
+                count( distinct gc.glycan_sequence_id ) as structure_count
+            from  
+                core.tissue_taxonomy as tis
+            inner join 
+                core.tissue_taxonomy_relations as child
+                on tis.tissue_taxonomy_id = child.tissue_taxonomy_id 
+            inner join
+                core.tissue_taxonomy_relations as parent 
+                on child.left_index between parent.left_index and parent.right_index
+            inner join
+                core.biological_context as bc
+                on bc.tissue_taxonomy_id = child.tissue_taxonomy_id
+            inner join 
+                core.glycan_sequence_to_biological_context as gc 
+                on gc.biological_context_id = bc.biological_context_id
+            where   
+                parent.tissue_taxonomy_id = :tissue_taxonomy_id 
+                and child.tissue_taxonomy_id != :tissue_taxonomy_id
+            group by 
+                tis.tissue_taxonomy_id,
+                tis.tissue_taxon
+            order by
+                structure_count desc
+            limit 50
+        </sql-query>
+
+        <!-- 
+        Counts the number of glycan sequences associated to given :tissue_taxonomy_id and all its sub-tissueTaxonomies
+        -->
+        <sql-query 
+            name="count_structures_for_this_tissue_taxonomy"
+            comment="Counts the number of glycan sequences associated to given :tissue_taxonomy_id and all its sub-tissueTaxonomies">
+            <return-scalar column="structure_count" type="int" />
+        select 
+            count( distinct gc.glycan_sequence_id ) as structure_count             
+        from
+            core.tissue_taxonomy_relations as child   
+        inner join
+            core.tissue_taxonomy_relations as parent 
+                on child.left_index between parent.left_index and parent.right_index
+        inner join
+            core.biological_context as bc                  
+                on bc.tissue_taxonomy_id = child.tissue_taxonomy_id             
+        inner join
+            core.glycan_sequence_to_biological_context as gc                  
+                on bc.biological_context_id = gc.biological_context_id             
+        where
+            parent.tissue_taxonomy_id = :tissue_taxonomy_id
+        </sql-query>
+     
+    </class>
+    
+</hibernate-mapping>

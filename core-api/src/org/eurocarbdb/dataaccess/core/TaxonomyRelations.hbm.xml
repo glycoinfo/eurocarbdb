@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.TaxonomyRelations" table="taxonomy_relations" schema="core">
+
+        <!-- This class/table uses the primary key of the Taxonomy class -->
+        <id name="taxonomyId" type="int">
+            <column name="taxonomy_id" not-null="true" />
+			<generator class="foreign" >
+				<param name="property">taxonomy</param>
+			</generator>
+        </id>
+
+        <!-- The taxonomy for which we are encoding the relations -->
+        <one-to-one name="taxonomy" 
+                    class="org.eurocarbdb.dataaccess.core.Taxonomy"
+                    constrained="true"
+        />
+                    
+        <property name="leftIndex" type="int" node="@left_index">
+            <column name="left_index" not-null="true" unique="true" />
+        </property>
+        
+        <property name="rightIndex" type="int" node="@right_index">
+            <column name="right_index" not-null="true" unique="true" />
+        </property>
+        
+        <property name="relativeImportance" type="int" access="field" formula="right_index - left_index" />
+        
+    </class>
+    
+</hibernate-mapping>

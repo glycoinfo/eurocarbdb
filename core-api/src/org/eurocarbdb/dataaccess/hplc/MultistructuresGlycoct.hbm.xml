@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-Oct-2008 14:55:05 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.MultistructuresGlycoct" table="multistructures_glycoct" schema="hplc">
+        <id name="multiId" type="int">
+            <column name="multi_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+        <property name="seqCt" type="string">
+            <column name="seq_ct" length="65500" />
+        </property>
+        <property name="glycanSequenceId" type="java.lang.Integer">
+            <column name="glycan_sequence_id" />
+        </property>
+
+<query name="SELECT_ALL">
+        FROM MultistructuresGlycoct 
+</query>
+
+<query name="SELECT_CONTRACT_ALL">
+	FROM MultistructuresGlycoct WHERE glycanId > 1287
+</query>
+
+
+<query name="UPDATE_SEQ_ID" comment="Going to update glycan_sequence_id">
+        UPDATE MultistructuresGlycoct set glycanSequenceId = :idMulti where glycanId = :glycanMultiId
+</query>
+
+<query name="SELECT_ALL_MULTICT">
+	FROM Multipleglycoct where glycanId = :glycan_id
+</query>
+
+<query name="SELECT_ALL_MULTICT_DIGESTS">
+SELECT DS.enzyme, DS.productId, M.glycanSequenceId, M.glycanId, M2.glycanSequenceId, G.name
+FROM DigestSingle DS,  MultistructuresGlycoct M, MultistructuresGlycoct M2, Glycan G
+where G.glycanId = DS.productId and M.glycanId= :glycan_id  and DS.glycanId = :glycan_id and DS.enzyme != '0' and DS.glycanId = :glycan_id and M2.glycanId = DS.productId
+and exists (select glycanSequenceId from MultistructuresGlycoct where glycanId = DS.productId)
+</query>
+
+<query name="SELECT_ALL_MULTICT_DIGESTS_PRODUCT">
+SELECT DS.enzyme, DS.productId, M.glycanSequenceId, M.glycanId, G.ogbitranslation
+FROM DigestSingle DS, MultistructuresGlycoct  M, Glycan G
+where M.glycanId= :glycan_id  and DS.glycanId = :glycan_id and DS.enzyme != '0' and DS.glycanId = :glycan_id and G.glycanId = DS.productId
+</query>
+
+
+    </class>
+</hibernate-mapping>

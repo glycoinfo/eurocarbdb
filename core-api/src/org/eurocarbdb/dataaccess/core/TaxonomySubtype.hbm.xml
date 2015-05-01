@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.TaxonomySubtype" table="taxonomy_subtype" schema="core" mutable="false">      
+     
+      <composite-id>
+	<key-many-to-one name="taxonomy" class="org.eurocarbdb.dataaccess.core.Taxonomy" column="taxonomy_id" />
+	<key-many-to-one name="subTaxonomy" class="org.eurocarbdb.dataaccess.core.Taxonomy" column="sub_taxonomy_id"/>
+      </composite-id>                     
+  
+      <property name="taxon" type="string">
+	<column name="taxon" length="128" not-null="true" />
+      </property>
+
+    </class>
+    
+</hibernate-mapping>

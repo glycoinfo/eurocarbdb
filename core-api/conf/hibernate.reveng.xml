@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering SYSTEM "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+<hibernate-reverse-engineering>
+
+<table-filter match-schema="core" match-name=".*" package="org.eurocarbdb.dataaccess.core"/> 
+<table-filter match-schema="ms" match-name=".*" package="org.eurocarbdb.dataaccess.ms"/> 
+<table-filter match-schema="hplc" match-name=".*" package="org.eurocarbdb.dataaccess.hplc"/>
+<table-filter match-schema="seq" match-name=".*" package="org.eurocarbdb.dataaccess.core.seq"/>
+
+</hibernate-reverse-engineering>
+

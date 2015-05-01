@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.SmallMolecule" table="small_molecule" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="smallMoleculeId" type="integer">
+            <column name="small_molecule_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.analyser_analyser_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" not-null="true"/>
+        </property>
+        <set name="peakAnnotatedToSmallMolecules" inverse="true">
+            <key>
+                <column name="small_molecule_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotatedToSmallMolecule"/>
+        </set>
+        <set name="smallMoleculeCompositions" inverse="true">
+            <key>
+                <column name="small_molecule_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.SmallMoleculeComposition"/>
+        </set>
+    </class>
+</hibernate-mapping>

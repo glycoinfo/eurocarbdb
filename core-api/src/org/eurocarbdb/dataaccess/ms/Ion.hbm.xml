@@ -1,0 +1,63 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.Ion" table="ion" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="ionId" type="integer">
+            <column name="ion_id"/>
+           <generator class="sequence">
+                <param name="sequence">ms.ion_ion_id_seq</param>
+            </generator>
+        </id>
+        <property name="ionType" type="string">
+            <column name="ion_type" not-null="true"/>
+        </property>
+        <property name="charge" type="integer">
+            <column name="charge" not-null="true"/>
+        </property>
+        <property name="positive" type="boolean">
+            <column name="positive" not-null="true"/>
+        </property>
+        <property name="atomer" type="boolean">
+            <column name="atomer" not-null="true"/>
+        </property>
+        <set name="ionCompositions" inverse="true">
+            <key>
+                <column name="ion_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.IonComposition"/>
+        </set>
+        <set name="peakAnnotatedToIons" inverse="true">
+            <key>
+                <column name="ion_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotatedToIon"/>
+        </set>
+
+      <!-- 
+        query : GET_ALL
+        desc  : returns all Ions in the db
+        author: ac
+        -->
+        <query name="GET_ALL" cacheable="true"> 
+            Select I
+            from Ion as I
+        </query>
+
+        <!-- 
+        query : BY_ION_TYPE
+        desc  : Retrieve an ion of a certain type
+        author: ac
+        -->
+        <query name="BY_ION_TYPE" cacheable="true"> 
+            SELECT  i
+            FROM    Ion AS i
+            WHERE   i.ionType = :type
+        </query>
+        <query name="BY_TYPE_CHARGE_POSITIVE" cacheable="true">
+        SELECT i
+        FROM Ion AS i
+        WHERE i.ionType = :type AND 
+              i.charge = :charge AND
+              i.positive = :positive
+        </query>
+    </class>
+</hibernate-mapping>

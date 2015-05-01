@@ -1,0 +1,68 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.PeakList" table="peak_list" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="peakListId" type="integer">
+            <column name="peak_list_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.peak_list_peak_list_id_seq</param>
+            </generator>
+        </id>
+        <property name="dateEntered" type="timestamp">
+            <column name="date_entered" length="29" not-null="true"/>
+        </property>
+        <property name="deisotoped" type="boolean">
+            <column name="deisotoped" not-null="true"/>
+        </property>
+        <property name="chargeDeconvoluted" type="boolean">
+            <column name="charge_deconvoluted" not-null="true"/>
+        </property>
+        <property name="basePeakMz" type="double">
+            <column name="base_peak_mz" precision="17"/>
+        </property>
+        <property name="basePeakIntensity" type="double">
+            <column name="base_peak_intensity" precision="17"/>
+        </property>
+        <property name="lowMz" type="double">
+            <column name="low_mz" precision="17" not-null="true"/>
+        </property>
+        <property name="highMz" type="double">
+            <column name="high_mz" precision="17" not-null="true"/>
+        </property>
+        <property name="contributorId" type="integer">
+            <column name="contributor_id" not-null="true"/>
+        </property>
+        <property name="contributorQuality" type="double">
+            <column name="contributor_quality" precision="17" not-null="true"/>
+        </property>
+        <many-to-one name="peakProcessing" class="org.eurocarbdb.dataaccess.ms.PeakProcessing" cascade="none">
+            <column name="peak_processing_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="scan" class="org.eurocarbdb.dataaccess.ms.Scan" cascade="none">
+            <column name="scan_id" not-null="true"/>
+        </many-to-one>
+        <set name="peakLabeleds" inverse="true">
+            <key>
+                <column name="peak_list_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakLabeled"/>
+        </set>
+        <set name="PeakListToDataProcessings" inverse="true">
+            <key>
+                <column name="peak_list_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakListToDataProcessing"/>
+        </set>
+        <query name="GET_AQUISITIONS_AND_PEAKLISTS">
+        SELECT COUNT(pl.peakListId) as plCount,pl.scan.acquisition.evidenceId as acquisitionId,
+        pl.scan.acquisition.filename as fname,pl.dateEntered as de,
+        pl.scan.acquisition.contributor.contributorName as cname
+        FROM PeakList  as pl 
+        Group By pl.scan.acquisition.evidenceId,
+        pl.scan.acquisition.filename,pl.dateEntered,
+        pl.scan.acquisition.contributor.contributorName
+        Order By pl.scan.acquisition.evidenceId,
+        pl.scan.acquisition.filename,pl.dateEntered,
+        pl.scan.acquisition.contributor.contributorName
+        </query>
+    </class>
+</hibernate-mapping>

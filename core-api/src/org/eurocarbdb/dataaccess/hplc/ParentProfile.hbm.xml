@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2007 10:38:53 AM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.hplc.ParentProfile" table="parent_profile" schema="hplc">
+    
+        <id name="parentProfileId" type="int">
+            <column name="parent_profile_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.parent_profile_parent_profile_id_seq</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="detector" class="org.eurocarbdb.dataaccess.hplc.Detector" fetch="select">
+            <column name="detector_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="column" class="org.eurocarbdb.dataaccess.hplc.Column" fetch="select">
+            <column name="column_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="experimentStep" class="org.eurocarbdb.dataaccess.core.ExperimentStep" fetch="select">
+            <column name="experimental_step_id" />
+        </many-to-one>
+        
+        <many-to-one name="instrument" class="org.eurocarbdb.dataaccess.hplc.Instrument" fetch="select">
+            <column name="instrument_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="experiment" class="org.eurocarbdb.dataaccess.core.Experiment" fetch="select">
+            <column name="experiment_id" />
+        </many-to-one>
+        
+        <property name="acqSwVersion" type="string">
+            <column name="acq_sw_version" length="50" not-null="true" />
+        </property>
+        
+        <property name="operator" type="string">
+            <column name="operator" length="100" not-null="true" />
+        </property>
+        
+        <property name="dateAcquired" type="date">
+            <column name="date_acquired" length="4" not-null="false" />
+        </property>
+        
+        <property name="dextranStandard" type="string">
+            <column name="dextran_standard" length="50" not-null="true" />
+        </property>
+        
+        <property name="sequentialDigest" type="string">
+            <column name="sequential_digest" length="100" />
+        </property>
+        
+        <property name="userComments" type="string">
+            <column name="user_comments" />
+        </property>
+        
+        <property name="waxUndigested" type="string">
+            <column name="wax_undigested" length="4" />
+        </property>
+        
+        <set name="integrationMethods" inverse="true">
+            <key>
+                <column name="parent_profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.IntegrationMethod" />
+        </set>
+        
+        <set name="profileDatas" inverse="true">
+            <key>
+                <column name="parent_profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.ProfileData" />
+        </set>
+        
+        <set name="hplcPeaksIntegrateds" inverse="true">
+            <key>
+                <column name="parent_profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.HplcPeaksIntegrated" />
+        </set>
+        
+        <set name="hplcPeaksAnnotateds" inverse="true">
+            <key>
+                <column name="parent_profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.HplcPeaksAnnotated" />
+        </set>
+        
+        <set name="digestProfiles" inverse="true">
+            <key>
+                <column name="parent_profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.DigestProfile" />
+            
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

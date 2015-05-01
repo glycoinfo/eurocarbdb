@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:30 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.TissueTaxonomyRelations" table="tissue_taxonomy_relations" schema="core">
+
+        <id name="tissueTaxonomyId" type="int">
+            <column name="tissue_taxonomy_id" />
+			<generator class="foreign" >
+				<param name="property">tissueTaxonomy</param>
+			</generator>
+        </id>
+        
+        <!--        
+        <many-to-one name="tissueTaxonomy" class="org.eurocarbdb.dataaccess.core.TissueTaxonomy" update="false" insert="false" fetch="select">
+            <column name="tissue_taxonomy_id" not-null="true" unique="true" />
+        </many-to-one>
+        -->
+        <one-to-one name="tissueTaxonomy" 
+                    class="org.eurocarbdb.dataaccess.core.TissueTaxonomy" 
+                    constrained="true" 
+         />
+        
+        <property name="leftIndex" type="int">
+            <column name="left_index" not-null="true" unique="true" />
+        </property>
+        
+        <property name="rightIndex" type="int">
+            <column name="right_index" not-null="true" unique="true" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

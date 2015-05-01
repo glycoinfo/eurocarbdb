@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:28 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.Glycoconjugate" table="glycoconjugate" schema="core">
+        <id name="glycoconjugateId" type="int">
+            <column name="glycoconjugate_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.glycoconjugate_glycoconjugate_id_seq</param>
+			</generator>
+        </id>
+        <property name="glycoconjugateType" type="string">
+            <column name="glycoconjugate_type" length="32" not-null="true" />
+        </property>
+        <property name="glycoconjugateTable" type="string">
+            <column name="glycoconjugate_table" length="32" not-null="true" />
+        </property>
+        <property name="glycoconjugateTableId" type="int">
+            <column name="glycoconjugate_table_id" not-null="true" />
+        </property>
+        <set name="biologicalContextToGlycoconjugates" inverse="true">
+            <key>
+                <column name="glycoconjugate_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.BiologicalContextToGlycoconjugate" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.TaxonomyProteomeSkRanked" table="static_taxonomy_proteome_ranking" schema="core">
+        <id name="ncbiId" type="int">
+            <column name="ncbi_id" />
+        </id>
+	
+	<property name="rank" type="string">
+            <column name="rank_pos" length="16" not-null="true" />
+        </property>
+	
+<!-- 	<many-to-one name="taxonomy" class="org.eurocarbdb.dataaccess.core.Taxonomy" column="ncbi_id" unique="true"  insert="false" update="false"/> -->
+	<one-to-one name="taxonomy" class="org.eurocarbdb.dataaccess.core.Taxonomy" foreign-key="static_taxonomy_proteome_ranking_ncbi_id_fkey"/>
+<!-- 	column="ncbi_id" unique="true" />  -->
+<!-- 	insert="false" update="false"/> -->
+    </class>
+</hibernate-mapping>

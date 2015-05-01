@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-Jan-2008 14:45:15 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.GlycanSequenceTemp" table="glycan_sequence_temp" schema="hplc">
+        <id name="glycanSequenceId" type="int">
+            <column name="glycan_sequence_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="sequenceIupac" type="string">
+            <column name="sequence_iupac" length="65535" not-null="true" unique="true" />
+        </property>
+        <property name="sequenceCt" type="string">
+            <column name="sequence_ct" length="65535" not-null="true" unique="true" />
+        </property>
+        <property name="sequenceCtCondensed" type="string">
+            <column name="sequence_ct_condensed" length="65535" not-null="true" />
+        </property>
+        <property name="residueCount" type="java.lang.Short">
+            <column name="residue_count" />
+        </property>
+        <property name="massMonoisotopic" type="big_decimal">
+            <column name="mass_monoisotopic" precision="65535" scale="65531" />
+        </property>
+        <property name="massAverage" type="big_decimal">
+            <column name="mass_average" precision="65535" scale="65531" />
+        </property>
+        <property name="composition" type="string">
+            <column name="composition" length="64" />
+        </property>
+        <property name="dateEntered" type="timestamp">
+            <column name="date_entered" length="8" not-null="true" />
+        </property>
+        <property name="dateContributed" type="timestamp">
+            <column name="date_contributed" length="8" not-null="true" />
+        </property>
+        <property name="contributorId" type="int">
+            <column name="contributor_id" not-null="true" />
+        </property>
+
+<query name="UPDATE_MULTICT_SEQ">
+        UPDATE GlycanSequenceTemp set glycanSequenceId = :idCTNew where glycanSequenceId = :idCTOriginal
+</query>
+
+<query name="SELECT_ALL">
+	FROM GlycanSequenceTemp
+</query>
+
+    </class>
+</hibernate-mapping>

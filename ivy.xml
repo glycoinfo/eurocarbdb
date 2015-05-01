@@ -1,0 +1,174 @@
+<ivy-module version="1.0">
+    <info organisation="org" module="standalone" revision="working"/>
+    <dependencies defaultconfmapping="*->*,!javadoc,!sources">
+
+      <!-- compile only -->
+      <dependency org="bcel" name="bcel" rev="5.1"/>
+      <dependency org="ant" name="ant-antlr" rev="1.6.5"/>
+      <dependency org="ant-contrib" name="ant-contrib" rev="1.0b3"/>
+      <dependency org="org.hibernate" name="hibernate-tools" rev="3.2.3.GA"/>
+
+      <!--  We need to manually grab the jsdoctoolkit jar, since the packaging
+            on the jar is broken.
+        -->
+        
+        
+      <dependency org="org.jsdoctoolkit" name="jsdoc-dist" rev="2.1.0">
+          <artifact type="zip" name="jsdoc-dist" url="http://jsdoc-toolkit.googlecode.com/files/jsdoc_toolkit-2.1.0.zip"/>                
+      </dependency>
+
+      <dependency org="org.jsdoctoolkit" name="jsdoc" rev="2.1.0">
+          <artifact type="jar" name="jsdoc" url="http://mirrors.ibiblio.org/pub/mirrors/maven2/org/jsdoctoolkit/jsdoc/2.1.0/jsdoc-2.1.0.jar"/>
+      </dependency>
+    
+      <dependency org="org.jsdoctoolkit" name="jsdoctoolkit-ant-task" rev="1.0">
+          <exclude module="ant-contrib"/>
+          <exclude module="jsdoc"/>
+      </dependency>
+      
+      
+      
+      <!-- Glycoworkbench build
+      <dependency org="net.sf.launch4j" name="launch4j" rev="3.0.0"/>
+      -->
+      <dependency org="net.java.dev.swing-layout" name="swing-layout" rev="1.0"/>
+      <dependency org="org.apache.xmlgraphics" name="fop" rev="0.95"/>
+      <dependency org="jfree" name="jfreechart" rev="1.0.9"/>
+      <dependency org="javax.help" name="javahelp" rev="2.0.02"/>
+      <dependency org="ant" name="ant-launcher" rev="1.6.5"/>
+      
+      <!-- Glycopeakfinder lib -->
+      <dependency org="jexcelapi" name="jxl" rev="2.4.2"/>
+      
+      <!-- runtime -->
+      <dependency org="log4j" name="log4j" rev="1.2.11"/>
+      <dependency org="org.apache.xmlgraphics" name="batik-svggen" rev="1.7"/>
+      <dependency org="batik" name="batik-transcoder" rev="1.6"/>
+      <dependency org="postgresql" name="postgresql" rev="8.2-507.jdbc3"/>
+
+      <dependency org="bouncycastle" name="bcprov-jdk15" rev="136"/>
+
+      <!-- sashimi download -->
+      
+      <!--
+        
+        Don't download this code, as it is compiled for Java 6, and there
+        is no 32 bit java 6 on os x. Use our locally compiled version instead
+                        
+      <dependency org="jrap" name="jrap" rev="3.0">
+        <artifact type="jar" name="jrap" url="http://sashimi.svn.sourceforge.net/viewvc/sashimi/trunk/jrap/sax2/jrap_3.0.jar"/>
+      </dependency>
+    
+      -->
+      
+      <dependency org="ProteomeCommons" name="ProteomeCommons.org-IO" rev="1.0"/>
+      <dependency org="ProteomeCommons" name="ProteomeCommons.org-IO-T2D" rev="1.0"/>
+      <dependency org="ProteomeCommons" name="ProteomeCommons.org-IO-Waters" rev="1.0"/>
+      <dependency org="ProteomeCommons" name="ProteomeCommons.org-JAF" rev="1.0"/>
+      <dependency org="ProteomeCommons" name="ProteomeCommons.org-Tranche" rev="1.0"/>
+      <dependency org="jrap" name="jrap-jdk15" rev="1.0"/>
+
+      <!-- ResourcesDB dependencies -->
+    
+      <dependency org="jniinchi" name="jniinchi" rev="0.5">
+        <artifact type="jar" name="jniinchi" url="http://easynews.dl.sourceforge.net/sourceforge/jni-inchi/jniinchi-0.5-jar-with-dependencies.jar"/>        
+      </dependency>
+
+      <dependency org="org.openscience" name="cdk" rev="1.2.2">
+        <artifact type="jar" name="cdk" url="http://easynews.dl.sourceforge.net/sourceforge/cdk/cdk-1.2.2.jar"/>        
+      </dependency>
+
+      <dependency org="org.openscience" name="jchempaint" rev="2.4.0">
+        <artifact type="jar" name="jchempaint" url="http://easynews.dl.sourceforge.net/sourceforge/cdk/jchempaint-2.4.0.jar"/>
+      </dependency>
+    
+      <dependency org="batik" name="batik-svg-dom" rev="1.6-1" />
+      <dependency org="batik" name="batik-swing" rev="1.6-1" />
+      <dependency org="batik" name="batik-svggen" rev="1.6-1" />
+    
+      <!-- End resourcesDB dependencies -->      
+      
+      <!-- Begin Casper dependencies -->      
+      <dependency org="ant-contrib" name="cpptasks" rev="1.0b5"/>
+      <!-- End Casper dependencies -->      
+      
+      <!-- google collections -->
+      <dependency org="com.google.collections" name="google-collections" rev="1.0-rc2"/>
+      
+      <!-- commons-email -->
+      <dependency org="org.apache.commons" name="commons-email" rev="1.2">
+        <!-- exclude junk -->
+        <exclude module="a.*|m.*|j.*|r.*|s.*"/>
+       </dependency>
+      <dependency org="commons-configuration" name="commons-configuration" rev="1.4"/>
+      <dependency org="commons-fileupload" name="commons-fileupload" rev="1.2"/>
+      <dependency org="commons-net" name="commons-net" rev="1.4.1"/>
+      <dependency org="com.opensymphony" name="webwork" rev="2.2.6">
+        <exclude module="groovy-all"/>
+        <exclude module="plexus-utils"/>
+        <exclude module="nanocontainer-nanowar"/>
+        <exclude module="tiles-core"/>
+        <exclude module="nanocontainer-testmodel"/>
+      </dependency>
+      <dependency org="org.hibernate" name="hibernate" rev="3.2.6.ga">
+          <exclude module="jta"/>
+          <!-- We haven't needed jacc so far, so we can exclude it -->
+          <exclude module="jacc"/>
+      </dependency>
+      
+      <dependency org="javax.transaction" name="jta" rev="1.0.1B">
+        <artifact type="jar" name="jta" url="http://download.java.net/maven/2/javax/transaction/jta/1.0.1B/jta-1.0.1B.jar"/>
+      </dependency>
+      
+      <dependency org="jdom" name="jdom" rev="1.0"/>
+      
+      <dependency org="net.sf.opencsv" name="opencsv" rev="1.7"/>
+      <dependency org="javax.mail" name="mail" rev="1.4.1"/>
+
+      <!-- This dependency needs to be defined after Hibernate for some reason
+           Moving this before hibernate results in ivy looking for jacc, even
+           though it seems like openid4java doesn't require it
+      -->
+      <dependency org="org.openid4java" name="openid4java-nodeps" rev="0.9.5"/>
+      <dependency org="org.openid4java" name="openid4java-consumer" rev="0.9.5"/>      
+      <dependency org="org.openid4java" name="openid4java-server" rev="0.9.5"/>      
+      
+      <!-- test -->
+      <dependency org="org.testng" name="testng" rev="5.5-jdk15">
+        <exclude module="qdox"/>
+      </dependency>
+
+      <!-- jasypt -->
+       <dependency org="org.jasypt" name="jasypt" rev="1.6">
+        <!-- exclude junk -->
+        <exclude module="i.*|s.*|junit|a.*|w.*|b.*|h.*"/>
+       </dependency>
+      
+        <!-- ant-commons-net -->
+        <dependency org="org.apache.ant" name="ant-commons-net" rev="1.8.1"/>
+        
+        <!--stax-api-->         
+        <dependency org="org.jibx" name="jibx-run" rev="1.2.2"/>
+
+        <!--wstx-asl--> 
+        <dependency org="woodstox" name="wstx-asl" rev="3.2.0"/>
+
+        <!--xpp3-->
+        <dependency org="xpp3" name="xpp3" rev="1.1.4c"/>
+        
+        <!--jibx-bind-->
+        <dependency org="org.jibx" name="jibx-bind" rev="1.2.2"/>
+        
+        <!--bcel-->
+        <dependency org="org.apache.ant" name="ant-apache-bcel" rev="1.8.1"/>
+
+      <!--  We want to exclude batik-js from being pulled in, so globally
+            exclude batik-bridge
+      -->
+      <exclude org="org.apache.xmlgraphics" module="batik-bridge" />
+      <exclude org="org.eclipse.higgins"/>      
+      <exclude org="\$\{groupId\}"/>
+      <exclude org="org.slf4j"/>
+    </dependencies>
+</ivy-module>
+

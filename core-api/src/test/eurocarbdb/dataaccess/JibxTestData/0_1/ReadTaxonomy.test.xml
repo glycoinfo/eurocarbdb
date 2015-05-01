@@ -1,0 +1,6 @@
+<taxonomy xmlns="http://xml.eurocarbdb.org/0">
+	<rank>Foooo!</rank>
+	<taxon>Baaaa!</taxon>
+	<ncbi_id>1000</ncbi_id>
+	<should>ignore</should>
+</taxonomy>

@@ -1,0 +1,40 @@
+// Generated $date by Hibernate Tools $version
+
+$pojo.getPackageDeclaration()
+
+//  stdlib imports
+$secondpassclassimports
+import java.io.Serializable;
+
+//  eurocarb imports
+import org.eurocarbdb.dataaccess.BasicEurocarbObject;
+import static org.eurocarbdb.dataaccess.Eurocarb.getEntityManager;
+
+$templates.PojoTypeDeclaration 
+{
+
+#if(!$pojo.isInterface())
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~ FIELDS ~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+$templates.PojoFields
+
+    //~~~~~~~~~~~~~~~~~~~~~~~ CONSTRUCTORS ~~~~~~~~~~~~~~~~~~~~~~~~//
+$templates.PojoConstructors
+   
+    //~~~~~~~~~~~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+$templates.PojoPropertyAccessors   
+
+$templates.PojoToString
+
+$templates.PojoEqualsHashcode
+
+#else 
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+$templates.PojoInterfacePropertyAccessors
+
+#end
+
+$templates.PojoExtraClassCode
+
+} // end class

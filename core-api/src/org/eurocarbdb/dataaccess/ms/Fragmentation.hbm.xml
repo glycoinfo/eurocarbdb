@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.Fragmentation" table="fragmentation" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="fragmentationId" type="integer">
+            <column name="fragmentation_id"/>
+             <generator class="sequence">
+                <param name="sequence">ms.fragmentation_fragmentation_id_seq</param>
+            </generator>
+        </id>
+        <property name="fragmentType" type="string">
+            <column name="fragment_type" length="1"/>
+        </property>
+        <property name="fragmentDc" type="string">
+            <column name="fragment_dc" not-null="true"/>
+        </property>
+        <property name="fragmentAlt" type="string">
+            <column name="fragment_alt"/>
+        </property>
+        <property name="fragmentPosition" type="integer">
+            <column name="fragment_position"/>
+        </property>
+        <property name="cleavageOne" type="integer">
+            <column name="cleavage_one"/>
+        </property>
+        <property name="cleavageTwo" type="integer">
+            <column name="cleavage_two"/>
+        </property>
+        <many-to-one name="peakAnnotated" class="org.eurocarbdb.dataaccess.ms.PeakAnnotated" cascade="none">
+            <column name="peak_annotated_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

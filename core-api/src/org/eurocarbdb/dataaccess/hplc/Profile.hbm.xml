@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2007 5:02:06 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <!-- <class name="org.eurocarbdb.dataaccess.hplc.Profile" table="profile" schema="hplc">
+    
+        <id name="profileId" type="int">
+            <column name="profile_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.profile_profile_id_seq</param>
+            </generator>
+        </id> -->
+        
+<!-- joins this table to the evidence table on evidence_id -->
+
+        <joined-subclass 
+            name="org.eurocarbdb.dataaccess.hplc.Profile" 
+            extends="org.eurocarbdb.dataaccess.core.Evidence"
+            table="profile" 
+            schema="hplc"
+        >
+            
+        <key column="evidence_id" unique="true" property-ref="evidenceId" />
+	
+        <property name="profileId" type="int" 
+            insert="false" generated="insert" unique="true" >
+            <column name="profile_id" />
+        </property>
+        <many-to-one name="parentProfile" class="org.eurocarbdb.dataaccess.hplc.Profile" fetch="select">
+            <column name="parent_profile_id"  />
+        </many-to-one>
+        
+        <many-to-one name="detector" class="org.eurocarbdb.dataaccess.hplc.Detector" fetch="select">
+            <column name="detector_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="column" class="org.eurocarbdb.dataaccess.hplc.Column" fetch="select">
+            <column name="column_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="instrument" class="org.eurocarbdb.dataaccess.hplc.Instrument" fetch="select">
+            <column name="instrument_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="acqSwVersion" type="string">
+            <column name="acq_sw_version" length="50" not-null="true" />
+        </property>
+        
+        <property name="operator" type="string">
+            <column name="operator" length="100" not-null="true" />
+        </property>
+        
+	<property name="dateAcquired" type="timestamp" insert="false" update="false" generated="insert" access="field">
+            <column name="date_acquired" length="4" not-null="true" />
+        </property>
+        
+        <property name="dextranStandard" type="string">
+            <column name="dextran_standard" length="50" not-null="true" />
+        </property>
+        
+        <property name="sequentialDigest" type="string">
+            <column name="sequential_digest" length="100" />
+        </property>
+        
+        <property name="userComments" type="string">
+            <column name="user_comments" />
+        </property>
+        
+        <property name="waxUndigested" type="string">
+            <column name="wax_undigested" length="4" />
+        </property>
+        
+        <set name="childProfiles" inverse="true">
+            <key>
+                <column name="parent_profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.Profile" />
+        </set>
+        
+        <set name="hplcPeaksIntegrateds" inverse="true">
+            <key>
+                <column name="profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.HplcPeaksIntegrated" />
+	</set>
+
+	<set name="contents" inverse="true">
+	    <key column="profile_id" />
+	    <one-to-many class="org.eurocarbdb.dataaccess.hplc.Content" />
+	</set>
+
+        
+        <set name="digestProfiles" inverse="true">
+            <key>
+                <column name="profile" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.DigestProfile" />
+        </set>
+        
+        <set name="integrationMethods" inverse="true">
+            <key>
+                <column name="profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.IntegrationMethod" />
+        </set>
+        
+        <set name="profileDatas" inverse="true">
+            <key>
+                <column name="profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.ProfileData" />
+        </set>
+        
+        <set name="hplcPeaksAnnotateds" inverse="true" order-by="hplc.hplc_peaks_annotated.gu ASC">
+            <key>
+                <column name="profile_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.HplcPeaksAnnotated" />
+        </set>
+
+ <!--=====================  named queries  =============================-->
+     
+	<query name="SELECT_ALL">
+	     FROM Profile p where p.profileId = :profileId 
+	</query>
+
+        <query name="BY_ID" comment="Retrieve an profile by :profileId TEST.">  
+            select p from Profile as p 
+            where p.profileId = :profileId
+        </query>
+
+	<query name="USER_DETECTOR_SETTINGS">
+		SELECT DISTINCT detector
+		FROM Profile where operator = :operator
+	</query>
+
+	<query name="USER_COLUMN_SETTINGS">
+		SELECT DISTINCT column
+		FROM Profile where operator = :operator
+	</query>
+
+	<query name="USER_INSTRUMENT_SETTINGS">
+		SELECT DISTINCT instrument
+		FROM Profile where operator = :operator
+	</query>
+
+	<query name="SOFTWARE">
+		SELECT DISTINCT acqSwVersion
+		FROM Profile where operator = :operator
+        </query>
+ 
+	<query name="UPDATE_TEST">
+		UPDATE Profile set dextranStandard = :test where profile = 1
+	</query>
+
+
+        <query name="BY_EVIDENCE">
+		select p from Profile as p
+                where p.evidenceId = :evidId
+        </query>
+
+	<query name="SUMMARY_DIGESTS">
+		select p.profileId, d.digestId, d.sequentialDigest from Profile as p, DigestProfile as d
+		where p.profileId = :profileId and d.profile = p.evidenceId
+	</query>
+
+
+	<query name="EVIDENCE_CONTEXT">
+		select ev, e, p from Profile as p, EvidenceContext as ev, Evidence as e
+		where e.evidenceId = :evidId and ev.evidence = e.evidenceId and p.profileId = :profileId
+	</query>
+
+	<query name="LOOKUP_EVID_BC">
+		select e, ev from Evidence as e, EvidenceContext as ev where e.evidenceId = :evidId and ev.evidence = e.evidenceId
+	</query>
+
+	<query name="EVIDCONTEXT">
+		 select
+                 tax
+             from
+                 EvidenceContext ec
+             inner join
+                 ec.biologicalContext bc
+             inner join
+                 bc.taxonomy tax
+	     inner join
+                 bc.tissueTaxonomy tissue
+             where
+                 ec.evidence = :evidId 
+        </query>
+
+    </joined-subclass>
+</hibernate-mapping>

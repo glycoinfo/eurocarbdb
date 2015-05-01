@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.MethodOfCombination" table="method_of_combination" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="methodOfCombinationId" type="integer">
+            <column name="method_of_combination_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.method_of_combination_method_of_combination__id_seq</param>
+            </generator>
+        </id>
+        <property name="methodOfCombination" type="string">
+            <column name="method_of_combination" length="50" not-null="true"/>
+        </property>
+        <set name="sumAverageRelationships" inverse="true">
+            <key>
+                <column name="method_of_combination_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.SumAverageRelationship"/>
+        </set>
+    </class>
+</hibernate-mapping>

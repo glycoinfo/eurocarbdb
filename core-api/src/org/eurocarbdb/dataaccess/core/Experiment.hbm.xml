@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.Experiment" table="experiment" schema="core">
+    
+        <id name="experimentId" type="int" access="field">
+            <column name="experiment_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.experiment_experiment_id_seq</param>
+			</generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+        
+        <property name="experimentName" type="string">
+            <column name="experiment_name" />
+        </property>
+        
+        <property name="experimentComments" type="string">
+            <column name="experiment_comments" />
+        </property>
+        
+        <property name="dateEntered" type="timestamp" 
+            generated="insert" insert="false" update="false" access="field">
+            <column name="date_entered" length="8" />
+        </property>
+
+        <!--======================  associations  ===========================-->
+        
+        <!-- Contributor association -->
+        <many-to-one name="contributor" class="org.eurocarbdb.dataaccess.core.Contributor" fetch="select">
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>
+        
+        <!-- ExperimentStep association -->
+        <set name="experimentSteps" inverse="true">
+            <key>
+                <column name="experiment_id" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.ExperimentStep" />
+        </set>
+        
+        <!-- Evidence association -->
+        <set name="evidence" inverse="true">
+            <key>
+                <column name="experiment_id" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.Evidence" />
+        </set>
+        
+        <!-- BiologicalContext association -->
+        <set name="experimentContexts" inverse="true" access="field">
+            <key>
+                <column name="experiment_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.ExperimentContext" />
+        </set>
+
+
+        <!--=====================  named queries  =============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+        
+    
+        <!-- 
+        query : ALL_EXPERIMENTS
+        desc  : Retrieves all experiments in the DB (!!!).
+        author: mjh
+        -->
+        <query name="ALL_EXPERIMENTS">
+            SELECT  exp
+            FROM    Experiment AS exp
+        </query>
+    
+        <!-- 
+        query : GET_BIOLOGICAL_CONTEXTS_BY_EXPERIMENT
+        desc  : 
+        author: mjh
+        -->
+        <query name="GET_BIOLOGICAL_CONTEXTS_BY_EXPERIMENT">
+            from BiologicalContext AS bc
+            join fetch bc.experimentContexts as ec
+            join ec.experiment as ex
+            where ex.experimentId = :experiment_id
+        </query>
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,5 @@
+/*  $pojo.getDeclarationType() $pojo.getDeclarationName()  *//**********************************************
+*
+*
+*/ $templates.Ejb3TypeDeclaration
+$pojo.getClassModifiers() $pojo.getDeclarationType() $pojo.getDeclarationName() extends BasicEurocarbObject implements Serializable

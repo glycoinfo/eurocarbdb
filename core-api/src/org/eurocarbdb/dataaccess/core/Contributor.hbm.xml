@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+   <!--<typedef name="encryptedString" class="org.jasypt.hibernate.type.EncryptedStringType">
+      <param name="algorithm">PBEWithMD5AndTripleDES</param>
+      <param name="password">jasypt</param>
+      <param name="keyObtentionIterations">1000</param>
+    </typedef>
+-->
+
+    <class name="org.eurocarbdb.dataaccess.core.Contributor" table="contributor" schema="core">
+    
+        <id name="contributorId" type="int" access="field">
+            <column name="contributor_id" />
+            <generator class="sequence" >
+            	<param name="sequence">core.contributor_contributor_id_seq</param>
+            </generator>
+        </id>
+        
+        
+        <!--=======================  properties  ===========================-->
+        
+        <property name="contributorName" type="string" >
+            <column name="contributor_name" length="128" />
+        </property>
+
+        <property name="password" type="string" >
+            <column name="password" length="128" />
+        </property>
+
+        <property name="fullName" type="string" >
+            <column name="full_name" length="128" />
+        </property>
+
+        <property name="institution" type="string" >
+            <column name="institution" length="128" />
+        </property>
+
+        <property name="email" type="string" >
+            <column name="email" length="128" />
+        </property>
+
+        <property name="isActivated" type="boolean" >
+            <column name="is_activated"/>
+        </property>
+
+        <property name="isBlocked" type="boolean" >
+            <column name="is_blocked"/>
+        </property>
+
+        <property name="lastLogin" type="timestamp" >
+            <column name="last_login" length="8"/>
+        </property>
+
+
+        <property name="openId" type="string" >
+            <column name="open_id" length="128" />
+        </property>
+        
+        <property name="isAdmin" type="boolean" not-null="true">
+            <column name="is_admin" />
+        </property>
+
+        <property name="dateEntered" type="timestamp" insert="false" update="false">
+            <column name="date_entered" length="8" />
+        </property>
+
+        
+        <!--=====================  associations  ===========================-->
+
+        
+        <!--=====================  named queries  =============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+        <!-- 
+        query : ALL_CONTRIBUTORS
+        author: mjh        
+        -->
+        <query name="ALL_CONTRIBUTORS" comment="Retrieves all contributors"> 
+            select c
+            from Contributor as c           
+        </query>        
+        
+        <!-- 
+        query : BY_EXACT_NAME
+        author: mjh        
+        -->
+        <query name="BY_EXACT_NAME" comment="Gets a Contributor by exact :name."> 
+            SELECT  c
+            FROM    Contributor AS c
+            WHERE   lower(c.contributorName) = lower( :name )
+        </query>
+
+         <!--
+        query : BY_EXACT_Email
+        author: Srikalyan.
+        -->
+        <query name="BY_EXACT_EMAIL" comment="Gets a Contributor by exact :email.">
+            SELECT  c
+            FROM    Contributor AS c
+            WHERE   lower(c.email) = lower( :email )
+        </query>
+
+
+
+         <!--
+        query : BY_EXACT_NAME_EMAIL
+        author: Srikalyan.
+        -->
+        <query name="BY_EXACT_NAME_EMAIL" comment="Gets a Contributor by exact :name and :email.">
+            SELECT  c
+            FROM    Contributor AS c
+            WHERE   lower(c.contributorName) = lower( :name ) and lower(c.email) = lower( :email )
+        </query>
+
+        <!--
+        query : ACTIVE_ADMINISTRATORS
+        author: Srikalyan
+        -->
+        <query name="ACTIVE_ADMINISTRATORS" comment="Gets list of all contributor who are active administratos">
+            SELECT  c
+            FROM    Contributor AS c
+            WHERE   c.isAdmin=true and c.isActivated=true and c.isBlocked=false
+        </query>
+
+     
+        <!--
+        query : ACTIVE_ADMINISTRATORS_NOT_CURRENT
+        author: Srikalyan
+        -->
+        <query name="ACTIVE_ADMINISTRATORS_NOT_CURRENT" comment="Gets list of all contributor who are active administratos and not :current">
+            SELECT  c
+            FROM    Contributor AS c
+            WHERE   c.isAdmin=true and c.isActivated=true and c.isBlocked=false and lower(c.contributorName)!=lower(:current)
+        </query>
+
+        <!--
+        query : ACTIVE_CONTRIBUTORS_NON_ADMINS
+        author: Srikalyan
+        -->
+        <query name="ACTIVE_CONTRIBUTORS_NON_ADMINS" comment="Gets list of all contributor who are active and not admin.">
+            SELECT  c
+            FROM    Contributor AS c
+            WHERE   c.isAdmin=false and c.isActivated=true and c.isBlocked=false
+        </query>
+
+        <!--
+        query : ALL_INACTIVE_CONTRIBUTORS
+        author: Srikalyan.
+        des: gives a list of inactive unblocked contributors.
+        -->
+        <query name="ALL_INACTIVE_CONTRIBUTORS" comment="Retrieves all inactive unblocked contributors">
+            select c
+            from Contributor as c
+            where c.isActivated=false and c.isBlocked=false
+            order by c.dateEntered
+        </query>
+
+         <!--
+        query : ALL_ACTIVE_CONTRIBUTORS
+        author: Srikalyan.
+        des: gives a list of active unblocked contributors.
+        -->
+        <query name="ALL_ACTIVE_CONTRIBUTORS" comment="Retrieves all active unblocked contributors">
+            select c
+            from Contributor as c
+            where c.isActivated=true and c.isBlocked=false
+            order by c.dateEntered
+        </query>
+
+
+        <!--
+        query : ALL_BLOCKED_CONTRIBUTORS
+        author: Srikalyan.
+        des: gives a list of blocked contributors.
+        -->
+        <query name="ALL_BLOCKED_CONTRIBUTORS" comment="Retrieves all blocked contributors">
+            select c
+            from Contributor as c
+            where c.isBlocked=true            
+        </query>
+
+
+        <!-- 
+        query : BY_STRING_IDENTIFIER
+        author: hirenj
+        -->
+        <query name="BY_STRING_IDENTIFIER" comment="Gets a Contributor by exact :openId."> 
+            SELECT  c
+            FROM    Contributor AS c
+            WHERE   c.openId = :openId and c.isActivated=true and c.isBlocked=false
+        </query>
+        
+        <!--  
+        query : GET_ALL_CARBBANK_STRUCTURES
+        author: mjh
+        -->
+        <query name="GET_ALL_CARBBANK_STRUCTURES"
+               comment="Gets all GlycanSequences for the 'Carbbank' contributor (given as :name).">   
+            from GlycanSequence as gs 
+            join fetch gs.glycanContexts
+            join fetch gs.glycanReferences
+            where gs.contributor.contributorName = :name
+        </query>
+        
+        <!--  
+        query : GET_ALL_CONTRIBUTED_SEQUENCES_BY_ID
+        author: mjh
+        -->
+        <query name="GET_ALL_CONTRIBUTED_SEQUENCES_BY_ID"
+               comment="Gets all GlycanSequences by contributor :id, most recent first."> 
+            from GlycanSequence gs 
+            where gs.contributor.contributorId = :id
+            order by gs.dateEntered desc
+        </query>
+        
+        <!--  
+        query : GET_ALL_CONTRIBUTED_EVIDENCE_BY_ID
+        author: mjh
+        -->
+        <query name="GET_ALL_CONTRIBUTED_EVIDENCE_BY_ID"
+               comment="Gets all Evidence by contributor :id, most recent first."> 
+            from Evidence e 
+            where e.contributor.contributorId = :id
+            order by e.dateEntered desc
+        </query>
+        
+        <!--  
+        query : GET_ALL_CONTRIBUTED_EXPERIMENTS_BY_ID
+        author: mjh
+        -->
+        <query name="GET_ALL_CONTRIBUTED_EXPERIMENTS_BY_ID"
+               comment="Gets all Experiments by contributor :id, most recent first."> 
+            from Experiment as x 
+            where x.contributor.contributorId = :id
+            order by x.dateEntered desc
+        </query>
+        
+        <!--  
+        query : GET_ALL_CONTRIBUTED_CONTEXTS_BY_ID
+        author: drd20 from code by mjh
+        -->
+	<query name="GET_ALL_CONTRIBUTED_CONTEXTS_BY_ID"
+		comment="Gets all BiologicalContexts by contributor :id, most recent first.">
+		SELECT 
+		  bc
+		FROM 
+		  BiologicalContext bc 
+		  INNER JOIN bc.biologicalContextContributors AS bcc 
+		WHERE 
+		  bcc.contributor.contributorId=:id
+	</query>
+
+        <!--  
+        query : GET_ALL_CONTRIBUTED_TAXONOMIES_BY_ID
+        author: drd20 from code by ac
+	note: this query seems too slow, maybe an index is missing?
+        -->
+	<query name="GET_ALL_CONTRIBUTED_TAXONOMIES_BY_ID"
+		comment="Gets all Taxonomies by contributor :id, most recent first.">
+		SELECT 
+		  DISTINCT(bc.taxonomy)
+		FROM 
+		  BiologicalContext bc 
+		  INNER JOIN bc.biologicalContextContributors AS bcc 
+		WHERE 
+		  bcc.contributor.contributorId=:id
+	</query>
+
+        <!--  
+        query : GET_ALL_CONTRIBUTED_TISSUETAXONOMIES_BY_ID
+        author: ac
+        -->
+	<query name="GET_ALL_CONTRIBUTED_TISSUETAXONOMIES_BY_ID"
+		comment="Gets all TissueTaxonomies by contributor :id, most recent first.">
+		SELECT 
+		  DISTINCT(bc.tissueTaxonomy)
+		FROM 
+		  BiologicalContext bc 
+		  INNER JOIN bc.biologicalContextContributors AS bcc 
+		WHERE 
+		  bcc.contributor.contributorId=:id
+	</query>
+	
+	<!--  
+        query : GET_ALL_CONTRIBUTED_DISEASES_BY_ID
+        author: drd20 from code by ac
+       -->
+	<query name="GET_ALL_CONTRIBUTED_DISEASES_BY_ID" comment="Gets all Diseases by contributor :id, most recent first.">
+		SELECT 
+			DISTINCT(dc.disease) 
+		FROM 
+			DiseaseContext dc
+			INNER JOIN dc.biologicalContext bc
+			INNER JOIN bc.biologicalContextContributors AS bcc
+		WHERE
+			bcc.contributor.contributorId=:id
+	</query>
+
+        <!--  
+        query : GET_ALL_CONTRIBUTED_PERTURBATIONS_BY_ID
+        author: drd20 from code by ac
+       -->
+	<query name="GET_ALL_CONTRIBUTED_PERTURBATIONS_BY_ID" comment="Gets all Perturbations by contributor :id, most recent first.">
+		SELECT 
+			DISTINCT(pc.perturbation) 
+		FROM 
+			PerturbationContext as pc
+			INNER JOIN pc.biologicalContext bc
+			INNER JOIN bc.biologicalContextContributors AS bcc
+		WHERE
+			bcc.contributor.contributorId=:id
+	</query>
+
+        <!--  
+        query : GET_RECENT
+        author: mjh
+        -->
+        <query name="GET_RECENT"
+               comment="Gets all objects of all classes that 
+               implement the Contributed interface, most recent first">
+        select c
+        from org.eurocarbdb.dataaccess.Contributed as c 	   
+        order by c.dateEntered desc
+        </query>
+        
+        <!--  
+        query : GET_RECENT_BY_CONTRIBUTOR
+        author: mjh
+        -->
+        <query name="GET_RECENT_BY_CONTRIBUTOR"
+               comment="Gets all objects of all classes that 
+               implement the Contributed interface for a given :contributor_id, 
+               most recent first">
+            select c
+            from org.eurocarbdb.dataaccess.Contributed as c 
+            where c.contributor.contributorId = :contributor_id
+            order by c.dateEntered desc
+        </query>
+        
+        <!--  
+        query : list_contributors_by_count_glycan_sequences_contributed
+        author: mjh
+        -->
+        <sql-query name="list_contributors_by_count_glycan_sequences_contributed" > 
+            <return alias="c" class="org.eurocarbdb.dataaccess.core.Contributor" />
+            <return-scalar column="count_glyseqs" type="int" />
+        select 
+            c.contributor_id as {c.contributorId},
+            c.contributor_name as {c.contributorName},
+            c.password as {c.password},
+            c.full_name as {c.fullName},
+            c.institution as {c.institution},
+            c.is_admin as {c.isAdmin},
+            c.date_entered as {c.dateEntered},
+            count( distinct gs.glycan_sequence_id ) as count_glyseqs
+        from 
+        <!--
+            core.glycan_sequence_to_biological_context gsc
+        inner join 
+            core.biological_context bc
+                on gsc.biological_context_id = bc.biological_context_id
+        -->
+            core.glycan_sequence gs
+        inner join 
+            core.contributor c
+                on gs.contributor_id = c.contributor_id
+        group by 
+            c.contributor_id,
+            c.contributor_name,
+            c.password,
+            c.full_name,
+            c.institution,
+            c.is_admin,
+            c.date_entered
+        order by 
+            count_glyseqs desc,
+            c.contributor_name
+        </sql-query>
+        
+        <!-- below query produces HQL error
+        <query name="list_contributors_by_count_glycan_sequences_contributed" > 
+        select 
+            c,
+            count( distinct gsc.glycanSequenceId ) 
+        from 
+            GlycanSequenceContext gsc
+        inner join 
+            gsc.biologicalContext bc
+        inner join fetch
+            bc.contributor c
+        group by 
+            c.contributorId,
+            c.contributorName,
+            c.password,
+            c.fullName,
+            c.institution,
+            c.isAdmin,
+            c.dateEntered
+        </query>
+        -->
+        
+    </class>    
+    
+</hibernate-mapping>

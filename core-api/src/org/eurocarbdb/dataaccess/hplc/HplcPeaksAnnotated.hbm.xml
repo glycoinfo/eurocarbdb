@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:55 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+     <class name="org.eurocarbdb.dataaccess.hplc.HplcPeaksAnnotated" 
+           table="hplc_peaks_annotated" 
+           schema="hplc"
+        >
+        <id name="hplcPeaksAnnotatedId" type="int">
+            <column name="hplc_peaks_annotated_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.hplc_peaks_annotated_hplc_peaks_annotated_id_seq</param>
+            </generator>
+        </id>
+
+<!-- joins this table to the evidence table on evidence_id
+
+        <joined-subclass 
+            name="org.eurocarbdb.dataaccess.hplc.HplcPeaksAnnotated" 
+            extends="org.eurocarbdb.dataaccess.core.Evidence"
+            table="hplc_peaks_annotated" 
+            schema="hplc"
+        >
+            
+        <key column="evidence_id" unique="true" property-ref="evidenceId" />
+            
+        <property name="hplcPeaksAnnotatedId" type="int" 
+            insert="false" generated="insert" unique="true" >
+            <column name="hplc_peaks_annotated_id" />
+        </property>
+-->
+        
+        <property name="profileId" type="java.lang.Integer">
+            <column name="profile_id" />
+        </property>
+        
+        <property name="digestId" type="java.lang.Integer">
+            <column name="digest_id" />
+        </property>
+        
+        <property name="assignedPeak" type="java.lang.Integer">
+            <column name="assigned_peak" />
+        </property>
+        
+        <property name="peakArea" type="java.lang.Double">
+            <column name="peak_area" precision="8" scale="0" />
+        </property>
+        
+        <property name="gu" type="java.lang.Double">
+            <column name="gu" precision="8" scale="0" />
+        </property>
+        
+        <property name="dbGu" type="java.lang.Double">
+            <column name="db_gu" precision="8" scale="0" />
+        </property>
+        
+        <property name="nameAbbreviation" type="string">
+            <column name="name_abbreviation" length="0" />
+        </property>
+	<!-- 
+        <property name="glycanId" type="java.lang.Integer">
+            <column name="glycan_id" />
+        </property>
+	-->
+
+	<many-to-one name="glycan" class="org.eurocarbdb.dataaccess.hplc.Glycan">
+	    <column name="glycan_id" not-null="true" />
+        </many-to-one>
+
+
+        <property name="refined" type="java.lang.Integer">
+            <column name="refined" />
+        </property>
+
+        
+        <query name="ATTEMPT">
+                FROM HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = :digest and HP.glycan IN (select D.glycanId from Digest D where D.enzymeOne like :enzymeused OR D.enzymeTwo like :enzymeused OR D.enzymeThree like :enzymeused OR D.enzymeFour like :enzymeused OR D.enzymeFive like :enzymeused)
+        </query>
+       
+<query name="ATTEMPTDE">
+                <!--DELETE FROM HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = :digest and HP.glycanId IN (select D.glycanId from Digest D where D.enzymeOne like :enzymeused OR D.enzymeTwo like :enzymeused OR D.enzymeThree like :enzymeused OR D.enzymeFour like :enzymeused OR D.enzymeFive like :enzymeused)
+-->
+ delete from HplcPeaksAnnotated where profile_id = :parent and digest_id = :digest 
+<!-- update HplcPeaksAnnotated set profileId = 1000000 where profileId = 7-->
+
+        </query>
+
+ 
+        <query name="REFINE_ORI">
+        FROM HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = 0 and HP.glycan IN (select H.glycan from HplcPeaksAnnotated H where H.profileId = :parent and H.digestId = :digest)
+        </query>
+        
+        <query name="REFINE_DIGESTS">
+        SELECT HP.profileId, HP.digestId, HP.gu, HP.dbGu, HP.nameAbbreviation, HP.glycan, HP.refined FROM HplcPeaksAnnotated HP, Autogu AG where HP.profileId = :parent and HP.digestId = 0 and HP.glycan = AG.glycanId and AG.refinedId = 1
+        </query> 
+        
+        <query name="WHERE">
+        <!--select h.glycanId, h.profileId, h.digestId, h.assignedPeak, h.peakArea, h.gu, h.dbGu, h.nameAbbreviation, p.sequentialDigest from HplcPeaksAnnotated  h, HplcPeaksAnnotated  h1, DigestProfile p  where h1.profileId = :parent and h.profileId = :parent and h1.digestId = :digest and h.digestId =0 and h.glycanId = h1.glycanId and p.profileId = :parent and p.digestId = :digest
+        -->
+        
+        select HP.gu from HplcPeaksAnnotated HP  where  HP.profileId = 29 
+        
+        <!-- from HplcPeaksAnnotated h, HplcPeaksAnnotated  h1, DigestProfile p  where h1.profileId = 29 and h.profileId = 29 and h1.digestId = 1 and h.digestId =0 and h.glycanId = h1.glycanId and p.profileId = 29 and p.digestId =1  -->
+        
+        </query>
+        
+        <query name="wheretwo">
+        from HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = 0 and HP.glycan in (select H.glycan from HplcPeaksAnnotated H where H.profileId= :parent and H.digestId = :digest)
+        </query>
+        
+        <!-- 
+        need support for those glycan structures not present in the first digest i.e. S structres
+        -->
+        <query name="GONE_AT_THE_FIRST">
+        FROM HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = 0 and HP.glycan not in (select H.glycan from HplcPeaksAnnotated H where H.profileId = :parent and H.digestId = 1)
+        </query>
+        
+        
+        <query name="PRE_ASSIGN_DISPLAY">
+		SELECT HP.glycan, HP.peakArea, HP.gu, HP.dbGu, HP.nameAbbreviation, G.ogbitranslation, HP.hplcPeaksAnnotatedId
+		FROM HplcPeaksAnnotated HP, Glycan G
+		WHERE HP.profileId = :parent and HP.digestId = 0 and HP.glycan = G.glycanId
+	
+	<!--FROM HplcPeaksAnnotated HP where HP.profileId = :parent and  HP.digestId = 0
+	-->
+	</query>
+        
+        <query name="DIGEST_ASSIGN_DISPLAY">
+        FROM HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = :digest
+        </query>
+        
+        
+	<query name="DIGEST_DISPLAY">
+		SELECT HP.glycan, HP.peakArea, HP.gu, HP.dbGu, HP.nameAbbreviation, G.ogbitranslation, HP.hplcPeaksAnnotatedId
+	        FROM HplcPeaksAnnotated HP, Glycan G 
+	        WHERE HP.profileId = :parent and HP.digestId = :digest  and HP.glycan = G.glycanId
+
+		<!--FROM HplcPeaksAnnotated HP where HP.profileId = :parent and HP.digestId = :digest-->
+        </query>
+        
+        <query name="LARGEST_DIGEST_REFINE">
+        update HplcPeaksAnnotated set refined = 1 where profileId = :parent and digestId=0 and glycan IN (select glycanId from DisRefine where profileId = :parent and digestId = :largeDigest)
+        </query>
+        
+        <query name="GET_REFINEMENT">
+        FROM HplcPeaksAnnotated where profileId = :parent and refined = 1
+        </query>
+
+    </class>
+
+    </hibernate-mapping>

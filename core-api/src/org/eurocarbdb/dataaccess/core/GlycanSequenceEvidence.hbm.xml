@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="save-update" >
+
+    <class name="org.eurocarbdb.dataaccess.core.GlycanSequenceEvidence" table="glycan_sequence_to_evidence" schema="core">
+    
+        <id name="glycanSequenceEvidenceId" type="int">
+            <column name="glycan_sequence_to_evidence_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.glycan_sequence_to_evidence_glycan_sequence_to_evidence_id_seq</param>
+			</generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+        
+        <property name="dateEntered" type="timestamp" 
+            insert="false" update="false" generated="insert" access="field">
+            <column name="date_entered" length="8" />
+        </property>
+        
+        <property name="quantitationByPercent" type="java.lang.Double">
+            <column name="quantitation_by_percent" precision="8" scale="0" />
+        </property>
+        
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="contributor" class="org.eurocarbdb.dataaccess.core.Contributor" >
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="glycanSequence" class="org.eurocarbdb.dataaccess.core.GlycanSequence" fetch="select">
+            <column name="glycan_sequence_id" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="evidence" class="org.eurocarbdb.dataaccess.core.Evidence" fetch="select">
+            <column name="evidence_id" not-null="true" />
+        </many-to-one>
+        
+        <!--=====================  named queries  ==============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+        
+    </class>
+    
+</hibernate-mapping>

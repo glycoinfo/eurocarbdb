@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:56 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.DigestProfile" table="digest_profile" schema="hplc">
+        <id name="digestProfileId" type="int">
+            <column name="digest_profile_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.digest_profile_digest_profile_id_seq</param>
+            </generator>
+	</id>
+    <!--
+	<many-to-one name="profile" class="org.eurocarbdb.dataaccess.hplc.Profile" fetch="select" property-ref="profileId">
+            <column name="profile" not-null="true" />
+    </many-to-one> -->
+
+
+        <many-to-one name="profile" class="org.eurocarbdb.dataaccess.hplc.Profile" fetch="select">
+            <column name="profile_id" not-null="true" />
+        </many-to-one>
+        <property name="digestId" type="java.lang.Integer">
+            <column name="digest_id" />
+        </property>
+        <property name="acqSwVersion" type="string">
+            <column name="acq_sw_version" length="50" />
+        </property>
+        <property name="operator" type="string">
+            <column name="operator" length="100" />
+        </property>
+        <property name="dateAcquired" type="date">
+            <column name="date_acquired" length="4" />
+        </property>
+        <property name="dextranStandard" type="string">
+            <column name="dextran_standard" length="50" />
+        </property>
+        <property name="sequentialDigest" type="string">
+            <column name="sequential_digest" length="100" />
+        </property>
+        <property name="waxDigested" type="string">
+            <column name="wax_digested" length="4" />
+        </property>
+        <property name="waxUndigested" type="string">
+            <column name="wax_undigested" length="4" />
+        </property>
+        <property name="neutralSeparation" type="string">
+            <column name="neutral_separation" length="4" />
+        </property>
+        <property name="monoSeparation" type="string">
+            <column name="mono_separation" length="4" />
+        </property>
+        <property name="diSeparation" type="string">
+            <column name="di_separation" length="4" />
+        </property>
+        <property name="triSeparation" type="string">
+            <column name="tri_separation" length="4" />
+        </property>
+        <property name="tetraSeparation" type="string">
+            <column name="tetra_separation" length="4" />
+        </property>
+        <property name="userComments" type="string">
+            <column name="user_comments" length="250" />
+        </property>
+
+	<query name="GET_ENZYMES">
+	SELECT DP.sequentialDigest FROM DigestProfile DP where DP.profile = :parent
+</query>
+
+<query name="GET_ENZYME_DISAPPEAR">
+ from DigestProfile where profile = :parent and digestId = :digest
+</query> 
+
+<query name="max_select">
+select max(digestId), glycanId from Disappeared group by glycanId
+</query>
+
+<query name="GET_DIGEST_NUMBER">
+SELECT digestId FROM DigestProfile  where profile = :parent ORDER BY digestId
+</query>
+
+<query name="LARGEST_DIGEST">
+SELECT digestId from DigestProfile where profile = :parent ORDER BY digestId DESC
+</query>
+
+<query name="BY_ID" comment="Retrieve an profile by :profileId">
+
+	SELECT d.sequentialDigest from DigestProfile d inner join d.profile p where p.profileId = :profile_id  
+	<!--
+	             select p from DigestProfile as p
+		                 where p.profile = :profile_id
+				 -->
+			 </query>
+
+<query name="SUMMARY">
+	select digestId, sequentialDigest  from DigestProfile where profile = :profileId
+</query>
+
+    </class>
+</hibernate-mapping>

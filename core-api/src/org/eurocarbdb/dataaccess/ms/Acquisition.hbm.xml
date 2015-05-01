@@ -1,0 +1,65 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="save-update">
+   <!-- ms.Acquisition subclasses core.Evidence -->
+    <joined-subclass name="org.eurocarbdb.dataaccess.ms.Acquisition"
+                     extends="org.eurocarbdb.dataaccess.core.Evidence"
+                     table="acquisition" 
+                     schema="ms"
+                     node="mass_spec_evidence"
+    >
+    <!-- joins evidence table on fkey evidence_id -->
+         <key column="acquisition_id" unique="true" />
+           
+        <property name="filename" type="string">
+            <column name="filename" length="256" not-null="true"/>
+        </property>
+        <property name="filetype" type="string">
+            <column name="filetype" length="50" not-null="true"/>
+        </property>
+        <property name="dateObtained" type="timestamp">
+            <column name="date_obtained" length="29" not-null="true"/>
+        </property>
+        <property name="contributorQuality" type="double">
+            <column name="contributor_quality" precision="17" not-null="true"/>
+        </property>
+        <many-to-one name="device" class="org.eurocarbdb.dataaccess.ms.Device" cascade="none">
+            <column name="device_id" not-null="true"/>
+        </many-to-one>
+        <set name="AcquisitionToPersubstitutions" inverse="true">
+            <key>
+                <column name="acquisition_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.AcquisitionToPersubstitution"/>
+        </set>
+        <set name="scans" inverse="true">
+            
+                <key column="acquisition_id"  not-null="true"/>
+           
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.Scan"/>
+        </set>
+        <set name="deviceSettingses" inverse="true">
+            <key>
+                <column name="acquisition_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.DeviceSettings"/>
+											  
+        </set>
+     <!-- Query BY_ID !-->
+       <query name="BY_ID" comment="Retrieve an acquisition by :acquisitionId."> 
+            select a from Acquisition as a 
+            where a.evidenceId = :acquisitionId
+        </query>
+        <query name="OwnedAcquisitions" comment="Retrieve the acquisitions craeted by the current user">
+        SELECT ac
+        FROM Acquisition as ac 
+        JOIN FETCH ac.contributor as con
+        WHERE con.contributorName = :contributorName
+        </query>
+        <query name="OthersAcquisitions" comment="Retrieve the acquisitions craeted by the other users">
+        SELECT ac
+        FROM Acquisition as ac 
+        JOIN FETCH ac.contributor as con
+        WHERE con.contributorName != :contributorName
+        </query>
+   </joined-subclass>
+</hibernate-mapping>

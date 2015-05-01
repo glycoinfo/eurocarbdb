@@ -1,0 +1,17 @@
+<biological_context xmlns="http://xml.eurocarbdb.org/0">
+	<tissue/>
+	<taxonomy/>
+	<glycoconjugates>
+		<glycoconjugate>
+			<type>Foobar</type>
+		</glycoconjugate>
+		<glycoconjugate>
+			<type>Foobar</type>
+		</glycoconjugate>
+	</glycoconjugates>
+	<diseases>
+		<disease>
+			<name>Foo</name>
+		</disease>
+	</diseases>
+</biological_context>

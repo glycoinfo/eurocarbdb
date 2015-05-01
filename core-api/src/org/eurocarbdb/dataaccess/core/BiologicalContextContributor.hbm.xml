@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping default-cascade="save-update" >
+
+    <class name="org.eurocarbdb.dataaccess.core.BiologicalContextContributor" 
+           table="biological_context_contributor" 
+           schema="core" 
+           node="biological_context_contributor"
+           >
+       
+        <id name="biologicalContextContributorId" type="int" access="field" node="@id">
+            <column name="biological_context_contributor_id" />
+            <generator class="sequence" >
+            	<param name="sequence">biological_context_contributo_biological_context_contributo_seq</param>
+            </generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+
+        <!-- dateEntered: determined by the database on INSERT -->
+        <property name="dateEntered" type="timestamp" 
+            insert="false" update="false" generated="insert" access="field" node="date_entered">
+            <column name="date_entered" length="8" not-null="true" />
+        </property>
+        
+        <property name="comments" type="string">
+            <column name="comments" />
+        </property>
+        
+        <!--======================  associations  ===========================-->
+        
+        <!-- Contributor association -->
+        <many-to-one name="contributor" 
+                     class="org.eurocarbdb.dataaccess.core.Contributor" 
+                     fetch="select" 
+                     node="contributor/@id" 
+                     embed-xml="false" 
+                     >
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>
+	
+	<many-to-one name="biologicalContext" 
+                     class="org.eurocarbdb.dataaccess.core.BiologicalContext" 
+                     fetch="select" 
+                     node="biologicalContext/@id" 
+                     embed-xml="false" 
+                     >
+            <column name="biological_context_id" not-null="true" />
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>
+
+

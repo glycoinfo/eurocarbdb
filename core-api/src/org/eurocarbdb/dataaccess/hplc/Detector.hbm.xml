@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 21, 2007 2:06:53 PM by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Detector" table="detector" schema="hplc">
+        <id name="detectorId" type="int">
+            <column name="detector_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.detector_detector_id_seq</param>
+            </generator>
+        </id>
+        <property name="manufacturer" type="string">
+            <column name="manufacturer" length="150" />
+        </property>
+        <property name="model" type="string">
+            <column name="model" length="50" />
+        </property>
+<!--        <property name="manufacturerId" type="int">
+            <column name="manufacturer_id" />
+        </property>
+        <property name="modelId" type="int">
+            <column name="model_id" not-null="true" />
+        </property>-->
+        <property name="excitation" type="java.lang.Short">
+            <column name="excitation" not-null="false" />
+        </property>
+        <property name="emission" type="java.lang.Short">
+            <column name="emission" not-null="false" />
+        </property>
+        <property name="bandwidth" type="java.lang.Double">
+            <column name="bandwidth" precision="8" scale="0" not-null="false" />
+        </property>
+        <property name="samplingRate" type="java.lang.Short">
+            <column name="sampling_rate" not-null="false" />
+        </property>
+        <set name="profiles" inverse="true">
+            <key>
+                <column name="detector_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.hplc.Profile" />
+	</set>
+
+     <query name="SELECT_ALL">
+          FROM Column
+     </query>
+
+
+    </class>
+</hibernate-mapping>

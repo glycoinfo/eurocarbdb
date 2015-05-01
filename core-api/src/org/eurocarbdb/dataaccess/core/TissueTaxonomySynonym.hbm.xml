@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:30 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.core.TissueTaxonomySynonym" table="tissue_taxonomy_synonym" schema="core">
+        <id name="tissueTaxonomySynonymId" type="int">
+            <column name="tissue_taxonomy_synonym_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.tissue_taxonomy_synonym_tissue_taxonomy_synonym_id_seq</param>
+			</generator>
+        </id>
+        <many-to-one name="tissueTaxonomy" class="org.eurocarbdb.dataaccess.core.TissueTaxonomy" fetch="select">
+            <column name="tissue_taxonomy_id" not-null="true" />
+        </many-to-one>
+        <property name="synonym" type="string">
+            <column name="synonym" length="64" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>

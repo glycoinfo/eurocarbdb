@@ -1,0 +1,6 @@
+<tissue xmlns="http://xml.eurocarbdb.org/0">
+	<mesh_id>1</mesh_id>
+	<description>Nasty stuff</description>
+	<should>ignore</should>
+	<blood_group></blood_group>
+</tissue>

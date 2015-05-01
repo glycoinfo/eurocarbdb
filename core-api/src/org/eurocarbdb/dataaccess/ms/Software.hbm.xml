@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.Software" table="software" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="softwareId" type="integer">
+            <column name="software_id"/>
+           <generator class="sequence">
+                <param name="sequence">ms.software_software_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" not-null="true"/>
+        </property>
+        <property name="softwareVersion" type="string">
+            <column name="software_version" length="50" not-null="true"/>
+        </property>
+        <set name="dataProcessings" inverse="true">
+            <key>
+                <column name="software_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.DataProcessing"/>
+        </set>
+        <!-- Queries -->
+        <query name="GET_BY_NAME_VERSION">
+        SELECT sw
+        FROM Software as sw
+        WHERE sw.name = :swName 
+        AND sw.softwareVersion = :swVersion
+        </query>
+        
+         <query name="GET_BY_NAME">
+        SELECT sw
+        FROM Software as sw
+        WHERE sw.name = :swName
+        </query>
+        
+    </class>
+</hibernate-mapping>

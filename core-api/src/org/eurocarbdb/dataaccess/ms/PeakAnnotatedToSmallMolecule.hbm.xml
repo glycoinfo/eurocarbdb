@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.PeakAnnotatedToSmallMolecule" table="peak_annotated_to_small_molecule" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="peakAnnotatedToSmallMoleculeId" type="integer">
+            <column name="peak_annotated_to_small_molecule_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.peak_annotated_to_small_molecule_peak_annotated_to_small_molecule_id_seq</param>
+            </generator>
+        </id>
+        <property name="gain" type="boolean">
+            <column name="gain" not-null="true"/>
+        </property>
+        <property name="number" type="integer">
+            <column name="number" not-null="true"/>
+        </property>
+        <many-to-one name="smallMolecule" class="org.eurocarbdb.dataaccess.ms.SmallMolecule" cascade="none">
+            <column name="small_molecule_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="peakAnnotated" class="org.eurocarbdb.dataaccess.ms.PeakAnnotated" cascade="none">
+            <column name="peak_annotated_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

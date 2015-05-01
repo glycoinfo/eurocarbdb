@@ -1,0 +1,42 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.DataProcessing" table="data_processing" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="dataProcessingId" type="integer">
+            <column name="data_processing_id"/>
+            <generator class="sequence">
+                <param name="sequence">ms.data_processing_data_processing_id_seq</param>
+            </generator>
+        </id>
+        <property name="intensityCutoff" type="double">
+            <column name="intensity_cutoff" precision="17" not-null="true"/>
+        </property>
+        <property name="format" type="string">
+            <column name="format" length="20" not-null="true"/>
+        </property>
+        <many-to-one name="softwareType" class="org.eurocarbdb.dataaccess.ms.SoftwareType" cascade="none">
+            <column name="software_type_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="software" class="org.eurocarbdb.dataaccess.ms.Software" cascade="none">
+            <column name="software_id" not-null="true"/>
+        </many-to-one>
+        <set name="ScanToDataProcessings" inverse="true">
+            <key>
+                <column name="data_processing_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.ScanToDataProcessing"/>
+        </set>
+        <set name="PeakListToDataProcessings" inverse="true">
+            <key>
+                <column name="data_processing_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakListToDataProcessing"/>
+        </set>
+        <!-- Queries -->
+        <query name="GET_BY_swTypeID_swID">
+        SELECT dp
+        FROM DataProcessing as dp
+        WHERE dp.softwareType.softwareTypeId = :softwareTypeId
+        AND   dp.software.softwareId = :softwareId
+        </query>
+    </class>
+</hibernate-mapping>

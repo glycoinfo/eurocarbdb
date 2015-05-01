@@ -1,0 +1,84 @@
+###############################################################################
+#
+#   hibernate configuration -- mapping files go into hibernate.cfg.xml
+#
+#   see http://www.hibernate.org/hib_docs/reference/en/html/session-configuration.html
+#
+#
+###############################################################################
+
+
+
+#####  DB connection properties  #####
+hibernate.connection.username               $DB_USERNAME$
+hibernate.connection.password               $DB_PASSWORD$
+
+hibernate.connection.driver_class           org.postgresql.Driver
+hibernate.dialect                           org.hibernate.dialect.PostgreSQLDialect
+hibernate.connection.url                    jdbc:postgresql://127.0.0.1/eurocarb_devel
+hibernate.transaction.factory_class         org.hibernate.transaction.JDBCTransactionFactory
+
+#####  performance settings - caching  #####
+hibernate.cache.provider_class              org.hibernate.cache.HashtableCacheProvider
+hibernate.cache.region_prefix               hibernate.test
+hibernate.cache.use_query_cache             true
+#hibernate.cache.use_minimal_puts           true
+#hibernate.cache.use_second_level_cache     false
+#hibernate.cache.use_structured_entries     true
+hibernate.bytecode.use_reflection_optimizer false
+
+#####  performance settings - jdbc  #####
+hibernate.max_fetch_depth                   1
+hibernate.default_batch_fetch_size          8
+hibernate.jdbc.batch_size                   16
+#hibernate.jdbc.fetch_size                  25
+#hibernate.jdbc.use_get_generated_keys      false
+hibernate.jdbc.batch_versioned_data         true
+hibernate.jdbc.use_streams_for_binary       true
+
+
+#####  development settings   #####
+hibernate.show_sql                          false
+hibernate.format_sql                        true
+hibernate.use_sql_comments                  true
+hibernate.generate_statistics               false
+hibernate.current_session_context_class     thread
+hibernate.default_entity_mode               pojo
+
+# custom SQL exception converter
+#hibernate.jdbc.sql_exception_converter     Xxxxx
+
+# additional arbitrary property settings may also be passed:
+# 1) to JDBC with hibernate.connection.<property-name> <property-value>
+# 2) to JNDI with hibernate.jndi.<property-name> <property-value>
+
+
+#################################
+### Hibernate Connection Pool ###
+#################################
+
+#   this is fine for testing & development but do not use for production
+hibernate.connection.pool_size              1
+
+## C3P0 connection pool
+#hibernate.c3p0.max_size                    2
+#hibernate.c3p0.min_size                    2
+#hibernate.c3p0.timeout                     5000
+#hibernate.c3p0.max_statements              100
+#hibernate.c3p0.idle_test_period            3000
+#hibernate.c3p0.acquire_increment           2
+#hibernate.c3p0.validate                    false
+
+
+## choose a cache implementation
+#hibernate.cache.provider_class org.hibernate.cache.EhCacheProvider
+#hibernate.cache.provider_class org.hibernate.cache.EmptyCacheProvider
+#hibernate.cache.provider_class org.hibernate.cache.HashtableCacheProvider
+#hibernate.cache.provider_class org.hibernate.cache.TreeCacheProvider
+#hibernate.cache.provider_class org.hibernate.cache.OSCacheProvider
+#hibernate.cache.provider_class org.hibernate.cache.SwarmCacheProvider
+
+## or choose a custom query cache implementation
+#hibernate.cache.query_cache_factory
+
+

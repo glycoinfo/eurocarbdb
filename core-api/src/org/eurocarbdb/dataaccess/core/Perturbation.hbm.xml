@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.Perturbation" table="perturbation" schema="core">
+    
+        <id name="perturbationId" type="int">
+            <column name="perturbation_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.peturbation_peturbation_id_seq</param>
+			</generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+
+        <property name="perturbationName" type="string">
+            <column name="perturbation_name" length="256" not-null="true" />
+        </property>
+
+        <property name="meshId" type="string">
+            <column name="mesh_id" length="64" not-null="true" />
+        </property>
+
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+
+        <property name="dateLastModified" type="timestamp" insert="false">
+            <column name="date_last_modified" length="8" />
+        </property>
+
+        <!--======================  associations  ===========================-->
+        
+        <many-to-one name="parentPerturbation" class="org.eurocarbdb.dataaccess.core.Perturbation" fetch="select">
+            <column name="parent_perturbation_id" />
+        </many-to-one>
+
+        <set name="childPerturbations" inverse="true">
+            <key>
+                <column name="parent_perturbation_id" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.Perturbation" />
+        </set>
+        
+        <set name="perturbationContexts" inverse="true">
+            <key>
+                <column name="perturbation_id" not-null="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.PerturbationContext" />
+        </set>
+        
+        <set name="perturbationRelations" inverse="true">
+            <key>
+                <column name="perturbation_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.PerturbationRelations" />
+        </set>
+        
+        <!--=====================  named queries  =============================
+        
+        without XML escaping:                                          
+           <query name="...">    <put query here>    </query>          
+                                                                       
+        with XML escaping:                                             
+           <query name="..."><![CDATA[  <put query here>  ] ]></query>  
+                                                                        
+        Note that the given name of the query will need to be fully    
+        qualified with the name of the class in which it is declared. 
+        ie: query name will be "<class-name>.<query-name>".
+        -->
+
+        <!-- 
+        query : MATCHING_NAME_OR_SYNONYM
+        author: mjh
+        desc  : Retrieves all perturbations whose name (or synonyms, when/if 
+                they are added) match the given name.
+        -->
+        <query name="MATCHING_NAME_OR_SYNONYM" cacheable="true"> 
+            SELECT  p
+            FROM    Perturbation AS p
+            WHERE   lower( p.perturbationName ) LIKE lower( :perturbation_name )
+        </query>
+        
+        <!-- 
+        query : by_mesh_id
+        desc  : Retrieves all perturbations whose meshId the given id.
+        author: mjh
+        -->     
+        <query name="by_mesh_id" cacheable="true">
+     		SELECT	p
+     		FROM	Perturbation AS p
+     		WHERE	lower( p.meshId ) = lower ( :mesh_id )
+     	</query>
+
+        <!--
+        query : count_structures_for_sub_perturbations
+        desc  : Retrieves top 50 perturbations descending from the perturbationId'd perturbation that have structures
+        author: hirenj
+        -->
+        <sql-query 
+            name="count_structures_for_sub_perturbations"
+            comment="Counts the number of glycan sequences associated to given :perturbation_id and all its sub-perturbations">
+            <return-scalar column="perturbationId" type="int" />
+            <return-scalar column="perturbationName" type="string" />
+            <return-scalar column="structure_count" type="int" />
+            select  
+                per.perturbation_id as perturbationId,
+                per.perturbation_name as perturbationName,
+                count( distinct gc.glycan_sequence_id ) as structure_count
+            from  
+                core.perturbation as per
+            inner join 
+                core.perturbation_relations as child
+                on per.perturbation_id = child.perturbation_id 
+            inner join
+                core.perturbation_relations as parent 
+                on child.left_index between parent.left_index and parent.right_index
+            inner join
+                core.biological_context_to_perturbation as pc
+                on pc.perturbation_id = child.perturbation_id
+            inner join
+                core.biological_context as bc
+                on bc.biological_context_id = pc.biological_context_id
+            inner join 
+                core.glycan_sequence_to_biological_context as gc 
+                on gc.biological_context_id = bc.biological_context_id
+            where   
+                parent.perturbation_id = :perturbation_id 
+                and child.perturbation_id != :perturbation_id
+            group by 
+                per.perturbation_id,
+                per.perturbation_name
+            order by
+                structure_count desc
+            limit 50
+        </sql-query>
+
+        <!-- 
+        Counts the number of glycan sequences associated to given :perturbation_id and all its sub-perturbations
+        -->
+        <sql-query 
+            name="count_structures_for_this_perturbation"
+            comment="Counts the number of glycan sequences associated to given :perturbation_id and all its sub-perturbations">
+            <return-scalar column="structure_count" type="int" />
+        select 
+            count( distinct gc.glycan_sequence_id ) as structure_count             
+        from
+            core.perturbation_relations as child   
+        inner join
+            core.perturbation_relations as parent 
+                on child.left_index between parent.left_index and parent.right_index
+        inner join
+            core.biological_context_to_perturbation as pc
+            on pc.perturbation_id = child.perturbation_id
+        inner join
+            core.biological_context as bc
+            on bc.biological_context_id = pc.biological_context_id
+        inner join
+            core.glycan_sequence_to_biological_context as gc                  
+                on bc.biological_context_id = gc.biological_context_id             
+        where
+            parent.perturbation_id = :perturbation_id
+        </sql-query>
+
+
+    </class>
+    
+</hibernate-mapping>

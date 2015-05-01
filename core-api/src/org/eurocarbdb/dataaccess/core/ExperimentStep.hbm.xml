@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/08/2006 11:10:29 by Hibernate Tools 3.1.0.beta4 -->
+<hibernate-mapping>
+
+    <class name="org.eurocarbdb.dataaccess.core.ExperimentStep" table="experiment_step" schema="core">
+    
+        <id name="experimentStepId" type="int">
+            <column name="experiment_step_id" />
+			<generator class="sequence" >
+				<param name="sequence">core.experiment_step_experiment_step_id_seq</param>
+			</generator>
+        </id>
+        
+        <!--======================  properties  =============================-->
+        
+        <property name="dateEntered" type="timestamp" insert="false">
+            <column name="date_entered" length="8" />
+        </property>
+        
+        <property name="dateObtained" type="timestamp" insert="false">
+            <column name="date_obtained" length="8" />
+        </property>
+        
+        <property name="experimentStepParameters" type="string">
+            <column name="experiment_step_parameters" />
+        </property>
+        
+        <property name="experimentStepComments" type="string">
+            <column name="experiment_step_comments" />
+        </property>
+        
+        <!--======================  associations  ===========================-->
+        
+        <!-- Contributor association -->
+        <many-to-one name="contributor" class="org.eurocarbdb.dataaccess.core.Contributor" fetch="select">
+            <column name="contributor_id" not-null="true" />
+        </many-to-one>
+        
+        <!-- parent ExperimentStep association -->
+        <many-to-one name="parentExperimentStep" class="org.eurocarbdb.dataaccess.core.ExperimentStep" fetch="select">
+            <column name="parent_experiment_step_id" />
+        </many-to-one>
+        
+        <!-- child ExperimentStep association -->
+        <set name="childExperimentSteps" inverse="true">
+            <key>
+                <column name="parent_experiment_step_id" />
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.core.ExperimentStep" />
+        </set>
+        
+        <!-- Experiment association -->
+        <many-to-one name="experiment" class="org.eurocarbdb.dataaccess.core.Experiment" fetch="select">
+            <column name="experiment_id" />
+        </many-to-one>
+        
+        <!--
+        Evidence association 
+        Evidence has a 1-1 relationship with this ExperimentStep:
+        there can be 0-1 pieces of evidence associated with this step.
+        -->
+        <many-to-one name="evidence" column="evidence_id" class="org.eurocarbdb.dataaccess.core.Evidence" 
+            unique="true" not-null="false" />
+        
+        <!-- Technique association -->
+        <many-to-one name="technique" class="org.eurocarbdb.dataaccess.core.Technique" fetch="select">
+            <column name="technique_id" not-null="true" />
+        </many-to-one>
+        
+    </class>
+    
+</hibernate-mapping>

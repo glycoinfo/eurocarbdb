@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.hplc.Content" table="content" schema="hplc">
+        <id name="contentId" type="int">
+            <column name="content_id" />
+            <generator class="sequence">
+                <param name="sequence">hplc.content_content_id_seq</param>
+            </generator>
+	</id>
+	<many-to-one name="profile" column="profile_id" class="org.eurocarbdb.dataaccess.hplc.Profile" />
+	<!--
+	<property name="profileId" type="integer">
+	    <column name="profile_id" not-null="true" />
+	</property>
+	-->
+	<property name="parentProfileId" type="integer">
+	    <column name="parent_profile_Id" not-null="false" />
+	</property>
+        <property name="taxonomyId" type="integer">
+            <column name="taxonomy_id" not-null="false" />
+        </property>
+        <property name="tissueId" type="integer">
+            <column name="tissue_id" not-null="false" />
+        </property>
+        <property name="diseaseId" type="integer">
+            <column name="disease_id" not-null="false" />
+        </property>
+	<property name="perturbationId" type="integer">
+            <column name="perturbation_id" not-null="false" />
+        </property>
+        <property name="taxonomyNcbiId" type="integer">
+            <column name="taxonomy_ncbi_id" not-null="false" />
+        </property>
+        <property name="tissueMeshId" type="string">
+            <column name="tissue_mesh_id" not-null="false"/>
+        </property>
+        <property name="diseaseMeshId" type="string">
+            <column name="disease_mesh_id" not-null="false" />
+        </property>
+	<property name="perturbationMeshId" type="string">
+            <column name="perturbation_mesh_id" not-null="false" />
+	</property>
+	<property name="contributorId" type="integer">
+	    <column name="contributor_id" not-null="true" />
+	</property>
+
+	<query name="UPDATE_TISSUE">
+		UPDATE Content set tissueMeshId = :mesh, tissueId = :ecdb where parentProfileId = :profileId
+	</query>
+	
+	<query name="UPDATE_DISEASE">
+		UPDATE Content set diseaseMeshId = :mesh, diseaseId = :ecdb where parentProfileId = :profileId
+	</query>
+	
+
+    </class>
+</hibernate-mapping>

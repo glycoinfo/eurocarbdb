@@ -1,0 +1,85 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.eurocarbdb.dataaccess.ms.PeakAnnotated" table="peak_annotated" schema="ms" dynamic-insert="false" dynamic-update="false">
+        <id name="peakAnnotatedId" type="integer">
+            <column name="peak_annotated_id"/>
+            <generator class="sequence">
+                <param name="sequence"> ms.peak_annotated_peak_annotated_id_seq</param>                              
+            </generator>
+        </id>
+        <property name="glycoCtId" type="integer">
+            <column name="glyco_ct_id" not-null="true"/>
+        </property>
+        <property name="sequenceGws" type="string">
+            <column name="sequence_gws" length="15000" not-null="true"/>
+        </property>
+        <property name="formula" type="string">
+            <column name="formula"/>
+        </property>
+        <property name="calculatedMass" type="double">
+            <column name="calculated_mass" precision="17" not-null="true"/>
+        </property>
+        <property name="contributorQuality" type="double">
+            <column name="contributor_quality" precision="17" not-null="true"/>
+        </property>
+        <property name="dateEntered" type="timestamp">
+            <column name="date_entered" length="29" not-null="true"/>
+        </property>
+        <property name="contributorId" type="integer">
+            <column name="contributor_id" not-null="true"/>
+        </property>
+        <many-to-one name="peakLabeled" class="org.eurocarbdb.dataaccess.ms.PeakLabeled" cascade="none">
+            <column name="peak_labeled_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="reducingEnd" class="org.eurocarbdb.dataaccess.ms.ReducingEnd" cascade="none">
+            <column name="reducing_end_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persubstitution" class="org.eurocarbdb.dataaccess.ms.Persubstitution" cascade="none">
+            <column name="persubstitution_id" not-null="true"/>
+        </many-to-one>
+        <set name="peakAnnotatedToSmallMolecules" inverse="true">
+            <key>
+                <column name="peak_annotated_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotatedToSmallMolecule"/>
+        </set>
+        <set name="peakAnnotatedToIons" inverse="true">
+            <key>
+                <column name="peak_annotated_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.PeakAnnotatedToIon"/>
+        </set>
+        <set name="fragmentations" inverse="true">
+            <key>
+                <column name="peak_annotated_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.eurocarbdb.dataaccess.ms.Fragmentation"/>
+        </set>
+         <query name="GET_SCAN_ANNOTATIONS">
+        SELECT COUNT(pa.peakAnnotatedId) as paCount,pa.dateEntered as de,
+        pa.peakLabeled.peakList.scan.acquisition.contributor.contributorName as cname
+        FROM PeakAnnotated as pa 
+        Where pa.peakLabeled.peakList.scan.scanId = :scanId
+        Group By pa.dateEntered,
+        pa.peakLabeled.peakList.scan.acquisition.contributor.contributorName
+        Order By pa.dateEntered,
+        pa.peakLabeled.peakList.scan.acquisition.contributor.contributorName
+       
+        </query>
+        
+         <query name="GET_SCAN_PeakAnnotateds">
+        SELECT pa
+        FROM PeakAnnotated as pa 
+        Where pa.peakLabeled.peakList.scan.scanId = :scanId
+        AND   pa.peakLabeled.peakList.scan.acquisition.contributor.contributorName = :contributorName   
+        </query>
+         <query name="GET_SCAN_PeakAnnotateds_Date">
+        SELECT pa
+        FROM PeakAnnotated as pa 
+        Where pa.peakLabeled.peakList.scan.scanId = :scanId
+        AND pa.peakLabeled.peakList.dateEntered = :dateEntered
+        AND   pa.peakLabeled.peakList.scan.acquisition.contributor.contributorName = :contributorName   
+        </query>
+        
+    </class>
+</hibernate-mapping>
