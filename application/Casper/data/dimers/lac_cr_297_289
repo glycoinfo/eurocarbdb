@@ -1,0 +1,37 @@
+# A simple approach to the synthesis of muramic acid
+# and isomuramic acid: 1H and 13C NMR charcterization
+# V. Ragoussis, L. Leondiadis, E. Livaniou, G.P. Evangelatos
+set ref 'Carbohydr. Res. 297 (1997) 289-295'
+
+# muramic acid (Mur)
+dimer 'RLac(2->3)aDGlcNAc' {
+shift 182.3; 81.9 4.28; 21.6 1.39
+shift 91.7 5.41; 56.2 3.27; 80.9 3.68; 73.0 3.56; 74.1 3.85; 62.8 3.75 3.83
+# copy from GNAc
+shift 22.87 2.06; 175.13
+extract: info $ref
+}
+
+dimer 'RLac(2->3)bDGlcNAc' {
+shift 182.3; 81.9 4.28; 21.6 1.39
+shift 95.7 4.91; 58.4 2.97; 82.6 3.52; 73.2 3.56; 78.6 3.45; 62.8 3.75 3.83
+# copy from GNAc
+shift 23.10 2.06; 175.49
+extract: info $ref
+}
+
+dimer 'SLac(2->3)aDGlcNAc' {
+shift 181.5; 79.9 4.39; 21.3 1.42
+shift 92.0 5.48; 55.9 3.37; 79.5 3.95; 71.7 3.67; 74.5 3.88; 62.9 3.76 3.93
+# copy from GNAc
+shift 22.87 2.06; 175.13
+extract: info $ref
+}
+
+dimer 'SLac(2->3)bDGlcNAc' {
+shift 181.5; 79.9 4.39; 21.3 1.42
+shift 95.6 4.93; 58.3 3.08; 81.5 3.72; 71.7 3.67; 78.8 3.49; 62.9 3.76 3.93
+# copy from GNAc
+shift 23.10 2.06; 175.49
+extract: info $ref
+}

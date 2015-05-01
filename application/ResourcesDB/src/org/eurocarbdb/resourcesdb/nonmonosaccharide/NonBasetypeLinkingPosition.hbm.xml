@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.nonmonosaccharide">
+
+    <class name="NonBasetypeLinkingPosition" entity-name="ValidSubstituentLinkage" table="valid_substituent_linking_position" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">valid_substituent_linking_position_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="linkedAtom" column="substituent_linking_atom_id" not-null="true" entity-name="SubstituentAtom"/>
+		<many-to-one name="replacedAtom" column="substituent_replaced_atom_id" entity-name="SubstituentAtom"/>
+		<property name="position" column="position" not-null="true"/>
+        <property name="bondOrder" column="bond_order" not-null="true"/>
+    </class>
+    
+    <class name="NonBasetypeLinkingPosition" entity-name="ValidAglyconLinkage" table="valid_aglycon_linking_position" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">valid_aglycon_linking_position_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="linkedAtom" column="aglycon_linking_atom_id" not-null="true" entity-name="AglyconAtom"/>
+		<many-to-one name="replacedAtom" column="aglycon_replaced_atom_id" entity-name="AglyconAtom"/>
+		<property name="position" column="position" not-null="true"/>
+        <property name="bondOrder" column="bond_order" not-null="true"/>
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<project name="CASPER" default="build" basedir=".">
+  
+  <import file="../../build.common.xml"/>
+  
+  <path id="cc.cp">
+    <pathelement location="${project.java.extlib.dir}/cpptasks-1.0b5.jar"/>
+  </path>
+  
+  <taskdef resource="cpptasks.tasks" loaderref="cc.loader">
+    <classpath refid="cc.cp"/>
+  </taskdef>
+  <typedef resource="cpptasks.types" loaderref="cc.loader">
+    <classpath refid="cc.cp"/>
+  </typedef>
+  
+  <property environment="env"/>
+
+  <compiler id="cc">
+    <!--  <defineset define="_POSIX_SOURCE"/> -->
+  </compiler>
+  <compiler name="gcc" id="gcc-compiler" extends="cc">
+    <!--  <compilerarg value="-ansi"/> -->
+    <compilerarg value="-g"/>
+<!--    <compilerarg value="-O2"/> -->
+  </compiler>
+  <compiler name="msvc" id="msvc-compiler" extends="cc">
+    <compilerarg value="/Za"/>
+    <compilerarg value="/G5"/>
+  </compiler>
+  <linker name="gcc" id="gcc-linker"/>
+  <linker name="msvc" id="msvc-linker">
+    <linkerarg value="/libpath:${env.MSDEVDIR}\lib"/>
+  </linker>
+  <target name="init">
+    <mkdir dir="${basedir}/obj" />
+    <condition property="cc" value="msvc">
+      <os family="windows"/>
+    </condition>
+    <condition property="cc" value="gcc">
+      <os family="unix"/>
+    </condition>
+    <condition property="msvc">
+      <equals arg1="${cc}" arg2="msvc"/>
+    </condition>
+    <condition property="gcc">
+      <equals arg1="${cc}" arg2="gcc"/>
+    </condition>
+    <condition property="lib" value="">
+      <isset property="msvc"/>
+    </condition>
+    <condition property="lib" value="lib">
+      <isset property="gcc"/>
+    </condition>
+    <condition property="static" value=".lib">
+      <isset property="msvc"/>
+    </condition>
+    <condition property="static" value=".a">
+      <isset property="gcc"/>
+    </condition>
+    <condition property="shared" value=".dll">
+      <isset property="msvc"/>
+    </condition>
+    <condition property="shared" value=".so">
+      <isset property="gcc"/>
+    </condition>
+    <condition property="obj" value=".obj">
+      <isset property="msvc"/>
+    </condition>
+    <condition property="obj" value=".o">
+      <isset property="gcc"/>
+    </condition>
+    <condition property="exe" value=".exe">
+      <isset property="msvc"/>
+    </condition>
+    <condition property="exe" value="">
+      <isset property="gcc"/>
+    </condition>
+    <condition property="platform" value="linux">
+      <os name="Linux"/>
+    </condition>
+    <condition property="platform" value="win32">
+      <os family="windows"/>
+    </condition>
+    <condition property="platform" value="solaris">
+      <os name="SunOS"/>
+    </condition>
+  </target>
+  
+  
+  <target name="build" depends="init" description="Compiles CASPER">
+    <cc name="${cc}" outtype="executable" subsystem="console"
+	objdir="${basedir}/obj" outfile="${basedir}/bin/casper">
+      <compiler extends="${cc}-compiler">
+	<includepath location="${project.ccpn.top.dir}/c/xmlApi/include"/>
+	<includepath location="${env.PYTHONINCLUDES}"/>
+      </compiler>
+      <linker refid="${cc}-linker"/>
+      <libset dir="${project.ccpn.top.dir}/c/xmlApi/lib" libs="ccp"/>
+      <libset dir="${env.PYTHONLIBS}" libs="m mcheck util pthread dl python2.6"/>
+      <fileset dir="${basedir}/src" includes="*.c"/>
+    </cc>
+  </target>
+  
+  <target name="deploy" depends="build">
+  </target>
+
+  <target name="dist" depends="build">
+    <tar destfile="casper.tar.gz" compression="gzip">
+      <tarfileset dir="${basedir}" includes="build.xml src/*.c src/*.h data/** doc/** www/** bin/**" excludes="bin/history.xml"/>
+    </tar>
+  </target>
+  
+  <target name="object-clean" depends="init">
+    <delete>
+      <fileset dir="${basedir}/obj" includes="*${obj}"/>
+    </delete>
+  </target>
+  <target name="exe-clean" depends="init">
+    <delete>
+      <fileset dir="${basedir}/bin" includes="casper${exe}"/>
+    </delete>
+  </target>
+
+  <target name="clean" depends="object-clean,exe-clean"/>
+
+</project>
+
+

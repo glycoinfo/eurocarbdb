@@ -1,0 +1,10 @@
+# Bioorg. Khim 19 (1993) 228-235
+# N.S. Utkina, G.I. Eliseyeva, A.V. Nikolaev, V.N. Shibaev
+# Fragments of biopolymers containing glycosyl phoshate
+# residues 12.
+
+dimer 'aDManNAc(1->P)aDMan6POMe'
+{
+ 96.55 54.5 70.1 67.7 74.8 61.6
+ 102.3 71.9 71.3 67.7 72.7 66.1
+}

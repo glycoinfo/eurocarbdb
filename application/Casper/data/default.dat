@@ -1,0 +1,671 @@
+if ~$silent {echo 'Loading defaults'}
+
+# Glucoses ----------------------------
+residue aDGlc {
+default '1' aDGal 0.05, aDFuc 0.10, aDMan 2
+default '2' aDGlcOMe 0.10, aDGal 0.05, aDGalOMe 0.5
+default '3' aDGlcOMe 0.05, aDGlcNAc 0.5, aDGlcNAcOMe 0.5, aDGal 2, aDGalOMe 2, aDMan 2, aDManOMe 2
+default '3' bDGlc 0.05, bDGlcOMe 0.10, bDGlcNAc 1.0, bDGlcNAcOMe 1.0, bDGal 2, bDGalOMe 2, bDMan 2, bDManOMe 2
+default '4' aDGlcOMe 0.05, aDMan 0.05, aDManOMe 0.05, aDGlcNAc 0.5, aDGlcNAcOMe 0.5
+default '4' bDGlc 0.05, bDGlcOMe 0.05, bDMan 0.05, bDManOMe 0.05, bDGlcNAc 0.5, bDGlcNAcOMe 0.5
+default '6' aDGlcOMe 0.05, aDMan 0.05, aDManOMe 0.10, aDGal 0.20, aDGalOMe 0.25, aDGlcNAc 0.5, aDGlcNAcOMe 0.5
+default '6' bDGlc 0.05, bDGlcOMe 0.10, bDMan 0.10, bDManOMe 0.15, bDGal 0.5, bDGalOMe 0.55, bDGlcNAc 1.0, bDGlcNAcOMe 1.0
+}
+
+residue bDGlc {
+convertalldefaults aDGlc
+}
+
+residue aDGlcOMe {
+default '2' aDGalOMe 0.5
+cpydefault '2' aDGlc 0.5
+default '3' bDGlcOMe 0.10
+cpydefault '3' aDGlc 0.1
+default '4' bDGlcOMe 0.05
+cpydefault '4' aDGlc 0.05
+default '6' bDGlcOMe 0.10
+cpydefault '6' aDGlc 0.05
+}
+
+residue bDGlcOMe {
+convertalldefaults aDGlcOMe
+}
+
+residue aDGlcA {
+default '1' aDGalA
+cpydefault '1' aDGlc
+default '2' aDGalA, aDGlcAOMe 0.10, aDGalAOMe 0.10
+cpydefault '2' aDGlc 0.05
+default '3' aDGlcAOMe, aDGalA 2, aDGalAOMe 2, bDGlcA 0.05, bDGlcAOMe 0.1, bDGalA 2.5, bDGalAOMe 2.5
+cpydefault '3' aDGlc 0.05
+default '4' aDGlcAOMe, aDGalA 2.5, aDGalAOMe 2.5
+default '4' bDGlcAOMe, bDGalA 2.5, bDGalAOMe 2.5
+cpydefault '4' aDGlc 0.5
+}
+
+residue bDGlcA {
+convertalldefaults aDGlcA
+}
+
+residue aDGlcAOMe {
+default '2' aDGlcOMe 0.2
+cpydefault '2' aDGlcA 0.5
+default '3' aDGlcOMe 0.2
+cpydefault '3' aDGlcA 0.1
+default '4' aDGlcOMe 0.5
+cpydefault '4' aDGlcA
+}
+
+residue bDGlcAOMe {
+convertalldefaults aDGlcAOMe
+}
+
+residue aDGlcNAc {
+default '1' aDGalNAc, aDManNAc 2, aDMan 2.5
+cpydefault '1' aDGlc 0.50
+default '3' aDGlcNAcOMe, aDGalNAc 2, aDGalNAcOMe 2, bDGlcNAc 0.05, bDGlcNAcOMe 0.1, bDGalNAc 2.0, bDGalNAcOMe 2.0
+cpydefault '3' aDGlc 0.50
+default '4' aDGlcNAcOMe, aDManNAc 0.5, aDManNAcOMe 0.5, bDGlcNAc, bDGlcNAcOMe, bDManNAc 0.5, bDManNAcOMe 0.5
+cpydefault '4' aDGlc 0.10
+default '6' aDGlcNAcOMe, aDManNAc 0.1, aDManNAcOMe 0.1, aDGalNAc 0.2, aDGalNAcOMe 0.2, bDGlcNAc 0.5, bDGlcNAcOMe 0.5, bDManNac 0.5, bDManNAcOMe 0.5, bDGalNAc 0.5, bDGalNAcOMe 0.5
+cpydefault '6' aDGlc 0.10
+}
+
+residue bDGlcNAc {
+convertalldefaults aDGlcNAc
+}
+
+residue aDGlcNAcOMe {
+default '3' aDGalNAcOMe 2, bDGlcNAcOMe 0.05
+cpydefault '3' aDGlcNAc 0.05
+cpydefault '4' aDGlcNAc
+cpydefault '6' aDGlcNAc
+}
+
+residue bDGlcNAcOMe {
+convertalldefaults aDGlcNAcOMe
+}
+
+residue aDGlcANAc {
+cpydefault '1' aDGlcNAc
+cpydefault '1' aDGlcA 0.5
+cpydefault '3' aDGlcNAc 0.05
+cpydefault '3' aDGlcA 0.5
+cpydefault '4' aDGlcNAc 0.5
+cpydefault '4' aDGlcA 0.1
+}
+
+residue bDGlcANAc {
+convertalldefaults aDGlcANAc
+}
+
+residue aLGlc {
+default '1' aLFuc 0.1, bDGlc 2, aLRha 2
+default '2' aLFuc 0.5, aLFucOMe 0.6
+default '3' aLFuc 2, aLFucOMe 2, bLFuc 2, bLFucOMe 2, aLRha 2, aLRhaOMe 2, bLRha 2, bLRhaOMe 2
+default '4' aLRha 0.5, aLRhaOMe 0.5, bLRha 0.5, bLRhaOMe 0.5
+}
+
+residue bLGlc {
+convertalldefaults aLGlc
+}
+
+residue aLGlcNAc {
+default '1' aLFucNAc 0.5
+}
+
+residue bLGlcNAc {
+convertalldefaults aLGlcNAc
+}
+
+# Galactoses ----------------------------
+
+residue aDGal {
+default '1' aDGlc, aDFuc 0.1, bLFuc 2, aDMan 2
+default '2' aDGalOMe 0.1, aDGlc 0.1, aDGlcOMe 0.5
+default '3' aDGalOMe 0.05, aDGalNAc 0.5, aDGalNAcOMe 0.5, aDGlc 2, aDGlcOMe 2
+default '3' bDGalOMe 0.1, bDGal 0.05, bDGalNAc 0.5, bDGalNAcOMe 0.5, bDGlc 2, bDGlcOMe 2
+default '4' aDGalOMe, aDGalNAc 0.5, aDGalNAcOMe 0.5, aDGlc 2.5, aDGlcOMe 2.5
+default '4' bDGal, bDGalOMe, bDGalNAc 1.0, bDGalNAcOMe 1.0, bDGlc 2.5, bDGlcOMe 2.5
+default '6' aDGalOMe 0.05, aDGlc 0.5, aDGlcOMe 0.5, aDGlcNAc 0.5, aDGlcNAcOMe 0.5
+default '6' bDGal 0.05, bDGalOMe 0.1, bDGlc 0.5, bDGlcOMe 0.5, bDGlcNAc 1.0, bDGlcNAcOMe 1.0
+}
+
+residue bDGal {
+convertalldefaults aDGal
+}
+
+residue aDGalOMe {
+default '2' aDGlcOMe 0.1
+cpydefault '2' aDGal 0.50
+default '3' bDGalNAcOMe 0.10
+cpydefault '3' aDGal 0.10
+cpydefault '4' aDGal 0.05
+cpydefault '6' aDGal 0.05
+}
+
+residue bDGalOMe {
+convertalldefaults aDGalOMe
+}
+
+residue aDGalA {
+default '1' aDGlcA
+cpydefault '1' aDGal
+default '2' aDGlcA, aDGalAOMe 0.10, aDGlcAOMe 0.10
+cpydefault '2' aDGal 0.05
+default '3' aDGalAOMe, aDGlcA 2, aDGlcAOMe 2, bDGalA 0.05, bDGalAOMe 0.1, bDGlcA 2.5, bDGlcAOMe 2.5
+cpydefault '3' aDGal 0.05
+default '4' aDGalAOMe, aDGlcA 2.5, aDGlcAOMe 2.5
+default '4' bDGalAOMe, bDGlcA 2.5, bDGlcAOMe 2.5
+cpydefault '4' aDGal 0.5
+}
+
+residue bDGalA {
+convertalldefaults aDGalA
+}
+
+residue aDGalAOMe {
+default '2' aDGalOMe 0.2
+cpydefault '2' aDGalA 0.5
+default '3' aDGalOMe 0.2
+cpydefault '3' aDGalA 0.1
+default '4' aDGalOMe 0.5
+cpydefault '4' aDGalA
+}
+
+residue bDGalAOMe {
+convertalldefaults aDGalAOMe
+}
+
+residue aDGalNAc {
+default '1' aDGlcNAc, aDMan 2, aDRha 2
+cpydefault '1' aDGal 0.5
+default '3' aDGalNAcOMe, aDGlcNAc 2.0, aDGlcNAcOMe 2.0, bDGalNAc 0.05, bDGalNAcOMe 0.1, bDGlcNAc 2.0, bDGlcNAcOMe 2.0
+cpydefault '3' aDGal 0.5
+default '4' aDGalNAcOMe, aDGlcNAc 2.5, aDGlcNAcOMe 2.5, bDGalNAc, bDGalNAcOMe, bDGlcNAc 2.5, bDGlcNAcOMe 2.5
+cpydefault '4' aDGal 0.1
+default '6' aDGalNAcOMe, aDGlcNAc 0.2, aDGlcNAcOMe 0.2, bDGalNAc, bDGalNAcOMe, bDGlcNAc 0.5, bDGlcNAcOMe 0.5
+cpydefault '6' aDGal 0.1
+}
+
+residue bDGalNAc {
+convertalldefaults aDGalNAc
+}
+
+residue aDGalNAcOMe {
+cpydefault '3' aDGalNAc 0.5
+cpydefault '3' aDGalOMe 0.5
+cpydefault '3' aDGlcNAcOMe 1.0
+cpydefault '4' aDGalNAc 0.5
+cpydefault '4' aDGalOMe 0.5
+cpydefault '6' aDGalNAc 0.5
+cpydefault '6' aDGalOMe 0.2
+}
+
+residue bDGalNAcOMe {
+convertalldefaults aDGalNAcOMe
+}
+
+residue aDGalANAc {
+cpydefault '1' aDGalNAc
+cpydefault '1' aDGalA 0.5
+cpydefault '3' aDGalNAc 0.05
+cpydefault '3' aDGalA 0.5
+cpydefault '4' aDGalNAc 0.5
+cpydefault '4' aDGalA 0.1
+}
+
+residue bDGalANAc {
+convertalldefaults aDGalANAc
+}
+
+residue aLGal {
+default '1' aLFuc, bDGal 2, aLRha 2
+default '2' aLFuc, aLFucOMe 0.1
+default '3' aLFuc 0.05, aLFucOMe 0.05, bLFuc 0.1, bLFucOMe 0.1, aLRha 2.5, aLRhaOMe 2.5, bLRha 2.5, bLRhaOMe 2.5
+default '4' aLFuc 0.1, aLFucOMe 0.1, bLFuc 0.1, bLFucOMe 0.1
+}
+
+residue bLGal {
+convertalldefaults aLGal
+}
+
+residue aLGalOMe {
+default '2' aLGlcOMe 0.5
+cpydefault '2' aLGal 0.5
+default '3' bLGalOMe 0.1
+cpydefault '3' aLGal 0.1
+default '4' bLGalOMe 0.05
+cpydefault '4' aLGal 0.05
+default '6' bLGalOMe 0.10
+cpydefault '6' aLGal
+}
+
+residue bLGalOMe {
+convertalldefaults aLGalOMe
+}
+
+residue aLGalNAc {
+cpydefault '1' aLGal 0.5
+cpydefault '3' aLGal 0.5
+cpydefault '4' aLGal 0.1
+}
+
+residue bLGalNAc {
+convertalldefaults aLGalNAc
+}
+
+
+# Mannoses ----------------------------
+
+residue aDMan {
+default '1' aDRha, bLRha 2, aDGlc 2
+default '2' aDManOMe 0.1, aDRha, aDRhaOMe 0.1, aDGlc 2.5
+default '3' aDManOMe 0.05, aDRha, aDRhaOMe 0.05, aDGlc 2, aDGlcOMe 2
+default '3' bDMan 0.05, bDManOMe 0.10, bDRha 0.05, bDRhaOMe 0.10, bDGlc 2, bDGlcOMe 2
+default '4' aDManOMe, aDRha, aDRhaOMe, aDGlc 0.05, aDGlcOMe 0.05
+default '4' bDMan, bDManOMe, bDRha, bDRhaOMe, bDGlc 0.05, bDGlcOMe 0.05
+default '6' aDManOMe 0.05, aDRha, aDRhaOMe 0.05, aDGlc 0.05, aDGlcOMe 0.10, aDGal 0.20, aDGalOMe 0.25
+default '6' bDMan 0.05, bDManOMe 0.1, bDRha 0.05, bDRhaOMe 0.1, bDGlc 0.1, bDGlcOMe 0.15
+}
+
+residue bDMan {
+convertalldefaults aDMan
+}
+
+residue aDManOMe {
+default '2' aDRhaOMe, aDGlcOMe 2.5
+cpydefault '2' aDMan 0.5
+default '3' aDRhaOMe, aDGlcOMe 2
+cpydefault '3' aDMan 0.1
+default '4' aDRhaOMe, bDRhaOMe 0.05
+cpydefault '4' aDMan 0.05
+default '6' aDRhaOMe 0.1, aDGlcOMe 0.05, bDManOMe 0.1, bDRhaOMe 0.1, bDGlcOMe 0.1
+cpydefault '6' aDMan 0.05
+}
+
+residue bDManOMe {
+convertalldefaults aDManOMe
+}
+
+residue aDManA {
+default '1' aDGlcA 2, aDGlc 2
+cpydefault '1' aDMan
+default '2' aDManAOMe 0.10
+cpydefault '2' aDMan 0.05
+default '3' aDManAOMe, bDManA 0.05, bDManAOMe 0.1, aDGlcA 2, aDGlcAOMe 2, bDGlcA 2.5, bDGlcAOMe 2.5
+cpydefault '3' aDMan 0.05
+default '4' aDManAOMe, aDGlcA 0.05, aDGlcAOMe 0.05, bDManA, bDManAOMe, bDGlcA 0.05, bDGlcAOMe 0.05
+cpydefault '4' aDMan 0.5
+}
+
+residue bDManA {
+convertalldefaults aDManA
+}
+
+residue aDManAOMe {
+default '2' aDManOMe 0.2
+cpydefault '2' aDManA 0.5
+default '3' aDManOMe 0.2
+cpydefault '3' aDManA 0.1
+default '4' aDManOMe 0.5
+cpydefault '4' aDManA
+}
+
+residue bDManAOMe {
+convertalldefaults aDManAOMe
+}
+
+residue aDManNAc {
+default '1' aDGlcNAc 2, aDGlc 2.5, aDGlcOMe 2.5
+cpydefault '1' aDMan 0.5
+default '3' aDManNAcOMe, aDGlcNAc 2, aDGlcNAcOMe 2, aDGlc 2.5, aDGlcOMe 2.5
+cpydefault '3' aDMan 0.5
+default '4' aDManNAcOMe, aDGlcNAc 0.5
+default '4' bDManNAc, bDManNAcOMe, bDGlcNAc 0.5, bDGlcNAcOMe 0.5
+cpydefault '4' aDMan 0.1
+default '6' aDManNAcOMe, aDGlcNAc 0.1, aDGlcNAcOMe 0.1
+default '6' bDManNAc 0.5, bDManNAcOMe 0.5, bDGlcNAc 0.1, bDGlcNAcOMe 0.1, bDGalNAc 0.5, bDGalNAcOMe 0.5
+cpydefault '6' aDMan
+}
+
+residue bDManNAc {
+convertalldefaults aDManNAc
+}
+
+residue aDManNAcOMe {
+default '3' aDGlcNAcOMe 2, bDManNAcOMe 0.05
+cpydefault '3' aDManNAc 0.05
+cpydefault '4' aDManNAc
+cpydefault '6' aDManNAc
+}
+
+residue bDManNAcOMe {
+convertalldefaults aDManNAcOMe
+}
+
+residue aDManANAc {
+cpydefault '1' aDManNAc
+cpydefault '1' aDManA 0.5
+cpydefault '3' aDManNAc 0.05
+cpydefault '3' aDManA 0.5
+cpydefault '4' aDManNAc 0.5
+cpydefault '4' aDManA 0.1
+}
+
+residue bDManANAc {
+convertalldefaults aDManANAc
+}
+
+residue aLMan {
+default '1' aLRha, bDMan 2
+default '2' aLRha, aLRhaOMe 0.1
+default '3' aLRha 0.05, aLRhaOMe 0.05, bLRha 0.1, bLRhaOMe 0.1
+default '4' aLRha 0.1, aLRhaOMe 0.1, bLRha 0.1, bLRhaOMe 0.1
+}
+
+residue bLMan {
+convertalldefaults aLMan
+}
+
+# Rhamnoses ----------------------------
+residue aLRha {
+default '1' aLMan 0.1, aLFuc 2, bDMan 2, aLGlc 2, aLGal 2, aDMan 3
+default '2' aLRhaOMe 0.1, aLManOMe 0.6
+default '2' aLMan 0.1, bDMan 2, bDManOMe 2, bLRha 2, bLRhaOMe 2
+default '3' aLRhaOMe 0.05, aLMan 0.05, aLManOMe 0.05
+default '3' bLRha 0.05, bLRhaOMe 0.05, bLManOMe 0.05, bLMan 0.15
+default '4' aLRhaOMe, aLMan 0.1, aLManOMe 0.1, aLGlc 0.1, aLGlcOMe 0.1
+default '4' bLRha, bLRhaOMe, bLMan 0.1, bLManOMe 0.1, bLGlc 0.1, bLGlcOMe 0.1
+}
+
+residue bLRha {
+convertalldefaults aLRha
+}
+
+residue aLRhaOMe {
+default '2' aLManOMe
+cpydefault '2' aLRha 0.5
+default '2' aLManOMe
+cpydefault '3' aLRha 0.1
+default '4' aLManOMe
+cpydefault '4' aLRha 0.05
+}
+
+residue bLRhaOMe {
+convertalldefaults aLRhaOMe
+}
+
+residue aLRhaNAc {
+default '1' aLManNAc 0.1
+cpydefault '1' aLRha 0.5
+default '3' aLManNAc 0.1
+cpydefault '3' aLRha 0.5
+default '4' aLManNAc 0.1
+cpydefault '4' aLRha 0.1
+}
+
+residue bLRhaNAc {
+convertalldefaults aLRhaNAc
+}
+
+residue aLRhaNAcOMe {
+cpydefault '3' aLRhaNAc
+cpydefault '4' aLRhaNAc
+}
+
+residue bLRhaNAcOMe {
+convertalldefaults aLRhaNAcOMe
+}
+
+residue aDRha {
+default '1' aDMan 0.1, bLRha 2, aDGlc 2, aDGal 2, aDManNAc 2.5
+default '2' aDRhaOMe 0.1, aDMan 0.1, aDManOMe 0.2
+default '2' bDRha 0.5, bDRhaOMe 0.6, bDManOMe 1
+default '3' aDRhaOMe 0.05, aDMan 0.1, aDManOMe 0.1, aDGlc 2
+default '3' bDRha 0.05, bDRhaOMe 0.05, bDManOMe 0.05, bDMan 0.15
+default '4' aDRhaOMe, aDMan 0.1, aDManOMe 0.1, aDGlc 0.1, aDGlcOMe 0.1
+default '4' bDRha, bDRhaOMe, bDMan 0.1, bDManOMe 0.1, bDGlc 0.1, bDGlcOMe 0.1
+}
+
+residue bDRha {
+convertalldefaults aDRha
+}
+
+residue aDRhaOMe {
+default '2' aDManOMe
+cpydefault '2' aDRha 0.5
+default '3' aDManOMe
+cpydefault '3' aDRha 0.1
+default '4' aDManOMe
+cpydefault '4' aDRha 0.05
+}
+
+residue bDRhaOMe {
+convertalldefaults aDRhaOMe
+}
+
+residue aDRhaNAc {
+cpydefault '1' aDRha 0.5
+cpydefault '3' aDRha 0.5
+cpydefault '4' aDRha 0.1
+}
+
+residue bDRhaNAc {
+convertalldefaults aDRhaNAc
+}
+
+# Fucoses ----------------------------
+
+residue aLFuc {
+default '1' aLGal 0.1, aLGlc 0.1, bDGal 2, bDGlc 2
+cpydefault '1' aLRha 2.0
+default '2' aLFucOMe 0.1, aLGal 0.1, aLGalOMe 0.2, aLGlc 0.1, aLGlcOMe 0.2
+default '2' bLFuc 2, bLFucOMe 2, bLGal 2, bLGalOMe 2, bLGlc 2, bLGlcOMe 2
+default '3' aLFucOMe 0.05, aLGal, aLGalOMe 0.05, aLGlc 2, aLGlcOMe 2
+default '3' bLFuc 0.05, bLFucOMe 0.05, bLGal 0.05, bLGalOMe 0.05, bLGlc 2, bLGlcOMe 2
+cpydefault '3' aLRha 2.0
+default '4' aLFucOMe, aLGal 0.1, aLGalOMe 0.1, aLGlc 2.5, aLGlcOMe 2.5
+default '4' bLFuc, bLFucOMe, bLGal 0.1, bLGalOMe 0.1, bLGlc 2.5, bLGlcOMe 2.5
+default '4' aLRha 2.5, aLRhaOMe 2.5
+}
+
+residue bLFuc {
+convertalldefaults aLFuc
+}
+
+residue aLFucOMe {
+default '2' aLGalOMe, aLGlcOMe
+cpydefault '2' aLFuc 0.5
+default '3' aLGalOMe
+cpydefault '3' aLFuc 0.1
+default '4' aLGalOMe
+cpydefault '4' aLFuc 0.05
+}
+
+residue bLFucOMe {
+convertalldefaults aLFucOMe
+}
+
+residue aLFucNAc {
+default '1' bDGalNAc 2, bDGlcNAc 2
+cpydefault '1' aLFuc 0.5
+default '3' aLFucNAcOMe, bLFucNAc, bLFucNAcOMe
+cpydefault '3' aLFuc 0.5
+default '4' aLFucNAcOMe, bLFucNAc, bLFucNAcOMe
+cpydefault '4' aLFuc 0.1
+}
+
+residue bLFucNAc {
+convertalldefaults aLFucNAc
+}
+
+residue aLFucNAcOMe {
+cpydefault '3' aLFucNAc
+cpydefault '4' aLFucNAc
+}
+
+residue bLFucNAcOMe {
+convertalldefaults aLFucNAcOMe
+}
+
+residue aDFuc {
+default '1' aDGal 0.1, aDGlc 0.1, bLFuc 2
+default '2' aDFucOMe 0.1, aDGal 0.1, aDGalOMe 0.2, aDGlc 0.1, aDGlcOMe 0.2
+default '2' bDFucOMe 0.5, bDGal 0.6, bDGalOMe 1, bDGlc 0.6, bDGlcOMe 1
+default '3' aDFucOMe 0.05, aDGal 0.05, aDGalOMe 0.05, aDGlc 2, aDGlcOMe 2
+default '3' bDFuc 0.05, bDFucOMe 0.05, bDGal 0.05, bDGalOMe 0.05, bDGlc 2, bDGlcOMe 2
+default '4' aDFucOMe, aDGal 0.1, aDGalOMe 0.1, aDGlc 2.5, aDGlcOMe 2.5
+default '4' bDFuc, bDFucOMe, bDGal 0.1, bDGalOMe 0.1, bDGlc 2.5, bDGlcOMe 2.5
+}
+
+residue bDFuc {
+convertalldefaults aDFuc
+}
+
+residue aDFucOMe {
+default '2' aDGalOMe, aDGlcOMe
+cpydefault '2' aDFuc 0.5
+default '3' aDGalOMe
+cpydefault '3' aDFuc 0.1
+default '4' aDGalOMe
+cpydefault '4' aDFuc 0.05
+}
+
+residue bDFucOMe {
+convertalldefaults aDFucOMe
+}
+
+residue aDFucNAc {
+default '1' aDGalNAc 0.1, aDGlcNAc 0.1
+cpydefault '1' aDFuc 0.5
+default '3' aDGalNAc, aDGalNAcOMe, aDGlcNAc 2, aDGlcNAcOMe 2
+default '3' bDFucNAc, bDGalNAc, bDGalNAcOMe, bDGlcNAc 2, bDGlcNAcOMe 2
+cpydefault '3' aDFuc 0.5
+default '4' aDGalNAc, aDGalNAcOMe, aDGlcNAc 2.5, aDGlcNAcOMe 2.5
+default '4' bDFucNAc, bDGalNAc, bDGalNAcOMe, bDGlcNAc 2.5, bDGlcNAcOMe 2.5
+cpydefault '4' aDFuc 0.1
+}
+
+residue bDFucNAc {
+convertalldefaults aDFucNAc
+}
+
+# specials
+
+residue aMurNAc {
+default '1' aDGlcNAc, aDGlc, aDGal
+default '4' aDGlcNAc,  aDGlcNAcOMe, aDGlc, aDGlcOMe
+default '4' bDGlcNAc, bDGlcNAcOMe, bDGlc, bDGlcOMe
+default '6' aDGlcNAc,  aDGlcNAcOMe, aDGlc, aDGlcOMe
+default '6' bDGlcNAc, bDGlcNAcOMe, bDGlc, bDGlcOMe
+}
+
+residue bMurNAc {
+convertalldefaults aMurNAc
+}
+
+residue aLRhaNAc {
+cpydefault '1' aLFuc 0.5
+}
+
+residue bLRhaNAc {
+convertalldefaults aLRhaNAc
+}
+
+residue aDRhaNAc {
+cpydefault '1' aDFuc 0.5
+}
+
+residue bDRhaNAc {
+convertalldefaults aDRhaNAc
+}
+
+# Furanoses
+
+#residue aDGlcf {
+#default '1' aDGalf 0.05
+#default '2' aDGlcfOMe 0.05, aDGalfOMe 0.05, aDGalf 0.05
+#default '3' aDGlcfOMe 0.05, bDGlcfOMe 0.05, bDGlcf 0.05, aDGalf 2
+#default '4' aDGlcfOMe 0.05, aDManf 0.05, bDGlcfOMe 0.05, bDGlcf 0.05, bDManf 0.05
+#default '6' aDGlcfOMe 0.05, aDManf 0.05, bDGlcfOMe 0.05, bDGlcf 0.05, bDManf 0.05
+#}
+
+#residue bDGlcf {
+#default '1' bDGalf 0.05
+#default '2' bDGlcfOMe 0.05, bDGalfOMe 0.05, bDGalf 0.05
+#default '3' bDGlcfOMe 0.05, aDGlcfOMe 0.05, aDGlcf 0.05, bDGalf 2
+#default '4' bDGlcfOMe 0.05, bDManf 0.05, aDGlcfOMe 0.05, aDGlcf 0.05, aDManf 0.05
+#default '6' bDGlcfOMe 0.05, bDManf 0.05, aDGlcfOMe 0.05, aDGlcf 0.05, aDManf 0.05
+#}
+
+#residue aDGalf {
+#default '1' aDGlcf, aDFucf
+#default '2' aDGalfOMe, aDGlcfOMe, aDGlcf
+#default '3' aDGalfOMe, aDGlcfOMe 2, aDGlcf 2, bDGalfOMe, bDGlcfOMe 2, bDGlcf 2
+#default '4' aDGalfOMe, aDGlcfOMe 2.5, aDGlcf 2.5, bDGalfOMe, bDGlcfOMe 2.5, bDGlcf 2.5
+#default '6' aDGalfOMe, aDGlcfOMe 0.3, aDGlcf 0.3, bDGalfOMe, bDGlcfOMe 0.3, bDGlcf 0.3
+#}
+
+#residue bDGalf {
+#default '1' bDGlcf, bDFucf
+#default '2' bDGalfOMe, bDGlcfOMe, bDGlcf
+#default '3' bDGalfOMe, bDGlcfOMe 2, bDGlcf 2, aDGalfOMe, aDGlcfOMe 2, aDGlcf 2
+#default '4' bDGalfOMe, bDGlcfOMe 2.5, bDGlcf 2.5, aDGalfOMe, aDGlcfOMe 2.5, aDGlcf 2.5
+#default '6' bDGalfOMe, bDGlcfOMe 0.3, bDGlcf 0.3, aDGalfOMe, aDGlcfOMe 0.3, aDGlcf 0.3
+#}
+
+
+# Non-2-ulosonic acids
+
+
+
+
+
+
+residue aDQui {
+ default '1' aDGlc 0.05, aDGal 0.05
+ default '2' aDGlc 0.05, aDGal 0.05, aDGlcOMe 0.15, aDGalOMe 0.15
+ default '3' aDGlcOMe 0.05, bDGlcOMe 0.05, bDGlc 0.05
+ default '4' aDGlcOMe 0.05, bDGlcOMe 0.05, bDGlc 0.05, aDMan 0.05, bDMan 0.05
+}
+
+residue bDQui {
+convertalldefaults aDQui
+}
+
+residue aDQuiOMe
+{
+ default '2' aDGlcOMe 0.05, aDGalOMe 0.05
+ cpydefault '2' aDQui 0.1
+ default '3' aDGlcOMe 0.05, aDGalOMe 0.05
+ cpydefault '3' aDQui
+ default '4' aDGlcOMe 0.05, aDGalOMe 0.05
+ cpydefault '4' aDQui
+}
+
+residue bDQuiOMe {
+ convertalldefaults aDQuiOMe
+}
+
+residue aDQuiNAc {
+ default '1' aDGlcNAc 0.05
+ cpydefault '1' aDQui 0.5
+ default '3' aDGlcNAc 0.05, aDGlcNAcOMe 0.05, bDGlcNAc 0.1, bDGlcNAcOMe 0.1
+ cpydefault '3' aDQui 0.5
+ default '4' aDGlcNAc 0.05, aDGlcNAcOMe 0.05, bDGlcNAc 0.05, bDGlcNAcOMe 0.1
+ cpydefault '4' aDQui 0.1
+}
+
+residue bDQuiNAc {
+ convertalldefaults aDQuiNAc
+}
+
+residue aDQuiNAcOMe {
+ cpydefault '3' aDQuiNAc
+ cpydefault '4' aDQuiNAc
+}
+
+residue bDQuiNAcOMe {
+ convertalldefaults aDQuiNAcOMe
+}

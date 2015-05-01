@@ -1,0 +1,55 @@
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.HplcColumn;
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.Preparable;
+
+
+public class CreateColumn extends EurocarbAction {
+
+    private HplcColumn column = null;
+    private String manufacturer; 
+    public String execute() throws Exception {
+
+
+
+        if ( this.getColumn().getManufacturer() == null ) { 
+            return INPUT;
+	}
+	/*try {  
+            Eurocarb.getEntityManager().store(acquisition);  
+        }
+        catch ( Exception e ) {
+            addActionError( e.getMessage() );
+            return ERROR;  
+	    }*/
+	else {Eurocarb.getEntityManager().store(column);  
+        return SUCCESS;
+	}
+    }      
+
+
+    public HplcColumn getColumn() {
+        return column;
+    }
+
+    public void setColumn (HplcColumn column) {
+        this.column = column;
+    }
+
+
+     public String getManufuturer() {
+         return manufacturer;
+     }
+
+     public void setManufacturer(String manufacturer) {
+         this.manufacturer = manufacturer;
+     }
+
+
+
+}

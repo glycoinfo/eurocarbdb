@@ -1,0 +1,56 @@
+/**
+ * $Id$
+ * Last changed $Author$
+ * EUROCarbDB Project
+ */
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.*;
+
+import org.apache.log4j.Logger;
+
+/**
+ * @author 			aceroni
+ * @rev				$Rev$
+ */
+public class ShowDetector extends EurocarbAction {
+
+    protected static final Logger log = Logger.getLogger( HplcDetector.class.getName() );
+
+    private HplcDetector detector = null;
+
+    private int detector_id = 1;
+    
+    public HplcDetector getDetector() {  	
+	return detector;  
+    }
+
+    public int getDetectorId() {
+        return detector_id;
+    }
+
+    public void setDetectorId(int testid) {
+        this.detector_id = testid;
+    }
+
+    public String execute() {
+	if( detector_id<=0 ) {
+	    this.addActionError( "Invalid detector id " + detector_id);
+	    return ERROR;
+	}
+
+	detector = Eurocarb.getEntityManager().lookup( HplcDetector.class, detector_id );
+	
+	if ( detector == null ) {
+	    log.info( "No detector associated with id " + detector_id );
+	    this.addActionError( "No detector associated with id " + detector_id );
+            return ERROR;	    
+	}
+	
+        return SUCCESS;
+    }
+
+}

@@ -1,0 +1,133 @@
+#
+# Albert van Kuik, 2003
+#
+# Prepa script to read column of data from text file
+# e.g.
+#
+#   5.000     5.30641  .17672E+00  .13448E-04  .40112E-05
+#  10.000     5.29018  .17520E+00  .13822E-04  .40871E-05
+#  15.000     5.22992  .17403E+00  .15302E-04  .44946E-05
+#  20.000     5.12783  .17294E+00  .18179E-04  .53062E-05
+#  25.000     4.98954  .17162E+00  .22958E-04  .66501E-05
+#
+
+#
+# ascii text input file
+#
+%infile  = "fort.4"	
+
+#
+# prospectnd output file
+#
+%outfile = "fort4.p"	
+
+#
+# the number of the column that we want to read
+#
+$col = 2
+
+#
+# The columns can be separated by the following tokens
+#
+%separators = " \n\r"
+
+#
+# Lines starting with this character are skipped
+#
+%comment = "#"
+
+#
+# No more user input is needed below this line
+###########################################################
+
+initparam
+
+$file1 = open %infile ,"r"
+if $file1 == 0 then
+    println "Can not open " + %infile
+    exit
+endif
+
+# Calculate number of lines with information
+#
+$i = 0
+do 
+    %line=fgets($file1) 
+    if %line[0] != %comment then
+        $i += 1
+    endif
+while %line != "" 
+#
+# set nsize to this number
+#
+$nsize = $i - 1
+
+#
+# reset the input file
+#
+seek $file1, 0
+
+td $nsize
+si $nsize
+sw $nsize
+sm 1 
+
+
+#
+# Read data into @r
+#
+$i=0
+do 
+    #
+    # Read line
+    #
+    %line = fgets($file1) 
+    #
+    if %line[0] == %comment then
+        continue
+    endif
+    # find the column
+    #
+    $j = $col
+    %word = token %line, %separators 
+    do
+        if %word != "" then 
+            $j -= 1
+        else
+            break
+        endif
+        if $j > 0 then
+            %word = token %separators 
+        endif
+    while  $j > 0
+    #
+    # if we found the column, store the data in the array
+    #
+    if $j == 0 then
+        @r[$i] = $word
+        $i += 1
+    endif
+while %line != "" 
+#
+# Close input file
+#
+close $file1
+   
+#
+# Open, write and close the output file
+#
+create %outfile, [1..$nsize]
+wr @r, %outfile
+wclose 
+
+#
+# Read the new file
+#
+ropen %outfile
+rn  1
+
+println "\nDone"
+
+
+
+

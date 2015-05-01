@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.atom">
+    <class name="Periodic" table="periodic" mutable="false" lazy="false">
+        <id name="symbol" column="symbol">
+            <generator class="assigned"/>
+        </id>
+        <property name="periodicNumber" column="periodic_id"/>
+        <property name="name" column="element_name"/>
+        <property name="avgMass" column="avg_mass"/>
+        <property name="density" column="density"/>
+        <property name="stable" column="element_stable"/>
+        <property name="meltingPoint" column="melting_point"/>
+        <property name="boilingPoint" column="boiling_point"/>
+        <property name="ionisationPotential" column="ionisation_potential"/>
+        <property name="specificHeat" column="specific_heat"/>
+	    <set name="isotopes" inverse="true" lazy="false">
+    	    <key column="element"/>
+        	<one-to-many class="Isotope"/>
+    	</set>
+    </class>
+</hibernate-mapping>

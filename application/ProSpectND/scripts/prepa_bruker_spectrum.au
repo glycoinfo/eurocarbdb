@@ -1,0 +1,206 @@
+# Prepa script for Bruker AMX and Avance(=DRX) 2rr spectra
+#
+# Examples
+# Script argument:
+#   -i indir -o outfile
+# Batch:
+#   prospectnd -b prepa_bruker.au -i indir -o outfile
+# Command_line:
+#   run prepa_bruker_spectrum.au -i indir -o outfile
+#
+#
+# Prepa script for Bruker 2rr spectrum
+# Albert van Kuik, 2001
+#
+
+function set_file_names
+  #
+  # Name of directory that contains the files
+  #     procs + proc2s + 2rr
+  #
+  if %infile == "" then
+    %directory  = "."
+  else
+    %directory = %infile
+  endif
+
+  #
+  # Name of the output file
+  #
+  if (%outfile == "") then
+    %outputfile = "spec.p"
+  else
+    %outputfile = %outfile
+  endif
+
+  #
+  # Name of the various input files
+  #
+
+  %procfile   = %directory + "/procs"
+  %proc2file  = %directory + "/proc2s"
+  %spec1file  = %directory + "/1r"
+  %spec2file  = %directory + "/2rr"
+end
+
+function init_argv_vars
+  %infile  = ""		# to be handled in "argv-i.aui"
+  %outfile = ""		# to be handled in "argv-o.aui"
+end
+
+function proc_argv
+  $argi = 0
+  while $argi < argc do
+
+    include "argv-i.aui"	# set variable 'infile'  with  input file name
+    include "argv-o.aui"	# set variable 'outfile' with output file name
+
+    $argi += 1
+  done
+end  
+
+include "show_what.aui"
+
+$init_argv_vars()
+$proc_argv()
+$set_file_names()
+initparam
+
+$sfd         = 500
+$swd         = 1000
+$max         = 1
+$offset      = 1
+$endian      = 0
+$sfd_b       = 500
+$swd_b       = 1000
+$nrec        = 1
+$offset_b    = 1
+
+$dimension   = 1
+
+#
+# Open spec file
+#
+$file_data_in = open %spec1file, "rb"
+if $file_data_in == 0 then
+    $dimension = 2
+    $file_data_in = open %spec2file, "rb"
+    if $file_data_in == 0 then
+        println "Can not open " + %spec1file + " or " + %spec2file 
+        exit
+    endif
+endif
+
+#
+# Read parameters from procs file
+#
+$file1 = open %procfile ,"r"
+if $file1 == 0 then
+    println "Can not open " + %procfile
+    exit
+endif
+
+%sfd    = scan $file1, "##$SF= %s"       # spectrometer frequecy
+%swd    = scan $file1, "##$SW_p= %s"     # sweep width in hz
+%max    = scan $file1, "##$SI= %s"       # time domain size
+%offset = scan $file1, "##$OFFSET= %s"   # calibration offset
+%endian = scan $file1, "##$BYTORDP= %s"  # byte order, if BYTORDA is not defined, 
+                                         #    endian is 0, which is ok
+
+close $file1
+
+println "  sf  = " + %sfd
+println "  sw  = " + %swd
+println "  si  = " + %max
+
+#
+# Try to read proc2s file
+#
+if $dimension == 2 then
+    $file2 = open %proc2file ,"r"
+    if $file2 == 0 then
+        println "Can not open " + %proc2file
+        exit
+    endif
+
+    %sfd_b    = scan $file2, "##$SF= %s"     # spectrometer frequecy
+    %swd_b    = scan $file2, "##$SW_p= %s"   # sweep width in hz
+    %nrec     = scan $file2, "##$SI= %s"     # time domain size
+    %offset_b = scan $file2, "##$OFFSET= %s" # calibration offset
+
+    close $file2
+
+    println "  sf1 = " + %sfd_b
+    println "  sw1 = " + %swd_b
+    println "  si1 = " + %nrec
+
+endif
+
+# close current nmr file, if any
+rclose
+
+if $dimension == 1 then
+    sf  $sfd
+    sw  $swd
+    $nrec   = 1
+    sm 1             # set store mode to real 
+    create %outputfile, [1..$max]
+    println "\nRead: 1 record of size " + %max
+elseif  $dimension == 2 then
+    sf:2 $sfd
+    sw:2 $swd
+    sm:2 1             # Set store mode to real
+    sf:1 $sfd_b
+    sw:1 $swd_b
+    sm:1 1
+    create %outputfile, [1..$nrec], [1..$max]
+    dr 2    
+    println "\nRead: " + %nrec + " record(s) of size " + %max
+else
+    println "3d not implemented"
+    exit
+endif
+
+#
+# Read data
+#
+for $i in [1..$nrec] do
+    #
+    # Read one record
+    #
+
+    si $max                             # Set data size for reading
+    @r[1..$max] = read $file_data_in    # Read one record
+    if $endian != ? byteorder then      # If byte order of file and
+        swap4 @r                        #    program differ, swap bytes
+    endif
+    i2f @r                              # Convert integers into floats
+    rw $i                               # Write result
+done
+close $file_data_in
+
+#
+# Calibration
+#
+if $swd > 0  then
+    $ref   = 1.0 - ($offset   * (1.0 - $max)  * $sfd   / $swd) 
+    if $dimension > 1 && $swd_b > 0 then
+        $ref_b = 1.0 - ($offset_b * (1.0 - $nrec) * $sfd_b / $swd_b) 
+        xr:1 $ref_b
+        xr:2 $ref
+        isspec:1 1
+        isspec:2 1
+    else
+        xr $ref
+        isspec 1
+    endif
+endif
+wclose
+
+ropen %outputfile
+dr  $dimension 
+rn 1, 1
+
+println "\nDone"
+
+

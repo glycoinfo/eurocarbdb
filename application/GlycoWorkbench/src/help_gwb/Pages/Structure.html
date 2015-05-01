@@ -1,0 +1,137 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+    <link rel="stylesheet" href="jhexamples.css" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<body bgcolor="#FFFFFF">
+
+<h1 align="center">Structure Building</h1>
+
+<p align="left">
+
+The structure building panel is designed to handle multiple structures
+at the same time. Initially the structure panel is empty. The user can
+start building a structure from a common core motif selected from the
+&quot;File -> New&quot; menu. To add subsequent structures using one
+of the core motifs the user can chose from the &quot;Structure -> Add
+structure&quot; menu. 
+
+<br><br>
+
+Only tree-like glycan structures can be built. The residues are always
+added to the last selected residue. If no residue is selected a new
+structure is created and the residue is added to it. The substituents
+are treated as residues. A new residue is added by chosing from the
+&quot;Structure -> Add residue&quot; menu. Common terminals motifs can
+be added by chosing from the &quot;Structure -> Add terminal&quot;
+menu. A residue can be inserted before the current selection by
+clicking on &quot;Structure -> insert residue before&quot;.
+
+<br><br>
+
+The properties of a residue (such as anomeric state, chirality and
+anomeric atom) and the position of the linkage to its predecessor can
+be set using the dialog activated by &quot;Structure -> Residue
+properties&quot;. The type of the reducing end of the selected
+structure can be changed by clicking on &quot;Structure -> change
+reducing end type&quot;. In this way labels and markers can be added
+to the structure. The mass of the marker is added to the total mass of
+the structure.
+
+<br><br>
+
+Fuzzy structures with uncertain antennae positions can be created by
+adding a bracket to a selected structure with the &quot;Structure ->
+Add bracket&quot; command. The antennae can then be added to the
+structure by selecting the bracket and adding the desired residues.
+
+<h2 align="left">Export to file</h2>
+
+<p align="left">
+The content of the structure panel can be saved to file, using the
+internal string format, for later retrieval. Otherwise, the structure
+drawings can be exported into file in several graphical formats
+(PS,EPS,PDF,SVG,JPG,BMP,PNG,GIF) using the menu &quot;File -> Export
+to graphical formats&quot;.
+
+</p>
+
+<h2 align="left">Selection and Navigation</h2>
+
+<p align="left">
+A single residue is selected by clicking the mouse left button on
+it. If the &lt;ctrl&gt; button is pressed, the residues that are
+already selected will remain in the same state, otherwise they will be
+deselected. If the &lt;shift&gt; button is pressed all the residues on
+the path connecting the last selection and the current one will be
+selected as well. By pressing the mouse left button outside of any
+residues and dragging it, the rectangle selection tool will be
+activated. When the mouse button is released all the residues in the
+rectangle area will be selected. If the &lt;ctrl&gt; button is
+pressed, the residues that are already selected will remain in the
+same state, otherwise they will be deselected. To select all residues
+of all structures just press &gt;ctrl+A&lt; or go to &quot;Edit ->
+Select all&quot;. The currently selected structure is the one
+containing the last selected residue.
+
+<br><br>
+
+By clicking &lt;ctrl&gt; plus one of the arrow buttons the selection
+is moved from the last selected residue to the nearest residue in the
+direction indicated by the arrow. If no residue is selected, the
+selection is placed on the reducing end of the first or the last
+structure (depending on the arrow button).
+</p>
+
+
+<h2 align="left">Cut and Copy</h2>
+
+<p align="left">
+All the usual cut/copy/paste operations are implemented in the
+GlycoWorkbench. The selected residues can be cut/copy from a location
+and then pasted in a different location in the same window. If no
+residues are selected when performing the &quot;paste&quot; action a
+new structure will be created, otherwise the content of the clipboard
+will be added to the last selected residue.  The selection can also be
+pasted in a different window of the GlycoWorkbench. Finally, the
+copied residues can be pasted as an image in a graphic editor or Word
+document.
+</p>
+
+<h2 align="left">Drag and Drop</h2>
+
+<p align="left">
+By pressing the mouse left button on a single residue or a group of
+selected residues, the drag and drop mode is activated. The selected
+residues can be dragged to any part of the drawing canvas. When the
+mouse button is released the dragged residues will be moved to the
+final location. If the button is released upon an existing residue,
+the selection will be added to it, otherwise a new structure will be
+created containing the selected residues. If the &lt;ctrl&gt; button
+is pressed the selection will be copied from the original location to
+its destination, otherwise the selected residues will be deleted from
+the original location. The selection cannot be dragged outside the
+current drawing canvas.
+</p>
+
+
+<h2 align="left">Visualization Options</h2>
+
+<p align="left">
+The orientation of the drawn structure can be changed from
+right-to-left to left-to-right, to bottom-to-top to top-to-bottom, by
+clicking on &quot;Structure -> change orientation&quot;. The
+orientation will affect also the way fragments are drawn in the
+fragment panel. The cartoon notation used to represent structures can
+be changed from the menu &quot;View&quot;. Currently, three notations
+are supported: CFG standard, CFG black and white, Oxford. The
+visualization of linkages information is controlled with the
+&quot;View -> show linkage info&quot; command. In the same menu with
+the command &quot;View -> show masses when exporting&quot; it is
+possible to activate/deactivate the display of mass information in the
+exported/printed structure drawings.
+
+</p>
+
+</body>
+</html>

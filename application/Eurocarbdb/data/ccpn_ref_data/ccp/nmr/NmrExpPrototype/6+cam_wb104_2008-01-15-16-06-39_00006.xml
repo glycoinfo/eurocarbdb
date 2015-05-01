@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<_StorageUnit release="2.0.a1" originator="CCPN Python XmlIO" packageGuid="www.ccpn.ac.uk_Fogh_2006-08-16-14:22:45_00019" time="Mon Apr  7 13:51:34 2008">
+
+<NMRX.NmrExpPrototype _ID="_1" category="through-bond" createdBy="ccpnRef" guid="cam_wb104_2008-01-15-16-06-39_00006" isModifiable="true" lastUnlockedBy="editor" name="H[J(HH)]" serial="6" synonym="J-resolved">
+  <NMRX.NmrExpPrototype.atomSites>
+    <NMRX.AtomSite _ID="_2" isotopeCode="1H" minNumber="1" name="H" numberStep="1" serial="1">
+      <NMRX.AtomSite.expMeasurements> _3 _4</NMRX.AtomSite.expMeasurements>
+      <NMRX.AtomSite.expTransfers> _5</NMRX.AtomSite.expTransfers>
+    </NMRX.AtomSite>
+    <NMRX.AtomSite _ID="_6" isotopeCode="1H" minNumber="1" name="H" numberStep="1" serial="2">
+      <NMRX.AtomSite.expMeasurements> _3</NMRX.AtomSite.expMeasurements>
+      <NMRX.AtomSite.expTransfers> _5</NMRX.AtomSite.expTransfers>
+    </NMRX.AtomSite>
+  </NMRX.NmrExpPrototype.atomSites>
+  <NMRX.NmrExpPrototype.expGraphs>
+    <NMRX.ExpGraph _ID="_7" serial="1">
+      <NMRX.ExpGraph.expSteps>
+        <NMRX.ExpStep _ID="_8" serial="1" stepNumber="1" expMeasurement="_4">
+        </NMRX.ExpStep>
+        <NMRX.ExpStep _ID="_9" serial="2" stepNumber="2" expMeasurement="_3">
+        </NMRX.ExpStep>
+        <NMRX.ExpStep _ID="_10" serial="3" stepNumber="3" expMeasurement="_4">
+          <NMRX.ExpStep.refExpDimRefs> _11</NMRX.ExpStep.refExpDimRefs>
+        </NMRX.ExpStep>
+      </NMRX.ExpGraph.expSteps>
+      <NMRX.ExpGraph.expTransfers>
+        <NMRX.ExpTransfer _ID="_5" serial="1" transferToSelf="false" transferType="Jcoupling">
+          <NMRX.ExpTransfer.atomSites> _2 _6</NMRX.ExpTransfer.atomSites>
+        </NMRX.ExpTransfer>
+      </NMRX.ExpGraph.expTransfers>
+    </NMRX.ExpGraph>
+  </NMRX.NmrExpPrototype.expGraphs>
+  <NMRX.NmrExpPrototype.expMeasurements>
+    <NMRX.ExpMeasurement _ID="_4" measurementType="Shift" serial="1">
+      <NMRX.ExpMeasurement.atomSites> _2</NMRX.ExpMeasurement.atomSites>
+      <NMRX.ExpMeasurement.expSteps> _8 _10</NMRX.ExpMeasurement.expSteps>
+      <NMRX.ExpMeasurement.refExpDimRefs> _11</NMRX.ExpMeasurement.refExpDimRefs>
+    </NMRX.ExpMeasurement>
+    <NMRX.ExpMeasurement _ID="_3" measurementType="JCoupling" serial="2">
+      <NMRX.ExpMeasurement.atomSites> _2 _6</NMRX.ExpMeasurement.atomSites>
+      <NMRX.ExpMeasurement.expSteps> _9</NMRX.ExpMeasurement.expSteps>
+      <NMRX.ExpMeasurement.refExpDimRefs> _12</NMRX.ExpMeasurement.refExpDimRefs>
+    </NMRX.ExpMeasurement>
+  </NMRX.NmrExpPrototype.expMeasurements>
+  <NMRX.NmrExpPrototype.refExperiments>
+    <NMRX.RefExperiment _ID="_13" isReversed="false" name="H[J(HH)]" serial="1">
+      <NMRX.RefExperiment.refExpDims>
+        <NMRX.RefExpDim _ID="_14" dim="1">
+          <NMRX.RefExpDim.refExpDimRefs>
+            <NMRX.RefExpDimRef _ID="_11" constantTime="variable" groupingId="1" serial="1" expMeasurement="_4">
+              <NMRX.RefExpDimRef.validScalingFactors> 1.0</NMRX.RefExpDimRef.validScalingFactors>
+              <NMRX.RefExpDimRef.expSteps> _10</NMRX.RefExpDimRef.expSteps>
+            </NMRX.RefExpDimRef>
+          </NMRX.RefExpDim.refExpDimRefs>
+        </NMRX.RefExpDim>
+        <NMRX.RefExpDim _ID="_15" dim="2">
+          <NMRX.RefExpDim.refExpDimRefs>
+            <NMRX.RefExpDimRef _ID="_12" constantTime="variable" groupingId="1" serial="1" expMeasurement="_3">
+              <NMRX.RefExpDimRef.validScalingFactors> 1.0</NMRX.RefExpDimRef.validScalingFactors>
+            </NMRX.RefExpDimRef>
+          </NMRX.RefExpDim.refExpDimRefs>
+        </NMRX.RefExpDim>
+      </NMRX.RefExperiment.refExpDims>
+    </NMRX.RefExperiment>
+  </NMRX.NmrExpPrototype.refExperiments>
+</NMRX.NmrExpPrototype>
+
+</_StorageUnit>
+<!--End of Memops Data-->

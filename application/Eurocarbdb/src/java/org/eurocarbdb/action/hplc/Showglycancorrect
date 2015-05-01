@@ -1,0 +1,63 @@
+/**
+ * $Id$
+ * Last changed $Author$
+ * EUROCarbDB Project
+ */
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.*;
+
+import static org.eurocarbdb.dataaccess.Eurocarb.getEntityManager;
+import org.eurocarbdb.dataaccess.EntityManager;
+
+
+import org.apache.log4j.Logger;
+
+/**
+ * @author 		 	matthew	
+ * @rev				$Rev$
+ */
+public class ShowGlycan extends EurocarbAction {
+
+    protected static final Logger log = Logger.getLogger( ShowGlycan.class.getName() );
+
+    private Glycan glycan = null;
+
+    private int searchGlycanId = 0;
+ //   private String searchGlycanName = null;
+
+     public Glycan getGlycan() {
+        return glycan;
+    }
+
+//    public String getGlycanName() { return this.searchGlycanName: }
+  //  public void setGlycanName() ( String search_name) {this.searchGlycanName = search_glycan_name;}  
+ 
+    public int getGlycanId() { return this.searchGlycanId; }
+    public void setGlycanId( int search_glycan_id) {this.searchGlycanId = search_glycan_id; }
+ 
+
+    public String execute() {
+
+         EntityManager em = getEntityManager();
+
+	if( searchGlycanId == 0 ) {
+	    this.addActionError( "Invalid");
+	    return INPUT;
+	}
+
+	 glycan = Eurocarb.getEntityManager().lookup( Glycan.class, searchGlycanId );
+	
+	if ( glycan == null ) {
+	    log.info( "No glycan associated with id " );
+	    this.addActionError( "No glycan associated with id " );
+            return ERROR;	    
+	}
+	
+        return SUCCESS;
+    }
+
+}

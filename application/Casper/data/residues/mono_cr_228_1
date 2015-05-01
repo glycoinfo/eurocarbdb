@@ -1,0 +1,20 @@
+# Analysis of conformationally restricted models for the
+# (1->6)-branch of asparagine-linked oligosaccharides by
+# n.m.r.-spectroscopy and HSEA calculation
+# K. Bock, J.O. Duus,O. Hindsgaul, I. Lindh
+set ref 'Carbohydr. Res. 228 (1992) 1-20'
+# ref OK
+
+residue 'bD4dGlcOMe' '4dHexOMe' {
+jhh large
+jch small
+shift 104.0 4.31 eq
+shift  74.1 3.18 eq
+shift  76.8 3.77 eq
+shift  70.4 2.00 1.42
+shift  76.8 3.75
+shift  61.8 3.64 3.70
+# OMe from aDGlcOMe
+shift  57.88 3.58
+info 'Methyl 4-deoxy-b-D-glucopyranoside'
+}

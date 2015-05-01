@@ -1,0 +1,99 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.26-community-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema glycopeakfinder
+--
+
+CREATE DATABASE IF NOT EXISTS glycopeakfinder;
+USE glycopeakfinder;
+
+--
+-- Definition of table `ions`
+--
+
+DROP TABLE IF EXISTS `ions`;
+CREATE TABLE `ions` (
+  `ions_id` int(10) unsigned NOT NULL auto_increment,
+  `order` int(10) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `formula` varchar(45) NOT NULL,
+  `signum` int(10) unsigned NOT NULL,
+  `mass_mono` double NOT NULL,
+  `mass_avg` double NOT NULL,
+  `charge` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`ions_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='charged ions';
+
+--
+-- Dumping data for table `ions`
+--
+
+/*!40000 ALTER TABLE `ions` DISABLE KEYS */;
+INSERT INTO `ions` (`ions_id`,`order`,`name`,`formula`,`signum`,`mass_mono`,`mass_avg`,`charge`) VALUES 
+ (1,100,'Sodium','Na+',1,22.98976967,22.98976967,1),
+ (2,200,'Potassium','K+',1,38.9637069,39.098301,1),
+ (3,300,'Lithium','Li+',1,6.0151223,6.940037,1),
+ (4,1,'Hydrogen','H+',1,1.007825032,1.007941,1),
+ (5,1000,'Hydrogen','-H+',0,1.007825032,1.007941,1);
+/*!40000 ALTER TABLE `ions` ENABLE KEYS */;
+
+
+--
+-- Definition of table `small_molecules`
+--
+
+DROP TABLE IF EXISTS `small_molecules`;
+CREATE TABLE `small_molecules` (
+  `molecule_id` int(10) unsigned NOT NULL auto_increment,
+  `order` int(10) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `formula` varchar(100) NOT NULL,
+  `mass_mono` double NOT NULL,
+  `mass_avg` double NOT NULL,
+  `gain` int(10) unsigned NOT NULL,
+  `loss` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`molecule_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `small_molecules`
+--
+
+/*!40000 ALTER TABLE `small_molecules` DISABLE KEYS */;
+INSERT INTO `small_molecules` (`molecule_id`,`order`,`name`,`formula`,`mass_mono`,`mass_avg`,`gain`,`loss`) VALUES 
+ (1,100,'Water','H<sub>2</sub>O',18.0105646,18.015324,0,0),
+ (2,200,'Carbonmonoxide','CO',27.9949146,28.01021,0,0),
+ (3,300,'Carbondioxide','CO<sub>2</sub>',43.9898292,44.00964,0,0),
+ (4,150,'Ammonia','NH<sub>3</sub>',17.026549,17.030561,0,0),
+ (5,400,'Ketene','CH<sub>2</sub>CO',42.0105646,42.036884,0,0),
+ (6,450,'Deutero ketene','CD<sub>2</sub>CO',44.0231182,44.0491936,0,0),
+ (7,500,'acetic acid','CH<sub>3</sub>COOH',60.0211292,60.052208,0,0),
+ (8,550,'Deutero acetic acid','CD<sub>3</sub>COOH',63.0399596,63.0706724,0,0),
+ (9,600,'Methanol','CH<sub>3</sub>OH',32.0262146,32.041998,0,0),
+ (10,650,'Deutero methanol','CD<sub>3</sub>OH',35.045045,35.0604624,0,0);
+/*!40000 ALTER TABLE `small_molecules` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

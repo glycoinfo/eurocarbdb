@@ -1,0 +1,21 @@
+# Triterpenoid saponins containing an acylated branched
+# D-fucosyl residue from Quillaja saponaria Molina
+# S. Guo, E. Falk, L. Kenne, B. Rönnberg, B.G. Sundquist
+# Phytochemistry 53 (2000) 861-868
+
+# Extracted from difference between 5 and 7
+# and bDApi shifts
+
+dimer 'bDApi(1->3)bDXyl' {
+shift 110.7-102.84 5.25-5.28
+shift 77.6-78.34 4.07-3.88
+shift 80.3-79.94
+shift 74.8-74.04 3.81-3.85 4.16-4.13
+shift 65.1-64.64 3.67-3.65 3.67-3.65
+
+shift 106.9-107.0 4.48-4.48
+shift 75.3-75.9 3.30-3.20
+shift 85.5-78.2 3.39-3.31
+shift 69.5-70.9 3.49-3.47
+shift 67.0-67.0 3.19-3.19 3.85-3.85
+}

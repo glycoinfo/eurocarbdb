@@ -1,0 +1,556 @@
+# Prepa script for Bruker AMX and Avance(=DRX) data
+# run with -h flag for description of arguments
+#
+# Examples
+# Script argument:
+#   -i indir -o outfile
+# Batch:
+#   prospectnd -b prepa_bruker.au -i indir -o outfile
+# Command_line:
+#   run prepa_bruker.au -i indir -o outfile
+#
+#
+# Prepa script for Bruker 1d/2d/3d/4d data
+# Albert van Kuik, 1998
+# Bas R. Leeflang, 3 March 1998
+#
+
+#
+# Linux
+%slash = "/"
+#
+# Windows
+#%slash = "\\"
+
+function set_file_names
+  #
+  # Name of directory that contains the files
+  #     acqus + fid
+  #         or
+  #     acqus + acqu2s + ser
+  #
+  if %infile == "" then
+    %directory  = "." + %slash
+  else
+    %directory = %infile
+  endif
+
+  #
+  # Name of the output file
+  #
+  if (%outfile == "") then
+    %outputfile = "2dout.p"
+  else
+    %outputfile = %outfile
+  endif
+
+  #
+  # Name of the various input files
+  #
+
+  %acqufile   = %directory + %slash + "acqus"
+  %acqu2file  = %directory + %slash + "acqu2s"
+  %acqu3file  = %directory + %slash + "acqu3s"
+  %fidfile    = %directory + %slash + "fid"
+  %serfile    = %directory + %slash + "ser"
+end
+
+function init_argv_vars
+  $acqorder= 321	# to be handled in "argv-a.aui"
+  $ndim    = 0		# to be handled in "argv-d.aui"
+  %infile  = ""		# to be handled in "argv-i.aui"
+  %outfile = ""		# to be handled in "argv-o.aui"
+  %mode    = "00000"	# to be handled in "argv-m.aui"
+  $size1   = 0		# to be handled in "argv-s.aui"
+  $size2   = 0		# to be handled in "argv-s.aui"
+  $size3   = 0		# to be handled in "argv-s.aui"
+  $size4   = 0		# to be handled in "argv-s.aui"
+end
+
+function proc_argv
+  $argi = 0
+  while $argi < argc do
+
+    include "argv-h_prepa.aui"	# Print help on arguments with '-h'
+    include "argv-a.aui"	# set variable 'acqorder' for 3d files
+    include "argv-i.aui"	# set variable 'infile'  with  input file name
+    include "argv-o.aui"	# set variable 'outfile' with output file name
+    include "argv-d.aui"	# set variable 'ndim  '  with  spectrum dimensionality
+    include "argv-m.aui"	# set mode per dimension (r/c/e) ('e.g. -m 1 r')
+    include "argv-s.aui"
+
+    $argi += 1
+  done
+end  
+
+
+include "show_what.aui"
+
+$init_argv_vars()
+$proc_argv()
+$set_file_names()
+
+initparam
+%statestppi="0"
+%statestppi_plane="0"
+#
+# Read parameters from acqus file
+#
+$file1 = open %acqufile ,"r"
+if $file1 == 0 then
+    println "Can not open " + %acqufile
+    exit
+endif
+#
+# First, check for old-style binary acqu file
+#
+$testa = read $file1
+%test  = f2ascii($testa)
+
+
+if %test == "A000" then
+
+    # Oldstyle binary
+    %sfd    = scanbin $file1, "SFO1"     # spectrometer frequecy
+    %swd    = scanbin $file1, "SW_h"     # sweep width in hz
+    %max    = scanbin $file1, "TD"       # time domain size
+    %aqm    = scanbin $file1, "AQ_mod"   # acquisition mode
+    $endian = 0
+    $dspfvs = 0
+    $decim  = 0
+
+else
+
+    %sfd    = scan $file1, "##$SFO1= %s"     # spectrometer frequecy
+    %swd    = scan $file1, "##$SW_h= %s"     # sweep width in hz
+    %max    = scan $file1, "##$TD= %s"       # time domain size
+    %aqm    = scan $file1, "##$AQ_mod= %s"   # acquisition mode
+    %endian = scan $file1, "##$BYTORDA= %s"  # byte order, if BYTORDA is not defined, 
+                                             #    endian is 0, which is ok
+    %dspfvs = scan $file1, "##$DSPFVS= %s"   # firmware version
+    %decim  = scan $file1, "##$DECIM= %s"    # decimation rate
+
+endif
+
+close $file1
+
+
+# Determine the size in the aquisition domain
+
+if $aqm == 1 || $aqm == 3 then
+    $acq_size = floor($max/2)  # Complex data (must be an integer)
+else
+    if $aqm == 2 then
+        $acq_size = 2 * floor($max/2)  # Real data (must be even)
+    else
+        println "AQMOD " + %aqm + " not implemented"
+        exit
+    endif
+endif
+
+#
+# $max must be a power of 2
+#
+$recsize = 2
+while $recsize < $max do
+    $recsize *= 2
+done
+$max = recsize
+
+
+$nsize = $acq_size
+
+#
+# determine the number of point to shift for DMX spectra
+#
+$decipoint = 0
+include "calc_dsp_shift.aui"
+
+#
+# Open fid/ser file
+#
+# First try file with name "fid" (1d file)
+#
+$file_data_in = open %fidfile, "rb"
+
+if $file_data_in != 0 then
+    #
+    # On success, it is a 1d file
+    #
+    $dimension = 1
+else
+    #
+    # On failure, try file with name "ser" (2d file)
+    #
+    $file_data_in = open %serfile ,"rb"
+    if $file_data_in == 0 then
+        println "Can not open " + %serfile
+        exit
+    endif
+    #
+    # Try to read acqu2s file
+    #
+    $file2 = open %acqu2file ,"r"
+    if $file2 == 0 then
+        println "Can not open " + %acqu2file
+        close $file_data_in
+        exit
+    endif
+
+    $file3 = open %acqu3file ,"r"
+    if $ndim == 0 then
+      if $file3 == 0 then
+        $dimension = 2
+      else
+        $dimension = 3
+      endif
+    else
+      $dimension = $ndim
+    endif
+    
+endif
+
+if $dimension == 1 then
+
+    sf  $sfd
+    sw  $swd
+    dspshift $decipoint
+    $nrec   = 1
+    $nrec_c = 1
+    
+    if %mode[1] == "0" then	# i.e not defined on command line
+        if $aqm == 3 then
+           %mode[1]="1"
+        else
+           %mode[1]=%aqm
+        endif
+    endif
+
+    if %mode[$dimension] == "1" || %mode[$dimension] == "3" then
+        sm 2             # Set store mode to complex
+    else
+        sm 1             # set store mode to real
+    endif
+
+    if $nsize > $size1 then; $size1 = $nsize  ; endif
+    
+elseif  $dimension == 2 then
+
+    sf:2 $sfd
+    sw:2 $swd
+    dspshift:2 $decipoint
+    $nrec_c = 1
+
+    if %mode[2] == "0" then	# i.e not defined on command line
+        if $aqm == 3 then
+           %mode[2]="1"
+        else
+           %mode[2]=%aqm
+        endif
+    endif
+
+    if %mode[2] == "1" || %mode[2] == "3" || %mode[2] == "4" then
+        sm:2 2             # Set store mode to complex
+        if %mode[2] == "4" then
+#           %statestppi="1"
+           %mode[2] ="1"
+        endif
+    else
+        sm:2 1             # Set store mode to real
+    endif
+    if %test == "A000" then
+        %sfd_b  = scanbin $file2, "SFO1"     # spectrometer frequecy
+        %swd_b  = scanbin $file2, "SW_h"     # sweep width in hz
+        %nrec   = scanbin $file2, "TD"       # time domain size
+        %aqm_b  = scanbin $file2, "AQ_mod"   # acquisition mode
+    else
+        %sfd_b  = scan $file2, "##$SFO1= %s"
+        %swd_b  = scan $file2, "##$SW_h= %s"
+        %nrec   = scan $file2, "##$TD= %s"
+        %aqm_b  = scan $file2, "##$AQ_mod= %s"
+    endif
+    close $file2
+    sf:1  $sfd_b
+    sw:1  $swd_b
+    $nrec = 2 * floor($nrec/2)
+
+    if %mode[1] == "0" then	# i.e not defined on command line
+        if $aqm_b == 3 then
+           %mode[1]="1"
+        else
+           %mode[1]=%aqm_b
+        endif
+    endif
+
+    if %mode[1] == "1" || %mode[1] == "3" || %mode[1] == "4" then
+        sm:1 2             # Set store mode to complex
+        $nsize_b = $nrec/2
+        if %mode[1] == "4" then
+           %statestppi="1"
+           %mode[1] ="1"
+        endif
+    elseif %mode[1] == "2" then
+            sm:1 1
+            $nsize_b = $nrec
+        else 
+            println "ACQMOD = " + %mode[1] + " in direction 1, not implemented"
+            exit
+    endif
+    
+    if $nsize_b > $size1 then; $size1 = $nsize_b; endif
+    if $nsize   > $size2 then; $size2 = $nsize  ; endif
+    
+elseif  $dimension == 3 then
+    sf:3 $sfd
+    sw:3 $swd
+    dspshift:3 $decipoint
+
+    if %mode[3] == "0" then	# i.e not defined on command line
+        if $aqm == 3 then
+           %mode[3]="1"
+        else
+           %mode[3]=%aqm
+        endif
+    endif
+
+    if %mode[3] == "1" || %mode[3] == "3" || %mode[3] == "4" then
+        sm:3 2             # Set store mode to complex
+        if %mode[3] == "4" then
+#           %statestppi="1"
+           %mode[3] ="1"
+        endif
+    else
+        sm:3 1             # Set store mode to real
+    endif
+
+println "ACQORDER: "+%acqorder
+    if $acqorder == 321 then
+       %sfd_b  = scan $file2, "##$SFO1= %s"
+       %swd_b  = scan $file2, "##$SW_h= %s"
+       %nrec   = scan $file2, "##$TD= %s"
+       %aqm_b  = scan $file2, "##$AQ_mod= %s"
+       close $file2
+       %sfd_c  = scan $file3, "##$SFO1= %s"
+       %swd_c  = scan $file3, "##$SW_h= %s"
+       %nrec_c = scan $file3, "##$TD= %s"
+       %aqm_c  = scan $file3, "##$AQ_mod= %s"
+       close $file3
+    else
+       %sfd_b  = scan $file3, "##$SFO1= %s"
+       %swd_b  = scan $file3, "##$SW_h= %s"
+       %nrec   = scan $file3, "##$TD= %s"
+       %aqm_b  = scan $file3, "##$AQ_mod= %s"
+       close $file3
+       %sfd_c  = scan $file2, "##$SFO1= %s"
+       %swd_c  = scan $file2, "##$SW_h= %s"
+       %nrec_c = scan $file2, "##$TD= %s"
+       %aqm_c  = scan $file2, "##$AQ_mod= %s"
+       close $file2
+    endif
+
+    sf:2  $sfd_b
+    sw:2  $swd_b
+    sf:1  $sfd_c
+    sw:1  $swd_c
+    $nrec = 2 * floor($nrec/2)
+    $nrec_c = 2 * floor($nrec_c/2)
+
+    if %mode[2] == "0" then	# i.e not defined on command line
+        if $aqm_b == 3 then
+           %mode[2]="1"
+        else
+           %mode[2]=%aqm_b
+        endif
+    endif
+
+    if %mode[2] == "1" || %mode[2] == "3" || %mode[2] == "4" then
+        sm:2 2             # Set store mode to complex
+        $nsize_b = $nrec/2
+        if %mode[2] == "4" then
+           %statestppi="1"
+           %mode[2] ="1"
+        endif
+    elseif %mode[2] == "2" then
+            sm:2 1
+            $nsize_b = $nrec
+        else 
+            println "ACQMOD = " + %mode[2] + " in direction 2, not implemented"
+            exit
+    endif
+    
+    if %mode[1] == "0" then	# i.e not defined on command line
+        if $aqm_c == 3 then
+           %mode[1]="1"
+        else
+           %mode[1]=%aqm_c
+        endif
+    endif
+
+    if %mode[1] == "1" || %mode[1] == "3" || %mode[1] == "4" then
+        sm:1 2             # Set store mode to complex
+        $nsize_c = $nrec_c/2
+        if %mode[1] == "4" then
+           %statestppi_plane="1"  
+           %mode[1] ="1"
+        endif
+    elseif %mode[1] == "2" then
+            sm:1 1
+            $nsize_c = $nrec_c
+        else 
+            println "ACQMOD = " + %mode[1] + " in direction 1, not implemented"
+            exit
+    endif
+
+    if $nsize_c > $size1 then; $size1 = $nsize_c; endif
+    if $nsize_b > $size2 then; $size2 = $nsize_b; endif
+    if $nsize   > $size3 then; $size3 = $nsize  ; endif
+    
+elseif  $dimension == 4 then
+  println "4d not implemented"
+  exit
+endif
+println "Size 1 = " + %size1
+println "Size 2 = " + %size2
+println "Size 3 = " + %size3
+# close current nmr file, if any
+rclose
+
+#
+# Open output file
+#
+$range_plane = 1
+$range_row   = 1
+if $dimension == 1 then
+    create %outputfile, [1..$size1]
+    println "\nRead: " + %nrec + " record(s) of size " + %max
+elseif $dimension == 2 then
+    $range_row   = $size1
+    create %outputfile, [1..$size1], [1..$size2]
+    dr 2
+    println "\nRead: " + %nrec + " record(s) of size " + %max
+elseif  $dimension == 3 then
+    $range_plane = $size1
+    $range_row   = $size2
+    if $acqorder == 321 then
+       create %outputfile, [1..$size1], [1..$size2], [1..$size3]
+       dr 3, 2, 1
+    else
+       create %outputfile, [1..$size2], [1..$size1], [1..$size3]
+       dr 3, 1, 2
+    endif
+    println "\nRead: " + %nrec + " x " + %nrec_c + " record(s) of size " + %max
+elseif  $dimension == 4 then
+    create %outputfile, [1..$size1], [1..$size2], [1..$size3], [1..$size4]
+endif
+
+#println "aqm_b, aqm, decipoint: " + %aqm_b +" "+ %aqm+" "+ %decipoint
+
+$fac         = 1
+$fac_plane   = 1
+$jplane      = 1
+$i           = 0
+$planecount  = 1
+for $icount in [1..$nrec*$nrec_c] do
+    #
+    # Read one record
+    #
+    si $max                             # Set data size for reading
+    @r[1..$max] = read $file_data_in    # Read one record
+    if $endian != ? byteorder then      # If byte order of file and
+        swap4 @r                        #    program differ, swap bytes
+    endif
+    i2f @r                              # Convert integers into floats
+    #
+    # Calculate the plane number
+    #
+    if $i == $nrec then
+        $planecount += 1
+        if %mode[1] == "1" then                  # Complex in direction 1
+            if mod($planecount,2) == 1 then      # Write alternating
+                $jplane = ($planecount +1 ) / 2
+            else
+                $jplane = $range_plane + $planecount/2
+                $fac_plane *= -1
+            endif
+        else                            # Real in direction 1
+            $jplane += 1                # Write linear
+        endif
+        $i = 1
+        print "\nPlane: " + %jplane + " Record: " +%icount
+    else
+        $i += 1
+    endif
+    if (%statestppi_plane=="1") then
+        @r *= $fac_plane
+    endif
+    #
+    # If complex in direction 1, write alternating
+    #
+    if $dimension > 1 && %mode[$dimension-1] != "2" then         # Complex in direction 1
+        if (%statestppi=="1") then
+            @r *= $fac
+        endif
+        if mod($i,2) == 1 then                 # Write alternating
+            $j = ($i +1 ) / 2
+        else
+            $j = $range_row + $i/2
+            $fac *= -1
+        endif
+    else                            # Real in direction 1
+        $j = $i                     # Write linear
+    endif
+    #
+    # Print what we are doing
+    #
+    if mod($i,8) != 1 then
+        print " " + %i + "," + %jplane
+    else
+        print "\nRec: " + %i + "," + %jplane
+    endif
+    #
+    # Interleaved aquisition:
+    # PN storage (2 records/FID)
+    #
+    if $dimension > 1 && %mode[$dimension-1] == "3" then
+        if mod($i,2) == 1 then
+            c2ri @r, @a, @b                 # Convert complex into real + imaginary
+            $j_pn = $j
+        else 
+            c2ri @r, block2:@a, block2:@b   # Convert complex into real + imaginary
+            si $nsize                       # Set correct data size
+            @r  = @a                        # mix acording to :
+            @r += block2:@a                 #     r1 = ra + rb; i1 = ia + ib
+            @i  = @b                        #     r2 = ib - ia; i2 = ra - rb
+            @i += block2:@b
+            rw $j_pn, $jplane
+            @r  = block2:@b
+            @r -= @b
+            @i  = @a
+            @i -= block2:@a
+            rw $j, $jplane
+        endif
+    elseif %mode[$dimension] == "2" then
+        negstep @r, 4, 2                 # At every index '4' negate last '2' data
+        si $nsize*2                      # Set correct data size
+        rw $j, $jplane                   # Write result   
+    else
+        # Normal aquisition
+        #
+        c2ri @r, @r, @i                  # Convert complex into real + imaginary
+        si $nsize                        # Set correct data size
+        rw $j, $jplane                   # Write result
+    endif
+done
+
+
+wclose
+close $file_data_in
+
+ropen %outputfile
+dr  $dimension 
+rn 1, 1
+
+println "\nDone"
+
+
+

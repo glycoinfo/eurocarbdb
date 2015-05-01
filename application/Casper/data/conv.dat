@@ -1,0 +1,566 @@
+# involving HexOMe
+conversion HexOMe Hex {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexOMe HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexOMe HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+conversion HexOMe HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexOMe HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+conversion HexOMe HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexOMe HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+conversion HexOMe '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexOMe '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+conversion HexOMe Pen {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion HexOMe PenOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; 'M_1' 'M_1'
+}
+
+conversion HexOMe '6dHexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexOMe '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+# involving Hex
+conversion Hex HexOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex Pen {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Hex PenOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Hex '6dHexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion Hex '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+# involving PenOMe
+conversion PenOMe HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion PenOMe HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; 'M_1' 'M_1'
+}
+
+conversion PenOMe HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion PenOMe HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; 'M_1' 'M_1'
+}
+
+conversion PenOMe HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion PenOMe HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; 'M_1' 'M_1'
+}
+
+conversion PenOMe '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion PenOMe '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; 'M_1' 'M_1'
+}
+
+conversion PenOMe Pen {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+# involving Pen
+conversion Pen HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Pen HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Pen HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Pen HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Pen HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Pen HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Pen '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion Pen '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+# involving 6dHexOMe
+conversion '6dHexOMe' HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexOMe' HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+conversion '6dHexOMe' HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexOMe' HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+conversion '6dHexOMe' HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexOMe' HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+conversion '6dHexOMe' '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexOMe' '6dHexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexOMe' '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1'
+}
+
+# involving 6dHex
+conversion '6dHex' HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHex' HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHex' HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHex' HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHex' HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHex' HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHex' '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+# involving HexA
+conversion HexA HexOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA Hex {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA Pen {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion HexA PenOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion HexA '6dHexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexA '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+
+# involving HexNAc
+conversion HexNAc HexOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAc Hex {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAc HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAc HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAc HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexNAc HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexNAc HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexNAc '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAc '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAc Pen {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion HexNAc PenOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion HexNAc '6dHexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexNAc '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+
+
+# involving HexNAcOMe
+conversion HexNAcOMe HexOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+}
+
+conversion HexNAcOMe Hex {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAcOMe HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAcOMe HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+}
+
+conversion HexNAcOMe HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexNAcOMe HexANAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexNAcOMe '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexNAcOMe '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+}
+
+conversion HexNAcOMe Pen {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion HexNAcOMe PenOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; 'M_1' 'M_1
+}
+
+conversion HexNAcOMe '6dHexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexNAcOMe '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+
+# involving HexANAcOMe
+conversion HexANAcOMe HexOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+}
+
+conversion HexANAcOMe Hex {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexANAcOMe HexA {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexANAcOMe HexAOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+}
+
+conversion HexANAcOMe HexANAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexANAcOMe HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexANAcOMe '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexANAcOMe '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+}
+
+conversion HexANAcOMe Pen {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+conversion HexANAcOMe PenOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; 'M_1' 'M_1
+}
+
+conversion HexANAcOMe '6dHexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion HexANAcOMe '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'; 'M_1' 'M_1
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+
+conversion '6dHexNAc' HexNAc {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion '6dHexNAc' HexNAcOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+conversion '6dHexNAc' '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexNAc' 'Hex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexNAc' HexOMe {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '6dHexNAc' '6dHexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_2' 'M_2'; 'O_2' 'O_2'
+}
+
+
+
+# 3,6-dideoxy hexoses
+conversion '3,6dHex' '3,6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '3,6dHex' '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '3,6dHex' '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '3,6dHex' 'Hex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '3,6dHex' 'HexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '3,6dHexOMe' '6dHex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '3,6dHexOMe' '6dHexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_1' 'M_1'
+}
+
+conversion '3,6dHexOMe' 'Hex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion '3,6dHexOMe' 'HexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'M_1' 'M_1'
+}
+
+conversion 'PenfOMe' 'Penf' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'
+}
+
+
+conversion 'HexNAc' 'HexANAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'O_2' 'O_2'; 'M_2' 'M_2'
+}
+
+conversion 'HexNAcOMe' 'HexANAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'O_2' 'O_2'; 'M_2' 'M_2'
+}
+
+conversion 'HexA' 'HexANAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion 'HexAOMe' 'HexANAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+
+conversion '6dHexNAcOMe' 'HexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'O_2' 'O_2'; 'M_2' 'M_2'; 'M_1' 'M_1'
+}
+
+conversion '6dHexNAcOMe' 'HexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'O_2' 'O_2'; 'M_2' 'M_2'
+}
+

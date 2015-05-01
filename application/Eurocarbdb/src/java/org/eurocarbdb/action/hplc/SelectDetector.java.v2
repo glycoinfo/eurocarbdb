@@ -1,0 +1,94 @@
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.*;
+import org.eurocarbdb.dataaccess.core.*;
+import org.eurocarbdb.dataaccess.hibernate.*;
+
+import org.hibernate.*; 
+import org.hibernate.criterion.*; 
+
+import java.io.*;
+import java.util.*;
+import org.apache.commons.io.*;
+import org.apache.log4j.Logger;
+
+
+public class SelectDetector extends EurocarbAction {
+
+    private String manufacturer;
+    private String model;
+    private int detector_id = -1;
+    private Detector detector = null;
+
+    public String execute() throws Exception {
+	if( detector_id <0 ) {
+	    return INPUT;
+	}
+	    // store
+	else  {
+//	    detector = Eurocarb.getEntityManager().lookup( Detector.class, detector_id );
+ 	  //  Eurocarb.getEntityManager().store(detector);  
+
+	   return SUCCESS; 
+	}
+    }      
+
+
+
+    public Collection<Detector> getDetectors() {
+	Criteria crit = HibernateUtil.getSession().createCriteria(Detector.class);
+	return crit.list();
+    } 
+
+    public void setDetectorId(int id) {
+	this.detector_id = id;
+    }
+
+    public int getDetectorId() {
+	return this.detector_id;
+    }
+
+
+     public Detector getDetector() {
+        return detector;
+    }
+
+
+
+    public void setDetector (Detector detector) {
+        this.detector = detector;
+    }
+
+
+
+
+
+    public String getManufacturer()
+    {
+        return this.manufacturer;
+    }
+
+
+    public void setManufacturer( String manufacturer )
+    {
+        this.manufacturer = manufacturer;
+    }
+
+
+
+    public String getModel()
+    {
+        return this.model;
+    }
+
+
+    public void setModel( String model )
+    {
+        this.model = model;
+    }
+
+    
+}

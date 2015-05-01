@@ -1,0 +1,33 @@
+import java.io.File;
+import java.util.Date;
+import jxl.*;
+import jxl.write.*;
+import java.io.*;
+
+public class excel
+{
+public static void main (String [] args)
+throws IOException, jxl.read.biff.BiffException, jxl.write.WriteException
+{
+Workbook workbook = Workbook.getWorkbook(new File("<vorh.Datei>.xls"));
+WritableWorkbook copy = Workbook.createWorkbook(new File("output.xls"), workbook);
+
+
+
+WritableSheet sheet2 = copy.getSheet(0);
+WritableCell cell = sheet2.getWritableCell(2, 7);
+
+if (cell.getType() == CellType.LABEL)
+{
+Label l = (Label) cell;
+l.setString("Überschreiben der Daten");
+}
+
+copy.write();
+copy.close();
+
+}
+
+}
+
+http://jexcelapi.sourceforge.net/resources/javadocs/2_6/docs/index.html

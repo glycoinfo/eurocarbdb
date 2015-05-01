@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<carbohydrates>
+	<class name="Nonose">
+		<sugar subclass="N-acetyl Sialic Acid" pos="6" pm="7" pac="6" mass_mono="309.1059804" mass_avg="309.271163" mass_pm_mono="407.2155304" mass_pm_avg="407.457881" mass_pdm_mono="428.3473432" mass_pdm_avg="428.5871318" mass_pac_mono="561.169368" mass_pac_avg="561.492467" mass_pdac_mono="579.2823504" mass_pdac_avg="579.6032534"> 
+			<substituent pos="1" type="COOH"/>
+			<substituent pos="2" type="CO"/>
+			<substituent pos="3" type="CH2"/>
+			<substituent pos="4" type="CHOH"/>
+			<substituent pos="5" type="CHNHCOCH3"/>
+			<substituent pos="6" type="CHOH"/>
+			<substituent pos="7" type="CHOH"/>
+			<substituent pos="8" type="CHOH"/>
+			<substituent pos="9" type="CH2OH"/>
+			<composition element="C" count="11"/>
+			<composition element="H" count="19"/>
+			<composition element="O" count="9"/>
+			<composition element="N" count="1"/>
+			<position type="C" pos="2"/>
+			<position type="C" pos="4"/>
+			<position type="N" pos="5"/>
+			<position type="C" pos="7"/>
+			<position type="C" pos="8"/>
+			<position type="C" pos="9"/>
+			<fragment name="0,2X" type="X" cleav1="0" cleav2="2" pos="1" pm="2" pac="2" mass_mono="88.0160438" mass_avg="88.062418" mass_pm_mono="116.0473438" mass_pm_avg="116.115766" mass_pdm_mono="122.0850046" mass_pdm_avg="122.1526948" mass_pac_mono="172.037173" mass_pac_avg="172.136186" mass_pdac_mono="178.0748338" mass_pdac_avg="178.1731148"> 
+				<composition element="C" count="3"/>
+				<composition element="H" count="4"/>
+				<composition element="O" count="3"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="2"/>
+			</fragment>
+			<fragment name="0,2A" type="A" cleav1="0" cleav2="2" pos="5" pm="5" pac="4" mass_mono="221.0899366" mass_avg="221.208745" mass_pm_mono="291.1681866" mass_pm_avg="291.342115" mass_pdm_mono="306.2623386" mass_pdm_avg="306.434437" mass_pac_mono="389.132195" mass_pac_avg="389.356281" mass_pdac_mono="401.2075166" mass_pdac_avg="401.4301386"> 
+				<composition element="C" count="8"/>
+				<composition element="H" count="15"/>
+				<composition element="O" count="6"/>
+				<composition element="N" count="1"/>
+				<position type="C" pos="4"/>
+				<position type="N" pos="5"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="0,3X" type="X" cleav1="0" cleav2="3" pos="2" pm="3" pac="3" mass_mono="118.0266084" mass_avg="118.088522" mass_pm_mono="160.0735584" mass_pm_avg="160.168544" mass_pdm_mono="169.1300496" mass_pdm_avg="169.2239372" mass_pac_mono="244.0583022" mass_pac_avg="244.199174" mass_pdac_mono="253.1147934" mass_pdac_avg="253.2545672"> 
+				<composition element="C" count="4"/>
+				<composition element="H" count="6"/>
+				<composition element="O" count="4"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="2"/>
+				<position type="C" pos="4"/>
+			</fragment>
+			<fragment name="0,3A" type="A" cleav1="0" cleav2="3" pos="4" pm="4" pac="3" mass_mono="191.079372" mass_avg="191.182641" mass_pm_mono="247.141972" mass_pm_avg="247.289337" mass_pdm_mono="259.2172936" mass_pdm_avg="259.3631946" mass_pac_mono="317.1110658" mass_pac_avg="317.293293" mass_pdac_mono="326.167557" mass_pdac_avg="326.3486862"> 
+				<composition element="C" count="7"/>
+				<composition element="H" count="13"/>
+				<composition element="O" count="5"/>
+				<composition element="N" count="1"/>
+				<position type="N" pos="5"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="0,4X" type="X" cleav1="0" cleav2="4" pos="3" pm="4" pac="3" mass_mono="189.063722" mass_avg="189.166747" mass_pm_mono="245.126322" mass_pm_avg="245.273443" mass_pdm_mono="257.2016436" mass_pdm_avg="257.3473006" mass_pac_mono="315.0954158" mass_pac_avg="315.277399" mass_pdac_mono="324.151907" mass_pdac_avg="324.3327922"> 
+				<composition element="C" count="7"/>
+				<composition element="H" count="11"/>
+				<composition element="O" count="5"/>
+				<composition element="N" count="1"/>
+				<position type="C" pos="2"/>
+				<position type="C" pos="4"/>
+				<position type="N" pos="5"/>
+			</fragment>
+			<fragment name="0,4A" type="A" cleav1="0" cleav2="4" pos="3" pm="3" pac="3" mass_mono="120.0422584" mass_avg="120.104416" mass_pm_mono="162.0892084" mass_pm_avg="162.184438" mass_pdm_mono="171.1456996" mass_pdm_avg="171.2398312" mass_pac_mono="246.0739522" mass_pac_avg="246.215068" mass_pdac_mono="255.1304434" mass_pdac_avg="255.2704612"> 
+				<composition element="C" count="4"/>
+				<composition element="H" count="8"/>
+				<composition element="O" count="4"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="1,3A" type="A" cleav1="1" cleav2="3" pos="1" pm="1" pac="1" mass_mono="44.0262146" mass_avg="44.052778" mass_pm_mono="58.0418646" mass_pm_avg="58.079452" mass_pdm_mono="61.060695" mass_pdm_avg="61.0979164" mass_pac_mono="86.0367792" mass_pac_avg="86.089662" mass_pdac_mono="89.0556096" mass_pdac_avg="89.1081264"> 
+				<composition element="C" count="2"/>
+				<composition element="H" count="4"/>
+				<composition element="O" count="1"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="4"/>
+			</fragment>
+			<fragment name="1,3X" type="X" cleav1="1" cleav2="3" pos="5" pm="6" pac="5" mass_mono="265.0797658" mass_avg="265.218385" mass_pm_mono="349.1736658" mass_pm_avg="349.378429" mass_pdm_mono="367.2866482" mass_pdm_avg="367.4892154" mass_pac_mono="475.1325888" mass_pac_avg="475.402805" mass_pdac_mono="490.2267408" mass_pdac_avg="490.495127"> 
+				<composition element="C" count="9"/>
+				<composition element="H" count="15"/>
+				<composition element="O" count="8"/>
+				<composition element="N" count="1"/>
+				<position type="C" pos="2"/>
+				<position type="N" pos="5"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="1,4A" type="A" cleav1="1" cleav2="4" pos="2" pm="2" pac="1" mass_mono="115.0633282" mass_avg="115.131003" mass_pm_mono="143.0946282" mass_pm_avg="143.184351" mass_pdm_mono="149.132289" mass_pdm_avg="149.2212798" mass_pac_mono="157.0738928" mass_pac_avg="157.167887" mass_pdac_mono="160.0927232" mass_pdac_avg="160.1863514"> 
+				<composition element="C" count="5"/>
+				<composition element="H" count="9"/>
+				<composition element="O" count="2"/>
+				<composition element="N" count="1"/>
+				<position type="C" pos="4"/>
+				<position type="N" pos="5"/>
+			</fragment>
+			<fragment name="1,4X" type="X" cleav1="1" cleav2="4" pos="4" pm="5" pac="5" mass_mono="194.0426522" mass_avg="194.14016" mass_pm_mono="264.1209022" mass_pm_avg="264.27353" mass_pdm_mono="279.2150542" mass_pdm_avg="279.365852" mass_pac_mono="404.0954752" mass_pac_avg="404.32458" mass_pdac_mono="419.1896272" mass_pdac_avg="419.416902"> 
+				<composition element="C" count="6"/>
+				<composition element="H" count="10"/>
+				<composition element="O" count="7"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="2"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="1,5A" type="A" cleav1="1" cleav2="5" pos="5" pm="5" pac="4" mass_mono="219.110672" mass_avg="219.235989" mass_pm_mono="289.188922" mass_pm_avg="289.369359" mass_pdm_mono="304.283074" mass_pdm_avg="304.461681" mass_pac_mono="387.1529304" mass_pac_avg="387.383525" mass_pdac_mono="399.228252" mass_pdac_avg="399.4573826"> 
+				<composition element="C" count="9"/>
+				<composition element="H" count="17"/>
+				<composition element="O" count="5"/>
+				<composition element="N" count="1"/>
+				<position type="C" pos="4"/>
+				<position type="N" pos="5"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="1,5X" type="X" cleav1="1" cleav2="5" pos="1" pm="2" pac="2" mass_mono="89.9953084" mass_avg="90.035174" mass_pm_mono="118.0266084" mass_pm_avg="118.088522" mass_pdm_mono="124.0642692" mass_pdm_avg="124.1254508" mass_pac_mono="174.0164376" mass_pac_avg="174.108942" mass_pdac_mono="180.0540984" mass_pdac_avg="180.1458708"> 
+				<composition element="C" count="2"/>
+				<composition element="H" count="2"/>
+				<composition element="O" count="4"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="2"/>
+			</fragment>
+			<fragment name="2,4A" type="A" cleav1="2" cleav2="4" pos="2" pm="2" pac="1" mass_mono="101.0476782" mass_avg="101.104329" mass_pm_mono="129.0789782" mass_pm_avg="129.157677" mass_pdm_mono="135.116639" mass_pdm_avg="135.1946058" mass_pac_mono="143.0582428" mass_pac_avg="143.141213" mass_pdac_mono="146.0770732" mass_pdac_avg="146.1596774"> 
+				<composition element="C" count="4"/>
+				<composition element="H" count="7"/>
+				<composition element="O" count="2"/>
+				<composition element="N" count="1"/>
+				<position type="C" pos="4"/>
+				<position type="N" pos="5"/>
+			</fragment>
+			<fragment name="2,4X" type="X" cleav1="2" cleav2="4" pos="4" pm="5" pac="5" mass_mono="208.0583022" mass_avg="208.166834" mass_pm_mono="278.1365522" mass_pm_avg="278.300204" mass_pdm_mono="293.2307042" mass_pdm_avg="293.392526" mass_pac_mono="418.1111252" mass_pac_avg="418.351254" mass_pdac_mono="433.2052772" mass_pdac_avg="433.443576"> 
+				<composition element="C" count="7"/>
+				<composition element="H" count="12"/>
+				<composition element="O" count="7"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="2"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="2,5A" type="A" cleav1="2" cleav2="5" pos="5" pm="5" pac="4" mass_mono="205.095022" mass_avg="205.209315" mass_pm_mono="275.173272" mass_pm_avg="275.342685" mass_pdm_mono="290.267424" mass_pdm_avg="290.435007" mass_pac_mono="373.1372804" mass_pac_avg="373.356851" mass_pdac_mono="385.212602" mass_pdac_avg="385.4307086"> 
+				<composition element="C" count="8"/>
+				<composition element="H" count="15"/>
+				<composition element="O" count="5"/>
+				<composition element="N" count="1"/>
+				<position type="C" pos="4"/>
+				<position type="N" pos="5"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="2,5X" type="X" cleav1="2" cleav2="5" pos="1" pm="2" pac="2" mass_mono="104.0109584" mass_avg="104.061848" mass_pm_mono="132.0422584" mass_pm_avg="132.115196" mass_pdm_mono="138.0799192" mass_pdm_avg="138.1521248" mass_pac_mono="188.0320876" mass_pac_avg="188.135616" mass_pdac_mono="194.0697484" mass_pdac_avg="194.1725448"> 
+				<composition element="C" count="3"/>
+				<composition element="H" count="4"/>
+				<composition element="O" count="4"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="2"/>
+			</fragment>
+			<fragment name="3,5A" type="A" cleav1="3" cleav2="5" pos="4" pm="4" pac="3" mass_mono="175.0844574" mass_avg="175.183211" mass_pm_mono="231.1470574" mass_pm_avg="231.289907" mass_pdm_mono="243.222379" mass_pdm_avg="243.3637646" mass_pac_mono="301.1161512" mass_pac_avg="301.293863" mass_pdac_mono="310.1726424" mass_pdac_avg="310.3492562"> 
+				<composition element="C" count="7"/>
+				<composition element="H" count="13"/>
+				<composition element="O" count="4"/>
+				<composition element="N" count="1"/>
+				<position type="N" pos="5"/>
+				<position type="C" pos="7"/>
+				<position type="C" pos="8"/>
+				<position type="C" pos="9"/>
+			</fragment>
+			<fragment name="3,5X" type="X" cleav1="3" cleav2="5" pos="2" pm="3" pac="3" mass_mono="134.021523" mass_avg="134.087952" mass_pm_mono="176.068473" mass_pm_avg="176.167974" mass_pdm_mono="185.1249642" mass_pdm_avg="185.2233672" mass_pac_mono="260.0532168" mass_pac_avg="260.198604" mass_pdac_mono="269.109708" mass_pdac_avg="269.2539972"> 
+				<composition element="C" count="4"/>
+				<composition element="H" count="6"/>
+				<composition element="O" count="5"/>
+				<composition element="N" count="0"/>
+				<position type="C" pos="2"/>
+				<position type="C" pos="4"/>
+			</fragment>
+		</sugar>
+	</class>
+</carbohydrates>

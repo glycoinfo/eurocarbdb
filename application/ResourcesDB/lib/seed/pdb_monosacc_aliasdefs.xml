@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<monosaccharide_synonyms ms_scheme="carbbank">
+<!-- a seed file providing information about PDB residue names for monosaccharides -->
+<alias scheme="pdb" name="ADG" ms="a-D-Glcp3N"/>
+<alias scheme="pdb" name="AGC" ms="a-D-Glcp"/>
+<alias scheme="pdb" name="AGL" ms="a-D-6-deoxy-Glcp4N"/>
+<alias scheme="pdb" name="BDG" ms="a-D-GlcpN6N"/>
+<!--<alias scheme="pdb" name="BDP" ms="b-D-GlcpA"/>-->
+<alias scheme="pdb" name="BGC" ms="b-D-Glcp"/>
+<alias scheme="pdb" name="DAG" ms="b-D-6-deoxy-Glcp4N"/>
+<alias scheme="pdb" name="DDA" ms="b-D-2,6-deoxy-araHexp"/>
+<alias scheme="pdb" name="DRI" ms="b-D-2,6-deoxy-araHexp4OMe"/>
+<alias scheme="pdb" name="G2F" ms="a-D-Glcp2F"/>
+<alias scheme="pdb" name="G4D" ms="a-D-4-deoxy-xylHexp"/>
+<alias scheme="pdb" name="G6D" ms="a-D-6-deoxy-Glcp"/>
+<alias scheme="pdb" name="GC4" ms="b-D-4-deoxy-xylHexpA"/>
+<alias scheme="pdb" name="GCD" ms="a-L-thrHexpA4en"/>
+<alias scheme="pdb" name="GCO" ms="D-Glc-onic"/>
+<alias scheme="pdb" name="GCS" ms="b-D-GlcpN"/>
+<alias scheme="pdb" name="GCU" ms="a-D-GlcpA"/>
+<alias scheme="pdb" name="GCV" ms="a-D-GlcpA4OMe"/>
+<alias scheme="pdb" name="GCW" ms="b-D-GlcpA4OMe"/>
+<alias scheme="pdb" name="GDA" ms="a-D-Glcp4N"/>
+<alias scheme="pdb" name="GDL" ms="D-GlcpNAc-onic-1,5lactone"/>
+<alias scheme="pdb" name="GKR" ms="D-Glc-aric"/>
+<alias scheme="pdb" name="GLC" ms="a-D-Glcp" secondary="true"/>
+<alias scheme="pdb" name="GLD" ms="a-D-4,6-deoxy-xylHexp"/>
+<alias scheme="pdb" name="GLO" ms="aldehydo-D-Glc"/>
+<alias scheme="pdb" name="GLT" ms="a-D-Glcp5SH"/>
+<alias scheme="pdb" name="GLW" ms="a-D-6-deoxy-Glcp" secondary="true"/>
+<alias scheme="pdb" name="GNS" ms="a-D-GlcpNSO3"/>
+<alias scheme="pdb" name="GS4" ms="b-D-Glcp4SH" secondary="true"/>
+<alias scheme="pdb" name="GSD" ms="b-D-Glcp4SH" secondary="true"/>
+<!--<alias scheme="pdb" name="GU1" ms="b-D-GalpA2OMe3OMe"/>-->
+<alias scheme="pdb" name="GU4" ms="a-D-Glcp2,3,4,6SO3"/>
+<alias scheme="pdb" name="GU5" ms="a-D-Glcp2OMe3OMe6SO3"/>
+<alias scheme="pdb" name="GU6" ms="a-D-Galp2,3,6SO3"/>
+<alias scheme="pdb" name="GU8" ms="b-D-Glcp2,3,6OMe"/>
+<alias scheme="pdb" name="GU9" ms="a-D-GlcpOMe3OMe6OMe"/>
+<alias scheme="pdb" name="IDS" ms="a-L-IdopA2SO3" skip="true"/>
+<alias scheme="pdb" name="KBG" ms="b-D-araHexp1,2ulo"/>
+<alias scheme="pdb" name="KDG" ms="D-3-deoxy-eryHex2ulo-onic" skip="true"/>
+<alias scheme="pdb" name="LGT" ms="L-Glc-aric"/>
+<alias scheme="pdb" name="NAG" ms="b-D-GlcpNAc"/>
+<alias scheme="pdb" name="NDG" ms="a-D-GlcpNAc"/>
+<alias scheme="pdb" name="NED" ms="b-L-IdopN6N"/>
+<alias scheme="pdb" name="NGS" ms="b-D-GalpNAc6SO3" skip="true"/>
+<alias scheme="pdb" name="NGZ" ms="a-L-GlcpNAc"/>
+<alias scheme="pdb" name="NTF" ms="b-D-GlcpN-trifluoroacetyl"/>
+<alias scheme="pdb" name="PDX" ms="a-D-Glcp2,3SO3"/>
+<alias scheme="pdb" name="SGC" ms="b-D-Glcp4SH"/>
+<alias scheme="pdb" name="SGN" ms="a-D-GlcpNSO36SO3"/>
+<alias scheme="pdb" name="SOR" ms="D-Glc-ol"/>
+<alias scheme="pdb" name="TOA" ms="a-D-Glcp3N"/>
+<alias scheme="pdb" name="TOC" ms="a-D-3-deoxy-ribHexpN6N"/>
+<alias scheme="pdb" name="1GL" ms="a-D-2,6-deoxy-lyxHexp4OMe"/>
+<alias scheme="pdb" name="1GN" ms="b-D-GalpN"/>
+<alias scheme="pdb" name="2DG" ms="a-D-2-deoxy-lyxHexp"/>
+<alias scheme="pdb" name="2FG" ms="b-D-Galp2F"/>
+<alias scheme="pdb" name="2GL" ms="a-D-2,6-deoxy-lyxHexp4OAc"/>
+<alias scheme="pdb" name="2GS" ms="a-D-Galp2OMe"/>
+<alias scheme="pdb" name="49A" ms="D-Neup5Ac4N9N2en"/>
+<alias scheme="pdb" name="4AM" ms="D-Neup5Ac4N2en"/>
+<alias scheme="pdb" name="9AM" ms="D-Neup5Ac9N2en"/>
+<alias scheme="pdb" name="A2G" ms="a-D-GalpNAc"/>
+<alias scheme="pdb" name="AAL" ms="b-L-3,6-anhydro-Galp"/>
+<alias scheme="pdb" name="ADA" ms="a-D-GalpA"/>
+<alias scheme="pdb" name="GTR" ms="b-D-GalpA"/>
+<alias scheme="pdb" name="AFL" ms="a-L-Fucp"/>
+<alias scheme="pdb" name="FUL" ms="b-L-Fucp"/>
+<alias scheme="pdb" name="ASG" ms="b-D-GalpNAc4SO3"/>
+<alias scheme="pdb" name="DAN" ms="D-Neup5Ac2en"/>
+<alias scheme="pdb" name="DDL" ms="b-D-2,6-deoxy-lyxHexp"/>
+<alias scheme="pdb" name="DGS" ms="a-D-3,6-anhydro-Galp2OSO3"/>
+<alias scheme="pdb" name="FCA" ms="a-D-Fucp"/>
+<alias scheme="pdb" name="FCB" ms="b-D-Fucp"/>
+<alias scheme="pdb" name="FKD" ms="2,6-anhydro-3-fluoro-D-ara-L-galNon-onic"/>
+<alias scheme="pdb" name="FSI" ms="2,6-anhydro-D-ara-L-galNon3F5NAc-onic"/>
+<alias scheme="pdb" name="FUC" ms="a-L-Fucp" secondary="true"/>
+<alias scheme="pdb" name="FUF" ms="b-L-Fucp2F"/>
+<alias scheme="pdb" name="G4S" ms="b-D-Galp4SO3"/>
+<alias scheme="pdb" name="G6S" ms="b-D-Galp6SO3"/>
+<alias scheme="pdb" name="GAL" ms="b-D-Galp" secondary="true"/>
+<alias scheme="pdb" name="GE1" ms="a-D-3,4-deoxy-eryHexpN6N"/>
+<alias scheme="pdb" name="GLA" ms="a-D-Galp"/>
+<alias scheme="pdb" name="GLB" ms="b-D-Galp"/>
+<alias scheme="pdb" name="GSA" ms="b-D-Galp4SO3" secondary="true"/>
+<alias scheme="pdb" name="GU0" ms="b-D-GalpA2,3,6SO3"/>
+<alias scheme="pdb" name="GXL" ms="a-L-Galp"/>
+<alias scheme="pdb" name="LFC" ms="6-deoxy-L-Gal-onic"/>
+<alias scheme="pdb" name="MXY" ms="b-L-Fucp2OMe"/>
+<alias scheme="pdb" name="MXZ" ms="a-L-Fucp2OMe"/>
+<alias scheme="pdb" name="NAN" ms="a-D-Neup5Ac" secondary="true"/>
+<alias scheme="pdb" name="SIA" ms="a-D-Neup5Ac"/>
+<alias scheme="pdb" name="NG6" ms="b-D-GalpNAc6SO3"/>
+<alias scheme="pdb" name="NGA" ms="b-D-GalpNAc"/>
+<alias scheme="pdb" name="NGK" ms="a-D-GalpNAc4SO3"/>
+<alias scheme="pdb" name="NGL" ms="b-D-GalpNAc4SO3"/>
+<alias scheme="pdb" name="SGA" ms="b-D-Galp3SO3"/>
+<alias scheme="pdb" name="SI2" ms="a-D-Neup5Ac" secondary="true"/>
+<alias scheme="pdb" name="SLB" ms="b-D-Neup5Ac"/>
+<alias scheme="pdb" name="ABE" ms="a-D-3,6-dideoxy-xylHexp"/>
+<alias scheme="pdb" name="LXC" ms="b-L-Xylp"/>
+<alias scheme="pdb" name="X2F" ms="a-D-Xylp2F"/>
+<alias scheme="pdb" name="XLS" ms="aldehydo-D-Xyl"/>
+<alias scheme="pdb" name="XYP" ms="b-D-Xylp"/>
+<alias scheme="pdb" name="XYS" ms="a-D-Xylp"/>
+<alias scheme="pdb" name="XYZ" ms="b-D-Xylf"/>
+<alias scheme="pdb" name="3HD" ms="1,5-anhydro-3-OMe-D-man-ol"/>
+<alias scheme="pdb" name="BM3" ms="a-D-ManpNAc"/>
+<alias scheme="pdb" name="BMA" ms="b-D-Manp"/>
+<alias scheme="pdb" name="KDO" ms="3-deoxy-a-D-manOct2ulop-onic"/>
+<alias scheme="pdb" name="MAF" ms="a-D-Manp2F"/>
+<alias scheme="pdb" name="MAN" ms="a-D-Manp"/>
+<alias scheme="pdb" name="MAV" ms="a-D-ManpA"/>
+<alias scheme="pdb" name="MBF" ms="b-D-Manp2F"/>
+<alias scheme="pdb" name="MRP" ms="a-L-Rhap3OMe"/>
+<alias scheme="pdb" name="RAA" ms="a-L-Rhap"/>
+<alias scheme="pdb" name="RAM" ms="a-L-Rhap" secondary="true"/>
+<alias scheme="pdb" name="RNS" ms="aldehydo-L-Rha"/>
+<alias scheme="pdb" name="ADR" ms="1,5-anhydro-3-deoxy-D-ribHex2N6N-ol"/>
+<alias scheme="pdb" name="BDR" ms="b-D-Ribf"/>
+<alias scheme="pdb" name="MDA" ms="2,6-deoxy-3-C-methyl-b-D-ribHexp"/>
+<alias scheme="pdb" name="DSR" ms="2,6-deoxy-4-thio-b-D-ribHexp"/>
+<alias scheme="pdb" name="GCN" ms="a-d-3-deoxy-ribHexpN"/>
+<alias scheme="pdb" name="RIB" ms="a-D-Ribf"/>
+<alias scheme="pdb" name="RIP" ms="b-D-Ribp"/>
+<alias scheme="pdb" name="TMR" ms="2,6-dideoxy-4-S-methyl-b-D-ribHexp"/>
+<alias scheme="pdb" name="BDF" ms="b-D-Frup"/>
+<alias scheme="pdb" name="FRU" ms="b-D-Fruf"/>
+<alias scheme="pdb" name="LFR" ms="b-L-Fruf"/>
+<alias scheme="pdb" name="LRH" ms="b-L-6-deoxy-Fruf"/>
+<alias scheme="pdb" name="ALL" ms="b-D-Allp"/>
+<alias scheme="pdb" name="AOS" ms="aldehydo-D-All"/>
+<alias scheme="pdb" name="NA1" ms="a-D-AllpNAc6OMe"/>
+<alias scheme="pdb" name="NAA" ms="b-D-AllpNAc"/>
+<alias scheme="pdb" name="GC1" ms="2,6-anhydro-L-Gul-onic"/>
+<alias scheme="pdb" name="GUP" ms="a-L-Gulp"/>
+<alias scheme="pdb" name="BRI" ms="2,6-deoxy-4OMe-a-D-lyxHexp"/>
+<alias scheme="pdb" name="DLF" ms="2,6-deoxy-a-L-lyxHexp"/>
+<alias scheme="pdb" name="GAF" ms="a-D-Galp2F"/>
+<alias scheme="pdb" name="RSH" ms="3-deoxy-D-lyxHex-onic"/>
+<alias scheme="pdb" name="2SI" ms="a-L-IdopA2SO3"/>
+<alias scheme="pdb" name="GU2" ms="a-L-IdopA2OMe3OMe"/>
+<alias scheme="pdb" name="IDG" ms="b-L-IdopN6N"/>
+<alias scheme="pdb" name="IDR" ms="a-L-IdopA"/>
+<alias scheme="pdb" name="MAW" ms="4-deoxy-a-L-eryHexpA4en"/>
+<alias scheme="pdb" name="DGC" ms="4-deoxy-a-L-thrHexpA4en"/>
+<alias scheme="pdb" name="EMP" ms="2-deoxy-4-ethylamino-3-O-methyl-a-L-thrPenp"/>
+<alias scheme="pdb" name="RAE" ms="2,6-deoxy-b-L-araHexp"/>
+<alias scheme="pdb" name="RNT" ms="1-deoxy-L-man-ol"/>
+<alias scheme="pdb" name="1AR" ms="a-L-2,6-deoxy-araHexp3CMe4OAc" skip="true"/>
+<alias scheme="pdb" name="AHR" ms="a-L-Araf"/>
+<alias scheme="pdb" name="ARA" ms="a-L-Arap"/>
+<alias scheme="pdb" name="ARB" ms="b-L-Arap"/>
+<alias scheme="pdb" name="ERI" ms="b-L-2,6-deoxy-araHexp3CMe4OAc" skip="true"/>
+<alias scheme="pdb" name="GE3" ms="4-CMe-3-n-methyl-b-L-Arap"/>
+<alias scheme="pdb" name="LDY" ms="a-D-Lyxp"/>
+<alias scheme="pdb" name="GMH" ms="L-gro-a-D-manHepp"/>
+<alias scheme="pdb" name="289" ms="D-gro-a-D-manHepp"/>
+<alias scheme="pdb" name="SR1" ms="a-D-Ribf5SMe"/>
+<alias scheme="pdb" name="M8C" ms="a-D-GalpA6Me"/>
+<alias scheme="pdb" name="XYL" ms="D-Xyl-ol"/>
+<!--<alias scheme="pdb" name="LGU" ms="a-L-GulpA"/>-->
+<!--<alias scheme="pdb" name="GLF" ms="a-D-Glcp1fluoro"/>-->
+<!--<alias scheme="pdb" name="BGL" ms="b-D-Glcp2octyl"/>-->
+<!--<alias scheme="pdb" name="GS1" ms="b-D-Glcp1S"/>-->
+<!--<alias scheme="pdb" name="NBG" ms="b-D-Glcp1NAc"/>-->
+<!--<alias scheme="pdb" name="SSG" ms="b-D-Glcp1S4S"/>-->
+<!--<alias scheme="pdb" name="FMF" ms="b-D-Manp1fluoro2fluoro"/>-->
+<!--<alias scheme="pdb" name="MA1" ms="a-D-Manp1S4S"/>-->
+<!--<alias scheme="pdb" name="IDT" ms="a-L-IdopA4en"/>-->
+<!--<alias scheme="pdb" name="" ms=""/>-->
+<!--<alias scheme="pdb" name="" ms=""/>-->
+<alias scheme="pdb" name="MA2" ms="a-D-Manp4SMe"/>
+<alias scheme="pdb" name="ARI" ms="b-D-2,3,6-deoxy-thrHexp4Ac"/>
+<alias scheme="pdb" name="TYV" ms="a-D-3,6-deoxy-araHexp"/>
+<alias scheme="pdb" name="" ms=""/>
+<alias scheme="pdb" name="" ms=""/>
+</monosaccharide_synonyms>

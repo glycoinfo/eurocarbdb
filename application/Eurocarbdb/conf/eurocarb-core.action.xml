@@ -1,0 +1,628 @@
+<?xml version="1.0"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<!--=================================================================
+! Name:
+!                     eurocarb-core.action.xml
+!
+! Description:
+!   Action configuration for 'core' web-application functionality. This
+!   roughly corresponds to Actions pertaining to the 'core' schema of 
+!   the EurocarbDB data model, plus some user authentication and management
+!   actions.
+!
+!   The 'eurocarb-base' package, which is extended by this package, 
+!   is found in the file 'xwork.xml'.
+!
+! Authors:
+!   mjh, ac, hirenj
+!
+==================================================================-->
+<xwork>
+    <package name="eurocarb-core" extends="eurocarb-base">
+        <!--~~~~~ basic/common pages ~~~~~
+        These are actions that don't really do anything; they just present
+        some common "home page" from which users can navigate.
+        -->
+
+        <!-- Shows homepage. -->
+        <action name="home" class="org.eurocarbdb.action.core.EurocarbStatistics">
+            <result name="success" type="freemarker">/template/action/core/home/success.ftl</result>
+        </action>
+
+        <!-- Shows 'Contribute' homepage. -->
+        <action name="contribute">
+            <result type="redirect-action">show_contributor</result>
+        </action>
+
+        <!-- Shows 'Query' homepage. -->
+        <action name="search" class="org.eurocarbdb.action.NoopAction">
+            <result type="redirect-action">search_glycan_sequence</result>
+        </action>
+
+        <!-- Shows 'Browse' homepage. -->
+        <action name="browse" class="org.eurocarbdb.action.NoopAction">
+            <!--<result type="freemarker">/template/ui/browse/index.ftl</result>-->
+            <result type="redirect-action">browse_structures</result>
+        </action>
+
+        <!-- Shows 'Tools' homepage. -->
+        <action name="tools" class="org.eurocarbdb.action.NoopAction">
+            <result type="freemarker">/template/ui/tools_home.ftl</result>
+        </action>
+
+        <!-- Shows 'About' page. -->
+        <action name="about" class="org.eurocarbdb.action.NoopAction">
+            <result type="freemarker">/template/ui/about_eurocarb.ftl</result>
+        </action>
+
+        <!-- Shows 'Admin' page. -->
+        <action name="admin" class="org.eurocarbdb.action.NoopAction">
+            <result type="freemarker">/template/ui/admin_eurocarb.ftl</result>
+        </action>
+
+        <!-- Shows 'Help' homepage. -->
+        <action name="help" class="org.eurocarbdb.action.NoopAction">
+            <result type="freemarker">/template/ui/help/index.ftl</result>
+        </action>
+
+
+        <!--~~~~~~ USER AUTHENTICATION AND MANAGEMENT ACTIONS ~~~~~~~~-->
+        <!--
+            action: create_contributor
+            author: mjh
+            desc:   Handles creation of a new user (ie: Contributor)
+        -->
+        <action name="create_contributor" class="org.eurocarbdb.action.core.CreateContributor">
+            <result name="input" type="freemarker">/template/action/core/create_contributor/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/create_contributor/success.ftl</result>
+            <result name="error__already_logged_in" type="freemarker">/template/action/user/error__already_logged_in.ftl</result>
+        </action>
+
+
+        <!--
+            action: update_contributor_details
+            author: hirenj
+            desc:   Action to update the details for a user
+            -->
+        <action name="update_contributor_details" class="org.eurocarbdb.action.user.UserDetails" method="updateDetails">
+            <result name="input" type="freemarker">/template/action/user/user_details_input.ftl</result>
+            <result name="success" type="freemarker">/template/action/user/user_details_input.ftl</result>
+        </action>
+        
+                
+        <!--~~~~~~~~~~~~~~~~~~ UTILITY DATA ACTIONS ~~~~~~~~~~~~~~~~~~-->
+        <!--
+            action: autocompleter
+            author: hirenj
+        -->
+        <action name="autocompleter" class="org.eurocarbdb.action.core.Autocompleter">
+            <result name="success" type="freemarker">/template/action/core/autocompleter/success.ftl</result>
+        </action>
+
+        <!--
+            action: user_autocompleter
+            author: hirenj
+        -->
+        <action name="user_autocompleter" class="org.eurocarbdb.action.core.UserBiasedAutocompleter">
+            <result name="success" type="freemarker">/template/action/core/autocompleter/success.ftl</result>
+        </action>
+        
+        <!--
+            action: get_glycan_sequence_ids
+            author: mjh
+        -->
+        <action name="get_glycan_sequence_ids" class="org.eurocarbdb.action.core.BrowseStructures" method="executeGetIdsOnly">
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/browse_structures/get_glycan_sequence_ids.xml.ftl</result>
+        </action>
+        
+        <!--~~~~~~~~~~~~~~~~~~ CORE DATA ACTIONS ~~~~~~~~~~~~~~~~~~~~~-->
+        <!--
+            action: contribute_structure
+            author: ac
+        -->
+        <action name="contribute_structure" class="org.eurocarbdb.action.core.ContributeStructure">
+            <result name="input" type="redirect-action">
+                <param name="actionName">contribute_structure_seq</param>
+                <param name="method">input</param>
+            </result>
+            <result name="error" type="freemarker">/template/common/generic_error.ftl</result>
+        </action>
+        
+        <action name="contribute_structure_seq" class="org.eurocarbdb.action.core.SelectStructure">
+            <interceptor-ref name="fileUpload"/>
+            <interceptor-ref name="ecdb_default_stack"/>
+            <result name="input" type="freemarker">/template/action/core/select_structure/select.ftl</result>
+            <result name="success" type="redirect-action">
+                <param name="actionName">contribute_structure_bc</param>
+                <param name="parse">true</param>
+                <param name="glycanSequenceId">${glycanSequence.glycanSequenceId}</param>
+            </result>
+        </action>
+        
+        
+        <action name="contribute_structure_bc" class="org.eurocarbdb.action.core.CreateBiologicalContext">
+            <result name="input" type="freemarker">/template/action/core/contribute_structure/input_context.ftl</result>
+            <result name="success" type="redirect-action">
+                <param name="actionName">contribute_structure_finish</param>
+                <param name="parse">true</param>
+                <param name="glycanSequence.glycanSequenceId">${parameters.get('glycanSequenceId')}</param>
+                <param name="biologicalContext.biologicalContextId">${biologicalContext.biologicalContextId}</param>
+            </result>
+        </action>
+
+        <action name="edit_structure_select_reference" class="org.eurocarbdb.action.core.CreateReferences">
+            <result name="input" type="freemarker">/template/action/core/contribute_structure/input_references.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/contribute_structure/review_reference.ftl</result>
+        </action>
+
+        <action name="edit_structure_add_reference" class="org.eurocarbdb.action.core.EditGlycanSequence" method="addReference">
+            <result name="success" type="freemarker">/template/action/core/contribute_structure/success.ftl</result>
+        </action>        
+
+        <action name="edit_structure_delete_reference" class="org.eurocarbdb.action.core.EditGlycanSequence" method="deleteReference">
+            <result name="success" type="freemarker">/template/action/core/contribute_structure/success.ftl</result>
+        </action>        
+
+        
+        <action name="contribute_structure_finish" class="org.eurocarbdb.action.core.ContributeStructure">
+            <interceptor-ref name="scope">
+                <param name="session">references</param>
+                <param name="type">end</param>
+                <param name="key">contribute_structure</param>
+            </interceptor-ref>
+            <interceptor-ref name="ecdb_default_stack"/>
+            <result name="success" type="freemarker">/template/action/core/contribute_structure/success.ftl</result>
+	    <result name="input_bc" type="redirect-action">
+                <param name="actionName">contribute_structure_bc</param>
+                <param name="parse">true</param>
+                <param name="glycanSequenceId">${glycanSequence.glycanSequenceId}</param>
+		<param name="passErrorMessage">${passErrorMessage}</param>
+            </result>
+        </action>
+
+        <!--
+            action: create_references
+            author: ac
+            desc:   Input a list of references
+        -->
+        <action name="create_references" class="org.eurocarbdb.action.core.CreateReferences">
+            <result name="input" type="freemarker">/template/action/core/create_references/input_references.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/create_references/input_references.ftl</result>
+        </action>
+
+        <!--
+            action: create_biological_context
+            author: ac
+            desc:   Create a new biological context and store it in the database
+        -->
+        <action name="create_biological_context" class="org.eurocarbdb.action.core.CreateBiologicalContext">
+            <interceptor-ref name="scope">
+                <param name="session">biologicalContext</param>
+            </interceptor-ref>
+            <interceptor-ref name="ecdb_default_stack"/>
+            <result name="cancel" type="redirect-action">home</result>
+            <result name="input" type="freemarker">/template/action/core/create_biological_context/create.ftl</result>
+            <result name="select" type="freemarker">/template/action/core/create_biological_context/select.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/create_biological_context/success.ftl</result>
+        </action>
+
+        <!--
+                action:     select_structure
+                author:     ac
+                desc:       define a structure, create if it doesn't exist
+        -->
+        <action name="select_structure" class="org.eurocarbdb.action.core.SelectStructure">
+            <interceptor-ref name="fileUpload"/>
+            <interceptor-ref name="ecdb_default_stack"/>
+            <result name="input" type="freemarker">/template/action/core/select_structure/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/select_structure/success.ftl</result>
+        </action>
+        
+        <!--
+            action: create_experiment
+            author: mjh
+        -->
+        <!--
+        <action name="create_experiment" class="org.eurocarbdb.action.core.CreateExperiment">
+            <result name="input" type="freemarker">/template/action/core/create_experiment/input.ftl</result>
+            <result name="success" type="redirect-action">show_experiment?experimentId=${experiment.experimentId}</result>
+        </action>
+        -->
+        <!--
+            action: create_experiment_step
+            author: mjh
+        -->
+        <!--
+        <action name="create_experiment_step" class="org.eurocarbdb.action.core.CreateExperimentStep">
+            <result name="input" type="freemarker">/template/action/core/create_experiment_step/input.ftl</result>
+            <result name="input_experiment" type="redirect-action">show_experiment</result>
+            <result name="start_hplc" type="freemarker">/template/action/hplc/select_settings/input.ftl</result>
+            <result name="start_ms" type="redirect-action">create_ms?experimentStepId=${experimentStep.experimentStepId}</result>
+            <result name="start_nmr" type="freemarker">/template/action/core/create_experiment_step/under_construction.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/create_experiment_step/success.ftl</result>
+        </action>
+        -->
+        <!-- 
+            action: search_glycan_sequence
+            author: mjh 
+            desc: Searches for glycan_sequences based on using user-supplied criteria.
+        -->
+        <action name="search_glycan_sequence" class="org.eurocarbdb.action.core.SearchGlycanSequence">
+            <interceptor-ref name="scope">
+                <param name="key">search_history</param>
+                <param name="session">queryHistory</param>
+            </interceptor-ref>
+            <interceptor-ref name="ecdb_default_stack"/>
+            <result name="input" type="freemarker">/template/action/core/search_glycan_sequence/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/search_glycan_sequence/success.ftl</result>
+            <result name="show" type="redirect-action">
+                <param name="actionName">show_glycan</param>
+                <param name="parse">true</param>
+                <param name="glycanSequenceId">${glycanId}</param>
+            </result>
+        </action>
+        <!-- 
+            action: search_biological_context
+            author: hirenj 
+            desc:   Shows the input page to search Biological contexts
+        -->
+        <action name="search_biological_context" class="org.eurocarbdb.action.NoopAction">
+            <result type="freemarker">/template/action/core/search_biological_context/input.ftl</result>
+        </action>
+        <!-- 
+            action: search_taxonomy
+            author: mjh 
+            desc: Searches the list of available taxonomies using user-supplied criteria.
+        -->
+        <action name="search_taxonomy" class="org.eurocarbdb.action.core.SearchTaxonomy">
+            <result name="input" type="freemarker">/template/action/core/search_biological_context/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/search_taxonomy/success.ftl</result>
+            <result name="list" type="freemarker">/template/action/core/search_taxonomy/list.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/search_taxonomy/error.ftl</result>
+            <result name="error_params" type="freemarker">/template/action/core/search_taxonomy/error.ftl</result>
+        </action>
+        <!-- 
+            action: search_tissue_taxonomy
+            author: mjh 
+            desc: Searches the list of available tissue taxonomies using user-supplied criteria.
+        -->
+        <action name="search_tissue_taxonomy" class="org.eurocarbdb.action.core.SearchTissueTaxonomy">
+            <result name="input" type="freemarker">/template/action/core/search_biological_context/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/search_tissue_taxonomy/success.ftl</result>
+            <result name="list" type="freemarker">/template/action/core/search_tissue_taxonomy/list.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/search_tissue_taxonomy/error.ftl</result>
+            <result name="error_params" type="freemarker">/template/action/core/search_tissue_taxonomy/error.ftl</result>
+        </action>
+        <!-- 
+            action: search_disease
+            author: mjh 
+            desc: Searches the list of available diseases using user-supplied criteria.
+        -->
+        <action name="search_disease" class="org.eurocarbdb.action.core.SearchDisease">
+            <result name="input" type="freemarker">/template/action/core/search_biological_context/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/search_disease/success.ftl</result>
+            <result name="list" type="freemarker">/template/action/core/search_disease/list.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/search_disease/error.ftl</result>
+            <result name="error_params" type="freemarker">/template/action/core/search_disease/error.ftl</result>
+        </action>
+        <!-- 
+            action: search_perturbation
+            author: mjh 
+            desc: Searches the list of available perturbations using user-supplied criteria.
+        -->
+        <action name="search_perturbation" class="org.eurocarbdb.action.core.SearchPerturbation">
+            <result name="input" type="freemarker">/template/action/core/search_biological_context/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/search_perturbation/success.ftl</result>
+            <result name="list" type="freemarker">/template/action/core/search_perturbation/list.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/search_perturbation/error.ftl</result>
+            <result name="error_params" type="freemarker">/template/action/core/search_perturbation/error.ftl</result>
+        </action>
+        <!-- 
+            action: show_biological_context
+            author: hirenj 
+            desc: Shows a detail page for a given Biological Context ID.
+        -->
+        <action name="show_biological_context" class="org.eurocarbdb.action.core.ShowBiologicalContext">
+            <result name="input" type="freemarker">/template/action/core/show_biological_context/input.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/show_biological_context/success.ftl</result>
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/show_biological_context/success.xml.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/show_biological_context/error.ftl</result>
+        </action>
+        <!-- 
+            action: show_contributor
+            author: mjh 
+        -->
+        <action name="show_contributor" class="org.eurocarbdb.action.core.ShowContributor">
+            <result name="success" type="freemarker">/template/action/core/show_contributor/success.ftl</result>
+        </action>
+        <!-- 
+            action: show_experiment
+            author: mjh 
+            desc: Shows a detail page for a given experiment ID.
+        -->
+        <!--
+        <action name="show_experiment" class="org.eurocarbdb.action.core.ShowExperiment">
+            <result name="input" type="freemarker">/template/action/core/show_experiment/list_all_experiments.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/show_experiment/success.ftl</result>
+        </action>
+        <action name="browse_experiments" class="org.eurocarbdb.action.core.BrowseExperiments">
+            <result name="success" type="freemarker">/template/action/core/browse_experiments/success.ftl</result>
+        </action>
+        -->
+        <!-- 
+            action: show_experiment_step
+            author: mjh 
+            desc:   Shows a detail page for a given experiment step. This action is mostly
+                    about redirecting to the experimental technique detail action that
+                    is appropriate for the given experiment step.
+        -->
+        <!--
+        <action name="show_experiment_step" class="org.eurocarbdb.action.core.ShowExperimentStep">
+            <result name="input" type="freemarker">/template/action/core/show_experiment_step/show_all_experiment_steps.ftl</result>
+            <result name="show_ms" type="redirect-action">show_ms?evidenceId=${experimentStep.evidence.evidenceId}</result>
+            <result name="show_nmr" type="redirect-action">enter_name_of_nmr_detail_action_here</result>
+            <result name="show_hplc" type="redirect-action">/template/action/hplc/show_glycan.action?evidenceId=${evidenceId}</result>
+            <result name="error_doesnt_exist" type="freemarker">not_written_yet.ftl</result>
+        </action>
+        -->
+        
+        <action name="show_evidence" class="org.eurocarbdb.action.core.ShowEvidence">
+            <result name="show_ms" type="redirect-action">show_ms?evidenceId=${evidence.evidenceId}</result>
+            <result name="show_nmr" type="redirect-action">enter_name_of_nmr_detail_action_here</result>
+            <result name="show_hplc" type="redirect-action">show_hplc?evidenceId=${evidence.evidenceId}</result>
+            <result name="error" type="freemarker">/template/common/generic_error.ftl</result>
+        </action>
+        
+        <!-- 
+            action: show_disease
+            author: mjh 
+            desc: Shows a detail page for a given disease ID.
+        -->
+        <action name="show_disease" class="org.eurocarbdb.action.core.ShowDisease">
+            <result name="success" type="freemarker">/template/action/core/show_disease/success.ftl</result>
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/show_disease/success.xml.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/show_disease/error.ftl</result>
+        </action>
+        <!-- 
+            action: show_perturbation
+            author: mjh 
+            desc: Shows a detail page for a given perturbation ID.
+        -->
+        <action name="show_perturbation" class="org.eurocarbdb.action.core.ShowPerturbation">
+            <result name="success" type="freemarker">/template/action/core/show_perturbation/success.ftl</result>
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/show_perturbation/success.xml.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/show_perturbation/error.ftl</result>
+        </action>
+        <!-- 
+            action: show_taxonomy
+            author: mjh 
+            desc: Shows a detail page for a given taxonomy ID.
+        -->
+        <action name="show_taxonomy" class="org.eurocarbdb.action.core.ShowTaxonomy">
+            <result name="success" type="freemarker">/template/action/core/show_taxonomy/success.ftl</result>
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/show_taxonomy/success.xml.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/show_taxonomy/error.ftl</result>
+        </action>
+        <!-- 
+            action: show_tissue_taxonomy
+            author: mjh 
+            desc: Shows a detail page for a given tissue taxonomy ID.
+        -->
+        <action name="show_tissue_taxonomy" class="org.eurocarbdb.action.core.ShowTissueTaxonomy">
+            <result name="success" type="freemarker">/template/action/core/show_tissue_taxonomy/success.ftl</result>
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/show_tissue_taxonomy/success.xml.ftl</result>
+            <result name="error" type="freemarker">/template/action/core/show_tissue_taxonomy/error.ftl</result>
+        </action>
+
+        <!-- 
+            action: user_summary
+            author: mjh 
+            desc:   Home page for users once they log in, before they start working 
+                    within an experiment.
+        -->
+        <action name="user_summary" class="org.eurocarbdb.action.core.UserSummary">
+            <result name="success" type="freemarker">/template/action/core/user_summary/success.ftl</result>
+        </action>
+
+        <!--
+            action:     show_reference
+            author:     ac
+        -->
+        <action name="show_reference" class="org.eurocarbdb.action.core.ShowReference">
+            <result name="error" type="freemarker">/template/common/generic_error.ftl</result>
+            <result name="success" type="freemarker">/template/action/core/show_reference/success.ftl</result>
+        </action>
+        <!--
+            action:     show_glycan
+            author:     mjh
+        -->
+        <action name="show_glycan" class="org.eurocarbdb.action.core.ShowGlycan">
+            <result name="success" type="freemarker">/template/action/core/show_glycan/success.ftl</result>
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/show_glycan/success.xml.ftl</result>
+        </action>
+        <!--
+            action:     show_glycan_sequence
+            author:     mjh
+        -->
+        <action name="show_glycan_sequence" class="org.eurocarbdb.action.core.ShowGlycan">
+            <result name="success" type="freemarker">/template/action/core/show_glycan/success.ftl</result>
+            <result name="add_ms_data" type="redirect-action">create_ms?glycanSequenceId=${glycanSequenceId}</result>
+        </action>
+
+        <!--
+            action:     show_glycan_sequence_reference
+            author:     mjh
+        -->
+        <action name="show_glycan_sequence_reference" class="org.eurocarbdb.action.core.ShowGlycanSequenceReference">
+            <result name="input" type="redirect-action">home</result>
+            <result name="success" type="freemarker">/template/action/core/show_glycan_sequence_reference/success.ftl</result>
+        </action>
+
+        <!--
+            action:     browse_contributor_evidence
+            author:     ac
+            desc:       display all evidence contributed by the given contributor, or the current if none specified
+        -->
+        <action name="browse_contributor_evidence" class="org.eurocarbdb.action.core.BrowseContributorEvidence">
+            <result name="success" type="freemarker">/template/action/core/browse_contributor_evidence/browse.ftl</result>
+        </action>
+        <!--
+            action:     browse_evidence
+            author:     ac
+            desc:       display all evidence in the db
+        -->
+        <action name="browse_evidence" class="org.eurocarbdb.action.core.BrowseEvidence">
+            <result name="success" type="freemarker">/template/action/core/browse_evidence/browse.ftl</result>
+        </action>
+        <!--
+            action:     browse_contributor_structures
+            author:     ac
+            desc:       display all structures contributed by the given contributor, or the current if none specified
+        -->
+        <action name="browse_contributor_structures" class="org.eurocarbdb.action.core.BrowseContributorStructures">
+            <result name="success" type="freemarker">/template/action/core/browse_contributor_structures/browse.ftl</result>
+        </action>
+	
+	<action name="browse_contributor_contexts" class="org.eurocarbdb.action.core.BrowseContributorContexts">
+            <result name="success" type="freemarker">/template/action/core/browse_contributor_contexts/browse.ftl</result>
+        </action>
+	
+        <!--
+            action:     browse_structures
+            author:     ac
+            desc:       display all structures in the database
+        -->
+        <action name="browse_structures" class="org.eurocarbdb.action.core.BrowseStructures">
+            <result name="success" type="freemarker">/template/action/core/browse_structures/browse.ftl</result>
+            <result name="success-xml" type="eurocarb-xml">/template/action/core/browse_structures/success.xml.ftl</result>
+        </action>
+
+        <action name="get_sugar_image" class="org.eurocarbdb.action.core.GetSugarImage">
+            <result name="input" type="freemarker">/template/action/core/get_sugar_image/input.ftl</result>
+            
+            <!-- result types for the sequence stream -->
+            <result name="success_gws" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.gws"</param>
+            </result>
+            <result name="success_gws_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.gws"</param>
+            </result>
+            <result name="success_glycoct_xml" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.glycoct"</param>
+            </result>
+            <result name="success_glycoct_xml_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.glycoct"</param>
+            </result>
+            <result name="success_glycoct_condensed" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.glycoct_condensed"</param>
+            </result>
+            <result name="success_glycoct_condensed_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.glycoct_condensed"</param>
+            </result>
+            <result name="success_glyde" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.glyde"</param>
+            </result>
+            <result name="success_glyde_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.glyde"</param>
+            </result>
+            <result name="success_linucs" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.linucs"</param>
+            </result>
+            <result name="success_linucs_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.linucs"</param>
+            </result>
+            <!-- result types for the image stream -->
+            <result name="success_svg" type="stream">
+                <param name="contentType">image/svg+xml</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.svg"</param>
+            </result>
+            <result name="success_svg_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.svg"</param>
+            </result>
+            <result name="success_eps" type="stream">
+                <param name="contentType">application/postscript</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.eps"</param>
+            </result>
+            <result name="success_eps_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.eps"</param>
+            </result>
+            <result name="success_pdf" type="stream">
+                <param name="contentType">application/pdf</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.pdf"</param>
+            </result>
+            <result name="success_pdf_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.pdf"</param>
+            </result>
+            <result name="success_jpg" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.jpg"</param>
+            </result>
+            <result name="success_jpg_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.jpg"</param>
+            </result>
+            <result name="success_png" type="stream">
+                <param name="contentType">image/png</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.png"</param>
+            </result>
+            <result name="success_png_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.png"</param>
+            </result>
+            <result name="success_gif" type="stream">
+                <param name="contentType">image/gif</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.gif"</param>
+            </result>
+            <result name="success_gif_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.gif"</param>
+            </result>
+            <result name="success_bmp" type="stream">
+                <param name="contentType">image/bmp</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.bmp"</param>
+            </result>
+            <result name="success_bmp_download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">stream</param>
+                <param name="contentDisposition">filename="output.bmp"</param>
+            </result>
+            <result name="error" type="freemarker">/template/common/generic_error.ftl</result>
+        </action>
+    </package>
+</xwork>

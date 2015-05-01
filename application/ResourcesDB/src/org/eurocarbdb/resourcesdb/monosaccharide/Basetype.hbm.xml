@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.monosaccharide">
+    <class name="Basetype" table="basetype" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">basetype_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" column="name" type="string" not-null="true" lazy="false"/>
+        <property name="size" column="size" type="integer" lazy="false"/>
+        <property name="superclass" column="superclass" type="string" not-null="true" lazy="false"/>
+        <property name="stereoStr" column="stereocode" type="string" not-null="true" lazy="false"/>
+        <property name="ringStart" column="ring_start" type="integer" not-null="true" lazy="false"/>
+        <property name="ringEnd" column="ring_end" type="integer" not-null="true" lazy="false"/>
+        <property name="anomerSymbol" column="anomer" type="string" lazy="false"/>
+        <property name="configurationSymbol" column="abs_configuration" type="string" lazy="false"/>
+        <property name="monoMass" column="mono_mass" type="double" lazy="false"/>
+        <property name="avgMass" column="avg_mass" type="double" lazy="false"/>
+        <property name="inchi" column="inchi" type="string" lazy="false"/>
+        <property name="smiles" column="smiles" type="string" lazy="false"/>
+        <property name="isSuperclassFlag" column="is_superclass" type="boolean" not-null="true" lazy="false"/>
+        <list name="coreModifications" lazy="false">
+        	<key column="basetype_id" not-null="true"/>
+        	<index column="mod_index"/>
+        	<one-to-many class="CoreModification"/>
+        </list>
+        <bag name="atoms" lazy="false">
+        	<key column="basetype_id" not-null="true"/>
+        	<one-to-many entity-name="BasetypeAtom"/>
+        </bag>
+    </class>
+</hibernate-mapping>

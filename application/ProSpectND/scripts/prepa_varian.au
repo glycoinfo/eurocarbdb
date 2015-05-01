@@ -1,0 +1,389 @@
+#
+# Prepa script for Varian 1d or 2d data
+# Albert van Kuik, 1998
+# Prepa script for Varian 1d/2d/3d data
+#
+#
+# Examples
+# Script argument:
+#   -i indir -o outfile
+# Batch:
+#   prospectnd -b prepa_varian.au -i indir -o outfile
+# Command_line:
+#   run prepa_varian.au -i indir -o outfile
+#
+###########################################################
+function set_file_names
+  #
+  # Name of directory that contains the files
+  #     procpar + fid
+  #
+  if %infile == "" then
+    %directory  = "./"
+  else
+    %directory = %infile
+  endif
+
+  #
+  # Name of the output file
+  #
+  if (%outfile == "") then
+    %outputfile = "2dout.p"
+  else
+    %outputfile = %outfile
+  endif
+
+  #
+  # Name of the various input files
+  #
+
+  # check for / at end of directory name
+  %sep = %directory[sizeof(%directory)]
+  if %sep != "/" && %sep != "\\" then
+    %directory = %directory + "/"
+  endif
+  %acqufile   = %directory + "procpar"
+  %serfile    = %directory + "fid"
+end
+
+function init_argv_vars
+  %infile  = ""		# to be handled in "argv-i.aui"
+  %outfile = ""		# to be handled in "argv-o.aui"
+  %mode    = "00000"	# to be handled in "argv-m.aui"
+end
+
+function proc_argv
+  $argi = 0
+  while $argi < argc do
+
+    include "argv-i.aui"	# set variable 'infile'  with  input file name
+    include "argv-o.aui"	# set variable 'outfile' with output file name
+    include "argv-m.aui"	# set mode per dimension (r/c/e) ('e.g. -m 1 r')
+
+    $argi += 1
+  done
+end  
+
+$init_argv_vars()
+$proc_argv()
+$set_file_names()
+
+
+initparam
+#
+# Read parameters from procpar file
+#
+$file1 = open %acqufile ,"r"
+if $file1 == 0 then
+    println "Can not open " + %acqufile
+    exit
+endif
+%sfd     = scanexp $file1, "^sfrq ",  1, ":n %s"     # spectrometer frequecy
+%swd     = scanexp $file1, "^sw ",    1, ":n %s"     # sweep width in hz
+%max     = scanexp $file1, "^np ",    1, ":n %s"     # time domain size
+%sfd_b   = scanexp $file1, "^dfrq ",  1, ":n %s"     # spectrometer frequecy
+%swd_b   = scanexp $file1, "^sw1 ",   1, ":n %s"     # sweep width in hz
+%nrec_b  = scanexp $file1, "^ni ",    1, "1 %s"      # time domain size
+%aqm_b   = scanexp $file1, "^phase ", 1, ":n %s"     # acquisition mode
+%aqm_b2  = scanexp $file1, "^phase ", 1, ":n :n %s"  # acquisition mode
+%sfd_c   = scanexp $file1, "^dfrq2 ", 1, ":n %s"     # spectrometer frequecy
+%swd_c   = scanexp $file1, "^sw2 ",   1, ":n %s"     # sweep width in hz
+%nrec_c  = scanexp $file1, "^ni2 ",   1, "1 %s"      # time domain size
+%aqm_c   = scanexp $file1, "^phase2 ",1, ":n %s"     # acquisition mode
+%aqm_c2  = scanexp $file1, "^phase2 ",1, ":n :n %s"  # acquisition mode
+if %aqm_b2 != "" then
+    %aqm_b = %aqm_b + "," + %aqm_b2
+    $aqmb  = 2
+else
+    $aqmb  = 1
+endif
+if %aqm_c2 != "" then
+    %aqm_c = %aqm_c + "," + %aqm_c2
+    $aqmc  = 2
+else
+    $aqmc  = 1
+endif
+$aqm = 2                # Aquisition direction always complex
+if $swd == $swd_b then  # Is swd and swd_b are equal, assume sfb_b = sfd
+    $sfd_b = $sfd
+endif
+if $swd == $swd_c then  # Is swd and swd_c are equal, assume sfb_c = sfd
+    $sfd_c = $sfd
+endif
+$endian  = 1            # Byte order always big endian
+                           
+%order   = scanexp $file1, "^array ",1, ":n %s"
+$i = sizeof(%order)
+if $i > 2 then
+  %order = %order[2..$i-1]          # Strip quotes
+endif
+if %order == "phase,phase2" then
+    # RR,IR,RI,II
+    $bb = 12
+else        # "phase2,phase" or "phase" or ""
+    # RR,RI,IR,II
+    $bb = 21
+endif
+close $file1
+
+# For now, print some parameters ......
+println "td(1) " + %max
+println "td(2) " + %nrec_b
+println "td(3) " + %nrec_c
+println "sw(1) " + %swd
+println "sw(2) " + %swd_b
+println "sw(3) " + %swd_c
+println "sf(1) " + %sfd
+println "sf(2) " + %sfd_b
+println "sf(3) " + %sfd_c
+println "iaqmod(2) " + %aqm_b
+println "iaqmod(3) " + %aqm_c
+println %order + " " + %bb
+
+
+
+if $nrec_c > 1 then
+    $dimension = 3
+    $skip = 32
+    #
+    # Check nrec_c against filesize
+    #
+    $bsize   = stat %serfile     # total size of data file in bytes
+    $recsize = 4 * $max + 28     # record size in bytes
+    $nrec_b = $nrec_b * $aqmb
+    $nrec_c = $nrec_c * $aqmc
+    $maxrec = floor(($bsize - $skip) / ($recsize * $nrec_c))
+    #
+    # Check for max number of 4*planes in direction 2 
+    # that fits into total filesize
+    #
+    if $maxrec < $nrec_b then
+        #
+        # If experiment has been aborted, adapt nrec in dimension 2
+        #
+        println "nrec in dimension 2 set to " + %maxrec
+        $nrec_b = $maxrec
+    endif
+    sf:1 $sfd_c
+    sw:1 $swd_c
+    sf:2 $sfd_b
+    sw:2 $swd_b
+    sf:3 $sfd
+    sw:3 $swd
+    $nsize   = $max/2
+    $nsize_b = $nrec_b/$aqmb
+    $nsize_c = $nrec_c/$aqmc
+    sm:1 $aqmc
+    sm:2 $aqmb
+    sm:3 $aqm
+    println "Size 1:" + %nrec_c + " Size 2:" + %nrec_b + " Size 3:" + %max
+elseif $nrec_b > 1 then
+    $dimension = 2
+    $skip = 32
+    #
+    # Check nrec_b against filesize
+    #
+    $bsize   = stat %serfile
+    $nrec_b  = $nrec_b * $aqmb
+    $recsize = 4 * $max + 28    # record size in bytes
+    $maxrec  = ($bsize - $skip) / $recsize
+    $maxrec  = $aqmb * floor($maxrec / $aqmb)
+    if $maxrec < $nrec_b then
+        println "nrec set to " + %maxrec
+        $nrec_b = $maxrec
+    endif
+    $nrec_c    = 1
+    sf:1 $sfd_b
+    sw:1 $swd_b
+    sf:2 $sfd
+    sw:2 $swd
+    $nsize   = $max/2
+    $nsize_b = $nrec_b/$aqmb
+    sm:1 $aqmb
+    sm:2 $aqm
+    println "Size 1:" + %nrec_b + " Size 2:" + %max
+else
+    $dimension = 1
+    $skip      = 60
+    $nrec_b    = 1
+    $nrec_c    = 1
+    sf $sfd
+    sw $swd
+    $nsize     =  $max/2
+    sm $aqm
+endif
+
+
+
+$file3 = open %serfile ,"rb"
+if $file3 == 0 then
+    println "Can not open " + %serfile
+    exit
+endif
+# close current nmr file, if any
+rclose
+
+#
+# Open output file
+#
+if $dimension == 3 then
+    create %outputfile, [1..$nsize_c], [1..$nsize_b], [1..$nsize]
+    println "\nRead: " + %nrec_c + " x " + %nrec_b + " records of size " + %max
+elseif $dimension == 2 then
+    create %outputfile, [1..$nsize_b], [1..$nsize]
+    println "\nRead: " + %nrec_b + " records of size " + %max
+else
+    create %outputfile, [1..$nsize]
+    println "\nRead: " + "1" + " record of size " + %max
+endif
+
+
+
+seek $file3, $skip                  # Skip 32 or 60 bytes
+
+for $i in [1..$nrec_b/$aqmc] do
+for $j in [1..$nrec_c*$aqmc] do
+    si $max                         # Set data size for reading
+    if $dimension > 1 then
+        @r[1..7] = read $file3      # Skip 7*4 bytes
+    endif
+    @r[1..$max] = read $file3       # Read one record
+    if $endian != ? byteorder then
+        swap4 @r                    # If byte order of file and program differ, swap bytes
+    endif
+    i2f @r                          # Convert integers into floats
+    if $dimension == 3 then
+        if $aqmc == 2 then              # Complex in direction 1
+            $modj = mod($j,4)
+            if $bb == 12 then
+                if $modj == 1 then           # Write alternating RRII
+                    $m = ($j + 3) / 4
+                elseif $modj == 2 then       # Write alternating
+                    $m = $nsize_c + ($j-2)/4 + 1
+                    @r *= -1                 # Reverse spectrum
+                elseif $modj == 3 then       # Write alternating
+                    $m = ($j + 1) / 4 
+                else
+                    $m = $nsize_c + ($j-4)/4 + 1
+                    @r *= -1                 # Reverse spectrum
+                endif
+            else
+                if $modj == 1 then           # Write alternating RRII
+                    $m = ($j + 3) / 4
+                elseif $modj == 2 then       # Write alternating
+                    $m = ($j + 2) / 4
+                elseif $modj == 3 then       # Write alternating
+                    $m = $nsize_c + ($j-3)/4 + 1
+                    @r *= -1                 # Reverse spectrum
+                else
+                    $m = $nsize_c + ($j-4)/4 + 1
+                    @r *= -1                 # Reverse spectrum
+                endif
+            endif            
+        else
+            $m = $j
+        endif
+        if $aqmb == 2 then              # Complex in direction 2
+            $modi = mod($j,4)
+            if $bb != 12 then
+                if $modi == 1 || $modi == 3 then   # Write alternating RIRI
+                    $n = $i
+                else
+                    $n = $i + $nsize_b
+                    @r *= -1                # Reverse spectrum
+                endif
+            else
+                if $modi == 1 || $modi == 2 then   # Write alternating RRII
+                    $n = $i
+                else
+                    $n = $i + $nsize_b
+                    @r *= -1                # Reverse spectrum
+                endif
+            endif            
+        else                            # Real in direction 1
+            $n = $i                     # Write linear
+        endif
+    elseif $dimension == 2 then
+        
+        #
+        # If complex in direction 1, write alternating
+        #
+        if $aqmb == 2 then              # Complex in direction 1
+            if mod($i,2) == 1 then      # Write alternating
+                $m = ($i +1 ) / 2
+            else
+                $m = $nsize_b + $i/2
+                @r *= -1                # Reverse spectrum
+            endif
+        else                            # Real in direction 1
+            $m = $i                     # Write linear
+        endif
+        $n = 1
+    else                                # 1D file
+        $m = 1
+        $n = 1
+    endif
+
+    #
+    # Print what we are doing
+    #
+#println "m = " + %m + " n = " + %n 
+        if mod($i,8) != 1 then
+            print " " + %m + "," + %n
+        else
+            print "\nRec: " + %m + "," + %n
+        endif
+    #
+    # Interleaved aquisition:
+    # PN storage (2 records/FID)
+    #
+    if $dimension > 1 && %mode[$dimension-1] == "3" then
+        if mod($i,2) == 1 then
+            c2ri @r, @a, @b                 # Convert complex into real + imaginary
+            $m_pn = $m
+        else 
+            @r *= -1                # un-Reverse spectrum (see above)
+            c2ri @r, block2:@a, block2:@b   # Convert complex into real + imaginary
+            si $nsize                       # Set correct data size
+            @r  = @a                        # mix acording to :
+            @r += block2:@a                 #     r1 = ra + rb; i1 = ia + ib
+            @i  = @b                        #     r2 = ib - ia; i2 = ra - rb
+            @i += block2:@b
+            @i *= -1                # Reverse spectrum
+            rw $m_pn, $n
+            @r  = block2:@b
+            @r -= @b
+            @i  = @a
+            @i -= block2:@a
+            @i *= -1                # Reverse spectrum
+            rw $m, $n
+        endif
+    # Normal aquisition
+    #
+    else
+        c2ri @r, @r, @i                  # Convert complex into real + imaginary
+        si $nsize                        # Set correct data size
+        @i *= -1                         # Reverse spectrum
+        rw $m, $n                        # Write result
+    endif
+done
+done
+
+wclose
+close $file3
+
+println "\nDone"
+
+ropen %outputfile
+dr $dimension
+rn 1, 1
+
+
+
+
+
+
+
+
+
+

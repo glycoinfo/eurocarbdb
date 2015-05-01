@@ -1,0 +1,562 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                                
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                                
+  <meta name="GENERATOR"
+ content="Mozilla/4.72 [en] (X11; U; Linux 2.2.14-5.0 i686) [Netscape]">
+                                
+  <meta name="Author" content="Albert van Kuik">
+                                
+  <meta name="Description" content="2D display and processing">
+  <title>2D NMR</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff"
+ alink="#ff0000">
+                
+<h1> 2D NMR</h1>
+                
+<h2> Index</h2>
+                
+<ul>
+        <li> <u><font color="#0000ff"><a href="#The%202D%20buttons">The 2D
+ buttons</a></font></u></li>
+         <li> <u><font color="#0000ff"><a
+ href="#PL%202D%20-%202D%20plot">PL   2D  - 2D plot</a></font></u></li>
+         <li> <u><font color="#0000ff"><a
+ href="#Crop/UCrop%20-%20Crop%20and%20Un-crop">Crop/UCrop - Crop and Un-crop</a></font></u></li>
+         <li> <u><font color="#0000ff"><a
+ href="#CP%20-%20Contour%20Plot">CP   -  Contour Plot</a></font></u></li>
+         <li> <u><font color="#0000ff"><a href="#Phase%20-%202D%20Phase">Phase
+   - 2D Phase</a></font></u></li>
+         <li> <u><font color="#0000ff"><a href="#Integration">Integration</a></font></u></li>
+         <li> <u><font color="#0000ff"><a href="#Calibrate">Calibrate</a></font></u></li>
+         <li> <u><font color="#0000ff"><a href="#Processing">Processing</a></font></u></li>
+  <li><a href="#Saving_part_of_the_spectrum_">Saving part of the spectrum<br>
+    </a></li>
+               
+</ul>
+                
+<hr>        
+<h2> <a name="The 2D buttons"></a>The 2D buttons</h2>
+                
+<ul>
+       This block of button is made active when a multi dimensional NMR file
+  is  loaded.                      
+  <p><img src="buttons_2d.gif" alt="All 2D buttons" height="84"
+ width="222" align="middle">
+        </p>
+            <img src="buttons_2d_toggle.gif" alt="Toggle 2D mode."
+ height="25" width="42" align="middle">
+       &nbsp; Toggle between 1D mode and 2D mode       
+</ul>
+                
+<h4> <a name="PL 2D - 2D plot"></a>PL 2D - 2D plot</h4>
+                
+<ul>
+       In this mode (the default mode) the intensity of each points is represented
+    by a colored box. If only positive intensities are plotted, the color
+scale    is from red (low intensity) to blue (high intensity). if only negative
+ intensities  are drawn, the color scale is reversed (blue is low intensity
+ and red corresponds  to high intensity). When both positive and negative
+intensities are drawn,  the color scale is split in two. The positive intensities
+range from red to yellow green, and the negative intensities from blue to
+blue green. Use the&nbsp;<img src="buttons_2d_bothlevels.gif"
+ alt="Select-both-positive-and-negative-contour levels" height="26"
+ width="43" align="middle">
+        button (positive + negative contour levels) to select positive  <img
+ src="buttons_2d_poslevels.gif"
+ alt="Select-positive-contour-levels button" width="43" height="25"
+ align="middle">
+      , or negative&nbsp; <img src="buttons_2d_neglevels.gif"
+ alt="Select-negative-contour-levels button" width="43" height="26"
+ align="middle">
+      contour levels. The spectrum has to re-plotted after a change in level-mode. 
+                       
+  <p><img src="screen_2d_blockplot_1d.gif" alt="2D plot" height="229"
+ width="314" align="bottom">
+        <br>
+       &nbsp; <br>
+       &nbsp; </p>
+                           
+  <p>Standard 2D plot with super imposed 1D track. <br>
+       &nbsp; </p>
+                           
+  <p>With the&nbsp;<img src="buttons_2d_up.gif" alt="Up button."
+ height="26" width="45" align="middle">
+       &nbsp; and&nbsp;<img src="buttons_2d_down.gif" alt="Down button."
+ height="28" width="43" align="middle">
+       &nbsp; buttons, the lowest level can be selected. Down always means
+ 'go   to zero'. Thus the lowest level is always given as an absolute value.<img
+ src="mouse_updown.gif" alt="Select Lowest Contour Mouse Button."
+ height="28" width="27" align="middle">
+        </p>
+                           
+  <p>For 3D files, one can use the plane up&nbsp;<img
+ src="buttons_2d_plup.gif" alt="Button plane up." height="25" width="43"
+ align="middle">
+        and plane down&nbsp;<img src="buttons_2d_pldown.gif"
+ alt="Plane down." height="24" width="41" align="middle">
+        to go one plane up or down. The buttons <img
+ src="buttons_2d_plundo.gif" alt="Undo-plane-selection-in-3D button"
+ width="42" height="23" align="middle">
+    and <img src="buttons_2d_plredo.gif"
+ alt="Redo-plane-selection-in-3D button" width="40" height="22"
+ align="middle">
+   , are for undoing and redoing the selection of a plane.<br>
+       &nbsp; </p>
+                           
+  <p>With the&nbsp;<img src="mouse_rowcol.gif"
+ alt="Select Row or Column Mouse Button" height="25" width="30"
+ align="middle">
+        option of the mouse, one can select specific 1D spectra from the
+2D  spectrum.   The row or column that has been selected is indicated by
+a dotted  line, and the 1D spectrum is plotted on top of the 2D spectrum.
+There are  three selection modes. With <img src="buttons_2d_row.gif"
+ alt="select-1d-row-in-2d button" height="23" width="40" align="middle">
+       , rows (spectra parallel to the X axis) are selected. With&nbsp;<img
+ src="buttons_2d_col.gif" alt="Select-1d-column-in-2d-spectrum button"
+ height="25" width="43" align="middle">
+       , columns (spectra parallel to the Y axis) are selected, and with&nbsp;<img
+ src="buttons_2d_rowcol.gif"
+ alt="Select-1d-rol/col-in-2d-spectrum button" height="23" width="42"
+ align="middle">
+       , both rows and columns are selected . With the&nbsp;<img
+ src="buttons_next_prev.gif"
+ alt="Select-next-or-previous-record buttons" height="24" width="83"
+ align="middle">
+        buttons, one can select the next or the previous 1D spectrum.&nbsp;<img
+ src="buttons_undo_redo_record.gif" height="25" width="86"
+ align="middle" alt="Undo-redo-record-selection buttons">
+        are the <b>Undo</b> and <b>Redo</b> buttons for the record section. 
+ '<b>Undo</b>'   button, one can undo the previous 1D spectrum selection. 
+With the '<b>Redo</b>'   button, the spectrum is selected again. </p>
+                           
+  <p><b>Select Sum rows/columns</b> </p>
+                           
+  <p><img src="screen_2d_accumulate_rowcol.gif" height="215" width="308">
+        </p>
+                           
+  <p>To select an accumulation of rows or columns, use the&nbsp;<img
+ src="mouse_sumrowcol.gif" alt="Sum Rows or Columns Mouse Button"
+ height="28" width="26" align="middle">
+        Mouse Option. When the left mouse button is pressed, it indicates 
+the   first  of the rows (or columns) and when the left mouse botton is released, 
+  this  marks the last row (or column). The rows (or columns) are now accumulated,
+    and displayed as one track. The first and last row (or column) are both
+  marked with a dotted line.</p>
+             
+</ul>
+                
+<h4> <a name="Crop/UCrop - Crop and Un-crop"></a>Crop/UCrop - Crop and Un-crop</h4>
+                
+<ul>
+       When a part of the spectrum is enlarged with the zoom option, the
+total    spectrum is still kept in memory. This enables the scrolling and
+panning   through the spectrum. However, the resolution (in channels/colored
+boxes)   is still the same. This means that the appearance of the spectrum
+get worse   when a larger zoom factor is used. With the&nbsp;<img
+ src="buttons_2d_crop.gif" alt="Crop button." height="27" width="46"
+ align="middle">
+        option, the selected part of the spectrum is made the whole spectrum, 
+  and  the resolution improves. The highest resolution is reached when 1 colored
+   box corresponds to 1 channel. With&nbsp;<img
+ src="buttons_2d_ucrop.gif" alt="Un-crop button." height="24" width="41"
+ align="middle">
+        (un-crop), the spectrum is reset to is maximum size.            
+         
+  <p><img src="screen_2d_uncrop_crop.gif" alt="Crop and un-crop"
+ height="131" width="398" align="bottom">
+        <br>
+       Part of the spectrum before <b>crop</b> -&gt; after <b>crop</b>.</p>
+             
+</ul>
+        <a name="CP - Contour Plot"></a>        
+<h4> CP - Contour Plot</h4>
+                
+<ul>
+       This&nbsp;<img src="button_countourplot.gif"
+ alt="Contourplot Button" height="25" width="44" align="middle">
+        CP = 'Coutour Plot' button option renders the spectrum as a contour 
+ plot,   or uses the colored block representation, depending on the position 
+ of th  CPM = 'Contour Plot Mode' button.&nbsp;<img
+ src="button_countour_mode_color.gif" alt="Contour Mode=color Button"
+ height="27" width="44" align="middle">
+        = Colored blocks,&nbsp;<img
+ src="button_countour_mode_contour.gif"
+ alt="Contour Mode=contour Button" height="27" width="44" align="middle">
+        = Contour Plot, and&nbsp;<img
+ src="button_countour_mode_contour_1x1.gif"
+ alt="Contour Mode = High-Res Contour Button" height="25" width="44"
+ align="middle">
+        = Contour Plot without skipping channels, no matter the X-and Y increment
+    values..                      
+  <p><img src="screen_2d_contourplot_1d.gif"
+ alt="Accumulate rows/columns" height="227" width="326" align="bottom">
+        </p>
+                           
+  <p>Contour plot with super imposed 1D track. The contour parameters can
+    be modified with the contour parameter popup, that can be activated via
+  the menu items <b>'Param' -&gt; '<a name="Contour-Parameters"></a>Contour
+  Parameters'</b>. The first part enables you to do manually, what the 'crop'
+  option does interactively. It selects which part of the spectrum to display.
+  With the X and Y increment, channels can be skipped for faster contouring.
+  An increment of 1 means, use all channels, 2 means skip one channel out
+of  two, etc. </p>
+                           
+  <p><img src="contour_param1.gif" alt="Contour size popup" height="214"
+ width="305" align="bottom">
+        </p>
+                           
+  <p>The rest of the options define the contour levels. </p>
+         <li> Level mode:</li>
+                              
+  <ul>
+        <li> Explicit- Explicitly define each level. If this option is selected, 
+   the user is asked to specify these levels, when the contour parameter popup
+   is closed.</li>
+         <li> Use factor - Use the factor given in the 'Factor for Use factor 
+  mode'  box. The next level is computed by 'factor * previous level', starting 
+  at  the lowest level.</li>
+         <li> Equidistant - Use the distance given in the 'Distance for Equidistant 
+   mode' box. The next level is computed by 'distance + previous level', starting
+   at the lowest level.</li>
+         <li> Log-range - Calculate a range of levels, positioned at a logarithmic 
+   distance, from the lowest level to the level specified in 'Highest level 
+  for Log-range mode'.</li>
+                             
+  </ul>
+         <li> Level colors:</li>
+                              
+  <ul>
+        <li> All levels same color - One color mode.</li>
+         <li> Pos/Neg levels - Two color mode. Plot the positive and negative 
+  levels  each in their own color.</li>
+         <li> Automatic - Assign each level its own color.</li>
+                             
+  </ul>
+         <li> Show levels :</li>
+                              
+  <ul>
+        <li> Positive - Calculate only positive levels.</li>
+         <li> Positive and negative - Calculate positive and negative levels.</li>
+         <li> Negative - Calculate only negative levels.</li>
+                             
+  </ul>
+         <li> Number of levels: The number of levels to calculate. When 'Show 
+  levels'  is 'Positive and negative' half of this number is drawn positive 
+  and the other half negative.</li>
+                                   
+  <p><img src="contour_param2.gif" alt="Contour options popup"
+ height="344" width="305" align="bottom">
+        <br>
+       &nbsp;</p>
+             
+</ul>
+        <a name="Phase - 2D Phase"></a>        
+<ul>
+                             
+  <h4> Phase - 2D Phase</h4>
+   The <img src="buttons_2d_phase.gif" alt="2D-phase button" width="43"
+ height="25" align="middle">
+  button enters the 2D phase mode. The screen shows four regions.   Region 
+ one is the original 2D spectrum, and the other three are initially   empty, 
+ but are intended towill contain 1D spectra that are simultaneously submitted 
+to  the phase  procedure.                      
+  <p><img src="fullscreen_2d_phase.gif" alt="2D phase correction"
+ height="194" width="311" align="bottom">
+        <br>
+       Screen split up in 2D phase mode. Three of the regions have a green
+ border,   and one has a red border.&nbsp; This last one is connected to
+the  scroll  bars when the zoom options is active. </p>
+                           
+  <p><img src="phase2d_popup.gif" alt="2D phase popup" height="269"
+ width="126" align="middle">
+        </p>
+                           
+  <p>To place spectra into the three 1D regions, one first has to select
+appropriate spectra. This is done by using the bookmark option. </p>
+                           
+  <p><img src="bookmark.gif" alt="Bookmark popup" height="354"
+ width="139" align="bottom">
+        </p>
+                           
+  <p>After three spectra have been selected, select one of those and press
+    one of the 'Add to PhaseBlock' buttons. When the first spectrum is added,
+    a number of options can be set. </p>
+                           
+  <p><img src="phase2d_setup_popup.gif" alt="2D phase setup popup"
+ height="115" width="197" align="middle">
+        <br>
+       &nbsp; </p>
+         <li> Pre-run AU command on data - The first option asks if the 
+ AU command should be run on each spectrum. This can be useful if unprocessed 
+   data is loaded. For example, a Window and a Fourier transformation can 
+be   performed before spectra are loaded.</li>
+                 <li> Reset phase parameters - This option asks if the phase 
+parameters    should be reset. The answer is yes, unless previous phase parameters 
+are   applied with the AU command..</li>
+         <li> Use Hilbert transformation - Use this option if there are only
+  real  data (imaginary data are zero). This option will restore the imaginary
+  points,   using a Hilbert transformation.</li>
+         <br>
+ After the 1D spectra are loaded into the regions, one can zoom in  on  
+the most interesting parts of the spectra. When the zoom option is active,
+   the appropriate viewports (=regions) are activated automatically. One
+does    not have to use the 'Select viewport' buttons. After this, use the
+  normal  phase procedures. All spectra will be phased simultaneously. When
+ done, press the 'Phase' button again, and you are back in the normal  2D
+mode.         
+</ul>
+                
+<h4> <a name="Integration"></a>Integration</h4>
+                
+<ul>
+         <a
+ href="psnd_script_nmr.html#INTEGRAL%20-%20Integrate%20part%20of%201D%20or%202D%20spectrum">Script:
+    &lt;result&gt; = integral ( &lt;left&gt; , &lt;right&gt; { , &lt;bottom&gt; 
+   , &lt;top&gt; } )</a>       
+</ul>
+                
+<ul>
+       When the '<b>Integrate</b>' option of the mouse-popup is selected, 
+the   cursor  can be used to select a region (peak) that will be integrated. 
+Alternatively,    the <a href="#Peak%20Pick%20Find">peakpick</a> routine can
+be used. However,    this routine only selects non-overlapping peaks, or
+sees overlapping peaks    as one peak. There are tree integration modes.&nbsp; 
+In the first mode&nbsp;    (box mode) a green box marks the area that is integrated.
+In the second  mode,  floodfill mode, the whole area inside the lowest contour
+line is integrated.    The last mode (convex floodfill) is an extension of
+the floodfill mode.  All  dents and holes in the area, marked by floodfill,
+are filled. <br>
+       &nbsp;                      
+  <p><img src="integrate_2d_box.gif" alt="Box integration" height="171"
+ width="254">
+        </p>
+                           
+  <p>Box integration. The whole area inside the box will be integrated. </p>
+                           
+  <p><img src="integrate_2d_floodfill.gif" alt="Floodfill integration"
+ height="170" width="252">
+        </p>
+                           
+  <p>Flood-fill integration. Only the area inside the closed contour lines
+    (marked with green squares) will be integrated. </p>
+                           
+  <p><img src="integrate_2d_convex.gif"
+ alt="Convex floodfill integration" height="166" width="252">
+        </p>
+                           
+  <p>Convex flood-fill integration. Same as flood-fill integration, only
+the integration area is made convex (Well, not really convex, but all holes
+and dents are filled). <br>
+       &nbsp;</p>
+             
+</ul>
+                
+<h4> <a name="Integration 2D options"></a>Integration 2D options</h4>
+                
+<blockquote>Get popup menu via <b>Utilities-&gt;Integration 2D options</b>
+                        
+  <p><img src="integrate_2d_options.gif"
+ alt="Integration-options-popup menu" height="264" width="252"
+ align="middle">
+         </p>
+       </blockquote>
+                
+<ul>
+        <li> Integration Mode:</li>
+                              
+  <ul>
+        <li> Box</li>
+         <li> Flood-fill</li>
+         <li> Convex flood-fill</li>
+                             
+  </ul>
+         <li> Levels for peak-picking</li>
+         <li> Reference distance</li>
+         <li> Reference peak intensity -A distance (R) is calculated as:&nbsp;
+   reference_distance  * (reference_peak_intensity ^ 1/6) / ( peak_intensity
+   ^ 1/6 )</li>
+         <li> <a name="Use offset correction"></a>Use box for offset correction 
+   - If this option is set to 'Yes' the border values of the selected region 
+   are considered the offset and subtracted from the total intensity.</li>
+         <br>
+       &nbsp;                      
+  <ul>
+       &nbsp;                     
+  </ul>
+               
+</ul>
+                
+<h4> &nbsp;<a name="Integration 2D bookkeeping"></a>Integration 2D bookkeeping</h4>
+                
+<blockquote>Get popup menu via <b>Utilities-&gt;Integration 2D</b></blockquote>
+                
+<blockquote><img src="integrate_2d_manipulate.gif"
+ alt="Integration-2D-popup menu." height="581" width="180"
+ align="middle">
+       </blockquote>
+                
+<blockquote> <li> Add - Add the last integration box to the list. Peaks are 
+   marked AA, AB,&nbsp; ... ZZ.</li>
+         <li> Edit -&nbsp; Edit the selected integration box . The numbers
+ are   the left, right, bottom and top channel numbers. An optional user
+label  can  be added.</li>
+         <li> Remove - Remove the selected integration box from the list.</li>
+         <li> Reset - Remove all integration boxes from the list.</li>
+         <li> Plot - Redraw all integration boxes.</li>
+         <li> Hide - Hide the integration boxes.</li>
+         <li> Show - Undo the hide operation.</li>
+         <li> Read - Read integrals from a file that was created with the 
+write    command.</li>
+         <li> Write - Write the box coordinates of the integrals, and the 
+corresponding    labels, to file.</li>
+         <li> Grab Mouse Integrate - Set left mouse button in the 2D integration 
+   mode.<img src="mouse_integrate.gif" alt="Integration Mouse Button"
+ height="25" width="25" align="middle">
+        The area, that is selected with the mouse, is put into a box and
+integrated.     However, it is not added to the list of peaks. This must
+be done manually     with the 'Add' button.</li>
+         <li> Grab Mouse Peak Pick - Set left mouse button in the 2D peak-pick
+   mode.&nbsp;<img src="mouse_peakpick.gif" alt="Peak Pick Mouse Button"
+ height="26" width="26" align="middle">
+         </li>
+                              
+  <ul>
+        <li> <a name="Peak Pick Find"></a>Peak Pick Find - Find all peaks 
+within    the area selected with the mouse. The routine looks for closed contours
+ on  the lowest contour level. Positive or negative peaks are selected, based
+  on the selection made in&nbsp; '<a href="#Integration%202D%20options">Integration
+   2D options'</a></li>
+         <li> Peak Pick Remove - Remove all existing peaks inside the region
+  that  was selected with the mouse.</li>
+         <li> Peak Pick Merge - Merge the two peaks (inside the region selected 
+   with the mouse) into one peak.</li>
+                             
+  </ul>
+         <li> Print Integrals - Print the integrals from the list with label, 
+  box  coordinates and intensities.</li>
+         <li> Print Integral + Reference - A distance (R) is calculated as:&nbsp; 
+   reference_distance * (reference_peak_intensity ^ 1/6) / ( peak_intensity 
+  ^ 1/6 )</li>
+         <li> Print Peak Center - Prints max-intensity-position.</li>
+         <li> Re-calculate Integrals - Use this option after the '<a
+ href="#Use%20offset%20correction">offset correction</a>' mode has been changed.</li>
+         <li> Options - Popup&nbsp; ''<a
+ href="#Integration%202D%20options">Integration   2D options'</a> .</li>
+        </blockquote>
+                
+<blockquote><img src="integrate_2d_edit_peak.gif"
+ alt="Edit peak borders." height="259" width="155">
+                             
+  <p>Edit peak borders and user-label.</p>
+       </blockquote>
+                
+<p><br>
+       <a name="Calibrate"></a> </p>
+             
+<h4> Calibrate</h4>
+                
+<ul>
+       To calibrate a 2D spectrum, first select from the mouse menu the function
+    '<b>Calibrate</b>'&nbsp;<img src="mouse_calibrate.gif"
+ alt="Calibrate Spectrum Mouse Buton" height="25" width="28"
+ align="middle">
+       . Then select a reference peak in the 2D spectrum                
+     
+  <p><img src="select_2D_peak.gif" alt="Calibrate" height="87"
+ width="108" align="bottom">
+        </p>
+                           
+  <p>Now press mouse button 1. Two dialog boxes appear one after the other.
+    In the first one you can set the calibration value for the X axis, and
+ in  the second on the calibration value for the Y axis. </p>
+                           
+  <p><img src="calibrate_box.gif" alt="Calibrate popup" height="61"
+ width="153">
+         </p>
+             
+</ul>
+                
+<h4> Grid</h4>
+                
+<ul>
+         <img src="buttons_grid.gif" height="25" width="45"
+ align="middle" alt="Grid on/off toggle button">
+        The button that is marked '#' can be used to toggle a grid. This
+option    works also in the 'Contour Plot' mode.                      
+  <p><img src="screen_2d_blockplot_grid.gif" alt="2D spectrum with grid"
+ height="131" width="261" align="bottom">
+        <br>
+       2D spectrum with grid.</p>
+             
+</ul>
+                
+<hr>        
+<h2> <a name="Processing"></a>Processing</h2>
+                
+<ul>
+       When a newly created 2D file is loaded for the first time, all parameters,
+    with the exception of the spectrometer frequency and the spectral width,
+   are unset or are not active. If, for example, the user applies a Fourier
+  transformation with 1x zero fill (<b>FT 1</b>), the result is reflected
+in  the parameters. When an other record is loaded, and the <b>AU</b> button
+ is pressed, all processing steps that are marked with 'Do' are executed
+.  In this case the '<b>Do Fourier</b>' setting executes the Fourier transformation
+  with 1x zero fill for the new record. Alternatively, parameters can be
+edited   by hand. The '<b>Param</b>' menu gives al list of all the parameters.
+The   '<a name="Edit all parameters"></a><b>Edit all parameters</b>' option
+will  give access to all parameters in all dimensions.                  
+     
+  <p><img src="param_edit.gif" alt="Edit-all -arameters popup"
+ height="511" width="369" align="middle">
+        <br>
+       The 'Edit all parameters' option. </p>
+                           
+  <p>When all parameters are set to the user's liking, the <b>Scrip</b> button
+    can be used to display a '<b>Run Script</b>' popup menu. This popup window
+    has a text area in which a <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#Script%20Processing">script</a></font></u> can 
+   be created, edited or loaded. The option '<b>Create script from parameters</b>'
+    uses the current parameters to create a script, that essentially will
+perform    an <b>AU</b> command for all records in that dimension. Before
+the script    is created, the user is asked to supply an output file name
+and to select    a processing direction. </p>
+                           
+  <p><img src="edit_script_popup.gif" alt="Edit and run script popup."
+ height="443" width="288" align="middle">
+        <br>
+       The '<b>Run Script</b>' popup menu.</p>
+             
+</ul>
+                
+<hr width="100%"> 
+<h2><a name="Saving_part_of_the_spectrum_"></a>Saving part of the spectrum</h2>
+<blockquote>To keep only the most interesting part of a 2D spectrum, one
+can restrict the output during the procesing steps, or one can use the 'Save
+as...' option in the File Menu. Fist select the part that you want to sve
+in the 2D spectum by zooming or cropping. Then, use 'Save as...'<br>
+  <br>
+  <img src="saveas_popup.gif" alt="Save as ... popup" width="270"
+ height="392" align="middle">
+  <br>
+  <br>
+The selection will be written to the file that is entered in 'New filename'.
+If the original data is complex,&nbsp; the new data can be set to real or
+complex with the mode option. Automatic means that only the real data will
+be written, unless a Fourier transform does not yet have been performed on
+it. The selection is given in data points (channel numbers). This popup menu
+will create a script in the script-editor, and running this script will create
+and load the new file.<br>
+  <br>
+  <br>
+  <hr width="100%" size="2"><br>
+  <br>
+  <br>
+</blockquote>
+         <br>
+</body>
+</html>

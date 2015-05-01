@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<resourcedb_config>
+	<file_locations>
+		<basedir></basedir>
+		<monosaccharide_templates pathtype='local'>monosaccharide_templates.xml</monosaccharide_templates>
+		<substituent_templates pathtype='local'>substituent_templates.xml</substituent_templates>
+		<trivialname_templates pathtype='local'>trivialname_templates.xml</trivialname_templates>
+		<elements pathtype='local'>elements.xml</elements>
+	</file_locations>
+	<residue_parsing>
+	</residue_parsing>
+	<residue_name_generation>
+		<allow_trivial_names>true</allow_trivial_names>
+	</residue_name_generation>
+</resourcedb_config>

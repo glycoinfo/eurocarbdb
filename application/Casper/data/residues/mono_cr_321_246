@@ -1,0 +1,51 @@
+# The structure of the O-antigen of Escherichia coli O116:K:H10
+# M.R. Leslie, H. Parolis, L.A.S. Parolis
+set ref 'Carbohydr. Res. 321 (1999) 246-256'
+# shift OK
+
+type '6dHex4NAc' {
+atom '1' 1 free link
+atom '2' 1 free
+atom '3' 1 free
+atom '4' 1
+atom '5' 1
+atom '6' 1 methyl
+atom 'CO' 0
+atom 'Me' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect CO Me
+ctclass 'hex'
+ctsub 'n-acetyl' 4 1 'd'
+ctmod 'd' 6
+ccpsub 'C4_NAc'
+}
+
+residue aDQui4NAc '6dHex4NAc' {
+config D
+jhh medium
+jch large
+shift 92.68 5.22 ax
+shift 72.80 3.60 eq
+shift 71.36 3.71 eq
+shift 57.45 3.58 eq
+shift 67.32 3.96
+shift 17.62 1.15
+shift 175
+shift 22.83 2.05
+info $ref
+}
+
+residue bQui4NAc '6dHex4NAc' {
+config D
+jhh large
+jch small
+shift 96.38 4.61 eq
+shift 75.49 3.30 eq
+shift 74.36 3.49 eq
+shift 57.44 3.57 eq
+shift 71.78 3.57
+shift 17.62 1.19
+shift 175
+shift 22.86 2.04
+info $ref
+}

@@ -1,0 +1,81 @@
+!Amino Acid Pseudoatom Nomenclature
+!Correlation of hydrogen pseudoatom naming systems.
+!(The original table was prepared by Jane Caldwell)
+
+!BMRB = BioMagResBank, derived from IUPAC recommendations
+!UCSF = Mardigras and Corma, based on 1993 manual (still current, summer 1995)
+!XPLOR= X-PLOR 3.1f
+
+
+!AA  AA   BMRB UCSF XPLOR
+!--- ---  ---- ---- -----
+
+A    Ala  MB   MB   HB*,HB#,HB%,HB+
+
+R    Arg  QB   QB   HB*,HB#,HB%,HB+
+R    Arg  QG   QG   HG*,HG#,HG%,HG+
+R    Arg  QD   QD   HD*,HD#,HD%,HD+
+R    Arg  QH1  QH1  HH1*,HH1#,HH1%,HH1+
+R    Arg  QH2  QH2  HH2*,HH2#,HH2%,HH2+
+R    Arg  QH        HH*,HH#
+
+D    Asp  QB   QB   HB*,HB#,HB%,HB+
+
+N    Asn  QB   QB   HB*,HB#,HB%,HB+
+N    Asn  QD   QD   HD2*,HD2#,HD2%,HD2+,HD*,HD#
+
+C    Cys  QB   QB   HB*,HB#,HB%,HB+
+
+E    Glu  QB   QB   HB*,HB#,HB%,HB+
+E    Glu  QG   QG   HG*,HG#,HG%,HG+
+
+Q    Gln  QB   QB   HB*,HB#,HB%,HB+
+Q    Gln  QG   QG   HG*,HG#,HG%,HG+
+Q    Gln  QE   QE   HE2*,HE2#,HE2%,HE2+,HE*,HE#
+
+G    Gly  QA   QA   HA*,HA#,HA%,HA+
+
+H    His  QB   QB   HB*,HB#,HB%,HB+
+
+I    Ile  MG   MG2  HG2*,HG2#,HG2%,HG2+
+I    Ile  MD   MD1  HD1*,HD1#,HD1%,HD1+,HD*,HD#
+I    Ile  QG   QG   HG1*,HG1#,HG1%,HG1+
+
+L    Leu  MD1  MD1  HD1*,HD1#,HD1%,HD1+
+L    Leu  MD2  MD2  HD2*,HD2#,HD2%,HD2+
+L    Leu  QB   QB   HB*,HB#,HB%,HB+
+L    Leu  QD        HD*,HD#
+
+K    Lys  QB   QB   HB*,HB#,HB%,HB+
+K    Lys  QG   QG   HG*,HG#,HG%,HG+
+K    Lys  QD   QD   HD*,HD#,HD%,HD+
+K    Lys  QE   QE   HE*,HE#,HE%,HE+
+K    Lys  QZ   QZ   HZ*,HZ#,HZ%,HZ+
+
+M    Met  QB   QB   HB*,HB#,HB%,HB+
+M    Met  QG   QG   HG*,HG#,HG%,HG+
+M    Met  ME   ME   HE*,HE#,HE%,HE+
+
+F    Phe  QB   QB   HB*,HB#,HB%,HB+
+F    Phe  QD   RD   HD*,HD#,HD%,HD+
+F    Phe  QE   RE   HE*,HE#,HE%,HE+
+F    Phe  QR        
+
+P    Pro  QB   QB   HB*,HB#,HB%,HB+
+P    Pro  QG   QG   HG*,HG#,HG%,HG+
+P    Pro  QD   QD   HD*,HD#,HD%,HD+
+
+S    Ser  QB   QB   HB*,HB#,HB%,HB+
+
+T    Thr  MG   MG2  HG2*,HG2#,HG2%,HG2+,HG*,HG#
+
+W    Trp  QB   QB   HB*,HB#,HB%,HB+
+
+Y    Tyr  QB   QB   HB*,HB#,HB%,HB+
+Y    Tyr  QD   RD   HD*,HD#,HD%,HD+
+Y    Tyr  QE   RE   HE*,HE#,HE%,HE+
+Y    Tyr  QR
+
+V    Val  MG1  MG1  HG1*,HG1#,HG1%,HG1+
+V    Val  MG2  MG2  HG2*,HG2#,HG2%,HG2+
+V    Val  QG        HG*,HG#

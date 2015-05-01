@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (X11; I; Linux 2.0.34 i686) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EF" VLINK="#51188E" ALINK="#FF0000">
+
+<H1>
+<A NAME="Operators"></A>Operators</H1>
+Operators have the following associativity and precedence, listed from
+highest precedence to lowest. Operators work much like in C
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; right&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; right&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !&nbsp; unary -
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * /&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + -&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nonassoc&nbsp;&nbsp;&nbsp; &lt; > &lt;= >=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nonassoc&nbsp;&nbsp;&nbsp; == !=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ||
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nonassoc&nbsp;&nbsp;&nbsp; ..
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; right&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = += -= *= /=</PRE>
+
+<PRE>
+<HR WIDTH="100%"></PRE>
+
+<H4>
+Exponentiation operator "^"</H4>
+
+<UL><I>&lt;number x></I> ^ <I>&lt;number y></I>
+<P>Gives <I>&lt;number x></I> to the power of <I>&lt;number y></I></UL>
+
+<H4>
+Unary operators "! and -"</H4>
+
+<UL>The same as in the C language. ! is logical negation and - is unary
+minus.</UL>
+
+<H4>
+Multiplicative Operators "* and /"</H4>
+
+<UL>Binary "*" multiplies two numbers. Binary "/" divides two numbers.</UL>
+
+<H4>
+Additive Operators "+ and -"</H4>
+
+<UL><I>&lt;number></I> <B>+</B> <I>&lt;number></I>
+<P>Returns the sum of two numbers <I>&lt;string></I> <B>+</B> <I>&lt;string></I>
+Concatenates two strings. <I>&lt;number></I> <B>-</B> <I>&lt;number></I>
+Returns the difference of two numbers.</UL>
+
+<H4>
+Relational Operators ">, >=, &lt; and &lt;="</H4>
+
+<UL><I>&lt;expression> &lt;operator> &lt;expression></I> or <I>&lt;string>
+&lt;operator> &lt;string></I>
+<P>The evaluation of strings is case sensitive. Operator "&lt;" returns
+true (1) if the left argument is numerically less than the right argument.
+Operator ">" returns true if the left argument is numerically greater than
+the right argument. Operator "&lt;=" returns true if the left argument
+is numerically less than or equal to the right argument. Operator ">="
+returns true if the left argument is numerically greater than or equal
+to the right argument.</UL>
+
+<H4>
+Logical And "&amp;&amp;"</H4>
+
+<UL><I>&lt;expression></I> <B>&amp;&amp;</B> <I>&lt;expression></I>
+<P>Returns true (1) if both expressions are non-zero, false (0) otherwise.</UL>
+
+<H4>
+Logical Or "||"</H4>
+
+<UL><I>&lt;expression></I> <B>||</B> <I>&lt;expression></I>
+<P>Returns true (1) if at least one of the expressions is non-zero, false
+(0) otherwise.</UL>
+
+<H4>
+Range Operator ".."</H4>
+
+<UL>The range operator <B>".."</B> can be used to select a number of elements
+from an array, or to set the number of times a <B>for</B> loop is performed.
+<BR>Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r[4..90]</PRE>
+The elements 40 to (and including) 90 from the real array.
+<BR>Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r[1]</PRE>
+The first element from the real array.
+<BR>Example 3:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r[50..]</PRE>
+Elements 50 to (and including) the last one from the array @r
+<BR>Example 4:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r[..60]</PRE>
+The first 60 elements from the array @r Example 5:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r[..]</PRE>
+All elements from the array @r In the same way, this operator can be used
+in <B>for</B> loops. For example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in [1..40] do
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;statements>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done</PRE>
+Sometimes a range list can be used to describe the contents of an array
+or as parameter with a function. A rnage list consists of a range thas
+is diveded into separate parts. For example, to describe the elements 1,2,4,5,6
+use :
+<BR>&nbsp;
+<UL><TT>@r[1..2,4..6]</TT>
+<P><TT>or</TT>
+<P><TT>@r[1..2,4,5,6]</TT>
+<P><TT>or</TT>
+<P><TT>@r[1,2,4..5,6]</TT></UL>
+</UL>
+
+<H4>
+Assignment operators "=, +=, -=, *= and /="</H4>
+
+<UL><B>Assign number to variable:</B>
+<P><I>&lt;variable></I> <B>=</B> <I>&lt;number></I>
+<BR><I>&lt;variable></I> <B>+=</B> <I>&lt;number></I> Equivalent with:
+<I>&lt;variable></I>
+<B>=</B> <I>&lt;variable></I> <B>+</B> <I>&lt;number></I>
+<BR><I>&lt;variable></I> <B>-=</B> <I>&lt;number></I> Equivalent with:
+<I>&lt;variable></I>
+<B>=</B> <I>&lt;variable></I> <B>-</B> <I>&lt;number></I>
+<BR><I>&lt;variable></I> <B>*=</B> <I>&lt;number></I> Equivalent with:<I>
+&lt;variable> <B>=</B> &lt;variable> <B>*</B> &lt;number></I>
+<BR><I>&lt;variable> <B>/=</B> &lt;number> </I>Equivalent with:<I> &lt;variable>
+<B>=</B>
+&lt;variable> <B>/</B> &lt;number></I>
+<BR>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $mynumber = 5 * 18</PRE>
+<B>Assign string to variable:</B>
+<P><I>&lt;variable></I> <B>=</B> <I>&lt;string></I>
+<BR>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %mystring = "anystring"</PRE>
+<B>Assign number to array:</B>
+<P><I>&lt;array></I> &lt;assign> <I>&lt;number></I>
+<P>Where assign is =, +=, -=, *= or /=.
+<BR>Example 1:
+<UL>
+<PRE><TT>@r = 50</TT></PRE>
+</UL>
+All elements of the real data are set to 50 Example 2:
+<BR>&nbsp;
+<UL><TT>@r[2..40] += 50</TT></UL>
+To the array elements 2..40 the value of 50 is added (inclusive the elements
+2 and 40)
+<P>Example 3:
+<BR>&nbsp;
+<UL><TT>@r[1..5,30..60] -= 10</TT></UL>
+From the array elements 1..5 and 30..60 the value of 10 is substracted.
+<P><B>Assign array to array:</B>
+<P><I>&lt;array> &lt;assign> &lt;array></I>
+<P>Where assign is =, +=, -=, *= or /=.
+<BR>Example 1:
+<UL>
+<PRE><TT>@i = @r</TT></PRE>
+</UL>
+all real data are copied to imaginary array
+<BR>Example 2:
+<UL>
+<PRE><TT>@i[1..100] -= @r</TT></PRE>
+</UL>
+The real data elements 1..100 are subtracted from the corresponding elements
+in the imaginary array
+<P>Example 3:
+<BR>&nbsp;
+<UL><TT>@r[1..5,30..60] -= @a</TT></UL>
+From the array elements 1..5 and 30..60 the the corresponding elements
+in array @a are substracted.
+<P><B>Assign array to other block</B>
+<P><I>&lt;block> : &lt;array> &lt;assign> &lt;block> : &lt;array></I>
+<P>Where assign is =, +=, -=, *= or /=.
+<BR>Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; block2:@c = block1:@c</PRE>
+Copy the real and imaginary data from block 1 to block 2.
+<BR>Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; block2:@a[1..40] += block1:@b</PRE>
+Add the first 40 elements from buffer B in block 1 to buffer A in block
+2</UL>
+
+<H4>
+<A NAME="Left shift operator <<"></A>Left shift operator "&lt;&lt;"</H4>
+
+<UL><I>&lt;array></I> <B>&lt;&lt;</B> <I>&lt;shift></I>
+<P>All elements in the data array are shifted <I>&lt;shift></I> positions
+to the left Elements that are shifted past the first position in the array
+are lost. Array elements shifted from outside array boundaries are substituted
+by 0.0. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @R[4..9] &lt;&lt; 1</PRE>
+Array element 4 is overwritten by element 5. Element 6 is shifted to position
+5, etc. Element 10 is shifted to position 9, thus:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Before shift: 1&nbsp; 2&nbsp; 3&nbsp; <B>4&nbsp; 5&nbsp; 6&nbsp; 7&nbsp; 8&nbsp; 9&nbsp;</B> 10 11 12 ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After shift:&nbsp; 1&nbsp; 2&nbsp; 3&nbsp; <B>5&nbsp; 6&nbsp; 7&nbsp; 8&nbsp; 9&nbsp; 10</B> 10 11 12 ...</PRE>
+</UL>
+
+<H4>
+<A NAME="Right shift operator >>"></A>Right shift operator ">>"</H4>
+
+<UL><I>&lt;array></I> <B>>></B> <I>&lt;shift></I>
+<P>All elements in the data array are shifted <I>&lt;shift></I> positions
+to the right. Elements that are shifted past the last position in the array
+are lost. Array elements shifted from outside array boundaries are substituted
+by 0.0. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @R[2..9] >> 3</PRE>
+Result:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Before shift: 1&nbsp; <B>2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; 6&nbsp; 7&nbsp; 8&nbsp; 9</B>&nbsp; 10&nbsp; 11 12 ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After shift:&nbsp; 0&nbsp; <B>0&nbsp; 0&nbsp; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; 6</B>&nbsp; 10&nbsp; 11 12 ...</PRE>
+</UL>
+
+<H4>
+<A NAME="Rotate Left operator |<"></A>Rotate Left operator "|&lt;"</H4>
+
+<UL><I>&lt;array></I> <B>|&lt;</B> <I>&lt;shift></I>
+<P>All data elements in <I>&lt;array></I> are shifted <I>&lt;shift></I>
+positions to the left. Elements that are shifted below the first position
+are added from the right. Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @I |&lt; 4</PRE>
+Shift all elements of the imaginary array 4 positions to the left. The
+first 4 elements are added to the end of the array.Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @C[4..9] |&lt; 1</PRE>
+Shift elements 4 to 9 of the real and of the imaginary arrays 1 position
+to the left. Element 4 gets new portion 9, element 5 gets new position
+4, etc.
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Before shift: 1&nbsp; 2&nbsp; 3&nbsp; <B>4&nbsp; 5&nbsp; 6&nbsp; 7&nbsp; 8&nbsp; 9</B>&nbsp; 10 11 12 ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After shift:&nbsp; 1&nbsp; 2&nbsp; 3&nbsp; <B>5&nbsp; 6&nbsp; 7&nbsp; 8&nbsp; 9&nbsp; 4</B>&nbsp; 10 11 12 ...</PRE>
+</UL>
+
+<H4>
+<A NAME="Rotate Right operator >|"></A>Rotate Right operator ">|"</H4>
+
+<UL><I>&lt;array></I> <B>>|</B> <I>&lt;shift></I>
+<P>All data elements in <I>&lt;array></I> are shifted <I>&lt;shift></I>
+positions to the right. Elements that are shifted past the last position
+are added from the left. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @R >| 1</PRE>
+Move all elements of the real array 1 position to the right. Move the last
+element of the array to position 1.</UL>
+
+<HR WIDTH="100%">
+</BODY>
+</HTML>

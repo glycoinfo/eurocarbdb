@@ -1,0 +1,25 @@
+<Server port="8125" shutdown="SHUTDOWN">
+
+  <GlobalNamingResources>
+  </GlobalNamingResources>
+
+    <Service name="Catalina">
+        
+        <Connector port="8123" />
+
+        <Engine name="Catalina" defaultHost="localhost">
+            <Host name="localhost" appBase="webapps" >
+      
+            <!-- Enable servlet reloading -->
+            <DefaultContext reloadable="true" allowLinking="true" />
+            
+            <Valve className="org.apache.catalina.valves.AccessLogValve"
+                 prefix="localhost_access_log." suffix=".txt"
+                 pattern="common"/>
+            </Host>
+        </Engine>
+
+  </Service>
+
+</Server>
+

@@ -1,0 +1,53 @@
+# An arabinogalactan containing 3-O-methyl-D -galactose
+# residues isolated from the aerial parts of Salvia officinalis L.
+# Peter Capek
+set ref 'Carb. Res. 343 (2008) 1390–1393
+
+type 'Me' {
+info 'Methyl substituent'
+priority 'Z'
+atom 'M' 1 link free methyl
+ctclass 'subst'
+}
+
+residue Me Me {
+info 'Methyl substituent'
+shift 0 0
+}
+
+dimer 'Me(M->3)aDGal' {
+info $ref
+shift 58.80 3.46
+shift 95.04 5.27; 70.26 3.85; 81.37 3.55; 67.76 4.28; 73.23 4.09; 64.65 3.75 3.75
+extract
+}
+
+dimer 'Me(M->3)bDGal' {
+info $ref
+shift 59.05 3.46
+shift 99.33 4.61; 73.73 3.53; 84.83 3.36; 67.11 4.23; 77.95 3.70; 63.93 3.79 3.79
+extract
+}
+
+
+# Polysaccharides from the cell wall of the green microalgae _chlorella
+# pyrenoidosa_ and their immunostimulatory effects. Measurements of molecular
+# weights and molecular weight distributions by dosy nmr
+# Erick Reyes Suárez
+set ref 'Suárez, Dalhousie University Halifax, May 2008'
+
+dimer 'Me(M->3)aDMan' {
+info $ref
+shift 56.9 3.49
+shift 94.7 5.26; 67.0 4.22; 80.4 3.57; 66.4 3.73; 73.0 3.88; 61.6 3.79 3.92
+correct 0.36 -0.04
+extract
+}
+
+dimer 'Me(M->3)bDMan' {
+info $ref
+shift 56.8 3.49
+shift 94.4 4.92; 67.5 4.24; 82.8 3.41; 66.2 3.65; 76.8 3.44; 61.6 3.79 3.92
+extract
+}
+

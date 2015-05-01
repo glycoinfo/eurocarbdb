@@ -1,0 +1,29 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+
+<xwork>
+
+<package name="eurocarb-devel" extends="eurocarb-base" namespace="/devel">
+
+    <!--
+    action: 
+    author: mjh
+    desc:   
+    -->
+    <action name="test_sequence_parsing" class="org.eurocarbdb.action.devel.TestGlycanSequenceParsing">       
+        <interceptor-ref name="ecdb_default_stack"/>
+        <!--
+        <interceptor-ref name="scope">
+            <param name="session">secondsElasped</param>
+        </interceptor-ref>
+        -->
+        <interceptor-ref name="execAndWait">
+        </interceptor-ref>
+        <result name="wait" type="freemarker">/template/action/devel/test_sequence_parsing_in_progress.ftl</result>
+        <result name="success" type="freemarker">/template/action/devel/test_sequence_parsing.ftl</result>
+    </action>
+
+</package>
+
+</xwork>

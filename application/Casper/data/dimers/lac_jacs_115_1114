@@ -1,0 +1,22 @@
+# A novel approach for stereochemical
+# analysis of 1-carboxyethyl sugar
+# ethers by NMR-spectroscopy
+# W.B. Severn, J.C. Richards
+
+# C1' 'fixed' to sodium form from Me-ester
+
+set ref 'J. Am. Chem. Soc. 115 (1993) 1114-1120'
+
+dimer 'RLac(2->3)aLRhaOMe' {
+error 0.5
+shift 181.0; 75.4 4.29; 20.4 1.4
+shift 103.6 4.58; 70.3 3.89; 81.7 3.44; 73.6 3.50; 70.8 3.52; 19.0 1.26; 56.2 3.33
+extract:info $ref
+}
+
+dimer 'SLac(2->3)aLRhaOMe' {
+error 0.5
+shift 181.0; 77.9 4.39; 20.3 1.41
+shift 103.6 4.56; 71.8 3.95; 82.5 3.42; 74.6 3.48; 70.8 3.53; 19.2 1.26; 56.3 3.33
+extract: info $ref
+}

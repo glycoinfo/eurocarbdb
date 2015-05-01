@@ -1,0 +1,76 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+  <field name="journalReference.journalReferenceId">
+      <field-validator type="int">
+          <param name="min">0</param>
+          <param name="max">0</param>
+          <message>You may not specify any IDs</message>
+      </field-validator>
+  </field>
+  <field name="journalReference.pubmedId">
+      <field-validator type="int">
+          <param name="min">0</param>
+          <message>Any PubMed identifiers specified must be non-zero.</message>
+      </field-validator>
+  </field>
+  <field name="journalReference.publicationYear">
+      <field-validator type="int">
+          <param name="min">1900</param>
+          <message>Publication year must be after the year 1900</message>
+      </field-validator>      
+  </field>
+  
+  <field name="reference.referenceType">
+      <field-validator type="fieldexpression">
+          <param name="expression"><![CDATA[
+              reference == null ||
+              reference.referenceType == "database" ||
+              reference.referenceType == "website"
+          ]]></param>
+          <message>Reference type must be database or website</message>
+      </field-validator>      
+  </field>
+
+  <validator type="expression">
+      <param name="expression"><![CDATA[
+          (journalReference == null) ||
+          (journalReference.pubmedId > 0) ||
+          (journalReference.referenceType == null) ||
+          (journalReference.referenceType != "journal") ||
+          ( journalReference.authors != null &&
+            journalReference.title != null && 
+            journalReference.publicationYear != null && 
+            journalReference.journalVolume != null && 
+            journalReference.firstPage != null &&
+            journalReference.lastPage != null
+          )
+      ]]></param>
+      <message>Please make sure that all fields are filled in</message>
+  </validator>
+  
+  <validator type="expression">
+      <param name="expression"><![CDATA[      
+      (reference == null) ||
+      (reference.referenceType != "database") ||
+      (
+        reference.externalReferenceName != null &&
+        reference.externalReferenceId != null &&
+        reference.url != null
+      )
+      ]]></param>
+      <message>Please ensure that the identifier and URL are supplied</message>
+  </validator>
+  
+  <validator type="expression">
+      <param name="expression"><![CDATA[      
+      (reference == null) ||
+      (reference.referenceType != "webpage") ||
+      (
+        reference.url != null
+      )
+      ]]></param>
+      <message>Please ensure that the URL is supplied</message>
+  </validator>
+  
+</validators>

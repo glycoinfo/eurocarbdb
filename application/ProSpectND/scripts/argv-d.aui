@@ -1,0 +1,13 @@
+#
+# Reads the '-d num' flag and fills 'ndim' with 'num'
+#
+if argv($argi) == "-d" then
+   if argc>$argi && (index("1234", argv($argi+1)[1]) != -1) then
+      $argi += 1
+      %ndim=argv($argi)
+   else
+      println "Syntax: -d ndim (=1,2,3,4)"
+      exit
+   endif
+endif
+

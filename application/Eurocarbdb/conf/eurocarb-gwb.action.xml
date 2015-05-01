@@ -1,0 +1,48 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+
+<xwork>
+
+<package name="eurocarb-gwb" extends="eurocarb-base" namespace="/gwb">
+
+  <!-- *************************************
+       GlycoWorkbench
+       ************************************* -->
+
+  <action name="home" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/index.ftl</result>
+  </action>
+
+  <action name="builder" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/builder.ftl</result>
+  </action>
+
+  <action name="examples" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/examples.ftl</result>
+  </action>
+
+  <action name="manual" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/manual.ftl</result>
+  </action>
+
+  <action name="contact" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/contact.ftl</result>
+  </action>
+
+  <action name="download" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/download.ftl</result>
+  </action>
+
+  <action name="download_builder" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/download_builder.ftl</result>
+  </action>
+
+  <action name="download_builder_applet" class="org.eurocarbdb.action.NoopAction">
+    <result name="success" type="freemarker">templates/download_builder_applet.ftl</result>
+  </action>
+   
+
+</package>
+
+</xwork>

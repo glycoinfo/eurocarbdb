@@ -1,0 +1,331 @@
+//this was used prior to recoding of translators 
+package org.eurocarbdb.action.hplc;
+
+import java.io.IOException;
+import java.lang.*;
+import java.util.*;
+
+import org.eurocarbdb.MolecularFramework.io.SugarImporterException;
+import org.eurocarbdb.MolecularFramework.io.GlycoCT.SugarImporterGlycoCT;
+import org.eurocarbdb.MolecularFramework.io.GlycoCT.SugarExporterGlycoCT;
+import org.eurocarbdb.MolecularFramework.io.GlycoCT.SugarExporterGlycoCTCondensed;
+
+import org.eurocarbdb.MolecularFramework.io.OGBI.SugarImporterOgbi;
+import org.eurocarbdb.MolecularFramework.sugar.GlycoconjugateException;
+import org.eurocarbdb.MolecularFramework.sugar.Sugar;
+
+
+import org.eurocarbdb.sugar.SugarSequence;
+import org.eurocarbdb.MolecularFramework.util.visitor.GlycoVisitorException;
+/*import org.eurocarbdb.application.glycanbuilder.Glycan;
+import org.eurocarbdb.application.glycanbuilder.GlycanParserFactory;
+import org.eurocarbdb.application.glycanbuilder.MassOptions;
+import org.eurocarbdb.application.glycanbuilder.GlycanParser;
+*/
+import org.apache.log4j.Logger;
+import org.apache.commons.io.FileUtils;
+import org.eurocarbdb.action.*;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.*;
+import org.eurocarbdb.dataaccess.core.*;
+
+//Hibernate Class removed
+//import org.eurocarbdb.dataaccess.hibernate.HibernateUtil;
+import static org.eurocarbdb.dataaccess.Eurocarb.getEntityManager;
+import org.eurocarbdb.dataaccess.EntityManager;
+import org.hibernate.*;
+import org.hibernate.cfg.*;
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.Preparable;
+
+
+/**
+ * 
+ */
+
+/**
+ * @author matthew using renes translation code!
+ *
+ */
+public class ogbiTranslator extends EurocarbAction implements RequiresLogin
+{
+    private List<Glycan> HplcStructures;
+    private List<GlycanSourceLink> GlycanSourceInfo;
+ 
+
+    protected static final Logger logger = Logger.getLogger (ogbiTranslator.class.getName());
+
+    // private GlycanSequence glycoCT;
+    //private GlycanSequence glyseq = new GlycanSequence();
+      
+
+    public String execute() throws Exception {
+
+                SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session =sessionFactory.openSession();
+
+		EntityManager em = Eurocarb.getEntityManager();
+		//below two lines removed due to loss of HibernateUtil
+		//Session s = HibernateUtil.getSession();
+		//Transaction tx = s.beginTransaction();
+
+        	//query all structures to be translated
+	                       
+                logger.info("selecting all HPLC glycan entries");
+
+                List<Glycan> HplcStructures = (List<Glycan>)getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Glycan.GLYCOBASE").list();
+
+		for( Glycan glycanProgressive : HplcStructures) {
+		try {
+			Integer glycanIdLookup = glycanProgressive.getGlycanId();
+			String t_strStructure = glycanProgressive.getName();
+		
+			logger.info ("processing glycanId:" + glycanIdLookup + "processing name" + t_strStructure);
+        		// create importer and parse structure to object model
+                	SugarImporterOgbi t_objOGBI = new SugarImporterOgbi(); 
+        	
+                	Sugar t_objSugar = t_objOGBI.parse(t_strStructure);
+        	
+                // create exporter and export sugar object
+/*        	SugarExporterGlycoCT t_objExporter = new SugarExporterGlycoCT();
+   		t_objExporter.start(t_objSugar);
+        	
+                String t_strXML = t_objExporter.getXMLCode();
+        	                
+                logger.info("CT STRING" + t_strXML);
+               
+		SugarSequence sseq = new SugarSequence( t_strXML);
+*/
+
+			SugarExporterGlycoCTCondensed t_objExporter = new SugarExporterGlycoCTCondensed();
+			t_objExporter.start(t_objSugar);
+
+		 	String t_strXML = t_objExporter.getHashCode();
+			SugarSequence sseq = new SugarSequence( t_strXML);
+
+			//logger.info ("condensed automatic" + t_strXML);
+
+			GlycanSequence gs = GlycanSequence.lookupOrCreateNew(sseq);
+			if( gs.getGlycanSequenceId()<=0 )
+		    	getEntityManager().store( gs );
+		
+		
+
+			int id = gs.getGlycanSequenceId();
+			logger.info ("STORING NEW ID" + id );
+		
+			if (id <=0) { 
+			    	int numberUpdates = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Glycan.UPDATE_GLYCOCT")
+		    		.setParameter("name", t_strStructure)
+                    		.setParameter("id", id)
+		    		.executeUpdate(); 
+			}
+		
+	        	if (id >0) { int numberUpdates = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Glycan.UPDATE_GLYCOCT")
+		    		.setParameter("name", t_strStructure)
+                    		.setParameter("id", id)
+		    		.executeUpdate(); }
+
+	       } //end try
+
+                 catch (SugarImporterException e)
+                {
+        	// TODO Error by parsing the OGBI encoding
+        	e.printStackTrace();
+                } catch (GlycoVisitorException e) 
+                {
+			// TODO Error exporting structure
+			e.printStackTrace();
+		}
+
+
+
+		}
+
+		List<GlycanSequenceTemp> HplcStructuresManual = (List<GlycanSequenceTemp>)getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanSequenceTemp.SELECT_ALL").list();
+
+              		for( GlycanSequenceTemp glycanProgressiveManual : HplcStructuresManual) {
+				String ctStructure = glycanProgressiveManual.getSequenceCt();
+				Integer ctIdOriginal= glycanProgressiveManual.getGlycanSequenceId();
+				logger.info("info" + ctIdOriginal);
+
+				Multipleglycoct multi = Multipleglycoct.lookupById(ctIdOriginal);
+				logger.info("size" + multi);
+				
+		
+				SugarImporterGlycoCT importer = new SugarImporterGlycoCT();
+				Sugar sseqCond = importer.parse(ctStructure);
+				SugarExporterGlycoCTCondensed t_objExporterManual = new SugarExporterGlycoCTCondensed();
+				t_objExporterManual.start(sseqCond);
+
+		 		String t_strXMLManual = t_objExporterManual.getHashCode();
+				SugarSequence sseqTemp = new SugarSequence( t_strXMLManual);
+
+				//logger.info ("new manulactcondensed" + sseqTemp);
+		
+			
+
+				GlycanSequence gsTemp = GlycanSequence.lookupOrCreateNew(sseqTemp);
+				if ( gsTemp.getGlycanSequenceId()<=0) {
+			    	getEntityManager().store( gsTemp );	
+				}
+
+                		int idCTNew = gsTemp.getGlycanSequenceId();						
+				
+		              	logger.info ("print temp entry" + idCTNew + "print the original id" + ctIdOriginal);
+
+
+
+				//need to update the multi-glycan ct table with new glycanSequenceId
+				if ( idCTNew >0) {
+
+				if (multi != null) {
+				Integer correspondingGlycan = multi.getGlycanId();
+				logger.info("" + correspondingGlycan + "temp id" + idCTNew);
+				//whats the corresponding glycanId for glycanSeqId
+				
+				int numberChangesGlycan = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Glycan.UPDATE_CT")
+                 		.setParameter("idCTNew", idCTNew)
+                 		.setParameter("glycanId", correspondingGlycan)
+                 		.executeUpdate();
+				logger.info("ensure check" + numberChangesGlycan);
+				}
+
+
+				int numberChangesTemp = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Multipleglycoct.UPDATE_MULTICT")
+                		.setParameter("idCTNew", idCTNew)
+                 		.setParameter("idCTOriginal", ctIdOriginal)
+                 		.executeUpdate();
+/*
+				int numberChangesTempSeq = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanSequenceTemp.UPDATE_MULTICT_SEQ")
+                 		.setParameter("idCTNew", idCTNew)
+                 		.setParameter("idCTOriginal", ctIdOriginal)
+                 		.executeUpdate();
+*/
+				
+				}
+			} //end while sqliterCT loop
+
+	//ok we now need to add supporting source details for these glycans
+/*
+			List<GlycanTaxonomy> GlycanTaxInfo = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanTaxonomy.SELECT_ALL")
+			.list();
+
+                        for (Iterator iterTax = GlycanTaxInfo.iterator(); iterTax.hasNext();) {
+			Object [] tempSourceTax = (Object []) iterTax.next();
+			Integer taxNcbiId = (Integer) tempSourceTax[0];
+			Integer taxTransId = (Integer) tempSourceTax[1];
+
+			GlycanSequence addTaxInfo = em.lookup (GlycanSequence.class, taxTransId);
+			Taxonomy taxonomy = Taxonomy.lookupNcbiId(taxNcbiId);
+                        if (taxonomy!=null && addTaxInfo !=null) {
+				BiologicalContext bcTax = new BiologicalContext();
+				addTaxInfo.addBiologicalContext( bcTax );
+				getEntityManager().update( addTaxInfo );
+			}
+
+			}
+
+
+			List<GlycanDisease> GlycanDiseaseInfo = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanDisease.SELECT_ALL")
+			.list();
+
+                        for (Iterator iterDisease = GlycanDiseaseInfo.iterator(); iterDisease.hasNext();) {
+			Object [] tempSourceDisease = (Object []) iterDisease.next();
+			String diseaseMeshId = (String) tempSourceDisease[0];
+			Integer diseaseTransId = (Integer) tempSourceDisease[1];
+			logger.info("the diseaseMeshId:" + diseaseMeshId);
+			logger.info("the diseaseTransId:" + diseaseTransId);
+
+			GlycanSequence addDiseaseInfo = em.lookup (GlycanSequence.class, diseaseTransId);
+			Disease disease= Disease.lookupByMeshId(diseaseMeshId);
+			
+                        if (disease!=null && addDiseaseInfo !=null) {
+				BiologicalContext bcDisease = new BiologicalContext();
+				addDiseaseInfo.addBiologicalContext( bcDisease );
+				getEntityManager().update( addDiseaseInfo );
+			}
+
+			}
+
+
+			List<GlycanPerturbation> GlycanPertInfo = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanPerturbation.SELECT_ALL")
+			.list();
+
+                        for (Iterator iterPert = GlycanPertInfo.iterator(); iterPert.hasNext();) {
+			Object [] tempSourcePert = (Object []) iterPert.next();
+			String pertMeshId = (String) tempSourcePert[0];
+			Integer pertTransId = (Integer) tempSourcePert[1];
+
+			GlycanSequence addPertInfo = em.lookup (GlycanSequence.class, pertTransId);
+			Perturbation perturbation= Perturbation.lookupByMeshId(pertMeshId);
+                        if (perturbation!=null && addPertInfo !=null) {
+				BiologicalContext bcPert = new BiologicalContext();
+				addPertInfo.addBiologicalContext( bcPert );
+				getEntityManager().update( addPertInfo );
+			}
+
+			}
+
+			List<GlycanTissue> GlycanTissueInfo = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanTissue.SELECT_ALL")
+			.list();
+
+                        for (Iterator iterTissue = GlycanTissueInfo.iterator(); iterTissue.hasNext();) {
+			Object [] tempSourceTissue = (Object []) iterTissue.next();
+			String tissueMeshId = (String) tempSourceTissue[0];
+			Integer tissueTransId = (Integer) tempSourceTissue[1];
+
+			GlycanSequence addTissueInfo = em.lookup (GlycanSequence.class, tissueTransId);
+			TissueTaxonomy tissue= TissueTaxonomy.lookupByMeshId(tissueMeshId);
+                        if (tissue!=null && addTissueInfo !=null) {
+				BiologicalContext bcTissue = new BiologicalContext();
+				addTissueInfo.addBiologicalContext( bcTissue );
+				getEntityManager().update( addTissueInfo );
+			}
+
+			}
+
+		/*	List<GlycanSourceLink> GlycanSoureInfo; // = new ArrayList(); //=(List<GlycanSourceLink>)getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanSourceLink.SELECT_SOURCE").list();
+			GlycanSourceInfo = getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.GlycanSourceLink.SELECT_SOURCE").list();
+		
+			for (Iterator iter = GlycanSourceInfo.iterator(); iter.hasNext();) {
+			//books.add((Book) iter.next());
+			Object [] tempSourceLink = (Object []) iter.next();
+			Integer sourceGlycanId = (Integer)tempSourceLink[0];
+			Integer glycanTranslationId = (Integer)tempSourceLink[1];
+			Integer taxSpecies = (Integer)tempSourceLink[2];
+			String  pertMeshId = (String)tempSourceLink[3];
+			String  diseaseMeshId = (String)tempSourceLink[4];
+			String  tissueMeshId = (String)tempSourceLink[5];
+
+			GlycanSequence addTaxGS = em.lookup (GlycanSequence.class, glycanTranslationId);
+			Taxonomy taxonomy = Taxonomy.lookupNcbiId(taxSpecies);
+			//TissueTaxonomy tissue = TissueTaxonomy.setMeshId(tissueMeshId);
+			TissueTaxonomy tissue = new TissueTaxonomy();
+			//tissue.setTissueTaxonomy(TissueTaxonomy.setMeshId());
+			//TissueTaxonomy tissue = TissueTaxonomy.getTissueTaxonomy().setMeshId(tissueMeshId);
+			if( taxonomy==null )
+			    throw new Exception("Missing taxonomy");
+			
+			BiologicalContext bc = new BiologicalContext();
+			
+			if (taxonomy!=null && addTaxGS!=null) {
+			    bc.setTaxonomy( taxonomy );
+			    bc.setTissueTaxonomy(TissueTaxonomy.UnknownTissue());
+			    getEntityManager().store( bc );
+			    addTaxGS.addBiologicalContext( bc );
+			    getEntityManager().update( addTaxGS );
+			}
+
+			logger.info ("added for entry" + glycanTranslationId);
+			
+		}
+		*/
+		return SUCCESS;
+         
+ 
+ }
+}

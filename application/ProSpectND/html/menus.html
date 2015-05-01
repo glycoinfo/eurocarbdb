@@ -1,0 +1,491 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                    
+  <meta name="GENERATOR"
+ content="Mozilla/4.51 [en] (X11; I; Linux 2.2.5-15 i686) [Netscape]">
+                    
+  <meta name="Author" content="Albert van Kuik">
+  <title>Menus</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ef" vlink="#51188e"
+ alink="#ff0000">
+          
+<h1> <a name="Menus"></a>Menus</h1>
+          
+<blockquote><img src="menubar.gif" alt="Menubar" height="26" width="344">
+    </blockquote>
+          
+<ul>
+     <li> <a href="#File">File</a></li>
+      <li> <a href="#Parameters">Parameters</a></li>
+      <li> <a href="#Proces">Process</a></li>
+      <li> <a href="#Display">Display</a></li>
+      <li> <a href="#Data">Data</a></li>
+      <li> <a href="#Utilities">Utilities</a></li>
+         
+</ul>
+          
+<hr width="100%">     
+<h2> <a name="File"></a>File</h2>
+          
+<blockquote><img src="menu_file_1d.gif" alt="File Menu" height="350"
+ width="201" align="middle">
+                 
+  <p><a href="openfile.html#Open%20File">Open File</a> <br>
+      <a href="openfile.html#Close%20File">Close File</a> <br>
+      <a href="openfile.html#Set%20Direction">Change Direction</a> <br>
+      <a href="openfile.html#Read%20Record">Read Record</a> <br>
+    Return Record - Return the current (modified) record to the original
+file.<br>
+   Read Plane - &nbsp;Read a specified plane from the 3D file.<br>
+     </p>
+           
+  <p>Write Record - Write the current record to a new 1D file.<br>
+   <a href="processing_2d.html#Saving_part_of_the_spectrum_">  Save as ...</a><br>
+     </p>
+           
+  <p><a href="introduction.html#Prepare_BrukerVarian_file">Prepare Bruker/Varian
+ File</a> </p>
+               
+  <p><a href="plot.html#Plot%20Screen">Plot Screen</a> <br>
+      <a href="plot.html#Plot%201D">Plot 1D</a> <br>
+      <a href="plot.html#Plot%202D">Plot 2D</a> </p>
+               
+  <p>Read AU Script - Read a script form disk into the editor.<br>
+   History to AU script - Dump all the scripts, that had been used to create 
+this NMR file, to a new file on disk.<br>
+   Change Directory - Change the current working dirctory.<br>
+     </p>
+    </blockquote>
+          
+<hr width="100%">     
+<h2> <a name="Parameters"></a>Parameters</h2>
+          
+<blockquote>Edit or view the processing parameters. Normally, parameters are
+set during the processing steps. However, parameters can also be set or edited
+by hand.             
+  <p><img src="menu_parameters.gif" alt="Parameters Menu" height="176"
+ width="165" align="middle">
+     </p>
+               
+  <p>See for most parameters the <a href="processing_1d.html">processing of
+1D files</a>.<br>
+   </p>
+   
+  <blockquote>     
+    <p>Spectral <br>
+    &nbsp; </p>
+     
+    <blockquote><img src="param_spectral.gif"
+ alt="Spectral Parameter Popup Menu" height="161" width="279"
+ align="middle">
+                           
+      <p>Set some spectral parameters that are required for the use of correct 
+  axis units. The parameter <b>File Record Type</b> can be <i>Spectrum </i>or 
+      <i>FID</i>,  and determines if the axis units are ppm or seconds. If 
+      <b>File  Record Type</b> is <i>FID</i>, it will change to <i>Spectrum</i> 
+after a Fourier transformation. However, when a new record is read from disk, 
+      <b>File Record Type</b> will be set to     <i>FID</i> again. <br>
+    &nbsp;</p>
+      </blockquote>
+     Input File               
+    <blockquote>Set some parameters that determine how the input file will 
+be loaded. <a href="commandline.html#RM">See RM</a></blockquote>
+     DSP Correction               
+    <blockquote>Gives the number off points that are prepended at the start 
+  of the FID, due to Bruker digital signal processing. A correction suggested 
+  by <a href="dmx_digital_filters.html">W. M. Westler and F.&nbsp; Abildgaard 
+      </a>is applied during Window, Watwa and FT oprations.</blockquote>
+     Linear prediction <br>
+    Window <br>
+    Water Wash <br>
+    Fourier Mode <br>
+    Hilbert Transform <br>
+    Phase <br>
+    Reverse <br>
+    Baseline <br>
+    Waterfit <br>
+    Output File <br>
+    Next processing dir <br>
+    Truncation level <br>
+   </blockquote>
+            <br>
+   <br>
+      <a href="processing_2d.html#Edit%20all%20parameters">Edit all parameters</a> 
+    <br>
+    Store Parameters <br>
+    Reload Parameters <br>
+    Change raw disk pars             
+  <blockquote>Use only when you know <b>exactly</b> what you are doing. This 
+  option opens a low-level parameter editor (only when the new ND file type 
+  is used). This are the parameters that are stored on disk (and <b>NOT</b> 
+  the modified current parameters). For each direction a list of parameters 
+  is displayed. Each parameter consists of three items, 1) the identifier, 
+ 2) a character I (integer) or F (float), and 3) the value of the parameter. 
+     <b>ONLY</b>  the value may be changed, or unpredictable things will happen.
+ Parameters  are stored to disk if the OK button is pressed, and the current
+ parameters  are overwritten by this new ones. <b>NOT</b> any type of parameter
+ checking  is performed, so proceed at your own risk.                   
+ 
+    <p><img src="param_raw_edit.gif"
+ alt="Edit raw parameters popup menu." height="263" width="227">
+     <br>
+    &nbsp;</p>
+      </blockquote>
+     <a href="processing_2d.html#Contour-Parameters">Contour parameters</a> 
+             
+  <p>List Parameters </p>
+               
+  <p><img src="param_list.gif" alt="List parameters menu" height="67"
+ width="120">
+     </p>
+               
+  <p>Current: <br>
+    &nbsp; </p>
+               
+  <blockquote>List all parameters in the 1D direction, that are currently 
+  activated.                     
+    <p><tt>&nbsp; Spec&nbsp; Width =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  2500.000</tt> <br>
+        <tt>&nbsp; Refer chan&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  1.000</tt> <br>
+        <tt>&nbsp; PRE MODE&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp; process 
+real</tt>       <br>
+        <tt>&nbsp; R start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 1  -&nbsp; 512</tt> <br>
+        <tt>&nbsp; Window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp; sqr 
+sine   bell</tt> <br>
+        <tt>&nbsp; Shift&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  2.000</tt> <br>
+        <tt>&nbsp; W start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 1  -&nbsp; 512</tt> <br>
+        <tt>&nbsp; FFT MODE&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  do FFT cx</tt> <br>
+        <tt>&nbsp; Zero Fill&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; BASEL. TYPE =&nbsp;&nbsp; do polynomial</tt> <br>
+        <tt>&nbsp; # poly terms=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  12</tt> <br>
+        <tt>&nbsp; B start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0  -&nbsp;&nbsp;&nbsp; 0</tt> <br>
+        <tt>&nbsp; POST MODE&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  automatic</tt> <br>
+        <tt>&nbsp; OUTFILE MODE=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ new  file</tt> <br>
+        <tt>&nbsp; S start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0  -&nbsp;&nbsp;&nbsp; 0</tt></p>
+      </blockquote>
+                  
+  <p><br>
+    All Current: <br>
+    All From File: <br>
+    &nbsp; </p>
+               
+  <blockquote>List all parameters, either the current values, or the values 
+  that are stored with the file on disk (the 'old' values).              
+      
+    <p>&nbsp;<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  T1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  T2</tt> <br>
+        <tt>&nbsp; Spec&nbsp;&nbsp; Freq.=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  500.139&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 500.139</tt> <br>
+        <tt>&nbsp; Spec&nbsp; Width =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  2500.000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2500.000</tt> <br>
+        <tt>&nbsp; Refer chan&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  1.000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.000</tt> 
+      <br>
+        <tt>&nbsp; DSP shift&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0.000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.000</tt> 
+      <br>
+        <tt>&nbsp; PRE MODE&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp; process 
+real&nbsp;&nbsp;&nbsp;   process real</tt> <br>
+        <tt>&nbsp; R start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 1  -&nbsp; 512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 -&nbsp; 512</tt> 
+     <br>
+        <tt>&nbsp; LP lpc type =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  LPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  LPC</tt> <br>
+        <tt>&nbsp; LP mode&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  forward&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; forward</tt> <br>
+        <tt>&nbsp; LP #poles&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  5</tt> <br>
+        <tt>&nbsp; LP size&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  512</tt> <br>
+        <tt>&nbsp; LP moveroots=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  no&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  no</tt> <br>
+        <tt>&nbsp; LP replace&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  none&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; none</tt>
+      <br>
+        <tt>&nbsp; LP tolerance=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1e-07</tt> 
+     <br>
+        <tt>&nbsp; LP gap st-sp=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0  -&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 -&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; LPstart-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0  -&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 -&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; Window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp; sqr 
+sine   bell&nbsp;&nbsp; sqr sine bell</tt> <br>
+        <tt>&nbsp; Shift&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  2.000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.000</tt> 
+      <br>
+        <tt>&nbsp; Line&nbsp; Broad =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0.000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.000</tt> 
+      <br>
+        <tt>&nbsp; Gauss Broad =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0.000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.000</tt> 
+      <br>
+        <tt>&nbsp; Trapzium Wdw=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; W start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 1  -&nbsp; 512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 -&nbsp; 512</tt> 
+     <br>
+        <tt>&nbsp; Watwa shape =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Cos^3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cos^3</tt> 
+      <br>
+        <tt>&nbsp; Watwa width =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  64</tt> <br>
+        <tt>&nbsp; Watwa shift =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; FFT MODE&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp; do
+ FFT  real&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do FFT cx</tt> <br>
+        <tt>&nbsp; Zero Fill&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; Scale 1st&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  1.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</tt>
+      <br>
+        <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  no hilbert&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no hilbert</tt> <br>
+        <tt>&nbsp; PHASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  no phase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no phase</tt> <br>
+        <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  no reverse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no reverse</tt> <br>
+        <tt>&nbsp; BASEL. TYPE =&nbsp;&nbsp;&nbsp;&nbsp; no baseline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  polynomal</tt> <br>
+        <tt>&nbsp; L poly terms=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; H poly terms=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  12</tt> <br>
+        <tt>&nbsp; B start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0  -&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 -&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; Waterfit pos=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; Waterfit wid=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; POST MODE&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+store   real&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; store real</tt> <br>
+        <tt>&nbsp; OUTFILE MODE=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ new  file&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new file</tt> <br>
+        <tt>&nbsp; off_A, off_B=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0  -&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 -&nbsp;&nbsp;&nbsp; 
+  0</tt> <br>
+        <tt>&nbsp; S start-stop=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 1  -&nbsp; 512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 -&nbsp; 512</tt> 
+     <br>
+    &nbsp;</p>
+      </blockquote>
+     </blockquote>
+          
+<hr width="100%">     
+<h2> <a name="Proces"></a>Process</h2>
+          
+<blockquote>             
+  <h2> <img src="menu_process.gif" alt="Processing Menu" height="300"
+ width="141">
+      </h2>
+     <a href="processing_1d.html#Linear%20Prediction">Linear Predict</a><br>
+      <a href="processing_1d.html#Window">Window</a> <br>
+      <a href="processing_1d.html#Water%20Wash">Water Wash</a> <br>
+      <a href="processing_1d.html#Fourier%20transform">Fourier </a><br>
+      <a href="processing_1d.html#Hilbert%20transformation">Hilbert </a><br>
+      <a href="processing_1d.html#Use%20Process-Phase">Phase</a> <br>
+      <a href="processing_1d.html#Water%20Fit">Water Fit</a> <br>
+      <a href="processing_1d.html#Baseline%20correction">Baseline</a>   
+         
+  <p>Size <br>
+    Reverse <br>
+    Inverse FT <br>
+    Fill Zero <br>
+      <a href="processing_1d.html#Absolute%20Value%20spectrum">Absolute value</a> 
+    <br>
+      <a href="processing_1d.html#Power%20Spectrum">Power spectrum</a></p>
+    </blockquote>
+          
+<hr width="100%">     
+<h2> <a name="Display"></a>Display</h2>
+          
+<blockquote><img src="menu_display.gif" alt="Display Menu" height="130"
+ width="138">
+                 
+  <p><a href="display.html#Display%20Units">Axis Units</a> <br>
+      <a href="display.html#Display%20Arrays">Show Data</a> <br>
+      <a href="display.html#Link%20Viewports">Link Scaling</a> <br>
+      <a href="display.html#Display%20Adjust">Adjust Scaling</a> <br>
+    Zoom Settings - give new zoom settings in channel numbers.<br>
+      <a href="display.html#Edit%20colormap">Edit Colormap</a></p>
+    </blockquote>
+          
+<hr width="100%">     
+<h2> <a name="Data"></a>Data</h2>
+          
+<blockquote><img src="menu_data.gif" alt="Data manipulation menu"
+ height="174" width="159" align="middle">
+    </blockquote>
+          
+<h4>Set Number of Blocks</h4>
+ 
+<blockquote>Enlarge the number of active blocks. From 4 to (at most) 9.<br>
+ </blockquote>
+ 
+<h4>Select Block</h4>
+          
+<blockquote>Select a block to work in. The default is block 1.</blockquote>
+          
+<blockquote><img src="block_select_popup.gif" height="57" width="163">
+    </blockquote>
+          
+<h4> Block Operations</h4>
+          
+<blockquote>The menu option <b>Block operations</b> yields the following popup
+menu. With this menus, data can be copied from one block to another one.
+  <b>From Block</b> gives the block number that contains the source data,
+and <b>To Block</b> the number of the data's destiny block.</blockquote>
+          
+<blockquote><img src="block_operations_popup.gif" height="345"
+ width="222">
+                 
+  <p>The copy operation comes with some options. </p>
+               
+  <p><img src="block_transferoptions_popup.gif" height="109" width="114">
+     <br>
+    &nbsp; </p>
+               
+  <ul>
+     <li> Swap - Swap the contents of both blocks</li>
+      <li> Transfer - Copy with multiplication factor. TO = A * FROM</li>
+      <li> Additive Transfer - TO = TO * A + FROM * B</li>
+      <li> Multiply tranfer - TO = TO * A + FROM * B/NORM</li>
+      <li> Divide Transfer - TO = TO * A / FROM * B</li>
+                 
+  </ul>
+     In the <b>Items involved</b> check box, the user can indicate which
+data   arrays should be transfered. In a seperate box, the copying of the
+parameters   can be requested.</blockquote>
+          
+<h4> Modify array</h4>
+<blockquote><img src="array_modify.gif" alt="Modify array" width="200"
+ height="205" align="middle">
+  <br>
+</blockquote>
+          
+<ul>
+     <li> Clip</li>
+      <li> Left shift</li>
+      <li> Right shift</li>
+      <li> Rotate Left</li>
+      <li> Rotate Right</li>
+      <li> Reverse</li>
+      <li> Negate</li>
+         
+</ul>
+          
+<h4> Fill array</h4>
+<blockquote><img src="array_fill.gif" alt="Fill Array" width="157"
+ height="230" align="middle">
+  <br>
+</blockquote>
+          
+<ul>
+     <li> Zero real and imag</li>
+      <li> Fill real</li>
+      <li> Fill imag</li>
+      <li> Fill buffer A</li>
+      <li> Fill buffer B</li>
+      <li> Fill window</li>
+      <li> Fill baseln buff</li>
+         
+</ul>
+          
+<h4> Move array</h4>
+          
+<blockquote>Copy the contents of one array to another array.</blockquote>
+          
+<h4> Read array</h4>
+          
+<blockquote>Command line: RD <br>
+      <a href="psnd_script_nmr.html#Rd%20-%20Read%20Array">Script: RD &lt;array&gt;, 
+  &lt;filename&gt;</a>             
+  <p>Read data from a 1D nmr file. This command is intended to include data 
+  into a spectrum that is already open. To that extend, <b>NO</b> parameters 
+  are read from the file. The file is opened, the data read, and the file 
+is closed, all in one command. With the popup menu, the target array is chosen.
+  If the file contains complex data, and a single array (e.g. <b>real</b>) 
+ is chosen, only the real data are copied into the array. If <b>Real+Imag</b> 
+  is selected, both the real and the imaginary data are imported from disk. 
+  However, if <b>Real+Imag</b> is chosen, and the file contains real data, 
+ only the real array is filled. </p>
+               
+  <p><img src="array_write_popup.gif" height="219" width="137">
+     <br>
+    &nbsp; <br>
+    &nbsp;</p>
+    </blockquote>
+          
+<h4> Write array</h4>
+          
+<blockquote>Command line: WR <br>
+      <a href="psnd_script_nmr.html#WR%20-%20Write%20Array">Script: WR &lt;array&gt;, 
+  &lt;filename&gt;</a>             
+  <p>Write data to an 1D file. This can be the current 1D file, or one track 
+  from a multidimensional NMR file. It also can be data stored in buffer A
+ or B, or in the Window or Baseline buffer.</p>
+    </blockquote>
+          
+<hr width="100%">     
+<h2> <a name="Utilities"></a>Utilities&nbsp;</h2>
+     
+<blockquote><img src="menu_options.gif" alt="Options Menu" height="220"
+ width="144">
+                 
+  <p><a href="processing_1d.html#Peak%20Picking">Peak Picking 1D</a> <br>
+      <a href="processing_1d.html#Integration">Integration 1D</a> <br>
+      <a href="linefit.html#Line%20Fit">Line Fit</a> <br>
+      <a href="simulation.html#Simulation">Simulation</a> </p>
+               
+  <p><a href="processing_2d.html#Phase%20-%202D%20Phase">Phase Tools 2D</a> 
+    <br>
+      <a href="processing_2d.html#Integration%202D%20bookkeeping">Integration
+  2D</a> <br>
+      <a href="processing_2d.html#Integration%202D%20options">Integration 
+2D  Options</a> </p>
+               
+  <p><a href="processing_1d.html#Calibration">Calibrate</a> <br>
+      <a href="processing_2d.html#Processing">Edit/Run AU Script</a> <br>
+      <a href="processing_3dplot.html#3D%20Plot">Stack plot</a></p>
+    </blockquote>
+          
+<hr width="100%"> <br>
+    &nbsp; <br>
+    &nbsp; <br>
+    <br>
+    <br>
+ <br>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Structural studies of the O-antigenic polysaccharide
+# from Escherichia coli O167
+# M. Linnerborg, R. Wollin, G. Widmalm
+set ref 'Eur. J. Biochem. 246 (1997) 565-573'
+
+residue aDGalf Hexf {
+carbbank 'a-D-Galf'
+info $ref
+config D
+shift 103.7-7.7 4.90--0.38
+shift 76.6--0.7 4.02--0.04
+shift 73.5--1.9 4.23-0.13
+shift 81.2--0.7 3.83-0.04
+shift 70.2--2.3 3.80-0.03
+shift 63.8-0.3 3.66 3.70
+}

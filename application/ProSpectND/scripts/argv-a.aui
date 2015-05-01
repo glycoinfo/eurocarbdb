@@ -1,0 +1,13 @@
+#
+# Reads the '-a num' flag and fills 'acqorder' with 'num'
+#
+if argv($argi) == "-a" then
+   if argc>$argi && (argv($argi+1)== "321" || argv($argi+1)== "312") then
+      $argi += 1
+      %acqorder=argv($argi)
+   else
+      println "Syntax: -a acqorder (=321 or 312)"
+      exit
+   endif
+endif
+

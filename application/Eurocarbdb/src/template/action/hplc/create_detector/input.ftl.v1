@@ -1,0 +1,23 @@
+<#assign title>User home</#assign>
+<#include "/template/ui/user/header.ftl" />
+
+<h1>Detector Entry</h1>
+
+<h2>Detector</h2>
+
+<form>
+<@ww.select label="Manufacturer" name="detector" list="detectors" listKey="manufacturer" listValue="manufacturer"/>or<@ww.textfield name="detector.manufacturer"/><br>
+<@ww.select label="Model" name="detector" list="detectors" listKey="model" listValue="model"/>or<@ww.textfield name="detector.model"/><br>
+<@ww.select label="Excitation" name="detector" list="detectors" listKey="excitation" listValue="excitation"/>or<@ww.textfield name="detector.excitation"/><br>
+<@ww.select label="Emission" name="detector" list="detectors" listKey="emission" listValue="emission"/>or<@ww.textfield  name="detector.emission"/><br>
+<@ww.select label="Bandwidth" name="bandwidth" list="detectors" listKey="bandwidth" listValue="bandwidth"/>or<@ww.textfield  name="detector.bandwidth"/><br>
+<@ww.select label="Sampling Rate" name="samplingRate" list="detectors" listKey="samplingRate" listValue="samplingRate"/>or<@ww.textfield name="detector.samplingRate"/><br>
+
+<@ww.submit name="submit"/>
+
+
+</form>
+
+
+
+<#include "/template/common/footer.ftl" />

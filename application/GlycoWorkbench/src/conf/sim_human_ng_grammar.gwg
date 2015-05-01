@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Grammar>
+<Configuration>
+<GrammarOptions>
+<add_linkage_info>false</add_linkage_info>
+<max_level>3</max_level>
+<add_uncles>true</add_uncles>
+<use_seeds>false</use_seeds>
+</GrammarOptions>
+</Configuration>
+<Rule probability="0.2765957446808511">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Gal"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.723404255319149">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Gal"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#0"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.4">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#1"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.6">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#1"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.043478260869565216">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.9565217391304348">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.16506189821182943">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.8349381017881705">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc,GlcNAc" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.024390243902439025">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.975609756097561">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#4"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.3333333333333333">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#6"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.6666666666666666">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#6"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#6"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.03680981595092025">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.9631901840490797">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="" node_type="Gal"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.4166666666666667">
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.5833333333333334">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.5294117647058824">
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.47058823529411764">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="NeuAc"/>
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="Fuc" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.823943661971831">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.176056338028169">
+<Child type="Gal"/>
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Gal">
+<Constraint children_types="" node_type="GlcNAc"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.058823529411764705">
+<Child type="Fuc"/>
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#0">
+<Constraint children_types="GlcNAc#0,Man#0" node_type="Man#0"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.8823529411764706">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#0">
+<Constraint children_types="GlcNAc#0,Man#0" node_type="Man#0"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.058823529411764705">
+<Child type="Gal"/>
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#0">
+<Constraint children_types="GlcNAc#0,Man#0" node_type="Man#0"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#1">
+<Constraint children_types="Man#1" node_type="Man#1"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.06802721088435375">
+<Child type="Fuc"/>
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.8095238095238095">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.12244897959183673">
+<Child type="Gal"/>
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.08783783783783784">
+<Child type="Fuc"/>
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.6790540540540541">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.23310810810810811">
+<Child type="Gal"/>
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.030952380952380953">
+<Child type="Fuc"/>
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.8904761904761904">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.07857142857142857">
+<Child type="Gal"/>
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.023758099352051837">
+<Child type="Fuc"/>
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.857451403887689">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.11879049676025918">
+<Child type="Gal"/>
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc,GlcNAc" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#4">
+<Constraint children_types="GlcNAc#4,Man#4" node_type="Man#4"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#4">
+<Constraint children_types="GlcNAc#4,Man#4" node_type="Man#4"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#6">
+<Constraint children_types="GlcNAc#6,Man#6" node_type="Man#6"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#6">
+<Constraint children_types="GlcNAc#6,Man#6" node_type="Man#6"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.9957081545064378">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#7">
+<Constraint children_types="Man#7" node_type="Man#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.004291845493562232">
+<Child type="Gal"/>
+<Child type="Fuc"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="" node_type="Man#7">
+<Constraint children_types="Man#7" node_type="Man#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Gal"/>
+<Constraint children_types="" node_type="GlcNAc">
+<Constraint children_types="GlcNAc" node_type="Man#7">
+<Constraint children_types="Man#7" node_type="Man#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Man"/>
+<Constraint children_types="" node_type="Man">
+<Constraint children_types="" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#0">
+<Constraint children_types="GlcNAc#0,Man#0" node_type="Man#0">
+<Constraint children_types="" node_type="GlcNAc#0"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#1">
+<Constraint children_types="Man#1" node_type="Man#1">
+<Constraint children_types="" node_type="GlcNAc#1"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.7178030303030303">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2">
+<Constraint children_types="" node_type="GlcNAc#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.2821969696969697">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#2">
+<Constraint children_types="GlcNAc#2,Man#2" node_type="Man#2">
+<Constraint children_types="" node_type="GlcNAc#2"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.4220939818631492">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3">
+<Constraint children_types="" node_type="GlcNAc#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.5762572135201979">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3">
+<Constraint children_types="" node_type="GlcNAc#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="8.244023083264633E-4">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3">
+<Constraint children_types="" node_type="GlcNAc#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="8.244023083264633E-4">
+<Child type="Man"/>
+<Constraint children_types="" node_type="Man#3">
+<Constraint children_types="Man#3" node_type="Man#3">
+<Constraint children_types="" node_type="GlcNAc#3"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.8888888888888888">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#4">
+<Constraint children_types="GlcNAc#4,Man#4" node_type="Man#4">
+<Constraint children_types="" node_type="GlcNAc#4"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.1111111111111111">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#4">
+<Constraint children_types="GlcNAc#4,Man#4" node_type="Man#4">
+<Constraint children_types="" node_type="GlcNAc#4"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.16770186335403728">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5">
+<Constraint children_types="" node_type="GlcNAc#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.055900621118012424">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5">
+<Constraint children_types="" node_type="GlcNAc#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.7763975155279503">
+<Child type="Man"/>
+<Constraint children_types="" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5">
+<Constraint children_types="" node_type="GlcNAc#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="1.0">
+<Child type="Man"/>
+<Constraint children_types="" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5">
+<Constraint children_types="Man#5" node_type="Man#5"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.9637681159420289">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#6">
+<Constraint children_types="GlcNAc#6,Man#6" node_type="Man#6">
+<Constraint children_types="" node_type="GlcNAc#6"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.036231884057971016">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#6">
+<Constraint children_types="GlcNAc#6,Man#6" node_type="Man#6">
+<Constraint children_types="" node_type="GlcNAc#6"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.6683417085427136">
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#7">
+<Constraint children_types="Man#7" node_type="Man#7">
+<Constraint children_types="" node_type="GlcNAc#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.3241206030150754">
+<Child type="GlcNAc"/>
+<Child type="GlcNAc"/>
+<Constraint children_types="" node_type="Man#7">
+<Constraint children_types="Man#7" node_type="Man#7">
+<Constraint children_types="" node_type="GlcNAc#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Rule probability="0.007537688442211055">
+<Child type="Man"/>
+<Constraint children_types="" node_type="Man#7">
+<Constraint children_types="Man#7" node_type="Man#7">
+<Constraint children_types="" node_type="GlcNAc#7"/>
+</Constraint>
+</Constraint>
+</Rule>
+<Seed structure="(+(GlcNAc#0(Fuc#0)(GlcNAc#0(Man#0(Man#0(GlcNAc(Fuc)(Gal)))(GlcNAc#0)(Man#0(Man#0)(Man#0))))))"/>
+<Seed structure="(+(GlcNAc#0(Fuc#0)(GlcNAc#0(Man#0(Man#0(GlcNAc(Gal(NeuAc))))(GlcNAc#0)(Man#0(Man#0)(Man#0))))))"/>
+<Seed structure="(+(GlcNAc#0(Fuc#0)(GlcNAc#0(Man#0(Man#0(GlcNAc(Gal)))(GlcNAc#0)(Man#0(Man#0)(Man#0))))))"/>
+<Seed structure="(+(GlcNAc#1(Fuc#1)(GlcNAc#1(Man#1(Man#1(GlcNAc(Gal(GlcNAc(Gal))))(GlcNAc(Gal)))(Man#1(Man#1)(Man#1))))))"/>
+<Seed structure="(+(GlcNAc#1(GlcNAc#1(Man#1(Man#1(Man#1)(Man#1))(Man#1(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))))(Fuc#1)))"/>
+<Seed structure="(+(GlcNAc#1(GlcNAc#1(Man#1(Man#1(Man#1)(Man#1))(Man#1(GlcNAc(Gal))(GlcNAc(Gal)))))(Fuc#1)))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc)))(GlcNAc(Gal(Fuc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal(Fuc))(Fuc))(GlcNAc(Gal(Fuc))(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc)))(GlcNAc(Gal(Fuc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(Fuc))(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc)))(GlcNAc(Gal(Fuc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal(Fuc))(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc)))(GlcNAc(Gal(Fuc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc)))(GlcNAc(Gal(Fuc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc))))(GlcNAc#2)(Man#2(GlcNAc(Fuc)(Gal(Fuc))))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc))))(GlcNAc#2)(Man#2(GlcNAc(Fuc)(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(Fuc))))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Fuc)(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Fuc)(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))(Fuc)))(GlcNAc#2)(Man#2(GlcNAc))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Fuc)(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(NeuAc))))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Fuc)(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Fuc)(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal(NeuAc))))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)(Fuc)))(GlcNAc#2)(Man#2(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc))))))))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal(NeuAc))))(GlcNAc#2)(Man#2(GlcNAc))))(Fuc#2)))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal))(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal))(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc(Gal)))(GlcNAc#2)(Man#2(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#2(Fuc#2)(GlcNAc#2(Man#2(Man#2(GlcNAc))(GlcNAc#2)(Man#2(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Fuc)(Gal(NeuAc))))(Man#3(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Fuc)(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))(Fuc)))(Man#3(GlcNAc(Gal(NeuAc))(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))(Fuc)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))(Fuc)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))(Fuc)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Fuc)(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal)(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal(NeuAc)))(GlcNAc(Fuc)(Gal)))(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(GlcNAc(Gal)))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc(Gal))))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)))(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))(Fuc)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))(Fuc)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal)(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Fuc)(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)(Fuc))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)(Fuc)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal)(Fuc)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Fuc)(Gal)))(Man#3(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc(Gal(NeuAc))(Fuc))))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(NeuAc))(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc(Gal)(Fuc))))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)(Fuc)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(GlcNAc(Gal)))))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(GlcNAc(Gal)))))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(GlcNAc(Gal)))))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(GlcNAc))))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal(GlcNAc))))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc(Gal(NeuAc)))))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc(Gal(NeuAc)))))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc(Gal))))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc))))(Man#3(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(GlcNAc))))(Man#3(GlcNAc(Gal(GlcNAc))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#3(GlcNAc)(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal(NeuAc))))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc(Gal)))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal(NeuAc))))(Man#3)))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal))(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)))(Man#3(GlcNAc(Gal))(GlcNAc))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)))(Man#3(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)))(Man#3(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc(Gal)))(Man#3)))))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc)(GlcNAc))(Man#3(GlcNAc))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(GlcNAc#3(Man#3(Man#3(GlcNAc))(Man#3(GlcNAc))))(Fuc#3)))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc))(Man#3(Man))))))"/>
+<Seed structure="(+(GlcNAc#3(Fuc#3)(GlcNAc#3(Man#3(Man#3(GlcNAc))(Man#3)))))"/>
+<Seed structure="(+(GlcNAc#4(GlcNAc#4(Man#4(Man#4(GlcNAc(Gal(NeuAc))))(GlcNAc#4)(Man#4(Man#4)(Man#4))))))"/>
+<Seed structure="(+(GlcNAc#4(GlcNAc#4(Man#4(Man#4(Man#4)(Man#4))(GlcNAc#4)(Man#4(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#4(GlcNAc#4(Man#4(Man#4(GlcNAc(Gal)))(GlcNAc#4)(Man#4(Man#4)(Man#4))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#5(Man#5)(Man#5))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(Man#5)(Man#5))(Man#5(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(GlcNAc(Gal))(GlcNAc(Gal)))(Man#5(Man#5)(Man#5))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(GlcNAc(Gal)))(Man#5(Man#5)(Man#5))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(GlcNAc))(Man#5(Man#5)(Man#5))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(Man(Man)))(Man#5(Man#5(Man))(Man#5(Man)))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(Man))(Man#5(Man#5(Man))(Man#5(Man)))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(Man(Man)))(Man#5(Man#5(Man))(Man#5))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(Man))(Man#5(Man#5)(Man#5(Man)))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5)(Man#5(Man#5)(Man#5(Man)))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(Man#5)(Man#5))(Man#5(Man(Man)))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5(Man))(Man#5(Man#5)(Man#5))))))"/>
+<Seed structure="(+(GlcNAc#5(GlcNAc#5(Man#5(Man#5)(Man#5(Man#5)(Man#5))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#6)(Man#6(GlcNAc(Gal))(GlcNAc(Gal(GlcNAc(Gal)))))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(GlcNAc#6)(Man#6(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal(NeuAc))))(GlcNAc#6)(Man#6(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal(NeuAc))))(GlcNAc#6)(Man#6(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal(NeuAc))))(GlcNAc#6)(Man#6(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal))(GlcNAc(Gal)))(GlcNAc#6)(Man#6(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal)))(GlcNAc#6)(Man#6(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc(Gal)))(GlcNAc#6)(Man#6(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#6(GlcNAc#6(Man#6(Man#6(GlcNAc))(GlcNAc#6)(Man#6(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc))(Fuc)))(Man#7(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(GlcNAc(Gal(NeuAc)))))(GlcNAc(Gal)))(Man#7(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(GlcNAc(Gal))))(GlcNAc(Gal)))(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))(Man#7(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal))(GlcNAc(Gal)))(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal)))(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc))))(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal))(GlcNAc(Gal)))(Man#7(GlcNAc(Gal))(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc)))(GlcNAc(Gal)))(Man#7(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc))))(Man#7(GlcNAc(Gal(NeuAc))))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc))))(Man#7(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc))))(Man#7(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal(NeuAc))))(Man#7)))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal)))(Man#7(GlcNAc(Gal))(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal)))(Man#7(GlcNAc(Gal)))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal)))(Man#7(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc(Gal)))(Man#7)))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc)(GlcNAc))(Man#7(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc))(Man#7(GlcNAc))))))"/>
+<Seed structure="(+(GlcNAc#7(GlcNAc#7(Man#7(Man#7(GlcNAc))(Man#7(Man))))))"/>
+</Grammar>

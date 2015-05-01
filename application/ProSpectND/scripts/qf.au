@@ -1,0 +1,92 @@
+#  ABSOL4 (triton) does the following:
+#  W1(I)      = SQRT((XRR(I)-XII(I))**2 + (XRI(I)+XIR(I))**2)
+#  W1(I+ISIZE)= SQRT((XRR(I)+XII(I))**2 + (XRI(I)-XIR(I))**2)
+#  	For QF calculation we prepare for records [1..$size1]
+#  	    @r = (RR-II)**2 
+#  	    @i = (RI+IR)**2
+#  	For QF calculation we prepare for records [$size1+1..2*$size1]
+#  	    @r = (RR+II)**2 
+#  	    @i = (RI-IR)**2
+# 'av' does: @r = SQRT(@r*@r + @i+@i)
+
+include "show_what.aui"
+
+%infile  = ""		# to be handled in "argv-i.aui"
+%outfile = ""		# to be handled in "argv-o.aui"
+$argi = 0
+while $argi < argc do
+
+  include "argv-i.aui"	# set variable 'infile'  with  input file name
+  include "argv-o.aui"	# set variable 'outfile' with output file name
+
+  $argi += 1
+done
+if %infile == "" then
+  %file1 = "2din.ff"
+else
+  %file1 = %infile
+endif
+if (%outfile == "") then
+  %file2 = "2dout.p"
+else
+  %file2 = %outfile
+endif
+
+# Open input file
+ropen %file1
+
+# Get files sizes for each dimension
+dr 1, 2; rn 1; $size1= ?si
+dr 2, 1; rn 1; $size2= ?si
+
+# Set processing direction
+dr 2, 1
+
+# Open output file, and force W1 to real (not complex), W2 to real
+sm:1 1
+sm:2 1
+
+wopen %file2, [1..2*$size1], [1..$size2]
+
+# For all records do ...
+for $i in sorted [1..$size1] do
+    $ii = $i+$size1
+    print "\rProcessing record " + %i+", "+%ii
+
+# Read records, and store in arrays: @a=RR; @b=RI; @w=IR; @l=II
+    rn $i;	@a = @r;    @b = @i
+    rn $ii;     @w = @r;    @l = @i
+    
+# Prepare the @r and @i arrays for absolute value calculations
+    @r = @a;    @r -= @l
+    @i = @b;    @i += @w
+    
+# Devide by 100 to reduce overflow risks
+    @c /= 100
+# Do the absolute value calculation: [@r = SQRT(@r*@r + @i+@i)]
+    av
+# Write result
+    rw $size1-$i+1
+#
+# Prepare the @r and @i arrays for absolute value calculations second part
+    @r  = @a;    @r += @l
+    @i  = @b;    @i -= @w
+    
+# Devide by 100 to reduce overflow risks
+    @c /= 100
+# Do the absolute value calculation: [@r = SQRT(@r*@r + @i+@i)]
+    av
+# Write result
+    rw $i+$size1
+done
+println "\nDone"
+# Close output file
+wclose
+# Reopen the output file for reading
+ropen %file2
+# Set direction
+dr 2, 1
+# Read first record
+rn 1
+# Update screen
+if ?co == 1 then; cp; else; pl; endif

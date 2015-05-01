@@ -1,0 +1,446 @@
+; ver. 3.15
+;If not indicated, Type 2 can be pyr, fur, opn (e.g. GalaNAc) or any
+;Search for Sug should retrieve all monosaccharides, including those absent from the list.
+
+;Abbreviation	Type1	Type2	Explanation
+
+;xxx?				cycle size is unknown or does not exist
+;xxxf				furanose
+;xxxp				pyranose
+;THESE VARIATIONS ARE NOT LISTED, ONLY THE ROOT NAMES!!! 
+;but you should use one of three, dependently on the situation. 
+
+;superclasses
+Sug		gen		; another monosaccharide
+Subst		gen		' another substituent
+PEN		pen		; some pentose
+HEX		hex		; some hexose
+HEP		hep		; some heptose
+DDHEP		hep		; some DD-heptose
+LDHEP		hep		; some LD-heptose
+OCT		oct		; some octose
+NON		non		; some nonose
+LIP			nsu	; some lipid residue
+CER			nsu	; some ceramide
+ALK			mva	; some alkyl residue
+
+;names
+Xyl		pen		; xylose
+XylN		pen		; 2-amino-2-deoxyxylose
+
+Rib		pen		; ribose
+Ara		pen		; arabinose
+Ara4N		pen		; 4-amino-4-deoxyarabinose
+Lyx		pen		; lyxose
+
+3dthrPen	pen		; 3-deoxy-threo-pentose
+;2deryPen	pen		; 2-deoxy-erytro-pentose (2d-Rib)
+2dRib		pen		; 2-deoxy-erytro-pentose (2d-Rib) ; alias for 2deryPen
+
+Rul		pen		; erythro-pent-2-ulose (ribulose)
+Xul		pen		; threo-pent-2-ulose (xylulose)
+3dgroPen-ulosonic	pen	; 3-deoxy-glycero-pent-2-ulosonic acid 
+
+2daraHex	hex		; 2-deoxy-arabino-hexose (2d-Glc, 2d-Man)
+2daraHexA	hex		; 2-deoxy-arabino-hexuronic acid
+3dlyxHex	hex		; 3-deoxy-lyxo-hexose
+3dxylHex	hex		; 3-deoxy-xylo-hexose
+4dxylHex	hex		; 4-deoxy-xylo-hexose
+4daraHex	hex		; 4-deoxy-arabino-hexose
+
+4dthrHex	hex		; 4-deoxy-threo-hexose 
+4deryHex	hex		; 4-deoxy-erythro-hexose 
+4dthrHex4en	hex		; 4-deoxy-threo-hex-4-enose 
+4deryHex4en	hex		; 4-deoxy-erythro-hex-4-enose 
+4dthrHex4enA	hex		; 4-deoxy-threo-hex-4-enuronic acid
+4deryHex4enA	hex		; 4-deoxy-erythro-hex-4-enuronic acid
+4dthrHex4enNA	hex		; 2-amino-2,4-dideoxy-threo-hex-4-enuronic acid
+4deryHex4enNA 	hex		; 2-amino-2,4-dideoxy-erythro-hex-4-enuronic acid
+
+Ami		hex		; 2,3,6-trideoxy-D-erythro-hexose (amicetose) ; uncapitalize first letter!
+Rho		hex		; 2,3,6-trideoxy-L-threo-hexose (rhodinose) ; uncapitalize first letter!
+PurC		hex		; 2,6-diamino-2,3,4,6-tetradeoxy-D-erythro-hexose (purpurosamine C) ; uncapitalize first letter!
+
+1,5daraHex 	hex		; 1,5-dideoxy-arabino-hexose
+2,6daraHex 	hex		; 2,6-dideoxy-arabino-hexose(2d-Qui, 2d-Rha)
+2,6dribHex 	hex		; 2,6-dideoxy-ribo-hexose (digitoxose)
+2,6dlyxHex 	hex		; 2,6-dideoxy-lyxo-hexose 
+
+Abe		hex		; 3,6-dideoxy-D-xylo-hexose (abequose)
+Col		hex		; 3,6-dideoxy-L-xylo-hexose (colitose)
+Par		hex		; 3,6-dideoxy-D-ribo-hexose (paratose)
+Tyv		hex		; 3,6-dideoxy-D-arabino-hexose (tyvelose)
+Asc		hex		; 3,6-dideoxy-L-arabino-hexose (ascarilose)
+4,6dlyxHex 	hex		; 4,6-dideoxy-lyxo-hexose
+4,6dxylHex 	hex		; 4,6-dideoxy-xylo-hexose
+
+4,6daraHexN 	hex		; 2-amino-2,4,6-trideoxy-arabino-hexose
+2,6daraHex4N 	hex		; 4-amino-2,4,6-trideoxy-arabino-hexose
+AcoN	 	hex		; 3-amino-2,3,6-trideoxy-L-xylo-hexose (acosamine) ; uncapitalize first letter!
+DauN		hex		; 3-amino-2,3,6-trideoxy-L-lyxo-hexose (daunosamine) ; uncapitalize first letter!
+Tyv4N		hex		; 4-amino-3,4,6-trideoxy-D-arabino-hexose
+
+Glc		hex		; glucose
+GlcN		hex		; 2-amino-2-deoxyglucose
+Glc3N		hex		; 3-amino-3-deoxyglucose (kanosamine)
+Glc6N		hex		; 6-amino-6-deoxyglucose
+
+GlcA		hex		; glucuronic acid
+Mur		hex		; 2-amino-3-C-[(R)-1-carboxyethyl]-2-deoxy-D-glucose (muramic acid)
+iMur		hex		; 2-amino-3-C-[(S)-1-carboxyethyl]-2-deoxy-D-glucose (isomuramic acid)
+GlcNA		hex		; 2-amino-2-deoxyglucuronic acid
+GlcN3N		hex		; 2,3-diamino-2,3-dideoxyglucose
+GlcN3NA		hex		; 2,3-diamino-2,3-dideoxyglucuronic acid
+GlcN4NA		hex		; 2,4-diamino-2,4-dideoxyglucuronic acid
+GlcN6N		hex		; 2,6-diamino-2,6-dideoxyglucose
+Glc3N6N		hex		; 3,6-diamino-3,6-dideoxyglucose
+
+Qui		hex		; 6-deoxyglucose (quinovose)
+QuiN		hex		; 2-amino-2,6-dideoxyglucose
+Qui3N		hex		; 3-amino-3,6-dideoxyglucose
+Qui4N		hex		; 4-amino-4,6-dideoxyglucose
+QuiN3N		hex		; 2,3-diamino-2,3,6-trideoxyglucose
+S6Qui		hex		; 6-sulphoquinovose (with C-S bond)
+
+QuiN4N		hex		; 2,4-diamino-2,4,6-trideoxyglucose (bacillosamine)
+2dGlcA		hex		; 2-deoxyglucuronic acid
+
+Man		hex		; mannose
+ManN		hex		; 2-amino-2-deoxymannose
+Man3N		hex		; 3-amino-3-deoxymannose
+Man4N		hex		; 4-amino-4-deoxymannose
+ManA		hex		; mannuronic acid
+ManNA		hex		; 2-amino-2-deoxymannuronic acid
+ManN3NA		hex		; 2,3-diamino-2,3-dideoxymannuronic acid
+Rha		hex		; 6-deoxymannose (rhamnose)
+RhaN		hex		; 2-amino-2,6-dideoxymannose
+Rha3N		hex		; 3-amino-3,6-dideoxymannose (mycosamine if D)
+
+Rha4N		hex		; 4-amino-4,6-dideoxymannose (perosamine if D)
+RhaN3N		hex		; 2,3-diamino-2,3,6-trideoxymannose
+
+Gal		hex		; galactose
+GalN		hex		; 2-amino-2-deoxygalactose
+Gal3N		hex		; 3-amino-3-deoxygalactose
+GalNA		hex		; 2-amino-2-deoxygalacturonic acid
+GalA		hex		; galacturonic acid
+GalN3NA		hex		; 2,3-diamino-2,3-dideoxygalacturonic acid
+Fuc		hex		; 6-deoxygalactose (fucose)
+FucN		hex		; 2-amino-2,6-dideoxygalactose
+Fuc3N		hex		; 3-amino-3,6-dideoxygalactose
+Fuc4N		hex		; 4-amino-4,6-dideoxygalactose
+FucN4N		hex		; 2,4-diamino-2,4,6-trideoxyglucose
+Gal3F		hex		; 3-deoxy-3-fluorogalactose
+
+All		hex		; allose
+AllN		hex		; 2-amino-2-deoxyallose
+
+6dAll		hex		; 6-deoxyallose
+
+Alt		hex		; altrose
+AltN		hex		; 2-amino-2-deoxyaltrose
+AltA		hex		; altruronic acid
+AltNA		hex		; 2-amino-2-deoxyaltruronic acid
+6dAlt		hex		; 6-deoxyaltrose
+
+Tal		hex		; talose
+TalN		hex		; 2-amino-2-deoxytalose
+TalA		hex		; taluronic acid
+TalNA		hex		; 2-amino-2-deoxytaluronic acid
+6dTal		hex		; 6-deoxytalose
+6dTalN		hex		; 2-amino-2,6-dideoxytalose (pneumosamine if D)
+
+Gul		hex		; gulose
+GulN		hex		; 2-amino-2-deoxygulose
+GulA		hex		; guluronic acid
+GulNA		hex		; 2-amino-2-deoxyguluronic acid
+GulN3NA		hex		; 2,3-diamino-2,3-dideoxyguluronic acid
+6dGul		hex		; 6-deoxygulose
+Ido		hex		; idose
+IdoN		hex		; 2-amino-2-deoxyidose
+IdoN6N		hex		; 2,6-diamino-2,6-dideoxyidose
+
+IdoA		hex		; iduronic acid
+6dIdo		hex		; 6-deoxyidose
+
+Fru		hex		; arabino-hex-2-ulose (fructose)
+Tag		hex		; lyxo-hex-2-ulose (tagatose)
+Tag-onic	hex		; lyxo-hex-2-ulosonic acid
+6dxylHexN-4-ulo	hex		; 2-amino-2,6-dideoxy-xylo-hexos-4-ulose
+3dthrHex-ulosonic	hex		; 3-deoxy-threo-hex-2-ulosonic acid
+
+Yer		hex		; 3,6-dideoxy-4-C-[(R)-1-hydroxyethyl]-D-xylo-hexose (yersiniose or yersiniose A)
+iYer		hex		; 3,6-dideoxy-4-C-[(S)-1-hydroxyethyl]-D-xylo-hexose (isoyersiniose or yersiniose B)
+
+Lyx3CHm 	hex		; 3-C-(hydroxymethyl)lyxose (dihydrohydroxystreptose)
+Man3CMe		hep		; 3-C-methylmannose
+Rha3CMe		hep		; 3-C-methylrhamnose
+6dGul3CMe	hep		; 6-deoxy-3-C-methylgulose (virenose)
+
+6dmanHep	hep		; 6-deoxy-manno-heptose
+6dgalHep	hep		; 6-deoxy-galacto-heptose
+6daltHep	hep		; 6-deoxy-altro-heptose
+6dtalHep	hep		; 6-deoxy-talo-heptose
+6dgulHep	hep		; 6-deoxy-gulo-heptose
+
+DDglcHep	hep		; D-glycero-D-gluco-heptose
+DLglcHep	hep		; D-glycero-L-gluco-heptose
+LDglcHep	hep		; L-glycero-D-gluco-heptose
+DDmanHep	hep		; D-glycero-D-manno-heptose
+LDmanHep	hep		; L-glycero-D-manno-heptose
+DLmanHep	hep		; D-glycero-L-manno-heptose
+DDgalHep	hep		; D-glycero-D-galacto-heptose
+DDaltHep	hep		; D-glycero-D-altro-heptose
+LDidoHep	hep		; L-glycero-D-ido-heptose
+
+Sed		hep		; altro-hept-2-ulose (sedoheptulose)
+3dlyxHep-ulosaric	hep	; 3-deoxy-lyxo-hept-2-ulosaric acid
+3daraHep-ulosonic	hep	; 3-deoxy-arabino-hept-2-ulosonic acid
+Gul4N5N-onic	hex		; 4,5-diamino-4,5-dideoxygulonic acid
+Gul4N5NA-onic	hex		; 4,5-diamino-4,5-dideoxygularic acid
+2,7anhSed	hep		; 2,7-Anhydro-D-altro-hept-2-ulopyranose (sedoheptulosan)
+
+Ko		oct		; D-glycero-D-talo-oct-2-ulosonic (ketooctonic) acid
+Kdo		oct		; 3-deoxy-D-manno-oct-2-ulosonic (ketodeoxyoctonic) acid
+Kdo8N		oct		; 8-amino-3,8-dideoxy-D-manno-oct-2-ulosonic acid
+3,7dlyxOct-ulosonic	oct	; 3,7-dideoxy-lyxo-oct-2-ulosonic acid
+3dmanOct-onic 	oct 	opn	; 3-deoxy-manno-octonic acid
+2,7anh3dmanOct-onic	oct	; 2,7-anhydro-3-deoxy-D-manno-octonic acid
+2,7anhKdo	oct	opn	; 2,7-anhydro-3-deoxy-D-manno-oct-2-ulosonic acid
+4,8anhKdo	oct	opn	; 4,8-anhydro-3-deoxy-D-manno-oct-2-ulosonic acid
+2,7anhmanOct-onic	oct	opn	; 2,7-anhydro-D-manno-octonic acid 
+
+Kdn		non		; D-glycero-D-galacto-non-2-ulosonic acid (ketodeoxynononic) acid
+Neu		non		; 5-amino-5-deoxy-D-glycero-D-galacto-non-2-ulosonic acid (neuraminic) acid
+Pse		non		; 5,7-diamino-3,5,7,9-tetradeoxy-L-glycero-L-manno-non-2-ulosonic (pseudaminic) acid
+Leg		non		; 5,7-diamino-3,5,7,9-tetradeoxy-D-glycero-D-galacto-non-2-ulosonic (legionaminic) acid
+4eLeg		non		; 5,7-diamino-3,5,7,9-tetradeoxy-D-glycero-D-talo-non-2-ulosonic (4-epilegionaminic) acid
+8eLeg		non		; 5,7-diamino-3,5,7,9-tetradeoxy-L-glycero-D-galacto-non-2-ulosonic (8-epilegionaminic) acid
+LL3,9dglcNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-L-glycero-L-gluco-nonulosonic acid
+DD3,9dmanNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-D-glycero-D-manno-non-2-ulosonic acid
+DL3,9dmanNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-D-glycero-L-manno-nonulosonic acid 
+DL3,9dgalNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-D-glycero-L-galacto-nonulosonic acid
+LD3,9dtalNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-L-glycero-D-talo-nonulosonic acid
+DL3,9daltNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-D-glycero-L-altro-nonulosonic acid 
+LL3,9daltNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-L-glycero-L-altro-nonulosonic acid 
+DD3,9dgulNon5N7N-ulosonic	non	; 5,7-diamino-3,5,7,9-tetradeoxy-D-glycero-D-gulo-nonulosonic acid 
+
+Caryose		non		; 4,8-cyclo-3,9-dideoxy-L-erythro-D-ido-nonose
+Caryophyllose	dec		; 3,6,10-trideoxy-4-C-[(R)-1-hydroxyethyl]-D-erythro-D-gulo-decose
+
+Erwiniose	oct		; 3,6,8-trideoxy-4-C-[(R)-1-hydroxyethyl]-D-gulo-octose 
+Etg		di	opn	; ethylene glycol
+Etg-al		di	opn	; glycolaldehyde
+
+;Cet		tri	opn	; 1-carboxyethyl (?); alias for Lac
+Gro-al		tri	opn	; glyceraldehyde
+Gro		tri	opn	; glycerol (always change -3)LGro to -1)DGro !)
+GroN		tri	opn	; 2-amino-2-deoxyglycerol (2-aminopropane-1,3-diol)
+
+Ery		tet	opn	; erythrose
+Ery-ol		tet	opn	; erythritol
+1dEry-ol	tet	opn	; 1-deoxyerythritol
+4dEry-ol	tet	opn	; 4-deoxyerythritol
+1dEry3N-ol	tet	opn	; 3-amino-1,3-dideoxyerythritol
+Ery-onic	tet	opn	; erythronic acid
+EryN		tet	opn	; 2-amino-2-deoxyerythritol 
+Thrs		tet	opn	; threose
+3dgroTet	tet	opn	; 3-deoxy-glycero-tetrose
+3dgroTet-ol	tet	opn	; 3-deoxy-glycero-tetritol
+1,3dgroTet	tet	opn	; 1,3-dideoxy-glycero-tetrose
+1,3dgroTet-ol	tet	opn	; 1,3-dideoxy-glycero-tetritol
+Thr-ol		tet	opn	; threitol
+1dThr-ol	tet	opn	; 1-deoxythreitol
+4dThr-ol	tet	opn	; 1-deoxythreitol
+1dThr3N-ol	tet	opn	; 3-amino-1,3-dideoxythreitol
+3dgroTet-onic	tet	opn	; 3-deoxy-glycero-tetronic acid
+Thr-onic	tet	opn	; threonic acid
+ThrN		tet	opn	; 2-amino-2-deoxythreitol 
+
+Api		tet	opn	; 3-C-(Hydroxymethyl)-glycero-tetrose (apiose)
+Xyl-ol		pen	opn	; xylitol
+Rib-ol		pen	opn	; ribitol
+Ara-ol		pen	opn	; arabinitol	
+
+Glc-ol		hex	opn	; glucitol
+GlcN-ol		hex	opn	; 2-amino-2-deoxyglucitol
+Mur-ol		hex	opn	; 2-amino-3-C-[(R)-1-carboxyethyl]-2-deoxy-D-glucitol (muramic acid alditol)
+
+Qui-ol		hex	opn	; 6-deoxyglucitol (quinovitol)
+QuiN-ol		hex	opn	; 2-amino-2,6-dideoxyglucitol
+Qui3N-ol	hex	opn	; 3-amino-3,6-dideoxyglucitol
+
+Man-ol		hex	opn	; mannitol
+Rha-ol		hex	opn	; 1-deoxymannitol (rhamnitol)
+Gal-ol		hex	opn	; galactitol
+GalN-ol		hex	opn	; 2-amino-2-deoxygalactitol
+Fuc-ol		hex	opn	; 6-deoxy-D-galactitol (D-fucitol), 1-deoxy-D-galactitol (L-fucitol)
+FucN-ol		hex	opn	; 2-amino-2,6-dideoxy-D-galactitol if (D), 5-amino-1,5-dideoxy-D-galactitol if (L)
+Tal-ol		hex	opn	; talitol
+6dTal-ol	hex	opn	; 6-deoxytalitol
+1dAlt-ol	hex	opn	; 1-deoxyaltritol
+1,5daraHex-ol	hex	opn	; 1,5-dideoxy-arabinitol
+
+LyxN2CMe-onic	hex	opn	; 2-amino-2-deoxy-2-C-methyllyxonic acid
+
+1,5anhGlc-ol	hex	opn	; 1,5-anhydroglycitol
+1,6anhGlcN	hex	opn	; 2-amino-1,6-anhydro-2-deoxyglucose
+1,6anhGlc	hex	opn	; 1,6-anhydroglucose
+
+2,5anhMan	hex	opn	; 2,5-anhydromannose
+2,5anhTal	hex	opn	; 2,5-anhydrotalose
+2,5anhMan-ol	hex	opn	; 2,5-anhydromannitol
+2,5anhTal-ol	hex	opn	; 2,5-anhydrotalitol
+
+Ino			nsu	; inositol (general hexahydroxycyclohexane)
+mIno			nsu	; myo-inositol
+2dmIno3N		nsu	; 2,3-dideoxy-3-amino-myoInositol
+mIno1N3N		nsu	; 1,3-dideoxy-1,3-diamino-myoInositol
+sIno			nsu	; csyllo-inositol
+
+NH2			mva	; ammonia
+Ph			mva	; phenyl
+Cm			mva	; carbamic acid
+Am			mva	; acetimidic acid
+Bn			mva	; benzyl
+Allyl			mva	; allyl
+
+Me			mva	; methanol
+Et			mva	; ethanol
+Pr			mva	; propanol
+Bu			mva	; butanol
+Pe			mva	; pentanol
+Hx			mva	; hexanol
+Hp			mva	; heptanol
+Oc			mva	; octanol
+Nn			mva	; nonanol
+Dec			mva	; decanol
+Und			mva	; undecanol
+Dod			mva	; dodecanol
+
+Fo			mva	; formic acid - C1:0
+Ac			mva	; acetic acid - C2:0
+Pp			mva	; propanoic acid - C3:0
+Br			mva	; butyric acid - C4:0
+Vl			nsu	; valeric acid - C5:0
+Hxo			nsu	; hexanoic acid - C6:0
+Hpo			nsu	; heptanoic acid - C7:0
+Oco			nsu	; octanoic acid - C8:0
+Nno			nsu	; nonanoic acid - C9:0
+Dco			nsu	; decanoic acid - C10:0
+Udo			nsu	; undecanoic acid - C11:0
+Lau			nsu	; lauric (dodecanoic) acid - C12:0
+Myr			nsu	; myristic (tetradecanoic) acid - C14:0
+Pam			nsu	; palmitic (hexadecanoic) acid - C16:0
+dPam			nsu	; palmitoleic (hexadecenoic) acid - C16:1{9}
+Ste			nsu	; stearic (octadecanoic) acid - C18:0
+Ole			nsu	; oleic (cis-9-octadecenoic) acid - C18:1{9}
+Vac			nsu	; vaccenic (11-octadecenoic) acid - C18:1{11}
+Lin			nsu	; linoleic (cis,cis-9,12-octadecadienoic) acid - C18:2{9,12}
+aLnn			nsu	; (9,12,15)-linolenic (9,12,15-octadecatrienoic) acid - C18:3{9,12,15}
+gLnn			nsu	; (6,9,12)-linolenic (6,9,12-octadecatrienoic) acid - C18:3{6,9,12}
+eSte			nsu	; eleostearic (9,11,13-octadecatrienoic) acid - C18:3{9,11,13}
+Ach			nsu	; arachidic (icosanoic) acid - C20:0
+d2Ach			nsu	; 8,11-icosadienoic acid - C20:2{8,11}
+d3Ach			nsu	; 5,8,11-icosatrienoic acid - 20:3{5,8,11}
+d4Ach			nsu	; arachidonic (5,8,11,14-icosatetraenoic) acid - 20:4{5,8,11,14}
+Beh			nsu	; behenic (docosanoic) acid - C22:0
+Lig			nsu	; lignoceric (tetracosanoic) acid - C24:0
+Ner			nsu	; nervonic (cis-15-tetracosenoic) acid - C24:1{15}
+Crt			nsu	; cerotic (hexacosanoic) acid - C26:0
+Mon			nsu	; montanic (octacosanoic) acid - C28:0
+
+; some undescribed fatty acid: C16@={5,9} where 16 - number of carbons, 5,9 - positions of double bonds 
+; or C17@:c{9,11} - means C17 fatty acid with C9 bonded to C11, so that three-membered cycle is formed
+
+Gc			nsu	; glycolic (2-hydroxyacetic) acid
+3HOPro		nsu	; 3-hydroxypropanoic acid
+2,3HOPro		nsu	; 2,3-dihydroxypropanoic acid
+GroA			nsu	; 2,3-dihydroxypropanoic (glyceric) acid
+2HOBut		nsu	; 2-hydroxybutanoic acid
+3HOBut		nsu	; 3-hydroxybutanoic acid
+4HOBut		nsu	; 4-hydroxybutanoic acid
+2NBut 		nsu	; 2-aminobutanoic acid 
+2,4HOBut		nsu	; 2,4-dihydroxybutanoic acid
+3,4HOBut		nsu	; 3,4-dihydroxybutanoic acid
+2NBut 		nsu	; 2-aminobutanoic acid 
+3,5HOHex		nsu	; 3,5-dihydroxyhexanoic acid
+3S,5SHOHex		nsu	; 3S,5S-dihydroxyhexanoic acid
+
+phCer-ol		nsu	; phthioceranol -(CH2)16-CHOH-CH2-CHOH-(CH2)4-CH(CH3)-CH(OCH3)-Et
+
+Cer			nsu	; ceramide (general N-acetylated sphingoid)
+
+Sph			nsu	; any sphingosine, any sphingenine (2S,3R,4E-2-amino-4-en-1,3-diol) (4E-sphingenine) 
+SphC16			nsu	; hexadecasphingosine, hexadecasphingenine (2S,3R,4E-2-amino-4-hexadecene-1,3-diol) (4E-hexadecasphingenine) 
+SphC18			nsu	; sphingosine, sphingenine (2S,3R,4E-2-amino-4-octadecene-1,3-diol) (4E-sphingenine) 
+SphC20			nsu	; icosasphingosine, icosasphingenine (2S,3R,4E-2-amino-4-icosadecene-1,3-diol) (4E-icosasphingenine) 
+SphC22			nsu	; sphingosine C22, sphingenine C22
+
+cis-Sph			nsu	; any cis-sphingenine (2S,3R,4Z-2-amino-4-en-1,3-diol) (4Z-sphingenine)
+cis-SphC16		nsu	; cis-hexadecasphingosine, cis-hexadecasphingenine (2S,3R,4Z-2-amino-4-hexadecene-1,3-diol) (4Z-hexadecasphingenine) 
+cis-SphC18		nsu	; cis-sphingosine, cis-sphingenine (2S,3R,4Z-2-amino-4-octadecene-1,3-diol) (4Z-sphingenine) 
+cis-SphC20		nsu	; cis-icosasphingosine, cis-icosasphingenine (2S,3R,4Z-2-amino-4-icosadecene-1,3-diol) (4Z-icosasphingenine) 
+cis-SphC22		nsu	; cis-sphingosine C22, cis-sphingenine C22
+
+phSph			nsu	; any phytosphingosine (2S,3S,4R-2-amino-1,3,4-triol)
+phSphC16		nsu	; hexadecaphytosphingosine, hexadecaphytosphingenine (2S,3R,4R-2-amino-4-hexadecene-1,3,4-triol) (4E-hexadecaphytosphingenine) 
+phSphC18		nsu	; phytosphingosine, phytosphingenine (2S,3R,4R-2-amino-4-octadecene-1,3,4-triol) (4E-phytosphingenine) 
+phSphC20		nsu	; icosasphingosine, icosaphytosphingenine (2S,3R,4R-2-amino-4-icosadecene-1,3,4-triol) (4E-icosaphytosphingenine) 
+phSphC22		nsu	; phytosphingosine C22, phytosphingenine C22
+
+Sphn			nsu	; any sphinganine (D-erythro- or D-threo-2-amino-1,3-diol C14-24)
+SRSphnC16		nsu	; SR-hexadecasphynganine (D-erythro-2-amino-1,3-hexadecanediol)
+SRSphnC18		nsu	; SR-sphinganine (D-erythro-2-amino-1,3-octadecanediol)
+SRSphnC20		nsu	; SR-icosasphinganine (D-erythro-2-amino-1,3-icosanediol)
+SRSphnC22		nsu	; SR-sphinganine C22
+RRSphnC16		nsu	; RR-hexadecasphynganine (D-threo-2-amino-1,3-hexadecanediol)
+RRSphnC18		nsu	; RR-sphinganine (D-threo-2-amino-1,3-octadecanediol)
+RRSphnC20		nsu	; RR-icosasphinganine (D-threo-2-amino-1,3-icosanediol)
+RRSphnC22		nsu	; RR-sphinganine C22
+
+P			nsu	; phosphoric acid
+S			nsu	; sulfuric acid
+Mal			nsu	; malonic acid
+Suc			nsu	; succinic acid
+2HOSuc		nsu	; 2-hydroxysuccinic (malic) acid
+2HOGlt		nsu	; 2-hydroxyglutaric acid 
+Lac			nsu	; 2-hydroxypropanoic (lactic) acid ether (substituent: 1-carboxyethyl)
+Pyr			nsu	; 2-oxopropanoic (pyruvic) acid acetal (substituent: 1-carboxyethylidene)
+EtN			nsu	; 2-aminoethanol (ethanolamine)
+Cho			nsu	; 2-(trimethylammonio)ethanol (choline) 
+CetEtN		nsu	; 2-(1-carboxyethylamino)ethanol [N-(2-hydroxyethyl)alanine]
+
+Tau			nsu	; 2-aminoethanesulfonic acid (taurine)
+Gly			nsu	; glycine
+Ala			nsu	; alanine
+Ser			nsu	; serine
+Thr			nsu	; threonine
+aThr			nsu	; allothreonine
+Arg			nsu	; arginine
+Asp			nsu	; aspartic acid
+Asn			nsu	; asparagine 
+Glu			nsu	; glutamic acid
+Gln			nsu	; glutamine
+Igln			nsu	; isoglutamine
+His			nsu	; histidine
+Pro			nsu	; proline
+Orn			nsu	; ornithine
+Lys			nsu	; lysine
+Ile			nsu	; isoleucine
+Cys			nsu	; cysteine
+Leu			nsu	; leucine
+Val			nsu	; valine
+Tyr			nsu	; tyrosine
+Phe			nsu	; phenylalanine
+Met			nsu	; methionine
+
+SRCetLys		nsu	; (2S,8R)-N(epsilon)-(1-carboxyethyl)lysine
+RSCetLys		nsu	; (2R,8S)-N(epsilon)-(1-carboxyethyl)lysine
+SSCetLys		nsu	; (2S,8S)-N(epsilon)-(1-carboxyethyl)lysine
+RR3HO3MePro-5-oxo	nsu	; (2R,3R)-3-hydroxy-3-methyl-5-oxoproline
+3HO2,3MePro-5-oxo	nsu	; 3-hydroxy-2,3-dimethyl-5-oxoproline
+2,4HO3,3,4MePro-5-oxo	nsu	; 2,4-dihydroxy-3,3,4-trimethyl-5-oxoproline
+
+PmN2			nsu	; diaminopimelic acid
+mPmN2			nsu	; meso-diaminopimelic acid

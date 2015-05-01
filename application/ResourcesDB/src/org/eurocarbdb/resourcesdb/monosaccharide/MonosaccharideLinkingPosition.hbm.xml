@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.monosaccharide">
+	<class name="MonosaccharideLinkingPosition" table="monosaccharide_linking_position">
+		<id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">monosaccharide_linking_position_id_seq</param>
+            </generator>
+        </id>
+        <property name="position" column="position" not-null="true"/>
+        <property name="isAnomeric" column="is_anomeric" not-null="true"/>
+        <property name="comment" column="commentary" not-null="false"/>
+		<many-to-one name="linkingSubstitution" entity-name="Substitution" column="is_via_substitution" not-null="false"/>
+	</class>
+</hibernate-mapping>

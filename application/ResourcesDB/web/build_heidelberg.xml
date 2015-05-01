@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<project name="MsdbWeb" default="Main-Build" basedir=".">
+
+	<!-- EDIT PATHS -->
+	<property name="install_path" location="/srv/www/tomcat_production/MsdbWeb/"/>	
+	<property name="tomcat_path" location="/usr/local/tomcat/"/>
+	<property name="jar_libs_path" location="/root/installs/MsdbWeb/WEB-INF/lib/"/>		
+	
+	<!-- APPLIC PROPERTIES -->
+	<property name="bin" location="bin"/>
+	<property name="src" location="WEB-INF/src"/>
+	<property name="lib" location="WEB-INF/lib"/>
+	<property name="web" location="${install_path}/WEB-INF/"/>
+	<property name="templates" location="templates"/>
+	<property name="graphics" location="images"/>
+
+   <!-- ================================= 
+         target: Main-Build              
+          
+         Complete Build the project. Delete old files, compile, create jar and deploy
+        ================================= -->
+	<target name="Main-Build" depends="Init, Compile, CopyTemplates, Deploy"/>
+
+   <!-- ================================= 
+         target: Init              
+        ================================= -->
+	<target name="Init">
+		<delete dir="${bin}"/>
+		<delete dir="${web}/lib"/>
+		<delete dir="${web}/classes"/>
+		<delete dir="${web}/help"/>
+	    <delete dir="${install_path}/templates"/>
+		<delete dir="${install_path}/images"/>
+		<delete dir="${install_path}/plugin"/>
+    	<delete file="${web}/web.xml"/>
+	    <delete file="${web}/index.html"/>
+    	<delete file="${install_path}/msdb_styles.css"/>
+		<mkdir dir="${bin}"/>
+		<mkdir dir="${web}/classes"/>
+    	<mkdir dir="${install_path}/templates"/>
+    	<mkdir dir="${install_path}/images"/>
+		<mkdir dir="${install_path}/plugin"/>
+		<mkdir dir="${web}/help"/>
+	</target>
+
+   <!-- ================================= 
+         target: Compile              
+        ================================= -->
+	<target name="Compile">
+		<javac srcdir="${src}" destdir="${bin}" debug="on">
+			<classpath>
+ 	   			<pathelement path="${tomcat_path}/common/lib/servlet-api.jar" />
+  				<pathelement path="${jar_libs_path}/xwork-1.2.1.jar" />
+   				<pathelement path="${jar_libs_path}/rife-continuations.jar" />
+ 	   			<pathelement path="${jar_libs_path}/jdom-1.0.jar" />				
+ 	   			<pathelement path="${jar_libs_path}/webwork-2.2.4.jar" />								
+ 	   			<pathelement path="${jar_libs_path}/commons-logging.jar" />								
+ 	   			<pathelement path="${jar_libs_path}/hibernate3.jar" />								
+				<pathelement path="${jar_libs_path}/resourcesdb_interfaces_heidelberg.jar" />
+			</classpath>
+		</javac>
+	</target>
+
+   <!-- ================================= 
+         target: CopyTemplates              
+        ================================= -->
+	<target name="CopyTemplates">
+		<copy file="templates/msdb_styles.css" tofile="${install_path}/msdb_styles.css"/>		
+		<copy file="templates/msdb_index.html" tofile="${install_path}/index.html"/>				
+		<copy todir="${install_path}/templates">
+   			<fileset dir="${templates}"/>
+    	</copy>
+		<copy todir="${install_path}/images">
+			<fileset dir="${templates}/graphics"/>
+		</copy>
+		<copy todir="${install_path}/plugin">
+			<fileset dir="${templates}/plugin"/>
+		</copy>
+	</target>
+
+	<!-- ================================= 
+         target: Deploy              
+        ================================= -->
+	<target name="Deploy" depends="CopyTemplates">
+		<copy todir="${web}/classes">
+    		<fileset dir="${bin}"/>
+   		</copy>		
+		<copy todir="${web}/lib">
+   			<fileset dir="${lib}">
+				<exclude name="resourcesdb_interfaces.jar"/>
+			</fileset>
+    	</copy>		
+		<copy file="WEB-INF/web.xml" tofile="${web}/web.xml"/>
+		<copy file="WEB-INF/xwork.xml" tofile="${web}/classes/xwork.xml"/>
+	</target>
+</project>

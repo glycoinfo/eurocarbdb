@@ -1,0 +1,21 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="scan.scanId">
+        <field-validator type="int">
+            <param name="min">0</param>
+            <param name="max">0</param>
+            <message>You may not specify any IDs</message>
+        </field-validator>
+    </field>
+    <field name="scan.contributorQuality">
+        <field-validator type="required">
+            <message>You must provide a contributor quality rating</message>
+        </field-validator>
+        <field-validator type="double">
+            <param name="minInclusive">0.0</param>
+            <param name="maxInclusive">10.0</param>
+            <message>Contributor quality must be between ${minInclusive} and ${maxInclusive}. Current value is ${scan.contributorQuality}</message>
+        </field-validator>        
+    </field>    
+</validators>

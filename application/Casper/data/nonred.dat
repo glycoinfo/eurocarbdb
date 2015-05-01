@@ -1,0 +1,363 @@
+# Computer-Assisted Structural Analysis of
+# Oligosaccharides Using CASPER
+# P.-E. Jansson, L. Kenne, G. Widmalm
+set ref 'Anal. Biochem. 199 (1991) 11-17'
+
+residue aDGlcOMe HexOMe {
+ info $ref
+ config D
+ carbbank 'a-D-Glcp-(1-1)-Methyl'
+ ctname 'a-dglc'
+ jhh medium
+ jch large
+ shift 100.19 4.81 ax
+ shift  72.23 3.56 eq
+ shift  74.10 3.68 eq
+ shift  70.68 3.41 eq
+ shift  72.52 3.64
+ shift  61.67 3.76 3.87
+ shift  55.93 3.43
+}
+
+residue bDGlcOMe HexOMe {
+ info $ref
+ config D
+ carbbank 'b-D-Glcp-(1-1)-Methyl'
+ ctname 'b-dglc'
+ jhh large
+ jch small
+ shift 104.13 4.37 eq
+ shift  73.99 3.28 eq
+ shift  76.78 3.50 eq
+ shift  70.69 3.40 eq
+ shift  76.78 3.46
+ shift  61.82 3.74 3.92
+ shift  57.88 3.58
+}
+
+residue aDGlcAOMe HexAOMe {
+ info 'Diploma work by Lena Nurmeksela -89'
+ config D
+ carbbank 'a-D-GlcpA-(1-1)-Methyl'
+ ctname 'a-dglc'
+ jhh medium
+ jch large
+ shift 100.24 4.82 ax
+ shift 72.04 3.60 eq
+ shift 73.85 3.70 eq
+ shift 72.88 3.52 eq
+ shift 72.61 3.89
+ shift 177.13
+ shift 56.12 3.44
+}
+
+residue aDGalOMe HexOMe {
+ info $ref
+ config D
+ carbbank 'a-D-Galp-(1-1)-Methyl'
+ ctname 'a-dgal'
+ jhh medium
+ jch large
+ shift 100.35 4.85 ax
+ shift  69.17 3.84 eq
+ shift  70.46 3.81 eq
+ shift  70.19 3.99 ax
+ shift  71.54 3.89
+ shift  62.06 3.76 3.76
+ shift  55.96 3.43
+}
+
+residue bDGalOMe HexOMe {
+ info $ref
+ config D
+ carbbank 'b-D-Galp-(1-1)-Methyl'
+ ctname 'b-dgal'
+ jhh medium
+ jch large
+ shift 104.72 4.31 eq
+ shift  71.64 3.52 eq
+ shift  73.79 3.64 eq
+ shift  69.62 3.93 ax
+ shift  75.92 3.68
+ shift  61.84 3.78 3.78
+ shift  57.88 3.58
+}
+
+residue aDManOMe HexOMe {
+ info $ref
+ config D
+ carbbank 'a-D-Manp-(1-1)-Methyl'
+ ctname 'a-dman'
+ jhh small
+ jch large
+ shift 101.75 4.77 ax
+ shift  70.85 3.94 ax
+ shift  71.56 3.77 eq
+ shift  67.79 3.67 eq
+ shift  73.45 3.61
+ shift  61.92 3.78 3.90
+ shift  55.55 3.42
+}
+
+residue bDManOMe HexOMe {
+ info $ref
+ config D
+ carbbank 'b-D-Manp-(1-1)-Methyl'
+ ctname 'b-dman'
+ jhh small
+ jch small
+ shift 101.89 4.54 eq
+ shift  71.10 3.98 ax
+ shift  73.93 3.60 eq
+ shift  67.89 3.60 eq
+ shift  77.10 3.35
+ shift  62.02 3.74 3.92
+ shift  57.61 3.53
+}
+
+residue aLRhaOMe '6dHexOMe' {
+ info $ref
+ config L
+ carbbank 'a-L-Rhap-(1-1)-Methyl'
+ ctname 'a-lman'
+ jhh small
+ jch large
+ shift 101.74 4.69 ax
+ shift  70.94 3.93 ax
+ shift  71.30 3.72 eq
+ shift  73.01 3.45 eq
+ shift  69.23 3.66
+ shift  17.46 1.30
+ shift  55.54 3.40
+}
+
+residue bLRhaOMe '6dHexOMe' {
+ info $ref
+ config L
+ carbbank 'b-L-Rhap-(1-1)-Methyl'
+ ctname 'b-lman'
+ jhh small
+ jch small
+ shift 101.88 4.53 eq
+ shift  71.22 3.99 ax
+ shift  73.67 3.57 eq
+ shift  72.99 3.38 eq
+ shift  72.99 3.38
+ shift  17.49 1.31
+ shift  57.59 3.52
+}
+
+residue aLFucOMe '6dHexOMe' {
+ info $ref
+ config L
+ carbbank 'a-L-Fucp-(1-1)-Methyl'
+ ctname 'a-lgal'
+ jhh medium
+ jch large
+ shift 100.44 4.77 ax
+ shift  68.97 3.80 eq
+ shift  70.64 3.80 eq
+ shift  72.72 3.80 ax
+ shift  67.17 4.02
+ shift  16.12 1.23
+ shift  55.96 3.41
+}
+
+residue bLFucOMe '6dHexOMe' {
+ info $ref
+ config L
+ carbbank 'b-L-Fucp-(1-1)-Methyl'
+ ctname 'b-lgal'
+ jhh large
+ jch small
+ shift 104.61 4.28 eq
+ shift  71.37 3.48 eq
+ shift  73.97 3.63 eq
+ shift  72.24 3.74 ax
+ shift  71.62 3.78
+ shift  16.22 1.27
+ shift  57.81 3.55
+}
+
+# Source ???
+residue bDXylOMe PenOMe {
+# assignments may be wrong! (Chk)
+ info 'Methyl b-D-Xylopyranoside'
+ config D
+ carbbank 'b-D-Xylp-(1-1)-Methyl'
+ ctname 'b-dxyl'
+ jhh large
+ jch small
+ shift 104.82 4.42 eq
+ shift  73.88 3.34 eq
+ shift  76.72 3.53 eq
+ shift  70.12 3.71 eq
+ shift  66.00 4.06 3.42
+ shift  57.82 3.69
+}
+
+# fake shifts!
+# errors are calculated from adgalome-adglcome+adglc-adgal
+# and bdgalome-bdglcome+bdglc-bdgal
+
+residue aDGalNAcOMe HexNAcOMe {
+ info '* Methyl 2-acetamido-a-D-galactopyranoside'
+ config D
+ carbbank 'a-D-GalpNAc-(1-1)-Methyl'
+ ctname 'a-dgal'
+ jhh medium
+ jch large
+ copy aDGalNAc
+ add aDGlcOMe
+ sub aDGlc
+ error 0.05
+}
+
+residue bDGalNAcOMe HexNAcOMe {
+ info '* Methyl 2-acetamido-b-D-galactopyranoside'
+ config D
+ carbbank 'b-D-Galp-(1-1)-Methyl'
+ ctname 'b-dgal'
+ jhh large
+ jch small
+ copy bDGalNAc
+ add bDGlcOMe
+ sub bDGlc
+ error 0.05
+}
+
+residue aDGlcNAcOMe HexNAcOMe {
+ info '* Methyl 2-acetamido-a-D-glucopyranoside'
+ config D
+ carbbank 'a-D-GlcpNAc-(1-1)-Methyl'
+ ctname 'a-dglc'
+ jhh medium
+ jch large
+ copy aDGlcNAc
+ add aDGlcOMe
+ sub aDGlc
+ error 0.05
+}
+
+residue bDGlcNAcOMe HexNAcOMe {
+ info 'Acta Chem. Scand. 45 (1991) 517-522'
+ config D
+ carbbank 'b-D-GlcpNAc-(1-1)-Methyl'
+ ctname 'b-dglc'
+ jhh large
+ jch small
+ shift 102.76 4.46 eq
+ shift 56.39 3.67 eq
+ shift 74.90 3.56 eq
+ shift 71.06 3.45 eq
+ shift 76.79 3.45 eq
+ shift 61.82 3.75 3.93
+ shift 23.06 2.04
+ shift 175.35
+ shift 57.74 3.51
+}
+
+residue aDManNAcOMe HexNAcOMe {
+ info '* Methyl 2-acetamido-a-D-mannopyranoside'
+ config D
+ carbbank 'a-D-ManpNAc-(1-1)-Methyl'
+ ctname 'a-dman'
+ jhh medium
+ jch large
+ copy aDManNAc
+ add aDManOMe
+ sub aDMan
+ error 0.05
+}
+
+residue bDManNAcOMe HexNAcOMe {
+ info '* Methyl 2-acetamido-b-D-mannopyranoside'
+ config D
+ carbbank 'b-D-ManpNAc-(1-1)-Methyl'
+ ctname 'b-dman'
+ jhh large
+ jch small
+ copy bDManNAc
+ add bDManOMe
+ sub bDMan
+ error 1
+}
+
+#residue aDGlcAOMe HexAOMe {
+# info '* Methyl a-D-glucuronopyranoside'
+# config D
+# carbbank 'a-D-GlcpA-(1-1)-Methyl'
+# ctname 'a-dglc'
+# jhh medium
+# jch large
+# copy aDGlcA
+# add aDGlcOMe
+# sub aDGlc
+# error 0.05
+#}
+
+residue bDGlcAOMe HexAOMe {
+ info '* Methyl b-D-glucuronopyranoside'
+ config D
+ carbbank 'b-D-GlcpA-(1-1)-Methyl'
+ ctname 'b-dglc'
+ jhh large
+ jch small
+ copy bDGlcA
+ add bDGlcOMe
+ sub bDGlc
+ error 0.05
+}
+
+residue aDGalAOMe HexAOMe {
+ info '* Methyl a-D-galacturonopyranoside'
+ config D
+ carbbank 'a-D-GalpA-(1-1)-Methyl'
+ ctname 'a-dgal'
+ jhh medium
+ jch large
+ copy aDGalA
+ add aDGalOMe
+ sub aDGal
+ error 0.05
+}
+
+residue bDGalAOMe HexAOMe {
+ info '* Methyl b-D-galacturonopyranoside'
+ config D
+ carbbank 'b-D-GalpA-(1-1)-Methyl'
+ ctname 'b-dgal'
+ jhh large
+ jch small
+ copy bDGalA
+ add bDGalOMe
+ sub bDGal
+ error 0.05
+}
+
+residue aDManAOMe HexAOMe {
+ info '* Methyl a-D-mannuronopyranoside'
+ config D
+ carbbank 'a-D-ManpA-(1-1)-Methyl'
+ ctname 'a-dman'
+ jhh small
+ jch large
+ copy aDManA
+ add aDManOMe
+ sub aDMan
+ error 0.05
+}
+
+residue bDManAOMe HexAOMe {
+ info '* Methyl b-D-mannuronopyranoside'
+ config D
+ carbbank 'b-D-ManpA-(1-1)-Methyl'
+ ctname 'b-dman'
+ jhh small
+ jch small
+ copy bDManA
+ add bDManOMe
+ sub bDMan
+ error 1
+}
+

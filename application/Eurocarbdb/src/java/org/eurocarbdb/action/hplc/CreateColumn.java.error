@@ -1,0 +1,56 @@
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.Column;
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.Preparable;
+
+import org.apache.log4j.Logger;
+
+
+
+
+
+public class CreateColumn extends EurocarbAction {
+
+    protected static final Logger log = Logger.getLogger( Column.class.getName() );
+
+    private Column column = null;
+    
+    public String execute() throws Exception {
+
+
+
+        if ( this.getColumn() == null ) {
+
+ log.info( "No ssociated with  id "   );
+                this.addActionError( "Pro" );
+            return ERROR;
+ 
+//            return INPUT;
+	}
+	/*try {  
+            Eurocarb.getEntityManager().store(acquisition);  
+        }
+        catch ( Exception e ) {
+            addActionError( e.getMessage() );
+            return ERROR;  
+	    }*/
+	else {Eurocarb.getEntityManager().store(column);  
+        return SUCCESS;
+	}
+    }      
+
+
+    public Column getColumn() {
+        return column;
+    }
+
+    public void setColumn (Column column) {
+        this.column = column;
+    }
+
+}

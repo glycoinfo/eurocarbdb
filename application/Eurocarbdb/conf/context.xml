@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context debug="1" reloadable="true" >
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <ResourceLink global='jdbc/ecdb-postgres' name='jdbc/ecdb-postgres' type="javax.sql.Datasource"/>
+</Context>

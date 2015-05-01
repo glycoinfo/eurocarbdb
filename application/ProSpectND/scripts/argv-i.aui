@@ -1,0 +1,13 @@
+#
+# Reads the '-i name' flag and fills 'infile' with 'name'
+#
+if argv($argi) == "-i" then
+   if argc>$argi && argv($argi+1)[1] != "-" then
+      $argi += 1
+      %infile=argv($argi)
+      $argv_i = 1
+   else
+      println "Syntax: -i file_or_directory_name"
+      exit
+   endif
+endif

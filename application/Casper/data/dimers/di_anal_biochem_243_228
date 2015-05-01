@@ -1,0 +1,19 @@
+# A method for Determination of the Absolute Configuration of Chiral Glycerol
+# Residues in Natural Products Using TEMPO Oxidation and Characterization of
+# the Glyceric Acids Formed
+# T. Rundlöf, G. Widmalm
+set ref 'Anal. Biochem. 243 (1996) 228-233'
+
+dimer 'bDGlc(1->1)DGro' {
+shift 103.36 4.44; 74.04 3.29; 76.67 3.48; 70.68 3.38; 76.81 3.43; 61.77 3.70 3.89
+shift 71.67 3.75 3.87; 71.31 3.90; 63.40 3.57 3.66
+extract
+info $ref
+}
+
+dimer 'bDGlc(1->1)LGro' {
+shift 103.61 4.45; 74.09 3.30; 76.67 3.48; 70.66 3.38; 76.79 3.43; 61.77 3.71 3.89
+shift 71.86 3.67 3.95; 71.54 3.91; 63.40 3.58 3.66
+extract
+info $ref
+}

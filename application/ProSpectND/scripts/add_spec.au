@@ -1,0 +1,103 @@
+%file_1  = ""		# to be handled in "argv-1.aui"
+%file_2  = ""		# to be handled in "argv-2.aui"
+%file_3  = ""		# to be handled in "argv-3.aui"
+%file_4  = ""		# to be handled in "argv-4.aui"
+%outfile = "spec_add"		# to be handled in "argv-o.aui"
+
+$argi = 0
+while $argi < argc do
+
+   if argv($argi) == "-h" then
+      println "add_spectra.au argument options"
+      println "Current limit: Only the REAL part is used for addition"
+      println "-1 infile_1      - Define first input file"
+      println "-2 infile_2      - Define second input file"
+      println "-3 infile_3      - Define third input file"
+      println "-4 infile_4      - Define fourth input file"
+      println "-o output_file   - Define output file"
+#      println "-d dir          - Define the read dimension"
+      println "-h               - This help overview"
+      exit
+   endif
+
+   include "argv-1.aui"	# set variable 'infile'  with  input file name
+   include "argv-2.aui"	# set variable 'infile'  with  input file name
+   include "argv-3.aui"	# set variable 'infile'  with  input file name
+   include "argv-4.aui"	# set variable 'infile'  with  input file name
+   include "argv-o.aui"	# set variable 'outfile' with output file name
+
+  $argi += 1
+done
+
+if %file_1 == "" then
+   println "Missing first input file: Use: -1 infile1"
+   exit
+endif
+if %file_2 == "" then
+   println "Missing second input file: Use: -2 infile2"
+   exit
+endif
+
+println "Adding spectra. Output to "+%outfile
+
+# Open input file1
+block1
+ropen %file_1
+dr 1, 2
+# Set store mode to real
+sm 1
+
+block2
+ropen %file_2
+# Set processing direction
+dr 1, 2
+
+if %file_3 != "" then
+block3
+   ropen %file_3
+# Set processing direction
+   dr 1, 2
+endif
+
+if %file_4 != "" then
+block4
+   ropen %file_4
+# Set processing direction
+   dr 1, 2
+endif
+
+
+block1
+# Open output file
+wopen %outfile
+# For all records do ...
+for $i in sorted [..] do
+    print "\rProcessing record " + %i
+# Read record
+    rn $i
+#
+    block2
+    rn $i
+    block1
+    @r += block2:@r
+#
+    if %file_3 != "" then
+       block3
+       rn $i
+       block1
+       @r += block3:@r
+    endif
+#
+    if %file_4 != "" then
+       block4
+       rn $i
+       block1
+       @r += block4:@r
+    endif
+#
+# Write result
+    rw
+done
+println "\nDone"
+# Close output file
+wclose

@@ -1,0 +1,252 @@
+<?xml version='1.0'?>
+<monosaccharide_templates>
+<!-- superclass templates: -->
+<template>
+	<name>dec</name>
+	<longname>decaose</longname>
+	<size>10</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>XXXXXXXX</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>non</name>
+	<longname>nonose</longname>
+	<size>9</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>XXXXXXX</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>oct</name>
+	<longname>octose</longname>
+	<size>8</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>XXXXXX</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>hep</name>
+	<longname>heptose</longname>
+	<size>7</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>XXXXX</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>hex</name>
+	<longname>hexose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>XXXX</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>pen</name>
+	<longname>pentose</longname>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>XXX</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>tet</name>
+	<longname>tetrose</longname>
+	<size>4</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>XX</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>tre</name>
+	<longname>treose</longname>
+	<size>3</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>X</stereocode>
+	<is_superclass>true</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+
+<!-- specific templates: -->
+<template>
+	<name>all</name>
+	<longname>allose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2222</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+<template>
+	<name>alt</name>
+	<longname>altrose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1222</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+<template>
+	<name>gal</name>
+	<longname>galactose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2112</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+<template>
+	<name>glc</name>
+	<longname>glucose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+<template>
+	<name>gul</name>
+	<longname>gulose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2212</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+<template>
+	<name>ido</name>
+	<longname>idose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1212</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+<template>
+	<name>man</name>
+	<longname>mannose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1122</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+<template>
+	<name>tal</name>
+	<longname>talose</longname>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1112</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<name>ara</name>
+	<longname>arabinose</longname>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>122</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>lyx</name>
+	<longname>lyxose</longname>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>112</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>rib</name>
+	<longname>ribose</longname>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>222</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>xyl</name>
+	<longname>xylose</longname>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>212</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration>D</default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+
+<template>
+	<name>ery</name>
+	<longname>erythrose</longname>
+	<size>4</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>22</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+<template>
+	<name>tro</name>
+	<longname>threose</longname>
+	<size>4</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>12</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+
+<template>
+	<name>gro</name>
+	<longname>glycerinaldehyde</longname>
+	<size>3</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2</stereocode>
+	<is_superclass>false</is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+
+<!-- empty emtplate:
+<template>
+	<name></name>
+	<longname></longname>
+	<size></size>
+	<carbonyl_position></carbonyl_position>
+	<stereocode></stereocode>
+	<is_superclass></is_superclass>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+</template>
+-->
+</monosaccharide_templates>

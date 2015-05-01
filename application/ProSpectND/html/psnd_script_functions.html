@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (X11; I; Linux 2.0.34 i686) [Netscape]">
+   <TITLE>Scripts: User defined functions</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EF" VLINK="#51188E" ALINK="#FF0000">
+
+<H1>
+<A NAME="User defined functions"></A>User defined functions</H1>
+
+<HR WIDTH="100%">
+<UL><B>function</B> <I>&lt;name></I>
+<BR>...
+<BR><B>end</B>
+<P>Functions can be defined anywhere in the script, except inside loops
+or inside other functions. Functions start with the keyword <B>function</B>,
+followed by the name of the function. Functions end with the keyword <B>end</B>.
+A function is called by its name followed by () and preceded by the '$'
+or "%'' operator, depending of the returned result should be interpreted
+as a number or as a string.&nbsp; If no return value is required, both
+prefixes can be used.
+<P>Example:
+<BR>&nbsp;
+<PRE>function printtest
+println "Test"
+end
+
+$printtest()</PRE>
+This example prints the output: <TT>Test</TT>
+<P><B>return</B> { <I>&lt;string></I> }
+<P>Functions may, or may not return a value, by using the keyword <B>return</B>.
+This return value can be a number or a string.&nbsp; If return is omitted,
+or used without a value, the value of 0 is returned. When a string is returned,
+a <B>%</B> must be used to convert the function return value into a string.
+<BR>&nbsp;
+<P>Example:
+<P><TT>function printtest</TT>
+<BR><TT>return "Test"</TT>
+<BR><TT>end</TT>
+<P><TT>println %printtest()</TT>
+<P><B>return</B> { <I>&lt;number></I> }
+<P>When a number is returned, a <B>$</B> must be used to convert the function
+return value into a number.
+<P>Example:
+<P><TT>function test</TT>
+<BR><TT>return 3+77</TT>
+<BR><TT>end</TT>
+<P><TT>$abc = 3*$test()</TT>
+<P>abc now holds the value of 240
+<BR>&nbsp;
+<P><B>Numeric arguments: $1, $2, $3 ...</B>
+<P>Functions can also be called with a variable number of arguments. These
+arguments can be numbers or strings.&nbsp; Inside the function body, the
+first (number) argument is <B>$1</B>, the second is <B>$2</B>, etc.
+<BR>&nbsp;
+<P>Example:
+<P><TT>function multiply</TT>
+<BR><TT>return $1 * $2</TT>
+<BR><TT>end</TT>
+<P><TT>$result = $multiply(6,12)</TT>
+<P><B>String arguments: %1, %2, %3 ...</B>
+<P>If arguments are strings, use % with the argument number.
+<P>Example:
+<P><TT>function cat</TT>
+<BR><TT>return %1 + %2 + %3</TT>
+<BR><TT>end</TT>
+<P><TT>println %cat("This ", "is ", "a test.")</TT>
+<P>Numeric and string arguments can be freely mixed. Example:
+<P><TT>function mixed</TT>
+<BR><TT>$result = $1 + $2</TT>
+<BR><TT>return "result = " + %result</TT>
+<BR><TT>end</TT>
+<P><TT>println %mixed(6+6, "8")</TT>
+<P><B>Recursion</B>
+<P>Functions can be recursive, as long no internal stack overflow occurs.
+<P>Example:
+<BR>&nbsp;
+<BR>&nbsp;
+<P><TT>function recurs</TT>
+<BR><TT>if $count > 10 then</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; return</TT>
+<BR><TT>endif</TT>
+<BR><TT>println "Function call: " + %count</TT>
+<BR><TT>$count += 1</TT>
+<BR><TT>$recurs()</TT>
+<BR><TT>end</TT>
+<P><TT>$count=1</TT>
+<BR><TT>$recurs()</TT>
+<BR>&nbsp;
+<P><B>local </B><I>&lt;variable></I> = <I>&lt;expression></I>
+<BR>&nbsp;&nbsp;&nbsp; or
+<BR><B>local </B><I>&lt;variable></I> = <I>&lt;string></I>
+<P>All variables, used inside of the function body are global. In the example
+above, the variable <I>count </I>must be initialized before the function
+<I>recurs</I>
+is called for the first time.
+<P>However, if a variable is defined <B>local</B>, its value is only accessible
+inside the function body.
+<P>Example:
+<P><TT>function ltest</TT>
+<BR><TT>local $xx =143</TT>
+<BR><TT>$xx += 7</TT>
+<BR><TT>println "xx = " + %xx</TT>
+<BR><TT>end</TT>
+<P><TT>$xx= 6</TT>
+<BR><TT>$ltest()</TT>
+<BR><TT>println "xx = " + %xx</TT>
+<P>This script prints:
+<P><TT>xx = 150</TT>
+<BR><TT>xx = 6</TT>
+<BR>&nbsp;</UL>
+
+<P><BR>
+<HR WIDTH="100%">
+</BODY>
+</HTML>

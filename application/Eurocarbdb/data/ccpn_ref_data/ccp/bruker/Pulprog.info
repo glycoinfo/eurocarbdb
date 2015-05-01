@@ -1,0 +1,220 @@
+;Pulprog.info
+;avance-version (07/08/10)
+;
+;$CLASS=HighRes Info
+;$COMMENT=
+
+
+;For a pulseprogram the first characters (usually up to 6, but 
+;sometimes more) specify the type of experiment, e.g. DEPT, COSY,
+;NOESY etc.. Further properties of the pulseprogram are 
+;indicated by a two-character code, which is added to the name
+;in alphabetical order. For 2D experiments the mode (absolute value,
+;phase sensitive or echo-antischo) is always indicated. H- or X-
+;decoupling is assumed to be default for heteronuclear experiments, 
+;but not for homonuclear ones (except inad).
+;In case of redundant information some two-character codes may be
+;ommitted.
+;
+;The two-character codes used are the following:
+
+ro     roesy
+cn     cn
+nc     nc
+1n     1n
+n1     n1
+nn     nn
+180    180
+3c     3c
+3n     3n
+fw     fw
+co     co
+19f    fluor
+in     in
+
+ar     experiment for aromatic residues
+at     adiabatic TOCSY
+bi     with bird pulse for homonuclear J-decoupling
+bp     using bipolar gradients
+cc     cross correlation experiment
+cp     with composite pulse
+ct     constant time
+cw     decoupling using cw command
+cx     using CLEANEX_PM
+dc     decoupling using cpd command
+df     double quantum filter
+di     with DIPSI mixing sequence
+dh     homonuclear decoupling in indirect dimension
+dw     decoupling using cpd command only during wet sequence
+dq     double quantum coherence
+ea     phase sensitive using Echo/Antiecho method
+ec     with E.COSY transfer
+ed     with multiplicity editing
+es     excitation sculpting
+et     phase sensitive using Echo/Antiecho-TPPI method
+fb     using f2 - and f3 - channel
+fd     using f1 - and f3 - channel (for presaturation)
+fr     with presaturation using a frequency list
+ft     using f1 -, f2 - and f3 - channel (for presaturation)
+fh     F-19 observe with H-1 decoupling
+fp     using a flip-back pulse
+fl     for F-19 ecoupler
+f2     using f2 - channel (for presaturation)
+f3     using f3 - instead of f2 - channel
+f4     using f4 - instead of f2 - channel
+gd     gated decoupling using cpd command
+ge     gradient echo experiment
+gp     using gradients with ":gp" syntax
+gr     using gradients
+gs     using shaped gradients
+hb     hydrogen bond experiment
+hc     homodecoupling of a region using a cpd-sequence
+hd     homodecoupling
+hf     H-1 observe with F-19 decoupling
+hs     with homospoil pulse
+ia     InPhase-AntiPhase (IPAP) experiment
+id     IDIS - isotopically discriminated spectroscopy
+ig     inverse gated
+ii     using inverse (invi/HSQC) sequence
+im     with incremented mixing time
+i4     using inverse (inv4/HMQC) sequence
+jc     for determination of J coupling constant
+jd     homonuclear J-decoupled
+jr     with jump-return pulse
+lp     with low-pass J-filter
+lq     with Q-switching (low Q)
+lr     for long-range couplings
+l2     with two-fold low-pass J-filter
+l3     with three-fold low-pass J-filter
+mf     multiple quantum filter
+ml     with MLEV mixing sequence
+mq     using multiple quantum
+nd     no decoupling
+no     with NOESY mixing sequence
+pc     with presaturation and composite pulse
+pg     power-gated
+ph     phase sensitive using States-TPPI, TPPI, States or QSEQ
+pl     preparing a frequency list
+pn     with presaturation using a 1D NOESY sequence
+pp     using purge pulses
+pr     with presaturation
+ps     with presaturation using a shaped pulse
+qf     absolute value mode
+qn     for QNP-operation
+qs     phase sensitive using qseq-mode
+rc     for determination of residual dipolar couplings (RDC)/ J couplings
+rd     refocussed
+rl     with relay transfer
+rs     with radiation damping suppression using gradients
+rt     real time
+ru     using radiation damping compensation unit
+rv     with random variation
+r2     with 2 step relay transfer
+r3     with 3 step relay transfer
+se     spin echo experiment
+sh     phase sensitive using States et al. method
+si     sensitivity improved
+sm     simultaneous evolution of X and Y chemical shift
+sp     using a shaped pulse
+sq     using single quantum
+ss     spin-state selective experiment
+st     phase sensitive using States-TPPI method
+sy     symmetric sequence
+s3     S3E experiment
+tf     triple quantum filter
+tp     phase sensitive using TPPI
+tr     using TROSY sequence
+tz     zeroquantum (ZQ) TROSY
+ul     using a frequency list
+us     updating shapes
+wg     watergate using a soft-hard-soft sequence
+wt     with WET watersuppression
+w5     watergate using W5 pulse
+xf     x-filter experiments
+xy     with XY CPMG sequence
+x1     x-filter in F1
+x2     x-filter in F2
+x3     x-filter in F3
+zf     with z-filter
+zq     zero quantum coherence
+zs     using a gradient/rf spoil pulse
+1d     1D version
+1s     using 1 spoil gradients
+11     using 1-1 pulse
+19     using 3-9-19 pulse
+2h     using 2H lockswitch unit
+2s     using 2 spoil gradients
+3d     3D sequence
+3s     using 3 spoil gradients
+30     using a 30 degree flip angle
+45     using a 45 degree flip angle
+90     using a 90 degree flip angle
+135    using a 135 degree flip angle
+
+
+;Typical experiment names would be:
+;   cosy, dept, dipsi2, hmbc, hmqc, hoesy, hsqc, inad, inept, 
+;   mlev, noesy, roesy or trosy.
+
+
+;Inverse correlations are denoted as hmbc, hmqc or hsqc.
+;   Experiments with a BIRD sequence in the beginning
+;   also contain a bi in the name.
+
+
+;1D experiments, which are analogues of 2D experiments by virtue of
+;   a selective pulse, start with sel.
+;Semiselective 2D experiments have the same name as the unselective
+;   version but with an s at the beginning:
+;
+;   scosyph <-> cosyph.
+
+
+;A phase-sensitive (States-TPPI, TPPI etc.) NOESY experiment with 
+;   presaturation would then be: 
+;
+;	noesy + ph + pr  =    noesyphpr.
+
+
+;In the other direction the pulseprogram hmbcgplpndqf would be
+;
+;        hmbc + gp + lp + nd + qf
+;
+;	and therefor an:
+;
+;	inverse correlation for long-range couplings (HMBC) with
+;           coherence selection using gradients with ":gp" syntax,
+;           low-pass J-filter,
+;           no decoupling
+;           in absolute value mode.
+
+
+
+
+;The nomenclature of parameters is described in Pulprog.info.
+
+
+
+;Comments like:
+;
+;	;avance-version
+;	;begin ____
+;	;end ____  
+;
+;	with (____ = MLEV17, DIPSI2, ...)
+;
+;are evaluated by NMRSIM for the pulseprogram display and should
+;therefor not be removed. The syntax for begin/end statements allows
+;characters, numbers and '_'. Arithmetic operators must not be used.
+;
+;
+;The comments:
+;			  ;preprocessor-flags-start
+;                          ;preprocessor-flags-end
+;
+;are also evaluated to identify flags used in the pulseprogram and
+;must also not be removed.
+
+
+
+;$Id: Pulprog.info,v 1.1 2008/04/23 13:20:00 wimvranken Exp $

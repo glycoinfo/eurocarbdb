@@ -1,0 +1,29 @@
+  if argv($argi) == "-s" then
+  
+     if argc>($argi+1) && \
+        index("1234", argv($argi+1)[1]) != -1 then
+
+        $argi += 1      
+        if argv($argi)[1] == "1" then
+           %size1 = argv($argi+1)
+           println "Process arguments: size1 -> "+%size1
+        endif
+        if argv($argi)[1] == "2" then
+           %size2 = argv($argi+1)
+           println "Process arguments: size2 -> "+%size2
+        endif
+        if argv($argi)[1] == "3" then
+           %size3 = argv($argi+1)
+           println "Process arguments: size3 -> "+%size3
+        endif
+        if argv($argi)[1] == "4" then
+           %size4 = argv($argi+1)
+           println "Process arguments: size4 -> "+%size4
+        endif
+        $argi += 1
+     else
+        println "Syntax: -s n size, with n is the direction to set size"
+        exit
+     endif
+
+  endif

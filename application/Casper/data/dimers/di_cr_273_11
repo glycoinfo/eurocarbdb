@@ -1,0 +1,13 @@
+# A reinvestigation towards the conformation of methyl
+# a-D-mannopyranosyl-(1->6)-a-D-mannopyranoside by a combined
+# ROE and molecular dynamics analysis
+# B.A. Spronk, A. Rivera-Sagredo, J.P. Kamerling,
+# J.F.G. Vliegenthart
+set ref 'Carbohydr. Res. 273 (1995) 11-26'
+
+dimer 'aDMan(1->6)aDManOMe' {
+shift 100.3 4.91; 70.8 3.99; 71.5 3.85; 67.7 3.65; 73.6 3.71; 61.8 3.90 3.70
+shift 101.8 4.75; 70.8 3.94; 71.5 3.75; 67.4 3.74; 71.6 3.75; 66.5 3.76 3.98
+shift 55.7 3.40
+extract: info $ref:error 0.1
+}

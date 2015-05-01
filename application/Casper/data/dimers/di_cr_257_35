@@ -1,0 +1,39 @@
+# NMR and conformational investigations of the
+# pentasaccharide of the Forssman antigen and
+# overlapping disaccharide, trisaccharide, and
+# tetrasaccharide sequences
+# G. Grönberg, U. Nilsson, K. Bock, G. Magnusson
+
+set ref 'Carbohydr. Res. 257 (1994) 35-54'
+
+# Aglycones may differ from actual (bOMe= aOMe= )
+
+# 1) bDGal(1->4)bDGlcOMe /added OMe
+dimer 'bDGal(1->4)bDGlcOMe' {
+shift 103.7 4.45; 71.8 3.54; 73.4 3.66; 69.4 3.92; 76.1 3.72; 61.8 3.78 3.78
+shift 102.2 4.50; 73.7 3.30; 75.4 3.63; 79.2 3.65; 75.6 3.57; 60.9 3.80 3.97; 57.91 3.58
+extract:info $ref
+error 0.1
+}
+
+# 2) aDGal(1->4)bDGalOMe /added OMe
+dimer 'aDGal(1->4)bDGalOMe' {
+shift 101.1 4.97; 69.6 3.83; 70.0 3.91; 69.8 4.03; 71.1 4.36; 61.8 3.70 3.70
+shift 103.0 4.47; 71.9 3.52; 73.4 3.71; 78.0 4.03; 75.8 3.74; 60.9 3.83 3.88; 57.88 3.58
+extract:info $ref
+error 0.1
+}
+
+dimer 'bDGalNAc(1->3)aDGalOMe' {
+shift 103.9 4.63; 53.6 3.93; 71.7 3.74; 68.6 3.93; 75.8 3.66; 60.7 3.75 3.79; 23.1 2.03; 176.0
+shift 100.3 4.80; 68.0 3.88; 80.0 3.88; 69.9 4.19; 71.1 3.90; 61.8 3.73 3.73; 55.8 3.41
+extract:info $ref
+error 0.1
+}
+
+dimer 'aDGalNAc(1->3)bDGalNAcOMe' {
+shift  94.1 5.07; 50.1 4.21; 68.5 3.77; 69.1 4.01; 72.2 3.83; 61.7 3.77 3.77; 22.8 2.04; 175.4
+shift 102.7 4.46; 51.3 4.04; 75.6 3.79; 64.4 4.12; 75.9 3.65; 61.8 3.76 3.83; 23.0 2.05; 175.4; 57.8 3.53
+extract:info $ref
+error 0.1
+}

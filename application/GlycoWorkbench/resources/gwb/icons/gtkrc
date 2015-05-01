@@ -1,0 +1,131 @@
+include "iconrc"
+gtk-icon-sizes ="gtk-button=16,16"
+
+
+style "default"
+{
+    bg[NORMAL]        = "#E8E9ED"
+    bg[PRELIGHT]      = "#E9ECF2"
+    bg[SELECTED]      = "#39698A"
+    bg[INSENSITIVE]   = "#EFEBE5"
+    bg[ACTIVE]        = "#BEC1C7"
+    
+    base[SELECTED]    = "#39698A"
+    base[INSENSITIVE] = "#DEE0E5"
+    
+    xthickness = 1
+    ythickness = 1
+    
+    GtkRange::slider_width          = 13
+    GtkRange::stepper_size          = 17
+    GtkScrollbar::min_slider_length = 31
+    GtkScale::slider-length         = 14
+    GtkPaned::handle_size           = 8
+    
+    engine "nimbus"
+    {
+    }
+}
+
+
+style "entry"
+{
+    xthickness = 2                        # xthickness + 1
+    ythickness = 2                        # ythickness + 1
+    
+    GtkEntry::inner-border = {2,2,2,1}    # make normal entries appear as high as entries within combos
+}
+
+
+style "combo-entry"
+{
+    GtkEntry::inner-border = {2,2,2,2}    # undo the above, entries within combos were ok in the first place
+}
+
+
+style "combobox"
+{
+    xthickness = 3                        # make the blue area the right size
+    ythickness = 0                        # ythickness - 1
+}
+
+
+style "menu"
+{
+    bg[NORMAL]        = "#EFF0F2"
+    
+    xthickness = 2
+    ythickness = 1
+}
+
+
+style "menubar"
+{
+    xthickness = 1
+    ythickness = 1
+    
+    engine "clearlooks"
+    {
+        contrast = 1.158
+    }
+}
+
+
+style "menu-item"
+{
+    bg[PRELIGHT]      = "#39698A"
+    
+    ythickness = 2                        # ythickness + 1
+}
+
+
+style "menu-separator"
+{
+    ythickness = 2
+}
+
+
+style "toolbar"
+{
+    xthickness = 1
+    ythickness = 1
+}
+
+
+style "progressbar"
+{
+    xthickness = 2
+    ythickness = 2
+}
+
+
+style "panel"
+{
+    xthickness = 0
+    ythickness = 0
+}
+
+
+style "tooltip"
+{
+    bg[NORMAL]        = "#FFFFCC"
+}
+
+
+
+
+class "GtkWidget"                   style "default"
+class "GtkEntry"                    style "entry"
+widget_class "*GtkComboBox*"        style "combobox"
+widget_class "*GtkCombo*.GtkEntry*" style "entry"                 # undo the above
+widget_class "*GtkCombo*.GtkEntry*" style "combo-entry"
+class "GtkSpinButton"               style "combo-entry"
+class "GtkMenu"                     style "menu"
+class "GtkMenuBar"                  style "menubar"               # flat menubar
+class "GtkMenuItem"                 style "menu-item"
+class "GtkSeparatorMenuItem"        style "menu-separator"
+class "GtkToolbar"                  style "toolbar"
+class "GtkProgressBar"              style "progressbar"
+class "PanelToplevel"               style "panel"                 # the panel itself
+#widget_class "*Panel*.GtkMenuBar"   style "panel-menu-workaround" # workaround for fast-user-switch-applet and indicator-applet, is now taken care of by the menubar modification
+widget "gtk-tooltip*"               style "tooltip"

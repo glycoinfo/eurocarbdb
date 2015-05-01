@@ -1,0 +1,14 @@
+# Proton and carbon-13 NMR assignments for structural elements of
+# xylose-containing N-linked oligosaccharides, using 1D- and 2D-NMR
+# experiments
+# J.B. Bouwstra, J. Kerekgyarto, J.P. Kamerling, J.F.G. Vliegenthart
+set ref 'Carbohydr. Res. 186 (1989) 39-49'
+
+# CS corrected (SugaBase) X5a X5e
+dimer 'bDXyl(1->2)bDManOMe' {
+shift 104.86 4.49; 74.10 3.35; 76.28 3.43; 70.06 3.62; 65.96 3.27 3.94
+shift 102.09 4.64; 78.85 4.16; 72.76 3.64; 68.18 3.52; 77.29 3.40; 61.72 3.94 3.73
+shift  57.77 3.54
+info $ref
+extract
+}

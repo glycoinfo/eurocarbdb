@@ -1,0 +1,17 @@
+# Structural Elucidation of 2 Capsular polysaccharides
+# from one strain of Bacteroides fragilis using high-resolution
+# NMR-spectroscopy
+# H. Baumann, A.O. Tzianabos, J.R. Brisson, D.L. Kasper, H.J. Jennings
+set ref 'Biochemistry 31 (1992) 4081-4089'
+
+residue bDGalf Hexf {
+carbbank 'b-D-Galf'
+info $ref
+config D
+shift 102.02 5.22 eq
+shift 82.36 4.02 eq
+shift 76.94 4.10 eq
+shift 83.18 4.05
+shift 71.69 3.81
+shift 63.65 3.64 3.70
+}

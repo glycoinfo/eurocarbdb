@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.representation">
+	<class name="ResidueRepresentation" entity-name="MonosaccharideRepresentation" table="monosaccharide_representation" lazy="true">
+		<id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">monosaccharide_representation_id_seq</param>
+            </generator>
+        </id>
+        <property name="typeStr" column="representation_type" not-null="true"/>
+        <property name="formatStr" column="representation_format" not-null="true"/>
+        <property name="width" column="width" not-null="false"/>
+        <property name="height" column="height" not-null="false"/>
+        <property name="locked" column="locked" not-null="true"/>
+        <property name="data" column="representation_data" not-null="true"/>
+	</class>
+	<class name="ResidueRepresentation" entity-name="SubstituentRepresentation" table="substituent_representation" lazy="true">
+		<id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">substituent_representation_id_seq</param>
+            </generator>
+        </id>
+        <property name="typeStr" column="representation_type" not-null="true"/>
+        <property name="formatStr" column="representation_format" not-null="true"/>
+        <property name="width" column="width" not-null="false"/>
+        <property name="height" column="height" not-null="false"/>
+        <property name="locked" column="locked" not-null="true"/>
+        <property name="data" column="representation_data" not-null="true"/>
+	</class>
+	<class name="ResidueRepresentation" entity-name="AglyconRepresentation" table="aglycon_representation" lazy="true">
+		<id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">aglycon_representation_id_seq</param>
+            </generator>
+        </id>
+        <property name="typeStr" column="representation_type" not-null="true"/>
+        <property name="formatStr" column="representation_format" not-null="true"/>
+        <property name="width" column="width" not-null="false"/>
+        <property name="height" column="height" not-null="false"/>
+        <property name="locked" column="locked" not-null="true"/>
+        <property name="data" column="representation_data" not-null="true"/>
+	</class>
+</hibernate-mapping>

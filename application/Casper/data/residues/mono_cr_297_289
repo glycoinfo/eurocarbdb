@@ -1,0 +1,83 @@
+# A simple approach to the synthesis of muramic acid
+# and isomuramic acid: 1H and 13C NMR charcterization
+# V. Ragoussis, L. Leondiadis, E. Livaniou, G.P. Evangelatos
+set ref 'Carbohydr. Res. 297 (1997) 289-295'
+
+type 'Mur' {
+info 'Muramic acid'
+atom '1' 1 link pyran free
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran
+atom '6' 2 primary free
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+connect '1' '2' '3' '4' '5' '6'
+connect 'O_2' 'M_2'
+atom '1\'' 0
+atom '2\'' 1
+atom '3\'' 1 methyl
+connect '1\'' '2\'' '3\''
+}
+
+conversion 'Mur' 'Hex' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+conversion 'Mur' 'HexOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+conversion 'Mur' 'HexNAc' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'O_2' 'O_2'; 'M_2' 'M_2'
+}
+conversion 'Mur' 'HexNAcOMe' {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+map 'O_2' 'O_2'; 'M_2' 'M_2'
+}
+
+# muramic acid (Mur)
+residue 'aMurNAc' 'Mur' {
+info $ref
+jhh medium
+jch large
+shift 91.7 5.41; 56.2 3.27; 80.9 3.68; 73.0 3.56; 74.1 3.85; 62.8 3.75 3.83
+# copy from GNAc
+shift 22.87 2.06; 175.13
+shift 182.3; 81.9 4.28; 21.6 1.39
+config 'D'
+}
+
+residue 'bMurNAc' 'Mur' {
+info $ref
+jhh large
+jch small
+shift 95.7 4.91; 58.4 2.97; 82.6 3.52; 73.2 3.56; 78.6 3.45; 62.8 3.75 3.83
+# copy from GNAc
+shift 23.10 2.06; 175.49
+shift 182.3; 81.9 4.28; 21.6 1.39
+config 'D'
+}
+
+# iso-muramic acid (differs in lactyl config)
+residue 'aisoMurNAc' 'Mur' {
+info $ref
+jhh medium
+jch large
+shift 92.0 5.48; 55.9 3.37; 79.5 3.95; 71.7 3.67; 74.5 3.88; 62.9 3.76 3.93
+# copy from GNAc
+shift 22.87 2.06; 175.13
+shift 181.5; 79.9 4.39; 21.3 1.42
+config 'D'
+}
+
+residue 'bisoMurNAc' 'Mur' {
+info $ref
+jhh large
+jch small
+shift 95.6 4.93; 58.3 3.08; 81.5 3.72; 71.7 3.67; 78.8 3.49; 62.9 3.76 3.93
+# copy from GNAc
+shift 23.10 2.06; 175.49
+shift 181.5; 79.9 4.39; 21.3 1.42
+config 'D'
+}

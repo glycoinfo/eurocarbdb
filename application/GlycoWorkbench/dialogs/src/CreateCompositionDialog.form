@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" type="org.netbeans.modules.form.forminfo.DialogFormInfo">
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="closeDialog"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jSeparator2" alignment="0" pref="654" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
+                      <Component id="button_ok" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="button_cancel" linkSize="2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel66" min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="field_or2_name" pref="72" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel52" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel50" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel48" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel38" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel21" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel14" alignment="1" pref="153" max="32767" attributes="1"/>
+                          <Component id="jLabel16" alignment="0" pref="153" max="32767" attributes="1"/>
+                          <Component id="jLabel11" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel9" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel17" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Component id="jLabel19" alignment="0" pref="153" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel65" min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="field_or1_name" pref="72" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel67" min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="field_or3_name" pref="72" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel2" alignment="0" pref="58" max="32767" attributes="1"/>
+                                  <Component id="jLabel15" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel13" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel10" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel8" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel18" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel20" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel22" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel39" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel49" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel51" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="1"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="field_hex" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_pen" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_hep" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_hexn" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_hexnac" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_dpen" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_dhex" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_ddhex" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_mehex" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_or1" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_or2" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="field_or3" min="-2" pref="41" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="field_or3_mass" alignment="1" pref="111" max="32767" attributes="1"/>
+                          <Component id="field_or2_mass" alignment="1" pref="111" max="32767" attributes="1"/>
+                          <Component id="field_or1_mass" alignment="1" pref="111" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel28" alignment="0" pref="187" max="32767" attributes="1"/>
+                          <Component id="jLabel30" alignment="0" pref="187" max="32767" attributes="1"/>
+                          <Component id="jLabel32" alignment="0" pref="187" max="32767" attributes="1"/>
+                          <Component id="jLabel34" alignment="0" pref="187" max="32767" attributes="1"/>
+                          <Component id="jLabel23" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel36" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel40" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel42" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel44" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel46" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel54" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel55" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel56" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel57" alignment="0" min="-2" max="-2" attributes="1"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel41" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel37" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel24" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel29" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel31" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel33" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel35" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel43" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel45" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel47" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel58" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel59" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel60" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jLabel61" alignment="0" min="-2" max="-2" attributes="1"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="field_dhexa" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_hexa" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_neu5gc" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_neu5ac" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_neu5gclac" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_neu5aclac" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_kdo" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_kdn" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_mur" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_s" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_p" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_ac" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_pyr" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="field_pc" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_pen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_hexa" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_hex" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_dhexa" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_hep" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_neu5gc" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_hexn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_neu5ac" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_hexnac" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_neu5gclac" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_dpen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_neu5aclac" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_dhex" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_kdo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_ddhex" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_kdn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_mehex" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_mur" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_s" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_p" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_ac" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_pyr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or1_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or1_mass" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_pc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or2_mass" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or2_name" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or3_mass" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_or3_name" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="button_ok" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="button_cancel" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pentose"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pen"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_pen">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hexose"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hex"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_hex">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Heptose"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hep"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_hep">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hexosamine"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="HexN"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_hexn">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N-Acetyl Hexosamine"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="HexNAc"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_hexnac">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel17">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deoxy-Pentose"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel18">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="dPen"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_dpen">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel19">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deoxy-Hexose"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel20">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="dHex"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_dhex">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel21">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DiDeoxy-Hexose"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel22">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ddHex"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_ddhex">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel23">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hexuronic Acid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel24">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="HexA"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_hexa">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel28">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dehydro Hexuronic Acid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel29">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="dHexA"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_dhexa">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel30">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N-Glycolyl Neuraminic Acid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel31">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Neu5Gc"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_neu5gc">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel32">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N-Acetyl Neuraminic acid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel33">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Neu5Ac"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_neu5ac">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel34">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lactonized Neu5Gc"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel35">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Neu5Gc-Lac"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_neu5gclac">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel36">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lactonized Neu5Ac"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel37">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Neu5Ac-Lac"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_neu5aclac">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel38">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Methyl-Hexose"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel39">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="MeHex"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_mehex">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel40">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="KDO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel41">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="KDO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_kdo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel42">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="KDN"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel43">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="KDN"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_kdn">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel44">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Muramic Acid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel45">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mur"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_mur">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel46">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Solphate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel47">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_s">
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator2">
+    </Component>
+    <Component class="javax.swing.JButton" name="button_ok">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_cancel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel48">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Other residue"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel49">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Or1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_or1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel50">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Other residue"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel51">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Or2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_or2">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel52">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Other residue"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel53">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Or3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_or3">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel54">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Phosphate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel55">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Acetate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel56">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pyruvate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel57">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Phosphocholine"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel58">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="P"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel59">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ac"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel60">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pyr"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel61">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PC"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_p">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_ac">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_pyr">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="field_pc">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel65">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Or1 name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_or1_mass">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_or2_mass">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel66">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Or2 mass"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel67">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Or3 mass"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_or3_mass">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_or1_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[4, 64]"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel62">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="mass"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_or2_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[4, 64]"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_or3_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[4, 64]"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel63">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="mass"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel64">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="mass"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

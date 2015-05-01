@@ -1,0 +1,1225 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                                        
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                                        
+  <meta name="GENERATOR"
+ content="Mozilla/4.72 [en] (X11; U; Linux 2.2.14-5.0 i686) [Netscape]">
+  <title>1D NMR</title>
+   
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff"
+ alink="#ff0000">
+                    
+<h1> 1D NMR</h1>
+                    
+<ul>
+          <li> <u><font color="#0000ff"><a href="#DSP%20Correction">DSP Correction</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Linear%20Prediction">Linear
+   Prediction</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Window">Window</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Water%20Wash">Water Wash</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Fourier%20transform">Fourier 
+   transformation</a></font></u></li>
+           <li> <u><font color="#0000ff"><a
+ href="#Hilbert%20transformation">Hilbert    transformation</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Phase%20correction">Phase
+  correction</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Power%20Spectrum">Power
+ Spectrum</a></font></u></li>
+           <li> <u><font color="#0000ff"><a
+ href="#Absolute%20Value%20spectrum">Absolute  Value spectrum</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Water%20Fit">Water Fit</a></font></u></li>
+           <li> <u><font color="#0000ff"><a
+ href="#Baseline%20correction">Baseline     correction</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Peak%20Picking">Peak Picking</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Calibration">Calibration</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Integration">Integration</a></font></u></li>
+           <li> <u><font color="#0000ff"><a href="#Measure%20Distance">Measure
+   distance</a></font></u></li>
+                   
+</ul>
+                    
+<hr width="100%">          
+<h2> <a name="DSP Correction"></a>DSP Correction</h2>
+                    
+<blockquote>Gives the number off points that are prepended at the start of 
+    the FID, due to Bruker digital signal processing. A correction suggested
+    by   <a href="dmx_digital_filters.html">W. M. Westler and F.&nbsp; Abildgaard</a>
+     is applied automatically during Window, Watwa and FT oprations. The
+number      of prepended points is determined during the prepa step from
+the DECIM   and  DSPFVS parameters in the Bruker acqu files.            
+               
+  <p><img src="dsp_popup.gif" alt="DSP correction popup menu."
+ height="104" width="259">
+          </p>
+                                   
+  <p>When the DSP correction is active, the prepended points are circular
+     left shited to the end of the FID after zero filling when a Fourier
+transformation      is performed. </p>
+                                   
+  <p>For example, if the DSP correction factor is set to 72.0156, the circular
+     left shift performed on the data will be 72 points and the linear phase
+   correction after Fourier transformation is -0.0156*360 = 5.62 degrees.
+  </p>
+                                   
+  <p>Note that DSP correction is <b><i><font color="#ff0000">NOT</font></i></b>
+     applied when a discrete Fourier transformation (<b>DFT</b>) is performd.</p>
+         </blockquote>
+                    
+<hr>          
+<h2> <a name="Linear Prediction"></a>Linear Prediction</h2>
+                    
+<h4> <a name="LPC - Linear Prediction"></a>Linear Prediction</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#LPC%20-%20Linear%20Prediction">Script: LPC/HSVD 
+    &lt;mode&gt;, &lt;num roots&gt;, &lt;future size&gt; / &lt;gap range&gt; 
+   { , &lt;range&gt; }</a></font></u>                            
+  <p><img src="lpc_popup.gif" height="460" width="262" align="bottom">
+           </p>
+                 
+</ul>
+                    
+<h4> Prediction type</h4>
+                    
+<ul>
+         Prediction type can be <b>LPC</b> or <b>HSVD</b>.              
+             
+  <p>LPC uses the formula </p>
+                                   
+  <p><img src="lpc_equation.gif" height="53" width="117">
+          </p>
+                                   
+  <p>where each new data point is a linear combination of N previous data
+     points. </p>
+                                   
+  <p>HSVD models the data as </p>
+                                   
+  <p><img src="hsvd_equation.gif" height="185" width="266">
+          </p>
+                                   
+  <p>Because HSVD does not use the original data to predict new data points,
+     the original fid may be replaced&nbsp; with&nbsp; synthetic data.</p>
+                 
+</ul>
+                    
+<h4> Direction</h4>
+                    
+<ul>
+         Can be <b>Forward</b> prediction, <b>Backward</b> prediction or
+  <b>Gap</b>      prediction. For forward prediction, the new data are added
+at the end  of   the data array. For backward prediction, the new data are
+added inside  the   data array, starting at the first point. For gap prediction
+the new  data  are added inside the gap         
+</ul>
+                    
+<h4> Number of poles</h4>
+                    
+<ul>
+         The number of roots (frequencies) to predict.         
+</ul>
+                    
+<h4> Size to predict</h4>
+                    
+<ul>
+         The number of data points to predict. For forward prediction, this 
+ size   is added add the end of the data array. For backward prediction, the
+ new  data are written inside the old data array. This value is not used for
+ gap  prediction.         
+</ul>
+                    
+<h4> Move roots</h4>
+                    
+<ul>
+         Make backward roots into forward ones.         
+</ul>
+                    
+<h4> Replace fid</h4>
+                    
+<ul>
+         Only for HSVD forward or backward prediction. If this flag is set
+ to  Yes,&nbsp;   the original fid is overwritten with synthetic data. Normally 
+  new data are   appended to the original.         
+</ul>
+                    
+<h4> Gap Start - Stop</h4>
+                    
+<ul>
+         For gap prediction <b>Size to predict</b> is not used, but <b>Gap
+ Start    - Gap Stop</b> is used instead. Gap Start must be &gt;= Predict
+Start and    Gap Stop must be &lt;= Predict Stop.         
+</ul>
+                    
+<h4> Predict Start - Stop</h4>
+                    
+<ul>
+         Defines which part of the data array is used for prediction. With
+ forward     prediction, the predicted part is added after stop. With backward
+ prediction,     the predicted part is added before start.         
+</ul>
+                    
+<hr>          
+<h2> <a name="Window"></a>Window</h2>
+            For window operations, use the <b>Process-&gt;Window</b> menu 
+option    or the  <img src="buttons_window_popup.gif"
+ alt="Launch window-popup button" width="47" height="30" align="middle">
+          button. Both activate the Window popup menu. Select here the Window 
+  type   and appropriate parameters.          
+<ul>
+           <img src="window_param_popup.gif" alt="Window popup menu."
+ height="340" width="275" align="bottom">
+                                   
+  <p>The Window Parameter box. The <b>Show Window</b> button has been used
+     to activate the popup box, the shape of the window, calculated with
+the    current parameters, is displayed on top of the FID. The two horizontal
+lines,   one near the top and the other near the bottom, depict the window
+values  1 and 0, respectively. A value of 1 means that the FID will be multiplied
+  with 1, at that position, etc. It also shows clearly if the window goes
+to  zero at the end. The command line option <u><font color="#0000ff"><a
+ href="commandline.html#WD">WD</a></font></u> (Window Display) can be used 
+    to hide, or re-display, the current window. Alternatively use <u><font
+ color="#0000ff"><a href="display.html#Display%20Arrays">Display-&gt;Show
+     Data </a></font></u>to control visibility of the window. The OK button
+  will  actually perform the window operation. </p>
+                                   
+  <p><img src="window_and_1d.gif" height="185" width="239"
+ align="bottom">
+          </p>
+                                   
+  <p>Window displayed on top of the FID.</p>
+                 
+</ul>
+                    
+<h4> <a name="Hamming Window."></a>Hamming Window.</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a href="commandline.html#HM">Command 
+line:    HM</a></font></u>    <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#HM%20-%20Hamming%20window">Script: HM { &lt;range&gt; 
+    }</a></font></u>                            
+  <p><img src="window_hm.gif" height="129" width="165" align="bottom">
+          </p>
+                                   
+  <p>Use a window of the form: </p>
+                                   
+  <p><img src="equation_hamming.gif" height="43" width="275"
+ align="bottom">
+           </p>
+                 
+</ul>
+                    
+<h4> <a name="Hanning Window."></a>Hanning Window.</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a href="commandline.html#HN">Command 
+line:    HN</a></font></u>    <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#HN%20-%20Hanning%20window">Script: HN { &lt;range&gt; 
+    }</a></font></u>                            
+  <p><img src="window_hn.gif" height="129" width="168" align="bottom">
+          </p>
+                                   
+  <p>Use a window of the form: </p>
+                                   
+  <p><img src="equation_hanning.gif" height="34" width="259"
+ align="bottom">
+           </p>
+                 
+</ul>
+                    
+<h4> <a name="Sine Bell"></a>Sine Bell</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#SN%20%3Cshift%3E">Command   line: SN &lt;shift&gt;</a></font></u>
+     <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#SN%20-%20Sine%20bell">Script: SN &lt;shift&gt; 
+    {, &lt;range&gt; }</a></font></u>                            
+  <p><img src="window_sn.gif" height="129" width="166" align="bottom">
+          </p>
+                                   
+  <p>SH = &lt;shift&gt; Must be &gt; 1.0. Typical values: [3..10] for 2D NOE,
+2D HOHAHA. [1000] pure sine, for absolute value COSY uses a window of the
+form: </p>
+                                   
+  <p><img src="equation_sine.gif" height="40" width="321" align="bottom">
+           </p>
+                 
+</ul>
+                    
+<h4> <a name="Squared Sine Bell"></a>Squared Sine Bell</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#SQ%20-%20Squared%20sine%20bell">Command line: SQ &lt;shift&gt;</a></font></u>
+  <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#SQ%20-%20Squared%20sine%20bell">Script: SQ &lt;shift&gt; 
+    {, &lt;range&gt; }</a></font></u>                            
+  <p><img src="window_sq.gif" height="128" width="167" align="bottom">
+          </p>
+                                   
+  <p>SH = &lt;shift&gt; Must be &gt; 1.0. Typical values: [3..10] for 2D NOE,
+2D HOHAHA. [1000] pure sine, for absolute value COSY uses a window of the
+form: </p>
+                                   
+  <p><img src="equation_squaresine.gif" height="36" width="331"
+ align="bottom">
+           </p>
+                 
+</ul>
+                    
+<h4> <a name="Exponential Multiplication"></a>Exponential Multiplication</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#EM%20%3Cline%20broadening%3E">Command line: EM &lt;line 
+    broadening&gt;</a></font></u> <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#EM%20-%20Exponential%20multiplication">Script:
+     EM &lt;line broadening&gt; {, &lt;range&gt; }</a></font></u>       
+                    
+  <p><img src="window_em.gif" height="128" width="166" align="bottom">
+          </p>
+                                   
+  <p>LB = &lt;line broadening&gt;Use a window of the form: </p>
+                                   
+  <p><img src="equation_exponential.gif" height="41" width="174"
+ align="bottom">
+          </p>
+                                   
+  <p>where SW is the spectral width in Hz.</p>
+                 
+</ul>
+                    
+<h4> <a name="Lorentz Gauss Transformation"></a>Lorentz Gauss Transformation</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#GM%20-%20Lorentz-gauss%20transformation">Command
+line: GM &lt;linewidth&gt; &lt;fraction&gt;</a></font></u> <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#GM%20-%20Lorentz-gauss%20transformation">Script:
+     GM &lt;linewidth&gt;, &lt;fraction&gt; {, &lt;range&gt; }</a></font></u>
+                               
+  <p><img src="window_gm.gif" height="129" width="167" align="bottom">
+          </p>
+                                   
+  <p>LB = &lt;linewidth&gt; <br>
+         GN = &lt;fraction&gt; </p>
+                                   
+  <p><img src="equation_lorentzg.gif" height="47" width="244"
+ align="bottom">
+          </p>
+                                   
+  <p>where SW is the spectral width in Hz and GB = GN * &lt;datasize&gt;</p>
+                 
+</ul>
+                    
+<h4> <a name="Convolution Difference"></a>Convolution Difference</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#CD%20-%20Convolution%20difference">Command line: CD
+&lt;line broadening&gt;</a></font></u> <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#CD%20-%20Convolution%20difference">Script: CD 
+    &lt;line broadening&gt; {, &lt;range&gt; }</a></font></u>            
+               
+  <p><img src="window_cd.gif" height="131" width="169" align="bottom">
+          </p>
+                                   
+  <p>LB = &lt;line broadening&gt; </p>
+                                   
+  <p>Use a window of the form: </p>
+                                   
+  <p><img src="equation_convdiff.gif" height="38" width="194"
+ align="bottom">
+          </p>
+                                   
+  <p>where SW is the spectral width in Hz.</p>
+                 
+</ul>
+                    
+<h4> <a name="Trapezian Multiplication."></a>Trapezian Multiplication.</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#TM%20-%20Trapezian%20multiplication">Command line: 
+    TM &lt;number of points&gt;</a></font></u> <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#TM%20-%20Trapezian%20multiplication">Script:
+TM &lt;number of points&gt; {, &lt;range&gt; }</a></font></u>           
+                
+  <p>&lt;<img src="window_tm.gif" height="128" width="167"
+ align="bottom">
+          </p>
+                                   
+  <p>IT = &lt;number of points&gt; <br>
+         Use a window of the form: </p>
+                                   
+  <p><img src="equation_trapezium.gif" height="62" width="218"
+ align="bottom">
+           </p>
+                 
+</ul>
+                    
+<h4> <a name="Kaiser Window."></a>Kaiser Window.</h4>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#KS%20-%20Kaiser%20window">Command line: KS &lt;theta&gt;</a></font></u>
+       <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#KS%20-%20Kaiser%20window">Script: KS &lt;theta&gt; 
+    {, &lt;range&gt; }</a></font></u>                            
+  <p><img src="window_kw.gif" height="128" width="168" align="bottom">
+          </p>
+                                   
+  <p>SH = &lt;theta&gt; Typical values: [1.5..3] <br>
+         &nbsp; </p>
+                                   
+  <p><img src="equation_kaiser.gif" height="74" width="268"
+ align="bottom">
+          <br>
+         &nbsp; </p>
+                                   
+  <p>Where bessi0 is zero order modified bessel function.</p>
+                 
+</ul>
+                    
+<h4> <a name="SH"></a>SH</h4>
+                    
+<blockquote><u><font color="#0000ff"><a
+ href="commandline.html#SH%20%3Cshift%3E">Command line: SH &lt;shift&gt;</a></font></u></blockquote>
+                    
+<ul>
+         Set shift for <u><font color="#0000ff"><a href="#Sine%20Bell">Sine 
+ Bell</a></font></u>    and <u><font color="#0000ff"><a
+ href="#Squared%20Sine%20Bell">Squared Sine    Bell</a></font></u> or theta 
+ for <u><font color="#0000ff"><a href="#Kaiser%20Window.">Kaiser Window</a></font></u>. 
+         
+</ul>
+                    
+<h4> <a name="LB"></a>LB</h4>
+                    
+<blockquote><a href="commandline.html#LB%20%3Cline%20broadening">Command line:
+LB &lt;line broadening&gt;</a></blockquote>
+                    
+<ul>
+         Set line broadening for <u><font color="#0000ff"><a
+ href="#Exponential%20Multiplication">Exponential Multiplication</a></font></u>, 
+      <u><font color="#0000ff"><a href="#Convolution%20Difference">Convolution
+     difference</a></font></u>, or line width for <u><font
+ color="#0000ff"><a href="#Lorentz%20Gauss%20Transformation">Lorentz Gauss
+ Transformation</a></font></u>.           
+</ul>
+                    
+<h4> <a name="GB"></a>GB</h4>
+                    
+<blockquote><a href="commandline.html#GB%20%3Cfraction">Command line: GB &lt;fraction&gt;</a></blockquote>
+                    
+<ul>
+         Set the Gaussian broadening (fraction) for <a
+ href="#Lorentz%20Gauss%20Transformation">Lorentz Gauss Transformation</a> 
+           
+</ul>
+                    
+<h4> <a name="IT"></a>IT</h4>
+                    
+<ul>
+           <a href="commandline.html#IT%20%3Cnumber%20of%20points">Command
+ line:    IT &lt;number of points&gt;</a>                            
+  <p>Set number of points for <u><font color="#0000ff"><a
+ href="#Trapezian%20Multiplication.">Trapezian Multiplication</a></font></u>.</p>
+                 
+</ul>
+                    
+<h2>           
+<hr width="100%"></h2>
+                    
+<h2> <a name="Water Wash"></a>Water Wash</h2>
+                    
+<ul>
+           <u><font color="#0000ff"><a
+ href="commandline.html#Water%20Wash">Command     line: WATWA &lt;power&gt;
+ &lt;convolution width&gt; { &lt;shift&gt; }</a></font></u>       <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#Water%20Wash">Script:   WATWA &lt;power&gt;,
+&lt;convolution width&gt; {, &lt;shift&gt; }</a></font></u>             
+               
+  <p>Clean up water by convolution of low frequency contribution (marion
+&amp; bax jmr 84, 425 (1989)). Modified to remove arbitrary peaks by doing
+a large first order phase correction, to shift the peak to the middle of
+the spectrum. Originally <b>shift</b> would <b>NOT</b> work for real data,
+and the peak removed would not be in the middle of the spectrum, but at the
+left of the spectrum. This is now handled by translating the data to complex
+(real-to-complex via FT-IFT), and back to real (complex-to-real via FT-IFT)
+afterwards. Correction for DSP shifted data points is done automatically.
+  </p>
+                                   
+  <p>Do on FID in acquisition direction before other processing steps. This
+ processing step is mainly     used to remove the water signal in 2D files.
+   <br>
+         &nbsp; </p>
+                                   
+  <p><img src="watwa_popup.gif" alt="Watwa popup menu." height="188"
+ width="255">
+           </p>
+                 
+</ul>
+                    
+<h4> Line Shape</h4>
+                    
+<ul>
+         The line shape of the convolution window. The convolution window 
+is  calculated   as: <br>
+         &nbsp;                            
+  <p><img src="watwa_window_eqn.gif" height="41" width="314"
+ align="bottom">
+          </p>
+                                   
+  <p>where <b>cw</b> is the convolution width, and <b>ls</b> determines to
+     what power the line shape is raised. The shape of the convolution window
+    should correspond more ore less with the peak that will be removed. A
+value    of 3 seems to work well. </p>
+                                   
+  <p><img src="watwa_cos_plot.gif" height="254" width="292"
+ align="bottom">
+           </p>
+                 
+</ul>
+                    
+<h4> Convolution width</h4>
+                    
+<ul>
+         The half width of the convolution window. Determines the width of
+ the   peak  that will be removed. Must be a value between 1 and half the
+size of  the time domain. If the convolution width is taken too small, say
+4, the whole middle part of the spectrum is flattened. If the convolution
+width is taken too large, only the middle part of the water line is removed.
+For most spectra,  64 seems a nice value.         
+</ul>
+                    
+<h4> Shift</h4>
+                    
+<ul>
+         If the peak is not in the middle of the spectrum, <b>shift</b> gives 
+  the   number of points required to shift the peak to the middle. This shift 
+  can   be determined by selecting the peak-to-be-removed with the mouse (Left
+   button, Watwa Shift mode)&nbsp;        in the Fourier-transformed spectrum.
+When the <b>Grab Mouse Button  1</b>    button is used, a spectrum is displayed
+with the FID and a peak can be selected.                             
+  <p>Example of calculating shift by hand: The time domain has a size of
+4096. Do a FT without zero filling. The water line (or other big peak) is
+now expected at 4096/2+1 = 2049. However, if the maximum of the water peak
+is at another position, say 2042, then <b>shift</b> should be set to -7.
+The spectrum is shifted by applying a <b>shift</b>*360 first order phase
+correction on the FID. After water wash, the spectrum is shifted back. </p>
+                                   
+  <p><img src="watwa_spec2.gif" alt="Watwa treated spectrum"
+ height="179" width="578">
+          <br>
+         Select peak from spectrum, and spectrum after Watwa modification 
+of  the   FID.</p>
+                 
+</ul>
+                    
+<hr>          
+<h2> <a name="Fourier transform"></a>Fourier transform</h2>
+                    
+<h4> <a name="FT - Fourier transform"></a>FT - Fast Fourier transform</h4>
+                    
+<ul>
+         The Fourier transformation can be invoked with the button&nbsp;
+   <img src="buttons_ft_popup.gif" alt="Launch ft-popup button"
+ width="46" height="32" align="middle" fourier_popup.gif="">
+       , and will activate a popup menu.<br>
+       &nbsp;&nbsp;                               
+  <p><u><font color="#0000ff"><a
+ href="commandline.html#FT%20%3Czero%20fill%3E">Command line:<b> FT</b> &lt;<i>zerofill&gt;</i></a></font></u>
+       <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#FT%20-%20Fourier%20transform">Script: FT &lt;<i>zerofill&gt;</i> 
+    {, <i>&lt;mode&gt;</i> }</a></font></u> </p>
+                                   
+  <p><b>Fourier mode</b> can be Real, Imaginary or Complex. The default is
+     to use Complex FT for complex data and Real FT for real data. </p>
+                                   
+  <p><b>Zero fill</b> gives the number of zerofill operations performed on
+     the FID before Fourier transformation. The default value is 0. The size
+   of the FID is always set to a power of 2, before a zerofill operation
+or   a Fourier transform operation is executed. For example, if the FID contains
+   1000 points, it is first expanded to 1024 points. If zerofill = 1, the
+number   of points is enlarged to 2048, and finally the Fourier transformation
+is  performed.    </p>
+                                   
+  <p><b>Scale first point</b> gives the value by which the first data point
+     is multiplied prior to Fourier transformation (default = 0.5). </p>
+                                   
+  <p>Via the Menu options <b>Parameters-&gt;Fourier mode</b> , the Fourier 
+    mode and zero-fill can also be set prior to Fourier transformation. <br>
+         &nbsp;</p>
+                 
+</ul>
+                    
+<h4> <a name="DFT - Discrete Fourier tranform"></a>DFT - Discrete Fourier 
+    tranform</h4>
+                    
+<ul>
+           <a href="commandline.html#DFT">Command line: DFT</a> <br>
+           <a
+ href="psnd_script_nmr.html#DFT%20-%20Discrete%20Fourier%20transform">Script:
+     DFT { &lt;mode&gt; }</a>                            
+  <p>Do a Fourier transformation on a FID which size is <b>not</b> a power
+     of 2.&nbsp; The zerofill operation is ignored, because in that case
+you    can better use a fast FT anyway. The algorithm in use is not really
+a discrete      Fourier transform but rather a fast Fourier transform that
+subdivides  the    initial problem into smaller problems, by using small
+prime factors.  The   algorithm works faster if the data size is made up
+from small prime  factors.   In the best case (the data size is a power of
+2), it works just  as the FFT,   in the worst case (if the largest prime
+factor is very large)  it is as slow   as a discrete Fourier transform.</p>
+                 
+</ul>
+                    
+<h4> <a name="IF - Inverse Fourier transform"></a>IFT - Inverse Fourier transform</h4>
+                    
+<ul>
+         Perform an inverse Fourier transformation. <br>
+           <u><font color="#0000ff"><a href="commandline.html#IF">Command 
+line:      <b>IFT</b></a></font></u>    <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#IF%20-%20Inverse%20Fourier%20transform">Script:
+     IFT</a></font></u>         
+</ul>
+                    
+<hr>          
+<h2> <a name="Hilbert transformation"></a>Hilbert transformation</h2>
+                    
+<ul>
+         Imaginary data are required to do a phase correction. If those data
+  have   not be stored, they can be reconstructed with a Hilbert transform.
+    <b><i><font color="#ff0000">WARNING: </font></i></b>The Hilbert Transform
+  will produce   artifacts if no zero filling has been used by the Fourier
+ transformation.      <br>
+           <u><font color="#0000ff"><a
+ href="commandline.html#Hilbert%20Transformation">Command line: HT</a></font></u>
+       <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#HT%20-%20Hilbert%20Transformation">Script: HT</a></font></u> 
+           
+</ul>
+                    
+<hr>          
+<h2> <a name="Phase correction"></a>Phase correction</h2>
+                    
+<ul>
+           <u><font color="#0000ff"><a href="commandline.html#Phase">Command
+  line:    PK { &lt;phase0&gt; { &lt;phase1&gt; { &lt;i0&gt; }}}</a></font></u>
+    <br>
+           <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#PK%20-%20Phase-correction">Script: PK { &lt;phase0&gt; 
+    {, &lt;phase1&gt; {, &lt;i0&gt; }}}</a></font></u>                   
+        
+  <ul>
+         &nbsp;                           
+  </ul>
+          Two types of interactive phase correction are provided.       
+                   
+  <p>A) </p>
+                                   
+  <p><img src="mouse_p0_p1_I0.gif" alt="Mouse Phase buttons" height="27"
+ width="80">
+          </p>
+                                   
+  <p>To do interactive phase correction, first select <b>P0</b> from the mouse
+button bar options. Move the mouse up and down, while pressing button1, 
+until the frequency independent phase is done. </p>
+                                   
+  <p>During this operation, the <b>auto scale</b> is disabled to keep the
+     baseline at a fixed position. Press the <b>PL</b> button to re-draw
+the    spectrum with the auto-scale option. Next, select <b>I0</b> from the
+mouse    button bar. Select a peak that has a correct phase and press the
+mouse button   to define the frequency independent position. Every time when
+a new <b>I0</b>     position is selected, phase parameter <b>P0</b> is recalculated
+to reflect     the current value of <b>P1</b> in the new situation. Hence,
+  <b>I0</b> can    be changed many times without influencing the end result.
+  </p>
+                                   
+  <p>Now select <b>P1</b> from the mouse button bar options. Determine the
+     frequency dependent phase in the same way as the frequency independent
+  phase  was determined. One can use <u><font color="#0000ff"><a
+ href="commandline.html#PN">PN</a></font></u> (Normalize Phase parameters) 
+    to recalculate the parameters <b>P0</b> and <b>P1</b> with <b>I0</b> set
+   to 1. This results in parameters that are not dependent on the size of
+the   spectrum.</p>
+                 
+</ul>
+             
+<blockquote><img src="phase_1d12.gif" height="205" width="587"
+ align="bottom">
+   </blockquote>
+                   
+<ul>
+         Interactive phase correction.                            
+  <p>B)<a name="Use Process-Phase"></a></p>
+                 
+</ul>
+                    
+<ul>
+         Use <b>Process-&gt;Phase</b> to activate a phase correction popup, 
+ or  use the  <img src="buttons_phase1d_popup.gif"
+ alt="Launch 1d-phase-popup button" width="42" height="26"
+ align="middle">
+       button.       
+</ul>
+                       
+<blockquote>         
+  <p><img src="phase1d_popup.gif" alt="1D-phase popup window"
+ width="196" height="365">
+                  </p>
+   </blockquote>
+                       
+<blockquote>         
+  <p><br>
+         Use the <b>Biggest</b> button in the <b>I0</b> box to set the frequency
+    independent position. Use the buttons in the <b>P0</b> box to adjust
+the    zero order phase, and the buttons in the <b>P1</b> box to manipulate
+the   first order phase correction. Other, phase related, functions are also
+provided.       </p>
+           
+  <p>Use <b>Set parameters</b> to set or change <b>P0 (=PA), P1 (=PB)</b> 
+   and/or <b>I0</b>. <b>Phase</b> can be <b>Do Phase</b>, <b><a
+ href="#Power%20Spectrum">Power Spectrum</a></b>, or <b><a
+ href="#Absolute%20Value%20spectrum">Absolute Value</a></b>. For the last 
+    two options, <b>P0, P1</b> and <b>I0</b> are ignored. </p>
+           
+  <p><img src="phase_param.gif" alt="Set phase parameters." height="165"
+ width="263">
+          <br>
+         &nbsp; </p>
+           
+  <p>Use <b>Reset parameters</b> to set <b>P0</b> and <b>P1</b> to 0 and 
+ <b>I0    </b>to 1. The use of <a href="commandline.html#PN">PN</a> is as
+   described above. </p>
+           
+  <p><i>Warning:</i> Be careful with the use of PK. The phase correction is
+  always done on the current spectrum. Thus, PK is only used when the phase
+   parameters are known and set, but no phase correction has been done yet.
+  Therefore, use the interactive phase correction (method A or B), or set
+the  parameters by hand and use PK. <br>
+         &nbsp;</p>
+   </blockquote>
+                                                                        
+                    
+<h2>           
+<hr width="100%"><a name="Power Spectrum"></a>Power Spectrum</h2>
+                    
+<blockquote><a href="commandline.html#PS">Command line: PS</a> <br>
+           <a
+ href="psnd_script_nmr.html#PS%20-%20Calculate%20power%20spectrum">Script:
+     PS</a>                            
+  <p>The real part of the spectrum is replaced by <br>
+         &nbsp; </p>
+                                   
+  <pre>PS(i) = real(i)**2 + imaginary(i)**2</pre>
+          All values are scaled, by multiplication of the reciprocal square 
+ root   of the biggest peak.</blockquote>
+                    
+<h2>           
+<hr width="100%"><a name="Absolute Value spectrum"></a>Absolute Value spectrum</h2>
+                    
+<blockquote><a href="commandline.html#AV">Command line: AV</a> <br>
+           <a
+ href="psnd_script_nmr.html#AV%20-%20Calculate%20absolut%20value%20spec">Script:
+     AV</a>                            
+  <p>The real data are replaced by the absolute value according to (magnitude
+     calculation) <br>
+         &nbsp; </p>
+                                   
+  <pre>AV(i) = sqrt(real(i)**2 + imaginary(i)**2)</pre>
+          </blockquote>
+                    
+<hr>          
+<h2> <a name="Water Fit"></a>Water Fit</h2>
+                    
+<blockquote><a
+ href="psnd_script_nmr.html#Waterfit%20-%20Remove%20big%20peak%20in%20frequency%20domain">Script:
+     WATERFIT &lt;position&gt; , &lt;width&gt;</a>                      
+     
+  <p>Remove water or any other big peak from the spectrum. The <b>Process-&gt;Water
+     Fit</b> menu item will show the following popup menu. </p>
+                                   
+  <p><img src="waterfit_show_popup.gif" alt="Water fit popup."
+ height="190" width="266">
+          <br>
+         &nbsp; </p>
+                                   
+  <h4> Peak Position</h4>
+          Enter the peak position in points (channel numbers).          
+                 
+  <h4> Peak Width</h4>
+          Optional peak width (also in points). The points falling into the 
+ width   region will be set to zero by the fit procedure, and the new waterline
+  will   be calculated starting at the left and the right position of this
+ width region.  By activating this option, distortions on the slope of the
+ water peak will  also be removed. Otherwise, these distortions are taken
+for peaks and carefully  preserved.                            
+  <h4> Calc/Show Waterline fit</h4>
+          Show the result of the fitting procedure.                     
+      
+  <p><img src="waterfit_spectrum.gif" alt="Waterfit spectrum."
+ height="227" width="670">
+          <br>
+         The result of waterline removal with waterfit. <br>
+         &nbsp;</p>
+         </blockquote>
+                    
+<hr width="100%">          
+<h2> <a name="Baseline correction"></a>Baseline correction</h2>
+                    
+<ul>
+         A baseline correction is performed by fitting a curve, e.g. a polynomial,
+     to the spectrum. The fitting algorithm tries to separate peaks and baseline
+     parts of a spectrum. The curve is fitted only to the baseline parts.&nbsp;
+     If the algorithm fails, the user can define the baseline parts with
+the    mouse. The resulting baseline curve can be viewed with the Show Baseline
+  option, before performing the actual baseline correction.             
+             
+  <p><a href="psnd_script_nmr.html#Baseline">Script: BC &lt;mode&gt; {, &lt;terms&gt;
+     {, &lt;terms2&gt; } } {, &lt;range&gt; { &lt;range2&gt; } }</a></p>
+                 
+</ul>
+                    
+<h4> &nbsp;Show Baseline and Baseline correction</h4>
+                    
+<ul>
+         The button <img src="buttons_baseline_popup.gif"
+ alt="Launch baseline-popup button" width="44" height="25"
+ align="middle">
+     or the  <b>Process-&gt;Baseline</b> menu will popup the following  menu
+  used for the baseline correction. Use <u><font color="#0000ff"><a
+ href="file:///home/kuik/prosp/html/display.html#Display%20Arrays">Display-&gt;Show 
+  Data</a></font></u>   to control visibility of the baseline.     
+</ul>
+                           
+<blockquote>         
+  <p><img src="baseline_popup.gif" alt="Baseline popup" width="262"
+ height="458" align="middle">
+   &nbsp;       <br>
+         &nbsp; </p>
+           
+  <p><b>Calc/Show Baseline</b> </p>
+           
+  <p>Show the result of the current baseline settings. </p>
+           
+  <p><b><a href="#Region%20selection">Define Window (region)</a></b> </p>
+           
+  <p>Define regions of the spectrum that should be considered to contain baseline.&nbsp;
+ The baseline correction functions will only be fitted to those parts. </p>
+           
+  <p><b><a href="#Spline%20Baseline%20Correction">Define Spline Fit</a></b>
+       <br>
+         &nbsp;</p>
+           
+  <h4> Baseline</h4>
+           
+  <ul>
+         Off. No baseline correction is performed.               
+  </ul>
+           
+  <h4> <a name="Baseline type"></a>Baseline type</h4>
+           
+  <ul>
+         This options lets you select the type of baseline correction.  
+                               
+    <p><img src="baseline_param_selection.gif" height="151" width="78"
+ align="bottom">
+          <br>
+         &nbsp; </p>
+                                         
+    <p><b>Polynomial </b>- uses a polynomial to fit the baseline.&nbsp; The
+     polynomial has the form: </p>
+                                         
+    <p><img src="equation_basepoly.gif" height="60" width="149">
+          </p>
+                                         
+    <p>where <tt>N</tt> is the number op polynomial terms. This means that
+  if the number of poly terms is set to 1, the data is fitted to a horizontal
+  line. If the number of poly terms is set to 2, the data is fitted to <tt>y
+  = a1 + a2 * x </tt>, etc. </p>
+                                         
+    <p><b>Table Fit</b> - use the contents of Buffer B for the baseline correction.&nbsp;
+     The formulae used is: </p>
+                                         
+    <p><img src="equation_basetable.gif" height="36" width="132">
+          <br>
+         where t stands for table buffer B. <br>
+         &nbsp; </p>
+                                         
+    <p><b>Sine</b> - use a sine for the baseline correction, that has the 
+ form:      </p>
+                                         
+    <p><img src="equation_basesine.gif" height="49" width="243">
+          </p>
+                                         
+    <p>where <tt>N</tt> is the number of polynomial terms and <tt>m</tt> is
+   the lower limit polynomial term. <br>
+         For example, if point 10 in the fid is distorted, a sine with 20 
+(polynomial)     terms will remove this distortion. More terms will remove 
+higher frequencies,     and therefore also peaks from the spectrum. Use scripts 
+for more precise    control of these types of baseline correction. </p>
+                                         
+    <p><b>Cosine</b> - use cosine instead of sine. </p>
+                                         
+    <p><b>Sine+Cosine</b> - use a function of the form: </p>
+                                         
+    <p><img src="equation_basesinecosine.gif" height="46" width="397">
+          </p>
+                                         
+    <p>where <tt>N</tt> is the number of polynomial terms and <tt>m</tt> is
+   the lower limit polynomial term. </p>
+                                         
+    <p><b>Spline</b> - Use this option if a spline function has been defined
+     in Buffer B. In fact, the <b>Table Fit </b>option is used after a spline
+    curve has been generated.&nbsp; To use this type of baseline correction
+  for  a 2D spectrum, see <a href="#Spline%20Baseline%20Correction">Spline
+ Baseline  Correction.</a>    </p>
+                                         
+    <p><font color="#000000"><b>Auto Spline</b> - With this option, the user
+     is NOT required to define spline control points. The positions of the
+ control    points are calculated by dividing the spectrum by the number
+of  polynomial    terms, and placing a control point at each separation point.
+ Thus the number    of control points is the number of polynomial terms +
+1. Using these control    points, the baseline is fitted to a trigonometric
+spline function.</font></p>
+                       
+  </ul>
+           
+  <h4> Window</h4>
+           
+  <ul>
+         If window is set to 'On', only the <u><font color="#0000ff"><a
+ href="#Region%20selection">regions defined in Buffer A</a></font></u> will 
+    be fitted for the baseline correction.               
+  </ul>
+           
+  <h4> Number of polynomial terms</h4>
+           
+  <ul>
+         The number of terms used for the polynomial, sine and cosine corrections. 
+                 
+  </ul>
+           
+  <h4> Min sin/cos terms</h4>
+           
+  <ul>
+         If this number is greater than 0, it defines the lower limit of
+terms    used  for sine and cosine corrections.               
+  </ul>
+           
+  <h4> Start baseline</h4>
+           
+  <ul>
+         First point used for baseline correction. If this number is 0, the 
+ first    point of the baseline correction will be the first point of the 
+data array.                 
+  </ul>
+           
+  <h4> Stop baseline</h4>
+           
+  <ul>
+         Last point used for baseline correction. If this number is 0, the
+ last   point  of the baseline correction will be determined by the size
+of  the data  array.               
+  </ul>
+           
+  <h4> <a name="Waterline"></a>Waterline</h4>
+           
+  <ul>
+         If Waterline is not 0, the baseline is fitted to the left and the
+ right    part of the waterline separately. The right hand part is reversed
+ before   fitting, and reversed again afterwards. The position of the baseline
+ must   be given in points.               
+  </ul>
+           
+  <h4> Waterline Width</h4>
+           
+  <ul>
+         Optional width (in points) defines a region that will not be used
+ for   the  baseline fit.                                  
+    <p><img src="mouse_baseline_water.gif"
+ alt="Select Water Line Mouse Button" height="24" width="77">
+          </p>
+                                         
+    <p><img src="baseline_water.gif"
+ alt="Baseline correctio + water line" height="227" width="294">
+          <br>
+         Figure shows the result of Calc/Show Baseline, where the Waterline 
+ option    has been turned on.</p>
+                       
+  </ul>
+   </blockquote>
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+         
+<h2> <a name="Spline Baseline Correction"></a>Spline Baseline Correction</h2>
+                    
+<ul>
+           <a
+ href="psnd_script_nmr.html#SPLINE%20-%20Spline%20baseline%20correction">Script:
+     spline read, &lt;filename&gt; ; spline calc</a>         
+</ul>
+                    
+<ul>
+         The spline baseline correction is a very powerful method to correct
+  distorted   baselines. The user interactively selects a number of points
+ in the spectrum   that are considered baseline-points. These points are
+used   as control points   to calculate a trigonometric spline curve that
+is then   subtracted from the   spectrum. First define mouse button 1 as
+'select',                             
+  <p><img src="mouse_spline.gif"
+ alt="Select Spline Control Points Mouse Button" height="24" width="77">
+          <br>
+         &nbsp; </p>
+                                   
+  <p>From the 'Options' menu select 'Spline Baseline Correction'. This will
+     activate the popup menu shown below. Press 'Reset Spline'. With the
+left     mouse button, select the baseline points. The spline curve will
+be calculated     during this process, and displayed in red. Press 'Close
+Spline'. Select   'Spline'  from the 'Baseline' option in the baseline parameter
+popup menu.   Press the  'BC' button on the menu bar, or type BC on the command
+line.   </p>
+                                   
+  <p><img src="spline_popup.gif" alt="Spline popup" width="199"
+ height="243" align="middle">
+     <br>
+          </p>
+                                   
+  <p><b>Y mode:</b> Follow spectrum - When a point is selected, the y value
+     of this point is taken from the spectrum. When baseline points are selected,
+     this is the best option. Follow cursor - When a point is selected, the
+  y  value of this point is taken from the cursor. This is useful to define
+  a control point that is not on the baseline. </p>
+                                   
+  <p><b>Init mode:</b> Exterpolating - The spline curve does not passes through
+     the control points. This gives usually the best results. Interpolating
+  -  The spline curve passes thought the control points. </p>
+                                   
+  <p><b>Reset Spline</b> - Set buffer B to zero. Remove previously defined
+     control points. Set some initial control points at the left of the spectrum.
+       </p>
+                                   
+  <p><b>Close spline</b> - Add some terminating control points to the right.
+       </p>
+                                   
+  <p><b>Re-calc Spline</b> - Previously defined control points are used to
+     re-calculate the spline curve. this is useful if, for example, the 'Init
+    mode' is changed. </p>
+                                   
+  <p><b>Read spline</b> - Read previously defined control points from disk.
+     Essential in 2D processing. </p>
+                                   
+  <p><b>Write spline</b> - Write previously defined control points to disk.
+       </p>
+                                   
+  <p><b>Grab Mouse</b> - Set the left mouse button to <b>Select Spline (Buf
+     B)</b>, as described above. <br>
+         &nbsp; </p>
+                                   
+  <p><img src="spline_process.gif" height="149" width="551"
+ align="bottom">
+          </p>
+                                   
+  <p>Example of spline baseline correction. A. The initial spectrum with
+distorted baseline. B. The initial spectrum with spline curve. C. The result
+after baseline correction.</p>
+                 
+</ul>
+                    
+<hr>          
+<h2> <a name="Region selection"></a>Region selection</h2>
+                    
+<ul>
+         Define mouse button 1 as 'Select Region'                       
+   
+  <p><img src="mouse_region.gif" alt="Select Region Mouse Button"
+ height="24" width="77">
+          </p>
+                                   
+  <p>Now the left mouse button can be used to select parts of the spectrum
+     (regions). The selected regions will be marked by a red line near the
+ top    of the spectrum. The unselected parts of the spectrum will have a
+red line    near the bottom of the spectrum. Go from left to right to select
+a region,    and from right to left to deselect a region. </p>
+                                   
+  <p><img src="screen_1d_region.gif" height="148" width="348"
+ align="bottom">
+          </p>
+                                   
+  <p>Spectrum with three selected regions. </p>
+                                   
+  <p><img src="select_region_popup.gif" height="112" width="136"
+ align="middle" alt="Select region popup">
+          </p>
+                                   
+  <p>For 2D processing, the regions needs to reside on disk. From the 'Options'
+     menu select the option <b>Process-&gt;Baseline Tools-&gt;Define Window&nbsp;
+     (region )</b>. This will activate a popup menu with the options: </p>
+                                   
+  <p><b>Clear Region</b> -Set all points in the region Buffer A to zero.
+  <br>
+           <b>Read Region</b> - Read regions from disk into Buffer A. <br>
+           <b>Write Region</b> - Write the regions, defined in Buffer A,
+to  disk.     <br>
+           <b>Grab Mouse</b> - Define the first mouse button as described 
+above.      <br>
+         &nbsp;</p>
+                 
+</ul>
+                    
+<hr>          
+<h2> <a name="Calibration"></a>Calibration</h2>
+     
+<blockquote> A spectrum is calibrated by selecting a position in the spectrum 
+    with the mouse and defining this position in ppm or Hz.&nbsp; First select 
+    from the mouse menu the function  <img src="mouse_calibrate.gif"
+ alt="Calibration position" width="28" height="25" align="middle">
+   .   Then select a reference peak in the spectrum an press mouse button 
+1.  A popup box appears where one can type the reference value in ppm.   
+                        
+  <p><img src="calibrate_box.gif" alt="Calibration popup box"
+ width="153" height="61" align="middle">
+   &nbsp;       <br>
+         &nbsp; </p>
+           
+  <p>This reference position is internally converted to the channel number 
+ at 0 ppm (or Hz). To make the calibration independent of the amount of zero 
+ filling by Fourier transformation and by read- and write operations of parts 
+ of the spectrum, the reference position is scaled to the size of the original 
+ FID and an offset is added. The factors that are used can be viewed and edited
+ by selecting   <b>Utilities-&gt;Calibrate</b>. This gives the following
+ popup  menu. </p>
+           
+  <p><img src="calibrate_popup.gif" alt="Calibration popup" width="410"
+ height="125" align="middle">
+      <br>
+          </p>
+           
+  <p>Reference channel at 0 ppm = <b>xref</b> * <b>aref</b> + <b>bref </b>-
+     1 </p>
+           
+  <p>Where <b>aref </b>= spectrum_size/<b>td</b> and <b>bref </b>= store_start
+     of a previous write operation. </p>
+           
+  <p><b>Grab Mouse button 1</b> sets the mouse button to Calibrate.</p>
+           
+  <p><br>
+          </p>
+           
+  <hr width="100%"></blockquote>
+                                                                        
+                                                                        
+             
+<h2> <a name="Integration"></a>Integration</h2>
+                    
+<ul>
+           <a
+ href="psnd_script_nmr.html#INTEGRAL%20-%20Integrate%20part%20of%201D%20or%202D%20spectrum">Script:
+     &lt;result&gt; = integral ( &lt;left&gt; , &lt;right&gt; { , &lt;bottom&gt; 
+    , &lt;top&gt; } )</a>                            
+  <p>Use the <b>Utilities-&gt;Integration 1D</b> menu item to popup the menu:
+       </p>
+                                   
+  <p><img src="integrate_1d_popup.gif" alt="Integration 1D popup menu."
+ height="207" width="140" align="middle">
+          </p>
+                                   
+  <p>Simple 1D integration routine. One way to calculate integrals is to
+give the left and right positions of the integral (in channel numbers), and
+then press <b>Calc Integral</b>. Better, use <b>Grab Mouse Button 1</b> to
+activate the left mouse button or activate this button via <img
+ src="mouse_integrate.gif" alt="1D Integration Mouse Button" height="25"
+ width="25" align="middle">
+. Select a peak by pressing the left mouse button at one side of the peak,
+     and releasing it at the other side. <br>
+           <img src="screen_1d_inegral.gif" height="168" width="202"
+ align="bottom">
+          <br>
+         &nbsp; <br>
+         The list of integrals can be printed in the terminal window with
+  <b>Print Integrals</b> or written to disk with <b>Write to disk</b>. The
+button <b>Clear list</b> will remove all integrals from the list.</p>
+                 
+</ul>
+                    
+<hr>          
+<h2> <a name="Peak Picking"></a>Peak Picking</h2>
+                    
+<ul>
+           <a
+ href="psnd_script_nmr.html#PEAKPICK%20%20-%20Simple%201D%20peak%20pick%20routine">Script:
+     &lt;npeaks&gt; = peakpick ( &lt;left&gt; , &lt;right&gt; , &lt;height&gt; 
+    , &lt;result&gt; )</a>                            
+  <p>Use the <b>Utilities-&gt;Peak Picking 1D</b> menu item to popup the menu:
+  </p>
+                                   
+  <p><img src="peakpick1d_popup.gif" alt="Peak Pick 1D popup menu."
+ height="187" width="133">
+          </p>
+                                   
+  <p>This to select a region in which peaks should be picked. Left an Right
+     are in channel numbers. One can also use the <b>Grab Mouse</b> button
+ to   select the region with the mouse, or set the mouse-button selection
+by hand   in the mouse-popup menu as follows: </p>
+                                   
+  <p>Define Mouse Button 1 as 'Peak pick, </p>
+                                   
+  <p><img src="mouse_peakpick.gif" alt="Peak Pick 1D Mouse Button"
+ height="26" width="26">
+          </p>
+                                   
+  <p>Select a Peak Pick Region by pressing the left mouse button at one side
+     of the region and releasing at the other side. The lowest Y-value of
+the    mouse cursor during the press- and release-operations, determines
+the lower    threshold and the highest value the upper threshold. </p>
+                                   
+  <p><img src="screen_1d_peakpick.gif" height="187" width="188"
+ align="bottom">
+          <br>
+         &nbsp;</p>
+                 
+</ul>
+                    
+<hr>          
+<h2> <a name="Measure Distance"></a>Measure Distance</h2>
+                    
+<ul>
+         Define Mouse Button 1 as 'Measure',                            
+  <p><img src="mouse_distance.gif" alt="Measure Distance Mouse Button"
+ height="25" width="23">
+          </p>
+                                   
+  <p>Select first position in the spectrum, and press mouse button1 one.
+Select the next position and release mouse button 1. The delta x and delta
+y are printed in the current axis units, for example:</p>
+                 
+</ul>
+                    
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dx = 0.440 ppm, dy = 2.619e+06</pre>
+                    
+<hr>  <br>
+  <br>
+ 
+</body>
+</html>

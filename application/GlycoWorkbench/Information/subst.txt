@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<carbohydrates>
+	<class name="substituent">
+		<sugar subclass="Diphosphoethanolamine" pos="0" pm="2" pac="1" mass_mono="202.9748586" mass_avg="203.0280114" mass_pm_mono="231,0061586" mass_pm_avg="231.0813594" mass_pdm_mono="237.0438194" mass_pdm_avg="237.1182882" mass_pac_mono="244,9854232" mass_pac_avg="245,0648954" mass_pdac_mono="248,0042536" mass_pdac_avg="248,0833598"> 
+			<composition element="C" count="2"/>
+			<composition element="H" count="9"/>
+			<composition element="O" count="7"/>
+			<composition element="N" count="1"/>
+			<composition element="P" count="2"/>
+		</sugar>
+	</class>
+</carbohydrates>
+
+<carbohydrates>
+	<class name="substituent">
+		<sugar subclass="Phosphoethanolamine" pos="0" pm="2" pac="1" mass_mono="123,0085288" mass_avg="123,0480132" mass_pm_mono="151,0398288" mass_pm_avg="151,1013612" mass_pdm_mono="157,0774896" mass_pdm_avg="157,13829" mass_pac_mono="165,0190934" mass_pac_avg="165,0848972" mass_pdac_mono="168,0379238" mass_pdac_avg="168,1033616"> 
+			<composition element="C" count="2"/>
+			<composition element="H" count="8"/>
+			<composition element="O" count="4"/>
+			<composition element="N" count="1"/>
+			<composition element="P" count="1"/>
+		</sugar>
+	</class>
+</carbohydrates>

@@ -1,0 +1,13 @@
+#
+# Reads the '-p name' flag and fills 'plpfile' with 'name'
+#
+if argv($argi) == "-p" then
+   if argc>$argi && argv($argi+1)[1] != "-" then
+      $argi += 1
+      %plpfile=argv($argi)
+      $argv_i = 1
+   else
+      println "Syntax: -p file_or_directory_name"
+      exit
+   endif
+endif

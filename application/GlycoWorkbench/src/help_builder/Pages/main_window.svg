@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.44"
+   sodipodi:docbase="/home/aceroni/Projects/EuroCarbDB/SVN/application/GlycoWorkbench/src/help/Pages"
+   sodipodi:docname="main_window.svg"
+   inkscape:export-filename="/home/aceroni/Projects/EuroCarbDB/SVN/application/GlycoWorkbench/src/help/Pages/main_window.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path6591"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lstart"
+       style="overflow:visible">
+      <path
+         id="path6582"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path6600"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient6419">
+      <stop
+         style="stop-color:white;stop-opacity:1;"
+         offset="0"
+         id="stop6421" />
+      <stop
+         style="stop-color:white;stop-opacity:0;"
+         offset="1"
+         id="stop6423" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5526">
+      <stop
+         style="stop-color:white;stop-opacity:1"
+         offset="0"
+         id="stop5528" />
+      <stop
+         style="stop-color:#ffffa5;stop-opacity:0;"
+         offset="1"
+         id="stop5530" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5526"
+       id="linearGradient5532"
+       x1="479.10449"
+       y1="385.198"
+       x2="457.53052"
+       y2="401.8873"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6419"
+       id="linearGradient6425"
+       x1="157.14285"
+       y1="280.93362"
+       x2="557.14285"
+       y2="280.93362"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.4566667"
+     inkscape:cx="357.14285"
+     inkscape:cy="771.42856"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1269"
+     inkscape:window-height="943"
+     inkscape:window-x="0"
+     inkscape:window-y="26" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       y="130.93362"
+       x="157.14285"
+       id="image1927"
+       height="300"
+       width="400"
+       sodipodi:absref="/home/aceroni/Projects/EuroCarbDB/SVN/application/GlycoWorkbench/src/help/Pages/main_window.png"
+       xlink:href="main_window.png"
+       style="fill-opacity:1.0;fill:url(#linearGradient5532);stroke:url(#linearGradient6425);stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+    <rect
+       style="opacity:1;fill:#ffffa5;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4595"
+       width="108.52039"
+       height="19.276648"
+       x="198.47807"
+       y="311.99612" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1930"
+       transform="translate(62.01352,6.325393)"
+       style="fill:white;fill-opacity:0"><flowRegion
+         id="flowRegion1932"><rect
+           id="rect1934"
+           width="94.241394"
+           height="16.420849"
+           x="143.50394"
+           y="308.42636"
+           style="fill:white;fill-opacity:0" /></flowRegion><flowPara
+         id="flowPara1936"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;font-family:Sans">Structure panel</flowPara></flowRoot>    <rect
+       y="362.88257"
+       x="436.20306"
+       height="19.267591"
+       width="110.54662"
+       id="rect5494"
+       style="opacity:1;fill:#ffffa5;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:1.00905538;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <g
+       id="g8435"
+       transform="translate(-3.256449,38.26322)">
+      <rect
+         y="256.1597"
+         x="419.03241"
+         height="19.416246"
+         width="79.759041"
+         id="rect5496"
+         style="opacity:1;fill:#ffffa5;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.86040151;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <flowRoot
+         style="fill:white;fill-opacity:0"
+         transform="translate(280.6024,-48.62712)"
+         id="flowRoot5506"
+         xml:space="preserve"><flowRegion
+           id="flowRegion5508"><rect
+             style="fill:white;fill-opacity:0"
+             y="308.42636"
+             x="143.50394"
+             height="16.420849"
+             width="94.241394"
+             id="rect5510" /></flowRegion><flowPara
+           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;font-family:Sans"
+           id="flowPara5512">Tools panel</flowPara></flowRoot>    </g>
+    <flowRoot
+       style="fill:white;fill-opacity:0"
+       transform="translate(297.2916,57.20734)"
+       id="flowRoot5518"
+       xml:space="preserve"><flowRegion
+         id="flowRegion5520"><rect
+           style="fill:white;fill-opacity:0"
+           y="308.42636"
+           x="143.50394"
+           height="16.013794"
+           width="103.60367"
+           id="rect5522" /></flowRegion><flowPara
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;font-family:Sans"
+         id="flowPara5524">Tools commands</flowPara></flowRoot>    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 471.29636,384.71164 L 451.43597,399.39106"
+       id="path6607" />
+    <rect
+       y="210.57625"
+       x="320.11874"
+       height="19.40271"
+       width="81.229416"
+       id="rect8387"
+       style="fill:#ffffa5;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.86799341;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <flowRoot
+       style="fill:white;fill-opacity:0"
+       transform="matrix(0.984324,0,0,1,185.0532,-94.62431)"
+       id="flowRoot8389"
+       xml:space="preserve"><flowRegion
+         id="flowRegion8391"><rect
+           style="fill:white;fill-opacity:0"
+           y="308.42636"
+           x="143.50394"
+           height="16.420849"
+           width="94.241394"
+           id="rect8393" /></flowRegion><flowPara
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;font-family:Sans"
+         id="flowPara8395">Main toolbar</flowPara></flowRoot>    <g
+       id="g8409"
+       transform="translate(-3.256445,12.61872)">
+      <rect
+         y="159.23761"
+         x="169.87154"
+         height="19.501951"
+         width="64.376633"
+         id="rect8397"
+         style="opacity:1;fill:#ffffa5;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.77469677;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <flowRoot
+         style="fill:white;fill-opacity:0"
+         transform="translate(31.48439,-145.9133)"
+         id="flowRoot8399"
+         xml:space="preserve"><flowRegion
+           id="flowRegion8401"><rect
+             style="fill:white;fill-opacity:0"
+             y="308.42636"
+             x="143.50394"
+             height="16.420849"
+             width="94.241394"
+             id="rect8403" /></flowRegion><flowPara
+           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;font-family:Sans"
+           id="flowPara8405">Menubar</flowPara></flowRoot>    </g>
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 200.18186,168.61602 L 219.88782,153.72993"
+       id="path8407"
+       inkscape:transform-center-y="17.096336"
+       inkscape:transform-center-x="-14.246947" />
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 338.16426,208.92864 L 318.72941,192.51499"
+       id="path8433"
+       inkscape:transform-center-y="-17.879795"
+       inkscape:transform-center-x="-12.186176" />
+    <rect
+       style="fill:#ffffa5;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.87987691;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8444"
+       width="83.520561"
+       height="19.390692"
+       x="442.48831"
+       y="224.07796" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot8446"
+       transform="matrix(0.915172,0,0,1.001575,315.773,-81.21688)"
+       style="fill:white;fill-opacity:0"><flowRegion
+         id="flowRegion8448"><rect
+           id="rect8450"
+           width="94.241394"
+           height="16.420849"
+           x="143.50394"
+           y="308.42636"
+           style="fill:white;fill-opacity:0" /></flowRegion><flowPara
+         id="flowPara8452"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;font-family:Sans">Panel selector</flowPara></flowRoot>    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 470.8899,222.33083 L 451.45505,205.91718"
+       id="path8459"
+       inkscape:transform-center-y="-17.879795"
+       inkscape:transform-center-x="-12.186176" />
+  </g>
+</svg>

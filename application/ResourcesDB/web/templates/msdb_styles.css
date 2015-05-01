@@ -1,0 +1,420 @@
+/* ***********************************/
+/* **                              ***/
+/* ** MonosaccharideDB Stylesheets ***/
+/* **                              ***/
+/* ***********************************/
+
+html,body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.0em;
+	margin: 0px;
+}
+
+#header {
+	color: #ffff00;
+	background-color: #00009b;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding: 0px;
+	vertical-align: bottom;
+	border-top: 2px solid #f11010;
+	border-bottom: 2px solid #f11010;
+}
+
+#header .header_right {
+	right: 5px;
+	position: absolute;
+	/*margin-top: 0px;*/
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#header a {
+	color: #ffff00;
+}
+
+#header a:hover {
+	color: #ffffa0;
+}
+
+.header_title {
+	font-weight: bold;
+	font-size: 2.0em;
+	padding: 5px;
+}
+
+.header_height {
+	font-size: 56px;
+}
+
+.content {
+	margin: 10px;
+	color: #000000;
+	background-color: ffffff;
+}
+
+#footer {
+	position: relative; left: 0px; right: 0px; top: 10px;
+	margin-bottom: 10px;
+	padding: 3px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 0.8em;
+	color: #ffff00;
+	text-align: center;
+	border-top: thin solid #f11010;
+	border-bottom: thin solid #f11010;
+	background-color: #00009b;
+}
+
+#footer a {
+	color: #ffff00;
+}
+
+#footer a:hover {
+	color: #ffffa0;
+}
+
+/* *** menu styles: *** */
+
+#top_menu {
+	background-color: #ffffff;
+	color: #f11010;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-bottom: 3px;
+}
+
+#top_menu .right {
+	right: 5px;
+	position: absolute;
+	/*margin-top: 0px;*/
+}
+
+#menu a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #00009b;
+}
+
+#menu a:hover {
+	color: #f11010;
+}
+
+#submenu {
+	background-color: #ffffff;
+	color: #f11010;
+	font-size: 0.84em;
+	font-weight: bold;
+	margin-left: 18px;
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-bottom: 3px;
+}
+
+#submenu a {
+	text-decoration: none;
+	color: #00009b;
+}
+
+#submenu a.selected {
+	color: #f11010;
+}
+
+#submenu a:hover {
+	color: #f11010;
+}
+
+/*** table styles: ***/
+td {
+	padding: 5px;
+}
+
+.tablehead {
+	color: #ffff00;
+	background-color: #00009b;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid #f11010;
+}
+
+.tablehead_whiteborder {
+	color: #ffff00;
+	background-color: #00009b;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid #ffffff;
+}
+
+.tablecontent {
+	color: #000000;
+	background-color: #f0f0a0;
+	text-align: left;
+	padding: 5px;
+	border: 1px solid #f11010;
+}
+
+.tablecontent_whiteborder {
+	color: #000000;
+	background-color: #f0f0a0;
+	text-align: left;
+	padding: 5px;
+	border: 1px solid #ffffff;
+}
+
+table.outer {
+	border: 1px solid #f11010;
+	border-collapse: collapse;
+	margin: 0px;
+}
+
+tr.outer {
+	border: 1px solid #f11010;
+	border-collapse: collapse;
+	margin: 0px;
+}
+
+table.contenttable {
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 5px;
+}
+
+.margin {
+	margin: 5px;
+}
+
+.tabsline {
+	border-bottom: 1px solid #f11010;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#tabs {
+	margin: 3px;
+	margin-bottom: 3px;
+	padding: 0px;
+	border: none;
+}
+
+.tabcell {
+	border: 1px solid #00009b;
+	border-bottom: none;
+	color: #808080;
+	font-weight: bold;
+	background-color: white;
+	padding: 3px;
+	margin-right: 3px;
+}
+
+.tabcell_selected {
+	border: 1px solid #00009b;
+	background-color: #00009b;
+	color: white;
+	font-weight: bold;
+	padding: 3px;
+	margin-right: 3px;
+}
+
+/*** other special styles: ***/
+
+.intro_head {
+	border: 1px solid #f11010;
+	border-bottom: none;
+	color: #ffff00;
+	background-color: #00009b;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+.intro_box {
+	border: thin solid #f11010;
+	color: #000000;
+	background-color: #f0f0a0;
+	padding: 10px;
+	text-align: justify;
+	border-collapse: collapse;
+}
+
+.configuration_label {
+	font-size: 90%;
+}
+
+/*** styles to mimick tables with div tags: ***/
+
+div.display_table {
+	display:table;
+	border-collapse:collapse;
+}
+
+div.display_row {
+	display:table-row;
+}
+
+div.display_cell {
+	display:table-cell;
+	vertical-align: top;
+}
+
+div.display_cell_topright {
+	display:table-cell;
+	vertical-align: top;
+	text-align:right;
+}
+
+/*** general styles: ***/
+
+.red {
+	color: #f11010;
+}
+
+.yellow {
+	color: yellow;
+}
+
+.black {
+	color: black;
+}
+
+.error {
+	color: #f11010;
+	background-color: white;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.border {
+	border: 1px solid #00009b;
+}
+
+hr {
+	border: 0;
+	color: #00009b;
+	background-color: #00009b;
+	height: 1px;
+}
+
+hr.redline {
+	border: 0;
+	color: #f11010;
+	background-color: #f11010;
+	height: 2px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.right {
+	right: 5px;
+	position: absolute;
+}
+
+a {
+	color: #00009b;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a.external_link:before {
+	content:url("images/externalLink.gif");
+}
+
+a:hover {
+	color: #f00000;
+}
+
+a.anchor {
+	text-decoration: none;
+}
+
+a.hint {
+	color: yellow;
+	background-color: #00009b;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+a.hint_inverse {
+	color: #00009b;
+	background-color: yellow;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+a.hint:hover {
+	color: yellow;
+	background-color: #f11010;
+	cursor: help;
+}
+
+a.hint_inverse:hover {
+	color: #00009b;
+	background-color: #f11010;
+	cursor: help;
+}
+
+.searchfield_title {
+	font-weight: bold;
+	margin-left: 15px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.searchfield_subline {
+	margin-left: 30px;
+	margin-top: 5px;
+}
+
+div.borderbox {
+	border: 1px solid #f11010;
+	padding: 5px;
+	margin: 0px;
+}
+
+.resultscounts {
+	border: 1px solid #f11010;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.structure_image {
+	border: none;
+}
+
+.smalltext {
+	font-size:0.8em;
+}
+
+.spacerline {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.longtext {
+	text-align: justify;
+	font-size: 1em;
+	line-height: 1.4em;
+	text-indent: 1em;
+}
+
+img.upperleft {
+	float: left;
+	padding: 10px;
+	padding-right: 20px;
+	padding-bottom: 2px;
+}
+
+.noborder {
+	border: none;
+}

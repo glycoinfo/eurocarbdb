@@ -1,0 +1,53 @@
+# Synthesis and 13C NMR spectra of 2,3-di-O-glycosyl
+# derivatives of methyl a-L-rhamnopyranoside
+# and methyl a-D-mannopyranoside
+# N.E. Nifant'ev, A.S. Shashkov, G.M. Lipkind,
+# N.K. Kochetkov
+
+set ref 'Carbohydr. Res. 237 (1992) 95-113'
+
+set c_corr -0.36
+set h_corr 0.01
+# 1H of OMe is fake
+
+dimer 'bDGal(1->3)aLRhaOMe' {
+shift 105.5 4.60; 72.3 3.59; 73.8 3.66; 69.8 3.93; 76.3 3.65; 62.2 3.66 3.71
+shift 101.8 4.71; 71.1 4.18; 81.2 3.87; 72.3 3.60; 69.5 3.74; 17.8 1.33; 55.9 3.41
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'aLRha(1->2)aDManOMe' {
+shift 99.7 4.90; 70.2 3.99; 71.5 3.84; 73.4 3.45; 71.8 4.01; 17.8 1.27
+shift 99.3 4.89; 76.2 3.95; 71.2 3.87; 68.3 3.68; 74.3 3.63; 62.3 3.76 3.91; 56.2 3.41
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'aLFuc(1->2)aDManOMe' {
+shift 99.2 4.97; 69.4 3.78; 71.4 3.90; 73.2 3.83; 68.3 4.36; 16.4 1.21
+shift 99.9 4.87; 77.4 3.92; 70.8 3.93; 68.1 3.75; 74.1 3.63; 62.0 3.74 3.86; 56.1 3.41
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'bLFuc(1->2)aDManOMe' {
+shift 105.9 4.55; 72.2 3.55; 74.3 3.66; 72.4 3.75; 72.6 3.79; 16.7 1.26
+shift 101.4 5.02; 80.6 4.04; 72.0 3.86; 68.5 3.73; 73.9 3.61; 62.2 3.74 3.86; 56.2 3.41
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'aDGlc(1->3)aDManOMe' {
+shift 102.0 5.23; 73.0 3.56; 74.2 3.79; 71.0 3.42; 73.6 3.80; 62.0 3.76 3.84
+shift 101.6 4.76; 71.0 4.10; 79.9 3.90; 67.4 3.85; 73.9 3.66; 62.2 3.79 3.91; 55.9 3.41
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'bLFuc(1->3)aDManOMe' {
+shift 105.4 4.59; 72.3 3.56; 74.2 3.67; 72.6 3.75; 72.0 3.78; 16.7 1.26
+shift 101.9 4.78; 71.0 4.20; 81.6 3.88; 67.2 3.82; 73.7 3.67; 62.3 3.78 3.92; 56.0 3.41
+correct $c_corr $h_corr
+extract: info $ref
+}

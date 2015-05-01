@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.monosaccharide">
+    <class name="Monosaccharide" table="monosaccharide" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">monosaccharide_id_seq</param>
+            </generator>
+        </id>
+		<many-to-one name="basetype" class="Basetype" column="basetype_id" not-null="true" fetch="join"/>
+        <property name="name" column="name" not-null="true"/>
+        <property name="inchi" column="inchi"/>
+        <property name="smiles" column="smiles"/>
+        <property name="monoMass" column="mono_mass"/>
+        <property name="avgMass" column="avg_mass"/>
+        <list name="substitutions">
+        	<key column="monosaccharide_id" not-null="true"/>
+        	<index column="subst_index"/>
+        	<one-to-many entity-name="Substitution"/>
+        </list>
+        <bag name="atoms">
+        	<key column="monosaccharide_id" not-null="true"/>
+        	<one-to-many entity-name="MonosaccharideAtom"/>
+        </bag>
+        <list name="possibleLinkingPositions">
+        	<key column="monosaccharide_id" not-null="true"/>
+        	<index column="position_index"/>
+        	<one-to-many class="MonosaccharideLinkingPosition"/>
+        </list>
+        <bag name="synonyms">
+        	<key column="monosaccharide_id" not-null="true"/>
+        	<one-to-many class="MonosaccharideSynonym"/>
+        </bag>
+        <bag name="representations">
+        	<key column="monosaccharide_id" not-null="true"/>
+        	<one-to-many entity-name="MonosaccharideRepresentation"/>
+        </bag>
+    </class>
+</hibernate-mapping>

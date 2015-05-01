@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<_StorageUnit time="Wed Mar 22 21:11:01 2006" release="1.0.211" 
+ packageName="ccp.NmrReference" root="NmrReferenceTemp" originator="CCPN Python XmlIO">
+ 
+<parent>
+  <key1 tag="molType">protein</key1>
+  <key2 tag="ccpCode">ORN</key2>
+</parent>
+
+<ChemCompNmrRef _ID="_1" molType="protein" ccpCode="ORN">
+  <sourceName>BioMagResBank</sourceName>
+  <ChemAtomNmrRef _ID="_2" serial="1" subType="1" meanValue="2.9556666666666671" stdDev="0.11093391426129938" refPoint="0.0" refValue="2.5" valuePerPoint="0.050000000000000003" name="HD2">
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.33333333333333331"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.33333333333333331"/>
+    <distribution value="0.33333333333333331"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <chemCompVarNmrRefs _IDREF="_3"/>
+  </ChemAtomNmrRef>
+  <ChemAtomNmrRef _ID="_4" serial="2" subType="1" meanValue="8.3917500000000018" stdDev="0.093160703446606707" refPoint="0.0" refValue="8.0" valuePerPoint="0.050000000000000003" name="H">
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.0"/>
+    <distribution value="0.5"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <chemCompVarNmrRefs _IDREF="_3"/>
+  </ChemAtomNmrRef>
+  <ChemAtomNmrRef _ID="_5" serial="3" subType="1" meanValue="1.6307499999999999" stdDev="0.11702813052139788" refPoint="0.0" refValue="1.2" valuePerPoint="0.050000000000000003" name="HG2">
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.0"/>
+    <distribution value="0.5"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <chemCompVarNmrRefs _IDREF="_3"/>
+  </ChemAtomNmrRef>
+  <ChemAtomNmrRef _ID="_6" serial="4" subType="1" meanValue="4.2654999999999994" stdDev="0.12817045941505636" refPoint="0.0" refValue="3.7999999999999998" valuePerPoint="0.050000000000000003" name="HA">
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.5"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.5"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <chemCompVarNmrRefs _IDREF="_3"/>
+  </ChemAtomNmrRef>
+  <ChemAtomNmrRef _ID="_7" serial="5" subType="1" meanValue="1.71075" stdDev="0.11872482189219459" refPoint="0.0" refValue="1.2" valuePerPoint="0.050000000000000003" name="HB3">
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.5"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <chemCompVarNmrRefs _IDREF="_3"/>
+  </ChemAtomNmrRef>
+  <ChemAtomNmrRef _ID="_8" serial="6" subType="1" meanValue="1.79525" stdDev="0.14909812205390108" refPoint="0.0" refValue="1.2" valuePerPoint="0.050000000000000003" name="HB2">
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.25"/>
+    <distribution value="0.5"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <distribution value="0.0"/>
+    <chemCompVarNmrRefs _IDREF="_3"/>
+  </ChemAtomNmrRef>
+  <ChemCompVarNmrRef _ID="_3" linking="any">
+    <descriptor>any</descriptor>
+    <chemAtomNmrRefs _IDREF="_2"/>
+    <chemAtomNmrRefs _IDREF="_4"/>
+    <chemAtomNmrRefs _IDREF="_5"/>
+    <chemAtomNmrRefs _IDREF="_6"/>
+    <chemAtomNmrRefs _IDREF="_7"/>
+    <chemAtomNmrRefs _IDREF="_8"/>
+  </ChemCompVarNmrRef>
+</ChemCompNmrRef>
+
+</_StorageUnit>
+<!--End of Memops Data-->

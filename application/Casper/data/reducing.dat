@@ -1,0 +1,363 @@
+residue aDGlc Hex {
+ info 'a-D-Glucopyranose'
+ priority 'gluco Da'
+ config D
+ carbbank 'a-D-Glcp'
+ ctname 'a-dglc'
+ jhh medium
+ jch large
+ shift 92.99 5.23 ax
+ shift 72.47 3.54 eq
+ shift 73.78 3.72 eq 
+ shift 70.71 3.42 eq
+ shift 72.37 3.84
+ shift 61.84 3.76 3.84
+}
+
+residue bDGlc Hex {
+ info 'b-D-Glucopyranose'
+ priority 'gluco Db'
+ config D
+ carbbank 'b-D-Glcp'
+ ctname 'b-dglc'
+ jhh large
+ jch small
+ shift 96.84 4.64 eq
+ shift 75.20 3.25 eq
+ shift 76.76 3.50 eq
+ shift 70.71 3.42 eq
+ shift 76.76 3.46
+ shift 61.84 3.72 3.90
+}
+
+residue aDGlcA HexA {
+ info 'a-D-Glucuronic acid'
+ priority 'glucouronic Da'
+ config D
+ carbbank 'a-D-GlcpA'
+ ctname 'a-dglc'
+ jhh medium
+ jch large
+ shift 92.96 5.24 ax
+ shift 72.26 3.59 eq
+ shift 73.52 3.75 eq
+ shift 72.91 3.53 eq
+ shift 72.47 4.09
+ shift 177.42
+}
+
+residue bDGlcA HexA {
+ info 'b-D-Glucuronic acid'
+ priority 'glucouronic Db'
+ config D
+ carbbank 'b-D-GlcpA'
+ ctname 'b-dglc'
+ jhh large
+ jch small
+ shift 96.77 4.65 eq
+ shift 75.00 3.30 eq
+ shift 76.53 3.52 eq
+ shift 72.69 3.54 eq
+ shift 76.93 3.72
+ shift 176.47
+}
+
+residue aDGlcNAc HexNAc {
+ info '2-Acetamido-2-deoxy-a-D-glucopyranose'
+ priority 'gluco Da 2acetamido'
+ config D
+ carbbank 'a-D-GlcpNAc'
+ ctname 'a-dglc'
+ jhh medium
+ jch large
+ shift 91.77 5.21 ax
+ shift 55.00 3.88 eq
+ shift 71.74 3.75 eq
+ shift 71.26 3.49 eq
+ shift 72.51 3.86
+ shift 61.78 3.77 3.85
+ shift 22.87 2.06
+ shift 175.13
+}
+
+residue bDGlcNAc HexNAc {
+ info '2-Acetamido-2-deoxy-b-D-glucopyranose'
+ priority 'gluco Db 2acetamido'
+ config D
+ carbbank 'b-D-GlcpNAc'
+ ctname 'b-dglc'
+ jhh large
+ jch small
+ shift 95.85 4.72 eq
+ shift 57.86 3.65 eq
+ shift 74.81 3.56 eq
+ shift 71.06 3.46 eq
+ shift 76.82 3.46
+ shift 61.85 3.75 3.91
+ shift 23.10 2.06
+ shift 175.49
+}
+
+residue aDGal Hex {
+ info 'a-D-Galactopyranose'
+ priority 'galacto Da'
+ config D
+ carbbank 'a-D-Galp'
+ ctname 'a-dgal'
+ jhh medium
+ jch large
+ shift 93.18 5.22 ax
+ shift 69.35 3.78 eq
+ shift 70.13 3.81 eq
+ shift 70.28 3.95 ax
+ shift 71.30 4.03
+ shift 62.04 3.69 3.69
+}
+
+residue bDGal Hex {
+ info 'b-D-Galactopyranose'
+ priority 'galacto Db'
+ config D
+ carbbank 'b-D-Galp'
+ ctname 'b-dgal'
+ jhh large
+ jch small
+ shift 97.37 4.53 eq
+ shift 72.96 3.45 eq
+ shift 73.78 3.59 eq
+ shift 69.69 3.89 ax
+ shift 75.93 3.65
+ shift 61.84 3.64 3.72
+}
+
+residue aDGalA HexA {
+ info 'a-D-Galacturonic acid (sodium salt)'
+ priority 'galacturonic Da'
+ config D
+ carbbank 'a-D-GalpA'
+ ctname 'a-dgal'
+ jhh medium
+ jch large
+ shift 93.07 5.30 ax
+ shift 69.03 3.83 eq
+ shift 70.26 3.92 eq
+ shift 71.64 4.29 ax
+ shift 72.30 4.39
+ shift 176.43
+}
+
+residue bDGalA HexA {
+ info 'b-D-Galacturonic acid'
+ priority 'galacturonic Db'
+ config D
+ carbbank 'b-D-GalpA'
+ ctname 'b-dgal'
+ jhh large
+ jch small
+ shift 96.89 4.56 eq
+ shift 72.62 3.51 eq
+ shift 73.79 3.69 eq
+ shift 71.18 4.23 ax
+ shift 76.44 4.03
+ shift 175.59
+}
+
+residue aDGalNAc HexNAc {
+ info '2-Acetamido-2-deoxy-a-D-galactopyranose'
+ priority 'galacto Da 2acetamido'
+ config D
+ carbbank 'a-D-GalpNAc'
+ ctname 'a-dgal'
+ jhh medium
+ jch large
+ shift 91.95 5.28 ax
+ shift 51.16 4.19 eq
+ shift 68.40 3.95 eq
+ shift 69.56 4.05 ax
+ shift 71.36 4.13
+ shift 62.11 3.79 3.79
+ shift 22.91 2.06
+ shift 175.43
+}
+
+residue bDGalNAc HexNAc {
+ info '2-Acetamido-2-deoxy-b-D-galactopyranose'
+ priority 'galacto Db 2acetamido'
+ config D
+ carbbank 'b-D-GalpNAc'
+ ctname 'b-dgal'
+ jhh large
+ jch small
+ shift 96.29 4.68 eq
+ shift 54.80 3.90 eq
+ shift 72.01 3.77 eq
+ shift 68.85 3.98 ax
+ shift 75.98 3.72
+ shift 61.89 3.82 3.84
+ shift 23.12 2.06
+ shift 175.78
+}
+
+residue aDMan Hex {
+ info 'a-D-Mannopyranose'
+ priority 'manno Da'
+ config D
+ carbbank 'a-D-Manp'
+ ctname 'a-dman'
+ jhh small
+ jch large
+ shift 94.94 5.18 ax
+ shift 71.69 3.94 ax
+ shift 71.25 3.86 eq
+ shift 67.94 3.68 eq
+ shift 73.34 3.82
+ shift 61.99 3.74 3.86
+}
+
+residue bDMan Hex {
+ info 'b-D-Mannopyranose'
+ priority 'manno Db'
+ config D
+ carbbank 'b-D-Manp'
+ ctname 'b-dman'
+ jhh small
+ jch small
+ shift 94.55 4.89 eq
+ shift 72.13 3.95 ax
+ shift 74.03 3.66 eq
+ shift 67.69 3.60 eq
+ shift 77.00 3.38
+ shift 61.99 3.75 3.91
+}
+
+residue aDManA HexA {
+ info 'a-D-Mannuronic acid'
+ priority 'mannouronic Da'
+ config D
+ carbbank 'a-D-ManpA'
+ ctname 'a-dman'
+ jhh small
+ jch large
+ shift 94.80 5.22 ax
+ shift 71.42 3.90 ax
+ shift 71.10 3.87 eq
+ shift 69.95 3.83 eq
+ shift 73.68 4.04
+ shift 177.58
+}
+
+residue bDManA HexA {
+ info 'b-D-Mannuronic acid'
+ priority 'mannouronic Db'
+ config D
+ carbbank 'b-D-ManpA'
+ ctname 'b-dman'
+ jhh small
+ jch small
+ shift 94.48 4.89 eq
+ shift 71.93 3.93 ax
+ shift 73.86 3.66 eq
+ shift 69.58 3.72 eq
+ shift 76.95 3.63
+ shift 176.82
+}
+
+residue aDManNAc HexNAc {
+ info '2-Acetamido-2-deoxy-a-D-mannopyranose'
+ priority 'manno Da 2acetamido'
+ config D
+ carbbank 'a-D-ManpNAc'
+ ctname 'a-dman'
+ jhh small
+ jch large
+ shift 93.96 5.13 ax
+ shift 54.14 4.31 ax
+ shift 69.75 4.07 eq
+ shift 67.93 3.63 eq
+ shift 73.00 3.68
+ shift 61.54 3.84 3.84
+ shift 22.84 2.10
+ shift 175.43
+}
+
+residue bDManNAc HexNAc {
+ info '2-Acetamido-2-deoxy-b-D-mannopyranose'
+ priority 'manno Db 2acetamido'
+ config D
+ carbbank 'b-D-ManpNAc'
+ ctname 'b-dman'
+ jhh small
+ jch small
+ shift 93.91 5.01 eq
+ shift 54.94 4.45 ax
+ shift 73.00 3.83 eq
+ shift 67.65 3.52 eq
+ shift 77.25 3.45
+ shift 61.54 3.81 3.90
+ shift 22.98 2.06
+ shift 176.39
+}
+
+residue aLFuc '6dHex' {
+ info 'a-L-Fucopyranose'
+ priority 'fuco La'
+ config L
+ carbbank 'a-L-Fucp'
+ ctname 'a-lgal'
+ jhh medium
+ jch large
+ shift 93.12 5.20 ax
+ shift 69.09 3.77 eq
+ shift 70.30 3.86 eq
+ shift 72.80 3.81 ax
+ shift 67.10 4.20
+ shift 16.33 1.21
+}
+
+residue bLFuc '6dHex' {
+ info 'b-L-Fucopyranose'
+ priority 'fuco Lb'
+ config L
+ carbbank 'b-L-Fucp'
+ ctname 'b-lgal'
+ jhh large
+ jch small
+ shift 97.15 4.55 eq
+ shift 72.73 3.46 eq
+ shift 73.93 3.63 eq
+ shift 72.35 3.74 ax
+ shift 71.64 3.79
+ shift 16.33 1.26
+}
+
+residue aLRha '6dHex' {
+ info 'a-L-Rhamnopyranose'
+ priority 'rhamno La'
+ config L
+ carbbank 'a-L-Rhap'
+ ctname 'a-lman'
+ jhh small
+ jch large
+ shift 94.84 5.12 ax
+ shift 71.81 3.92 ax
+ shift 71.00 3.81 eq
+ shift 73.19 3.45 eq
+ shift 69.12 3.86
+ shift 17.67 1.28
+}
+
+residue bLRha '6dHex' {
+ info 'b-L-Rhamnopyranose'
+ priority 'rhamno Lb'
+ config L
+ carbbank 'b-L-Rhap'
+ ctname 'b-lman'
+ jhh small
+ jch small
+ shift 94.37 4.85 eq
+ shift 72.23 3.93 ax
+ shift 73.76 3.59 eq
+ shift 72.83 3.38 eq
+ shift 72.83 3.39
+ shift 17.61 1.30
+}

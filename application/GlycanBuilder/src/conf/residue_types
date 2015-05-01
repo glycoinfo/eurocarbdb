@@ -1,0 +1,119 @@
+%Name	SuperClass      Class	Composition	Synonim	IUPAC		AnomC	Chir	Ring	IsSacc	IsCleav	Labile	BarOrdr	NoMe	DropMe	NoAc	DropAc	noLinks	LinkPos		ChargesPos	Alditol RedEnd 	Parent	Description
+%
+% SACCHARIDES 
+%
+% 4-DeoxyPentose
+2dPen	Pentose		dPen	C5H10O4		-	2-deoxy-Pen$	1	?	f	yes	yes	no	0	3	no	3	no	3	1,3,4,5		-		no	no	yes	2-Deoxypentose
+4dPen	Pentose		dPen	C5H10O4		dPen	4-deoxy-Pen$	1	?	f	yes	yes	no	0	3	no	3	no	3	1,2,3,5		-		no	no	yes	4-Deoxypentose
+dRib	Pentose		dPen	C5H10O4		-	4-deoxy-Rib$	1	D	f	yes	yes	no	0	3	no	3	no	3	1,3,4,5		-		no	no	yes	Deoxyribose
+4dPenN	Pentose		dPenN	C5H11N1O3	dPenN	4-deoxy-PenN$	1	?	f	yes	yes	no	0	4	no	3	no	3	1,3,4,5,N	-		no	no	yes	4-Deoxypentosamine
+%
+% Pentose	
+Pen	Pentose		Pen	C5H10O5		-	Pen$		1	?	f	yes	yes	no	0	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	Pentose
+Ara	Pentose		Pen	C5H10O5		-	Ara$		1	D	f	yes	yes	no	0	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	Arabinose
+Rib	Pentose		Pen	C5H10O5		-	Rib$		1	D	f	yes	yes	no	0	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	Ribose
+Xyl	Pentose		Pen	C5H10O5		-	Xyl$		1	D	p	yes	yes	no	1	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	Xylose
+%
+% 6-Deoxyhexose
+ddHex	Hexose		ddHex	C6H12O4		-	4,6-deoxy-Hex$	1	?	p	yes	yes	no	0	3	no	3	no	3	1,2,3,5		-		no	no	yes	4,6-Dideoxyhexose
+dHex	Hexose		dHex	C6H12O5		-	6-deoxy-Hex$	1	?	p	yes	yes	no	0	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	6-Deoxyhexose
+Fuc	Hexose		dHex	C6H12O5		-	Fuc$		1	L	p	yes	yes	no	2	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	Fucose
+Rha	Hexose		dHex	C6H12O5		-	Rha$		1	D	p	yes	yes	no	0	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	Rhamnose
+Qui	Hexose		dHex	C6H12O5		-	Qui$		1	D	p	yes	yes	no	0	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	Quivonose
+dTal	Hexose		dHex	C6H12O5		-	6-deoxy-Tal$	1	D	p	yes	yes	no	0	4	no	4	no	4	1,2,3,4,5	-		no	no	yes	6-Deoxy-Talose
+%
+% 2-Hexosamine
+HexN	Hexosamine	HexN	C6H13N1O5	-	Hex$2N		1	?	p	yes	yes	no	0	6	no	5	no	5	1,3,4,5,6,N	-		no	no	yes	Hexosamine
+GalN	Hexosamine	HexN	C6H13N1O5	-	Gal$2N		1	D	p	yes	yes	no	0	6	no	5	no	5	1,3,4,5,6,N	-		no	no	yes	Galactosamine
+GlcN	Hexosamine	HexN	C6H13N1O5	-	Glc$2N		1	D	p	yes	yes	no	0	6	no	5	no	5	1,3,4,5,6,N	-		no	no	yes	Glucosamine
+ManN	Hexosamine	HexN	C6H13N1O5	-	Man$2N		1	D	p	yes	yes	no	0	6	no	5	no	5	1,3,4,5,6,N	-		no	no	yes	Mannosamine
+Bac	Hexosamine	Bac	C6H14N2O3	-	Bac$		1	D	p	yes	yes	no	0	6	no	4	no	3	1,3,5		-		no	no	yes	Bacillosamine
+%
+% Hexose
+Hex	Hexose		Hex	C6H12O6		-	Hex$		1	?	p	yes	yes	no	0	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Hexose
+Gal	Hexose		Hex	C6H12O6		-	Gal$		1	D	p	yes	yes	no	3	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Galactose
+Glc	Hexose		Hex	C6H12O6		-	Glc$		1	D	p	yes	yes	no	4	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Glucose
+Man	Hexose		Hex	C6H12O6		-	Man$		1	D	p	yes	yes	no	5	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Mannose
+Tal	Hexose		Hex	C6H12O6		-	Tal$		1	D	p	yes	yes	no	0	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Talose
+All	Hexose		Hex	C6H12O6		-	All$		1	D	p	yes	yes	no	0	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Allose
+%
+% Ketoses
+Fru	Hexose		Hex	C6H12O6		-	Fru$		2	D	f	yes	yes	no	0	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Fructose
+%
+% Hexuronic acid
+dHexA	Acidic sugar	uHexA	C6H8O6		-	uHex$A		1	?	p	yes	yes	no	0	4	no	3	no	4	1,2,3,6		6		no	no	yes	Dehydro-hexuronic Acid
+HexA	Acidic sugar	HexA	C6H10O7		-	Hex$A		1	?	p	yes	yes	no	0	5	no	4	no	5	1,2,3,4,5,6	6		no	no	yes	Hexuronic Acid
+GalA	Acidic sugar	HexA	C6H10O7		-	Gal$A		1	D	p	yes	yes	no	0	5	no	4	no	5	1,2,3,4,5,6	6		no	no	yes	Galacturonic Acid
+GlcA	Acidic sugar	HexA	C6H10O7		-	Glc$A		1	D	p	yes	yes	no	0	5	no	4	no	5	1,2,3,4,5,6	6		no	no	yes	Glucuronic Acid
+IdoA	Acidic sugar	HexA	C6H10O7		-	Ido$A		1	L	p	yes	yes	no	0	5	no	4	no	5	1,2,3,4,5,6	6		no	no	yes	Iduronic Acid
+ManA	Acidic sugar	HexA	C6H10O7		-	Man$A		1	D	p	yes	yes	no	0	5	no	4	no	5	1,2,3,4,5,6	6		no	no	yes	Mannuronic Acid
+%
+% Unsaturated Hexuronic acid
+4uHexA	Acidic sugar	uHexA	C6H8O6		uHexA	uHex$A		1	?	p	yes	yes	no	0	4	no	3	no	4	1,2,3,6		6		no	no	yes	4-unsaturated Hexuronic Acid
+4uGalA	Acidic sugar	uHexA	C6H8O6		-	uGal$A		1	D	p	yes	yes	no	0	4	no	3	no	4	1,2,3,6		6		no	no	yes	4-unsaturated Galacturonic Acid
+4uGlcA	Acidic sugar	uHexA	C6H8O6		-	uGlc$A		1	D	p	yes	yes	no	0	4	no	3	no	4	1,2,3,6		6		no	no	yes	4-unsaturated Glucuronic Acid
+4uIdoA	Acidic sugar	uHexA	C6H8O6		-	uIdo$A		1	L	p	yes	yes	no	0	4	no	3	no	4	1,2,3,6		6		no	no	yes	4-unsaturated Idruronic Acid
+4uManA	Acidic sugar	uHexA	C6H8O6		-	uMan$A		1	D	p	yes	yes	no	0	4	no	3	no	4	1,2,3,6		6		no	no	yes	4-unsaturated Mannuronic Acid
+%
+% 3-Methyl hexoses
+MeH	Hexose		MeHex	C7H14O6		MeHex	Hex$3Me		1	D	p	yes	yes	no	0	4	no	4	no	4	1,2,4,5,6	-		no	no	yes	3-Methyl-hexose
+%
+% Heptose
+dHept	Heptose		dHep	C7H14O6		dHep	?-deoxy-Hep$	?	?	?	yes	yes	no	0	5	no	5	no	5	1,2,3,4,5,6	-		no	no	yes	Deoxy-Heptose
+Hept	Heptose		Hep	C7H14O7		Hep	Hep$		?	?	?	yes	yes	no	0	6	no	6	no	6	1,2,3,4,5,6,7	-		no	no	yes	Heptose
+%
+% 2-N-Acetylhexosamine
+HexNAc	Hexosamine	HexNAc	C8H15N1O6	-	Hex$2NAc	1	?	p	yes	yes	no	0	5	no	4	no	4	1,3,4,5,6	-		no	no	yes	N-acetylhexosamine
+GalNAc	Hexosamine	HexNAc	C8H15N1O6	-	Gal$2NAc	1	D	p	yes	yes	no	6	5	no	4	no	4	1,3,4,5,6	-		no	no	yes	N-acetylgalactosamine
+GlcNAc	Hexosamine	HexNAc	C8H15N1O6	-	Glc$2NAc	1	D	p	yes	yes	no	7	5	no	4	no	4	1,3,4,5,6	-		no	no	yes	N-acetylglucosamine
+ManNAc	Hexosamine	HexNAc	C8H15N1O6	-	Man$2NAc	1	D	p	yes	yes	no	0	5	no	4	no	4	1,3,4,5,6	-		no	no	yes	N-acetylmannosamine
+BacNAc	Hexosamine	BacNAc	C10H18N2O5	-	Bac$2NAc4NAc	1	D	p	yes	yes	no	0	4	no	2	no	3	1,3,5		-		no	no	yes	N-acetylbacillosamine
+%
+% Acidic sugars
+MurNAc	Acidic sugar	MurNAc	C11H19N1O8	-	Mur$2NAc	1	D	p	yes	yes	no	0	5	no	3	no	5	1,3,4,5,6,N	3		no	no	yes	Muramic Acid
+KDO	Acidic sugar	Kdo	C8H14O8		Kdo	Kdo$		2	D	p	yes	yes	no	0	6	no	5	no	6	1,2,4,5,6,7,8	1		no	no	yes	Kdo
+KDN	Acidic sugar	Kdn	C9H16O9		Kdn	Kdn$		2	D	p	yes	yes	no	0	7	no	6	no	7	1,2,4,5,6,7,8,9	1		no	no	yes	Kdn
+Ko	Acidic sugar	Ko	C8H14O9		-	-		2	D	p	yes	yes	no	0	7	no	6	no	7	1,2,3,4,5,6,7,8	1		no	no	yes	Ko
+Neu	Acidic sugar	Neu	C9H17N1O8	-	Neu$		2	D	p	yes	yes	no	0	8	no	6	no	8	1,2,5,7,8,9,N	1		no	no	yes	Neuraminic Acid
+NeuAc	Acidic sugar	NeuAc	C11H19N1O9	-	Neu$5NAc	2	D	p	yes	yes	no	8	7	no	5	no	7	1,2,5,7,8,9,N	1		no	no	yes	Sialic Acid
+NeuGc	Acidic sugar	NeuGc	C11H19N1O10	-	Neu$5NGc	2	D	p	yes	yes	no	9	8	no	6	no	8	1,2,5,7,8,9,N	1		no	no	yes	N-glycolyl Sialic Acid 
+NeuAcLac	Acidic sugar	NeuAcLac	C11H17N1O8	-	-	2	D	p	yes	yes	no	0	5	no	4	no	6	2,5,7,8,N	1		no	no	yes	Sialic Acid (Lactonised)
+NeuGcLac	Acidic sugar	NeuGcLac	C11H17N1O9	-	-	2	D	p	yes	yes	no	0	6	no	5	no	7	2,5,7,8,N	1		no	no	yes	N-glycolyl Sialic Acid (Lactonised) 
+
+%
+% REDUCING ENDS
+%
+freeEnd	Reducing end	freeEnd	H2O		-	-		?	?	?	no	no	no	0	2	no	2	no	1	-		-		no	yes	no	Free reducing end
+redEnd	Reducing end	redEnd	H2O		-	-		?	?	?	no	no	no	0	3	no	3	no	1	-		-		yes	yes	no	Reduced reducing end
+PA	Reducing end	PA	C5H6N2		2AP	pa		?	?	?	no	no	no	0	3	no	2	no	1	-		-		yes	yes	no	2-Aminopyridine
+2AB	Reducing end	2AB	C7H8N2O		-	2ab		?	?	?	no	no	no	0	5	no	2	no	1	-		-		yes	yes	no	2-Aminobenzamide
+AA	Reducing end	AA	C7H7NO2		-	aa		?	?	?	no	no	no	0	4	no	2	no	1	-		-		yes	yes	no	Anthranilic Acid
+%
+DAP	Reducing end	DAP	C5H7N3		-	dap		?	?	?	no	no	no	0	5	no	3	no	1	-		-		yes	yes	no	2,6-Diaminopyridine
+4AB	Reducing end	4AB	C7H9N3		-	4ab		?	?	?	no	no	no	0	5	no	2	no	1	-		-		yes	yes	no	4-Aminobenzamidine
+DAPMAB	Reducing end	DAPMAB	C14H13N7O2	-	dapmab		?	?	?	no	no	no	0	7	no	3	no	1	-		-		yes	yes	no	4-(N-[2,4-Diamino-6-pteridinylmethyl]amino)benzoic acid
+AMC	Reducing end	AMC	C10H9NO2	-	amc		?	?	?	no	no	no	0	3	no	2	no	1	-		-		yes	yes	no	7-Amino-4-methylcoumarin
+6AQ	Reducing end	6AQ	C9H8N2		-	6aq		?	?	?	no	no	no	0	3	no	2	no	1	-		-		yes	yes	no	6-Aminoquinoline
+2AAc	Reducing end	2AAc	C13H10N2O	-	2aac		?	?	?	no	no	no	0	4	no	2	no	1	-		-		yes	yes	no	2-Aminoacridone
+FMC	Reducing end	FMC	C15H14N2O2	-	fmc		?	?	?	no	no	no	0	4	no	2	no	1	-		-		yes	yes	no	9-Fluorenylmethyl carbazate
+DH	Reducing end	DH	C12H15N3O2S	-	dh		?	?	?	no	no	no	0	4	no	2	no	1	-		-		yes	yes	no	Dansylhydrazine
+%
+% SUBSTITUENTS
+%
+Me	Substituent	Me	CH4O		-	OMe		1	?	?	no	no	no	0	1	no	1	no	1	-		-		no	yes	yes	Methyl
+Ac	Substituent	Ac	C2H4O2		-	OAc		1	?	?	no	no	no	0	1	yes	1	no	1	-		-		no	no	yes	Acetate
+NAc	Substituent	NAc	C2H5NO		-	NAc		1	?	?	no	no	no	0	2	no	1	no	1	-		-		no	no	yes	N-Acetate
+P	Substituent	P	H3PO4		-	P		1	?	?	no	yes	yes	0	3	no	1	no	1	-		1		no	no	yes	Phosphate
+S	Substituent	S	H2SO4		-	S		1	?	?	no	yes	yes	0	1	no	1	no	1	-		1		no	no	yes	Sulphate
+Pyr	Substituent	Pyr	C3H4O3		-	Pyr		1	?	?	no	no	no	0	1	no	1	yes	1	-		-		no	no	yes	Pyruvate
+PC	Substituent	PC	C5H14NO4P	-	PC		1	?	?	no	no	no	0	2	no	1	no	1	-		-		no	no	yes	Phosphocholine
+PPEtn	Substituent	PPEtn	C2H9NO7P2	-	PPEtn		1	?	?	no	no	no	0	2	no	1	no	1	-		-		no	no	yes	Diphosphoethanolamine
+PEtn	Substituent	PEtn	C2H8NO4P	-	PEtn		1	?	?	no	no	no	0	2	no	1	no	1	-		-		no	no	yes	Phosphoethanolamine
+%
+%Ino	Substituent	-	Ino		?	?	?	no	yes	no	0	162.0528	162.1424	6	no	6	no	1	-		-		no	yes	Inositol
+%
+% MODIFICATIONS
+deoxy	Modification	d	H2		d	d		?	?	?	no	no	no	0	1	no	1	no	1	-		-		no	yes	yes	Deoxygenation
+un	Modification	un	0		-	-		?	?	?	no	no	no	0	1	no	1	no	1	-		-		no	no	yes	Unsaturation
+sat	Modification	sat	0		-	-		?	?	?	no	no	no	0	1	no	1	no	1	-		-		no	no	yes	Unsaturation
+aldi	Modification	aldi	H2O		-	aldi		?	?	?	no	no	no	0	1	no	1	no	1	-		-		yes	no	yes	Alditol

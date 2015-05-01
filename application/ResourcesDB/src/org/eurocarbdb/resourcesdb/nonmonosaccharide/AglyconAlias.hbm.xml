@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.nonmonosaccharide">
+	<class name="AglyconAlias" table="aglycon_synonym" lazy="false">
+		<id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">aglycon_synonym_id_seq</param>
+            </generator>
+        </id>
+        <property name="name" column="name" not-null="true"/>
+        <property name="nameschemeStr" column="glycan_namescheme" not-null="true"/>
+        <property name="isPrimary" column="is_primary_name" not-null="true"/>
+  </class>
+</hibernate-mapping>

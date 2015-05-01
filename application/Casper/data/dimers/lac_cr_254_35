@@ -1,0 +1,48 @@
+# Synthesis of, and NMR and CD studies on, methyl
+# 4-O-[(R)- and (S)-1-carboxyethyl]-a-L-rhamnopyranoside
+# and 6-O-[(R)- and (S)-1-carboxyethyl]-a-D-galactopyranoside
+# M. Andersson, L. Kenne, R. Stenutz, G. Widmalm
+set ref 'Carbohydr. Res. 254 (1994) 35-41'
+
+# type Lac {
+# info '1-carboxyethyl'
+# atom '1' 0
+# atom '2' 1 link free
+# atom '3' 1 methyl
+# connect '1' '2' '3'
+# }
+
+# residue 'RLac' Lac {
+# config R
+# shift 183.04; 69.62 4.15; 21.08 1.34
+# }
+
+# enantiomer 'RLac' 'SLac'
+
+dimer 'RLac(2->6)aDGalOMe' {
+shift 181.74; 78.18 3.93; 19.15 1.33
+shift 100.51 4.83; 69.15 3.83; 70.42 3.83; 70.53 4.01; 69.32 4.03; 69.05 3.61 3.76
+shift 56.14 3.43
+extract: info $ref
+}
+
+dimer 'SLac(2->6)aDGalOMe' {
+shift 181.82; 78.71 3.93; 19.19 1.33
+shift 100.45 4.83; 69.14 3.83; 70.20 3.83; 70.25 4.03; 70.20 4.01; 69.22 3.57 3.70
+shift 56.16 3.44
+extract: info $ref
+}
+
+dimer 'RLac(2->4)aLRhaOMe' {
+shift 182.38; 79.49 4.07; 19.65 1.38
+shift 101.40 4.68; 70.48 3.96; 70.77 3.80; 82.20 3.29; 68.82 3.70; 17.51 1.34
+shift 55.60 3.40
+extract: info $ref
+}
+
+dimer 'SLac(2->4)aLRhaOMe' {
+shift 181.85; 78.93 4.13; 19.61 1.35
+shift 101.69 4.66; 71.28 3.94; 70.68 3.78; 80.84 3.40; 68.39 3.73; 17.93 1.32
+shift 55.54 3.39
+extract: info $ref
+}

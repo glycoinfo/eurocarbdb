@@ -1,0 +1,21 @@
+<#assign title>Scan Page</#assign>
+<#include "/template/ui/user/header.ftl" />
+
+
+<@ww.form>
+
+<!-- Select Device: -->
+
+  <p>Select Device:</p>	
+  <select name="detectorId" size="1">	
+      <#list detectors as d>
+	  <option value="${d.detectorId}">${d.manufacturer}_${d.model}</option> 
+      </#list>
+  </select>
+
+<@ww.submit value="Next" name="submit" />
+
+</@ww.form>
+
+<#include "/template/common/footer.ftl" />
+

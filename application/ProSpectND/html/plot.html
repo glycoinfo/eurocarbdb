@@ -1,0 +1,482 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (X11; I; Linux 2.2.5-15 i686) [Netscape]">
+   <title>Plot spectra</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#FF00FF" alink="#FF0000">
+<a NAME="Plot spectra"></a>
+<h1>
+Plot spectra</h1>
+
+<h2>
+INDEX</h2>
+
+<ul>
+<li>
+<a href="#Plot Screen">Plot Screen</a></li>
+
+<li>
+<a href="#Common 1D/2D plotting options">Common 1D/2D plotting options</a></li>
+
+<li>
+<u><font color="#0000FF"><a href="#Plot 1D">Plot 1D</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#X axis parameters">X axis parameters</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#Plot 2D">Plot 2D</a></font></u></li>
+</ul>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="Plot Screen"></a>Plot Screen</h4>
+
+<ul>&nbsp;Dump an image of the current screen to a HPGL or Postscript file.</ul>
+
+<ul><img SRC="hardcopy_screen.gif" height=245 width=297>
+<br>&nbsp;
+<h4>
+<a href="#Output type">Output Type</a></h4>
+
+<h4>
+Paper type</h4>
+Only A4 or A3
+<br>&nbsp;
+<h4>
+Paper Orientation</h4>
+Landscape or Portrait
+<h4>
+Various options</h4>
+
+<li>
+Include PCL5 control codes - This is required if a HPGL code plot is sent
+to an HP printer instated of to a plotter.</li>
+
+<li>
+Include Paper definition - Includes the postscript definitions for A4 or
+A3 paper types. This is required for some printers.</li>
+
+<li>
+Keep aspect ratio - Do not fill the whole page, but keep x and y ratio
+instead.</li>
+</ul>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="Common 1D/2D plotting options"></a>Common 1D/2D plotting options</h4>
+
+<ul><img SRC="hardcopy_outputdef.gif" height=156 width=263></ul>
+<a NAME="Output type"></a>
+<h4>
+Output type</h4>
+
+<ul>
+<li>
+HPGL&nbsp; - This is basic HPGL code, which can be read by many drawing
+programs, or&nbsp; HPGL code embedded in PCL5&nbsp; control code (when
+the Include PCL5 control codes option has been checked in the Options box).
+This file can be submitted directly to a PCL printer.</li>
+
+<li>
+BW Postscript - Black and White postscript. This option is usually preferred
+for black and white output, because colors are often translated into dotted
+or dashed lines.</li>
+
+<li>
+Color Postscript&nbsp; - Full color Postscript output.</li>
+</ul>
+
+<h4>
+Output to</h4>
+
+<ul>
+<li>
+Plot to file&nbsp; - This option sends the output to a file. this file
+can then be sent to a printer or be edited in a drawing program.</li>
+
+<li>
+Preview mode&nbsp; - In preview mode, the output is displayed in a separate
+preview window. If the output consists of more than one page, the pages
+are displayed one after the other in the preview window. Click in the window
+with the mouse, or press any key to get the next page. after the last page
+has been displayed, the window disappears. Press 'q' to abort the display
+of a series of pages.</li>
+
+<br>&nbsp;
+<p>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><img SRC="hardcopy_preview.gif" height=269 width=354>
+<br>Example of a preview window.</ul>
+
+<h4>
+Options</h4>
+
+<ul>
+<li>
+Include PCL5 control codes - This is required if a HPGL code plot is sent
+to an HP printer instated of to a plotter.</li>
+
+<li>
+Include Paper definition - Includes the postscript definitions for A4 or
+A3 paper types. This is required for some printers.</li>
+</ul>
+
+<h4>
+Paper definition</h4>
+
+<ul>&nbsp;These options define the size and orientation of the paper, and
+also the area of the paper that is available for the plot. All sizes are
+in cm.</ul>
+
+<ul><img SRC="hardcopy_paperdef.gif" height=83 width=272>
+<h4>
+Type</h4>
+
+<li>
+A4</li>
+
+<li>
+A3</li>
+
+<li>
+User - User defined paper format</li>
+
+<h4>
+Paper orientation</h4>
+
+<li>
+Landscape</li>
+
+<li>
+Portrait</li>
+
+<h4>
+Paper Size Definitions</h4>
+Gives the popup menu to define the paper size.
+<h4>
+<img SRC="hardcopy_papersize_def.gif" ALT="Paper Size Definitions Popup" height=114 width=252></h4>
+
+<h4>
+Paper Width, Paper Height</h4>
+The size of the paper. This is NOT the size of the plot and will automatically
+be adapted to the paper size. Change only when Paper type is User.
+<br>&nbsp;
+<h4>
+Off X, Off Y, Width, Height</h4>
+The area of the paper that can be used by the plot . This area is adapted
+automatically to the paper type. The offsets are relative to the left upper
+corner.</ul>
+
+<h4>
+<a NAME="Plot Title"></a>Plot Title</h4>
+
+<blockquote><img SRC="hardcopy_title_button.gif" ALT="Title button." height=29 width=263>
+<p>Bring up a popup menu to enter a tiltle for the plot. The title will
+be plotted at the top of the plot.
+<p><img SRC="hardcopy_title_popup.gif" ALT="Title popup menu." height=104 width=396>
+<h4>
+Plot title</h4>
+If set to <b>off</b>, no title will be plotted.
+<br>&nbsp;
+<h4>
+Add filename</h4>
+Automatically add the name of the current NMR data file to the title.
+<h4>
+Title</h4>
+Enter the text of the title here.</blockquote>
+
+<h4>
+<a NAME="Plot Parameters"></a>Plot Parameters</h4>
+
+<ul><img SRC="hardcopy_param.gif" height=45 width=271>
+<br>&nbsp;
+<h4>
+Save parameters</h4>
+Dump the current plotting parameters on disk.
+<br>&nbsp;
+<h4>
+Read Parameters</h4>
+Read the current parameters from disk</ul>
+
+<hr WIDTH="100%">
+<h2>
+<a NAME="Plot 1D"></a>Plot 1D</h2>
+
+<blockquote>Options specific for 1D plots.</blockquote>
+
+<h4>
+&nbsp;Axis options</h4>
+
+<ul><img SRC="hardcopy_axis_1d.gif" height=65 width=264></ul>
+
+<ul>
+<h4>
+&nbsp;Draw axis</h4>
+</ul>
+
+<ul>
+<li>
+None</li>
+
+<li>
+X - Draw X axis</li>
+
+<h4>
+<u><font color="#0000FF"><a href="#X axis parameters">Parameters X axis</a></font></u></h4>
+
+<h4>
+Units</h4>
+</ul>
+
+<ul>For 1D plots, the units are are only used for the x-axis.</ul>
+
+<ul>
+<li>
+PPM</li>
+
+<li>
+Herz</li>
+
+<li>
+Seconds</li>
+
+<li>
+Channels</li>
+</ul>
+
+<h4>
+Spectral Plotting Limits</h4>
+
+<ul><img SRC="hardcopy_plotlimits_1d.gif" height=122 width=265></ul>
+
+<ul>The region of the spectrum that will be plotted. Left and Right are
+given in ppm or channels (depending on the axis units), and define the
+horizontal size. Bottom and Top define the vertical size. If the user does
+not modify these numbers, their values correspond to the current zoom settings.</ul>
+
+<h4>
+Spectrum Scaling</h4>
+
+<ul><img SRC="hardcopy_scale_1d.gif" height=72 width=263>
+<br>&nbsp;
+<h4>
+&nbsp;Scaling</h4>
+
+<li>
+Auto&nbsp; scale - Automatically scale plot on paper. Use the whole plotting
+region.</li>
+
+<li>
+Fixed Hz/cm - Scale according to a fixed hz/cm. If needed, the plot is
+split into more than one page.</li>
+
+<li>
+Fill paper - Fill the whole page with the plot (for 1D, this is the same
+as Auto scale)</li>
+
+<h4>
+X Hz/cm</h4>
+&nbsp;This value is used if Fixed Hz/cm scaling is selected.</ul>
+
+<h4>
+Peak Picking</h4>
+
+<ul><img SRC="hardcopy_peakpick.gif" height=71 width=264>
+<h4>
+Peak Pick</h4>
+
+<li>
+No - disable peak picking</li>
+
+<li>
+Yes - enable peak picking</li>
+
+<h4>
+Sign</h4>
+
+<li>
+'-' Pick negative peaks only</li>
+
+<li>
+'+/-' Pick all peaks</li>
+
+<li>
+'+' Pick positive levels only</li>
+
+<h4>
+Threshold</h4>
+The peak picking threshold.&nbsp; This is the level that decides which
+peaks will be selected for picking. Below this level, nothing will be picked.
+For negative peaks, the negative value of the threshold is used.</ul>
+<img SRC="hardcopy_1d_plot.gif" height=303 width=302 align=BOTTOM>
+<br>Example of a 1D plot.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>
+<hr><a NAME="X axis parameters"></a>
+<h2>
+X axis parameters</h2>
+
+<ul><img SRC="hardcopy_xaxis.gif" height=423 width=206></ul>
+
+<h4>
+Autoscale tick mark</h4>
+
+<ul>With this option ON, the number of tick marks, labels, and also the
+number of grid lines for 2D files, is calculated automatically.</ul>
+
+<h4>
+Tick marks</h4>
+
+<ul>The X axis has three kinds of tick marks, short, medium and long. If
+autoscale is Off,&nbsp; these options define how many of these marks /
+unit (=ppm, Hz, etc) are drawn, and what sizes should be used.</ul>
+
+<h4>
+Labels/ppm</h4>
+
+<ul>The number of (tick mark) labels per unit, if autoscale is Off.</ul>
+
+<h4>
+Y offset axis (cm)</h4>
+
+<ul>The distance of the X axis to the spectrum in cm.</ul>
+
+<h4>
+Y offset labels (cm)</h4>
+
+<ul>The distance of the bottom of the labels to the spectrum in cm.</ul>
+
+<h4>
+X offset text (cm)</h4>
+
+<ul>The offset of axis text relative to the left side of the spectrum.</ul>
+
+<h4>
+Y offset text (cm)</h4>
+
+<ul>The offset of axis text relative to the bottom of the spectrum.</ul>
+
+<h4>
+Text for x axis.</h4>
+
+<ul>The text that will be drawn below the x axis.</ul>
+
+<hr>
+<h2>
+<a NAME="Plot 2D"></a>Plot 2D</h2>
+
+<ul>&nbsp;Options specific for 2D plots.</ul>
+
+<h4>
+Axis Options</h4>
+
+<ul><img SRC="hardcopy_axis_2d.gif" height=128 width=264>
+<h4>
+Axis</h4>
+
+<li>
+None - No axis will be drawn</li>
+
+<li>
+X - Draw X axis</li>
+
+<li>
+Y -&nbsp; Draw Y axis</li>
+
+<li>
+XY - Draw both axis</li>
+</ul>
+
+<ul>
+<h4>
+Axis Units</h4>
+Units for x and y axis, respectively.
+<li>
+PPM</li>
+
+<li>
+Herz</li>
+
+<li>
+Seconds</li>
+
+<li>
+Channels</li>
+
+<br>&nbsp;
+<p>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p><u><font color="#0000FF"><a href="#X axis parameters">Parameters X axis</a></font></u>
+<br>Parameters Y axis</ul>
+
+<h4>
+Spectral Plotting Limits</h4>
+
+<ul>
+<h4>
+<img SRC="hardcopy_plotlimits_2d.gif" height=123 width=265></h4>
+
+<h4>
+Left, Right, Bottom, Top</h4>
+The region of the spectrum that will be plotted. Left, Right, Bottom and
+Top are given in ppm or channels, depending on the axis units. If the user
+does not modify these numbers, their values correspond to the current zoom
+settings.</ul>
+
+<h4>
+Spectrum Scaling</h4>
+
+<ul><img SRC="hardcopy_scale_2d.gif" height=73 width=261>
+<br>&nbsp;
+<h4>
+Scaling</h4>
+
+<li>
+Auto - Make the plot as big as possible, to fit on one page. Aspect/ratio
+is kept.</li>
+
+<li>
+Hz/cm - Plot with fixed Hz per cm. If needed, the plot is split into more
+than one page.</li>
+
+<li>
+Fill - Fill all available space with the plot.</li>
+</ul>
+
+<ul>
+<h4>
+X Hz/cm, Y Hz/cm</h4>
+If scaling is set to Hz/cm, these values define how many Hz will be plotted
+for each cm.</ul>
+
+<h4>
+Grid Options</h4>
+
+<ul><img SRC="hardcopy_grid.gif" height=75 width=266>
+<p>Grid can be no, yes and auto. I Grid is no, no grid will be drawn. If
+grid is yes, define how to draw a grid.&nbsp; Xline/unit and Yline/unit
+define how many grid lines per current unit (= ppm,Hz,etc) are drawn. For
+example, if Xline/unit is 2, and the unit is ppm, then a grid line is drawn
+every 0.5 ppm. If grid is set to auto, the number of lines/unit will be
+computed automatically.
+<h4>
+Xline/unit, Yline/unit</h4>
+Define the number of grid lines that will be drawn for each ppm in the
+X and in the Y direction, respectively. The positioning of this lines is
+automatic and will correspond as much as possible to the tick marks.</ul>
+<img SRC="hardcopy_2d_plot.gif" height=349 width=353 align=BOTTOM>
+<br>Example of a 2D plot.
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

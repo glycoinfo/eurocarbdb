@@ -1,0 +1,50 @@
+# PRACTICAL SYNTHESIS OF
+# b-D-XYL-(1->2)-b-D-MAN-(1->4)-a-D-GLC-OMe,
+# A TRISACCHARIDE COMPONENT OF THE
+# HYRIOPSIS-SCHLEGELII GLYCOSPHINGOLIPID
+# F.W. Lichtenthaler, T. Schneideradams, S. Immel
+set ref 'J. Org. Chem. 59 (1994) 6735-6738'
+
+trimer 'bDXyl' '1' '2' 'bDMan' '1' '4' 'aDGlcOMe' {
+shift 106.9 4.57; 76.1 3.44; 79.3 3.49; 73.0 3.67; 67.9 3.93 3.33
+shift 103.1 4.88; 80.7 4.31; 74.7 3.73; 69.8 3.65; 78.2 3.52; 63.4 3.86 4.03
+shift 101.9 4.89; 73.8 3.65; 74.5 3.90; 81.7 3.72; 72.1 3.83; 63.1 3.93 4.01
+shift 57.9 3.50
+correct 1.33 0.07
+extract
+info $ref
+}
+
+end
+
+# original data
+
+bDXyl(1->2)bDMan(1->4)aDGlcOMe
+
+ome	3.49		57.9
+
+glc	3.67 3.9 9.8
+	3.72 9.2 9.3
+	3.86 m
+	3.90 9.8 9.2
+	3.93 m
+	3.93 m
+	4.88 3.9
+63.1	73.0	73.8	74.5	74.7	101.9
+man	3.50 m
+	3.65 9.7 9.8
+	3.73 3.3 9.7
+	3.83 4.2 12.3
+	4.01 2.5 12.3
+	4.31 <1.0 3.3
+	4.89 br
+63.4	69.8	79.3	80.7	81.7	103.1
+xyl	3.33 10.6 11.5
+	3.44 7.6 9.4
+	3.52 9.4 9.1
+	3.65 m
+	4.03 5.4 11.5
+	4.57 7.6
+67.9	72.1	76.1	78.2	106.9
+
+

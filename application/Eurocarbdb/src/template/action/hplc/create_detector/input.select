@@ -1,0 +1,76 @@
+
+<html>
+  <head>
+    <title>Device Creation</title>
+  </head>
+
+  <body>
+    <h1>Input Device Details</h1>
+    <form>
+      Manufacturer:       
+      <select id="man_list">
+        <option value="---"/>
+         <#list detectors as d>    
+        <option>${d.manufacturer}</option>
+        </#list>
+      </select>
+         or
+      <input id="de_man" type="text" name="detector.manufacturer"/>
+      <br>
+	 Model:       
+      <select id="mod_list">
+        <option value="---"/>
+         <#list detectors as d>    
+        <option>${d.model}</option>
+        </#list>
+      </select>
+         or
+      <input id="de_mod" type="text" name="detector.model"/>
+      <br>
+
+      excitation: 
+      <select id="ex_list">
+	<option value="---"/>
+         <#list detectors as d>	
+	<option>${d.excitation}</option>
+	</#list>
+      </select>
+	 or
+      <input id="de_ex" type="text" name="detector.excitation"/>
+      <br>
+	emission:
+      <select id="em_list">
+        <option value="---"/>
+         <#list detectors as d>
+        <option>${d.emission}</option>
+        </#list>
+      </select>
+         or
+      <input id="de_ex" type="text" name="detector.emission"/>
+      <br>
+band:
+      <select id="ba_list">
+        <option value="---"/>
+         <#list detectors as d>
+        <option>${d.bandwidth}</option>
+        </#list>
+      </select>
+         or
+      <input id="de_ba" type="text" name="detector.bandwidth"/>
+      <br>
+sample:
+      <select id="sam_list">
+        <option value="---"/>
+         <#list detectors as d>
+        <option>${d.samplingRate}</option>
+        </#list>
+      </select>
+         or
+      <input id="de_sam" type="text" name="detector.samplingRate"/>
+      <br>
+<br>
+      <input type="submit"/>
+
+    <form>
+  </body>
+</html>

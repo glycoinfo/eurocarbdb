@@ -1,0 +1,49 @@
+:
+#\- convert msdos or cpm files to unix
+#usage: %intounix  [filelist]
+#convert ascii input from msdos or cpm to unix format:
+#strip high bits, convert cr[cr...]lf to lf, quit at first ^Z eof;
+#use as filter: read from stdin, write to stdout;
+#or use to convert all files in filelist;
+#NOTE: converted file overwrites original if input from filelist;
+#uses sys5 echo and tr;
+#j.a. rupley, tucson, arizona
+#rupley!local@cs.arizona.edu
+
+CR=`echo "\r\c"`
+CTRLZ=`echo "\032\c"`
+
+if [ $# -gt 0 ]
+then
+	for i
+	do
+		if [ -f $i ]
+		then
+			/usr/bin/tr "[\201-\377]" "[\1-\177]"  <$i >temp$$ &&
+			/bin/sed "{
+				s/$CR*$//
+				/$CTRLZ/{
+					s/$CR*$CTRLZ.*//
+					q
+					}
+				}" <temp$$ >$i
+			if [ $? -eq 0 ]
+			then
+				/bin/echo "$i converted"
+				/bin/rm -f temp$$
+			else
+				/bin/echo "$i conversion failed -- see temp$$"
+				exit 1
+			fi
+		fi
+	done
+else
+	/usr/bin/tr "[\201-\377]" "[\1-\177]"  |
+		/bin/sed "{
+			s/$CR*$//
+			/$CTRLZ/{
+				s/$CR*$CTRLZ.*//
+				q
+				}
+			}"
+fi

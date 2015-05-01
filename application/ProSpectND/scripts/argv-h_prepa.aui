@@ -1,0 +1,19 @@
+#
+# Reads the '-h' flag and prints help for prepa scripts
+#
+if argv($argi) == "-h" then
+   println "Prepa.au argument options"
+   println "-i file_or_directory_name   - Define input file or directory"
+   println "-o output_file              - Define output file"
+   println "-d ndim                     - Define the dimensionality of the file"
+   println "-a acqorder                 - Define acq. order for 3d: 321 or 312"
+   println "-m n mode                   - Define datatype in direction n (n=1,2,3,4)"
+   println " -m n 0                     - Set mode for tn from file (default) (n=1,2)"
+   println " -m n c or -m n s or -m n 1 - Set mode for tn to States (i.e. complex)  (n=1,2)"
+   println " -m n r or -m n t or -m n 2 - Set mode for tn to TPPI (i.e. real)       (n=1,2)"
+   println " -m n e or -m n 3           - Set mode for tn to echo-antiecho          (n=1,2)"
+   println " -m n z or -m n 4           - Set mode for tn to States-TPPI            (n=1,2)"
+   println "-s n size                   -   Define size in direction n (n=1,2,3,4)"
+   println "-h                          -   This help overview"
+   exit
+endif

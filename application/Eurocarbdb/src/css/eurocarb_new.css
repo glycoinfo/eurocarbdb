@@ -1,0 +1,1794 @@
+/*
+*   CSS for the 'EurocarbDB' web application.
+*
+* Our page layout has 4 main sections, and follows a basic 2-column layout:
+*
+*   - header, at top, which includes the title div, which is of course the title, and perspectives, which is the div that holds the main menu.  
+*   - footer, at bottom, just a footer
+*   - refine, a right-located column containing context-specific info in the form of context_box divs
+*   - main, which presents the bulk of the page content  
+*
+* Main authors: mjh, ac, hirenj 
+*/
+
+/*~~~~~~~~~~~~~~~~~~~  STYLES FOR STANDARD HTML ELEMENTS ~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    height: 100%;
+    font-family: "Trebuchet MS", "Verdana", sans-serif;    
+    font-size: 11pt;    
+}
+
+h1 
+{
+    font-size: 16pt;
+    font-family: "Trebuchet MS", Verdana,Arial,Sans-serif;
+    font-weight: bold;
+    
+    color: #111;	
+    border-bottom: 1px solid #ccc;
+    clear:both;
+}
+
+h2
+{
+    font-size: 14pt;
+    font-family: "Trebuchet MS", Verdana,Arial,Sans-serif;
+    font-weight: bold;
+    
+    color: #111;	
+    border-bottom: 1px solid #eee;
+    clear:both;
+}
+
+h3
+{
+	font-size: 12pt;
+    font-family: "Trebuchet MS", Verdana,Arial,Sans-serif;
+    border-bottom: 1px solid #eee;
+    clear:both;
+}
+
+table th 
+{
+  text-align: left;  
+  vertical-align: top;
+  padding-right: 10px; 
+  padding-top:5px;
+}
+
+table td 
+{
+  text-align: left;  
+  vertical-align: top;
+  padding-top: 5px;
+}
+
+a
+{
+    cursor: pointer;
+    text-decoration: none;
+    color: #229;
+}
+
+a:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #55f;
+}
+
+hr
+{
+    height: 0px;
+    border: 0px;
+    background: none;
+    border-bottom: thin solid #ccc;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+{
+    margin-top: 1em;
+    color: darkblue;
+}
+
+input[type="text"], 
+input[type="password"],
+textarea 
+{
+    border: 1px solid #444;
+    background-color: #fff;
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    padding: 3px;
+}
+
+input[type="text"]:hover, 
+input[type="password"]:hover,
+textarea:hover 
+{
+    border: 1px solid #66f;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus,
+textarea:focus 
+{
+    border: 1px solid #66f;
+    background-color: #eef;
+}
+
+pre
+{
+    font-family: Monaco, Courier;
+}
+
+/*~~~~~~~~~~~~~~~~~~~  MAIN PAGE/SECTION LAYOUT ~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/** horizontal banner at top of page, contains main menu items */
+#header 
+{ 
+    position: relative;
+    background: #009;
+    border: 10px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 1%;
+    width: 98%;
+    height: 2em;
+
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;    
+    -webkit-border-bottom-left-radius: 4px;
+}
+
+/** right side column for displaying context-specific menu items. */
+#refine 
+{    
+    position: absolute;
+    top: 40px;
+    right: 1%;
+    left: 83%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    color: #005;
+}
+
+/** main content div */
+#main 
+{ 
+    /*position: absolute;*/
+    color: #444;
+    margin-top: 10px;
+    margin-left: 1%;
+    margin-right: 18%;
+    margin-bottom: 5px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    /*overflow: auto;*/
+    height: auto;
+    /*width: 100%;*/
+    -moz-border-radius: 0px 12px 0px 0px;
+    -webkit-border-top-right-radius: 12px;
+}
+
+/** horizontal banner div at bottom of page */
+#footer
+{
+    font-size: 8pt;
+    margin-left: 1%;
+    display: block;
+}
+
+#breadcrumbs
+{
+    font-size: x-small;
+    color: #ccc;
+}
+
+/** Div for displaying message to non-CSS-compatible clients. 
+*   CSS-capable browsers will of course not display it. */
+#oldbrowser
+{
+    display: none;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~  HEADER PANEL STYLES ~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#title 
+{
+    position: relative;
+    float: left;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    height: 29px;  
+    overflow: hidden;
+}
+
+#title a, #title img 
+{
+    vertical-align: middle;
+    padding: 0px;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12pt;	
+    font-family: "Trebuchet MS", "Verdana", "sans-serif";	
+    font-weight: bold;
+}
+
+#title img
+{
+    margin-top: -2px;
+    margin-left: 3px;    
+    margin-right: 3px;    
+}
+
+#title a 
+{
+    padding-left: 6px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    margin-right: 3px;
+    -moz-border-radius: 0px 15px 0px 0px;
+    -webkit-border-top-right-radius: 15px;
+}
+
+#title a:hover
+{
+    color: #fff;
+    background: #44c;
+/*    border-bottom: solid #44c 1px;*/
+    text-decoration: none;
+}
+
+#login_link 
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;   
+    font-size: 10pt;
+}
+
+#login_link a.loginout
+{
+    display: inline;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 4px;
+    padding-left: 5px;
+}
+
+#login_link a.home
+{
+    display: inline;
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    padding: 4px;
+    padding-left: 5px;
+}
+
+#login_link a.loginout:hover
+{
+    text-decoration: none;
+    background: #44c;
+    -moz-border-radius: 0px 0px 0px 4px;
+    -webkit-border-bottom-left-radius: 4px;
+}
+
+#login_link a.accountdetails
+{
+    display: block;
+    position: absolute;
+    right: 50px;
+    width: 100px;
+    font-size: 11px;
+}
+
+#login_link a:link, #login_link a:visited, #login_link a:active 
+{
+    color: #eee;
+    text-decoration: none;
+}
+
+#login_link a:hover 
+{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.openid_button
+{
+    cursor: pointer;
+}
+
+#openid_login input[type="text"] {
+    background-image: url('openid-16x16.gif');
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+/** this is the div that holds the main horizontal menu items. */
+#perspectives
+{
+    float: left;
+    position: relative;
+    color: #fff;	
+    font-size: 12pt;	
+    font-family: "Trebuchet MS", "Verdana", "sans-serif";	
+    font-weight: bold;
+    height: 100%;
+    padding:0px;
+    margin:0px;
+    background: #009; /* colour of menu background */
+}
+
+/* this refers to each menu, holds the menu item plus the (hidden) menu. */
+#perspectives .menu_item 
+{
+    display: block;
+    float: left;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#perspectives .menu_item hr
+{
+    border-bottom: 1px solid #aaa;
+}
+
+/** this refers to each top-level menu item. */
+#perspectives .menu_title
+{
+    display: block;
+    text-align: left;
+    background: #000099;
+    border: 0px;
+    height: 100%;
+}
+
+/** this is specifically just the href of the menu item */
+#perspectives .menu_title a
+{
+    position: relative;
+    display: block;
+    height: 22px;
+    margin-top: 3px;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 0.9em;
+    color: #eee;    
+    border-left: 1px solid #000099;
+    border-bottom: 1px solid #000099;
+    -moz-border-radius: 0px 8px 0px 0px;
+    -webkit-border-top-right-radius: 8px;
+    z-index: 0;
+    /*-webkit-border-top-left-radius: 5px;*/
+}
+
+#perspectives .menu_title > a:link, 
+#perspectives .menu_title > a:visited, 
+#perspectives .menu_title > a:active
+{
+    color: #eee;
+    text-decoration: none;
+}
+
+#perspectives .menu_title a:hover, #perspectives .menu_item:hover .menu_title a, #perspectives .active_menu
+{
+    color: #fff;
+    background: #44c;
+    text-decoration: none;
+    border-left: 1px solid #44c;
+    border-bottom: 1px solid #44c;
+    z-index: 2;
+}
+
+#perspectives .single_link a:hover, #perspectives .single_link:hover .menu_title a, #perspectives .active_menu
+{
+    border-bottom: 1px solid #44c;
+}
+
+/** this is the (hidden) sub-menu container. */
+#perspectives .sub_menu
+{
+    display: none;
+    position: absolute;
+    width: 15em;
+    background: #eee;
+    margin: 0px;
+    padding: 0px;
+/*    margin-top: 26px;  */     /* this controls the distance of the sub-menu from the menu header item */
+    margin-top: -1px;
+    border: 1px solid #666;
+    font-size: 10pt;
+    z-index: 1;
+    
+    -moz-border-radius: 0px 0px 4px 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    
+    filter:alpha(opacity=90); /* for IE only */
+    -moz-opacity: 0.90;  /* mozilla-specific */
+    opacity: 0.90;   /*    the CSS3 standard */
+    
+    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3px ;    
+    
+}
+
+/** these are the hrefs of the sub-menu */
+#perspectives .sub_menu a 
+{
+    display: block;
+    padding: 0.4em 0.8em;
+}
+
+#perspectives .sub_menu a:link, 
+#perspectives .sub_menu a:visited, 
+#perspectives .sub_menu a:active 
+{
+    font-weight: normal;
+    color: #005;
+    text-decoration: none;
+}
+
+#perspectives .sub_menu a:hover 
+{
+    font-weight: normal;
+    color: #fff;
+    background: #44c;
+    text-decoration: none;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~ CONTEXT PANEL STYLES ~~~~~~~~~~~~~~~~~~~~~~~~
+*  
+*   Styles for stuff that go inside the 'refine' div.          
+*    
+*/
+
+#refine * ul 
+{
+    list-style-type: disc;
+}
+
+/** context boxes are right-column floated mini-menus and context info items, created on an action/page-specific basis */
+.context_box 
+{
+    color: #444;
+    background: #f2f2fb;
+    position: relative;
+    display: block;
+    border: 1px solid #ccc;
+    padding-bottom: 0.4em;
+    margin-bottom: 1.8em; /* specifies distance that context boxes are apart from each other */
+    -moz-border-radius: 0px 12px 0px 0px;
+    -webkit-border-top-right-radius: 12px;
+    font-size: 10pt;
+}
+
+.context_box_frame
+{
+    clear: both;
+    margin-top: 0.5em;
+}
+ 
+.context_box_frame > *
+{
+    font-family: "Trebuchet MS", "Verdana", sans-serif;
+    font-size: 8pt;
+    padding: 2px 5px;
+    margin: 1px 0px;
+}
+
+.context_box_frame a
+{
+    display: block;
+}
+
+.context_box_frame a:hover 
+{
+    /*color: #fff;*/
+    background: #bbe; 
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.context_box h3 
+{
+/*
+    // css below makes indented title tab 
+    font: 10pt sans-serif;
+    line-height: 100%;
+    border-right: 1px solid darkgrey;
+    border-bottom: 1px solid darkgrey;
+    padding: 2px 8px;
+    margin-left: -1px;
+    background: white;
+    display: inline;
+*/
+/*
+    // css below is regular title on darker BG with dashed underline 
+    font-size: 9pt;
+    font-family: sans-serif;
+    font-style: italic;
+    text-align: center;
+    line-height: 100%;
+    border-bottom: 1px dashed darkgrey;
+    margin: 0px;
+    padding: 2px 8px;
+    background: #ddf;
+*/
+
+    /* css below makes title appear in outer border */
+    color: #444;
+    font-size: 8pt;
+    font-family: "Trebuchet MS", "Verdana", sans-serif;
+    position: absolute;
+    margin-top: -8px;
+    margin-left: 5px;
+    padding: 2px 5px;
+    line-height: 80%;
+    background: #fff;
+}
+
+.context_box h4 {
+    margin-top: 0.3em;
+    margin-bottom: 0.4em;
+}
+
+/** need to adjust the distance of first link from the h3 box title */
+/*.context_box h3 + * 
+{
+    margin-top: 0.5em;
+}
+*/
+
+.context_box p a
+{
+    display: inline;
+    padding: 0px;
+}
+
+.context_box p a:hover
+{
+    background: none;
+    text-decoration: underline;
+}
+
+
+#navigations 
+{
+}
+
+/* this is a context_box sub-div for links that switch sugar image format */
+#sugar_notation_widget div 
+{
+    display: inline;
+}
+
+#sugar_notation_widget a 
+{ 
+    display: inline;
+    cursor: pointer;
+    padding: 2px;
+}
+
+
+#sugar_notation_widget a:hover 
+{
+    text-decoration: underline;
+    background: none;
+}
+
+
+#sugar_notation_widget div.selected a
+{
+    text-decoration: underline;
+    font-style: italic;
+    color: #111;
+}
+
+.news_title 
+{
+    color: #111;	
+    font-size: 16pt;	
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    margin-right: 100px;
+}
+
+.news_line ul 
+{
+    background: #fff;	
+    list-style: disc;
+}
+
+.news_line ul li 
+{
+    display: list-item;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~  Query history ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#glycan_sequence_query_history {
+    position: relative;
+    padding: 0px;
+    overflow: auto;
+    max-height: 30em;
+}
+
+#glycan_sequence_query_history ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#glycan_sequence_query_history li {
+    display: block;
+    padding: 0px;
+    margin-top: 0.7em;
+    margin-right: 0.2em;
+}
+
+#glycan_sequence_query_history .query_result_count {
+    display: block;
+    background: #8888bb;
+    height: 1em;
+    width: 80%;
+    overflow: hidden;
+    color: #ffffff !important;
+    border: solid #666699 1px;
+    font-size: 0.8em;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+
+}
+
+#glycan_sequence_query_history .query_time {
+    font-style: italic;
+    font-weight: bolder;
+    display: block;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~  window dressing ~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.indefinite 
+{
+    background: #ffa;
+}
+
+.horizontal_table th, td
+{
+    vertical-align: middle;
+}
+
+
+.table_form th 
+{
+  text-align: left;  
+  vertical-align: top;
+  padding-right: 10px; 
+  padding-top:5px;
+}
+
+.table_form td 
+{
+  text-align: left;
+  vertical-align: top; 
+  padding-top: 5px;
+}
+
+.table_form td input 
+{
+    margin: 0px;
+}
+
+.table_top_header 
+{
+    border-collapse: collapse;
+}
+
+.full_width 
+{
+    width: 100%;
+}
+
+.half_width 
+{
+    width: 50%;
+}
+
+.table_top_header th 
+{
+    color: #fff;
+    padding: 5px 10px;
+    background-color: #99a;
+    vertical-align: bottom;
+    font-weight: normal;
+    text-align: left;
+}
+
+.table_top_header td 
+{
+    padding: 5px 10px;
+    background-color : white;
+    vertical-align   : middle;
+    /*border-bottom: 1px solid #ccc;*/
+    font-weight: normal;
+    text-align: left;
+}
+
+.table_left_header 
+{
+    border-collapse: collapse;
+}
+
+.table_left_header,.table_top_header tr 
+{
+    border-top: 1px solid #ccc;
+}
+
+.table_left_header,.table_top_header table,thead,tbody + tr 
+{
+    border-top: none;
+}
+
+.table_left_header th 
+{
+    color: black;
+    padding: 5px;
+    background-color: #fff;
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+}
+
+.table_left_header td 
+{
+    padding: 5px;
+    background-color: white;
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+}
+
+.table_left_header ul 
+{
+    padding-left: 1em;
+}
+
+/** typically refers to a linked sugar image */
+#main a img 
+{
+    border: 1px solid #fff;
+}
+
+#main a img:hover 
+{
+    border: 1px dashed #faa;
+}
+
+/** refers to a linked sugar image */
+.sugar_image
+{
+    max-width: 92%;
+}
+
+/*--th:after { content: ":"; }--*/
+
+.no_bullets 
+{
+   padding: 0px;  
+   list-style-type: none;
+}
+
+.smallish 
+{
+    font-size: x-small;
+}
+
+/** For displaying ul's and ol's horizontally. */
+
+.pagenumbers 
+{
+    float: right;
+}
+
+.hmenu 
+{
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+
+.hmenu li 
+{
+    display: inline;
+    margin: 0px;
+    padding: 2px;
+}
+
+.progress 
+{
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+
+.progress li 
+{
+    display: inline;
+    font-size:   8pt;	
+    margin: 0px;
+    padding: 2px;
+}
+
+.progress li.current 
+{
+    display: inline;
+    font-size:   8pt;	
+    font-weight: bold;
+    margin: 0px;
+    padding: 2px;
+}
+
+.ecdb_distributed_result_entry 
+{
+	border:	solid #cccccc 1px;
+}
+
+.taxonomy_tree a { color: #333; }
+.taxonomy_tree a:hover { color: #55f; }
+
+/*~~~ Styling for tag clouds ~~~*/
+
+.ecdb_richtagcloud 
+{
+}
+
+.ecdb_richtagcloud_tag 
+{
+    color: #999999;
+    float: left;
+    padding: 2px;
+    font-family: "Trebuchet MS",Verdana,Arial,Sans-serif;
+    text-decoration: none;
+}
+
+/*~~~ styles for horizontal running breadcrumbs ~~~*/
+
+.breadcrumbs 
+{
+    font-family: Helvetica, Verdana, Arial;
+    color: #aaaaaa; 
+    font-size: 12px;
+    /* top: 5px; */
+}
+
+.breadcrumbs a 
+{
+    font-family: Helvetica, Verdana, Arial;
+    color: #aaaaaa; 
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover 
+{
+    text-decoration: underline;
+    color: #333;
+}
+
+
+.breadcrumbs_multi_row div 
+{
+    display: block;
+    margin: 0px;
+    padding-top: 0px;
+    padding-right: 4px;
+    padding-bottom: 8px;
+    float: left;
+}
+
+.breadcrumbs_multi_row div span 
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.breadcrumbs * .current 
+{
+    font-weight: bold;
+}
+
+
+/*~~~  ~~~*/
+
+.ecdb_distributed_result_serverlist 
+{
+	color: #ffffff;
+	background-color: #888888;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 5px;
+	font-size: 10px;
+}
+
+.ecdb_distributed_result_serverlist span 
+{
+}
+
+.ecdb_distributed_result_serverlist span + span:before 
+{
+	content: ',';
+}
+
+.ecdb_distributed_result_data 
+{
+    padding: 10px;
+    font-family: Courier;
+}
+
+
+
+/*~~~  styles for ms ~~~*/
+.ms_table 
+{
+    border-collapse: collapse;
+}
+
+.ms_table_grey th
+{
+    background-color : #666;
+    vertical-align   : middle;
+}
+
+.ms_table_white td
+{
+    background-color : #fff;
+    vertical-align   : middle;
+}
+
+.ms_table_lightgrey td
+{
+    background-color : #ccc; 
+    vertical-align   : middle;
+}
+
+.hplc_h5
+{
+    display:block; 
+    clear:both;
+    margin:0 0 1em 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.hplc_create_form
+{
+    display:block; 
+    clear:both;
+    margin:0 0 1em 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.hplc_create_form[class]
+{
+    display:block;
+}
+
+.hplc_create_form h1
+{
+    font-weight:normal;
+    font-size:160%;
+    margin:0 0 3px 0;
+    clear:left;
+}
+
+.hplc_create_form h2
+{
+    font-weight:normal;
+    font-size:140%;
+    margin:0 0 3px 0;
+    clear:left;
+}
+.hplc_form p
+{
+	font-size:95%;
+	line-height:130%;
+	margin:0 0 12px 0;
+}
+
+.hplc_table th
+{
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #6D929B;
+	border-right: 1px solid #C1DAD7;
+	border-left: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+}
+
+.hplc_table td
+{
+    border-right: 1px solid #A2ADBC;
+    border-bottom: 1px solid #A2ADBC;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.hplc_table_data tr td 
+{
+    border-bottom: 1px solid #ccc;
+    font-size:75%;	
+    /* width: 20px;
+    height: 20px;*/
+    text-align: center;
+    
+}
+
+.hplc_table_data th 
+{
+    background-color:#3366CC;
+    border-bottom: 1px solid #ccc;
+    font-size:85%;
+    text-align: center;
+}
+
+.hplc_form_data tr {font-weight:normal; font-size:80%; color:darkblue; }
+	
+span.hint 
+{
+    font:normal 11px/14px verdana;
+    background:#eee url(bg-span-hint-gray.gif) no-repeat top left;
+    color:#444;
+    border:1px solid #888;
+    padding:5px 5px 5px 40px;
+    width:250px;
+    position:absolute;
+    margin: -18px 0 0 14px;
+    display:none;
+}
+
+/**  Markup for bulk sequence display */
+.ecdb_sequences li 
+{
+    display: inline;
+}
+
+.ecdb_sequences li img 
+{
+}
+
+.ecdb_sequences li a img 
+{
+    border: 1px solid #fff;
+}
+
+.ecdb_sequences li a img:hover 
+{
+    border: 1px solid #ccc;
+}
+
+
+/* temp glycobase layout */
+
+#navigationglycobase 
+{
+    border: thin solid lightgrey;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+#contentglycobase 
+{
+    margin-left: 50em;
+}
+
+/* temp glycobase layout */
+
+.form_row 
+{
+	display: block;
+	position: relative;
+	margin: 5px 0px 5px 0px;
+}
+
+.form_left 
+{
+	position: absolute;
+	left: 0;
+}
+
+.form_right 
+{
+	position: absolute;
+	left: 10em;
+}
+
+.clickable 
+{
+  color: #005;
+  cursor: pointer;
+}
+
+
+.error_message 
+{
+    padding: 1em 0 1em 0; 
+    color: darkred;
+}
+
+.hplc_glycan_entry 
+{
+    color: #444;
+    font-family: sans-serif;
+    font-size: 12px;	
+}
+
+.hplc_table_entry td 
+{
+    vertical-align   : middle;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    color: #356AA0;
+}
+
+.hplc_table_entry th 
+{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #B02B2C;
+}
+
+.hplc_glycan_entry th 
+{
+    background:#f4f9fe;
+    text-align:center;
+    font:bold 1.2em/2em "Verdana",Arial,Helvetica,sans-serif;
+    color:red;
+}
+
+
+.show_taxonomy_parent_tax a:hover
+{
+    color: #336;
+    text-decoration: underline;
+}
+
+#show_taxonomy_image_thumbnail
+{
+    float: right;
+    display: inline;
+}
+
+
+.two_column_layout 
+{
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.two_column_layout_left_col 
+{
+    /* border: thin dashed green; */
+    float: left;
+    width: 50%;
+}
+
+.two_column_layout_right_col
+{
+    /* border: thin dashed red; */
+    margin-left: 50%;
+    padding-left: 0.5em;
+    padding-top: 1em; 
+    padding-right: 2.5em;
+}
+
+.separator 
+{
+  clear: both;
+  width: 100%;
+}
+
+a.list_item 
+{
+    display: block;  
+    padding: 0.1em 0em 1em 2.5em;
+    font-size: small;show_taxonomy_child_tax
+}
+
+a.list_item:hover 
+{
+    color:  #11f;
+    background: #eee;
+    text-decoration: none;
+}
+
+.list_item h3 
+{
+    text-decoration: underline;
+    font: 11pt/12pt Arial;
+    line-height: 90%;
+}
+
+.scan_list {	
+    list-style-type: none;
+}
+  
+.scan_list li * {
+    vertical-align: middle;
+}
+
+.scan_list li a {
+    text-decoration: none;
+}
+
+.overlined 
+{
+    border-top: 1px solid #eee;
+}
+.underlined 
+{
+    border-bottom: 1px solid #eee;
+}
+
+#vertical_slide {
+    padding: 5px;
+    border: 2px solid #F3F1F1;
+    font-weight: normal;
+}
+
+div.marginbottom {
+    margin-bottom: 5px;
+}
+
+#bc_search {
+  width: 50%;
+}
+
+/** Autocomplete styling */
+
+.wwctrl .yui-ac-input {
+  position: relative !important;
+}
+
+.yui-ac {
+  position: auto;
+}
+
+.autocomplete_loading
+{
+    background: url(spinner.gif);
+    background-repeat: no-repeat;
+    background-position: 90% 0%;    
+}
+
+/* Some stuff for having user-biased autocomplete */
+
+ul li.first_of_class div.autocomplete_user:before {
+    display: block;
+    content: "Previously used:";
+    font-size: 11px;
+    font-weight: bolder;
+    color: #686868;
+    margin-bottom: 3px;
+}
+
+ul li.yui-ac-highlight div.autocomplete_user:before {
+    color: #ffffff;
+}
+
+ul li.last_of_class div.autocomplete_user {
+    padding-bottom: 10px;
+}
+
+.yui-skin-sam .yui-ac-content ul li.autocomplete_user {
+    padding: 0px;
+}
+
+.yui-skin-sam .yui-ac-content ul li.yui-ac-highlight div.autocomplete_user {
+    background: none;
+}
+
+ul li.autocomplete_user div.autocomplete_user {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background: #dddddd;
+}
+
+ul li.first_of_class {
+    margin-top: 4px !important;
+}
+
+
+/* Styling for supplemental data (like breadcrumbs from autocomplete) */
+
+.yui-ac-bd li .supplemental {
+    display: block;
+    font-size: 10px;
+    color: #777777;
+}
+
+.yui-ac-bd .yui-ac-highlight .supplemental {
+    color: #cccccc;
+}
+
+/* Styling for the multiple selections coming out of autocomplete */
+
+ul li.last_of_class {
+    margin-bottom: 4px !important;    
+}
+
+.deleteable_box, .ac_mult_sel {
+    position: relative;
+    margin-top: 0.5em;
+    background: #9999CC;
+    border: solid #666699 1px;
+    margin-right: 0.3em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    width: 200px;
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px ;
+    float: left;
+}
+
+.deleteable_box .delete_area, .ac_mult_sel .ac_mult_sel_delete {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 0.9em;
+    height: 1em;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    cursor: pointer;
+    background: #666699;
+    border: solid #666699 1px;
+    -webkit-border-radius: 0.65em;
+    -moz-border-radius: 0.65em;
+    padding-left: 0.3em;
+    padding-right: 0.1em;
+    padding-bottom: 0.1em;
+    color: #ffffff !important;
+}
+
+.deleteable_box .label, .ac_mult_sel .ac_mult_sel_label {
+    position: absolute;
+    left: 15px;
+    top: 0px;
+    height: 1em;
+    width: 95%;
+    font-size: 1em;
+    margin-left: 0.5em;
+    color: #ffffff;
+    text-overflow: ellipsis;   
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* end autocomplete */
+
+/** Tab set styling */
+
+.yui-navset-top .yui-nav li {
+  background: #666699;
+  height: 100%;
+  padding: 5px 10px 5px 10px;
+
+  border-bottom: solid #999999 1px;
+
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  margin-right: 0.2em !important; /* override the YUI css */
+}
+.yui-navset-top .yui-nav li a {
+    color: #eeeeee !important;
+    background: #666699 !important;
+}
+
+.yui-navset-top .yui-nav li a:hover {
+    color: #eeeeee !important;
+    background: #666699 !important;
+}
+
+
+.yui-navset-top .yui-nav li.selected {
+  background: #eeeeee;
+  border-top: solid #999999 1px;
+  border-left: solid #999999 1px;
+  border-right: solid #999999 1px;
+  border-bottom: solid #eeeeee 1px;
+}
+.yui-navset-top .yui-nav li.selected a {
+  color: #444499 !important;
+  background: #eeeeee !important;
+}
+
+.yui-navset-top .yui-nav li.selected a:hover {
+  color: #444499 !important;
+  background: #eeeeee !important;
+}
+
+.yui-navset .yui-content {
+  background: #eeeeee;
+  padding: 10px;
+  border-left: solid #999999 1px;
+  border-bottom: solid #999999 1px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius: 0px 0px 10px 0px;
+}
+
+/* end tab styling */
+
+/**
+ * Context box | Tab sets  
+ */
+ 
+.context_box .yui-navset .yui-content {
+    background: #ffffff;
+}
+
+.context_box .yui-navset-top .yui-nav li {
+    padding: 1px 6px 1px 2px;
+}
+
+.context_box .yui-navset-top .yui-nav li.selected {
+    background: #ffffff;
+}
+
+.context_box .yui-navset-top .yui-nav li.selected a {
+    background: #ffffff !important;
+}
+
+.context_box .yui-navset-top .yui-nav li.selected a:hover {
+    background: #ffffff !important;
+}
+
+
+.context_box .yui-content {
+    padding: 2px;
+    background: #ffffff;
+}
+
+.context_box ul.bc_context_list {
+    padding-left: 10px;
+    margin: 0px;
+}
+
+.context_box .yui-content ul.bc_context_list {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.context_box ul.bc_context_list li {
+    text-overflow: ellipsis;   
+    list-style: none; 
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+/* end context box tab styling */
+
+/**
+ *  Context box | Sequence image styling
+ */
+
+.context_box img.sugar_image {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px 5px 5px 5px;   
+    border: solid #ffffff 2px; 
+    margin-top: 2px;
+    position: relative;
+    margin-left: 1%;
+    margin-right: 1%;
+    
+    /*width: 86%;*/
+}
+
+
+.short_glycan_sequence_context {
+    background: #f2f2fb;
+    border: 1px solid #ccc;;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+
+    position: relative;
+}
+
+.short_glycan_sequence_context .sequence {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
+.short_glycan_sequence_context .sequence img {
+    -webkit-border-radius: 3px;
+}
+
+
+.short_glycan_sequence_context .context {
+    position: absolute;
+    top: 15px;
+    left: 30%;
+    margin-left: 10px;    
+}
+
+.short_glycan_sequence_context .context ul {
+    margin: 0px;
+    list-style: none;
+    padding-left: 10px;
+}
+
+.short_glycan_sequence_context .metadata {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #999999;
+    color: #ffffff;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    -webkit-border-bottom-right-radius: 3px;
+    font-size: 0.8em;
+}
+
+.short_glycan_sequence_context .metadata span:before {
+    content: "Entered:";
+}
+
+.context_box .short_glycan_sequence_context {
+    border: none;
+    background: none;
+}
+
+.context_box .short_glycan_sequence_context .metadata {
+    display: none;
+}
+
+.context_box .short_glycan_sequence_context .sequence {
+    top: 0px;
+    margin-top: 5px;
+}
+
+.context_box .short_glycan_sequence_context .context {
+    top: 5px;
+}
+
+.context_box .short_glycan_sequence_context .context ul {
+    list-style-type: none !important;
+}
+
+/**
+ *  Ajax form loader
+ */
+
+.ajax_loading
+{
+    background: url(spinner.gif);
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+
+/**
+ *  Scan navigator
+ */
+
+ .scan_navigator .ygtvcontent {
+   padding-top: 3px !important;
+   padding-bottom: 3px !important;
+   padding-left: 5px !important;
+   padding-right: 5px !important;
+   border: transparent solid 1px;
+   -webkit-border-top-right-radius: 10px;
+   -webkit-border-bottom-right-radius: 10px;
+   -moz-border-radius: 0px 10px 10px 0px;
+   cursor: pointer;
+ }
+
+ .scan_navigator .ygtvcontent:hover {
+   background: #dddddd;
+   border: solid #dddddd 1px;
+ }
+
+ .scan_navigator .ygtv-highlight1 .ygtvcontent {
+   background: #f2f2fb !important;
+   color: #666699;
+   border: solid #9999cc 1px;
+   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+   -moz-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px;
+ }
+
+ .scan_detail
+ {
+     display: none;
+ }
+
+ .scan_navigator .scan_detail
+ {
+   display: none;
+   cursor: auto;
+   color: #333333;
+ }
+
+ .scan_navigator {
+   width: 40%;
+   float: left;
+   height: 300px;
+   overflow: auto;
+ }
+
+ .scan_navigator_detail_container {
+   float: right;
+   width: 59%;
+   margin-left: 1%;
+ }
+
+
+/**
+ *  Webwork form styling
+ */
+  
+.wwgrp {
+    margin-top: 0.5em;
+    width: 25em;
+}
+
+.wwgrp br {
+  display: none;
+}
+
+
+
+.label, .checkboxLabel {font-weight:normal; font-size:80%; color:darkblue; }
+
+.wwlbl .label, .wwlbl .checkboxLabel {
+    color: #ffffff;
+}
+
+.wwlbl .checkboxLabel
+{
+    margin-left: 1.2em;
+}
+
+.wwlbl {
+    width: 100%;
+    background: #9999CC;
+    padding-left: 5px;
+    border: solid #666699 1px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius: 0px 10px 0px 0px;
+}
+.wwctrl input * {
+    padding-left: 2px;
+}
+
+.wwctrl {
+    position: relative;
+}
+
+.wwctrl input {    
+    margin-top: 1px;
+    padding-right: 0px !important;
+    padding-left: 5px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    width: 100%;
+    border: solid #999999 1px;
+}
+
+.wwctrl input[type='checkbox'] {
+    position: absolute;
+    top: 50%;
+    margin-top: 0.4em;
+}
+
+.wwctrl select {
+    position: absolute;
+    right: 5px;
+    margin-top: -1.6em;
+}
+
+.wwctrl .calendar_widget {
+    font-size: 10px;
+    width: 100%;
+    background: #f2f2f2;
+    border: 0px solid rgb(128,128,128);
+}
+
+.wwctrl .yui-calcontainer {
+    float: none;
+    margin-left: 37.5%;
+    width: 50%;
+    right: 25%;
+    border: solid 0px !important;
+}
+
+.inline_inputs {
+    position: relative;
+    width: 36em;
+}
+
+.inline_inputs .wwgrp {
+    position: relative;
+    float: left;
+    width: 12em;
+    margin-right: 15px;
+}
+
+
+
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {font-weight:bold; text-align: center; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+.tdLabel {text-align:right; vertical-align:top; }
+
+.ecdb_button, input[type="submit"], input[type="button"] {
+    padding: 4px;
+    font-size: 14px;
+    background: #9999CC;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius: 0px 10px 0px 0px;
+    color: #ffffff;    
+    border: solid #666699 1px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius: 0px 10px 0px 0px;
+    margin: 0px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 4px ;
+    cursor: pointer;   
+}
+
+.ecdb_button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}

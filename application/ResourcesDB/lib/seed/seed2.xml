@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<seed namescheme="glycosciences">
+<monosaccharide>
+	<name>D-XYL-ONIC</name><count>9</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-1,6-ANHYDRO-GLCPNAC</name><count>9</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLCNAC1N-OL</name><count>9</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANP4,6PY</name><count>9</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-4,6-DEOXY-XYLHEXP</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-FUCP2ME3ME</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-IDOPN6N</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPA6ME</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPNAC6AC</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP1SH</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>b-L-3,4,7-deoxy-lyxHeppN6N</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FUCP3AC4AC</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPA6N</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANPANAC3NAM</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCP4NAC</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPNAC3AC4AC6AC</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP3AC</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP4,6PY</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2ME3ME6ME</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FUCPNAC4AC</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>3,6-ANHYDRO-A-D-GALP</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP3SO3</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3-DEOXY-ARAHEXP</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANP4ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3-DEOXY-FUCP</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPNAC3ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-ARA</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FRUP</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCPNAC4N</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-1-EN-2-DEOXY-ARAHEXP</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPFLUORO</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPNAC3ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCP3N</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP6ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPA2,3PY</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCF</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPA6ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-4-DEOXY-GLCPA</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-2,6-DEOXY-RIBHEXP</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-Rhap2Me4Me</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLP3AC</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLP3ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANPN</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLP4AC</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP2ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCF</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>b-L-Glcp</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP4ME</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP4CHLORO</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP2ME3ME4ME</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPNAC3AC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHA3ME4ME</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-ALTPANAC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-KDNP</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP6AC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-2,6-deoxy-ribHexp4SH</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-Fucp2Me4Ac</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPANAC3NAC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-GALPA</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>L-ERY-OL</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-GALPANAC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP1N2NAC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2AC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-IDOPA3ME</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3-DEOXY-RIBHEXP</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-2,6-DEOXY-LYXHEXP3N</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-QUIPN</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-ARAF3ME</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLP2AC3AC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-QUIPNAC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP3ME</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-2,6-deoxy-ribHexp</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3-DEOXY-XYLHEXP</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCP3NAC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCP4N</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLC1N-OL</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-4-DEOXY-LYXHEXP</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-2-deoxy-thrPenp3Me4N</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP2AC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLUF</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-6-DEOXY-ALTF</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GRO-A-L-3,9-DEOXY-GALNON-2-ULOP5NAC7NAC-ONIC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-ALLP</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-D-GlcpN3N</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPANAC6N</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GALF</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-4-DEOXY-XYLHEXP</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-D-2-deoxy-lyxHexp</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-6-DEOXY-ALTP3AC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP2AC4AC6AC</name><count>6</count>
+</monosaccharide>
+<monosaccharide>
+	<name>L-1-DEOXY-ALT-OL</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-2,6-DEOXY-ARAHEXP3NAC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-Fucp2Me3Me4Me</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GALPA3ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>1,6-ANHYDRO-B-D-GLCP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-2,3-ANHYDRO-ALLP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3-DEOXY-MANOCT-2-ULOP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP3AC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCPNAC4NAC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPA2ME3ME6ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLP2AC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPA2SO3</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-IDOPA6ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP8ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLCA-OL</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLC-OLNAC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP6IODO</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-Xylp2Ac3Ac4Ac</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPN3N</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2AC3AC4AC6AC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-ALLP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-3-DEOXY-ARAHEP-2-ULOP5NAC7N-ONIC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPA2AC3AC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP5AC7AC9AC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GRO-L-3,9-DEOXY-GALNON-2-ULOP5N7NAC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPA2ME3ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP6FLUORO</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPN1PO4</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPNAC6ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP3,4PY</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-GALP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-1,4-ANHYDRO-GAL-OL</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-4-DEOXY-XYLHEXPNAC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-3,6-DEOXY-ARAHEXP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-FUCPN</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPANFORMYL</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GALN-OL</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GRO-B-D-GALHEPP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-RIBHEXP3ME4ME</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-1,6-ANHYDRO-GLCNAC</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-6-DEOXY-GLCP</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-TALP</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCPN</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-4-DEOXY-IDOPASO3</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP4,6PY</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPA4ME6ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP5GC9AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-4-EN-ERYHEXPA</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-IDOPNAC6NAC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-IDOPA3AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3-DEOXY-RHAP</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-LYXP</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP6N</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>L-IDOA</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-RHAP2AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP6NAC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP3AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FRUF1AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>GALNAC-OL</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP3ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2-DEOXY-GLCP</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP1N</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-ARAP4N</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPA4AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>3,6-DEOXY-XYLHEXP</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP3ME4ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-2,6-DEOXY-LYXHEXP</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-RHAPNAC3NAC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUPGC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-ALLP2AC3AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-RHAP4NAC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-ARAP2AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLP2ME4ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-Arap2Ac3Ac4Ac</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP2FLUORO</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPAN</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPNFORMYL</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-4-EN-THRHEXPA2ME3ME6ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP2,3PY</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-ALTHEP-2-ULOF</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-4-C-METHYL-GLCPA6N</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2ME3ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-4-DEOXY-GLCP</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPANAC3AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCPN</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPOME3OME6OME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2ME3ME4ME6ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FRUF4AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FUCP4ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP6SH</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-6-DEOXY-TALP3ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-RIBHEXP3FORMYL</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPSO33SO36SO3</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLCNAC-ONIC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP2AC3AC4AC6AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-GULPANAC3NAM</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP2AC3AC6AC</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANP2ME6ME</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCPNAC4N</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCF</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-5-EN-6-DEOXY-XYLHEXP</name><count>4</count>
+</monosaccharide>
+</seed>

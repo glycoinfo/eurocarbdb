@@ -1,0 +1,380 @@
+<project name="eurocarb-glycoworkbench" default="build">
+	<!--
+    !   this import defines the following:
+    !
+    !   1) 'project.*' properties  
+    !   2) 'project.classpath' path, containing all external and eurocarb-compiled jars.
+    !   3) 'build-XXX' tasks, where 'XXX' is the name of a sub-project                
+    !
+    -->
+	<import file="../../build.common.xml" />
+
+	<!-- ========= PROPERTIES ======== -->
+	<property name="java.source.dir" value="${basedir}/src"/>
+	<property name="java.build.dir" value="${basedir}/build" />
+	<property name="java.extlib.dir" value="${project.java.extlib.dir}" />
+	
+	<property name="doc.dir" value="${basedir}/doc" />
+	<property name="apidoc.dir" value="${doc.dir}/api" />
+	
+	<property name="java.dist.dir" value="${project.java.lib.dir}" />
+	<property name="applet.dist.dir" value="${project.binary.dir}" />
+	
+	<property name="gwb.dist" value="${basedir}/dist-zip/"/>
+	<property name="gwb.dist.zip.dir" value="${gwb.dist}/gwb"/>
+	
+	<property name="gwb.artwork" value="${basedir}/artwork"/>
+	<property name="gwb.icon" value="${gwb.artwork}/GlycoWorkbench.ico"/>
+	
+	<!-- ==NSIS== Windows/Unix examples -->
+	<!--<property name="nsis.location" value="C:\Program Files (x86)\NSIS\makensis.exe" />-->
+	<property name="nsis.location" value="/home/gwb/runtime/nsis-2.46/makensis.exe"/>
+	
+	<!-- ==WinRun4J== -->
+	<property name="static_import.dir" value="${basedir}/static_import"/>
+	<property name="winrun4j.dir" value="${static_import.dir}/winrun4j/" />
+	<property name="winrun4j.exe.32" value="${winrun4j.dir}/bin/WinRun4J.exe"/>
+	<property name="winrun4j.exe.64" value="${winrun4j.dir}/bin/WinRun4J64.exe"/>
+	<property name="winrun4j.url" value="http://downloads.sourceforge.net/project/winrun4j/winrun4j/0.3.3/winrun4J-0.3.3.zip?use_mirror=kent"/>
+	
+	<!-- ==PACKAGE LOCATIONS== -->
+	<property name="gwb.packages.dir" value="${basedir}/packages"/>
+	<property name="gwb.packages.win.dir" value="${basedir}/packages/windows"/>
+	<property name="gwb.packages.lin.dir" value="${basedir}/packages/linux"/>
+	<property name="gwb.packages.mac.dir" value="${basedir}/packages/macosx"/>
+	
+	<!-- ==Windows packages== -->
+	<property name="gwb.win.zip.x86" value="${gwb.packages.win.dir}/GlycoWorkbenchWin_x86.zip"/>
+	<property name="gwb.win.zip.x86_64" value="${gwb.packages.win.dir}/GlycoWorkbenchWin_x86-64.zip"/>
+	
+	<property name="gwb.win.setup.x86" value="${gwb.packages.win.dir}/GlycoWorkbenchWin_x86.exe"/>
+	<property name="gwb.win.setup.x86_64" value="${gwb.packages.win.dir}/GlycoWorkbenchWin_x86-64.exe"/>
+	
+	<!-- ==Linux packages== -->
+	<property name="gwb.lin.zip.x86" value="${gwb.packages.lin.dir}/GlycoWorkbenchLin_x86.zip"/>
+	<property name="gwb.lin.zip.x86-64" value="${gwb.packages.lin.dir}/GlycoWorkbenchLin_x86-64.zip"/>
+	
+	<!-- ==Mac packages== -->
+	<property name="gwb.mac.carbon.32" value="${gwb.packages.mac.dir}/GlycoWorkbenchMac_Carbon_32.zip"/>
+	<property name="gwb.mac.cocoa.32" value="${gwb.packages.mac.dir}/GlycoWorkbenchMac_Cocoa_32.zip"/>
+	<property name="gwb.mac.cocoa.x86-64" value="${gwb.packages.mac.dir}/GlycoWorkbenchMac_Cocoa_x86-64.zip"/>
+	
+	<!-- ========WinRun4J======== -->
+	<property name="gwb.exe.dir" value="${basedir}/executables"/>
+	<property name="gwb.win.x86.exe" value="${gwb.exe.dir}/GlycoWorkbench_x86.exe"/>
+	<property name="gwb.win.x86-64.exe" value="${gwb.exe.dir}/GlycoWorkbench_x86-64.exe"/>
+	<property name="gwb.winrun4j.ini" value="${gwb.exe.dir}/GlycoWorkbench_x86.ini"/>
+
+	<!-- ========TARGETS======== -->
+	
+	<!-- ==TARGET: build== -->
+	<target name="build" depends="build-resourcesdb, build-molframework, build-glycanbuilder, build-glycopeakfinder" description="Buld GlycoWorkbench and all dependencies">
+		<echo>Building Resources-DB, Molecular Framework, GlycanBuilder and GlycoPeakFinder</echo>
+		<mkdir dir="${java.build.dir}" />
+		<javac srcdir="${java.source.dir}" destdir="${java.build.dir}" debug="on" deprecation="on">
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<!-- ==TARGET: clean== -->
+	<target name="clean" depends="">
+		<echo>Cleaning ${ant.project.name}</echo>
+		<delete includeemptydirs="true">
+			<fileset dir="${java.build.dir}" includes="**/*" />
+		</delete>
+	</target>
+
+	<!-- ==TARGET: copy-resources== -->
+	<target name="copy-resources" depends="">
+		<copy todir="${java.build.dir}">
+			<fileset dir="${java.source.dir}">
+				<exclude name="**/*.java" />
+				<exclude name="manifest.mf" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ==TARGET: dist== -->
+	<target name="dist" depends="build,copy-resources">
+		<manifestclasspath jarfile="${java.dist.dir}/${project.glycoworkbench.jar}" property="manifest.class.path">
+			<classpath refid="project.glycoworkbench.classpath" />
+		</manifestclasspath>
+		<jar destfile="${java.dist.dir}/${project.glycoworkbench.jar}">
+			<fileset dir="${java.build.dir}" excludes="**/*.bak"/>
+			<manifest>
+				<attribute name="Main-Class" value="org.eurocarbdb.application.glycoworkbench.GlycoWorkbench" />
+				<attribute name="Class-Path" value="${manifest.class.path}" />
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- ==clean-dist-zip== -->
+	<target name="clean-dist-zip" depends="">
+		<delete dir="${gwb.dist.zip.dir}" />
+		<mkdir dir="${gwb.dist.zip.dir}" />
+	</target>
+
+	<!-- ==dist-applet== (where is this used)-->
+	<target name="dist-applet" depends="build,copy-resources">
+		<jar destfile="${applet.dist.dir}/${project.glycoworkbench.applet.jar}">
+			<manifest>
+				<attribute name="Main-Class" value="org.eurocarbdb.application.glycoworkbench.plugin.AnnotationReportApplet" />
+			</manifest>
+			<fileset dir="${java.build.dir}" includes="conf/**" excludes="**/*.xml" />
+			<fileset dir="${java.build.dir}" includes="cursors/**" />
+			<fileset dir="${java.build.dir}" includes="icons/**" />
+			<fileset dir="${java.build.dir}" includes="**/*.class" />
+			<zipfileset src="${java.extlib.dir}/swing-layout-1.0.jar" />
+			<zipfileset src="${java.extlib.dir}/jfreechart-1.0.9.jar" />
+			<zipfileset src="${java.extlib.dir}/jcommon-1.0.12.jar" />
+			<zipfileset src="${java.extlib.dir}/log4j-1.2.12.jar" />
+		</jar>
+	</target>
+
+	<!-- ==fetch-winrun4j== -->
+	<target name="fetch-winrun4j">
+		<if>
+			<available file="${winrun4j.exe.32}" />
+			<then>
+				<echo>Found WinRun4j, remove ${winrun4j.exe.32} to force it to be fetched again</echo>
+			</then>
+			<else>
+				<get dest="${project.temp.dir}/winrun4j.zip" src="${winrun4j.url}" />
+				<delete dir="${static_import.dir}" />
+				<mkdir dir="${static_import.dir}" />
+				<unzip src="${project.temp.dir}/winrun4j.zip" dest="${static_import.dir}"/>
+			</else>
+		</if>
+	</target>
+
+	<!-- ==build-win-exe-winrun4j== 
+		Simply copies the WinRun4J and updates the embedded icon
+		TODO: Add a wine script, if possible to run on Unix
+	-->
+	<target name="build-win-exe-winrun4j" depends="fetch-winrun4j">
+		<mkdir dir="${gwb.exe.dir}"/>
+		<delete file="${gwb.win.x86.exe}"/>
+		<delete file="${gwb.win.x86-64.exe}"/>
+		<copy file="${winrun4j.exe.32}" tofile="${gwb.win.x86.exe}"/> 
+		<copy file="${winrun4j.exe.64}" tofile="${gwb.win.x86-64.exe}"/>
+
+		<exec executable="cmd">
+			<arg value="/C .\winrun4j\update_icon.bat"/>	
+		</exec>
+	</target>
+
+	<!-- ==dist-common== -->
+	<target name="dist-common" depends="build,copy-resources">
+		<mkdir dir="${gwb.dist.zip.dir}/lib" />
+		<copy file="${java.dist.dir}/${project.glycanbuilder.jar}" tofile="${gwb.dist.zip.dir}/lib/${project.glycanbuilder.jar}" />
+		<copy file="${java.dist.dir}/${project.molframework.jar}" tofile="${gwb.dist.zip.dir}/lib/${project.molframework.jar}" />
+		<copy file="${java.dist.dir}/${project.resourcesdb.jar}" tofile="${gwb.dist.zip.dir}/lib/${project.resourcesdb.jar}" />
+		<copy file="${basedir}/LICENSE.txt" tofile="${gwb.dist.zip.dir}/LICENSE.txt" />
+		<copy file="${basedir}/README.txt" tofile="${gwb.dist.zip.dir}/README.txt" />
+
+		<copy todir="${gwb.dist.zip.dir}/lib">
+			<fileset dir="${java.extlib.dir}" includes="ant-launcher* swing-layout*,batik*,avalon-framework*,commons-codec*,commons-io*,commons-logging*,fop*,Help*,javahelp*,jaxen*,jcommon*,jdesktop*,jdom*,jfreechart*,jrap-jdk15*,jsr107cache*,log4j*,plugin*,ProteomeCommons*,xercesImpl*,xml-apis-ext*,xmlgraphics-common*" />
+		</copy>
+
+		<copy todir="${gwb.dist.zip.dir}/lib">
+			<fileset dir="${java.extlib.dir}/prefetched" includes="DJNativeSwing.jar,DJNativeSwing-SWT.jar,flamingo*,looks-2.3.1.jar,substance*,trident.jar" />
+		</copy>
+		
+		<copy todir="${gwb.dist.zip.dir}/lib">
+			<fileset dir="${java.extlib.dir}/prefetched/" includes="jets* BareBones* commons-codec-* commons-httpclient-* commons-logging-* java-xmlbuilder-1* jna.jar" />
+		</copy>
+
+		<copy todir="${gwb.dist.zip.dir}/examples">
+			<fileset dir="${basedir}/examples" />
+		</copy>
+
+		<copy todir="${gwb.dist.zip.dir}">
+			<fileset dir="${basedir}/" id="www">
+				<include name="www/**" />
+			</fileset>
+		</copy>
+
+		<copy todir="${gwb.dist.zip.dir}/gwb/icons">
+			<fileset dir="${basedir}/resources/gwb/icons" id="icons">
+				<include name="**" />
+			</fileset>
+		</copy>
+
+		<copy file="${gwb.artwork}/glycoworkbench.png" tofile="${gwb.dist.zip.dir}/GlycoWorkbench.png" />
+		<copy file="${gwb.artwork}/GlycoWorkbench.gif" tofile="${gwb.dist.zip.dir}/GlycoWorkbench.gif" />
+	</target>
+
+	<!-- ==dist-all== -->
+	<target name="dist-all" depends="clean-packages,dist-win,dist-mac,dist-lin" description="Build packages for Mac OSX, Linux and Windows">
+	
+	</target>
+	
+	<!-- ==clean-packages== -->
+	<target name="clean-packages">
+		<delete dir="${gwb.packages.dir}"/>
+		<mkdir dir="${gwb.packages.win.dir}"/>
+		<mkdir dir="${gwb.packages.mac.dir}"/>
+		<mkdir dir="${gwb.packages.lin.dir}"/>	
+	</target>
+	
+	<!-- ==dist-win==
+		Summary: Build complete zip archive for deployment on windows family systems.
+		Description:
+		a)Eurocarb libs are first updated if the local source code has been changed.
+		b)Generic components are then assembled.
+		c)Launch4j is downloaded if it can't be found.
+		d)A windows executable is created.
+		e)Windows specific resources are added to the generic components.
+		d)All resources are zipped up.
+	-->
+	<target name="dist-win" depends="clean-packages,clean-dist-zip,dist-runnable" description="Build Windows packages">
+		<!-- common -->
+		<copy overwrite="true" file="${basedir}/WIN_README.txt" tofile="${gwb.dist.zip.dir}/README.txt"/>
+		<copy file="${gwb.artwork}/glycoworkbench.bmp" tofile="${gwb.dist.zip.dir}/GlycoWorkbench.bmp" />
+		<copy file="${gwb.artwork}/GlycoWorkbench.ico" tofile="${gwb.dist.zip.dir}/GlycoWorkbench.ico" />
+		<copy file="${gwb.artwork}/gwb_icon.bmp" tofile="${gwb.dist.zip.dir}/gwb_icon.bmp" />
+		<copy overwrite="true" file="${gwb.winrun4j.ini}" tofile="${gwb.dist.zip.dir}/GlycoWorkbench.ini"/>
+		
+		<!-- x86 -->
+		<copy overwrite="true" file="${gwb.win.x86.exe}" tofile="${gwb.dist.zip.dir}/GlycoWorkbench.exe" />
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/win-swt_x86.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		<zip destfile="${gwb.win.zip.x86}" basedir="${gwb.dist}" />
+		<antcall target="dist-win-installer"></antcall>
+		<copy overwrite="true" file="${basedir}/Setup.exe" tofile="${gwb.win.setup.x86}"/>
+		
+		<!-- x86-64 -->
+		<copy overwrite="true" file="${gwb.win.x86-64.exe}" tofile="${gwb.dist.zip.dir}/GlycoWorkbench.exe" />
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/win-swt_x86-64.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		<zip destfile="${gwb.win.zip.x86_64}" basedir="${gwb.dist}" />
+		<antcall target="dist-win-installer"></antcall>		
+		<copy overwrite="true" file="${basedir}/Setup.exe" tofile="${gwb.win.setup.x86_64}"/>
+	</target>
+	
+	<!-- ==dist-win-installer== -->
+	<target name="dist-win-installer">
+		<echo>Compiling NSIS installer for Windows</echo>			
+		<echo>NSIS script created with http://hmne.sourceforge.net/</echo>
+		
+		<exec dir="${basedir}" executable="${nsis.location}" osFamily="windows">
+			<arg value="${basedir}/winInstaller.nsi" />
+		</exec>
+			
+		<exec dir="${basedir}" executable="wine" osFamily="unix">
+			<arg value="${nsis.location}"/>
+			<arg value="winInstaller.nsi"/>
+		</exec>
+	</target>
+
+	<!-- ==dist-lin== -->
+	<target name="dist-lin" depends="clean-packages,clean-dist-zip,dist-runnable" description="Build Linux distribution packages">
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/lin-swt_x86.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		<zip destfile="${gwb.lin.zip.x86}" basedir="${gwb.dist}" />
+		
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/lin-swt_x86-64.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		<zip destfile="${gwb.lin.zip.x86-64}" basedir="${gwb.dist}" />
+	</target>
+
+	<!-- ==dist-mac== -->
+	<target name="dist-mac" depends="clean-packages,clean-dist-zip,dist-runnable" description="Build Mac OSX packages">
+		<!-- carbon-32-->
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/mac-carbon-swt_32.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		<copy overwrite="true" file="${gwb.exe.dir}/mac_32.sh" tofile="${gwb.dist.zip.dir}/start.sh"/>
+		<zip destfile="${gwb.mac.carbon.32}" basedir="${gwb.dist}" />
+		
+		<!-- cocoa-32 -->
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/mac-cocoa-swt_32.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		<copy overwrite="true" file="${gwb.exe.dir}/mac_32.sh" tofile="${gwb.dist.zip.dir}/start.sh"/>
+		<zip destfile="${gwb.mac.cocoa.32}" basedir="${gwb.dist}" />
+		
+		<!-- cocoa-x86-64 -->
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/mac-cocoa-swt_x86-64.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		<copy overwrite="true" file="${gwb.exe.dir}/mac_64.sh" tofile="${gwb.dist.zip.dir}/start.sh"/>
+		<zip destfile="${gwb.mac.cocoa.x86-64}" basedir="${gwb.dist}" />
+	</target>
+
+
+	<!-- ==dist-runnable== -->
+	<target name="dist-runnable" depends="dist-common">
+		<path id="compile.classpath">
+			<fileset dir="${gwb.dist.zip.dir}/lib/" includes="*.jar" />
+		</path>
+
+		<copy overwrite="true" file="${project.java.extlib.dir}/prefetched/win-swt_x86.jar" tofile="${gwb.dist.zip.dir}/lib/swt.jar" />
+		
+		<pathconvert property="manifest.classpath" pathsep=" ">
+			<path refid="compile.classpath" />
+			<mapper>
+				<chainedmapper>
+					<flattenmapper />
+					<globmapper from="*.jar" to="lib/*.jar" />
+				</chainedmapper>
+			</mapper>
+		</pathconvert>
+
+		<jar destfile="${gwb.dist.zip.dir}/${project.glycoworkbench.jar}" basedir="${java.build.dir}">
+			<manifest>
+				<attribute name="Class-Path" value="${manifest.classpath} ${project.glycoworkbench.jar}" />
+				<attribute name="Main-Class" value="org.eurocarbdb.application.glycoworkbench.GlycoWorkbench" />
+				<attribute name="SplashScreen-Image" value="GlycoWorkbench.png" />
+			</manifest>
+			<fileset dir="${gwb.dist.zip.dir}" includes="GlycoWorkbench.png" />
+		</jar>
+	</target>
+
+	<!-- ==TARGET: build-apidocs== -->
+	<target name="build-apidocs" depends="build" description="Creates javadoc from sources in src/ and the core API">
+		<echo>Building GlycanBuilder API documentation</echo>
+		<delete dir="${apidoc.dir}" />
+		<mkdir dir="${apidoc.dir}" />
+		<javadoc destdir="${apidoc.dir}" Author="true" Use="true" Version="true" linksource="true" stylesheetfile="${project.coreapi.dir}/doc/eurocarb_apidoc.css" windowtitle="GlycoWorkbench API" doctitle="GlycoWorkbench API">
+			<classpath>
+				<path refid="project.classpath" />
+			</classpath>
+
+			<sourcepath>
+				<pathelement path="${java.source.dir}" />
+			</sourcepath>
+
+			<!-- link to java stdlib API -->
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
+
+			<!-- link to hibernate API -->
+			<link href="https://www.hibernate.org/hib_docs/v3/api/" />
+
+			<!-- link to webwork API -->
+			<link href="http://www.opensymphony.com/webwork/api/" />
+
+			<!-- link to commons logging -->
+			<link href="http://commons.apache.org/logging/apidocs/" />
+
+			<!-- link to google collections -->
+			<link href="http://google-collections.googlecode.com/svn/trunk/javadoc/" />
+
+			<!-- link to ANTLR API, grammar/parser generator -->
+			<link href="http://www.antlr2.org/javadoc/" />
+
+			<!-- link to TestNG API, unit testing framework -->
+			<link href="http://testng.org/javadocs/" />
+
+			<!-- link to eurocarb core API -->
+			<link href="../../../../core-api/doc/api/" />
+
+			<!-- other eurocarb projects -->
+			<link href="../../../ResourcesDB/doc/api/" />
+			<link href="../../../GlycanBuilder/doc/api/" />
+			<link href="../../../MolecularFramework/doc/api/" />
+		</javadoc>
+		<echo>See ${apidoc.dir} for generated javadoc</echo>
+
+		<exec executable="open" os="Mac OS X">
+			<arg value="${apidoc.dir}/index.html" />
+		</exec>
+	</target>
+	
+	<!-- ==run== (deprecated, without a good reason for it's existence-->
+	<target name="run" depends="build,copy-resources">
+		<java classname="org.eurocarbdb.application.glycoworkbench.GlycoWorkbench" fork="yes">
+			<classpath refid="project.classpath" />
+		</java>
+	</target>
+</project>

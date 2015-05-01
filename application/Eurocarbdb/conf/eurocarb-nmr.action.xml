@@ -1,0 +1,479 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+
+<xwork>
+
+<package name="eurocarb-nmr" extends="eurocarb-core">
+
+    <!--
+    action: upload_ccpn_project
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class doesn't exist
+    <action name="upload_ccpn_project" class="org.eurocarbdb.action.nmr.UploadCCPNProject">
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+    
+        <result name="input" type="freemarker"   >/template/action/nmr/upload_ccpn_project/input.ftl</result>
+        <result name="success" type="freemarker" >/template/action/nmr/upload_ccpn_project/success.ftl</result>
+    </action>
+    -->
+    <!--
+    action: create_nmr_project
+    author: ss
+    desc: 
+    -->
+    <!--
+       The class file here doesn't exist
+      
+    <action name="create_nmr_project"  class="org.eurocarbdb.action.nmr.CreateNMRProject">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="type">start</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+	   	<result type="freemarker">/template/action/nmr/create_nmr_project/index.ftl</result>
+    </action>
+    -->
+    
+    <!--
+    action: create_nmr_project_step1
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+    
+    <action name="create_nmr_project_step1"  class="org.eurocarbdb.action.nmr.CreateNMRProject">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result type="freemarker">/template/action/nmr/create_nmr_project/step1.ftl</result>
+    </action>
+    -->
+    <!--
+    action: create_nmr_project_forward_to_step2
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+    
+    <action name="create_nmr_project_forward_to_step2"  class="org.eurocarbdb.action.nmr.CreateNMRProject" method="forwardToStep2">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result name="input" type="freemarker">/template/action/nmr/create_nmr_project/step1.ftl</result>
+		<result name="success" type="freemarker">/template/action/nmr/create_nmr_project/step2.ftl</result>
+    </action>
+    -->
+    <!--
+    action: create_nmr_project_forward_to_step3
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+    
+    <action name="create_nmr_project_forward_to_step3"  class="org.eurocarbdb.action.nmr.CreateNMRProject" method="forwardToStep3">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result name="input" type="freemarker">/template/action/nmr/create_nmr_project/step2.ftl</result>
+		<result name="success" type="freemarker">/template/action/nmr/create_nmr_project/step3.ftl</result>
+    </action> 
+    -->
+    <!--
+    action: create_nmr_project_back_to_step1
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+    
+    <action name="create_nmr_project_back_to_step1"  class="org.eurocarbdb.action.nmr.CreateNMRProject" method="backToStep1">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result name="success" type="freemarker">/template/action/nmr/create_nmr_project/step1.ftl</result>
+    </action> 
+    -->
+    <!--
+    action: create_nmr_project_back_to_step2
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+    
+    <action name="create_nmr_project_back_to_step2"  class="org.eurocarbdb.action.nmr.CreateNMRProject" method="backToStep2">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result name="success" type="freemarker">/template/action/nmr/create_nmr_project/step2.ftl</result>
+    </action> 
+    -->
+    <!--
+    action: create_nmr_project_back_to_step3
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+    
+    <action name="create_nmr_project_back_to_step3"  class="org.eurocarbdb.action.nmr.CreateNMRProject" method="backToStep3">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result name="success" type="freemarker">/template/action/nmr/create_nmr_project/step3.ftl</result>
+    </action> 
+    -->
+    <!--
+    action: create_nmr_project_finish
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+
+    <action name="create_nmr_project_finish"  class="org.eurocarbdb.action.nmr.CreateNMRProject" method="forwardToFinish">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result name="input" type="freemarker">/template/action/nmr/create_nmr_project/step3.ftl</result>
+		<result name="success" type="freemarker">/template/action/nmr/create_nmr_project/finish.ftl</result>
+    </action>
+    -->
+    <!--
+    action: create_nmr_project_save
+    author: ss
+    desc: 
+    -->
+    <!--
+      This class file doesn't exist
+      
+    <action name="create_nmr_project_save"  class="org.eurocarbdb.action.nmr.CreateNMRProject" method="save">
+    	<interceptor-ref name="scope">
+    		<param name="key">wizard</param>
+    		<param name="session">SessionFields</param>
+    		<param name="type">end</param>
+		</interceptor-ref>
+			
+        <interceptor-ref name="fileUpload"/>
+    	<interceptor-ref name="basicStack"/>
+
+		<result name="success" type="redirect-action">create_nmr_project</result>
+    </action>
+    -->
+    <!--
+    action: casper
+    author: ml
+    desc: 
+    -->
+    <action name="casper"  class="org.eurocarbdb.action.nmr.Casper">
+
+      <interceptor-ref name="scope">
+    	<param name="key">casper</param>
+	<param name="session">Casper_Parameters</param>
+      </interceptor-ref>
+
+      <result type="freemarker">/template/action/nmr/casper/index.ftl</result>
+
+    </action>
+
+    <!--
+    action: casper_simulate
+    author: ml
+    desc: 
+    -->
+    <action name="casper_simulate"  class="org.eurocarbdb.action.nmr.Casper_simulate">
+
+      <interceptor-ref name="scope">
+	<param name="key">casper_simulate</param>
+	<param name="session">Casper_Parameters</param>
+	<param name="type">start</param>
+      </interceptor-ref>
+
+      <interceptor-ref name="fileUpload">
+	<param name="allowedTypes">
+	  application/x-compressed-tar,
+	  application/x-gtar
+	</param>
+	<param name="maximumSize">
+	  2500000
+	</param>
+      </interceptor-ref>
+      <interceptor-ref name="basicStack"/>
+
+      <result type="freemarker">/template/action/nmr/casper/casper_simulate/index.ftl</result>
+
+    </action>
+
+    <!--
+    action: casper_simulate_gb
+    author: ml
+    desc: 
+    -->
+    <action name="casper_simulate_gb"  class="org.eurocarbdb.action.nmr.Casper_simulate">
+
+      <interceptor-ref name="scope">
+	<param name="key">casper_simulate</param>
+	<param name="session">Casper_Parameters</param>
+	<param name="type">start</param>
+      </interceptor-ref>
+
+      <interceptor-ref name="fileUpload">
+	<param name="allowedTypes">
+	  application/x-compressed-tar,
+	  application/x-gtar
+	</param>
+	<param name="maximumSize">
+	  2500000
+	</param>
+      </interceptor-ref>
+      <interceptor-ref name="basicStack"/>
+
+      <result type="freemarker">/template/action/nmr/casper/casper_simulate/index_gb.ftl</result>
+
+    </action>
+
+    <!--
+    action: casper_simulate_start
+    author: ml
+    desc: 
+    -->
+    <action name="casper_simulate_start"  class="org.eurocarbdb.action.nmr.Casper_simulate" method="start">
+      
+      <interceptor-ref name="scope">
+   	<param name="key">casper_simulate</param>
+	<param name="session">Casper_Parameters</param>
+       </interceptor-ref>
+
+      <interceptor-ref name="fileUpload">
+	<param name="allowedTypes">
+	  application/x-compressed-tar,
+	  application/x-gtar
+	</param>
+	<param name="maximumSize">
+	  2500000
+	</param>
+      </interceptor-ref>
+      <interceptor-ref name="basicStack"/>
+      
+      <result type="freemarker">/template/action/nmr/casper/results.ftl</result>
+
+
+    </action>
+
+    <!--
+    action: casper_simulate_ccpn_save
+    author: ml
+    desc: 
+    -->
+    <action name="casper_simulate_ccpn_save"  class="org.eurocarbdb.action.nmr.Casper" method="executeSave">
+
+      <interceptor-ref name="scope">
+    	<param name="key">casper_simulate</param>
+	<param name="session">Casper_Parameters</param>
+      </interceptor-ref>
+
+      <result type="stream">
+	<param name="parse">true</param>
+	<param name="contentType">application/x-compressed-tar</param>
+	<param name="inputName">projectStream</param>
+	<param name="contentDisposition">filename="project.tgz"</param>
+	<param name="location">${savedProject}</param>
+      </result>
+
+    </action>
+
+    <!--
+    action: pictureStream
+    author: ml
+    desc:
+    -->
+    <action name="casper_simulate_picture_stream" class="org.eurocarbdb.action.nmr.PictureStream">
+      <interceptor-ref name="params" />
+
+      <interceptor-ref name="scope">
+    	<param name="key">casper_simulate</param>
+	<param name="session">Casper_Parameters</param>
+      </interceptor-ref>
+
+      <result type="stream">
+	<param name="contentType">image/png</param>
+	<param name="inputName">picture</param>
+	<param name="contentDisposition">filename="output.png"</param>
+      </result>
+
+    </action>
+
+    <!--
+    action: casper_determine
+    author: ml
+    desc: 
+    -->
+    <action name="casper_determine"  class="org.eurocarbdb.action.nmr.Casper_determine">
+
+      <interceptor-ref name="scope">
+	<param name="key">casper_determine</param>
+	<param name="session">Casper_Parameters</param>
+	<param name="type">start</param>
+      </interceptor-ref>
+
+      <interceptor-ref name="fileUpload">
+	<param name="allowedTypes">
+	  application/x-compressed-tar,
+	  application/x-gtar
+	</param>
+	<param name="maximumSize">
+	  2500000
+	</param>
+      </interceptor-ref>
+      <interceptor-ref name="basicStack"/>
+
+      <result type="freemarker">/template/action/nmr/casper/casper_determine/index.ftl</result>
+
+    </action>
+
+    <!--
+    action: casper_determine_start
+    author: ml
+    desc: 
+    -->
+    <action name="casper_determine_start"  class="org.eurocarbdb.action.nmr.Casper_determine" method="start">
+      
+      <interceptor-ref name="scope">
+	<param name="key">casper_determine</param>
+	<param name="session">Casper_Parameters</param>
+      </interceptor-ref>
+
+      <interceptor-ref name="fileUpload">
+	<param name="allowedTypes">
+	  application/x-compressed-tar,
+	  application/x-gtar
+	</param>
+	<param name="maximumSize">
+	  2500000
+	</param>
+      </interceptor-ref>
+      <interceptor-ref name="basicStack"/>
+      
+      <result type="freemarker">/template/action/nmr/casper/resultslist.ftl</result>
+
+    </action>
+
+    <!--
+    action: casper_determine_assign
+    author: ml
+    desc: 
+    -->
+    <action name="casper_determine_assign"  class="org.eurocarbdb.action.nmr.Casper_determine" method="start">
+      
+      <interceptor-ref name="scope">
+	<param name="key">casper_determine</param>
+	<param name="session">Casper_Parameters</param>
+       </interceptor-ref>
+
+      <interceptor-ref name="fileUpload">
+	<param name="allowedTypes">
+	  application/x-compressed-tar,
+	  application/x-gtar
+	</param>
+	<param name="maximumSize">
+	  2500000
+	</param>
+      </interceptor-ref>
+      <interceptor-ref name="basicStack"/>
+      
+      <result type="freemarker">/template/action/nmr/casper/results.ftl</result>
+
+    </action>    
+
+    <!--
+    action: casper_simulate_ccpn_save
+    author: ml
+    desc: 
+    -->
+    <action name="casper_determine_ccpn_save"  class="org.eurocarbdb.action.nmr.Casper" method="executeSave">
+
+      <interceptor-ref name="scope">
+    	<param name="key">casper_determine</param>
+	<param name="session">Casper_Parameters</param>
+      </interceptor-ref>
+
+      <result type="stream">
+	<param name="parse">true</param>
+	<param name="contentType">application/x-compressed-tar</param>
+	<param name="inputName">projectStream</param>
+	<param name="contentDisposition">filename="project.tgz"</param>
+	<param name="location">${savedProject}</param>
+      </result>
+
+    </action>
+
+    <!--
+    action: pictureStream
+    author: ml
+    desc:
+    -->
+    <action name="casper_determine_picture_stream" class="org.eurocarbdb.action.nmr.PictureStream">
+      <interceptor-ref name="params" />
+
+      <interceptor-ref name="scope">
+    	<param name="key">casper_determine</param>
+	<param name="session">Casper_Parameters</param>
+      </interceptor-ref>
+
+      <result type="stream">
+	<param name="contentType">image/png</param>
+	<param name="inputName">picture</param>
+	<param name="contentDisposition">filename="output.png"</param>
+      </result>
+
+    </action>
+
+</package>
+
+</xwork>

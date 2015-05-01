@@ -1,0 +1,16 @@
+# Computer-assisted structural analysis of polysaccharides with an extended
+# version of CASPER using 1H- and 13C-N.M.R. Data
+# P.-E. Jansson, L. Kenne, G. Widmalm
+set ref 'Carbohydr. Res. 188 (1989) 169-191
+
+dimer 'bDGal(1->3)bDGlcNAc' {
+shift  6.93 -0.11; -1.31 0.10; -0.26 0.05; -0.24 0.04;  0.20 0.05; -0.03 0.14 0.06
+shift -0.25  0.06; -1.07 0.13;  8.76 0.25; -1.28 0.09; -0.45 0.04; -0.01 0.02 0.01; 0.09 -0.01; 0.05
+info $ref
+}
+
+dimer 'bDGlcNAc(1->3)bDGal' {
+shift  7.39  0.02; -1.11 0.08; -0.19 0.03; -0.21 0.01; -0.22  0.01; -0.01 0.01 0.00; 0.17 -0.02; 0.00
+shift  0.00  0.00; -0.97 0.06;  9.23 0.06; -0.39 0.19; -0.40 -0.01; -0.06 0.00 0.00
+info $ref
+}

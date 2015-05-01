@@ -1,0 +1,104 @@
+# 
+set ref 'J.C.S., Perkin I (1988) 1184-'
+# shift OK
+# Must be fixed. Atom names not right.
+
+type '6dHex4NOMe' {
+atom '1' 1 free link
+atom '2' 1 free
+atom '3' 1 free
+atom '4' 1
+atom '5' 1
+atom '6' 1 methyl
+atom 'OMe' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'OMe'
+}
+
+type '6dHex4NFoOMe' {
+atom '1' 1 free link
+atom '2' 1 free
+atom '3' 1 free
+atom '4' 1
+atom '5' 1
+atom '6' 1 methyl
+atom 'OMe' 1 methyl
+atom 'Formyl' 0
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'OMe'
+}
+
+type '6dHex4NAcOMe' {
+atom '1' 1 free link
+atom '2' 1 free
+atom '3' 1 free
+atom '4' 1
+atom '5' 1
+atom '6' 1 methyl
+atom 'CO' 0
+atom 'Me' 1 methyl
+atom 'OMe' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect CO Me
+connect '1' 'OMe'
+}
+
+residue aDRha4NOMe '6dHex4NOMe' {
+config D
+?jhh medium
+jch large
+shift 101.92 4.72 ax
+shift  70.96 3.87 ax
+shift  70.02 3.64 eq
+shift  54.62 2.77 eq
+shift  69.48 3.64
+shift  17.78 1.29
+shift  55.51 3.40
+info $ref
+}
+
+residue a_aDRha4NFoOMe '6dHex4NFoOMe' {
+config D
+?jhh medium
+jch large
+shift 101.70 4.75 ax
+shift  69.94 3.94 ax
+shift  69.05 3.83 eq
+shift  52.79 3.90 eq
+shift  67.70 3.79
+shift  17.69 1.23
+shift  55.60 3.40
+shift 165.60 8.20
+info $ref
+}
+
+residue s_aDRha4NFoOMe '6dHex4NFoOMe' {
+config D
+?jhh medium
+jch large
+shift 101.70 4.75 ax
+shift  69.64 3.96 ax
+shift  68.86 3.80 eq
+shift  57.49 3.36 eq
+shift  67.58 3.82
+shift  17.52 1.28
+shift  55.64 3.41
+shift 168.52 8.03
+info $ref
+}
+
+residue aDRha4NAcOMe '6dHex4NAcOMe' {
+config D
+?jhh medium
+jch large
+shift 101.71 4.73 ax
+shift  69.99 3.93 ax
+shift  69.31 3.80 eq
+shift  53.89 3.83 eq
+shift  68.26 3.74
+shift  17.65 1.20
+shift  175.33
+shift  23.05 2.04
+shift  55.60 3.40
+info $ref
+}

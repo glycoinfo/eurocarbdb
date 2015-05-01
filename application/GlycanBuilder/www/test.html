@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+<HEAD>
+  <TITLE>Test GlycanBuilder applet</TITLE>
+
+  <SCRIPT LANGUAGE="JavaScript">     
+
+  function getDocument() {
+      document.formdemo.text.value = document.GlycanBuilder.getDocument();
+  }
+  
+  </SCRIPT>
+</HEAD>
+
+<BODY>
+
+<H1>GlycanBuilder applet</H1>
+
+<APPLET name="GlycanBuilder" CODE="org.eurocarbdb.application.glycanbuilder.GlycanBuilderApplet.class" ARCHIVE="GlycanBuilderApplet.jar" WIDTH=700 HEIGHT=500 mayscript="mayscript">
+  <PARAM name="document" value="freeEnd--3b1D-GlcNAc"/>
+  <PARAM name="notation" value="cfgbw"/>
+  <PARAM name="display" value="compact"/>
+</APPLET>
+
+<p>
+
+<FORM id="formdemo" name="formdemo" action="" method="post">
+  <input type="button" value="Get GWS" onclick="getDocument()"/> 
+  <br>
+  <textarea id="text" cols="80" rows="10" VALUE="">  
+  </textarea>
+
+</FORM>
+
+</BODY>
+</HTML>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (X11; I; Linux 2.0.34 i686) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EF" VLINK="#51188E" ALINK="#FF0000">
+&nbsp;
+<H1>
+<A NAME="Arrays"></A>Arrays</H1>
+
+<UL>
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#SIZEOF - Get arry length">SIZEOF - Get
+array length</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#RV - Reverse">RV - Reverse</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#SWAP2 - SWAP 2x2 bytes">SWAP2 - SWAP
+2x2 bytes</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#SWAP4 - SWAP 4 bytes">SWAP4 - SWAP 4
+bytes</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#I2F - Integer to Float">I2F - Integer
+to Float</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#F2I - Float to Integer">F2I - Float
+to Integer</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#C2RI - Complex to Real and Integer">C2RI
+- Complex to Real and Integer</A></FONT></U></LI>
+
+<LI>
+<A HREF="#Max - Returns the maximum value in an array">Max - Returns the
+maximum value in an array</A></LI>
+
+<LI>
+<A HREF="#Min - Returns the minimum value in an array">Min - Returns the
+minimum value in an array</A></LI>
+</UL>
+The arrays are denoted with character "@", followed by a letter:
+<P><B>@r</B>, array of real data
+<BR><B>@i</B>, array of imaginary data
+<BR><B>@c</B>, array of complex data. is @r and @i
+<BR><B>@a</B>, buffer A
+<BR><B>@b</B>, buffer B
+<BR><B>@w</B>, window buffer
+<BR><B>@l</B>, baseline buffer
+<P>Sub arrays are depicted by the array indicator followed by a range of
+data. For example, <B>@c[1..4]</B> are the first 4 elements of the real
+and of the imaginary array's, and <B>@a[1]</B> is the first element of
+buffer A.
+<P>
+<HR WIDTH="100%">
+<H4>
+<A NAME="SIZEOF - Get arry length"></A>SIZEOF - Get array length</H4>
+
+<UL><B>sizeof</B>( <I>&lt;array></I> ) Get the number of elements in the
+array. Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $test = sizeof( @R )</PRE>
+this is the same as <B>? si</B> Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $test = sizeof( @R[5..8] )</PRE>
+Returns 4 in the variable test.</UL>
+<A NAME="RV - Reverse"></A>
+<H4>
+RV - Reverse</H4>
+
+<UL><B>RV</B> <I>&lt;array></I> Reverse the contents of an array. Data
+elements stored from 1..size are now stored from size..1. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RV @R[1..8]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Before reverse: <B>1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; 6&nbsp; 7&nbsp; 8</B>&nbsp; 9&nbsp; 10 ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After reverse:&nbsp; <B>8&nbsp; 7&nbsp; 6&nbsp; 5&nbsp; 4&nbsp; 3&nbsp; 2&nbsp; 1</B>&nbsp; 9&nbsp; 10 ...</PRE>
+</UL>
+<A NAME="SWAP2 - SWAP 2x2 bytes"></A>
+<H4>
+SWAP2 - SWAP 2x2 bytes</H4>
+
+<UL><B>SWAP2</B> <I>&lt;number></I> <B>SWAP2</B> <I>&lt;array></I>
+<P>Swap the 2x2 bytes for <I>&lt;number></I> or for all <I>&lt;array></I>
+elements. Thus, each float with byte order 1234 will have byte order 2143
+instead (For I/O conversion).
+<BR>&nbsp;</UL>
+<A NAME="SWAP4 - SWAP 4 bytes"></A>
+<H4>
+SWAP4 - SWAP 4 bytes</H4>
+
+<UL><B>SWAP4</B> <I>&lt;number></I> <B>SWAP4</B> <I>&lt;array></I>
+<P>Swap the 4 bytes for <I>&lt;number></I> or for all <I>&lt;array></I>
+elements. Thus, each float with byte order 1234 will have byte order 4321
+instead (For I/O conversion).Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SWAP4 @r</PRE>
+Swap 4 bytes in all elements of the array of real data Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $result = swap4 123.45</PRE>
+Stores the result of the swap4 operation in variable &lt;result></UL>
+<A NAME="I2F - Integer to Float"></A>
+<H4>
+I2F - Integer to Float</H4>
+
+<UL><B>I2F</B> <I>&lt;number></I> or <B>I2F</B> <I>&lt;array></I>
+<P>Convert one integer number to float or array of integers to array of
+floats (For I/O conversion) Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $file1 = open "filename", "r"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $num = read $file1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close $file1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $num = i2f $num
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println $num</PRE>
+Read one integer from file1 and convert it to a float. Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $file2 = open "filename", "r"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; si 1024
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r = read $file2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close $file2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i2f @r</PRE>
+Read 1024 integers in array <B>@r</B> and convert these integers to floats.</UL>
+<A NAME="F2I - Float to Integer"></A>
+<H4>
+F2I - Float to Integer</H4>
+
+<UL><B>F2I</B> <I>&lt;number></I> or <B>F2I</B> <I>&lt;array></I>
+<P>Convert one float to integer or array of floats to array of integers
+(For I/O conversion).</UL>
+<A NAME="C2RI - Complex to Real and Integer"></A>
+<H4>
+C2RI - Complex to Real and Integer</H4>
+
+<UL><B>C2RI</B> <I>&lt;complex array>, &lt;real array>, &lt;imaginary array></I>
+<P>Convert an array of complex data into two arrays of real and imaginary
+data. The size of the complex array is two times the size of the new arrays.
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Complex array:&nbsp;&nbsp; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; 6&nbsp; 7&nbsp; 8&nbsp; 9&nbsp; 10 ....
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Real array:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; 3&nbsp; 5&nbsp; 7&nbsp; 9&nbsp; ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Imaginary array: 2&nbsp; 4&nbsp; 6&nbsp; 8&nbsp; 10 ...</PRE>
+Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; si 1024
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r[1..1024] = read $file1&nbsp;&nbsp; # read 1024 data points
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c2ri @r, @r, @i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # convert into 2 arrays&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; of 512 points
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; si 512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # set new size
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Write record</PRE>
+</UL>
+
+<H4>
+<A NAME="Max - Returns the maximum value in an array"></A>Max - Returns
+the maximum value in an array</H4>
+
+<BLOCKQUOTE><B>MAX</B> ( <I>&lt;array></I> }
+<P>Returns the maximum value in array <I>&lt;array></I>
+<BR>Example 1:
+<BLOCKQUOTE>
+<PRE>$value = max(@r)</PRE>
+</BLOCKQUOTE>
+Example 2:
+<BLOCKQUOTE>
+<PRE>$value = max(@i[44..99])</PRE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H4>
+<A NAME="Min - Returns the minimum value in an array"></A>Min - Returns
+the minimum value in an array</H4>
+
+<BLOCKQUOTE><B>Min </B>( <I>&lt;array></I> }
+<P>Returns the minimum value in array <I>&lt;array></I></BLOCKQUOTE>
+
+<HR WIDTH="100%">
+</BODY>
+</HTML>

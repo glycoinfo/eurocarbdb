@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Binding definition for Core Actions in EUROCarbDB
+	author: hirenj
+-->
+<binding name="ecdb_0_1">
+	<include path="../../../core-api/conf/binding.xml"/>
+	    
+	<mapping ordered="false" name="eurocarb_result" class="org.eurocarbdb.action.EurocarbAction" factory="org.eurocarbdb.action.EurocarbAction.DummyFactory" abstract="false"/>
+	
+	<mapping name="show_disease" class="org.eurocarbdb.action.core.ShowDisease" ordered="false">
+
+	 	<structure field="disease" usage="optional">
+		</structure>
+
+	</mapping>
+
+	<mapping name="show_biological_context_result" class="org.eurocarbdb.action.core.ShowBiologicalContext" ordered="false" >
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>
+ 		<structure field="biologicalContext" usage="optional"/>
+ 		<collection name="glycan_sequence_contexts" create-type="java.util.HashSet" item-type="org.eurocarbdb.dataaccess.core.GlycanSequenceContext" get-method="getGlycanSequenceContexts" set-method="setGlycanSequenceContexts"/>
+	</mapping>
+
+	<mapping name="show_experiment_result" class="org.eurocarbdb.action.core.ShowExperiment" ordered="false">
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>
+		<value get-method="getExperimentId" set-method="setExperimentId" name="experimentId" usage="optional" />
+ 		<structure get-method="getExperiment" set-method="setExperiment" usage="optional"/>
+	</mapping>
+
+	<mapping name="browse_experiments" class="org.eurocarbdb.action.core.BrowseExperiments" ordered="false">
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>
+ 		<collection name="allExperiments" create-type="java.util.ArrayList" item-type="org.eurocarbdb.dataaccess.core.Experiment" get-method="getAllExperiments" set-method="setAllExperiments"/>
+	</mapping>
+
+	<mapping name="show_tissue_taxonomy_result" class="org.eurocarbdb.action.core.ShowTissueTaxonomy" ordered="false" >
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>
+ 		<structure field="tissueTaxonomy" usage="optional">
+		</structure>
+	</mapping>
+
+	<mapping name="search_taxonomy_result" class="org.eurocarbdb.action.core.SearchTaxonomy" ordered="false" >
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>
+  		<collection type="java.util.ArrayList" item-type="org.eurocarbdb.dataaccess.core.Taxonomy" field="matchingTaxonomies">
+		</collection>
+	</mapping>
+	
+	<mapping name="echo_result" class="org.eurocarbdb.action.Echo">
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>
+		<value name="message" field="message" usage="optional"/>
+	</mapping>
+	
+	<mapping name="browse_structures_result" class="org.eurocarbdb.action.core.BrowseStructures">
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>
+ 		<collection create-type="java.util.ArrayList" item-type="org.eurocarbdb.dataaccess.core.GlycanSequence" get-method="getStructures" set-method="setStructures" usage="optional"/>
+ 		<value name="pageNumber" get-method="getPage" set-method="setPage" usage="optional"/>
+ 		<value name="structuresPerPage" field="structuresPerPage" usage="optional"/>
+ 		<value name="totalResults" field="totalResults" usage="optional"/>
+	</mapping>
+	
+	
+	<mapping name="create_journal_result" class="org.eurocarbdb.action.core.CreateJournal">
+		<structure field="journal" usage="optional">
+		</structure>
+	</mapping>
+		
+	<mapping name="create_glycan_sequence_result" class="org.eurocarbdb.action.core.CreateGlycanSequence">
+		<structure field="glycanSequence" usage="optional">
+		</structure>
+	</mapping>
+
+	<!-- MS -->
+
+	<mapping name="show_acquisition" class="org.eurocarbdb.action.ms.ShowAcquisition">
+	  	<namespace uri="http://xml.eurocarbdb.org/0" default="elements"/>		<value name="acquisitionid" get-method="getAcquisitionId" set-method="setAcquisitionId" usage="optional" />
+		<structure get-method="getAcquisition" set-method="setAcquisition" usage="optional" />
+	</mapping>
+
+</binding>

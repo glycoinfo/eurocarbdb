@@ -1,0 +1,21 @@
+# Structure of a new 6-deoxy-a-D-talan from Burkholderia
+# (Pseudomonas) plantarii strain DSM 6535, which is different
+# from the O-chain of the lipopolysaccharide
+# U. Zähringer, H. Rettenmaier, H. Moll, S.N. Senchenkova,
+# Y.A. Knirel
+set ref 'Carbohydr. Res. 300 (1997) 143-151'
+# does not appear to need corrections
+
+residue aD6dTalOMe '6dHexOMe' {
+info 'Methyl 6-deoxy-a-D-talopyranoside'
+config D
+jhh small
+jch large
+shift 102.3 4.81 ax
+shift  70.4 3.82 ax
+shift  66.4 3.85 eq
+shift  72.9 3.74 ax
+shift  67.9 4.00
+shift  16.4 1.28
+shift  55.6 3.42
+}

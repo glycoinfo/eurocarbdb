@@ -1,0 +1,110 @@
+$ Aqua Version 3.2 DATA: Pseudo atom definitions AQUA format
+$ FILE: PseudoLIB CREATED: Wed Jan  3 15:45:52 CST 2001
+$ REMARK: 
+$ REMARK: Authors: Doreleijers JF and Rullmann JAC
+$ REMARK: 
+$ REMARK: AQUA names based on:
+$ REMARK: Markley JL, Bax A, Arata Y, Hilbers CW, Kaptein R, Sykes BD,
+$ REMARK: Wright PE & Wüthrich K.
+$ REMARK: Recommendations for the presentation of NMR structures of proteins
+$ REMARK: and nucleic acids. (1998) Pure & Appl. Chem. 70, 117-142.
+$ REMARK: 
+$ REMARK: Note: - QR of rings holds 4 protons as in Wuethrichs paper
+$ REMARK:       - the LYS QZ (but is NH3 group) is weird 
+$ REMARK: 	- The pseudoatom type is set according to the following table:
+$ REMARK: 
+$ REMARK: 	   The number between brackets is the number of atoms within.
+$ REMARK: 		0 undefined  (*)
+$ REMARK: 		1 CH2 or NH2 (2) 		2 methyl or NH3 (3)
+$ REMARK: 		3 double CH2/NH2 (4)		4 double methyl (6)
+$ REMARK: 		5 Aromat with 2 H (2) 		6 Aromat with 4 H (4)
+$ REMARK: 
+$ REMARK: In this file all types of pseudo's can be used.
+$ REMARK: Introduced the nucleic acid stereo atom definitions.
+$ REMARK:
+$ REMARK: 2000-03-09 Added ARG QZ (ARG+ QZ was already there)
+$ REMARK:
+$ PSEUDO_COUNT: 82
+$ BEGIN_DATA:
+def ALA   * MB    2 HB1   HB2   HB3   
+def ARG   * QB    1 HB2   HB3   
+def ARG   * QG    1 HG2   HG3   
+def ARG   * QD    1 HD2   HD3   
+def ARG   * QH1   1 HH11  HH12  
+def ARG   * QH2   1 HH21  HH22  
+def ARG   * QH    3 HH11  HH12  HH21  HH22  
+def ARG   * QZ    3 HH11  HH12  HH21  HH22  
+def ARG+  * QB    1 HB2   HB3   
+def ARG+  * QG    1 HG2   HG3   
+def ARG+  * QD    1 HD2   HD3   
+def ARG+  * QH1   1 HH11  HH12  
+def ARG+  * QH2   1 HH21  HH22  
+def ARG+  * QZ    3 HH11  HH12  HH21  HH22  
+def ASN   * QB    1 HB2   HB3   
+def ASN   * QD    1 HD21  HD22  
+def ASP   * QB    1 HB2   HB3   
+def ASP-  * QB    1 HB2   HB3   
+def CYS   * QB    1 HB2   HB3
+def GLN   * QB    1 HB2   HB3   
+def GLN   * QE    1 HE21  HE22  
+def GLN   * QG    1 HG2   HG3   
+def GLU   * QB    1 HB2   HB3   
+def GLU   * QG    1 HG2   HG3   
+def GLU-  * QB    1 HB2   HB3   
+def GLU-  * QG    1 HG2   HG3   
+def GLY   * QA    1 HA2   HA3   
+def HIS   * QB    1 HB2   HB3   
+def HIS+  * QB    1 HB2   HB3   
+def ILE   * MD    2 HD11  HD12  HD13  
+def ILE   * QG    1 HG12  HG13  
+def ILE   * MG    2 HG21  HG22  HG23  
+def LEU   * QB    1 HB2   HB3   
+def LEU   * MD1   2 HD11  HD12  HD13  
+def LEU   * MD2   2 HD21  HD22  HD23  
+def LEU   * QD    4 HD11  HD12  HD13  HD21  HD22  HD23  
+def LYS   * QB    1 HB2   HB3   
+def LYS   * QG    1 HG2   HG3   
+def LYS   * QD    1 HD2   HD3   
+def LYS   * QE    1 HE2   HE3   
+def LYS   * QZ    2 HZ1   HZ2   HZ3  
+def LYS+  * QB    1 HB2   HB3   
+def LYS+  * QG    1 HG2   HG3   
+def LYS+  * QD    1 HD2   HD3   
+def LYS+  * QE    1 HE2   HE3   
+def LYS+  * QZ    2 HZ1   HZ2   HZ3  
+def MET   * QB    1 HB2   HB3   
+def MET   * QG    1 HG2   HG3   
+def MET   * ME    2 HE1   HE2   HE3   
+def PHE   * QB    1 HB2   HB3   
+def PHE   * QD    5 HD1   HD2   
+def PHE   * QE    5 HE1   HE2   
+def PHE   * QR    6 HD1   HD2   HE1   HE2 
+def PRO   * QB    1 HB2   HB3   
+def PRO   * QG    1 HG2   HG3   
+def PRO   * QD    1 HD2   HD3   
+def SER   * QB    1 HB2   HB3   
+def THR   * MG    2 HG21  HG22  HG23  
+def TRP   * QB    1 HB2   HB3   
+def TYR   * QB    1 HB2   HB3   
+def TYR   * QD    5 HD1   HD2   
+def TYR   * QE    5 HE1   HE2   
+def TYR   * QR    6 HD1   HD2   HE1   HE2
+def VAL   * MG1   2 HG11  HG12  HG13  
+def VAL   * MG2   2 HG21  HG22  HG23  
+def VAL   * QG    4 HG11  HG12  HG13  HG21  HG22  HG23  
+def   A   * Q5'   1 H5'   H5''
+def   A   * Q6    1 H61   H62
+def   C   * Q5'   1 H5'   H5''
+def   C   * Q4    1 H41   H42
+def   G   * Q5'   1 H5'   H5''
+def   G   * Q2    1 H21   H22
+def   T   * Q5'   1 H5'   H5''
+def   T   * M7    2 H71   H72   H73
+def   U   * Q5'   1 H5'   H5''
+def   A   * Q2'   1 H2'   H2''
+def   C   * Q2'   1 H2'   H2''
+def   G   * Q2'   1 H2'   H2''
+def   T   * Q2'   1 H2'   H2''
+def   U   * Q2'   1 H2'   H2''
+def   DUR * Q2'   1 H2'   H2''
+def   DUR * Q5'   1 H5'   H5''

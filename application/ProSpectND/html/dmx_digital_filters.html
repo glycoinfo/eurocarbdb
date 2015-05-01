@@ -1,0 +1,189 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (X11; I; Linux 2.2.5-15 i686) [Netscape]">
+   <title>DMX DIGITAL FILTERS AND NON-BRUKER OFFLINE PROCESSING III</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#FF00FF" alink="#FF0000">
+from: http://garbanzo.scripps.edu/nmrgrp/wisdom/dig.nmrfam.txt
+<br>&nbsp;
+<h4>
+DMX DIGITAL FILTERS AND NON-BRUKER OFFLINE PROCESSING III</h4>
+
+<center>W. M. Westler and F.&nbsp; Abildgaard
+<br>July 16, 1996</center>
+
+<p>The introduction of digital signal processing by Bruker in their DMX
+consoles also introduced an unusual feature associated with the data. The
+stored FID no longer starts at its maximum followed by a decay, but is
+prepended with an increasing signal that starts&nbsp; from zero at the
+first data point and rises to a maximum after several tens of data points.&nbsp;
+On transferring this data to a non-Bruker processing program such as FELIX,
+which is used at NMRFAM, the Fourier transform leads to an unusable spectrum
+filled with wiggles.&nbsp; Processing the same data with Bruker's Uxnmr
+program yields a correct spectrum.&nbsp; Bruker has been rather reluctant
+to describe what tricks are implemented during their processing protocol.&nbsp;
+They suggest the data should be first transformed in Uxnmr and then inverse
+transformed, along with a GENFID command, before shipping the data to another
+program. Bruker now supplies a piece of software to convert the digitally
+filtered data to the equivalent analog form.
+<p>&nbsp;We find it unfortunate that the vendor has decided to complicate
+the simple task of&nbsp; Fourier transformation. We find that the procedure
+suggested by Bruker is cumbersome, and more so, we are irritated since
+we are forced to use data that has been treated with an unknown procedure.&nbsp;
+Since we do not know any details of Bruker's digital filtration procedure
+or the "magic" conversion routine that is used in Uxnmr, we have been forced
+into observation and speculation.&nbsp; We have found a very simple, empirical
+procedure that leads to spectra processed in FELIX that are identical,
+within the noise limits, to spectra processed with Uxnmr.&nbsp; We deposit
+this information here in the hope that it can be of some
+<br>use to the general community.
+<p>The application of a nonrecursive (or recursive) digital filter to time
+domain data is accomplished by performing a weighted running average of
+nearby data points.&nbsp; A problem is encountered at the beginning of
+the data where, due to causality, there are no prior values.&nbsp; The
+weighted average of the first few points, therefore, must include data
+from "negative" time. One naive procedure, probably appropriate to NMR
+data, is to supply values for negative time points is to pad the data with
+zeros.&nbsp; Adding zeros (or any other data values) to the beginning of
+the FID, however, shifts the beginning of the time domain data (FID) to
+a later positive time.&nbsp; It is well known that a shift in the time
+domain data is equivalent to the application of a frequency-dependent,
+linear phase shift in the frequency domain.&nbsp; The 1st order phase shift
+corresponding to a time shift of a single complex dwell point is 360 degrees
+across the spectral width.&nbsp; The typical number of prepended points
+found in DMX digitally filtered data is about 60 data points (see below),&nbsp;
+the corresponding 1st order phase correction is ~21,000 degrees.&nbsp;
+This large linear phase correction can be applied to the transformed data
+to obtain a normal spectrum.&nbsp; Another, equivalent approach is to time
+shift the data back to its original position. This results in the need
+of only a small linear phase shift on the transformed data.
+<p>There is a question as what to do with the data preceding the actual
+FID.&nbsp; The prepended data can be simply eliminated with the addition
+of an equal number of zeros at the end of the FID (left shift).&nbsp; This
+procedure, however, introduces "frowns" (some have a preference to refer
+to these as "smiles") at the edge of the spectrum.&nbsp;&nbsp; If the sweep
+width is fairly wide this does not generally cause a problem.&nbsp; The
+(proper) alternative is to retain this data by applying a circular left
+shift of the data, moving the first 60 or so points (see recommendations
+below) to the end of the FID. This is identical to a Fourier transformation
+followed by the large linear phase correction mentioned above.&nbsp; The
+resulting FID is periodic with the last of the data rising to meet the
+first data point (in the next period).&nbsp; Fourier transform of this
+data results in an approximately phased spectrum.&nbsp; Further linear
+phase corrections of up to 180 degrees are necessary. A zero fill applied
+after a circular shift of the data will cause a discontinuity and thus
+introduce sinc wiggles on the peaks.&nbsp; The usual correction for DC
+offset and apodization of the data, if not done correctly, also results
+in the frowns at the edges of the spectrum.
+<p>In our previous document on Bruker digital filters, we presented deduced
+rules for calculating the appropriate number of points to be circular left
+shifted. However, since then, newer versions of hardware (DQD) and software
+has introduced a new set of values. Depending on the firmware versions
+(DSPFVS) and the decimation rate (DECIM), the following lookup table will
+give the circular shift values needed to correct the DMX data. The values
+of DECIM and DSPFVS can be found in the acqus file in the directory containing
+the data.
+<p>&nbsp;<tt>DECIM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DSPFVS 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DSPFVS 11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DSPFVS 12</tt>
+<p><tt>&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+44.7500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 46.0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+46.311</tt>
+<br><tt>&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+33.5000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 36.5000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+36.530</tt>
+<br><tt>&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+66.6250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 48.0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+47.870</tt>
+<br><tt>&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+59.0833&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 50.1667&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+50.229</tt>
+<br><tt>&nbsp;&nbsp; 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+68.5625&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 53.2500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+53.289</tt>
+<br><tt>&nbsp; 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+60.3750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 69.5000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+69.551</tt>
+<br><tt>&nbsp; 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+69.5313&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.2500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+71.600</tt>
+<br><tt>&nbsp; 24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.0208&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 70.1667&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.184</tt>
+<br><tt>&nbsp; 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.0156&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.7500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+72.138</tt>
+<br><tt>&nbsp; 48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.3438&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 70.5000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.528</tt>
+<br><tt>&nbsp; 64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.2578&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 73.0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+72.348</tt>
+<br><tt>&nbsp; 96&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.5052&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 70.6667&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.700</tt>
+<br><tt>&nbsp;128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.3789&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.5000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+72.524</tt>
+<br><tt>&nbsp;192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.5859&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 71.3333</tt>
+<br><tt>&nbsp;256&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.4395&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.2500</tt>
+<br><tt>&nbsp;384&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.6263&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 71.6667</tt>
+<br><tt>&nbsp;512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.4697&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.1250</tt>
+<br><tt>&nbsp;768&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.6465&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 71.8333</tt>
+<br><tt>1024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.4849&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.0625</tt>
+<br><tt>1536&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.6566&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 71.9167</tt>
+<br><tt>2048&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+70.4924&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.0313</tt>
+<br>&nbsp;
+<p>The number of points obtained from the table are usually not integers.&nbsp;
+The appropriate procedure is to circular shift (see protocol for details)
+by the integer obtained from truncation of the obtained value and then
+the residual 1st order phase shift that needs to be applied can be obtained
+by multiplying the decimal portion of the calculated number of points by
+360.
+<p>For example,
+<p>I<tt>f DECIM = 32, and DSPFVS = 10,</tt>
+<br><tt>then #points 70.0156</tt>
+<p>The circular shift performed on the data should be 70 complex points
+and the linear phase correction after Fourier transformation is approximately
+0.0156*360= 5.62 degrees.
+<p>Protocol:
+<ol>
+<li>
+Circular shift (rotate) the appropriate number of points in the data indicated
+by the&nbsp; DECIM parameter. (see above formulae).</li>
+
+<li>
+After the circular shift, resize the data&nbsp; to the original size minus
+the number of shifted points.&nbsp; This will leave only the part of the
+data that looks like an FID.&nbsp; Baseline correction (BC) and/or apodization
+(EM etc.) should be applied only on this data, otherwise "In come the frowns."&nbsp;
+Since the first part of the data (the points that are shifted) represents
+negative time, a correct apodization would also multiply the shifted points
+by a negative time apodization.&nbsp; The data size is now returned to
+its original size to reincorporate the shifted points.&nbsp; There may
+still be a discontinuity between the FID portion and the shifted points
+if thelast point of the FID portion is not at zero.&nbsp; This will cause
+sinc wiggles in the peaks.</li>
+
+<li>
+Applying a zero fill to this data will lead to a discontinuity in the data
+between the rising portion of the shifted points and the zero padding.&nbsp;
+To circumvent this problem,&nbsp; the shifted points are returned (by circular
+shift) to the front of the data, the data is zero filled, and then the
+first points are shifted again to the end of the zero filled data.&nbsp;
+4)&nbsp; The data can now be Fourier transformed and the residual calculated
+1st order phase correction can be applied.</li>
+</ol>
+
+</body>
+</html>

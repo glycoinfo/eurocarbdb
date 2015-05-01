@@ -1,0 +1,512 @@
+	- added Bacillosamine
+	- update zoom in charts when isotope curves are added
+	- merge isotope curves of neighbour peaks
+	- noise filtering of spectra
+
+* 4095  22/10/2008
+	- fixed ascii spectrum import
+	- update modes (keep report, keep peaklist, merge)
+
+* 4092  21/10/2008
+	- update annotations	
+
+* 4086  20/10/2008
+	- highlight annotations
+	- change colors in annotation report
+
+* 4080  17/10/2008
+	- choose m/z range for centroiding
+	- isotopes distribution for FT instruments
+	- isotope curves in peaklist chart panel
+	- deconvolute structures for core/monosaccharide/disaccharide/terminals in profile comparison
+
+* 3572 15/10/2008
+	- peak picking options
+	- compute centroids with OpenMS library
+	
+* 3566 10/10/2008
+	- deisotope annotated peak list
+	- removed masses from configuration files
+
+* 3560 8/10/2008
+	- compute average isotope curve for multiple molecules
+	- compute residue masses from composition (higher accuracy)
+	- put special residue types in dictionary
+	- fixed fragment computation
+
+* 3553 7/10/2008
+	- baseline correction
+	- compute isotopic distribution for annotations
+	- fixed all shortcuts
+	- compute glycan atomic composition
+	- compute isotopic distribution for a molecule	
+	- remove empty peak from annotated peak list on delete in annotation panels
+
+----------- 1.1.3480 release 12/9/2008 --------------------
+
+* 3480 12/9/2008
+        - fragments with labiles in fragment editor
+	- fixed issues with residue properties toolbar
+
+* 3460 11/9/2008
+
+	- fixed custom graphic options
+	- changed MolecularFramework version
+	- set default buttons in dialogs
+	- added close dialog on escape
+
+* 3423 3/9/2008
+	- added GAG plugin
+	- added executable, splashscreen and icon in windows (using launch4j)
+
+...
+	
+	- fixed export of greek fonts to SVG (text as shapes)
+	- search database by structure
+	- reorganization of the builder, all actions and graphic objects in the canvas
+
+* 3411 6/8/2008
+	- residue properties toolbar
+
+* 3409 4/8/2008
+
+	- profile comparison distributions chart report
+	- profile comparison error bars chart report
+	- profile comparison bar chart report
+	- profile comparison table report
+	- output structures in spreadsheets as compositions
+	- get structure composition
+	- added peak list chart panel
+
+----------- 1.0.3353 release 21/7/2008 --------------------
+
+* 3353 21/7/2008
+	- compute derivatized mass in profiler panels
+	- fixed eps export for small structures
+	- show max annotation axis
+	- reduce memory requirements for glycan objects
+	- use memory mapped files to store peak data
+
+* 3267 26/6/2008
+	- read/write XML with SAX
+	- unified document panels
+
+* 3247 18/6/2008
+	- database browser
+	- unified table panels	
+	- show redend canvas
+
+----------- 1.0.3011 release 12/5/2008 --------------------
+
+* 3056 29/4/2008
+	- added 4dPen, 4dPenN, Ko, PPEtn, PEtn
+	- profiling with other reducing ends
+	- deoxygenation in the reducing end
+	- support for MGF files
+	- store fragments in the workspace 
+	- store options in the annotation report document
+
+* 2983 16/4/2008
+	- store annotation reports in the workspace add/open/delete
+	- change anomeric carbon if open ring in residue properties dialog
+	- save spectra in the workspace
+	- zoom in the fragment editor
+
+* 2865 5/4/2008
+	- fragment summary panel (print/cut/copy)
+	- print notes text
+	- load/save notes
+	- add notes to a scan object
+
+* 2837 31/3/2008
+	- no crossing lines in the report with automatic placement 
+	- fixed scrolling
+	- fixed add selection
+	- run glyco-peakfinder from spectra and peaklist panel
+	- create other residues in composition
+
+* 2819 26/3/2008
+	- allow internal ring fragments
+
+* 2815 20/3/2008
+	- order structures in canvas by m/z
+	- custom annotation report options
+
+* 2809 19/3/2008
+	- manual add composition
+	
+* 2807 17/3/2008
+	- load/save annotation report
+	- take a screenshot of the report canvas
+
+* 2804 14/3/2008
+	- rotation of composition text
+	- rotation of structure text
+	- added ddHex, dHexA, NeuGcLac, NeuAcLac, PC, Pyr
+	- fixed masses
+
+* 2796 7/3/2008
+	- fixed glyco-peakfinder find fragments
+	- fixed save annotations from search panel
+	- show report with empty annotations
+
+* 2784 7/3/2008
+	- generic name for custom reducing end
+
+* 2771 19/2/2008
+	- add/edit/remove structures from user db
+	- fixed positions after ungroup
+	- reset structure placements	
+
+* 2767 15/2/2008
+	- multiple user databases
+	- fixed mass options when no structures are selected
+	- font size for composition
+
+* 2763 12/2/2008
+	- added show raw spectrum option in annotation report
+	- fixed report intensities when different from peaklist
+	- fixed printing FragmentEditor
+	
+* 2757 11/2/2008
+	- fixed eps problem with orientation
+	- pass last M/Z value to all dialogs
+	- fixed eps problem with clearRect, fix eps problem with resolution
+	- fixed svg problem with size over 400	
+
+* 2751 6/2/2008
+	- fix place multiple antennae
+	- show report with relative intensities
+	
+* 2740 4/2/2008
+	- show only selected rows
+	- filter by structure
+
+* 2729 1/2/2008
+	- copy/paste annotations
+	
+* 2722 31/1/2008
+	- annotation report
+
+* 2720 31/1/2008
+	- display composition as a glycan structure
+
+* 2716 30/1/2008
+
+	- fixed antennae with multiplicity
+	- fixed orientation of children in a clockwise manner
+	- new version of the MolecularFramework
+
+* 2695 28/1/2008
+	- search in structure databases
+	- store in custom structure database
+	- fixes to i/o glyco-ct
+
+* 2386 14/11/2007
+	- integration with GP completed, added fragments
+
+* 2358 13/11/2007
+	- integration with glycopeakfinder
+	- add structure from string generalized
+	- import/export with molecularframework parsers
+
+* 2053 27/9/2007
+	- selection of the end point of the repetition
+	- import/export glyco-ct
+	- input min and max repetitions
+	- create a repeating unit
+	- copy of structures with repetitions
+	- remove of residues from structures with repetitions
+	- positioning of lateral nodes
+
+* 2047 18/9/2007
+	- custom reducing end
+
+* 2036 13/9/2007
+	- editing of annotations, update/delete single rows from tables
+	- asyncronous update of the annotation panels
+
+* 2031 12/9/2007
+	- put the reducing end option in the MassOptions dialog	
+	- manual positioning of border residue
+	- open ascii spectra files
+	- change residue type
+	- fixed gag templates
+
+* 1794 15/7/2007
+	- editing functions
+	- rendering
+
+* 1624 5/6/2007
+	- support of multiple bonds and multiple linkage positions
+
+----------- 0.6.1622 release --------------------
+
+* 1611 25/5/2007
+	- plugins can add button on toolbar
+
+* 1588 23/5/2007
+	- import/export of fuzzy structures to Glyco-CT	
+
+* 1577 22/5/2007
+	- put structures in the scan
+	- connected the canvas to the structures in the scan
+	- put spectra in the scan
+
+* 1576 21/5/2007
+	- added candidates plugin/panel
+	- added candidates structures to scan
+	- glycomind parser
+
+* 1555 16/5/2007
+	- multiple root scans in the workspace
+	- manage selection in fragment editor
+	- copy fragments from the editor to the canvas
+
+* 1545 15/5/2007
+	- fixed bug in automatic positioning
+
+* 1456 20/4/2007
+	- removed static references in style dictionaries
+
+* 1440 19/4/2007
+	- fixed relative intensities
+
+* 1307 17/4/2007
+	- import glyco-ct markers
+	- import glyco-ct substituents
+
+* 1279 16/4/2007
+	- import glyco-ct
+
+* 1050 22/3/2007
+	- applet export to glyco-ct
+	- remove javascript listeners from applet
+	- export of o-linked glycans and uncertain residues
+	- removed undo/redo workspace
+
+* 1033 21/3/2007	
+	- fixed undo/redo of all documents
+	- put undomanager in the document
+	- limit number of states in on undomanager
+	- undo/redo workspace
+
+* 1032 20/3/2007
+	- compute charges and exchanges in fragment panel
+
+* 1025 16/3/2007
+	- save project
+
+* 1024 15/3/2007
+	- add/remove/select scan
+	- show peaklist and annotated peaklist on doubleclick
+	- update peaklist and annotated peaklist in tool panels when scan is changed
+
+* 1014 14/3/2007
+	- multiple level peaklist
+	- workspace panel
+
+* 1000 13/3/2007
+	- user settings for graphic options
+	- recent residue history stored in configuration
+
+* 991 12/3/2007
+	- init and exit in Plugin (retrieve and store options in Configuration)
+	- annotate with mass options derived from parent
+	- set exchanges for a structure
+
+* 983 10/3/2007
+	- put mass options in the structure
+
+* 975 08/3/2007
+	- display of antennae with multiplicity
+	
+* 965 07/3/2007
+	- specify the maximum amount of exchanges
+	- specify mass options for a single structure
+	
+* 954 06/3/2007
+	- fixes to Ion cloud
+	
+* 939 27/2/2007
+	- export to glycoct
+
+* 907 20/2/2007
+	- specify multiple charges in mass options
+
+* 783 29/1/2007
+	- fixed small ring fragments
+
+* 769 26/1/2007
+	- open/save annotated peak list in internal format
+
+* 754 24/1/2007
+	- small ring fragments with charges
+	- fix computation of charges in negative mode
+	- copy of fragments from summary view
+	- progress monitor and annotation abort
+
+
+----------- 0.5.748 release --------------------
+
+* 748 23/1/2007
+	- reworked options dialogs
+	- fixed exporting with mass and no redend
+	- max no charges set to 10
+	- cleavage of labile substituents in the fragment editor
+
+* 715 8/1/2007
+	- multiple cross ring fragments	
+	- added modifications: deoxygenation, saturation
+	- fixed mass options in fragment editor
+
+* 690 17/12/2006
+	- fixed mass of structure with labile residues
+
+* 689 16/12/2006
+	- fragmentation with labile residues
+
+* 686 15/12/2006
+	- search for plugins at run-time
+	- transformed tools into plugins
+	
+* 670 12/12/2006
+	- fixed place antennae
+	- annotation options dialog
+	- annotation multiple ions/charges in parallel (neutral ion exchange)
+	- optimization of the options and options dialog
+
+* 668 11/12/2006
+	- ion cloud
+	- added gags templates
+	- fixed rectangle selection bug
+	- removed default sticky for lateral nodes
+	- negative ion mode
+	- output of mz values as string when copy to Excel
+	
+* 662 10/12/2006
+	- solved problem of -45 and 45
+
+* 659 09/12/2006
+	- find a fragment from a given m/z value
+	- cut/delete in fragment panel
+	- copy table rows in excel
+	
+* 655 08/12/2006
+	- major improvement in the visualization, fixed problems with UOXF notation
+
+* 643 06/12/2006	
+	- Support for masslynx files
+
+----------- 0.4.642 release --------------------
+
+* 642 01/12/2006
+	- calibration panel in PPM
+	- calibration panel free zooming
+	- compact view
+	- autosave options on exit
+
+* 627 29/11/2006
+	- cfg with link placement		
+
+* 588 24/11/2006
+	- create image in headless environment
+	- log utils in headless environment
+	- fixed bug on string encoding of ring fragments
+
+* 574 22/11/2006
+	- export in svg with ids for residues and linkages
+	- rearrangement of tool panes
+	- updated ring fragments list
+
+* 571 21/11/2006
+	- resize columns in fragment canvas with viewport
+	- double click in canvas open in fragment editor
+	- open a generic file testing all the possible formats recognized by GWB
+
+* 566 20/11/2006
+	- fixed last row in peaklist
+	- fixed popup trigger
+	- text in fragment editor with styled text renderer 
+	- push buttons
+	- buttons with images
+
+* 546 17/11/2006
+	- cleavage of substituents
+	- fragment editor
+	- improved checking for ring fragments
+
+* 539 14/11/2006
+	- multiple charges
+	- fixed mass of derivatized marked structures
+
+* 503 8/11/2006
+	- show/hide reducing end when exporting
+	- cut/delete of single annotations
+	- don't show linkage on border if show_info is deselected
+
+----------- 0.4 release --------------------
+
+* 446 30/10/2006
+	- import from linucs
+
+* 378 24/10/2006
+	- support of Bruker spectra files
+
+* 377 19/10/2006
+	- debugs
+	- printing of structure with table in panels
+
+* 376 18/10/2006
+	- added support for T2D files
+
+* 375 17/10/2006
+	- user placement with preferred position
+
+* 374 12/10/2006
+	- fixed zooming calibration panel
+	- command line parameters
+
+* 372 9/10/2006
+	- manual zooming, moving and popup for calibration panel
+	- fixed zooming for spectra panel
+	- enforce selection of structure
+
+* 368 5/10/2006
+	- automatic zooming spectra
+	- peak picking		
+	- calibration panel
+		- show accuracies versus mz
+	- spectra viewer
+		- open mzXML
+		- show spectra
+
+* 362 3/10/2006
+	- fixed space problem in getRootDir
+	- creation of the applet
+	- integration with javascript
+
+* 357 2/10/2006
+	- preparation for the applet
+		- removed static calls to renderers
+		- removed static calls to GlycoWorkbench
+
+* 351 29/9/2006
+	- show accuracy in PPM
+	- show RMSD of annotations
+
+* 344 14/9/2006
+	- clear annotated peak list
+	- remove structures from annotated peak list
+	- annotated peak list listeners in annotation panels
+
+* 333 13/9/2006
+	- workspace
+
+* 331 12/9/2006
+	- structure caret
+	- open into
+
+----------- 0.3 release --------------------
+
+* 326 PUBLIC 11/9/2006

@@ -1,0 +1,281 @@
+#
+# Prepa script for Bruker ASPECT FTQNMR and DISNMR 1d/2d data
+# Albert van Kuik, 1998
+# Bas Leeflang, Dec. 1998
+#
+# run with -h flag for description of arguments
+#
+# Examples
+# Script argument:
+#   -i indir -o outfile
+# Batch:
+#   prospectnd -b prepa_disnmr.au -i infile -o outfile
+# Command_line:
+#   run prepa_disnmr.au -i infile -o outfile
+#
+# Currently only 1D and 2D data supported
+#
+
+
+include "show_what.aui"
+
+$init_argv_vars()
+$proc_argv()
+$set_file_names()
+
+#
+# Name of inputfile
+#
+%inputfile = %infile
+
+#
+# Name of the output file
+#
+%outputfile = %outfile
+
+#
+# In most cases you don't have to modify anything
+# below this line
+###########################################################
+initparam
+
+$skip = 512*3    # size of header in bytes
+
+# Set size large enough to read header
+
+si 512
+$fn = open %inputfile , "rb"
+if $fn == 0 then
+    println "Can not open " + %inputfile
+    exit
+endif
+
+# Read header
+@a = read $fn
+
+# convert 3-byte integer to 4 byte integer
+if ?byteorder == 0 then
+    unpack3210 @a, @b        # Convert to little endian (PC)
+else
+    unpack0123 @a, @b        # Convert to big endian (SGI)
+endif
+
+$unpack_order = 0
+# the filetype is in the 1th byte of integer 12
+$filetype = unpackb(@b[12],1)
+if $filetype == 7 then
+    println "Filetype: FTQNMR"
+elseif $filetype == 8 then
+    println "Filetype: DISNxx"
+else
+    if ?byteorder == 0 then
+        unpack1230 @a, @b        # Convert to little endian (PC)
+        $unpack_order = 0
+    else
+        unpack0321 @a, @b        # Convert to big endian (SGI)
+        $unpack_order = 1
+    endif
+    $filetype = unpackb(@b[12],1)
+    if $filetype == 7 then
+        println "Filetype: FTQNMR"
+        $unpack_order += 2
+    elseif $filetype == 8 then
+        println "Filetype: DISNxx"
+        $unpack_order += 2
+    else
+        exit
+    endif
+endif
+
+# Print filename
+%fname = unpack6(@b[2])+unpack6(@b[3])+unpack6(@b[4])
+println "Filename: " + trim(%fname[1..8]) + "." + trim(%fname[9..12])
+
+# Print comment
+print "Comment:  "
+for $i in [17..40] do
+    print unpack8(@b[$i]) 
+done
+println ""
+
+# Print date
+%dum = unpack4(@b[11])
+println "Date " + %dum[1..2] + "-" + %dum[3..4] + "-19" + %dum[5..6]
+
+# Get total data size
+$datasize = unpacki(@b[6])
+
+# Get size of 1 record
+$nsize = unpacki(@b[41])
+
+# Check for 2D file
+$nrec = $datasize/$nsize
+
+# check max number of records in file
+$bsize   = stat %inputfile         # total size of data file in bytes
+$recsize = 3 * $nsize              # record size in bytes
+# 'Ricardo' update
+$skip = mod($bsize,$nsize) 
+$maxrec  = floor(($bsize - $skip) / $recsize)
+
+if $nrec > $maxrec then
+    $nrec = $maxrec
+    if $nrec < 1 then
+        println "Error in filesize"
+        exit
+    endif
+endif
+
+if $nrec > 1 then
+    if $filetype == 7 then
+        println "Can not process FTQNMR 2D file..."
+        exit
+    endif
+    $td1 = unpacki(@b[57])
+    println "TD1  " + %td1
+    #
+    # If experiment has been aborted, nrec is less than td1
+    #
+    if $nrec > $td1 then
+        $nrec = $td1
+    endif
+endif
+
+if $nrec == 1 then
+    #
+    # 1D file
+    #
+    $specf = unpackf(@b[78],@b[79])
+    println "SF   " + %specf
+    $sweepw = unpackf(@b[54],@b[55])
+    println "SW   " + %sweepw
+    sf $specf     # Set Spectrometer frequency
+    sw $sweepw    # Set sweep width
+    sm 1          # Real data
+else
+    #
+    # 2D file
+    #
+    $specf0 = unpackf(@b[99],@b[100])
+    if $specf0 < 1.0 then
+        $specf0 = unpackf(@b[78],@b[79])
+    endif
+    println "SF0  " + %specf0
+    $specf02 = unpackf(@b[101],@b[102])
+    if $specf02 < 1.0 then
+        $specf02 = unpackf(@b[78],@b[79])
+    endif
+    println "SF02 " + %specf02
+    $nd0 = 2                             # nd0, always 2 ?
+    $magic_number = 80                   # Always 80, ?
+    $id  = unpacki(@b[95])/$magic_number # Get and calc increment
+    $sw1 = 1e6/($nd0 * $id)              # calc sweep width dir 1
+    println "SW1  " + %sw1
+    $sweepw = unpackf(@b[54],@b[55])
+    println "SW   " + %sweepw
+    sf:2 $specf02   # Set Spectrometer frequency, direction 2
+    sw:2 $sweepw    # Set sweep width, direction 2
+    sm:2 1          # Real data, direction 2
+    sf:1 $specf0    # Set Spectrometer frequency, direction 1
+    sw:1 $sw1       # Set sweep width, direction 1
+    sm:1 1          # Real data, direction 1
+endif
+
+# close current nmr file, if any
+rclose
+
+# Skip header
+seek $fn, $skip
+
+if $nrec == 1 then
+    create %outputfile, [1..$nsize]
+else
+    create %outputfile, [1..$nrec], [1..$nsize]
+endif
+
+for $i in [1..$nrec] do
+    print "\rRec: " + %i
+    si $nsize * 3/4              # Set size for 3-byte integers
+    @i = read $fn                # Read 1 record
+    if $unpack_order == 0 then      # Convert 3-byte integer to 4 byte integer
+        unpack3210 @i, @r[1..$nsize]
+    elseif $unpack_order == 1 then
+        unpack0123 @i, @r[1..$nsize]
+    elseif $unpack_order == 2 then
+        unpack1230 @i, @r[1..$nsize]
+    elseif $unpack_order == 3 then
+        unpack0321 @i, @r[1..$nsize]
+    endif    
+    si  $nsize                   # Set size for 4-byte integers
+    unpacki @r                   # Convert 3-byte integers to floats
+    negstep @r, 4, 2             # At every index '4' negate last '2' data
+    rw $i                        # Write record
+done
+wclose
+close $fn
+println "\nDone"
+
+# Read new file
+#
+ropen %outputfile
+if $nrec > 1 then
+    dr 2
+else
+    dr 1
+endif
+rn 1
+
+# Script ends here
+##################################################
+
+
+function set_file_names
+  #
+  # Name of directory that contains the files
+  #     acqus + fid
+  #         or
+  #     acqus + acqu2s + ser
+  #
+  if %infile == "" then
+    %infile  = "./ser"
+  endif
+
+  #
+  # Name of the output file
+  #
+  if (%outfile == "") then
+    %outfile = "2dout.p"
+  endif
+
+end
+
+function init_argv_vars
+  $ndim    = 0		# to be handled in "argv-d.aui"
+  %infile  = ""		# to be handled in "argv-i.aui"
+  %outfile = ""		# to be handled in "argv-o.aui"
+  %mode    = "00000"	# to be handled in "argv-m.aui"
+  $size1   = 0		# to be handled in "argv-s.aui"
+  $size2   = 0		# to be handled in "argv-s.aui"
+  $size3   = 0		# to be handled in "argv-s.aui"
+  $size4   = 0		# to be handled in "argv-s.aui"
+end
+
+function proc_argv
+  $argi = 0
+  while $argi < argc do
+
+    include "argv-h_prepa.aui"	# Print help on arguments with '-h'
+    include "argv-i.aui"	# set variable 'infile'  with  input file name
+    include "argv-o.aui"	# set variable 'outfile' with output file name
+    include "argv-d.aui"	# set variable 'ndim  '  with  spectrum dimensionality
+    include "argv-m.aui"	# set mode per dimension (r/c/e) ('e.g. -m 1 r')
+    include "argv-s.aui"
+
+    $argi += 1
+  done
+end  
+
+
+
+
+

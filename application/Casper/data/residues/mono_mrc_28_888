@@ -1,0 +1,35 @@
+# Configurational Assignment in N-Acetylneuraminic
+# Acid and Analogues via the Geminal C,H Coupling
+# Constants
+# S. Prytulla, J. Lambert, J. Lauterwein,
+# M. Klessinger and J. Thiem
+# Magn. Reson. Chem. 28 (1990) 888-901
+
+type 'Neu5Ac' {
+atom '1' 0
+atom '2' 0 pyran link
+atom '3' 2 pyran
+atom '4' 1 pyran free
+atom '5' 1 pyran
+atom '6' 1 pyran closing
+atom '7' 1 free
+atom '8' 1 free
+atom '9' 2 free
+atom 'Me' 1 methyl
+atom 'CO' 0
+}
+
+residue 'bNeu5Ac' 'Neu5Ac' {
+info '5-N-acetyl-b-Neuraminic acid'
+shift 172.6
+shift  96.6
+shift  40.2 1.88 2.32 # ax eq
+shift  68.0 4.07
+shift  53.4 3.92
+shift  71.8 4.05
+shift  69.6 3.56
+shift  71.5 3.75
+shift  64.5 3.62 3.83
+shift  23.4 2.10
+shift 176.1
+}

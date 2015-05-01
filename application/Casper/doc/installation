@@ -1,0 +1,18 @@
+Before compiling CASPER the CCPN C api must be compiled. Follow these steps:
+
+cd {svn_root}/main/trunk/external-libs/c/ccpnmr
+python installCApi.py
+
+The following environment variables must be set
+PYTHONINCLUDES
+PYTHONLIBS
+
+PYTHONINCLUDES and PYTHONLIBS are set to point at the relevant python files.
+E.g.
+PYTHONINCLUDES=/usr/include/python2.5
+PYTHONLIBS=/usr/lib/python2.5/config
+
+To compile CASPER just:
+
+cd {svn_root}/main/trunk/application/casper
+ant

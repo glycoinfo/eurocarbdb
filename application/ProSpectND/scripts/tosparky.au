@@ -1,0 +1,358 @@
+#############################################
+# Write current spectrum as sparky ucsf file
+# Albert van Kuik, 2002
+
+# Output file name, change this to what you want
+%outfilename = "sparky.ucsf"
+# If you want to be sure, add here "1H" or "13C" etc
+%nucleus1 = ""
+%nucleus2 = ""
+%nucleus3 = ""
+
+$dimension = ? dim
+if $dimension > 3 || $dimension < 2 then
+  println "size " + %dimension + " not implemented"
+  exit
+endif
+
+#################################
+# initialize stuff
+#################################
+$oldsize = ? si
+
+dr $dimension, $dimension - 1
+# to activate the dr command, read a record
+rn 1
+$sizew1 = ? sizen:1
+$tile1 = 1024
+$sf1 = ? sf:1
+$sw1 = ? sw:1
+if %nucleus1 != "" then
+  if ($sf1 < 75) then
+    %nucleus1  = "15N"
+  elseif ($sf1 < 300) then
+    %nucleus1 = "13C"
+  else
+    %nucleus1 = "1H"
+  endif
+endif
+$oldsize = $sizew1
+$ppm1 = uconv( $sizew1/2, "cp", 1) 
+
+# initialize now, set later
+$sizew2 = 1
+$tile2 = 1
+$sf2 = 500
+$sw2 = 2500
+$ppm2 = 1 
+%nucleus2 = "1H"
+$sizew3 = 1
+$tile3 = 1
+$sf3 = 500
+$sw3 = 2500
+$ppm3 = 1 
+%nucleus3 = "1H"
+
+if ( $dimension > 1 ) then
+  $sizew2 = ? sizen:2
+  
+  $tile1 = $sizew1
+  $tile2 = $sizew2
+  while $tile1 * $tile2 * 4 > 64k do
+    $tile2 = ceil($tile2/2)
+    if $tile1 * $tile2 * 4 > 64k && $tile1 > 16 then
+        $tile1 = ceil($tile1/2)
+    endif
+  done
+  $sf2 = ? sf:2
+  $sw2 = ? sw:2
+  if %nucleus2 != "" then
+    if ($sf2 < 75) then
+      %nucleus2  = "15N"
+    elseif ($sf2 < 300) then
+      %nucleus2 = "13C"
+    else
+      %nucleus2 = "1H"
+    endif
+  endif
+  $ppm2 = uconv( $sizew2/2, "cp", 2) 
+  $oldsize = $sizew2
+endif
+
+if ( $dimension > 2 ) then
+  $sizew3 = ? sizen:3
+  $tile1 = 16
+  $tile2 = 16
+  $tile3 = 128
+  $tile1 = $sizew1
+  $tile2 = $sizew2
+  $tile3 = $sizew3
+  while $tile1 * $tile2 * $tile3 * 4 > 64k do
+    $tile3 = ceil($tile3/2)
+    if $tile1 * $tile2 * $tile3 * 4 > 64k && $tile2 > 16 then
+        $tile2 = ceil($tile2/2)
+    endif
+    if $tile1 * $tile2 * $tile3 * 4 && $tile1 > 16 then
+        $tile1 = ceil($tile1/2)
+    endif
+  done
+  $sf3 = ? sf:3
+  $sw3 = ? sw:3
+  if %nucleus3 != "" then
+    if ($sf3 < 75) then
+      %nucleus3  = "15N"
+    elseif ($sf3 < 300) then
+      %nucleus3 = "13C"
+    else
+      %nucleus3 = "1H"
+    endif
+  endif
+  $ppm3 = uconv( $sizew3/2, "cp", 3 )
+  $oldsize = $sizew3
+endif
+
+$bigendian = ? byteorder
+
+$ucsf_file = open %outfilename, "w" 
+if $ucsf_file == 0 then
+  println "Error opening file " + %outfilename
+  exit
+endif
+#
+# Sparky only reads real data 
+# Set the number of components to 1. 
+# Use format version number 2.
+######################################
+# The 180 byte header
+######################################
+si 45
+@a = 0
+write $ucsf_file, @a
+
+# Comment 
+seek  $ucsf_file, 0
+fprintf $ucsf_file, "%s", "UCSF NMR" 
+
+# 10 1 dimension of spectrum 
+# 11 1 number of data components (must = 1 indicating real data)
+seek  $ucsf_file, 10
+fprintf $ucsf_file, "%c%c" , $dimension, 1
+
+# 13 1 format version number (must = 2 for current format)
+seek  $ucsf_file, 13
+fprintf $ucsf_file, "%c" , 2
+######################################
+
+######################################
+# For each axis of the spectrum write a 128 byte header
+si 32
+@a = 0
+seek  $ucsf_file, 180
+write $ucsf_file, @a
+
+#0 6 nucleus name (1H, 13C, 15N, 31P, ...) null terminated ASCII
+seek  $ucsf_file, 180
+fprintf $ucsf_file, "%s" , %nucleus1
+
+#8 4 integer number of data points along this axis
+seek  $ucsf_file, 180 + 8
+si 6
+@a[1] = $sizew1
+f2i @a[1]
+f2i @a[2]
+#16 4 integer tile size along this axis
+@a[3] = $tile1
+f2i @a[3]
+#20 4 float spectrometer frequency for this nucleus (MHz)
+@a[4] = $sf1
+#24 4 float spectral width (Hz)
+@a[5] = $sw1
+#28 4 float center of data (ppm)
+@a[6] = $ppm1
+if (! $bigendian) then
+  swap4 @a
+endif
+write $ucsf_file, @a
+
+if ( $dimension > 1 ) then
+  si 32
+  @a = 0
+  seek  $ucsf_file, 180 + 128
+  write $ucsf_file, @a
+  seek  $ucsf_file, 180 + 128
+  fprintf $ucsf_file, "%s" , %nucleus2
+  seek  $ucsf_file, 180 + 128 + 8
+  si 6
+  @a[1] = $sizew2
+  f2i @a[1]
+  f2i @a[2]
+  @a[3] = $tile2
+  f2i @a[3]
+  @a[4] = $sf2
+  @a[5] = $sw2
+  @a[6] = $ppm2
+  if (! $bigendian) then
+    swap4 @a
+  endif
+  write $ucsf_file, @a
+endif
+if ( $dimension > 2 ) then
+  si 32
+  @a = 0
+  seek  $ucsf_file, 180 + 128 + 128
+  write $ucsf_file, @a
+  seek  $ucsf_file, 180 + 128 + 128
+  fprintf $ucsf_file, "%s" , %nucleus3
+  seek  $ucsf_file, 180 + 128 + 128 + 8
+  si 6
+  @a[1] = $sizew3
+  f2i @a[1]
+  f2i @a[2]
+  @a[3] = $tile3
+  f2i @a[3]
+  @a[4] = $sf3
+  @a[5] = $sw3
+  @a[6] = $ppm3
+  if (! $bigendian) then
+    swap4 @a
+  endif
+  write $ucsf_file, @a
+endif
+
+###############################
+# data
+###############################
+
+$ntiles1 = ceil($sizew1/$tile1)
+$ntiles2 = ceil($sizew2/$tile2)
+$ntiles3 = ceil($sizew3/$tile3)
+$tilesize = $tile1 * $tile2 * $tile3 * 4
+#
+# First set all tiles to zero in case not all tiles are filled
+#
+$offset_header = 180 + $dimension * 128
+$offset = $offset_header
+seek  $ucsf_file, $offset
+###############################
+# 2D spectra
+###############################
+if $dimension == 2 then
+
+si $ntiles2 * $tile2
+@a = 0
+do
+  $rec += 1
+  write $ucsf_file, @a
+while $rec < $ntiles1 * $tile1
+
+$rec = 0
+$count_rec  = 0
+$count_tile = 0
+#
+# write data
+#
+do
+  $rec += 1
+  si $sizew2
+  rn $rec
+  if (! $bigendian) then
+    swap4 @r
+  endif
+  si $tile2
+  $step = 0
+  do
+    seek  $ucsf_file, $offset + $step * $tilesize
+    $start = 1 + $step * $tile2
+    $stop  = min($start + $tile2 - 1, $sizew2)
+    $step += 1
+    write $ucsf_file, @r[$start..$stop]
+  while $step < $ntiles2
+  $offset    += $tile2 * 4
+  $count_rec += 1
+  if $count_rec >= $tile1 then
+    $count_rec  = 0
+    $count_tile += 1
+    $offset = $offset_header + $count_tile * $tilesize * $ntiles2
+  endif
+while $rec < $sizew1 
+
+else
+###############################
+# 3D spectra
+###############################
+
+si $ntiles3 * $tile3
+@a = 0
+do
+  $rec += 1
+  write $ucsf_file, @a
+while $rec < $ntiles1 * $tile1 * $ntiles2 * $tile2
+
+$rec1 = 0
+$rec2 = 0
+$offset_plane = 0
+$count_plane = 0
+#
+# write data
+#
+do
+  $rec1 += 1
+  $rec2  = 0
+  $count_rec  = 0
+  $count_tile = 0
+  do
+    $rec2 += 1
+    si $sizew3
+    rn $rec2, $rec1
+    if (! $bigendian) then
+      swap4 @r
+    endif
+    si $tile3
+    $step = 0
+    do
+      seek  $ucsf_file, $offset + $step * $tilesize
+      $start = 1 + $step * $tile3
+      $stop  = min($start + $tile3 - 1, $sizew3)
+      $step += 1
+      write $ucsf_file, @r[$start..$stop]
+    while $step < $ntiles3
+    $offset    += $tile3 * 4
+    $count_rec += 1
+    if $count_rec >= $tile2 then
+      $count_rec  = 0
+      $count_tile += 1
+      $offset = $offset_header + $offset_plane +\
+                $count_plane * $tile2 * $tile3 * 4 +\
+                $count_tile * $tilesize * $ntiles3
+    endif
+  while $rec2 < $sizew2 
+  $count_plane += 1
+  $offset = $offset_header + $offset_plane +\
+            $count_plane * $tile2 * $tile3 * 4
+  if $count_plane >= $tile1 then
+    $offset_plane += $tilesize * $ntiles3 * $ntiles2
+    $offset = $offset_header + $offset_plane +\
+              $count_tile * $tilesize * $ntiles3
+    $count_plane = 0
+  endif
+while $rec1 < $sizew1 
+
+endif
+###############################
+# close and reset
+###############################
+
+close $ucsf_file
+si $oldsize 
+rn 1, 1
+exit
+
+
+
+
+
+
+
+
+
+

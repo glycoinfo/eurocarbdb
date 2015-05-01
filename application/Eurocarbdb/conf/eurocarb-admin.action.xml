@@ -1,0 +1,123 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+
+<xwork>
+
+<!--<package name="eurocarb-admin" extends="eurocarb-base" namespace="/admin" >-->
+<package name="eurocarb-admin" extends="eurocarb-base" >
+
+
+    <!--============== CARBBANK STRUCTURE LOADING & UNLOADING ===============-->
+
+    <!-- 
+    action: init_load_carbbank
+    author: mjh 
+    desc:   Parses and loads Carbbank structures, along with biological
+            context and reference information.
+    -->
+    <action name="init_load_carbbank" 
+            class="org.eurocarbdb.util.carbbank.CarbbankManager" 
+            method="parseAndLoadCarbbank" 
+    >
+        <result name="input" type="freemarker">/template/action/admin/carbbank/input.ftl</result>
+        <result name="success" type="freemarker">/template/action/admin/carbbank/success.ftl</result>
+    </action>    
+    
+
+    <!-- 
+    action: export_carbbank
+    author: mjh 
+    desc:   tests export of Carbbank structures from the 
+            local database to a local file.
+    -->
+    <action name="export_carbbank" 
+            class="org.eurocarbdb.util.carbbank.CarbbankManager" 
+            method="exportCarbbank" 
+    >
+        <result name="success" type="freemarker">/template/action/admin/carbbank/success.ftl</result>
+    </action>    
+
+    
+    <!-- 
+    action: load_carbbank
+    author: mjh 
+    desc:   Loads (pre-parsed) Carbbank structures, along with biological
+            context and reference information.
+    -->
+    <action name="load_carbbank" 
+            class="org.eurocarbdb.util.carbbank.CarbbankManager" 
+            method="loadCarbbank" 
+    >
+        <result name="success" type="freemarker">/template/action/admin/carbbank/success.ftl</result>
+    </action>    
+
+
+    <!-- 
+    action: unload_carbbank
+    author: mjh 
+    desc:   Unloads (deletes) Carbbank structures from the 
+            local database.
+    -->
+    <action name="unload_carbbank" 
+            class="org.eurocarbdb.util.carbbank.CarbbankManager" 
+            method="unloadCarbbank" 
+    >
+        <result name="success" type="freemarker">/template/action/admin/carbbank/success.ftl</result>
+    </action>    
+
+    
+    <!--============== BIOLOGICAL CONTEXT LOADING & UNLOADING ===============-->
+    
+    <!-- 
+    action: download_ncbi
+    author: mjh 
+    desc: Downloads NCBI taxonomy from the web onto the local filesystem
+    -->
+    <action name="download_ncbi" class="org.eurocarbdb.action.admin.DownloadNCBI">
+        <interceptor-ref name="ecdb_default_stack"/>
+        <!--
+        <interceptor-ref name="scope">
+            <param name="session">secondsElasped</param>
+        </interceptor-ref>
+        -->
+        <interceptor-ref name="execAndWait">
+            <!--<param name="delay">1000</param>-->
+        </interceptor-ref>
+        <result name="wait" type="freemarker"   >/template/action/admin/download_ncbi/update_in_progress.ftl</result>
+        <result name="success" type="freemarker">/template/action/admin/download_ncbi/success.ftl</result>
+    </action>    
+
+    <!-- 
+    action: download_mesh
+    author: mjh 
+    desc: Downloads MeSH from the web onto the local filesystem
+    -->
+    <action name="download_mesh" class="org.eurocarbdb.action.admin.DownloadMesh">
+        <interceptor-ref name="ecdb_default_stack"/>
+        <interceptor-ref name="execAndWait">
+            <!--<param name="delay">1000</param>-->
+        </interceptor-ref>
+        <result name="wait" type="freemarker"   >/template/action/admin/download_mesh/update_in_progress.ftl</result>
+        <result name="success" type="freemarker">/template/action/admin/download_mesh/success.ftl</result>
+    </action>    
+
+    <action name="create_database" class="org.eurocarbdb.action.admin.CreateDatabase">
+      <result name="input" type="freemarker">/template/action/admin/create_database/input.ftl</result>
+      <result name="error" type="freemarker">/template/action/admin/create_database/error.ftl</result>
+      <result name="success" type="freemarker">/template/action/admin/create_database/success.ftl</result>
+    </action>
+
+
+    <action name="test_exception" class="org.eurocarbdb.action.admin.TestException">
+    </action>
+          
+    <action name="send_bug_report" class="org.eurocarbdb.action.admin.SendBugReport">
+      <result name="success" type="freemarker">/template/action/admin/send_bug_report/success.ftl</result>
+      <result name="error" type="freemarker">/template/action/admin/send_bug_report/error.ftl</result>
+      <result name="empty" type="freemarker">/template/action/admin/send_bug_report/empty.ftl</result>
+    </action>
+
+</package>
+
+</xwork>

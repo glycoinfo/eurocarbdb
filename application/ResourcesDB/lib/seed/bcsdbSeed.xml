@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- a seed file with residues from the bcsdb database -->
+<seed namescheme="bcsdb">
+<monosaccharide>
+	<name>aXLDmanHepp</name><count>3328</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bXLDmanHepp</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aXDDmanHepp</name><count>483</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bXDDmanHepp</name><count>9</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDRhap4N</name><count>395</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bDRhap4N</name><count>16</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bLArap4N</name><count>153</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aLArap4N</name><count>17</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bDManpN</name><count>139</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDManpN</name><count>26</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDFucp3N</name><count>119</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bDFucp3N</name><count>29</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aL6dTalp</name><count>81</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aD6dTalp</name><count>33</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bL6dTalp</name><count>12</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bD6dTalp</name><count>2</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDAbep</name><count>88</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aLColp</name><count>16</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bDQuip4N</name><count>48</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDQuip4N</name><count>10</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bLQuip4N</name><count>1</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bDMurp</name><count>47</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDMurp</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bDManpA</name><count>70</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDManpA</name><count>1</count>
+</monosaccharide>
+<monosaccharide>
+	<name>xDGlc?N-ol</name><count>70</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aXPsep</name><count>14</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bXPsep</name><count>13</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aXTyvp</name><count>26</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bL6dAltf</name><count>14</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bL6dAltp</name><count>22</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aL6dAltf</name><count>5</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDFucp4N</name><count>33</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aLFucp4N</name><count>2</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bDGlcpN3N</name><count>21</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDGlcpN3N</name><count>9</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aDGlcpN6N</name><count>25</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aX8eLegp</name><count>15</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bX8eLegp</name><count>2</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bD6dmanHepp</name><count>17</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aD6dmanHepp</name><count>1</count>
+</monosaccharide>
+<monosaccharide>
+	<name>xLRha?-ol</name><count>16</count>
+</monosaccharide>
+<monosaccharide>
+	<name>xDRha?-ol</name><count>3</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aXKdnp</name><count>7</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bXKdnp</name><count>3</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aD6dxylHexpN-4-ulo</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bD6dxylHexpN-4-ulo</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aD3dlyxHepp-ulosaric</name><count>10</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aD6daltHepp</name><count>8</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bD6daltHepf</name><count>4</count>
+</monosaccharide>
+<monosaccharide>
+	<name>bD4daraHexp</name><count>10</count>
+</monosaccharide>
+<monosaccharide>
+	<name>aD4daraHexp</name><count>1</count>
+</monosaccharide>
+</seed>

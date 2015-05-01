@@ -1,0 +1,35 @@
+# Synthesis of a- and b-linked tyvelose epitopes
+# of the Trichinella spiralis glycan:
+# 2-Acetamido-2-deoxy-3-O-(3,6-dideoxy-D-
+# arabino-hexopyranosyl)-b-D-galactopyranosides
+# M.A. Probert, J. Zhang, D.R. Bundle
+set ref 'Carbohydr. Res. 296 (1996) 149-170'
+# ref is OK, OMe are taken from GalOMe
+
+residue aTyvOMe '3,6dHexOMe' {
+config D
+jhh medium
+jch large
+shift 100.3 4.54 ax
+shift  68.0 3.92 eq
+shift  34.2 2.04 1.76
+shift  67.6 3.60 ax
+shift  70.3 3.66
+shift  17.4 1.27
+shift  55.96 3.43
+info 'Tyvelose, a-methyl glycoside'
+}
+
+residue bTyvOMe '3,6dHexOMe' {
+config D
+jhh large
+jch small
+shift 102.8 4.55 eq
+shift  67.7 3.98 eq
+shift  37.1 2.17 1.68
+shift  67.8 3.57 ax
+shift  76.7 3.48
+shift  17.7 1.29
+shift  57.88 3.58
+info 'Tyvelose, b-methyl glycoside'
+}

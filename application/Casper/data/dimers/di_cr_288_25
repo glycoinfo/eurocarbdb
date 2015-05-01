@@ -1,0 +1,47 @@
+# Synthesis and structural studies of branched
+# 2-linked trisaccharides related to blood group
+# determinants
+# J.O. Duus, N. Nifant'ev, A.S. Shashkov
+# E.A. Khatuntseva, K. Bock
+set ref 'Carbohydr. Res. 288 (1996) 25-44'
+# corrections
+set c_corr 0.04
+set h_corr -0.05
+
+#samma som Perkin Trans 2 (1992) 1085-1090
+#dimer 'bDGal(1->3)bDGlcNAcOMe' {
+#shift 104.1 4.43; 71.3 3.54; 73.2 3.65; 69.1 3.93; 75.9 3.71; 61.6 3.77 3.77
+#shift 102.3 4.51; 55.0 3.83; 83.3 3.80; 69.4 3.55; 76.0 3.51; 61.4 3.95 3.78
+#shift 22.8 2.03; 175.4; 57.6 3.52
+#correct $c_corr $h_corr
+#info $ref:extract
+#}
+
+dimer 'bDGal(1->3)bDGlcOMe' {
+shift 104.1 4.65; 72.0 3.60; 73.4 3.68; 69.4 3.93; 76.1 3.72; 61.8 3.79 3.76
+shift 103.7 4.42; 73.4 3.47; 85.6 3.75; 69.1 3.51; 76.3 3.49; 61.6 3.93 3.75; 57.9 3.58
+correct $ccorr $hcorr
+info $ref:extract
+}
+
+dimer 'bDGal(1->3)bD2dGlcOMe' {
+shift 101.4 4.49; 71.4 3.54; 73.5 3.66; 69.4 3.93; 76.0 3.70; 61.8 3.75 3.75
+shift 101.5 4.62; 36.3 2.41 1.52; 79.1 3.95; 70.0 3.43; 76.6 3.41; 61.8 3.94 3.80; 57.3 3.53
+correct $c_corr $h_corr
+info $ref:extract
+}
+
+# Dessa finns i di_isr_j_chem_40_223
+#dimer 'aLFuc(1->2)bDGalOMe' {
+#shift 100.7 5.14; 69.1 3.80; 70.3 3.87; 72.5 3.82; 67.5 4.25; 15.8 1.22
+#shift 103.4 4.42; 78.9 3.54; 73.9 3.84; 69.4 3.93; 75.5 3.69; 61.6 3.81 3.76; 57.7 3.59
+#correct $c_corr $h_corr
+#info $ref:extract
+#}
+
+#dimer 'bLFuc(1->2)bDGalOMe' {
+#shift 103.2 4.60; 71.7 3.49; 73.6 3.66; 72.1 3.75; 71.6 3.78; 16.2 1.26
+#shift 104.4 4.47; 78.9 3.68; 72.3 3.72; 69.1 3.98; 75.7 3.69; 61.7 3.80 3.76; 58.0 3.58
+#correct $c_corr $h_corr
+#info $ref:extract
+#}

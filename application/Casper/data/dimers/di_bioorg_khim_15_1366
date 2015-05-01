@@ -1,0 +1,17 @@
+# Conformations of branched trisaccharides with vicinal substitution
+# based on nuclear Overhauser effects and theoretical calculations.
+# Lipkind GM; Shashkov AS; Nechaev OA; Torgov VI; Shibaev VN;
+# Kochetkov NK
+set ref 'Bioorg. Khim. (1989) 15: 1366-1374'
+
+# Only 13C from article. 1H from aDMan(1->3)aDGlcOMe' (which was used before this one was added).
+# 1H _very_ uncertain.
+
+dimer 'aDMan(1->3)bDGalOMe' {
+shift 96.9 5.24; 71.0 4.05; 71.2 3.86; 67.5 3.73; 73.5 3.96; 61.8 3.86 3.78
+shift 104.4 4.33; 70.0 3.59; 77.1 3.80; 65.5 4.08; 75.7 3.69; 61.6 3.78 3.78; 57.78 3.57
+correct 0.1 0
+error 1
+extract
+info $ref
+}

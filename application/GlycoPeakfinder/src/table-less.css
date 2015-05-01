@@ -1,0 +1,919 @@
+/* _________ Stylesheet for Silva 1.0 frontend _______________ */
+/* _________ Silva users can insert their own frontend styles _________ */
+/* _________ Styles modified here will affect the Silva preview  ______ */
+/*
+**  Instructions to set caching headers. Inside comments area to play nicer with CSS editors.
+** ** 
+** 
+** 
+** 
+*/
+
+/*
+#  GLOBAL  ####################################################################
+*/
+html, body {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 100.01%;
+}
+
+
+/*
+#  Logos  #####################################################################
+*/
+#logo1pos {
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:10;
+}
+
+#logo1pos a {
+	font-size: 24px;
+	font-weight: normal;
+	color: white;
+}
+
+#logo1pos a:hover {
+	color:  #d70044;
+}
+
+#logo2pos {
+	position:absolute;
+	left:100px;
+	top:4px;
+	z-index:10;
+}
+
+#logo2pos a {
+	font-size: 14px;
+	font-weight: normal;
+	color: white;
+}
+
+#logo2pos a:hover {
+	color:  #d70044;
+}
+#logo3pos {
+	position:absolute;
+	right:10px;
+	top:9px;
+	z-index:10;
+}
+
+#logo3pos a {
+	font-size: 14px;
+	font-weight: normal;
+	color: white;
+}
+
+#logo3pos a:hover {
+	color:  #d70044;
+}
+
+
+/* 
+#  HEADER AREA  ###############################################################
+*/
+#header {
+	color: #fff;
+	width: 100%;
+	height: 106px;
+	background-color: #0C2F84;
+	background-color: #dbbd00;
+	background-color: #000096;
+	border-bottom: 1px solid black;
+}
+
+
+/* 
+#  TOPMENU  ###################################################################
+*/
+
+a.topmenu-here { 
+	background-color: #ffffee;
+	background-color: #e0e0ff;
+	color: #000;
+	z-index: 3;
+}
+
+#topmenu { 
+	top: 38px;
+	left: 90px;
+	width: 100%;
+	position:absolute;
+	z-index: 2;
+}
+
+#topmenu a {
+	font-size: 16px;
+	font-weight: normal;
+	color: white;
+}
+
+#topmenu a:hover {
+	color:  #d70044;
+	color:  #ffff00;
+	background-color: #0000ff;
+}
+
+#topmenu ul {
+	list-style-type: none;
+	margin: 2px 0px 0px 0px;
+}
+
+#topmenu ul li {
+	display: inline;
+	color:  #d70044;
+	color:  #ffff00;
+	font-size: 160%;
+}
+
+
+
+/* 
+#  SUBMENU  ###################################################################
+*/
+#submenu {
+	background-color: #ffffee;
+	background-color: #e0e0ff;
+	background-color: #cddcec;
+	border-top: 1px solid #d70044;
+	border-bottom: 1px solid #d70044;
+	border-top: 1px solid #ffff00;
+	border-bottom: 1px solid #ffff00;
+	width: 100%;
+	height: 23px;
+	max-height: 23px;
+	overflow: hidden;
+	top: 65px;
+	position:absolute;
+	z-index: 1;
+}
+
+#submenu ul {
+	list-style-type: none;
+	margin: 2px 0px 0px 0px;
+}
+
+#submenu ul li {
+	display: inline;
+}
+
+#submenu ul li a {
+	text-decoration: none;
+	font-size: 80%;
+	font-weight: bold;
+	padding: 5px 1px 2px 1px;
+	color: #0C2F84;
+#	color: #000096;
+}
+
+#submenu ul li a:hover {
+	color: #FF1F08;
+}
+
+#submenu ul li a.active {
+	text-decoration: none;
+	font-size: 80%;
+	font-weight: bold;
+	padding: 1px 1px 2px 1px;
+	color: #d70044;
+}
+
+#submenu ul li a.active:hover {
+	color: #d70044;
+}
+
+
+/*
+#  Location Bar  ##############################################################
+*/
+#location_left {
+	position: absolute; left: 16px; top: 91px;
+	font-weight: bold;
+	color: white;
+	font-size: 80%;
+}
+	
+#location_right {
+	position: absolute; right: 0px; top: 91px;
+	color: white;
+	font-size: 90%;
+}
+
+#location_right a{
+	color: white;
+	font-size: 90%;
+}
+
+#location_left a {
+	font-weight: bold;
+	color: white;
+}
+
+#location_left a:hover {
+	color: #d70044;
+	color:  #ffff00;
+	background-color: #0000ff;
+}
+
+
+body {
+  font-family: verdana, Helvetica, Arial, sans-serif; 
+  font-size: 80%; 
+  background-color: #f0f0ff;
+  color: #322462;
+  color: #000096;
+  margin: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+select, input {
+  background-color: #ffffee;
+  color: #000033;
+  position:relative;
+  left:0px;
+}
+
+textarea {
+  background-color: #eeeeee;
+  color: #000000;
+  position:relative;
+  left:0px;
+}
+
+select.dependant, input.dependant {
+  background-color: #ffeeee;
+  color: #005555;
+}
+
+
+tr.dependant {
+  background-color: #ffcccc;
+}
+
+.heading{
+  padding: 0px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: left;
+}
+h2.heading{
+  margin-top: 0px;
+}
+
+tr.odd{
+  background-color: #ffeedd;
+  background-color: #e0e0ff;
+  background-color: #cddcec;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-color: #dbbd00;
+  border-color: #000096;
+  border-style: solid;
+}
+
+tr.even, img.default {
+  background-color: #ffffee;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-color: #dbbd00;
+  border-color: #000096;
+  border-style: solid;
+}
+
+
+
+
+/* _________________________________________________________ typography _____ */
+
+h1, h2, h3, h4, h5, h6 {
+  margin : 1.5em 0 0.5em 0;
+  color : #d70044;
+}
+
+
+h2 {
+  font-size : 160%;
+  margin-top : 0.9em;
+  margin-bottom : 0.7em;
+}
+
+
+h3 {
+  font-size : 145%;
+  margin-bottom : 0.6em;
+}
+
+h4 {
+  font-size : 120%;
+}
+
+h5 {
+  font-size : 105%;
+}
+
+h6 {
+  font-size : 90%;
+  color : #676767;
+}
+
+h6.minor {
+  font-size : 90%;
+  font-weight : normal;
+  color : #454545;
+}
+
+.subhead {
+  font-weight : bold;  
+  font-family : verdana, arial, helvetica, sans-serif;
+  color: #333767;
+  color : #224466;
+  line-height : 1.6em;
+} 
+
+p {
+  margin : 0.5em 0em;
+  text-align: left;
+}
+
+pre {
+  font-size: 120%;
+  color: #444466;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.main {
+background-color: #ffffff; 
+padding-left: 5px;
+padding-right: 5px;
+padding-top: 0px;
+text-align: justify;
+}
+
+.breadcrumb {
+background-color:  #3a66ae;
+background-color:  #921328;
+background-color:  #000096;
+color: #ffffff;
+padding: 0px;
+padding-left: 5px;
+margin: 0px;
+}
+
+.search {
+background-color:  #dbbd00;
+color: #ffffff;
+padding: 0px;
+padding-left: 5px;
+margin: 0px;
+}
+
+
+.navigation-box {
+background-color: #e0e0ff;
+background-color: #cddcec;
+vertical-align: top;
+padding: 0px;
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 5px;
+border-left-width: 1px;
+border-right-width: 3px;
+border-top-width: 1px;
+border-bottom-width: 3px;
+border-color: #dbbd00;
+border-color: #d70044;
+border-color: #000096;
+border-style: outset;
+}
+
+.navigation-body {
+background-color:  #ffffee;
+background-color:  #e0e0ff;
+background-color: #cddcec;
+vertical-align: top;
+padding: 0px;
+}
+
+.navigation-child li,.navigation-here li,.navigation-body li {
+	list-style-type: none;
+}
+
+
+.navigation-child {
+background-color:  #bbffbb;
+background-color:  #ddffdd;
+background-color:  #f8eb00;
+background-color:  #eeffee;
+background-color:  #eeffff;
+vertical-align: top;
+padding: 0px;
+}
+
+.navigation-here {
+background-color:  #fbf598;
+vertical-align: top;
+color:#000000; 
+padding: 0px;
+border-left-width: 0px;
+border-right-width: 4px;
+border-top-width: 0px;
+border-bottom-width: 0px;
+border-color: #006699;
+border-color: #69031d;
+border-style: dotted;
+}
+
+.navigation-head {
+background-color: #006699;
+background-color: #dbbd00;
+background-color: #000096;
+text-align: center;
+font-weight: bold;
+color:  #ffffaa;
+padding: 0px;
+margin-left: 0px;
+margin-right: 0px;
+border-bottom-width: 5px;
+border-color: #006699;
+border-color: #dbbd00;
+border-color: #000096;
+border-style: solid;}
+
+
+
+
+
+/* ____________________________________________ silva specific styles _____ */
+
+p.lead {
+  font-weight : bold;
+}
+
+p.annotation {
+  font-style : italic;
+}
+
+div.citation {
+  font-size : 110%;
+  color : #426061;
+  background : #F4F3DB;
+  margin : 1em 3em;
+  padding : 0.4em 2em 1.2em 2em;
+  border : 1px solid #426061;
+}
+
+div.citation p {
+  margin : 0.5em 0em;
+}
+
+div.citation p.author {
+  font-size : 90%;
+  font-weight : bold;
+  margin-bottom : 0;
+}
+
+div.citation p.source {
+  font-size : 90%;
+  margin-top: 0;
+  margin-bottom : 0;
+}
+
+
+/* ______________________________________________________ align/float _____ */
+
+.image-left {
+  text-align: left;
+}
+
+.image-center {
+  text-align: center;
+}
+
+.image-right {
+  text-align: right;
+}
+
+.float-left {
+  float: left;
+  margin-right: 1em;
+  clear: none;
+}
+
+.float-right {
+  float: right;
+  margin-left: 1em;
+  clear: none;
+}
+
+
+/* __________________________________________________ silva list styles _____ */
+
+ul {
+  margin : 0.5em 0em;
+  /* override default indent */
+  padding-left: 1.4em; 
+}
+
+ul.disc {
+  list-style-type : disc;
+}
+  
+ul.square {
+  list-style-type : square ! important;
+} 
+
+ul.circle {
+  list-style-type : circle;
+} 
+
+ul.nobullet {    
+  list-style-type: none;   
+}
+
+ol {
+  margin : 0.5em 0em;
+  /* override default indent */
+  padding-left: 1.9em; 
+}
+
+ol.decimal {
+  list-style-type : decimal;
+} 
+
+ol.upper-roman {
+  list-style-type : upper-roman;
+}
+
+ol.lower-roman {
+  list-style-type : lower-roman;
+}
+
+ol.upper-alpha {
+  list-style-type : upper-alpha;
+}
+
+ol.lower-alpha {
+  list-style-type : lower-alpha;
+}
+
+dt {
+  font-weight: bold;
+  background : transparent;
+}
+
+dd {
+  background : transparent;
+  margin-left : 1.5em;
+}
+
+
+
+/* _________________________________________________ silva table styles _____ */
+
+table.silvatable {
+  empty-cells: show;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+table.silvatable tr {
+  vertical-align: top;
+} 
+table.silvatable tr.rowheading {
+  font-weight: bold;
+} 
+table.silvatable td {
+  border-right: none ! important;
+} 
+table.silvatable th.align-left, table.silvatable td.align-left {
+  text-align: left;
+}
+table.silvatable th.align-center, table.silvatable td.align-center {
+  text-align: center;
+}
+table.silvatable th.align-right, table.silvatable td.align-right {
+  text-align: right;
+}
+
+table.datagrid, table.plain, table.list, table.grid {
+  width: 100%;
+}
+
+table.plain {
+  border-style: none;
+} 
+table.plain td {
+  border-right: none ! important;
+}
+ 
+table.list td {
+  border-bottom: 1px solid #444444;
+} 
+
+table.list tr.rowheading td, table.list thead th {
+  border-bottom: 2px solid #444444;
+} 
+  
+table.grid td, table.grid thead th {
+  border: 2px solid #444444;
+  border-right: 2px solid #444444 ! important;
+} 
+  
+table.datagrid td {
+  border: 2px solid #444444;
+  border-right: 2px solid #444444 ! important;
+} 
+table.datagrid tr.rowheading td {
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none ! important;  
+} 
+
+table.simple {
+  border-style: none;
+}
+
+table.simple thead th {
+  font-weight: normal;
+}
+
+td.even table td {
+  border-right: none ! important;
+}
+
+
+/*___________________________________________ various table layouts _____ */ 
+
+table.black_border td,
+table.black1 td,
+table.red td, 
+table.green td {
+  padding: 0 5px;
+}
+
+table.black_border { 
+  border: 1px solid black;
+}
+
+table.black_border td { 
+  border: 1px solid black;
+}
+
+table.black_border tr.odd td { 
+  background-color: #c1c1c1; 
+}
+
+table.black1 tbody { 
+  border-right: 1px solid black; 
+}
+
+table.black1 td {
+  border: 1px solid black;
+}
+
+table.red { 
+  border: 1px solid darkred;
+}
+
+table.red td {
+  border: 1px solid darkred;
+}
+
+table.red tr.odd td {
+  background-color: #d0bbbb;
+}
+
+table.green {
+  border: 1px solid darkgreen;
+}
+
+table.green td {
+  border: 1px solid darkgreen;
+}
+
+table.green tr.odd td {
+  background-color: #b3c99c;
+}
+
+/* definitions for batching */
+div.listingBar {
+  width: 60em;
+  margin: 2em 0;
+}
+
+div.listingBar .next {
+  margin-left: 5em;
+} 
+
+div.listingBar .previous {
+  margin-right: 5em;
+}
+
+
+/* ______________________________________________ silva frontend layout _____ */
+
+div.header {
+/*  margin : 2em 2.1em 0 0;  */
+  margin : 0;  
+}
+
+div.header a.icon {
+  float : left;
+  display : block;
+  width : 7em;
+  text-align : center;
+}
+
+
+
+/* ____________________________________________________________ links _____ */
+
+a, a:link, a:active, a:visited {
+   text-decoration:	none;
+   font-weight: bold;
+   color	:	#110011;
+   color	:	#ffffdd;
+   color	:	#110011;
+   background	:transparent;
+}		
+
+a:hover.menu, a:hover.banner{ 
+/*   	text-decoration	:none;*/
+	color		:	#ffffbb;
+	color		:	#95BABC;
+	background	:	#332222;
+	background	:	transparent;
+}
+
+
+span.breadcrumb a {
+  text-decoration : none;
+  color: #ffffff;
+}  
+span.breadcrumb a:hover {
+  text-decoration : underline;
+color: #ffffff;
+}  
+
+span.breadcrumb a:visted {
+  text-decoration : underline;
+color: #ffffff;
+}  
+
+a.breadcrumb,a:visted.breadcrumb {
+background-color:  #921328;
+color: #ffffff;
+}
+
+/* highlighting index links */
+/* keep this if you markup text with index elements, this overrides the highlighting in the editor */
+a.index-element {
+  background-color : transparent;
+  text-decoration : none;
+}
+
+div.public a:link {
+  color : #0000aa;
+  color	: #b14425;
+  color	: #c77e1e;
+  color : #0033ff;
+  text-decoration : underline;
+}
+div.public a:visited {
+  color : #4a00b2;
+  color	: #b06000;
+  color : #006699;
+  text-decoration : underline;
+}
+div.public a:active {
+  color : #996600;
+}
+div.public a:hover {
+  color : #d70044;
+  color : #0000ff;
+  color : #fff;
+  background	:	#ffffdd;
+  background	:	#eeaaaa;
+  background	:	#000096;
+  text-decoration : none;
+}
+
+
+a img {
+  border: 0;
+}
+
+a.navigation-body, a:link.navigation-body, a:active.navigation-body, a:visited.navigation-body
+{
+   text-decoration:	none;
+   font-weight: normal;
+   color	:	#330033;
+   color	:	#69031d;
+   background	:transparent;
+}		
+
+a:hover.navigation-here, tr:hover.navigation-here, td:hover.navigation-here, 
+a:hover.navigation-child, tr:hover.navigation-child, td:hover.navigation-child, a:hover.navigation-body, tr:hover.navigation-body, td:hover.navigation-body 
+{ 
+    text-decoration	:underline;
+    background	:	#6fc5e2;
+    background	:	#0083a6;
+    background	:	#ffffdd;
+    background	:	#f3c34b;
+    color: #69031d;
+}
+
+
+
+/*
+#  MAIN CONTENT  ##############################################################
+*/
+.left-box {
+width:160px;
+background-color: #f0f0ff;
+margin-right: 0px;
+margin-left: 0px;
+padding: 8px;
+}
+
+
+/* this selector works only for standards compatible browsers like mozilla */
+/* IE ignores this definition below */
+body>div.public {
+  width : 44em;
+  width : 75em;
+}
+
+.public {
+  background: #ffe;
+  align: left;
+  border-style: outset;
+  border-width: 2px;
+  border-color:#000096;
+  position:absolute;
+  /* for IE5 */
+#  min-height : 200px;
+  width : 600px;
+  max-width : 60em;
+  left:170px;
+  top:117px;
+  width:auto;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding: 10px;
+  z-index:10;
+}
+
+/* Footer */
+.border_bottom {
+margin: 0px;
+padding: 4px;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 0.8em;
+color: white;
+color: #000096;
+text-align: center;
+font-weight: bold;
+border-style: outset;
+border-color: #000096;
+border-width: 2px;
+background-color: #dbbd00;
+background-color: #000096;
+background-color: #e0e0ff;
+background-color: #cddcec;
+}
+
+/* Footer */
+.border_bottom2 {
+position: relative; left: 0px; right: 0px; bottom: 0px;
+margin: 0px;
+padding: 4px;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 0.8em;
+color: white;
+color: #000096;
+text-align: center;
+font-weight: bold;
+border-style: outset;
+border-color: #000096;
+border-width: 2px;
+background-color: #dbbd00;
+background-color: #000096;
+background-color: #e0e0ff;
+}
+
+
+
+
+/* end cascade */

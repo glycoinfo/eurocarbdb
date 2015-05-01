@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.monosaccharide">
+	<class name="SubstituentAlias" table="substituent_synonym" lazy="false">
+		<id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">substituent_synonym_id_seq</param>
+            </generator>
+        </id>
+        <!-- <property name="primaryTemplateName" column="substituent_name" not-null="true"/>-->
+        <!-- <property name="name" column="name" not-null="true"/>-->
+        <property name="residueIncludedName" column="residue_included_name"/>
+        <property name="separateDisplayName" column="separate_display_name"/>
+        <property name="nameschemeStr" column="glycan_namescheme" not-null="true"/>
+        <property name="linktype1Str" column="linkage_type_name"/>
+        <property name="isPrimary" column="is_primary" not-null="true"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<project name="project" default="run" basedir=".">
+<property name="currentDir" location="/home/kitaemyoung/eurocarb/application/GlycomeDBUpdate"/>
+<property name="bin" location="/home/kitaemyoung/eurocarb/application/GlycomeDBUpdate/bin"/>
+<property name="external-lib" location="/home/kitaemyoung/eurocarb/external-libs/java"/>
+<property name="eurocarb-lib" location="/home/kitaemyoung/eurocarb/lib"/>
+	
+	<path id="classpath">
+	    <pathelement location="${eurocarb-lib}/eurocarbdb-core-1.0rc.jar" />
+	    <pathelement location="${eurocarb-lib}/eurocarbdb-app-1.0rc.jar" />
+		<pathelement location="${external-lib}/commons-configuration-1.4.jar" />
+		<pathelement location="${external-lib}/commons-lang-2.3.jar" />
+		<pathelement location="${external-lib}/commons-logging-1.1.1.jar" />
+		<pathelement location="${external-lib}/dom4j-1.6.1.jar" />
+		<pathelement location="${external-lib}/postgresql-8.2-507.jdbc3.jar" />
+		<pathelement location="${external-lib}/cglib-2.1_3.jar" />
+		<pathelement location="${external-lib}/asm-1.5.3.jar" />
+		<pathelement location="${eurocarb-lib}/eurocarb-glycanbuilder-1.0rc.jar" />
+		<pathelement location="${eurocarb-lib}/eurocarb-glycopeakfinder-1.0rc.jar" />
+		<pathelement location="${eurocarb-lib}/eurocarb-glycopeakfinder-app-1.0rc.jar" />
+		<pathelement location="${eurocarb-lib}/eurocarb-molecularframework-1.0rc.jar" />
+		<pathelement location="${eurocarb-lib}/eurocarb-resourcesdb-1.0rc.jar" />
+		<pathelement location="${eurocarb-lib}/eurocarb-glycoworkbench-1.0rc.jar" />
+		<pathelement location="${external-lib}/jta-1.0.1B.jar" />
+		<pathelement location="${external-lib}/antlr-2.7.6.jar" />
+		<pathelement location="${external-lib}/google-collections-1.0-rc2.jar" />
+		<pathelement location="${external-lib}/hibernate-3.2.6.ga.jar" />
+		<pathelement location="${external-lib}/log4j-1.2.12.jar" />
+		<pathelement location="${external-lib}/jibx-run-1.2.2.jar" />
+		<pathelement location="${external-lib}/jibx-bind-1.2.2.jar" />
+		<pathelement location="${external-lib}/commons-configuration-1.4.jar" />
+		<pathelement location="${external-lib}/commons-collections-3.2.jar" />
+		<pathelement location="${external-lib}/xercesImpl-2.8.1.jar" />
+                <pathelement location="${bin}" />
+	 </path>
+	
+	<target name="Compile">
+	    <delete dir="bin"/>
+            <mkdir dir="bin"/>
+	    <javac srcdir="${currentDir}/src" destdir="${bin}" debug="off" target="1.5">
+	    	<classpath refid="classpath" />
+	    </javac>
+	</target>
+	
+	<!-- ================================= 
+	        target: JiBX Binding              
+	      ================================= -->
+	 <target name="Bind" depends="Compile">
+	 	<taskdef name="bind" classname="org.jibx.binding.ant.CompileTask">
+	 	<classpath>
+	 		<fileset dir="${external-lib}" > 
+	 			<include name="jibx-bind-1.2.2.jar" />
+	 			<include name="jibx-run-1.2.2.jar" />
+	 			<include name="bcel-5.1.jar" />
+	 		</fileset>
+	 	</classpath>
+	 	</taskdef>
+	 	<bind binding="binding.xml">
+	 		<classpath>
+	 			<pathelement path="${bin}"/>
+	 		</classpath>
+	 	</bind>
+	 </target>
+		
+	<target name="jar" depends="Bind,Compile">
+		<jar destfile="GlycoUpdateDBCore.jar" basedir="${bin}">
+	        <manifest>
+	            <attribute name="Created-By" value="Ki Tae Myoung"/>
+	            <attribute name="Implementation-Title" value="GlycoUpdateDBCore"/>
+	            <attribute name="Implementation-Version" value="1.0"/>
+	            <attribute name="Main-class" value="org.eurocarbdb.util.glycomedb.GlycomeDBUpdate"/>
+	        </manifest>
+	   </jar>
+	</target>
+	
+	<target name="run" depends="jar" description="run the project">    
+	       <java classname="org.eurocarbdb.util.glycomedb.GlycomeDBUpdate">
+	       <classpath refid="classpath"/>
+	       <arg value="${currentDir}/property.ini"/>
+	       </java>    
+  	</target>
+	
+</project>

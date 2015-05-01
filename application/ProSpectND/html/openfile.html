@@ -1,0 +1,133 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+    
+  <meta name="GENERATOR"
+ content="Mozilla/4.72 [en] (X11; U; Linux 2.2.14-5.0 i686) [Netscape]">
+  <title>Open and Read Files</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff"
+ alink="#ff0000">
+  
+<h1> <a name="Open and Read Files"></a>Open and Read Files</h1>
+ The program can only read data that are stored in its own internal format. 
+Therefore, NMR data first has to be converted before it can be processed. 
+A couple of scripts do exist, to convert Bruker and Varian files to this internal
+format. The internal format stores the data in the form of sub cubes what
+makes the processing of multi dimensional data more efficient. Little- or
+bigendianness of files is detected automatically and taken care of. <br>
+ 
+<hr> 
+<h2> <a name="Open File"></a>Open File</h2>
+  
+<ul>
+  <u><font color="#0000ff"><a
+ href="commandline.html#GE%20%3Cfilename%3E">Command line: GE &lt;filename&gt;</a></font></u> 
+  <br>
+  <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#Ropen%20-%20Open%20NMR%20input%20file">Script: 
+ropen &lt;filename&gt;</a></font></u> 
+  <p>Use <b>File-&gt;Open File</b> to select a NMR file for input. A 1D file 
+will be loaded immediately. For a multi dimensional NMR file, the user is
+prompted for a direction to read and a record number.</p>
+</ul>
+  
+<hr width="100%"> 
+<h2> <a name="Close File"></a>Close File</h2>
+  
+<blockquote><a
+ href="psnd_script_nmr.html#RCLOSE%20-%20Close%20NMR%20input%20file">Script: 
+rclose</a> 
+  <p>Input files are closed automatically when a new file is opend, or when 
+the program is terminated. Use only in special case.</p>
+</blockquote>
+  
+<hr> 
+<h2> <a name="Set Direction"></a>Set Direction</h2>
+  
+<ul>
+  <u><font color="#0000ff"><a
+ href="commandline.html#DR%20%3Cdirection%20x%3E%20%20%7B%20%3Cdirection%20y%3E%20%20%7B">Command 
+line: DR &lt;direction x&gt; { &lt;direction y&gt; { &lt;direction ...&gt;
+} }</a></font></u> <br>
+  <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#DR%20-%20set%20direction">Script: DR &lt;direction
+x&gt; { , &lt;direction y&gt; { , &lt;direction ...&gt; } }</a></font></u> 
+  <p>Set the direction(s) (or file access) for a multi dimensional NMR experiment. 
+Use <b>File-&gt;Change Direction</b> or&nbsp;<img
+ src="buttons_processing_direction.gif" height="25" width="45"
+ align="middle" alt="Processing-direction button">
+ </p>
+  <p>Set file access: </p>
+  <p><img src="access_popup.gif" height="57" width="145">
+ </p>
+  <p>Set the direction(s and plane offset) for a multi dimensional NMR experiment. 
+For 2D files: DR &lt;direction&gt; Where &lt;direction&gt; can be 1 or 2.
+In a 2D plot, this direction is used for the x axis and the other one for 
+the y axis. For 3D files: DR &lt;direction 1&gt; &lt;direction 2&gt;&nbsp;
+Where &lt;direction 1&gt; is the processing direction, and &lt;direction
+2&gt; determines together with &lt;direction 1&gt; what planes are used. <br>
+&nbsp; <br>
+&nbsp;</p>
+</ul>
+  
+<h2>  
+<hr><a name="Read Record"></a>Read Record</h2>
+  
+<ul>
+  <u><font color="#0000ff"><a href="commandline.html#RN%20%3Cnumber%3E">Command 
+line: RN &lt;record number&gt; { &lt;record number&gt; }</a></font></u> <br>
+  <u><font color="#0000ff"><a
+ href="psnd_script_nmr.html#RN%20-%20Read%20new%20record">Script: RN { &lt;record
+number&gt; } {, &lt;record number&gt; } {, &lt;range&gt; }</a></font></u> 
+  <p>Read new record from file. Use <b>File-&gt;Read Record</b> or&nbsp;<img
+ src="buttons_rn.gif" height="25" width="45" align="middle"
+ alt="Read-next-record button">
+ </p>
+  <p>1D file: record is loaded inmediately. <br>
+2D file: asks for record number </p>
+  <p><img src="recordnumber_popup.gif" height="55" width="148"
+ align="bottom">
+ </p>
+  <p>With the&nbsp;<img src="buttons_next_prev.gif" height="25"
+ width="89" align="middle" alt="Read-next-and-previous-record button">
+ buttons, one can select the next or the previous record in a plane. 3D file:
+asks for 2 record numbers. The first is the 2D record number and the second
+one is the plane offset.</p>
+</ul>
+  
+<hr width="100%"> 
+<h2> <a name="Return Record"></a>Return Record</h2>
+  
+<blockquote>Command line: RTR <br>
+Script: RTR 
+  <p>Return a (modified) record to the same file it was read from.</p>
+</blockquote>
+  
+<hr width="100%"> 
+<h2> <a name="Write Record"></a>Write Record</h2>
+  
+<blockquote><a href="commandline.html#OU%20%3Cfilename">Command line: OU
+&lt;filename&gt;</a> <br>
+  <a href="psnd_script_nmr.html#WR%20-%20Write%20Array">Script: WR @C, "filename"</a> 
+  <p>Write the current record to a new 1D file.</p>
+</blockquote>
+  
+<h2>  
+<hr width="100%"><a name="Change Directory"></a>Change Directory</h2>
+  
+<blockquote><a href="commandline.html#CHDIR%20%3Cdirname">Command line: CHDIR 
+&lt;filename&gt;</a> <br>
+  <a
+ href="psnd_script_fileio.html#CHDIR%20-%20Change%20working%20directory">Script: 
+CHDIR "filename"</a> 
+  <p>Change the current working directory.</p>
+</blockquote>
+  
+<hr width="100%"> <br>
+&nbsp; <br>
+</body>
+</html>

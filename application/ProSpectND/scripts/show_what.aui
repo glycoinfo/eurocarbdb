@@ -1,0 +1,8 @@
+$i = 0
+print "executing: "
+while $i < argc do
+    print argv($i) + " "
+    $i += 1
+done
+println "\n"
+

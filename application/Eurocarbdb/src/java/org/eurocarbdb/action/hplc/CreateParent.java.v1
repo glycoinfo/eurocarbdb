@@ -1,0 +1,83 @@
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.ParentProfile;
+import org.eurocarbdb.dataaccess.hplc.Detector;
+import org.eurocarbdb.dataaccess.hplc.Column;
+import org.eurocarbdb.dataaccess.hplc.Instrument;
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.Preparable;
+
+
+public class CreateParent extends EurocarbAction {
+
+    private ParentProfile parent = null;
+    private Detector detector = null; 
+    private int detector_id = -1;
+    private Column column = null;
+    private Instrument instrument = null;
+ 
+    public String execute() throws Exception {
+
+
+
+        if ( this.getParentProfile() == null) {
+	    Eurocarb.getEntityManager().store(parent);
+ 
+            return SUCCESS;
+	}
+	/*try {  
+            Eurocarb.getEntityManager().store(acquisition);  
+        }
+        catch ( Exception e ) {
+            addActionError( e.getMessage() );
+            return ERROR;  
+	    }*/
+	else { Eurocarb.getEntityManager().store(parent);  
+        return SUCCESS;
+	}
+    }      
+
+
+    public ParentProfile getParentProfile() {
+        return parent;
+    }
+
+    public void setParentProfile (ParentProfile parent) {
+        this.parent = parent;
+    }
+
+// getter and setter for evaluting parent ids
+  
+      public Detector getDetector() {
+        return detector;
+    }
+
+
+    public void setDetector (Detector detector) {
+        this.detector = detector;
+    }
+
+
+    public Instrument getInstrument() {
+        return instrument;
+    }
+
+    public void setInstrument (Instrument instrument) {
+        this.instrument = instrument;
+    }
+
+    public Column getColumn() {
+        return column;
+    }
+
+    public void setColumn (Column column) {
+        this.column = column;
+    }
+
+
+
+}

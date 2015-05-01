@@ -1,0 +1,73 @@
+<binding name="binding" package="org.eurocarbdb.util.glycomedb.data" trim-whitespace="true">
+  <mapping class="org.eurocarbdb.util.glycomedb.data.DataExport" name="data_export">
+    <structure ordered="false" choice="true">
+      <structure map-as="taxonTreeType" test-method="ifTaxonTree" get-method="getTaxonTree" set-method="setTaxonTree" usage="optional" name="taxon_tree"/>
+      <structure map-as="errorType" test-method="ifError" get-method="getError" set-method="setError" usage="optional" name="error"/>
+      <structure map-as="structureListType" test-method="ifStructureList" get-method="getStructureList" set-method="setStructureList" usage="optional" name="structure_list"/>
+      <structure map-as="databaseListType" test-method="ifDatabaseList" get-method="getDatabaseList" set-method="setDatabaseList" usage="optional" name="database_list"/>
+    </structure>
+    <value style="attribute" name="date" get-method="getDate" set-method="setDate"/>
+  </mapping>
+  <mapping abstract="true" type-name="errorType" class="org.eurocarbdb.util.glycomedb.data.ErrorType">
+    <value style="text" get-method="getString" set-method="setString"/>
+    <value style="attribute" name="code" get-method="getCode" set-method="setCode" usage="optional"/>
+    <value style="attribute" name="title" get-method="getTitle" set-method="setTitle"/>
+  </mapping>
+  <mapping abstract="true" type-name="structureListType" class="org.eurocarbdb.util.glycomedb.data.StructureListType">
+    <collection get-method="getStructures" set-method="setStructures" create-type="java.util.ArrayList">
+      <structure type="org.eurocarbdb.util.glycomedb.data.StructureListType$Structure" name="structure">
+        <collection get-method="getTaxons" set-method="setTaxons" create-type="java.util.ArrayList">
+          <structure type="org.eurocarbdb.util.glycomedb.data.StructureListType$Structure$Taxon" name="taxon">
+            <value style="attribute" name="ncbi" get-method="getNcbi" set-method="setNcbi"/>
+          </structure>
+        </collection>
+        <collection get-method="getResources" set-method="setResources" create-type="java.util.ArrayList">
+          <structure type="org.eurocarbdb.util.glycomedb.data.StructureListType$Structure$Resource" name="resource">
+            <value style="attribute" name="db" get-method="getDb" set-method="setDb"/>
+            <value style="attribute" name="id" get-method="getId" set-method="setId" usage="optional"/>
+          </structure>
+        </collection>
+        <collection get-method="getDeletedMappings" set-method="setDeletedMappings" create-type="java.util.ArrayList">
+          <structure type="org.eurocarbdb.util.glycomedb.data.StructureListType$Structure$DeletedMapping" name="deleted_mapping">
+            <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+          </structure>
+        </collection>
+        <structure name="sequence">
+          <value style="text" get-method="getSequenceString" set-method="setSequenceString"/>
+          <value style="attribute" name="format" get-method="getSequenceFormat" set-method="setSequenceFormat"/>
+        </structure>
+        <value style="attribute" name="database" get-method="getDatabase" set-method="setDatabase"/>
+        <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+      </structure>
+    </collection>
+    <value style="attribute" name="count" get-method="getCount" set-method="setCount"/>
+  </mapping>
+  <mapping abstract="true" type-name="databaseListType" class="org.eurocarbdb.util.glycomedb.data.DatabaseListType">
+    <collection get-method="getDatabases" set-method="setDatabases" create-type="java.util.ArrayList">
+      <structure type="org.eurocarbdb.util.glycomedb.data.DatabaseListType$Database" name="database">
+        <value style="attribute" name="name" get-method="getName" set-method="setName"/>
+        <value style="attribute" name="identifier" get-method="getIdentifier" set-method="setIdentifier"/>
+        <value style="attribute" name="url" get-method="getUrl" set-method="setUrl" usage="optional"/>
+        <value style="attribute" name="abbr" get-method="getAbbr" set-method="setAbbr"/>
+        <value style="attribute" name="count" get-method="getCount" set-method="setCount"/>
+        <value style="attribute" name="countType" get-method="getCountType" set-method="setCountType"/>
+      </structure>
+    </collection>
+    <value style="attribute" name="count" get-method="getCount" set-method="setCount"/>
+  </mapping>
+  <mapping abstract="true" type-name="taxonTreeType" class="org.eurocarbdb.util.glycomedb.data.TaxonTreeType">
+    <collection get-method="getTaxons" set-method="setTaxons" create-type="java.util.ArrayList">
+      <structure type="org.eurocarbdb.util.glycomedb.data.TaxonTreeType$Taxon" name="taxon">
+        <collection get-method="getParents" set-method="setParents" create-type="java.util.ArrayList">
+          <structure type="org.eurocarbdb.util.glycomedb.data.TaxonTreeType$Taxon$Parent" name="parent">
+            <value style="attribute" name="ncbi" get-method="getNcbi" set-method="setNcbi"/>
+          </structure>
+        </collection>
+        <value style="attribute" name="ncbi" get-method="getNcbi" set-method="setNcbi"/>
+        <value style="attribute" name="name" get-method="getName" set-method="setName"/>
+        <value style="attribute" name="rank" get-method="getRank" set-method="setRank" usage="optional"/>
+      </structure>
+    </collection>
+    <value style="attribute" name="count" get-method="getCount" set-method="setCount"/>
+  </mapping>
+</binding>

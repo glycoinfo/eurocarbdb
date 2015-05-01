@@ -1,0 +1,243 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<!--=================================================================
+! Name:
+!                           xwork.xml
+!
+! Description:
+!
+!   This is the main configuration file for Webwork (Struts2), which
+!   dictates the bulk of the web application logic and workflow.
+!
+!   This file primarily contains configuration information for common 
+!   top-level aspects, such as action results, interceptors, exceptions 
+!   and other stuff. Configuration for Eurocarb actions is pulled in by
+!   the includes at the bottom of this file, as packages of (mostly) 
+!   independent actions.
+!
+! Further info:
+!   http://www.opensymphony.com/webwork/wikidocs/WebWork.html
+!
+! Authors: 
+!   mjh, hirenj
+!
+==================================================================-->
+<xwork>
+
+<!-- Include webwork defaults (from WebWork JAR). -->
+<include file="webwork-default.xml" />
+
+<!-- Configuration for the default package. -->
+<package name="eurocarb-base" extends="webwork-default">
+
+	<!--====================== RESULT TYPES =========================
+	!   These are custom result types that are used in EUROCarbDB, in addition 
+    !   to the default result-types included with webwork.
+	!   If you want to do something else apart from rendering a freemarker
+	!   template, you'll need to use a special result type, and if the 
+	!   built-in custom types don't return what you want, you'll need to
+	!   add a result type in here.
+	-->
+    <result-types>
+    	<!-- <result-type name="collated-result" class="org.eurocarbdb.result.EurocarbObjectsResult"/> -->
+    	
+        <!-- Creates XML documents for Action results -->
+        <result-type name="eurocarb-xml" class="org.eurocarbdb.result.XmlSerialiserResult"/>
+    </result-types>
+
+    <!--======================= INTERCEPTORS ========================
+    !   Here we declare sets (or 'stacks') of interceptors that we want to use. 
+    !   Interceptors are chunks of reusable code that, when configured with an action,
+    !   are run before and/or after an action is performed.
+    !
+    !   See also: 
+    !       http://www.opensymphony.com/webwork/wikidocs/Understanding%20interceptors.html
+    !       http://www.opensymphony.com/webwork/api/com/opensymphony/xwork/interceptor/Interceptor.html
+    -->
+    <interceptors>
+
+        <!-- List of Interceptors written by eurocarb; see javadoc for specific info. -->
+        <interceptor name="ecdb_xml_results" class="org.eurocarbdb.interceptor.XmlSerialiserInterceptor"/>        
+        <interceptor name="ecdb_authentication" class="org.eurocarbdb.dataaccess.AuthenticationInterceptor"/>
+        <interceptor name="ecdb_authorisation" class="org.eurocarbdb.interceptor.AuthorisationInterceptor"/>
+        <interceptor name="ecdb_peristence_context_management" class="org.eurocarbdb.interceptor.PersistenceLifecycleInterceptor"/>
+        <interceptor name="cookie" class="org.eurocarbdb.interceptor.DefaultCookieInterceptor"/>
+        <interceptor name="scope" class="org.eurocarbdb.interceptor.SessionAttachmentInterceptor"/>
+        
+        <!-- Declares our default interceptor stack, to be used by the majority of Actions -->
+        <interceptor-stack name="ecdb_default_stack">
+	  
+            <!-- 
+            Creates and managems the lifecycle of the persistence context 
+            (ie: transactions, the database, etc). Also catches any/all exceptions 
+            and uses Webwork code to map them to result codes on
+            either a global level (see section "global-exception-mappings"),
+            or an action-specific level ("exception-mapping" elements within actions).
+            See: http://www.opensymphony.com/webwork/api/com/opensymphony/xwork/interceptor/ExceptionMappingInterceptor.html
+            -->
+            <interceptor-ref name="ecdb_peristence_context_management">
+                <param name="logEnabled">true</param>
+                <param name="logLevel">DEBUG</param>
+                <param name="logCategory">org.eurocarbdb</param>
+            </interceptor-ref>
+            
+            <!-- Populate value stack with cookies values -->
+            <interceptor-ref name="cookie">
+                <param name="cookiesName">sugarImageNotation</param>
+                <param name="cookiesValue">*</param>
+            </interceptor-ref>
+    
+            <!-- User authentication -->
+            <interceptor-ref name="ecdb_authentication" />
+            
+            <!-- Times action execution (if logging is enabled and level >= INFO) -->
+            <interceptor-ref name="timer" />
+
+            <interceptor-ref name="servlet-config"/>
+            <interceptor-ref name="prepare"/>
+            <interceptor-ref name="static-params"/>
+            <interceptor-ref name="params"/>
+            <interceptor-ref name="conversionError"/>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow"/>
+
+            <!--    User authorisation 
+                    This needs to be run here as the business objects
+                    need to be populated and validated before a check
+                    on authorisation needs to happen
+            -->
+            <interceptor-ref name="ecdb_authorisation" />
+            
+            <!-- Add in a result interceptor to redirect results to an XML renderer -->
+            <interceptor-ref name="ecdb_xml_results" />
+            
+        </interceptor-stack>
+        
+    </interceptors>
+        
+    
+    <!--====== default interceptor stack ====== 
+    !   This will apply the named stack to all actions in this package by default. 
+    -->
+    <default-interceptor-ref name="ecdb_default_stack" />
+            
+    
+    <!--===================== GLOBAL RESULTS ======================== 
+    !   This section defines results (Views) that will be available to all actions 
+    !   in this package. This means ALL actions in this or any subpackage automatically 
+    !   has these implicit result names. 
+    !   
+    !   They are essentially 'fallback' results, and as such they are overrideable 
+    !   on a per-action basis.
+    !
+    !   Further information: 
+    !       http://www.opensymphony.com/webwork/wikidocs/Understanding%20results.html
+    !       http://www.opensymphony.com/webwork/api/com/opensymphony/xwork/Result.html
+    -->
+    <global-results>
+    
+        <!-- return result 'login' to force app control back to the login action -->
+        <result name="login" type="redirect-action">login</result>
+        
+        <!-- return this result to indicate that the current user is not authorised to access given resource -->
+        <result name="unauthorised" type="redirect">authorisation_error</result>
+        
+        <!-- generic 'error' result to catch unimplemented error results from actions -->
+        <result name="error" type="freemarker"  >/template/common/generic_error.ftl</result>
+
+        <!-- result for showing a page for pages that require more permissions on a user -->
+        <result name="error_permissions" type="freemarker">/template/common/error_permissions.ftl</result>
+
+        <!-- result showing a page for uncaught exceptions -->
+        <result name="generic_exception" type="freemarker"  >/template/common/generic_exception.ftl</result>
+
+        <!-- result showing a page for protected administrative actions -->
+        <result name="requires_admin" type="freemarker"  >/template/common/requires_admin.ftl</result>
+
+    </global-results>
+
+
+    <!--================== GLOBAL EXCEPTIONS ========================
+    !   This section globally maps exceptions to result types. That is, if 
+    !   an action is terminated prematurely by an exception that matches the
+    !   type or supertype of an exception listed below then the exception is
+    !   neatly caught and control forwarded to the associated result type.
+    -->
+    <global-exception-mappings>
+        <exception-mapping exception="org.eurocarbdb.action.exception.InsufficientParams" result="error_params" />
+        <exception-mapping exception="org.eurocarbdb.action.exception.InsufficientPermissions" result="error_permissions"/>
+        <exception-mapping exception="org.eurocarbdb.action.exception.InvalidParams" result="error_params" />
+        <exception-mapping exception="java.lang.Exception" result="generic_exception" />
+    </global-exception-mappings>
+
+</package>
+
+    <!--==================== EUROCARB ACTIONS =======================
+    !   This section defines application actions. These are imported packages
+    !   of actions grouped by functionality. Action entries should not be 
+    !   put in this file directly; choose to which action package your action 
+    !   logically belongs and put it there, or create a new eurocarb-*.action.xml
+    !   package and import it as given below.
+    -->
+      
+    <!--~~~~~ example actions ~~~~~
+    Actions included by this file are for illustrative purposes only and
+    should be commented out for anything "serious".
+    -->
+    <!-- <include file="eurocarb÷-examples.action.xml" /> -->
+    
+    
+    <!--~~~~~ developer actions ~~~~~
+    Actions for developers to test/diagnose problems, etc.
+    -->
+    <include file="eurocarb-devel.action.xml" />
+    
+    <!--~~~~~ authentication actions ~~~~~
+    Actions relating to user authentication and authorisation, 
+    including login/logout, session manipulation, user permissions, etc.
+    -->
+    <include file="eurocarb-auth.action.xml" />
+    
+    <!--~~~~~ Admin ~~~~~
+    Administration actions.
+    -->
+    <include file="eurocarb-admin.action.xml" />
+    
+    <!--~~~~~ Core ~~~~~
+    This section defines application actions pertaining to the "core" 
+    database and other core application functionality. 
+    -->
+    <include file="eurocarb-core.action.xml" />
+    
+    <!--~~~~~ HPLC ~~~~~
+    This section defines application actions pertaining to the  
+    HPLC component. Depends on the core package.
+    -->
+    <include file="eurocarb-hplc.action.xml" />
+    
+    <!--~~~~~ Mass-Spec ~~~~~
+    This section defines application actions pertaining to the  
+    mass-spec component. Depends on the core package.
+    -->
+    <include file="eurocarb-ms.action.xml" />
+    
+    <!--~~~~~ NMR ~~~~~
+    This section defines application actions pertaining to the  
+    mass-spec component. Depends on the core package.
+    -->
+    <include file="eurocarb-nmr.action.xml" />
+
+    <!--~~~~~ GlycoWorkbench integration ~~~~~ 
+    Actions relating to the mass-spec tool GlycoWorkBench (gwb).
+    -->
+    <include file="eurocarb-gwb.action.xml" />
+    
+    <!--~~~~~ GlycoPeakFinder integration ~~~~~
+    Actions relating to the mass-spec tool GlycoPeakFinder (gpf).
+    -->
+    <include file="eurocarb-gpf.action.xml" /> 
+    
+</xwork>
+
+

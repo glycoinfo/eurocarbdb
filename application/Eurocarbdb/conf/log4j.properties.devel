@@ -1,0 +1,147 @@
+#
+#   log4j.properties
+#   
+#   Logging settings for log4j. The general nomenclature for
+#   enabling/disabling logging for a particular package/class
+#   is:
+#       
+#       log4j.logger.<class-or-package-name> = debug|info|warn|error
+#   
+#   author: mjh [matt@ebi.ac.uk]
+#
+
+
+####################### LOG4J CONFIGURATION #########################
+
+# direct log messages to stderr, which is re-directed by Tomcat
+# to the tomcat logs.
+log4j.appender.stderr = org.apache.log4j.ConsoleAppender
+log4j.appender.stderr.Target = System.err
+log4j.appender.stderr.layout = org.apache.log4j.PatternLayout
+#log4j.appender.stderr.layout.ConversionPattern = %d{ABSOLUTE} %5p %c: %m%n
+#log4j.appender.stderr.layout.ConversionPattern = ---\n%p from %c on %d:\n%m%n
+log4j.appender.stderr.layout.ConversionPattern = -----%n%p from %l %n%m%n
+
+
+# uncomment this block to create a separate logfile in logs/
+# log4j.appender.SQL=org.apache.log4j.RollingFileAppender
+# log4j.appender.SQL.File=./logs/hibernate.log
+# log4j.appender.SQL.layout=org.apache.log4j.SimpleLayout
+# #log4j.appender.SQL.layout.ConversionPattern = ----- %p from %l in thread '%t' on %d -----%n%m%n
+# log4j.appender.SQL.MaxFileSize=2000KB
+# # Keep one backup file
+# log4j.appender.SQL.MaxBackupIndex=2
+
+
+#log4j.rootLogger=warn, R
+#log4j.rootLogger=warn, R,stderr 
+log4j.rootLogger=warn, stderr
+
+
+########################### HIBERNATE ###############################
+
+# default hibernate log level - all hibernate loggers will default 
+# to this setting unless explicitly overridden below.
+# for more verbose logging change 'info' to 'debug', but be prepared 
+# for a lot of logspam ;-)
+# log4j.logger.org.hibernate = warn, stderr, SQL
+log4j.logger.org.hibernate = warn
+
+# logging of general hibernate settings (sometimes useful)
+log4j.logger.org.hibernate.cfg.SettingsFactory = warn
+
+# logging of which java class is bound to which DB table
+log4j.logger.org.hibernate.cfg.HbmBinder = warn
+
+# logging of which hbm.xml mapping files are being used
+log4j.logger.org.hibernate.cfg.Configuration = warn
+
+# HQL query parser activity - 'debug' prints full ASTs for SQL statements
+log4j.logger.org.hibernate.hql.ast.AST = warn
+
+# log SQL statements - 'debug' prints executed SQL
+log4j.logger.org.hibernate.SQL = debug
+
+# JDBC bind parameters - setting this to 'debug' shows query parameters 
+# as well as returned column results & their type (ie: possibly very spammy)
+# log4j.additivity.org.hibernate.type = false
+# log4j.logger.org.hibernate.type = debug, SQL
+log4j.logger.org.hibernate.type = info
+
+# schema export/update 
+log4j.logger.org.hibernate.tool.hbm2ddl = info
+
+# HQL parse trees
+log4j.logger.org.hibernate.hql = warn
+
+# cache activity 
+log4j.logger.org.hibernate.cache = info
+
+# log transaction activity
+log4j.logger.org.hibernate.transaction = info
+
+# log JDBC resource acquisition
+log4j.logger.org.hibernate.jdbc = warn
+
+# log the state of all entities (max 20 entities) associated with 
+# the session at flush time
+log4j.logger.org.hibernate.pretty = debug
+
+# enable the following line if you want to track down connection 
+# leakages when using DriverManagerConnectionProvider 
+#log4j.logger.org.hibernate.connection.DriverManagerConnectionProvider = trace
+
+
+
+############################## XWORK ################################
+
+# default webwork log level
+log4j.logger.com.opensymphony = info
+
+# log messages from webwork interceptors
+log4j.logger.com.opensymphony.xwork.interceptor = info
+
+# logs input (CGI) params when set to 'debug'
+log4j.logger.com.opensymphony.xwork.interceptor.ParametersInterceptor = debug
+
+# logs servlet session params when set to 'debug'
+log4j.logger.com.opensymphony.webwork.interceptor.ScopeInterceptor = debug
+
+# logs view type specific info 
+log4j.logger.com.opensymphony.webwork.views = warn
+
+
+############################ FREEMARKER #############################
+
+# default Freemarker log level
+log4j.logger.freemarker=info
+
+log4j.logger.freemarker.runtime=debug 
+
+# messages about compilation & caching of FM templates - 
+# 'debug' shows which templates are being used and when.
+log4j.logger.freemarker.cache=info
+
+
+############################ EUROCARB ###############################
+
+# default eurocarb log level
+log4j.logger.org.eurocarbdb = debug
+
+# log level for unit tests, you probably want this to be <= DEBUG 
+log4j.logger.test.eurocarbdb = debug
+
+# log level for DAOs
+# log4j.logger.org.eurocarbdb.dataaccess = debug, SQL
+# log4j.logger.org.eurocarbdb.dataaccess.HibernateEntityManager = debug, SQL
+log4j.logger.org.eurocarbdb.dataaccess = debug
+log4j.logger.org.eurocarbdb.dataaccess.HibernateEntityManager = debug
+
+# log level for actions
+log4j.logger.org.eurocarbdb.action = debug;
+
+
+
+
+
+

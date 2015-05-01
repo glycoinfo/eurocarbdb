@@ -1,0 +1,182 @@
+# Synthesis and NMR-studies of pyruvic-acid 4,6-acetals
+# of some methyl hexopyranosides
+# P.-E. Jansson, J- Lindberg, G. Widmalm
+set ref 'Acta Chem. Scand. 47 (1993) 711-715'
+
+if ~$silent{echo 'Loading pyruvates, '+$ref}
+
+type Hex46PyOMe {
+info 'Methyl hexopyranoside, 4,6-[1-carboxyethylidene]'
+atom '1' 1 link pyran
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran
+atom '5' 1 pyran
+atom '6' 2 primary
+atom 'M_1' 1 methyl
+atom 'M_p' 1 methyl
+atom 'p' 0
+atom 'O_p' 0
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+connect 'M_p' 'p' 'O_p'
+# Need to fix correct substituents
+ctclass 'hex'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+residue aDGlc46PyEOMe Hex46PyOMe {
+config D
+info 'Methyl a-D-glucoside, (S)-4,6-carboxyethylidene'
+jhh medium
+jch large
+shift 100.70 4.79 ax
+shift  72.62 3.59 eq
+shift  71.10 3.75 eq
+shift  76.86 3.41 eq
+shift  62.94 3.65
+shift  65.13 3.69 3.96
+shift  55.94 3.41
+shift  25.49 1.45 eq
+shift  102.10
+shift  175.61 ax
+}
+
+residue bDGlc46PyEOMe Hex46PyOMe {
+config D
+info 'Methyl b-D-glucoside, (S)-4,6-carboxyethylidene'
+jhh large
+jch small
+shift 104.75 4.44 eq
+shift  74.73 3.33 eq
+shift  73.83 3.68 eq
+shift  76.56 3.46 eq
+shift  66.75 3.46
+shift  64.92 3.73 4.05
+shift  58.05 3.54
+shift  25.49 1.47 eq
+shift 102.24 
+shift 175.64 ax
+}
+
+residue aDGal46PyEOMe Hex46PyOMe {
+config D
+info 'Methyl a-D-galactoside, (R)-4,6-carboxyethylidene'
+jhh medium
+jch large
+shift 100.64 4.87 ax
+shift  68.65 3.94 eq
+shift  68.65 3.88 eq
+shift  71.94 4.22 ax
+shift  62.84 3.68
+shift  65.48 3.89 4.06
+shift  55.92 3.41
+shift  25.97 1.45 eq
+shift 101.26
+shift 176.20 ax
+}
+
+residue bDGal46PyEOMe Hex46PyOMe {
+config D
+info 'Methyl b-D-galactoside, (R)-4,6-carboxyethylidene'
+jhh large
+jch small
+shift 104.18 4.33 eq
+shift  71.19 3.61 eq
+shift  72.62 3.67 eq
+shift  71.67 4.17 ax
+shift  66.92 3.55
+shift  65.51 3.94 4.08
+shift  57.66 3.56
+shift  26.00 1.46 eq
+shift 101.51
+shift 176.37 ax
+}
+
+residue aDMan46PyEOMe Hex46PyOMe {
+config D
+info 'Methyl a-D-mannoside, (S)-4,6-carboxyethylidene'
+jhh small
+jch large
+shift 102.43 4.75 ax
+shift  71.10 3.97 ax
+shift  68.73 3.90 eq
+shift  74.43 3.79 eq
+shift  64.05 3.66
+shift  64.97 3.76 3.94
+shift  55.57 3.40
+shift  25.60 1.46 eq
+shift 102.43
+shift 175.83 ax
+}
+
+residue bDMan46PyEOMe Hex46PyOMe {
+config D
+info 'Methyl b-D-mannoside, (S)-4,6-carboxyethylidene'
+jhh small
+jch small
+shift 102.48 4.62 eq
+shift  71.38 4.04 ax
+shift  71.13 3.81 eq
+shift  74.38 3.71 eq
+shift  67.35 3.37
+shift  64.92 3.78 4.03
+shift  57.81 3.53
+shift  25.62 1.47 eq
+shift 102.48
+shift 175.80 ax
+}
+
+residue aDGlc46PyAOMe Hex46PyOMe {
+config D
+info 'Methyl a-D-glucoside, (R)-4,6-carboxyethylidene'
+jhh medium
+jch large
+shift 100.94 4.84 ax
+shift  72.54 3.67 eq
+shift  71.19 3.79 eq
+shift  73.73 3.68 eq
+shift  63.84 3.71
+shift  62.67 3.88 4.01
+shift  56.02 3.42
+shift  17.68 1.62 ax
+shift  99.72
+shift 176.07 eq
+}
+
+residue aDGal46PyAOMe Hex46PyOMe {
+config D
+info 'Methyl a-D-galactoside, (S)-4,6-carboxyethylidene'
+# C2/C3 may change
+jhh medium
+jch large
+shift 100.75 4.85 ax
+shift  68.73 3.93 eq
+shift  68.60 3.93 eq
+shift  69.93 4.42 ax
+shift  63.28 3.72
+shift  63.28 3.92 4.28
+shift  55.97 3.42
+shift  16.81 1.59 ax
+shift  98.70
+shift 176.53 eq
+}
+
+residue bDMan46PyAOMe Hex46PyOMe {
+config D
+info 'Methyl b-D-mannoside, (R)-4,6-carboxyethylidene'
+jhh small
+jch small
+# C3/C4 may change
+shift 102.64 4.63 eq
+shift  71.27 4.08 ax
+shift  71.00 3.81 eq
+shift  71.05 3.99 eq
+shift  68.10 3.39
+shift  62.51 3.93 4.06
+shift  57.86 3.54
+shift  17.78 1.63 ax
+shift 100.05
+shift 176.18 eq
+}

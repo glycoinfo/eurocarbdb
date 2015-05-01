@@ -1,0 +1,147 @@
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.core.Contributor;
+import org.eurocarbdb.dataaccess.core.Technique;
+import org.eurocarbdb.dataaccess.hplc.Profile;
+import org.eurocarbdb.dataaccess.hplc.Detector;
+import org.eurocarbdb.dataaccess.hplc.Column;
+import org.eurocarbdb.dataaccess.hplc.Instrument;
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.Preparable;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+public class CreateParent extends EurocarbAction {
+
+    private Profile parent = null;
+    private Detector detector = null; 
+    private Column column = null;
+    private Instrument instrument = null;
+  
+    private int detector_id;
+    private int instrument_id;
+    private int column_id;
+    private int parent_id = -1;
+    protected static final Log log = LogFactory.getLog( CreateParent.class );
+    
+    public String execute() throws Exception {
+    
+
+
+        if ( parent == null ) {
+	   //Eurocarb.getEntityManager().store(parent);
+ 
+            return INPUT;
+	}
+	else {
+	/*log.info("instrument id" + instrument_id);
+        detector = Eurocarb.getEntityManager().lookup( Detector.class, detector_id );
+	instrument = Eurocarb.getEntityManager().lookup( Instrument.class, instrument_id );
+	column = Eurocarb.getEntityManager().lookup( Column.class, column_id ); 
+        if (detector == null) { addFieldError("detector_id", "Invalid detector id");  return INPUT;}
+	log.info("instrument id" + instrument_id);
+	Contributor contributor = Contributor.getCurrentContributor();
+	int contributorIda = contributor.getContributorId();
+	String contributorId = Integer.toString(contributorIda);
+	
+	log.info("Contributor" + contributorId);
+        parent.setDetector(detector);
+	parent.setInstrument(instrument);
+	parent.setColumn(column);
+	parent.setContributor(Contributor.getCurrentContributor());
+	parent.setTechnique(Technique.lookupAbbrev("hplc"));
+	parent.setOperator(contributorId);
+		
+        Eurocarb.getEntityManager().store(parent);  */
+        return SUCCESS;
+	}
+    }      
+
+
+    public Profile getProfile() {
+        return parent;
+    }
+
+    public void setProfile (Profile parent) {
+        this.parent = parent;
+    }
+
+
+/*    public void setProfileId(int id) {
+        this.profile_id = id;
+    }
+
+    public int getProfileId() {
+        return this.profile_id;
+    }
+*/
+
+
+// getter and setter for evaluting parent ids
+  
+      public Detector getDetector() {
+        return detector;
+    }
+
+
+    public void setDetector (Detector detector) {
+        this.detector = detector;
+    }
+
+    public void setDetectorId(int id) {
+        this.detector_id = id;
+    }
+
+    public int getDetectorId() {
+        return this.detector_id;
+    }
+
+    
+    /*public Instrument getInstrument() {
+        return instrument;
+    }
+
+    public void setInstrument (Instrument instrument) {
+        this.instrument = instrument;
+    }
+    */
+
+
+   public void setInstrumentId(int id) {
+        this.instrument_id = id;
+    }
+
+    public int getInstrumentId() {
+        return this.instrument_id;
+    }
+
+
+
+
+
+
+    public Column getColumn() {
+        return column;
+    }
+
+    public void setColumn (Column column) {
+        this.column = column;
+    }
+
+	 public void setColumnId(int id) {
+        this.column_id = id;
+    }
+
+    public int getColumnId() {
+        return this.column_id;
+    }
+
+
+
+
+
+}

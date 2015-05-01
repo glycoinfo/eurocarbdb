@@ -1,0 +1,418 @@
+# Synthesis and NMR spectroscopy of nine stereoisomeric 5,7-diacetamido-3,5,7,9-tetradeoxynon-2-ulosonic acids
+# Y.E. Tsvetkov, A.S. Shashkov, Y.A. Knirel, U. Zähringer
+set ref 'Carbohydr. Res. 335 (2001) 221-243'
+# These experiments are run at room temperature and at 30 deg C.
+
+type '6dHex2,4NAc' {
+info '2,4-diacetamido-2,4,6-trideoxyhexopyranoside'
+priority '6p'
+atom '1' 1 pyran link free
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran
+atom '5' 1 pyran closing
+atom '6' 1 methyl
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+atom 'M_4' 1 methyl
+atom 'O_4' 0
+connect '1' '2' '3' '4' '5' '6'
+connect 'O_2' 'M_2'
+connect 'O_4' 'M_4'
+ctclass 'hex'
+ctsub 'n-acetyl' 2 1 'd'
+ctsub 'n-acetyl' 4 1 'd'
+ctmod 'd' 6
+ccpsub 'C2_NAc:C4_NAc'
+}
+
+# 25
+# No shifts for NAc in the source. These are approximated. ML 080828
+residue 'aD6dTal2,4NAc' '6dHex2,4NAc' {
+config D
+carbbank 'a-D-6-deoxy-TalpNAc4NAc'
+ctname 'a-dtal'
+jhh medium
+shift 94.2 5.18
+shift 52.8 4.12
+shift 66.7 4.24
+shift 52.7 4.18
+shift 66.7 4.43
+shift 17.0 1.18
+
+shift 23 2.05
+shift 175
+
+shift 23 2.05
+shift 175
+
+info $ref
+}
+# 25
+# No shifts for NAc in the source. These are approximated. ML 080828
+residue 'bD6dTal2,4NAc' '6dHex2,4NAc' {
+config D
+carbbank 'b-D-6-deoxy-TalpNAc4NAc'
+ctname 'b-dtal'
+jhh medium
+shift 94.6 4.97
+shift 53.4 4.36
+shift 69.6 4.12
+shift 52.0 4.12
+shift 71.7 3.91
+shift 17.1 1.18
+
+shift 23 2.05
+shift 175
+
+shift 23 2.05
+shift 175
+
+info $ref
+}
+
+
+type '9ddn5,7NAc' {
+info '5,7-diacetamido-3,5,7,9-tetradeoxynon-2-ulosonic acid'
+priority '9p'
+atom '1' 0
+atom '2' 0 link pyran free
+atom '3' 2 pyran
+atom '4' 1 pyran free
+atom '5' 1 pyran
+atom '6' 1 pyran closing
+atom '7' 1
+atom '8' 1 free
+atom '9' 1 methyl
+atom 'M_5' 1 methyl
+atom 'O_5' 0
+atom 'M_7' 1 methyl
+atom 'O_7' 0
+connect '1' '2' '3' '4' '5' '6' '7' '8' '9'
+connect 'O_5' 'M_5'
+connect 'O_7' 'M_7'
+ctclass 'non'
+ctsub 'n-acetyl' 5 1 'd'
+ctsub 'n-acetyl' 7 1 'd'
+ctmod 'a' 1
+ctmod 'd' 3
+ctmod 'd' 9
+ccpsub 'C5_NAc:C7_NAc'
+}
+
+# 49a
+# No shifts for NAc. Shifts from 49b used.
+residue 'LGly-aDGal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-lgly-dgal'
+shift 176.7
+shift 98.2
+shift 41.7 1.61 2.62
+shift 69.7 3.83
+shift 54.2 3.63
+shift 75.2 3.82
+shift 54.4 3.90
+shift 70.1 3.98
+shift 19.8 1.17
+shift 23.1 1.97
+shift 175.1
+shift 23.4 2.01
+shift 175.3
+info $ref
+}
+# 49b
+residue 'LGly-bDGal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-lgly-dgal'
+shift 177.3
+shift 97.5
+shift 40.8 1.79 2.20
+shift 68.6 3.89
+shift 54.2 3.70
+shift 72.9 4.06
+shift 54.4 3.89
+shift 69.7 3.90
+shift 19.8 1.15
+shift 23.1 1.97
+shift 175.1
+shift 23.4 2.01
+shift 175.3
+info $ref
+}
+# 50a
+# No C shifts for NAc or for C8. Shifts from 50b used.
+residue 'LGly-aDTal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-lgly-dtal'
+shift 176.1
+shift 96.5
+shift 38.9 2.03 2.40
+shift 66.7 3.97
+shift 50.4 3.84
+shift 72.2 4.26
+shift 54.9 3.87
+shift 69.7 3.95
+shift 19.9 1.18
+shift 23.0 1.96
+shift 174.5
+shift 23.1 2.02
+shift 175.2
+info $ref
+}
+# 50b
+residue 'LGly-bDTal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-lgly-dtal'
+shift 177.3
+shift 97.1
+shift 37.8 2.06 2.10
+shift 67.4 4.09
+shift 50.1 3.88
+shift 68.7 4.42
+shift 54.7 3.90
+shift 69.7 3.98
+shift 19.9 1.20
+shift 23.0 1.97
+shift 174.5
+shift 23.1 2.01
+shift 175.2
+info $ref
+}
+# 51a
+residue 'DGly-aLAlt9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-dgly-lalt'
+shift 177.1
+shift 97.2
+shift 40.4 1.86 2.24
+shift 68.1 3.95
+shift 54.9 3.83
+shift 75.9 3.83
+shift 53.5 3.89
+shift 66.5 4.43
+shift 20.3 1.05
+shift 23.1 2.05
+shift 175.2
+shift 23.3 2.05
+shift 175.8
+info $ref
+}
+# 51b
+# NAc from 51a
+residue 'DGly-bLAlt9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-dgly-lalt'
+shift 175.6
+shift 97.4
+shift 41.7 1.68 2.70
+shift 69.5 3.75
+shift 55.4 3.79
+shift 76.0 3.42
+shift 54.9 3.93
+shift 66.5 4.41
+shift 20.2 1.05
+shift 23.1 2.05
+shift 175.2
+shift 23.3 2.05
+shift 175.8
+info $ref
+}
+# 52a
+residue 'DGly-aLMan9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-dgly-lman'
+shift 177.6
+shift 97.8
+shift 36.0 1.79 1.99
+shift 66.7 4.18
+shift 50.1 4.24
+shift 70.2 4.19
+shift 54.6 3.77
+shift 66.0 4.12
+shift 20.0 1.07
+shift 22.3 1.98
+shift 174.2
+shift 22.3 1.99
+shift 175.0
+info $ref
+}
+# 53a
+# NAc C shifts from 53b
+residue 'DGly-aDGal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-dgly-dgal'
+shift 176.6
+shift 98.6
+shift 41.9 1.61 2.75
+shift 70.1 3.66
+shift 53.4 3.67
+shift 72.8 3.77
+shift 54.8 3.82
+shift 68.2 3.93
+shift 20.4 1.16
+shift 23.0 1.95
+shift 175.0
+shift 23.4 1.95
+shift 175.1
+info $ref
+}
+# 53b
+# NAc C shifts from 53b
+residue 'DGly-bDGal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-dgly-dgal'
+shift 177.6
+shift 97.6
+shift 40.8 1.82 2.19
+shift 68.8 3.94
+shift 54.0 3.70
+shift 70.7 4.23
+shift 54.5 3.85
+shift 67.7 3.85
+shift 20.4 1.15
+shift 23.0 1.99
+shift 175.0
+shift 23.4 2.00
+shift 175.1
+info $ref
+}
+# 54a
+# NAc C shifts from 54b
+residue 'DGly-aDTal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-dgly-dtal'
+shift 177.0
+shift 96.7
+shift 39.5 1.95 2.54
+shift 67.1 4.02
+shift 50.1 3.85
+shift 69.9 4.42
+shift 55.0 3.82
+shift 67.8 3.93
+shift 19.8 1.16
+shift 22.9 1.96
+shift 174.5
+shift 23.1 1.96
+shift 174.9
+info $ref
+}
+# 54b
+residue 'DGly-bDTal9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-dgly-dtal'
+shift 177.6
+shift 97.3
+shift 37.8 2.07 2.11
+shift 67.6 4.10
+shift 49.9 3.88
+shift 66.2 4.56
+shift 54.8 3.86
+shift 67.4 3.91
+shift 20.4 1.17
+shift 22.9 1.98
+shift 174.5
+shift 23.1 1.99
+shift 174.9
+info $ref
+}
+# 55a
+residue 'LGly-aLAlt9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-lgly-ltal'
+shift 177.1
+shift 97.1
+shift 40.4 1.89 2.21
+shift 68.9 3.89
+shift 55.7 3.88
+shift 73.8 3.84
+shift 55.2 4.13
+shift 67.6 4.08
+shift 19.8 1.16
+shift 23.2 2.02
+shift 174.9
+shift 23.5 2.07
+shift 175.8
+info $ref
+}
+# 55b
+# NAc C shifts from 55a
+residue 'LGly-bLAlt9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-lgly-ltal'
+shift 175.4
+shift 98.0
+shift 41.7 1.61 2.61
+shift 69.8 3.81
+shift 55.2 3.82
+shift 75.8 3.54
+shift 55.9 4.08
+shift 67.8 4.06
+shift 19.8 1.19
+shift 23.2 2.03
+shift 174.9
+shift 23.5 2.05
+shift 175.8
+info $ref
+}
+# 56a
+residue 'LGly-aLMan9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-lgly-lman'
+shift 177.4
+shift 97.7
+shift 36.0 1.78 1.92
+shift 66.5 4.16
+shift 50.1 4.24
+shift 71.4 4.02
+shift 54.2 4.13
+shift 68.1 4.11
+shift 16.6 1.11
+shift 23.1 1.97
+shift 175.0
+shift 23.3 2.00
+shift 175.9
+info $ref
+}
+# 56b
+# NAc and C-1 and C-2 shifts from 56a
+residue 'LGly-bLMan9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-lgly-lman'
+shift 177.4
+shift 97.7
+shift 35.9 1.55 2.41
+shift 67.0 4.08
+shift 50.1 4.26
+shift 72.2 3.75
+shift 54.2 4.01
+shift 68.3 4.04
+shift 16.6 1.125
+shift 23.1 1.97
+shift 175.0
+shift 23.3 2.00
+shift 175.9
+info $ref
+}
+# 57a
+# One NAc C shift missing. First shift duplicated.
+residue 'LGly-aLGlu9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'a-lgly-lglu'
+shift 174.9
+shift 97.3
+shift 33.5 2.09 1.85
+shift 67.6 3.97
+shift 49.0 3.88
+shift 67.0 4.42
+shift 54.1 4.17
+shift 68.1 4.17
+shift 16.7 1.14
+shift 23.0 1.97
+shift 175.1
+shift 23.2 1.98
+shift 175.1
+info $ref
+}
+# 57b
+# NAc and C-1 and C-2 shifts from 57a
+residue 'LGly-bLGlu9ddn5,7NAc' '9ddn5,7NAc' {
+ctname 'b-lgly-lglu'
+shift 174.9
+shift 97.3
+shift 34.8 1.97 2.22
+shift 67.6 3.97
+shift 49.5 3.88
+shift 71.5 4.42
+shift 53.8 4.17
+shift 68.6 4.17
+shift 17.0 1.14
+shift 23.0 1.97
+shift 175.1
+shift 23.2 1.98
+shift 175.1
+info $ref
+}

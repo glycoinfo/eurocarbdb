@@ -1,0 +1,492 @@
+<!-- 
+name: eurocarb web application build.xml
+authors: mjh, ac, hj
+-->
+<project name="eurocarbdb-webapp" default="dist" xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:ac="antlib:net.sf.antcontrib">
+
+    <!--
+    !   this import defines the following:
+    !
+    !   1) 'project.*' properties  
+    !   2) 'local.classpath' path, containing all external and eurocarb-compiled jars.
+    !   3) 'build-XXX' tasks, where 'XXX' is the name of a sub-project                
+    ! 
+    -->
+    <import file="../../build.common.xml" />
+
+    
+    <!--===================== PROPERTIES =========================-->
+
+    <property name="config.dir" value="${basedir}/conf"/>    
+    <property file="${config.dir}/eurocarbdb-application.properties"/>
+
+    <!-- local directories -->
+    <property name="doc.dir" value="${basedir}/doc"/>
+    <property name="apidoc.dir" value="${doc.dir}/api"/>
+    <property name="source.dir" value="${basedir}/src"/>
+    
+    <property name="java.source.dir" value="${source.dir}/java" />
+    <property name="java.build.dir" value="${basedir}/build" />
+    <property name="java.lib.dist.dir" value="${project.java.lib.dir}" />
+    
+    <property name="webapp.name" value="eurocarb"/>
+    <property name="webapp.exploded.dist.dir" value="${project.webapp.dir}"/>
+    <property name="webapp.war.dist.dir" value="${project.webapp.dir}"/>
+
+    <!-- webapp stuff -->
+    <property name="images.dir" value="${basedir}/resources/images" />
+    <property name="css.dir" value="${source.dir}/css" />
+    <property name="javascript.dir" value="${source.dir}/js" />
+    <property name="template.dir" value="${source.dir}/template" />
+    <property name="plugins.dir" value="${source.dir}/plugins" />
+    
+    <!-- Testing stuff -->
+    <property name="test.output.dir" value="${basedir}/test-output" />
+    <property name="test.groups" value="ecdb" />
+    
+    <!--========================= PATHS ==========================-->
+    
+    <path id="local.classpath" >
+    	<path refid="project.classpath"/>
+    </path>
+
+	
+    <!--======================= TARGETS ==========================-->
+
+    
+    <!-- TARGET: build ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Compiles local java sourcefiles in src/ directly to the deployed 
+    webapp directory.
+    -->
+    <target 
+        name="build" 
+        depends="init,build-core-api,build-tools"
+        description="Compiles all Eurocarb web application sources" 
+        >
+    	<mkdir dir="${java.build.dir}"/> 
+    	
+    	<javac 
+            srcdir="${java.source.dir}"
+            destdir="${java.build.dir}" 
+            source="1.5"
+            debug="true" 
+            >
+            <!-- enable line below for full javac warnings -->
+            <!--<compilerarg value="-Xlint:unchecked" />-->
+            <compilerarg value="-Xlint:deprecation" />
+            <classpath refid="local.classpath" />
+        </javac>
+        
+        <!-- essential config property files -->
+        <copy todir="${java.build.dir}">
+            <fileset file="${config.dir}/webwork.properties" />
+            <fileset file="${config.dir}/xwork.xml" />
+            <fileset file="${config.dir}/xwork-conversion.properties"/>
+            <fileset file="${config.dir}/log4j.properties" />
+            <fileset file="${config.dir}/emailConf.properties" />
+            <fileset file="${config.dir}/contributer.properties" />
+            <!-- eurocarb application action config files -->
+            <fileset dir="${config.dir}">
+                <include name="*.action.xml"/>
+            </fileset>
+            
+            <fileset dir="${java.source.dir}">
+                <include name="**/*-validation.xml"/>
+            </fileset>
+            
+        </copy>
+    
+        <!-- 
+        dynamically generate eurocarb application-specific properties - contains:  
+            1) top-level conf/site.properties included by build.common.xml
+            2) local conf/eurocarbdb-application.properties
+            3) misc build properties from Ant build
+        -->
+        <echoproperties destfile="${java.build.dir}/eurocarbdb-application.properties" >
+            <propertyset negate="true">
+                <propertyref prefix="java" />
+                <propertyref prefix="sun" />
+                <propertyref prefix="awt" />
+            </propertyset>
+        </echoproperties>
+        
+        
+    </target>
+
+    
+    <target name="build-jsdocs" description="Creates javadoc from sources in src/js">
+        <unzip src="${project.java.extlib.dir}/jsdoc-dist-2.1.0.zip" dest="${project.temp.dir}/jsdoc-toolkit"/>
+        <taskdef name="jsdoctoolkit" classname="uk.co.darrenhurley.ant.tasks.JsDocToolkit" >
+            <classpath>
+                <path refid="local.classpath"/>
+            </classpath>
+        </taskdef>
+         <jsdoctoolkit jsdochome="${project.temp.dir}/jsdoc-toolkit/jsdoc_toolkit-2.1.0/jsdoc-toolkit/" template="jsdoc" outputdir="${apidoc.dir}/js">
+             <fileset dir="${javascript.dir}">
+                 <include name="lib/*.js"/>
+             </fileset>
+         </jsdoctoolkit>
+    </target>
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-apidocs
+    creates API documentation from sources in src/ and the core API.
+    -->
+	<target name="build-apidocs" depends="build" 
+            description="Creates javadoc from sources in src/ and the core API" 
+            >
+	    <echo>Building EurocarbDB application API documentation</echo>	    
+        <delete dir="${apidoc.dir}" />
+	    <mkdir dir="${apidoc.dir}" />
+        <javadoc 
+            destdir="${apidoc.dir}"
+            Author="true"
+            Use="true"
+            Version="true"
+            linksource="true"
+            stylesheetfile="${project.coreapi.dir}/doc/eurocarb_apidoc.css"
+            windowtitle="EurocarbDB application API"
+            doctitle="EurocarbDB application API"
+         >  
+            <classpath>
+                <path refid="local.classpath"/>
+            </classpath>
+            
+            <sourcepath>
+                <pathelement path="${java.source.dir}" />
+            </sourcepath>
+            
+            <!-- link to java stdlib API -->
+            <link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
+
+            <!-- link to hibernate API -->
+            <link href="https://www.hibernate.org/hib_docs/v3/api/" />
+
+            <!-- link to webwork API -->
+            <link href="http://www.opensymphony.com/webwork/api/" />
+
+            <!-- link to commons logging -->
+            <link href="http://commons.apache.org/logging/apidocs/" />
+            
+            <!-- link to google collections -->
+            <link href="http://google-collections.googlecode.com/svn/trunk/javadoc/" />
+            
+            <!-- link to ANTLR API, grammar/parser generator -->
+            <link href="http://www.antlr2.org/javadoc/" />
+            
+            <!-- link to TestNG API, unit testing framework -->
+            <link href="http://testng.org/javadocs/" />
+            
+            <!-- link to eurocarb core API -->
+            <link href="../../../../core-api/doc/api/" />
+            
+            <!-- other eurocarb projects -->
+            <link href="../../../ResourcesDB/doc/api/" />
+            <link href="../../../GlycoWorkbench/doc/api/" />
+            <link href="../../../GlycanBuilder/doc/api/" />
+            <link href="../../../MolecularFramework/doc/api/" />
+                
+            <!-- groups: used to partition package overview into logical groups -->
+            <group title="Core application logic (Actions)" packages="org.eurocarbdb.action*"/>
+            <group title="Application infrastructure, lifecycle, and other services" 
+                packages="org.eurocarbdb.servlet*:org.eurocarbdb.interceptor*"/>
+            <group title="Utility classes" packages="org.eurocarbdb.util*"/>
+            <group title="Unit and functional tests" packages="test*"/>
+
+        </javadoc>
+        <echo>See ${apidoc.dir} for generated javadoc</echo>
+
+        <exec executable="open" os="Mac OS X">
+            <arg value="${apidoc.dir}/index.html"/>
+        </exec>
+
+    </target>
+    
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: build-tools
+
+    Tools:
+        - GlycoWorkBench (gwb)
+        - GlycanBuilder applet (gb)
+        - Glycopeakfinder (gpf)
+    -->
+    <target 
+        name="build-tools" 
+        depends="build-glycanbuilder,build-glycoworkbench,build-glycopeakfinder" 
+        />
+            
+        
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: clean
+    removes compiled code from build directories.
+    -->
+    <target 
+        name="clean" 
+        depends=""
+        description="Deletes locally compiled java class files" 
+        >
+        <echo>Cleaning ${ant.project.name}</echo>
+        <delete includeemptydirs="true">
+            <fileset dir="${java.build.dir}" includes="**/*"/>
+        </delete>	        
+    </target>
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-classes
+    Build the class files and copy them into the webapp directory
+    -->
+    <target name="copy-classes" depends="build">
+      <copy todir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}/WEB-INF/classes" overwrite="true">
+        <fileset dir="${java.build.dir}"/>
+      </copy>
+    </target>
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-applets
+    Copy just applets to the exploded war directory
+    -->
+    <target name="copy-applets">
+      <copy todir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}/" overwrite="true">
+        <fileset dir="${project.binary.dir}">
+          <include name="**/${project.glycanbuilder.applet.jar}"/>
+          <include name="**/${project.glycoworkbench.applet.jar}"/>
+        </fileset>
+      </copy>
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-validation
+    -->
+    <target name="copy-validation">
+        <echo>copying validation xml from ${source.dir}</echo>
+        <copy todir="${java.build.dir}">
+            <fileset dir="${source.dir}/java">
+                <include name="**/*-validation.xml"/>
+            </fileset>
+        </copy>        
+    </target>	
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-templates
+    Copy just templates to the exploded war directory
+    -->
+    <target name="copy-templates">
+      <copy todir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}/template">
+        <fileset dir="${template.dir}"/>
+      </copy>
+    </target>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-js
+    Copy just Javascript to the exploded war directory
+    -->
+    <target name="copy-js">
+      <copy todir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}/js">
+        <fileset dir="${javascript.dir}"/>
+      </copy>
+    </target>
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-images
+    Copy just images to the exploded war directory
+    -->
+    <target name="copy-images">
+      <copy todir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}/images">
+        <fileset dir="${images.dir}"/>
+      </copy>
+    </target>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-css
+    Copy just templates to the exploded war directory
+    -->
+    <target name="copy-css">
+      <copy todir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}/css">
+        <fileset dir="${css.dir}"/>
+      </copy>
+    </target>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: copy-resources
+    Copy just resources to the exploded war directory
+    -->
+    <target name="copy-resources" depends="copy-css,copy-js,copy-templates,copy-images,copy-applets">
+        <copy todir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}">
+            <fileset dir="${plugins.dir}">
+                <include name="**" />
+            </fileset>
+        </copy>
+    </target>
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: dist
+    Creates eurocarb application jar and webapp war.
+    -->
+    <target name="dist" 
+        depends="dist-lib, dist-webapp" 
+        description="Creates eurocarbdb application jar and webapp war" 
+        />
+        
+        
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: dist-lib
+    Creates eurocarb application jar.
+    -->
+    <target name="dist-lib" 
+        depends="build" 
+        description="Creates eurocarbdb application jar" 
+        >
+        <jar
+            basedir="${java.build.dir}" 
+            destfile="${java.lib.dist.dir}/${project.eurocarbdb.jar}"
+            update="true"
+        />
+    </target>
+		  
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: dist-webapp
+    Deploys standalone webapp war.
+    -->
+    <target name="dist-webapp" depends="dist-lib">
+        <echo>Deploying Eurocarbdb application war</echo>
+
+		<delete dir="${webapp.war.dist.dir}/${project.eurocarbdb.warname}"/>
+
+		<war 
+            destfile="${webapp.war.dist.dir}/${project.eurocarbdb.war}"
+            webxml="${config.dir}/web.xml"
+            >
+            
+            <!-- eurocarb-compiled libs from sub-projects -->
+            <lib dir="${project.java.lib.dir}" >
+                <exclude name="**/${project.eurocarbdb.jar}"/>
+            </lib>
+            
+            <!-- external libs, try to exclude some of the ones we don't need -->
+            <lib dir="${project.java.extlib.dir}">
+                <include name="**/*.jar"/>
+                <exclude name="**/servlet-api*"/>
+                <exclude name="**/velocity*"/>
+                <exclude name="**/sitemesh*"/>
+            </lib>
+            
+            <!-- local Eurocarbdb application classes -->
+            <classes dir="${java.build.dir}" />
+            
+            <!-- web stuff & freemarker templates -->
+            <zipfileset dir="${images.dir}" prefix="images" />
+            <zipfileset dir="${javascript.dir}" prefix="js" />
+            <zipfileset dir="${css.dir}" prefix="css" />
+            <zipfileset dir="${template.dir}" prefix="template" />
+            <zipfileset dir="${plugins.dir}" />
+            <zipfileset file="${source.dir}/home.action" />
+            
+            <!-- applets -->
+            <zipfileset file="${project.binary.dir}/${project.glycanbuilder.applet.jar}" />
+            <zipfileset file="${project.binary.dir}/${project.glycoworkbench.applet.jar}" />
+        </war>
+        
+	</target>  
+
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: download-mesh
+    Downloads MeSH reference file.
+    -->
+    <target name="download-mesh" depends="build" 
+            description="Downloads current MeSH reference file from the net" >
+        <echo>Downloading MeSH reference data (this may take a few mins...)</echo>
+        <java classname="org.eurocarbdb.action.admin.DownloadMesh" >
+            <classpath>
+                <path refid="local.classpath" />
+                <pathelement path="${java.build.dir}" />
+            </classpath>
+        </java>
+    </target>
+    
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: download-ncbi
+    Downloads NCBI reference file.
+    -->
+    <target name="download-ncbi" depends="build" 
+            description="Downloads current NCBI Taxonomy reference file from the net" >
+        <echo>Downloading NCBI Taxonomy reference data  (this may take a few mins...)</echo>
+        <java classname="org.eurocarbdb.action.admin.DownloadNcbi" >
+            <classpath>
+                <path refid="local.classpath" />
+                <pathelement path="${java.build.dir}" />
+            </classpath>
+        </java>
+    </target>
+    
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: import_glycomedb
+    Import glycome db from a CSV file
+    -->
+	<target name="import_glycomedb" depends="dist">
+        <java classname="org.eurocarbdb.action.admin.ImportGlycomeDB" >
+            <classpath>
+                <path refid="local.classpath" />
+                <pathelement path="${java.build.dir}" />
+            </classpath>
+            <arg value="../../database/glycomedb_exported.csv"/>
+            <arg value="0"/>
+        </java>	  
+	</target>
+
+    
+    <target name="init" />
+    
+    
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TARGET: test
+    Testing target, used to run the automated tests on ECDB
+    -->
+	<target name="test" 
+            depends="dist-lib" 
+            description="Runs unit and functional tests for the Eurocarbdb application"
+            >
+            
+		<!-- TestNG: unit/functional test suite -->
+		<taskdef name="testng" classname="org.testng.TestNGAntTask" onerror="ignore">
+            <classpath>
+                <path refid="local.classpath"/>
+            </classpath>
+		</taskdef>
+
+        <mkdir dir="${test.output.dir}" />
+        <property name="test.name" value="eurocarb_app_test" />
+        
+        <testng classpathref="local.classpath" 
+                annotations="JDK"
+                dumpCommand="false" 
+                enableAssert="true"
+                groups="ecdb,ecdb.action,${test.groups}"
+                listeners="test.FileReporterListener"
+                outputdir="${test.output.dir}"
+                parallel="false"
+                suitename="${test.name}" 
+                verbose="1"
+                >
+            <jvmarg value="-Djava.awt.headless=true" />
+            <classfileset dir="${java.build.dir}" includes="test/**/*.class"/>
+        </testng>
+        <echo>Test results can be viewed at ${test.output.dir}/index.html</echo>
+
+	</target>
+	
+
+</project>

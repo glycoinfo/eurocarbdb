@@ -1,0 +1,27 @@
+ul.yui-nav li {
+    border-bottom: solid #dddddd 0px !important;
+}
+
+#glycan_sequence_query_history .query_result_count {
+    padding-bottom: 7px;
+}
+
+.ac_mult_sel .ac_mult_sel_label {
+    margin-top: 0px;
+    font-size: 0.9em;
+    height: 100%; 
+}
+
+.wwctrl select {
+    margin-top: -1.6em;
+}
+
+.wwctrl input[type="checkbox"] {
+    width: auto;
+    margin-top: 0.2em;
+    border: 0px;
+}
+
+#all_scans_container {
+    position: auto;
+}

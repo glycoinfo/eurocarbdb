@@ -1,0 +1,134 @@
+# Nuclear Magnetic Resonance and Conformational
+# studies on Monoacetylated Methyl D-Gluco- and D-Galacto-pyranosides
+# P.-E. Jansson, L. Kenne, E. Schweda
+set ref 'J. Chem. Soc., Perkin Trans. I (1987) 377-383
+#obs liten J, stor J kolla assignment av H6!
+
+type 'O-Acetyl' {
+info 'O-Acetyl substituent'
+priority 'Z'
+atom 'O' 0 link free
+atom 'M' 1 methyl
+connect 'O' 'M'
+ctclass 'subst'
+}
+
+# Shifts for the OAc is acquired from Me 2-O-Ac-aDGlc
+residue Ac 'O-Acetyl' {
+info 'O-Acetyl substituent'
+shift 174.0
+shift 21.1 2.168
+}
+
+# Me 2-O-Ac-aDGlc - Me aDGlc
+dimer 'Ac(O->2)aDGlcOMe' {
+info $ref
+shift 174.0; 21.1 2.168
+shift 97.4 4.973; 73.8 4.676; 71.6 3.862; 70.3 3.525; 72.4 3.68; 61.3 3.896 3.786; 55.6 3.412
+extract
+}
+
+dimer 'Ac(O->3)aDGlcOMe' {
+info $ref
+shift 174.6; 21.5 2.178
+shift 100.0 4.860; 70.4 3.753; 76.4 5.138; 68.6 3.596; 72.2 3.725; 61.2 3.883 3.787; 56.0 3.450
+extract
+}
+
+dimer 'Ac(O->4)aDGlcOMe' {
+info $ref
+shift 174.1; 21.3 2.163
+shift 100.0 4.857; 71.9 3.668; 71.9 3.864; 71.9 4.829; 70.3 3.833; 61.1 3.710 3.604; 56.0 3.436
+extract
+}
+
+dimer 'Ac(O->6)aDGlcOMe' {
+info $ref
+shift 174.9; 21.1 2.139
+shift 100.2 4.807; 72.0 3.579; 73.8 3.680; 70.4 3.462; 70.1 3.861; 64.3 4.406 4.304; 56.0 3.421
+extract
+}
+
+dimer 'Ac(O->2)bDGlcOMe' {
+info $ref
+shift 174.0; 21.2 2.156
+shift 102.0 4.570; 74.6 4.676; 74.6 3.685; 70.4 3.465; 76.8 3.482; 61.4 3.931 3.737; 57.8 3.510
+extract
+}
+
+dimer 'Ac(O->3)bDGlcOMe' {
+info $ref
+shift 174.6; 21.4 2.183
+shift 103.9 4.488; 72.3 3.447; 78.3 4.985; 68.8 3.574; 76.5 3.566; 61.4 3.935 3.748; 58.2 3.587
+extract
+}
+
+dimer 'Ac(O->4)bDGlcOMe' {
+info $ref
+shift 174.1; 21.3 2.162
+shift 104.1 4.429; 73.9 3.358; 74.6 3.718; 71.9 4.805; 74.6 3.663; 61.2 3.740 3.593; 58.2 3.585
+extract
+}
+
+dimer 'Ac(O->6)bDGlcOMe' {
+info $ref
+shift 174.9; 21.1 2.139
+shift 104.3 4.404; 73.9 3.273; 76.4 3.488; 70.3 3.488; 74.2 3.667; 64.1 4.423 4.305; 58.1 3.575
+extract
+}
+
+dimer 'Ac(O->2)aDGalOMe' {
+info $ref
+shift 174.2; 21.2 2.174
+shift 97.5 5.00 ; 71.8 5.00 ; 68.1 4.04 ; 70.1 4.04 ; 71.6 3.939; 62.0 3.78 3.78; 55.6 3.399
+extract
+}
+
+dimer 'Ac(O->3)aDGalOMe' {
+info $ref
+shift 174.3; 21.4 2.174
+shift 100.1 4.912; 66.8 4.068; 73.9 5.030; 68.0 4.147; 71.2 3.983; 61.9 3.75  3.75 ; 56.0 3.450
+extract
+}
+
+dimer 'Ac(O->4)aDGalOMe' {
+info $ref
+shift 174.4; 21.1 2.164
+shift 100.3 4.892; 69.2 3.858; 68.9 4.009; 72.5 5.330; 70.4 4.061; 61.3 3.60  3.60 ; 56.1 3.425
+extract
+}
+
+dimer 'Ac(O->6)aDGalOMe' {
+info $ref
+shift 174.9; 21.1 2.134
+shift 100.3 4.845; 68.9 3.83 ; 70.1 3.83 ; 70.0 4.018; 69.1 4.129; 65.0 4.250 4.320; 55.9 3.417
+extract
+}
+
+dimer 'Ac(O->2)bDGalOMe' {
+info $ref
+shift 174.3; 21.4 2.168
+shift 102.5 4.520; 73.3 4.918; 71.9 3.867; 69.6 3.987; 76.2 3.74 ; 61.8 3.82  3.78 ; 57.8 3.526
+extract
+}
+
+dimer 'Ac(O->3)bDGalOMe' {
+info $ref
+shift 174.1; 21.3 2.184
+shift 104.4 4.448; 69.4 3.733; 76.4 4.876; 67.4 4.117; 75.7 3.74 ; 61.6 3.80  3.77 ; 58.1 3.600
+extract
+}
+
+dimer 'Ac(O->4)bDGalOMe' {
+info $ref
+shift 174.4; 21.1 2.184
+shift 104.6 4.412; 71.9 3.528; 72.2 3.862; 71.8 5.309; 74.6 3.889; 61.1 3.636 3.636; 58.1 3.591
+extract
+}
+
+dimer 'Ac(O->6)bDGalOMe' {
+info $ref
+shift 174.8; 21.1 2.132
+shift 104.7 4.338; 71.4 3.518; 73.5 3.659; 69.6 3.965; 73.3 3.924; 64.7 4.29  4.29 ; 58.1 3.572
+extract
+}

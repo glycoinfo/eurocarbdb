@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<_StorageUnit release="2.0.a1" originator="CCPN Python XmlIO" packageGuid="www.ccpn.ac.uk_Fogh_2006-08-16-14:22:45_00019" time="Mon Apr  7 13:51:35 2008">
+
+<NMRX.NmrExpPrototype _ID="_1" category="through-bond" createdBy="ccpnRef" guid="cam_wb104_2008-01-15-16-06-39_00005" isModifiable="true" lastUnlockedBy="editor" name="H[DQ(HH)]" serial="5" synonym="DQ">
+  <NMRX.NmrExpPrototype.atomSites>
+    <NMRX.AtomSite _ID="_2" isotopeCode="1H" minNumber="1" name="H" numberStep="1" serial="1">
+      <NMRX.AtomSite.expMeasurements> _3 _4 _5</NMRX.AtomSite.expMeasurements>
+      <NMRX.AtomSite.expTransfers> _6 _7 _8 _9</NMRX.AtomSite.expTransfers>
+    </NMRX.AtomSite>
+    <NMRX.AtomSite _ID="_10" isotopeCode="1H" minNumber="1" name="H" numberStep="1" serial="2">
+      <NMRX.AtomSite.expMeasurements> _3 _4</NMRX.AtomSite.expMeasurements>
+      <NMRX.AtomSite.expTransfers> _9 _8</NMRX.AtomSite.expTransfers>
+    </NMRX.AtomSite>
+    <NMRX.AtomSite _ID="_11" isotopeCode="1H" minNumber="1" name="H" numberStep="1" serial="3">
+      <NMRX.AtomSite.expMeasurements> _3</NMRX.AtomSite.expMeasurements>
+      <NMRX.AtomSite.expTransfers> _7</NMRX.AtomSite.expTransfers>
+    </NMRX.AtomSite>
+    <NMRX.AtomSite _ID="_12" isotopeCode="1H" minNumber="1" name="H" numberStep="1" serial="4">
+      <NMRX.AtomSite.expMeasurements> _3</NMRX.AtomSite.expMeasurements>
+      <NMRX.AtomSite.expTransfers> _6</NMRX.AtomSite.expTransfers>
+    </NMRX.AtomSite>
+  </NMRX.NmrExpPrototype.atomSites>
+  <NMRX.NmrExpPrototype.expGraphs>
+    <NMRX.ExpGraph _ID="_13" serial="1">
+      <NMRX.ExpGraph.expSteps>
+        <NMRX.ExpStep _ID="_14" serial="1" stepNumber="1" expMeasurement="_5">
+        </NMRX.ExpStep>
+        <NMRX.ExpStep _ID="_15" serial="2" stepNumber="2" expMeasurement="_4">
+        </NMRX.ExpStep>
+        <NMRX.ExpStep _ID="_16" serial="3" stepNumber="3" expMeasurement="_5">
+          <NMRX.ExpStep.refExpDimRefs> _17</NMRX.ExpStep.refExpDimRefs>
+        </NMRX.ExpStep>
+      </NMRX.ExpGraph.expSteps>
+      <NMRX.ExpGraph.expTransfers>
+        <NMRX.ExpTransfer _ID="_8" serial="1" transferToSelf="false" transferType="Jcoupling">
+          <NMRX.ExpTransfer.atomSites> _2 _10</NMRX.ExpTransfer.atomSites>
+        </NMRX.ExpTransfer>
+      </NMRX.ExpGraph.expTransfers>
+    </NMRX.ExpGraph>
+    <NMRX.ExpGraph _ID="_18" serial="2">
+      <NMRX.ExpGraph.expSteps>
+        <NMRX.ExpStep _ID="_19" serial="1" stepNumber="1" expMeasurement="_5">
+        </NMRX.ExpStep>
+        <NMRX.ExpStep _ID="_20" serial="2" stepNumber="2" expMeasurement="_3">
+        </NMRX.ExpStep>
+        <NMRX.ExpStep _ID="_21" serial="3" stepNumber="3" expMeasurement="_5">
+          <NMRX.ExpStep.refExpDimRefs> _17</NMRX.ExpStep.refExpDimRefs>
+        </NMRX.ExpStep>
+      </NMRX.ExpGraph.expSteps>
+      <NMRX.ExpGraph.expTransfers>
+        <NMRX.ExpTransfer _ID="_9" serial="1" transferToSelf="false" transferType="Jcoupling">
+          <NMRX.ExpTransfer.atomSites> _2 _10</NMRX.ExpTransfer.atomSites>
+        </NMRX.ExpTransfer>
+        <NMRX.ExpTransfer _ID="_7" serial="2" transferToSelf="false" transferType="Jcoupling">
+          <NMRX.ExpTransfer.atomSites> _2 _11</NMRX.ExpTransfer.atomSites>
+        </NMRX.ExpTransfer>
+        <NMRX.ExpTransfer _ID="_6" serial="3" transferToSelf="false" transferType="Jcoupling">
+          <NMRX.ExpTransfer.atomSites> _2 _12</NMRX.ExpTransfer.atomSites>
+        </NMRX.ExpTransfer>
+      </NMRX.ExpGraph.expTransfers>
+    </NMRX.ExpGraph>
+  </NMRX.NmrExpPrototype.expGraphs>
+  <NMRX.NmrExpPrototype.expMeasurements>
+    <NMRX.ExpMeasurement _ID="_5" measurementType="Shift" serial="1">
+      <NMRX.ExpMeasurement.atomSites> _2</NMRX.ExpMeasurement.atomSites>
+      <NMRX.ExpMeasurement.expSteps> _14 _16 _21 _19</NMRX.ExpMeasurement.expSteps>
+      <NMRX.ExpMeasurement.refExpDimRefs> _17</NMRX.ExpMeasurement.refExpDimRefs>
+    </NMRX.ExpMeasurement>
+    <NMRX.ExpMeasurement _ID="_4" measurementType="MQShift" serial="2">
+      <NMRX.ExpMeasurement.atomSiteWeights> 1.0 1.0</NMRX.ExpMeasurement.atomSiteWeights>
+      <NMRX.ExpMeasurement.atomSites> _2 _10</NMRX.ExpMeasurement.atomSites>
+      <NMRX.ExpMeasurement.expSteps> _15</NMRX.ExpMeasurement.expSteps>
+      <NMRX.ExpMeasurement.refExpDimRefs> _22</NMRX.ExpMeasurement.refExpDimRefs>
+    </NMRX.ExpMeasurement>
+    <NMRX.ExpMeasurement _ID="_3" measurementType="MQShift" serial="3">
+      <NMRX.ExpMeasurement.atomSiteWeights> 1.0 1.0 1.0 -1.0</NMRX.ExpMeasurement.atomSiteWeights>
+      <NMRX.ExpMeasurement.atomSites> _2 _10 _11 _12</NMRX.ExpMeasurement.atomSites>
+      <NMRX.ExpMeasurement.expSteps> _20</NMRX.ExpMeasurement.expSteps>
+      <NMRX.ExpMeasurement.refExpDimRefs> _23</NMRX.ExpMeasurement.refExpDimRefs>
+    </NMRX.ExpMeasurement>
+  </NMRX.NmrExpPrototype.expMeasurements>
+  <NMRX.NmrExpPrototype.refExperiments>
+    <NMRX.RefExperiment _ID="_24" isReversed="false" name="h[DQ(HH)]" serial="1">
+      <NMRX.RefExperiment.refExpDims>
+        <NMRX.RefExpDim _ID="_25" dim="1">
+          <NMRX.RefExpDim.refExpDimRefs>
+            <NMRX.RefExpDimRef _ID="_22" constantTime="variable" groupingId="1" serial="1" expMeasurement="_4">
+              <NMRX.RefExpDimRef.validScalingFactors> 1.0</NMRX.RefExpDimRef.validScalingFactors>
+            </NMRX.RefExpDimRef>
+            <NMRX.RefExpDimRef _ID="_23" constantTime="variable" groupingId="1" serial="2" expMeasurement="_3">
+              <NMRX.RefExpDimRef.validScalingFactors> 1.0</NMRX.RefExpDimRef.validScalingFactors>
+            </NMRX.RefExpDimRef>
+          </NMRX.RefExpDim.refExpDimRefs>
+        </NMRX.RefExpDim>
+        <NMRX.RefExpDim _ID="_26" dim="2">
+          <NMRX.RefExpDim.refExpDimRefs>
+            <NMRX.RefExpDimRef _ID="_17" constantTime="variable" groupingId="1" serial="1" expMeasurement="_5">
+              <NMRX.RefExpDimRef.validScalingFactors> 1.0</NMRX.RefExpDimRef.validScalingFactors>
+              <NMRX.RefExpDimRef.expSteps> _16 _21</NMRX.RefExpDimRef.expSteps>
+            </NMRX.RefExpDimRef>
+          </NMRX.RefExpDim.refExpDimRefs>
+        </NMRX.RefExpDim>
+      </NMRX.RefExperiment.refExpDims>
+    </NMRX.RefExperiment>
+  </NMRX.NmrExpPrototype.refExperiments>
+</NMRX.NmrExpPrototype>
+
+</_StorageUnit>
+<!--End of Memops Data-->

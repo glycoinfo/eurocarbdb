@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<_StorageUnit time="Thu Jun 14 13:59:00 2007" release="1.1.2" 
+ packageGuid="www.ccpn.ac.uk_Fogh_2006-08-16-18:19:49_00002" originator="CCPN Python XmlIO">
+ 
+<CHEL.ChemElementStore _ID="_1" createdBy="ccpnRef" guid="msd_ccpnRef_2007-12-11-11-36-46_00001" isModifiable="true" name="CCPN reference">
+  <CHEL.ChemElementStore.chemElements>
+    <CHEL.ChemElement _ID="_2" atomNumber="89" mass="227.02780000000001" name="Actinium" symbol="Ac">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_3" abundance="0.0" halfLife="21.771999999999998" halfLifeType="normal" mass="227.02774700000001" massNumber="227" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_4" atomNumber="47" mass="107.86799999999999" name="Silver" symbol="Ag">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_5" abundance="0.51839000000000002" gyroMagneticRatio="-10870000.0" halfLifeType="stable" magneticMoment="-0.1966" mass="106.90509299999999" massNumber="107" receptivity="3.4799999999999999e-05" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_6" abundance="0.48161000000000004" gyroMagneticRatio="-12500000.0" halfLifeType="stable" magneticMoment="-0.22600000000000001" mass="108.90475600000001" massNumber="109" receptivity="4.9200000000000003e-05" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_7" atomNumber="13" mass="26.981539999999999" name="Aluminum" symbol="Al">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_8" abundance="1.0" gyroMagneticRatio="69760000.0" halfLifeType="stable" magneticMoment="4.3083999999999998" mass="26.981538440000001" massNumber="27" receptivity="0.20699999999999999" spin="5/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_9" atomNumber="95" mass="243.0" name="Americium" symbol="Am">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_10" abundance="0.0" halfLife="432.19999999999999" halfLifeType="normal" mass="241.05682289999999" massNumber="241" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_11" abundance="0.0" halfLife="7.3700000000000001" halfLifeType="normal" mass="243.06137269999999" massNumber="243" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_12" atomNumber="18" mass="39.948" name="Argon" symbol="Ar">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_13" abundance="0.0033650000000000004" halfLifeType="stable" mass="35.967546280000001" massNumber="36" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_14" abundance="0.00063200000000000007" halfLifeType="stable" mass="37.962732199999998" massNumber="38" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_15" abundance="0.99600300000000008" halfLifeType="stable" mass="39.962383123000002" massNumber="40" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_16" atomNumber="33" mass="74.921599999999998" name="Arsenic" symbol="As">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_17" abundance="1.0" gyroMagneticRatio="45950000.0" halfLifeType="stable" magneticMoment="1.8580000000000001" mass="74.921596399999999" massNumber="75" receptivity="0.0253" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_18" atomNumber="85" mass="210.0" name="Astatine" symbol="At">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_19" abundance="0.0" halfLife="8.0999999999999996" halfLifeType="normal" mass="209.98713100000001" massNumber="210" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_20" abundance="0.0" halfLife="7.2140000000000004" halfLifeType="normal" mass="210.987481" massNumber="211" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_21" atomNumber="79" mass="196.9665" name="Gold" symbol="Au">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_22" abundance="1.0" gyroMagneticRatio="4625400.0" halfLifeType="stable" magneticMoment="0.18701000000000001" mass="196.96655200000001" massNumber="197" receptivity="2.58e-05" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_23" atomNumber="5" mass="10.81" name="Boron" symbol="B">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_24" abundance="0.19899999999999998" gyroMagneticRatio="28746000.0" halfLifeType="stable" magneticMoment="2.0792000000000002" mass="10.012937000000001" massNumber="10" receptivity="0.0039300000000000003" spin="3">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_25" abundance="0.80099999999999993" gyroMagneticRatio="85843000.0" halfLifeType="stable" magneticMoment="3.4708000000000001" mass="11.0093055" massNumber="11" receptivity="0.13300000000000001" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_26" atomNumber="56" mass="137.33000000000001" name="Barium" symbol="Ba">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_27" abundance="0.00106" halfLifeType="stable" mass="129.90630999999999" massNumber="130" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_28" abundance="0.00101" halfLifeType="stable" mass="131.905056" massNumber="132" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_29" abundance="0.024169999999999997" halfLifeType="stable" mass="133.90450300000001" massNumber="134" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_30" abundance="0.065919999999999992" gyroMagneticRatio="26710000.0" halfLifeType="stable" magneticMoment="1.0800000000000001" mass="134.90568300000001" massNumber="135" receptivity="0.000328" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_31" abundance="0.078539999999999999" halfLifeType="stable" mass="135.90457000000001" massNumber="136" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_32" abundance="0.11231999999999999" gyroMagneticRatio="29880000.0" halfLifeType="stable" magneticMoment="1.208" mass="136.905821" massNumber="137" receptivity="0.00078899999999999999" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_33" abundance="0.71697999999999995" halfLifeType="stable" mass="137.90524099999999" massNumber="138" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_34" atomNumber="4" mass="9.0121800000000007" name="Beryllium" symbol="Be">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_35" abundance="1.0" gyroMagneticRatio="-37595800.0" halfLifeType="stable" magneticMoment="-1.5200800000000001" mass="9.0121821000000004" massNumber="9" receptivity="0.013899999999999999" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_36" atomNumber="107" symbol="Bh">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_37" abundance="0.0" halfLife="1.3" halfLifeType="normal" mass="258.09842500000002" massNumber="264">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_38" atomNumber="83" mass="208.9804" name="Bismuth" symbol="Bi">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_39" abundance="1.0" gyroMagneticRatio="43420000.0" halfLife="19.0" halfLifeType="normal" magneticMoment="4.5110000000000001" mass="208.98038299999999" massNumber="209" receptivity="0.14099999999999999" spin="9/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_40" atomNumber="97" mass="247.0" name="Berkelium" symbol="Bk">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_41" abundance="0.0" halfLife="1.3799999999999999" halfLifeType="normal" mass="247.07029900000001" massNumber="247" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_42" abundance="0.0" halfLife="330.0" halfLifeType="normal" mass="249.07498000000001" massNumber="249" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_43" atomNumber="35" mass="79.903999999999996" name="Bromine" symbol="Br">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_44" abundance="0.50690000000000002" gyroMagneticRatio="67228000.0" halfLifeType="stable" magneticMoment="2.7181999999999999" mass="78.918337600000001" massNumber="79" receptivity="0.040099999999999997" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_45" abundance="0.49310000000000004" gyroMagneticRatio="72468000.0" halfLifeType="stable" magneticMoment="2.9300000000000002" mass="80.916291000000001" massNumber="81" receptivity="0.049200000000000001" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_46" atomNumber="6" mass="12.010999999999999" name="Carbon" symbol="C">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_47" abundance="0.98930000000000007" halfLifeType="stable" mass="12.0" massNumber="12" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_48" abundance="0.010700000000000001" gyroMagneticRatio="67283000.0" halfLifeType="stable" magneticMoment="1.2165999999999999" mass="13.0033548378" massNumber="13" receptivity="0.000176" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_49" abundance="0.0" halfLife="5.7000000000000002" halfLifeType="normal" mass="14.003241987999999" massNumber="14" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_50" atomNumber="20" mass="40.079999999999998" name="Calcium" symbol="Ca">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_51" abundance="0.96940999999999999" halfLifeType="stable" mass="39.962591199999999" massNumber="40" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_52" abundance="0.0064700000000000001" halfLifeType="stable" mass="41.958618299999998" massNumber="42" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_53" abundance="0.0013500000000000001" gyroMagneticRatio="-18025000.0" halfLifeType="stable" magneticMoment="-1.4936" mass="42.958766799999999" massNumber="43" receptivity="8.67e-06" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_54" abundance="0.02086" halfLifeType="stable" mass="43.9554811" massNumber="44" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_55" abundance="4.0000000000000003e-05" halfLifeType="stable" mass="45.953692799999999" massNumber="46" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_56" abundance="0.0018699999999999999" halfLife="53.0" halfLifeType="normal" mass="47.952534" massNumber="48" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_57" atomNumber="48" mass="112.41" name="Cadmium" symbol="Cd">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_58" abundance="0.012500000000000001" halfLifeType="stable" mass="105.906458" massNumber="106" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_59" abundance="0.0088999999999999999" halfLifeType="stable" mass="107.904183" massNumber="108" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_60" abundance="0.1249" halfLifeType="stable" mass="109.903006" massNumber="110" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_61" abundance="0.128" gyroMagneticRatio="-56926000.0" halfLifeType="stable" magneticMoment="-1.0293000000000001" mass="110.90418200000001" massNumber="111" receptivity="0.00123" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_62" abundance="0.24129999999999999" halfLifeType="stable" mass="111.9027572" massNumber="112" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_63" abundance="0.1222" gyroMagneticRatio="-59550000.0" halfLife="7.7000000000000002" halfLifeType="normal" magneticMoment="-1.0768" mass="112.9044009" massNumber="113" receptivity="0.0013500000000000001" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_64" abundance="0.2873" halfLifeType="stable" mass="113.90335810000001" massNumber="114" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_65" abundance="0.074900000000000008" halfLife="30.0" halfLifeType="normal" mass="115.90475499999999" massNumber="116" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_66" atomNumber="58" mass="140.12" name="Cerium" symbol="Ce">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_67" abundance="0.0018500000000000001" halfLifeType="stable" mass="135.90714" massNumber="136" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_68" abundance="0.0025100000000000001" halfLifeType="stable" mass="137.90598600000001" massNumber="138" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_69" abundance="0.88450000000000006" halfLifeType="stable" mass="139.90543400000001" massNumber="140" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_70" abundance="0.11114" halfLifeType="stable" mass="141.90924000000001" massNumber="142" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_71" atomNumber="98" mass="251.0" name="Californium" symbol="Cf">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_72" abundance="0.0" halfLife="351.0" halfLifeType="normal" mass="249.07484700000001" massNumber="249" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_73" abundance="0.0" halfLife="13.08" halfLifeType="normal" mass="250.07640000000001" massNumber="250" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_74" abundance="0.0" halfLife="900.0" halfLifeType="normal" mass="251.07957999999999" massNumber="251" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_75" abundance="0.0" halfLife="2.645" halfLifeType="normal" mass="252.08161999999999" massNumber="252" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_76" atomNumber="17" mass="35.453000000000003" name="Chlorine" symbol="Cl">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_77" abundance="0.75780000000000003" gyroMagneticRatio="26240000.0" halfLifeType="stable" magneticMoment="1.0609999999999999" mass="34.96885271" massNumber="35" receptivity="0.0035599999999999998" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_78" abundance="0.2422" gyroMagneticRatio="21842000.0" halfLifeType="stable" magneticMoment="0.88312999999999997" mass="36.9659026" massNumber="37" receptivity="0.00066600000000000003" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_79" atomNumber="96" mass="247.0" name="Curium" symbol="Cm">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_80" abundance="0.0" halfLife="29.100000000000001" halfLifeType="normal" mass="243.0613822" massNumber="243" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_81" abundance="0.0" halfLife="18.100000000000001" halfLifeType="normal" mass="244.06274629999999" massNumber="244" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_82" abundance="0.0" halfLife="8.5" halfLifeType="normal" mass="245.06548559999999" massNumber="245" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_83" abundance="0.0" halfLife="4.7599999999999998" halfLifeType="normal" mass="246.06721759999999" massNumber="246" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_84" abundance="0.0" halfLife="15.6" halfLifeType="normal" mass="247.070347" massNumber="247" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_85" abundance="0.0" halfLife="348.0" halfLifeType="normal" mass="248.07234199999999" massNumber="248" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_86" atomNumber="27" mass="58.933199999999999" name="Cobalt" symbol="Co">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_87" abundance="1.0" gyroMagneticRatio="63170000.0" halfLifeType="stable" magneticMoment="5.234" mass="58.933200200000002" massNumber="59" receptivity="0.27700000000000002" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_88" atomNumber="24" mass="51.996000000000002" name="Chromium" symbol="Cr">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_89" abundance="0.043449999999999996" halfLifeType="stable" mass="49.946049600000002" massNumber="50" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_90" abundance="0.83789000000000002" halfLifeType="stable" mass="51.940511899999997" massNumber="52" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_91" abundance="0.095009999999999997" gyroMagneticRatio="-15120000.0" halfLifeType="stable" magneticMoment="-0.61129999999999995" mass="52.9406538" massNumber="53" receptivity="8.6199999999999995e-05" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_92" abundance="0.023650000000000001" halfLifeType="stable" mass="53.938884899999998" massNumber="54" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_93" atomNumber="55" mass="132.90539999999999" name="Cesium" symbol="Cs">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_94" abundance="1.0" gyroMagneticRatio="35277000.0" halfLifeType="stable" magneticMoment="2.9230999999999998" mass="132.90544700000001" massNumber="133" receptivity="0.0482" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_95" atomNumber="29" mass="63.545999999999999" name="Copper" symbol="Cu">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_96" abundance="0.69169999999999998" gyroMagneticRatio="70974000.0" halfLifeType="stable" magneticMoment="2.8696000000000002" mass="62.929601099999999" massNumber="63" receptivity="0.064500000000000002" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_97" abundance="0.30829999999999996" gyroMagneticRatio="76031000.0" halfLifeType="stable" magneticMoment="3.0741000000000001" mass="64.927793699999995" massNumber="65" receptivity="0.035499999999999997" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_98" atomNumber="105" symbol="Db">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_99" abundance="0.0" halfLife="35.0" halfLifeType="normal" mass="258.09842500000002" massNumber="262">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_100" atomNumber="66" mass="162.5" name="Dysprosium" symbol="Dy">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_101" abundance="0.00059999999999999995" halfLifeType="stable" mass="155.92427799999999" massNumber="156" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_102" abundance="0.001" halfLifeType="stable" mass="157.92440500000001" massNumber="158" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_103" abundance="0.023399999999999997" halfLifeType="stable" mass="159.925194" massNumber="160" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_104" abundance="0.18909999999999999" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="160.92693" massNumber="161" receptivity="0.0" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_105" abundance="0.25509999999999999" halfLifeType="stable" mass="161.926795" massNumber="162" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_106" abundance="0.249" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="162.92872800000001" massNumber="163" receptivity="0.0" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_107" abundance="0.28179999999999999" halfLifeType="stable" mass="163.929171" massNumber="164" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_108" atomNumber="68" mass="167.25999999999999" name="Erbium" symbol="Er">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_109" abundance="0.0014000000000000002" halfLifeType="stable" mass="161.928775" massNumber="162" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_110" abundance="0.0161" halfLifeType="stable" mass="163.92919699999999" massNumber="164" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_111" abundance="0.33610000000000001" halfLifeType="stable" mass="165.93029000000001" massNumber="166" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_112" abundance="0.2293" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="166.93204499999999" massNumber="167" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_113" abundance="0.26780000000000004" halfLifeType="stable" mass="167.932368" massNumber="168" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_114" abundance="0.14929999999999999" halfLifeType="stable" mass="169.93546000000001" massNumber="170" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_115" atomNumber="99" mass="254.0" name="Einsteinium" symbol="Es">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_116" abundance="0.0" halfLife="471.69999999999999" halfLifeType="normal" mass="252.08296999999999" massNumber="252" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_117" atomNumber="63" mass="151.96000000000001" name="Europium" symbol="Eu">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_118" abundance="0.47810000000000002" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="150.91984600000001" massNumber="151" receptivity="0.0" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_119" abundance="0.52190000000000003" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="152.92122599999999" massNumber="153" receptivity="0.0" spin="5/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_120" atomNumber="9" mass="18.998403" name="Fluorine" symbol="F">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_121" abundance="1.0" gyroMagneticRatio="251810000.0" halfLifeType="stable" magneticMoment="4.5532000000000004" mass="18.998403199999998" massNumber="19" receptivity="0.83399999999999996" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_122" atomNumber="26" mass="55.847000000000001" name="Iron" symbol="Fe">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_123" abundance="0.058449999999999995" halfLifeType="stable" mass="53.939614800000001" massNumber="54" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_124" abundance="0.91754000000000002" halfLifeType="stable" mass="55.934942100000001" massNumber="56" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_125" abundance="0.021190000000000001" gyroMagneticRatio="8661000.0" halfLifeType="stable" magneticMoment="0.15659999999999999" mass="56.9353987" massNumber="57" receptivity="7.4300000000000002e-07" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_126" abundance="0.0028199999999999996" halfLifeType="stable" mass="57.933280500000002" massNumber="58" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_127" atomNumber="100" mass="257.0" name="Fermium" symbol="Fm">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_128" abundance="0.0" halfLife="100.5" halfLifeType="normal" mass="257.095099" massNumber="257" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_129" atomNumber="87" mass="223.0" name="Francium" symbol="Fr">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_130" abundance="0.0" halfLife="22.0" halfLifeType="normal" mass="223.0197307" massNumber="223" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_131" atomNumber="31" mass="69.719999999999999" name="Gallium" symbol="Ga">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_132" abundance="0.60107999999999995" gyroMagneticRatio="64323000.0" halfLifeType="stable" magneticMoment="2.6006999999999998" mass="68.925580999999994" massNumber="69" receptivity="0.0419" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_133" abundance="0.39892000000000005" gyroMagneticRatio="81731000.0" halfLifeType="stable" magneticMoment="3.3046000000000002" mass="70.924705000000003" massNumber="71" receptivity="0.056500000000000002" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_134" atomNumber="64" mass="157.25" name="Gadolinium" symbol="Gd">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_135" abundance="0.002" halfLife="108.0" halfLifeType="normal" mass="151.91978800000001" massNumber="152" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_136" abundance="0.0218" halfLifeType="stable" mass="153.920862" massNumber="154" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_137" abundance="0.14800000000000002" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="154.922619" massNumber="155" receptivity="0.0" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_138" abundance="0.20469999999999999" halfLifeType="stable" mass="155.92212000000001" massNumber="156" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_139" abundance="0.1565" halfLifeType="stable" mass="156.923957" massNumber="157" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_140" abundance="0.24840000000000001" halfLifeType="stable" mass="157.92410100000001" massNumber="158" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_141" abundance="0.21859999999999999" halfLifeType="stable" mass="159.92705100000001" massNumber="160" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_142" atomNumber="32" mass="72.590000000000003" name="Germanium" symbol="Ge">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_143" abundance="0.2084" halfLifeType="stable" mass="69.924250400000005" massNumber="70" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_144" abundance="0.27539999999999998" halfLifeType="stable" mass="71.922076200000006" massNumber="72" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_145" abundance="0.077300000000000008" gyroMagneticRatio="-9367400.0" halfLifeType="stable" magneticMoment="-0.97197" mass="72.923459399999999" massNumber="73" receptivity="0.00011" spin="9/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_146" abundance="0.36280000000000001" halfLifeType="stable" mass="73.9211782" massNumber="74" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_147" abundance="0.076100000000000001" halfLife="1.5800000000000001" halfLifeType="normal" mass="75.921402700000002" massNumber="76" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_148" atomNumber="1" mass="1.0079" name="Hydrogen" symbol="H">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_149" abundance="0.99985000000000002" gyroMagneticRatio="267520000.0" halfLifeType="stable" magneticMoment="4.8372400000000004" massNumber="1" receptivity="1.0" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_150" abundance="0.00014999999999999999" gyroMagneticRatio="41066000.0" halfLifeType="stable" magneticMoment="1.2125999999999999" massNumber="2" receptivity="1.4500000000000001e-06" spin="1">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_151" abundance="0.0" gyroMagneticRatio="285350000.0" halfLife="12.32" halfLifeType="normal" magneticMoment="5.1596000000000002" massNumber="3" receptivity="1.21" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_152" atomNumber="2" mass="4.0026000000000002" name="Helium" symbol="He">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_153" abundance="1.37e-06" gyroMagneticRatio="-203800000.0" halfLifeType="stable" magneticMoment="-3.6850999999999998" mass="3.0160293096999999" massNumber="3" receptivity="5.75e-07" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_154" abundance="0.99999863" halfLifeType="stable" mass="4.0026032496999999" massNumber="4" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_155" atomNumber="72" mass="178.49000000000001" name="Hafnium" symbol="Hf">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_156" abundance="0.0016000000000000001" halfLife="2.0" halfLifeType="normal" mass="173.94004000000001" massNumber="174" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_157" abundance="0.052600000000000001" halfLifeType="stable" mass="175.94140179999999" massNumber="176" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_158" abundance="0.18600000000000003" gyroMagneticRatio="10810000.0" halfLifeType="stable" magneticMoment="0.89600000000000002" mass="176.94322" massNumber="177" receptivity="0.00025700000000000001" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_159" abundance="0.27279999999999999" halfLifeType="stable" mass="177.9436977" massNumber="178" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_160" abundance="0.13619999999999999" gyroMagneticRatio="-6790000.0" halfLifeType="stable" magneticMoment="-0.70499999999999996" mass="178.9458151" massNumber="179" receptivity="7.4200000000000001e-05" spin="9/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_161" abundance="0.3508" halfLifeType="stable" mass="179.94654879999999" massNumber="180" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_162" atomNumber="80" mass="200.59" name="Mercury" symbol="Hg">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_163" abundance="0.0015" halfLifeType="stable" mass="195.96581499999999" massNumber="196" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_164" abundance="0.099700000000000011" halfLifeType="stable" mass="197.96675200000001" massNumber="198" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_165" abundance="0.16870000000000002" gyroMagneticRatio="48154000.0" halfLifeType="stable" magneticMoment="0.87072000000000005" mass="198.96826200000001" massNumber="199" receptivity="0.00098200000000000002" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_166" abundance="0.23100000000000001" halfLifeType="stable" mass="199.968309" massNumber="200" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_167" abundance="0.1318" gyroMagneticRatio="-17776000.0" halfLifeType="stable" magneticMoment="-0.71870999999999996" mass="200.97028499999999" massNumber="201" receptivity="0.000194" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_168" abundance="0.29859999999999998" halfLifeType="stable" mass="201.97062600000001" massNumber="202" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_169" abundance="0.068699999999999997" halfLifeType="stable" mass="203.97347600000001" massNumber="204" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_170" atomNumber="67" mass="164.93039999999999" name="Holmium" symbol="Ho">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_171" abundance="1.0" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="164.930319" massNumber="165" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_172" atomNumber="108" symbol="Hs">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_173" abundance="0.0" halfLife="40.0" halfLifeType="normal" mass="258.09842500000002" massNumber="277">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_174" atomNumber="53" mass="126.9045" name="Iodine" symbol="I">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_175" abundance="1.0" gyroMagneticRatio="53817000.0" halfLifeType="stable" magneticMoment="3.3237999999999999" mass="126.90446799999999" massNumber="127" receptivity="0.095000000000000001" spin="5/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_176" atomNumber="49" mass="114.81999999999999" name="Indium" symbol="In">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_177" abundance="0.042900000000000001" gyroMagneticRatio="58782000.0" halfLifeType="stable" magneticMoment="6.1058000000000003" mass="112.904061" massNumber="113" receptivity="0.014999999999999999" spin="9/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_178" abundance="0.95709999999999995" gyroMagneticRatio="58908000.0" halfLife="441.0" halfLifeType="normal" magneticMoment="6.1189999999999998" mass="114.90387800000001" massNumber="115" receptivity="0.33700000000000002" spin="9/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_179" atomNumber="77" mass="192.22" name="Iridium" symbol="Ir">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_180" abundance="0.373" gyroMagneticRatio="4643000.0" halfLifeType="stable" magneticMoment="0.18770000000000001" mass="190.96059099999999" massNumber="191" receptivity="9.7699999999999996e-06" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_181" abundance="0.627" gyroMagneticRatio="5054000.0" halfLifeType="stable" magneticMoment="0.2044" mass="192.96292399999999" massNumber="193" receptivity="2.1100000000000001e-05" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_182" atomNumber="19" mass="39.098300000000002" name="Potassium" symbol="K">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_183" abundance="0.93258099999999999" gyroMagneticRatio="12498000.0" halfLifeType="stable" magneticMoment="0.50566" mass="38.963706899999998" massNumber="39" receptivity="0.000475" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_184" abundance="0.000117" halfLife="1.2509999999999999" halfLifeType="normal" mass="39.963998670000002" massNumber="40" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_185" abundance="0.067302000000000001" gyroMagneticRatio="6860800.0" halfLifeType="stable" magneticMoment="0.27739999999999998" mass="40.96182597" massNumber="41" receptivity="5.8000000000000004e-06" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_186" atomNumber="36" mass="83.799999999999997" name="Krypton" symbol="Kr">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_187" abundance="0.0034999999999999996" halfLifeType="stable" mass="77.920385999999993" massNumber="78" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_188" abundance="0.022799999999999997" halfLifeType="stable" mass="79.916377999999995" massNumber="80" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_189" abundance="0.1158" halfLifeType="stable" mass="81.913484600000004" massNumber="82" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_190" abundance="0.1149" gyroMagneticRatio="-10330000.0" halfLifeType="stable" magneticMoment="-1.0329999999999999" mass="82.914135999999999" massNumber="83" receptivity="0.00021900000000000001" spin="9/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_191" abundance="0.56999999999999995" halfLifeType="stable" mass="83.911507" massNumber="84" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_192" abundance="0.17300000000000001" halfLifeType="stable" mass="85.910610300000002" massNumber="86" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_193" atomNumber="57" mass="138.90549999999999" name="Lanthanum" symbol="La">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_194" abundance="0.00089999999999999998" halfLife="102.0" halfLifeType="normal" mass="137.907107" massNumber="138" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_195" abundance="0.99909999999999999" gyroMagneticRatio="38010000.0" halfLifeType="stable" magneticMoment="3.1499999999999999" mass="138.90634800000001" massNumber="139" receptivity="0.060199999999999997" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_196" atomNumber="3" mass="6.9409999999999998" name="Lithium" symbol="Li">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_197" abundance="0.075899999999999995" gyroMagneticRatio="39371000.0" halfLifeType="stable" magneticMoment="1.1625000000000001" mass="6.0151222999999998" massNumber="6" receptivity="0.00063100000000000005" spin="1">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_198" abundance="0.92409999999999992" gyroMagneticRatio="103975000.0" halfLifeType="stable" magneticMoment="4.2039400000000002" mass="7.0160039999999997" massNumber="7" receptivity="0.27200000000000002" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_199" atomNumber="103" mass="260.0" name="Lawrencium" symbol="Lr">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_200" abundance="0.0" halfLife="4.0" halfLifeType="approx" mass="258.09842500000002" massNumber="262" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_201" atomNumber="71" mass="174.97" name="Lutetium" symbol="Lu">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_202" abundance="0.97409999999999997" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="174.9407679" massNumber="175" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_203" abundance="0.025899999999999999" halfLife="38.5" halfLifeType="normal" mass="175.9426824" massNumber="176" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_204" abundance="0.025899999999999999" gyroMagneticRatio="0.0" halfLife="6.6470000000000002" halfLifeType="normal" magneticMoment="0.0" massNumber="177" receptivity="0.0" spin="7">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_205" atomNumber="101" mass="258.0" name="Mendelevium" symbol="Md">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_206" abundance="0.0" halfLife="77.0" halfLifeType="normal" mass="256.09404999999998" massNumber="256" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_207" abundance="0.0" halfLife="51.5" halfLifeType="normal" mass="258.09842500000002" massNumber="258" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_208" atomNumber="12" mass="24.305" name="Magnesium" symbol="Mg">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_209" abundance="0.78989999999999994" halfLifeType="stable" mass="23.985041899999999" massNumber="24" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_210" abundance="0.10000000000000001" gyroMagneticRatio="-16390000.0" halfLifeType="stable" magneticMoment="-1.012" mass="24.985837020000002" massNumber="25" receptivity="0.000272" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_211" abundance="0.1101" halfLifeType="stable" mass="25.982593040000001" massNumber="26" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_212" atomNumber="25" mass="54.938000000000002" name="Manganese" symbol="Mn">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_213" abundance="1.0" gyroMagneticRatio="66080000.0" halfLifeType="stable" magneticMoment="4.0810000000000004" mass="54.938049599999999" massNumber="55" receptivity="0.17599999999999999" spin="5/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_214" atomNumber="42" mass="95.939999999999998" name="Molybdenum" symbol="Mo">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_215" abundance="0.1484" halfLifeType="stable" mass="91.906809999999993" massNumber="92" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_216" abundance="0.092499999999999999" halfLifeType="stable" mass="93.905087600000002" massNumber="94" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_217" abundance="0.15920000000000001" gyroMagneticRatio="17500000.0" halfLifeType="stable" magneticMoment="1.081" mass="94.905841499999994" massNumber="95" receptivity="0.00051400000000000003" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_218" abundance="0.1668" halfLifeType="stable" mass="95.904678899999993" massNumber="96" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_219" abundance="0.095500000000000002" gyroMagneticRatio="-17870000.0" halfLifeType="stable" magneticMoment="-1.1040000000000001" mass="96.906020999999996" massNumber="97" receptivity="0.00032899999999999997" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_220" abundance="0.24129999999999999" halfLifeType="stable" mass="97.905407800000006" massNumber="98" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_221" abundance="0.096300000000000011" halfLife="8.5" halfLifeType="normal" mass="99.907477" massNumber="100" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_222" atomNumber="109" symbol="Mt">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_223" abundance="0.0" halfLife="53.0" halfLifeType="normal" mass="258.09842500000002" massNumber="268">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_224" atomNumber="7" mass="14.0067" name="Nitrogen" symbol="N">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_225" abundance="0.99632000000000009" gyroMagneticRatio="19338000.0" halfLifeType="stable" magneticMoment="0.57099" mass="14.0030740052" massNumber="14" receptivity="0.001" spin="1">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_226" abundance="0.0036800000000000001" gyroMagneticRatio="-27120000.0" halfLifeType="stable" magneticMoment="-0.49030000000000001" mass="15.000108898400001" massNumber="15" receptivity="3.8500000000000004e-06" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_227" atomNumber="11" mass="22.98977" name="Sodium" symbol="Na">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_228" abundance="1.0" gyroMagneticRatio="70801300.0" halfLifeType="stable" magneticMoment="2.8626499999999999" mass="22.989769670000001" massNumber="23" receptivity="0.092700000000000005" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_229" atomNumber="41" mass="92.906400000000005" name="Niobium" symbol="Nb">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_230" abundance="1.0" gyroMagneticRatio="65640000.0" halfLifeType="stable" magneticMoment="6.8179999999999996" mass="92.906377500000005" massNumber="93" receptivity="0.48699999999999999" spin="9/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_231" atomNumber="60" mass="144.24000000000001" name="Neodymium" symbol="Nd">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_232" abundance="0.27200000000000002" halfLifeType="stable" mass="141.90771899999999" massNumber="142" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_233" abundance="0.122" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="142.90980999999999" massNumber="143" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_234" abundance="0.23800000000000002" halfLife="2.29" halfLifeType="normal" mass="143.91008299999999" massNumber="144" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_235" abundance="0.083000000000000004" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="144.91256899999999" massNumber="145" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_236" abundance="0.17199999999999999" halfLifeType="stable" mass="145.91311200000001" massNumber="146" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_237" abundance="0.057000000000000002" halfLifeType="stable" mass="147.916889" massNumber="148" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_238" abundance="0.055999999999999994" halfLife="6.7000000000000002" halfLifeType="normal" mass="149.92088699999999" massNumber="150" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_239" atomNumber="10" mass="20.178999999999998" name="Neon" symbol="Ne">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_240" abundance="0.90480000000000005" halfLifeType="stable" mass="19.992440175900001" massNumber="20" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_241" abundance="0.0027000000000000001" gyroMagneticRatio="-21130000.0" halfLifeType="stable" magneticMoment="-0.85433000000000003" mass="20.993846739999999" massNumber="21" receptivity="6.3300000000000004e-06" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_242" abundance="0.092499999999999999" halfLifeType="stable" mass="21.991385510000001" massNumber="22" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_243" atomNumber="28" mass="58.700000000000003" name="Nickel" symbol="Ni">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_244" abundance="0.68076899999999996" halfLifeType="stable" mass="57.935347899999996" massNumber="58" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_245" abundance="0.26223099999999999" halfLifeType="stable" mass="59.930790600000002" massNumber="60" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_246" abundance="0.011398999999999999" gyroMagneticRatio="-23940000.0" halfLifeType="stable" magneticMoment="-0.96799999999999997" mass="60.9310604" massNumber="61" receptivity="4.0599999999999998e-05" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_247" abundance="0.036345000000000002" halfLifeType="stable" mass="61.928348800000002" massNumber="62" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_248" abundance="0.0092560000000000003" halfLifeType="stable" mass="63.927969599999997" massNumber="64" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_249" atomNumber="102" mass="259.0" name="Nobelium" symbol="No">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_250" abundance="0.0" halfLife="58.0" halfLifeType="normal" mass="258.09842500000002" massNumber="259" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_251" atomNumber="93" mass="237.04820000000001" name="Neptunium" symbol="Np">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_252" abundance="0.0" halfLife="2.1440000000000001" halfLifeType="normal" mass="237.04816729999999" massNumber="237" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_253" abundance="0.0" halfLife="2.3559999999999999" halfLifeType="normal" mass="239.05293140000001" massNumber="239" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_254" atomNumber="8" mass="15.9994" name="Oxygen" symbol="O">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_255" abundance="0.99757000000000007" halfLifeType="stable" mass="15.9949146221" massNumber="16" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_256" abundance="0.00037999999999999997" gyroMagneticRatio="-36279000.0" halfLifeType="stable" magneticMoment="-2.2406999999999999" mass="16.999131500000001" massNumber="17" receptivity="1.08e-05" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_257" abundance="0.0020499999999999997" halfLifeType="stable" mass="17.999160400000001" massNumber="18" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_258" atomNumber="76" mass="190.19999999999999" name="Osmium" symbol="Os">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_259" abundance="0.00020000000000000001" halfLifeType="stable" mass="183.95249100000001" massNumber="184" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_260" abundance="0.015900000000000001" halfLife="2.0" halfLifeType="normal" mass="185.95383799999999" massNumber="186" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_261" abundance="0.019599999999999999" gyroMagneticRatio="6160000.0" halfLifeType="stable" magneticMoment="0.111" mass="186.95574790000001" massNumber="187" receptivity="1.9999999999999999e-07" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_262" abundance="0.13239999999999999" halfLifeType="stable" mass="187.95583600000001" massNumber="188" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_263" abundance="0.16149999999999998" gyroMagneticRatio="20960000.0" halfLifeType="stable" magneticMoment="0.84750000000000003" mass="188.95814490000001" massNumber="189" receptivity="0.00038699999999999997" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_264" abundance="0.2626" halfLifeType="stable" mass="189.95844500000001" massNumber="190" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_265" abundance="0.4078" halfLifeType="stable" mass="191.961479" massNumber="192" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_266" atomNumber="15" mass="30.973759999999999" name="Phosphorus" symbol="P">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_267" abundance="1.0" gyroMagneticRatio="108410000.0" halfLifeType="stable" magneticMoment="1.9601999999999999" mass="30.973761509999999" massNumber="31" receptivity="0.066500000000000004" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_268" atomNumber="91" mass="231.0359" name="Protactiniuma" symbol="Pa">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_269" abundance="1.0" halfLife="32.759999999999998" halfLifeType="normal" mass="231.0358789" massNumber="231" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_270" atomNumber="82" mass="207.19999999999999" name="Lead" symbol="Pb">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_271" abundance="0.013999999999999999" halfLifeType="stable" mass="203.973029" massNumber="204" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_272" abundance="0.24100000000000002" halfLifeType="stable" mass="205.97444899999999" massNumber="206" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_273" abundance="0.221" gyroMagneticRatio="55400000.0" halfLifeType="stable" magneticMoment="1.002" mass="206.97588099999999" massNumber="207" receptivity="0.0020100000000000001" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_274" abundance="0.52400000000000002" halfLifeType="stable" mass="207.97663600000001" massNumber="208" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_275" atomNumber="46" mass="106.40000000000001" name="Palladium" symbol="Pd">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_276" abundance="0.010200000000000001" halfLifeType="stable" mass="101.905608" massNumber="102" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_277" abundance="0.1114" halfLifeType="stable" mass="103.90403499999999" massNumber="104" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_278" abundance="0.22329999999999997" gyroMagneticRatio="-12300000.0" halfLifeType="stable" magneticMoment="-0.76000000000000001" mass="104.905084" massNumber="105" receptivity="0.000252" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_279" abundance="0.27329999999999999" halfLifeType="stable" mass="105.90348299999999" massNumber="106" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_280" abundance="0.2646" halfLifeType="stable" mass="107.90389399999999" massNumber="108" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_281" abundance="0.11720000000000001" halfLifeType="stable" mass="109.905152" massNumber="110" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_282" atomNumber="61" mass="145.0" name="Promethium" symbol="Pm">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_283" abundance="0.0" halfLife="17.699999999999999" halfLifeType="normal" mass="144.912744" massNumber="145" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_284" abundance="0.0" halfLife="2.6230000000000002" halfLifeType="normal" mass="146.91513399999999" massNumber="147" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_285" atomNumber="84" mass="209.0" name="Polonium" symbol="Po">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_286" abundance="0.0" halfLife="102.0" halfLifeType="normal" mass="208.982416" massNumber="209" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_287" abundance="0.0" halfLife="138.376" halfLifeType="normal" mass="209.982857" massNumber="210" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_288" atomNumber="59" mass="140.90770000000001" name="Praseodymium" symbol="Pr">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_289" abundance="1.0" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="140.90764799999999" massNumber="141" receptivity="0.0" spin="5/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_290" atomNumber="78" mass="195.09" name="Platinum" symbol="Pt">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_291" abundance="0.00014000000000000001" halfLife="650.0" halfLifeType="normal" mass="189.95993000000001" massNumber="190" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_292" abundance="0.0078200000000000006" halfLifeType="stable" mass="191.96103500000001" massNumber="192" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_293" abundance="0.32966999999999996" halfLifeType="stable" mass="193.96266399999999" massNumber="194" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_294" abundance="0.33832000000000001" gyroMagneticRatio="57680000.0" halfLifeType="stable" magneticMoment="1.0429999999999999" mass="194.96477400000001" massNumber="195" receptivity="0.0033899999999999998" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_295" abundance="0.25242000000000003" halfLifeType="stable" mass="195.964935" massNumber="196" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_296" abundance="0.071629999999999999" halfLifeType="stable" mass="197.96787599999999" massNumber="198" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_297" atomNumber="94" mass="244.0" name="Plutonium" symbol="Pu">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_298" abundance="0.0" halfLife="87.700000000000003" halfLifeType="normal" mass="238.04955340000001" massNumber="238" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_299" abundance="0.0" halfLife="24.109999999999999" halfLifeType="normal" mass="239.0521565" massNumber="239" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_300" abundance="0.0" halfLife="6.5640000000000001" halfLifeType="normal" mass="240.0538075" massNumber="240" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_301" abundance="0.0" halfLife="14.35" halfLifeType="normal" mass="241.05684529999999" massNumber="241" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_302" abundance="0.0" halfLife="375.0" halfLifeType="normal" mass="242.05873679999999" massNumber="242" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_303" abundance="0.0" halfLife="80.0" halfLifeType="normal" mass="244.064198" massNumber="244" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_304" atomNumber="88" mass="226.02539999999999" name="Radium" symbol="Ra">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_305" abundance="0.0" halfLife="11.43" halfLifeType="normal" mass="223.018497" massNumber="223" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_306" abundance="0.0" halfLife="3.6600000000000001" halfLifeType="normal" mass="224.02020200000001" massNumber="224" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_307" abundance="0.0" halfLife="1.6000000000000001" halfLifeType="normal" mass="226.02540260000001" massNumber="226" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_308" abundance="0.0" halfLife="5.75" halfLifeType="normal" mass="228.03106410000001" massNumber="228" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_309" atomNumber="37" mass="85.467799999999997" name="Rubidium" symbol="Rb">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_310" abundance="0.72170000000000001" gyroMagneticRatio="25909000.0" halfLifeType="stable" magneticMoment="1.6002000000000001" mass="84.911789299999995" massNumber="85" receptivity="0.0076499999999999997" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_311" abundance="0.27829999999999999" gyroMagneticRatio="87807000.0" halfLife="49.229999999999997" halfLifeType="normal" magneticMoment="3.5501999999999998" mass="86.909183499999997" massNumber="87" receptivity="0.049200000000000001" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_312" atomNumber="75" mass="186.20699999999999" name="Rhenium" symbol="Re">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_313" abundance="0.374" gyroMagneticRatio="60770000.0" halfLifeType="stable" magneticMoment="3.7530000000000001" mass="184.95295569999999" massNumber="185" receptivity="0.051299999999999998" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_314" abundance="0.626" gyroMagneticRatio="61380000.0" halfLife="41.200000000000003" halfLifeType="normal" magneticMoment="3.7909999999999999" mass="186.9557508" massNumber="187" receptivity="0.088099999999999998" spin="5/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_315" atomNumber="104" symbol="Rf">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_316" abundance="0.0" halfLife="5.5" halfLifeType="normal" mass="258.09842500000002" massNumber="261">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_317" atomNumber="45" mass="102.9055" name="Rhodium" symbol="Rh">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_318" abundance="1.0" gyroMagneticRatio="-8460000.0" halfLifeType="stable" magneticMoment="-0.153" mass="102.90550399999999" massNumber="103" receptivity="3.1600000000000002e-05" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_319" atomNumber="86" mass="222.0" name="Radon" symbol="Rn">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_320" abundance="0.0" halfLife="14.6" halfLifeType="normal" mass="210.99058500000001" massNumber="211" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_321" abundance="0.0" halfLife="55.600000000000001" halfLifeType="normal" mass="220.01138409999999" massNumber="220" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_322" abundance="0.0" halfLife="3.823" halfLifeType="normal" mass="222.01757050000001" massNumber="222" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_323" atomNumber="44" mass="101.06999999999999" name="Ruthenium" symbol="Ru">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_324" abundance="0.055399999999999998" halfLifeType="stable" mass="95.907597999999993" massNumber="96" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_325" abundance="0.018700000000000001" halfLifeType="stable" mass="97.905287000000001" massNumber="98" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_326" abundance="0.12759999999999999" gyroMagneticRatio="-12340000.0" halfLifeType="stable" magneticMoment="-0.76229999999999998" mass="98.9059393" massNumber="99" receptivity="0.000146" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_327" abundance="0.126" halfLifeType="stable" mass="99.904219699999999" massNumber="100" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_328" abundance="0.17059999999999997" gyroMagneticRatio="-13830000.0" halfLifeType="stable" magneticMoment="-0.85440000000000005" mass="100.9055822" massNumber="101" receptivity="0.00027500000000000002" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_329" abundance="0.3155" halfLifeType="stable" mass="101.9043495" massNumber="102" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_330" abundance="0.1862" halfLifeType="stable" mass="103.90543" massNumber="104" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_331" atomNumber="16" mass="32.060000000000002" name="Sulfur" symbol="S">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_332" abundance="0.94930000000000003" halfLifeType="stable" mass="31.972070689999999" massNumber="32" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_333" abundance="0.0076" gyroMagneticRatio="20550000.0" halfLifeType="stable" magneticMoment="0.83079999999999998" mass="32.971458499999997" massNumber="33" receptivity="1.7200000000000001e-05" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_334" abundance="0.042900000000000001" halfLifeType="stable" mass="33.967866829999998" massNumber="34" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_335" abundance="0.00020000000000000001" halfLifeType="stable" mass="35.967080879999997" massNumber="36" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_336" atomNumber="51" mass="121.75" name="Antimony" symbol="Sb">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_337" abundance="0.57210000000000005" gyroMagneticRatio="64355000.0" halfLifeType="stable" magneticMoment="3.9746999999999999" mass="120.903818" massNumber="121" receptivity="0.092999999999999999" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_338" abundance="0.4279" gyroMagneticRatio="34848000.0" halfLifeType="stable" magneticMoment="2.8875999999999999" mass="122.90421569999999" massNumber="123" receptivity="0.019800000000000002" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_339" atomNumber="21" mass="44.9559" name="Scandium" symbol="Sc">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_340" abundance="1.0" gyroMagneticRatio="65081000.0" halfLifeType="stable" magneticMoment="5.3926999999999996" mass="44.955910199999998" massNumber="45" receptivity="0.30199999999999999" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_341" atomNumber="34" mass="78.959999999999994" name="Selenium" symbol="Se">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_342" abundance="0.0088999999999999999" halfLifeType="stable" mass="73.922476599999996" massNumber="74" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_343" abundance="0.093699999999999992" halfLifeType="stable" mass="75.919214100000005" massNumber="76" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_344" abundance="0.076299999999999993" gyroMagneticRatio="51200000.0" halfLifeType="stable" magneticMoment="0.92500000000000004" mass="76.919914599999998" massNumber="77" receptivity="0.00052999999999999998" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_345" abundance="0.23769999999999999" halfLifeType="stable" mass="77.917309500000002" massNumber="78" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_346" abundance="0.49609999999999999" halfLifeType="stable" mass="79.916521799999998" massNumber="80" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_347" abundance="0.087300000000000003" halfLife="97.0" halfLifeType="normal" mass="81.916700000000006" massNumber="82" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_348" atomNumber="106" symbol="Sg">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_349" abundance="0.0" halfLife="21.0" halfLifeType="normal" mass="258.09842500000002" massNumber="266">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_350" atomNumber="14" mass="28.0855" name="Silicon" symbol="Si">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_351" abundance="0.92229699999999992" halfLifeType="stable" mass="27.976926532699999" massNumber="28" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_352" abundance="0.046832000000000006" gyroMagneticRatio="-53188000.0" halfLifeType="stable" magneticMoment="-0.96174000000000004" mass="28.976494720000002" massNumber="29" receptivity="0.00036900000000000002" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_353" abundance="0.030872" halfLifeType="stable" mass="29.973770219999999" massNumber="30" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_354" atomNumber="62" mass="150.40000000000001" name="Samarium" symbol="Sm">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_355" abundance="0.030699999999999998" halfLifeType="stable" mass="143.91199499999999" massNumber="144" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_356" abundance="0.14990000000000001" gyroMagneticRatio="0.0" halfLife="106.0" halfLifeType="normal" magneticMoment="0.0" mass="146.91489300000001" massNumber="147" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_357" abundance="0.1124" halfLife="7.0" halfLifeType="normal" mass="147.914818" massNumber="148" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_358" abundance="0.13819999999999999" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="148.91718" massNumber="149" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_359" abundance="0.073800000000000004" halfLifeType="stable" mass="149.917271" massNumber="150" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_360" abundance="0.26750000000000002" halfLifeType="stable" mass="151.91972799999999" massNumber="152" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_361" abundance="0.22750000000000001" halfLifeType="stable" mass="153.92220499999999" massNumber="154" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_362" atomNumber="50" mass="118.69" name="Tin" symbol="Sn">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_363" abundance="0.0097000000000000003" halfLifeType="stable" mass="111.904821" massNumber="112" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_364" abundance="0.0066" halfLifeType="stable" mass="113.902782" massNumber="114" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_365" abundance="0.0034000000000000002" gyroMagneticRatio="-87920000.0" halfLifeType="stable" magneticMoment="-1.5900000000000001" mass="114.903346" massNumber="115" receptivity="0.00012400000000000001" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_366" abundance="0.1454" halfLifeType="stable" mass="115.90174399999999" massNumber="116" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_367" abundance="0.076799999999999993" gyroMagneticRatio="-95780000.0" halfLifeType="stable" magneticMoment="-1.732" mass="116.90295399999999" massNumber="117" receptivity="0.00349" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_368" abundance="0.2422" halfLifeType="stable" mass="117.901606" massNumber="118" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_369" abundance="0.085900000000000004" gyroMagneticRatio="-100210000.0" halfLifeType="stable" magneticMoment="-1.8119000000000001" mass="118.90330899999999" massNumber="119" receptivity="0.0045100000000000001" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_370" abundance="0.32579999999999998" halfLifeType="stable" mass="119.9021966" massNumber="120" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_371" abundance="0.046300000000000001" halfLifeType="stable" mass="121.9034401" massNumber="122" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_372" abundance="0.0579" halfLifeType="stable" mass="123.9052746" massNumber="124" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_373" atomNumber="38" mass="87.620000000000005" name="Strontium" symbol="Sr">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_374" abundance="0.0056000000000000008" halfLifeType="stable" mass="83.913425000000004" massNumber="84" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_375" abundance="0.098599999999999993" halfLifeType="stable" mass="85.909262400000003" massNumber="86" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_376" abundance="0.070000000000000007" gyroMagneticRatio="-11630000.0" halfLifeType="stable" magneticMoment="-1.208" mass="86.908879299999995" massNumber="87" receptivity="0.00019100000000000001" spin="9/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_377" abundance="0.82579999999999998" halfLifeType="stable" mass="87.905614299999996" massNumber="88" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_378" atomNumber="73" mass="180.94970000000001" name="Tantalum" symbol="Ta">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_379" abundance="0.00012" halfLife="8.1519999999999992" halfLifeType="normal" mass="179.94746599999999" massNumber="180" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_380" abundance="0.99987999999999999" gyroMagneticRatio="32200000.0" halfLifeType="stable" magneticMoment="2.6600000000000001" mass="180.94799599999999" massNumber="181" receptivity="0.036499999999999998" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_381" atomNumber="65" mass="158.9254" name="Terbium" symbol="Tb">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_382" abundance="1.0" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="158.925343" massNumber="159" receptivity="0.0" spin="3/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_383" atomNumber="43" mass="97.0" name="Technetium" symbol="Tc">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_384" abundance="0.0" halfLife="2.6000000000000001" halfLifeType="normal" mass="96.906364999999994" massNumber="97" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_385" abundance="0.0" halfLife="4.2000000000000002" halfLifeType="normal" mass="97.907216000000005" massNumber="98" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_386" abundance="0.0" gyroMagneticRatio="66046000.0" halfLife="211.09999999999999" halfLifeType="normal" magneticMoment="6.2809999999999997" mass="98.906254599999997" massNumber="99" receptivity="0.0" spin="9/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_387" atomNumber="52" mass="127.59999999999999" name="Tellurium" symbol="Te">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_388" abundance="0.00089999999999999998" halfLifeType="stable" mass="119.90402" massNumber="120" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_389" abundance="0.025499999999999998" halfLifeType="stable" mass="121.90304709999999" massNumber="122" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_390" abundance="0.0088999999999999999" gyroMagneticRatio="-70490000.0" halfLife="600.0" halfLifeType="min" magneticMoment="-1.2749999999999999" mass="122.904273" massNumber="123" receptivity="0.00015899999999999999" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_391" abundance="0.047400000000000005" halfLifeType="stable" mass="123.90281950000001" massNumber="124" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_392" abundance="0.070699999999999999" gyroMagneticRatio="-84980000.0" halfLifeType="stable" magneticMoment="-1.5369999999999999" mass="124.90442470000001" massNumber="125" receptivity="0.0022399999999999998" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_393" abundance="0.18840000000000001" halfLifeType="stable" mass="125.9033055" massNumber="126" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_394" abundance="0.31739999999999996" halfLife="2.2000000000000002" halfLifeType="normal" mass="127.9044614" massNumber="128" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_395" abundance="0.34079999999999999" halfLife="790.0" halfLifeType="normal" mass="129.90622279999999" massNumber="130" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_396" atomNumber="90" mass="232.03809999999999" name="Thorium" symbol="Th">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_397" abundance="0.0" halfLife="75.379999999999995" halfLifeType="normal" mass="230.0331266" massNumber="230" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_398" abundance="1.0" halfLife="14.050000000000001" halfLifeType="normal" mass="232.0380504" massNumber="232" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_399" atomNumber="22" mass="47.899999999999999" name="Titanium" symbol="Ti">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_400" abundance="0.082500000000000004" halfLifeType="stable" mass="45.9526295" massNumber="46" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_401" abundance="0.074400000000000008" gyroMagneticRatio="-15105000.0" halfLifeType="stable" magneticMoment="-0.93291999999999997" mass="46.951763800000002" massNumber="47" receptivity="0.00015300000000000001" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_402" abundance="0.73719999999999997" halfLifeType="stable" mass="47.9479471" massNumber="48" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_403" abundance="0.054100000000000002" gyroMagneticRatio="-15109300.0" halfLifeType="stable" magneticMoment="-1.2519800000000001" mass="48.947870799999997" massNumber="49" receptivity="0.00020799999999999999" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_404" abundance="0.051799999999999999" halfLifeType="stable" mass="49.944792100000001" massNumber="50" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_405" atomNumber="81" mass="204.37" name="Thallium" symbol="Tl">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_406" abundance="0.29524" gyroMagneticRatio="154360000.0" halfLifeType="stable" magneticMoment="2.7911999999999999" mass="202.972329" massNumber="203" receptivity="0.0567" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_407" abundance="0.70475999999999994" gyroMagneticRatio="155890000.0" halfLifeType="stable" magneticMoment="2.8187000000000002" mass="204.974412" massNumber="205" receptivity="0.14000000000000001" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_408" atomNumber="69" mass="168.9342" name="Thulium" symbol="Tm">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_409" abundance="1.0" gyroMagneticRatio="-22100000.0" halfLifeType="stable" magneticMoment="-0.40000000000000002" mass="168.934211" massNumber="169" receptivity="0.00056599999999999999" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_410" atomNumber="92" mass="238.029" name="Uranium" symbol="U">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_411" abundance="0.0" halfLife="159.19999999999999" halfLifeType="normal" mass="233.03962799999999" massNumber="233" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_412" abundance="5.4999999999999995e-05" halfLife="245.5" halfLifeType="normal" mass="234.04094559999999" massNumber="234" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_413" abundance="0.0071999999999999998" gyroMagneticRatio="0.0" halfLife="704.0" halfLifeType="normal" magneticMoment="0.0" mass="235.0439231" massNumber="235" receptivity="0.0" spin="7/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_414" abundance="0.0" halfLife="23.420000000000002" halfLifeType="normal" mass="236.0455619" massNumber="236" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_415" abundance="0.99274499999999999" halfLife="4.468" halfLifeType="normal" mass="238.05078259999999" massNumber="238" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_416" atomNumber="23" mass="50.941400000000002" name="Vanadium" symbol="V">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_417" abundance="0.0025000000000000001" gyroMagneticRatio="26717000.0" halfLife="150.0" halfLifeType="normal" magneticMoment="3.6152000000000002" mass="49.947162800000001" massNumber="50" receptivity="0.000134" spin="6">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_418" abundance="0.99750000000000005" gyroMagneticRatio="70453000.0" halfLifeType="stable" magneticMoment="5.8379000000000003" mass="50.943963699999998" massNumber="51" receptivity="0.38300000000000001" spin="7/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_419" atomNumber="74" mass="183.84999999999999" name="Tungsten" symbol="W">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_420" abundance="0.0011999999999999999" halfLifeType="stable" mass="179.94670600000001" massNumber="180" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_421" abundance="0.26500000000000001" halfLifeType="stable" mass="181.948206" massNumber="182" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_422" abundance="0.1431" gyroMagneticRatio="11200000.0" halfLifeType="stable" magneticMoment="0.20250000000000001" mass="182.95022449999999" massNumber="183" receptivity="1.06e-05" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_423" abundance="0.30640000000000001" halfLifeType="stable" mass="183.95093259999999" massNumber="184" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_424" abundance="0.2843" halfLifeType="stable" mass="185.954362" massNumber="186" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_425" atomNumber="0" mass="0.0" name="Unknown" symbol="X">
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_426" atomNumber="54" mass="131.30000000000001" name="Xenon" symbol="Xe">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_427" abundance="0.00089999999999999998" halfLifeType="stable" mass="123.9058958" massNumber="124" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_428" abundance="0.00089999999999999998" halfLifeType="stable" mass="125.904269" massNumber="126" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_429" abundance="0.019199999999999998" halfLifeType="stable" mass="127.90353039999999" massNumber="128" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_430" abundance="0.26440000000000002" gyroMagneticRatio="-74410000.0" halfLifeType="stable" magneticMoment="-1.345" mass="128.90477949999999" massNumber="129" receptivity="0.0056899999999999997" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_431" abundance="0.040800000000000003" halfLifeType="stable" mass="129.90350789999999" massNumber="130" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_432" abundance="0.21179999999999999" gyroMagneticRatio="22060000.0" halfLifeType="stable" magneticMoment="0.89180000000000004" mass="130.9050819" massNumber="131" receptivity="0.00059400000000000002" spin="3/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_433" abundance="0.26890000000000003" halfLifeType="stable" mass="131.9041545" massNumber="132" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_434" abundance="0.10439999999999999" halfLifeType="stable" mass="133.9053945" massNumber="134" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_435" abundance="0.088699999999999987" halfLifeType="stable" mass="135.90722" massNumber="136" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_436" atomNumber="39" mass="88.905900000000003" name="Yttrium" symbol="Y">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_437" abundance="1.0" gyroMagneticRatio="-13155000.0" halfLifeType="stable" magneticMoment="-0.23785999999999999" mass="88.905847899999998" massNumber="89" receptivity="0.00011900000000000001" spin="1/2">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_438" atomNumber="70" mass="173.03999999999999" name="Ytterbium" symbol="Yb">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_439" abundance="0.0012999999999999999" halfLifeType="stable" mass="167.93389400000001" massNumber="168" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_440" abundance="0.0304" halfLifeType="stable" mass="169.93475900000001" massNumber="170" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_441" abundance="0.14279999999999998" gyroMagneticRatio="47120000.0" halfLifeType="stable" magneticMoment="0.85199999999999998" mass="170.93632199999999" massNumber="171" receptivity="0.00078200000000000003" spin="1/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_442" abundance="0.21829999999999999" halfLifeType="stable" mass="171.93637770000001" massNumber="172" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_443" abundance="0.1613" gyroMagneticRatio="0.0" halfLifeType="stable" magneticMoment="0.0" mass="172.93820679999999" massNumber="173" receptivity="0.0" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_444" abundance="0.31829999999999997" halfLifeType="stable" mass="173.9388581" massNumber="174" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_445" abundance="0.12759999999999999" halfLifeType="stable" mass="175.94256799999999" massNumber="176" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_446" atomNumber="30" mass="65.379999999999995" name="Zinc" symbol="Zn">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_447" abundance="0.48630000000000001" halfLifeType="stable" mass="63.929146600000003" massNumber="64" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_448" abundance="0.27899999999999997" halfLifeType="stable" mass="65.926036800000006" massNumber="66" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_449" abundance="0.040999999999999995" gyroMagneticRatio="16768000.0" halfLifeType="stable" magneticMoment="2.8696000000000002" mass="66.927130899999995" massNumber="67" receptivity="0.000118" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_450" abundance="0.1875" halfLifeType="stable" mass="67.924847600000007" massNumber="68" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_451" abundance="0.0061999999999999998" halfLifeType="stable" mass="69.925325000000001" massNumber="70" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+    <CHEL.ChemElement _ID="_452" atomNumber="40" mass="91.219999999999999" name="Zirconium" symbol="Zr">
+      <CHEL.ChemElement.isotopes>
+        <CHEL.Isotope _ID="_453" abundance="0.51450000000000007" halfLifeType="stable" mass="89.904703699999999" massNumber="90" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_454" abundance="0.11220000000000001" gyroMagneticRatio="-24959000.0" halfLifeType="stable" magneticMoment="-1.5415000000000001" mass="90.905645000000007" massNumber="91" receptivity="0.00106" spin="5/2">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_455" abundance="0.17149999999999999" halfLifeType="stable" mass="91.905040099999994" massNumber="92" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_456" abundance="0.17379999999999998" halfLifeType="stable" mass="93.906315800000002" massNumber="94" spin="0">
+        </CHEL.Isotope>
+        <CHEL.Isotope _ID="_457" abundance="0.027999999999999997" halfLife="24.0" halfLifeType="normal" mass="95.908276000000001" massNumber="96" spin="0">
+        </CHEL.Isotope>
+      </CHEL.ChemElement.isotopes>
+    </CHEL.ChemElement>
+  </CHEL.ChemElementStore.chemElements>
+</CHEL.ChemElementStore>
+
+</_StorageUnit>
+<!--End of Memops Data-->

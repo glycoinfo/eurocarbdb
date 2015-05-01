@@ -1,0 +1,882 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (X11; I; Linux 2.2.5-15 i686) [Netscape]">
+   <title>The command line</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#FF00FF" alink="#FF0000">
+
+<h1>
+The command line</h1>
+Most commands are available by menus and/or buttons as well as via the
+command line.&nbsp; In the first case, the user is prompted for input via
+popup menus, while in the second case parameters can be given with the
+command or current parameters are used silently. Also, some parameters
+can be set via the command line, mostly for historic reasons.
+<br>&nbsp;
+<h2>
+INDEX</h2>
+<a href="#File">File</a>
+<ul>
+<li>
+<a href="#GE <filename>">GE &lt;filename> { &lt;direction> { &lt;direction>
+... } }</a></li>
+
+<li>
+<a href="#CL">CL</a></li>
+
+<li>
+<a href="#DR <direction x>  { <direction y>  {">DR &lt;direction x> { &lt;direction
+y> { &lt;direction ..> } }</a></li>
+
+<li>
+<a href="#RN <number>">RN &lt;number> { &lt;number> }</a></li>
+
+<li>
+<a href="#RTR">RTR</a></li>
+
+<li>
+<a href="#OU <filename>">OU &lt;filename></a></li>
+
+<li>
+<a href="#CHDIR <dirname>">CHDIR &lt;dirname></a></li>
+</ul>
+<a href="#Parameters">Parameters</a>
+<ul>
+<li>
+<a href="#SP">SP</a></li>
+
+<ul>
+<li>
+<a href="#SF <frequency>">SF &lt;frequency></a></li>
+
+<li>
+<a href="#SW <frequency>">SW &lt;frequency></a></li>
+
+<li>
+<a href="#XR <channel>">XR &lt;channel></a></li>
+</ul>
+
+<li>
+<a href="#RM">RM</a></li>
+
+<li>
+<a href="#DSP">DSP</a></li>
+
+<li>
+<a href="#LM">LM</a></li>
+
+<li>
+<a href="#LM">WM</a></li>
+
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#SH <shift>">SH &lt;shift></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#LB <line broadening>">LB &lt;line broadening></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#GB <fraction>">GB &lt;fraction></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#IT <number of points>">IT &lt;number
+of points></a></font></u></li>
+</ul>
+
+<li>
+<a href="#WW">WW</a></li>
+
+<li>
+<a href="#FM">FM</a></li>
+
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#ZF">ZF</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#FTSCALE">FTSCALE</a></font></u></li>
+</ul>
+
+<li>
+<a href="#HB">HB</a></li>
+
+<li>
+<a href="#PM">PM</a></li>
+
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#PA <phase0>">PA &lt;phase0></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#PB <phase1>">PB &lt;phase1></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#I0 <i0>">I0 &lt;i0></a></font></u></li>
+</ul>
+
+<li>
+<a href="#XM">XM</a></li>
+
+<li>
+<a href="#BM">BM</a></li>
+
+<li>
+<a href="#SM">SM</a></li>
+
+<li>
+<a href="#ND">ND</a></li>
+
+<li>
+<a href="#EDP">EDP</a></li>
+
+<li>
+<a href="#ST">ST</a></li>
+
+<li>
+<a href="#GP">GP</a></li>
+
+<li>
+<a href="#CH">CH</a></li>
+
+<li>
+<a href="#CM">CM</a></li>
+</ul>
+<a href="#Show Parameters and data">Show Parameters and data</a>
+<ul>
+<li>
+<a href="#LP">LP</a></li>
+
+<li>
+<a href="#LA">LA</a></li>
+
+<li>
+<a href="#LAC">LAC</a></li>
+
+<li>
+<a href="#HI">HI</a></li>
+
+<li>
+<a href="#AQ">AQ</a></li>
+</ul>
+<a href="#Processing">Processing</a>
+<ul>
+<li>
+<a href="#SI <size>">SI &lt;size></a></li>
+
+<li>
+<a href="#FZ <times zero fill">ZF &lt;times zero fill></a></li>
+
+<li>
+<a href="#AV">AV</a></li>
+
+<li>
+<a href="#PS">PS</a></li>
+
+<li>
+<a href="#AU">AU</a></li>
+</ul>
+<u><font color="#0000FF"><a href="#WATWA - Water Wash">Water Wash</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#WATWA <power> <convolution width> { <s">WATWA
+&lt;power> &lt;convolution width> &lt;shift></a></font></u></li>
+</ul>
+<u><font color="#0000FF"><a href="#Windows (Filter Functions)">Windows
+(Filter Functions)</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#HM">HM</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#HN">HN</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#SN <shift>">SN &lt;shift></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#SQ <shift>">SQ &lt;shift></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#EM <line broadening>">EM &lt;line broadening></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#GM <linewidth> <fraction>">GM &lt;linewidth>
+&lt;fraction></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#CD <line broadening>">CD &lt;line broadening></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#TM <number of points>">TM &lt;number
+of points></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#KS <theta>">KS &lt;theta></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#WB">WB</a></font></u></li>
+</ul>
+<u><font color="#0000FF"><a href="#Fourier Transformation">Fourier transformation</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#FT <zero fill>">FT &lt;zero fill></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#DFT">DFT</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#IFT">IFT</a></font></u></li>
+</ul>
+<u><font color="#0000FF"><a href="#Phase">Phase</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#PK { <phase0> { <phase1> { <i0> }}}">PK
+&lt;phase0> &lt;phase1> &lt;i0></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#PZ">PZ</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#PN">PN</a></font></u></li>
+</ul>
+<a href="#Hilbert Transformation">Hilbert Transformation</a>
+<ul>
+<li>
+<a href="#HT">HT</a></li>
+</ul>
+<u><font color="#0000FF"><a href="#Baseline correction">Baseline Correction</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#BC">BC</a></font></u></li>
+</ul>
+<u><font color="#0000FF"><a href="#Water fit">Water fit</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#WATERFIT { <position> { , <width> } }">Waterfit</a></font></u></li>
+</ul>
+<u><font color="#0000FF"><a href="#Set Axis Units">Set Axis Units</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#CHAN">CHAN</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#PPM">PPM</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#HZ">HZ</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#SEC">SEC</a></font></u></li>
+</ul>
+<u><font color="#0000FF"><a href="#Show data arrays">Show data arrays</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#RE">RE</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#RE">IM</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#BA">BA</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#BB">BB</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#WD">WD</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#BL">BL</a></font></u></li>
+</ul>
+<u><font color="#0000FF"><a href="#Select Block">Select Block</a></font></u>
+<p><a href="#Move data arrays">Move data arrays</a>
+<ul>
+<li>
+<a href="#MV">MV</a></li>
+
+<li>
+<a href="#WR">WR</a></li>
+
+<li>
+<a href="#RD">RD</a></li>
+</ul>
+<u><font color="#0000FF"><a href="#Fill data arrays">Fill data arrays</a></font></u>
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#ZE">ZE</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#ZR <value>">ZR &lt;value></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#ZI <value>">ZI &lt;value></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#ZA <value>">ZA &lt;value></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#ZB <value>">ZB &lt;value></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#ZW <value>">ZW &lt;value></a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#ZL <value>">ZL &lt;value></a></font></u></li>
+</ul>
+<a href="#Shift data in arrays">Shift data in arrays</a>
+<ul>
+<li>
+<a href="#IC <clip start> <clip stop>">IC &lt;start clip> &lt;stop clip></a></li>
+
+<li>
+<a href="#LS  { <number of points> }">LS &lt;number of points></a></li>
+
+<li>
+<a href="#RS { <number of points> }">RS {number of points></a></li>
+
+<li>
+<a href="#ROL { <number of points> }">ROL &lt;number of points></a></li>
+
+<li>
+<a href="#ROR { <number of points> }">ROR &lt;number of points></a></li>
+
+<li>
+<a href="#RV">RV</a></li>
+
+<li>
+<a href="#NM">NM</a></li>
+</ul>
+<a href="#RUN { <scriptname> { <arguments> } }">RUN { &lt;scriptname> {
+&lt;arguments> } }</a>
+<p>
+<hr WIDTH="100%">
+<h2>
+<a NAME="File"></a>File</h2>
+
+<blockquote>
+<h4>
+<a NAME="GE <filename>"></a>GE &lt;filename> { &lt;direction> { &lt;direction>
+... } }</h4>
+Open the file &lt;filename> for input.
+<h4>
+<a NAME="CL"></a>CL</h4>
+Close the current input file.
+<h4>
+<a NAME="DR <direction x>  { <direction y>  {"></a>DR &lt;direction x>
+{ &lt;direction y> { &lt;direction ..> } }</h4>
+Set the direction(s and plane offset) for a multi dimensional NMR experiment.
+For 2D files: <b>DR</b> <i>&lt;direction></i> Where <i>&lt;direction></i>
+can be 1 or 2. In a 2D plot, this direction is used for the x axis and
+the other one for the y axis. For 3D files: <b>DR</b> <i>&lt;direction
+1> &lt;direction 2></i>&nbsp; Where <i>&lt;direction 1></i> is the processing
+direction, and <i>&lt;direction 2></i> determines together with <i>&lt;direction
+1></i> what planes are used.
+<h4>
+<a NAME="RN <number>"></a>RN &lt;number> { &lt;number> }</h4>
+Read new record from file.
+<h4>
+<a NAME="RTR"></a>RTR</h4>
+Return current (modified) record to file.
+<h4>
+<a NAME="OU <filename>"></a>OU &lt;filename></h4>
+Save current record to the file &lt;filename>
+<h4>
+<a NAME="CHDIR <dirname>"></a>CHDIR &lt;dirname></h4>
+Change current working directory to &lt;dirname></blockquote>
+
+<hr>
+<h2>
+<a NAME="Parameters"></a>Parameters</h2>
+
+<blockquote>
+<h4>
+<a NAME="SP"></a>SP</h4>
+Spectral Parameters. Set the parameters SF, SW, XR and File Record type.
+<blockquote>
+<h4>
+<a NAME="SF <frequency>"></a>SF &lt;frequency></h4>
+Set spectrometer frequency in MHz.
+<h4>
+<a NAME="SW <frequency>"></a>SW &lt;frequency></h4>
+Set spectral width in Hz.
+<h4>
+<a NAME="XR <channel>"></a>XR &lt;channel></h4>
+Set reference channel for ppm calibration. PPM is set to 0 at this channel.</blockquote>
+
+<h4>
+<a NAME="RM"></a>RM</h4>
+<b>RM</b> stands for Read Mode and is used to set the pre-processing parameters
+<b>Read Mode</b>, <b>Read Start</b> and <b>Read Stop</b>. For a file with
+complex data, <b>Read Mode</b> determines how this data is loaded. The options
+are <b>real </b>(only real data is loaded), <b>i/r swapped</b> (real data
+is stored as imaginary end vice versa) and <b>complex</b>. In most cases
+<b>Read Start</b> = 1 and <b>Read Stop</b> is equal to the record size.
+These parameters can be used to read only a selective part of records from
+file.
+<h4>
+<a NAME="DSP"></a>DSP</h4>
+DSP Mode.
+<h4>
+<a NAME="LM"></a>LM</h4>
+Linear prediction mode.
+<h4>
+<a NAME="WM"></a>WM</h4>
+Window Mode.
+<blockquote>
+<h4>
+<a NAME="SH <shift>"></a>SH &lt;shift></h4>
+<u><font color="#0000FF"><a href="processing_1d.html#SH">Set shift</a></font></u>
+(theta) for KS, SN and SQ.
+<br>&nbsp;
+<h4>
+<a NAME="LB <line broadening>"></a>LB &lt;line broadening></h4>
+Set <u><font color="#0000FF"><a href="processing_1d.html#LB">line broadening</a></font></u>
+for EM, CD and GM.
+<br>&nbsp;
+<h4>
+<a NAME="GB <fraction>"></a>GB &lt;fraction></h4>
+Set <a href="processing_1d.html#GB">Gaussian broadening</a> (fraction) for GM
+<br>&nbsp;
+<h4>
+<a NAME="IT <number of points>"></a>IT &lt;number of points></h4>
+Set <u><font color="#0000FF"><a href="processing_1d.html#IT">number of points</a></font></u>
+for Trapezian multiplication.</blockquote>
+
+<h4>
+<a NAME="WW"></a>WW</h4>
+Watwa mode.
+<h4>
+<a NAME="FM"></a>FM</h4>
+Fourier Mode
+<blockquote>
+<h4>
+<a NAME="ZF"></a>ZF</h4>
+Set the number of zero fill.
+<h4>
+<a NAME="FTSCALE"></a>FTSCALE</h4>
+Set scaling of first data point before Fourier transformation.</blockquote>
+
+<h4>
+<a NAME="HB"></a>HB</h4>
+Hilbert Transform mode.
+<h4>
+<a NAME="PM"></a>PM</h4>
+Phase Mode.
+<blockquote>
+<h4>
+<a NAME="PA <phase0>"></a>PA &lt;phase0></h4>
+Set the frequency independent phase. <i>&lt;phase0></i> is the value of
+the frequency independent phase.
+<h4>
+<a NAME="PB <phase1>"></a>PB &lt;phase1></h4>
+Set the frequency dependent phase. <i>&lt;phase1></i> is the value of the
+frequency dependent phase.
+<h4>
+<a NAME="I0 <i0>"></a>I0 &lt;i0></h4>
+Set the frequency independent position. <i>&lt;i0></i> is the frequency
+independent position in channel numbers.</blockquote>
+
+<h4>
+<a NAME="XM"></a>XM</h4>
+Exchange Mode.
+<h4>
+<a NAME="BM"></a>BM</h4>
+Baseline Mode.
+<h4>
+<a NAME="SM"></a>SM</h4>
+Store Mode.
+<h4>
+<a NAME="ND"></a>ND</h4>
+Next processing direction
+<br>&nbsp;
+<h4>
+<a NAME="EDP"></a>EDP</h4>
+<a href="processing_2d.html#Edit all parameters">Edit all Parameters.</a>
+<h4>
+<a NAME="ST"></a>ST</h4>
+Store Parameters.
+<h4>
+<a NAME="GP"></a>GP</h4>
+Get parameters.
+<h4>
+<a NAME="CH"></a>CH</h4>
+Change Parameters.
+<h4>
+<a NAME="CM"></a>CM</h4>
+Contour Mode.</blockquote>
+
+<hr WIDTH="100%">
+<h2>
+<a NAME="Show Parameters and data"></a>Show Parameters and data</h2>
+
+<ul>
+<h4>
+<a NAME="LP"></a>LP</h4>
+</ul>
+
+<ul>List current parameters in the current processing direction</ul>
+
+<ul>
+<h4>
+<a NAME="LA"></a>LA</h4>
+</ul>
+
+<ul>List all parameters form input file</ul>
+
+<ul>
+<h4>
+<a NAME="LAC"></a>LAC</h4>
+</ul>
+
+<ul>List all current parameters</ul>
+
+<ul>
+<h4>
+<a NAME="HI"></a>HI</h4>
+</ul>
+
+<ul>List history files (scipts)</ul>
+
+<ul>
+<h4>
+<a NAME="AQ"></a>AQ</h4>
+</ul>
+
+<ul>List original acquisition parameters</ul>
+
+<p><br>
+<hr WIDTH="100%">
+<h2>
+<a NAME="Processing"></a>Processing</h2>
+
+<ul>
+<h4>
+<a NAME="SI <size>"></a>SI &lt;size></h4>
+Set data size.
+<h4>
+<a NAME="FZ <times zero fill"></a>FZ &lt;times zero fill></h4>
+Fill Zero. Enlarge the spectrum &lt;times zero fill> * &lt;data size> and
+set the new part to zero. This is done automatically by the FT routine.
+However, DFT does not. So is usefull in combination with DFT.
+<h4>
+<a NAME="AV"></a>AV</h4>
+Absolute Value spectrum.
+<h4>
+<a NAME="PS"></a>PS</h4>
+Power Spectrum
+<h4>
+<a NAME="AU"></a>AU</h4>
+Automatic processing for all options that are set. Options are: Linear
+prediction, Window, Watwa, Fourier transform, Hilbert transform, Phase
+correction, Reverse, Baseline correction.</ul>
+
+<hr>
+<h2>
+<a NAME="Water Wash"></a>Water Wash</h2>
+
+<ul>
+<h4>
+<a NAME="WATWA <power> <convolution width> { <s"></a>WATWA &lt;power> &lt;convolution
+width> { &lt;shift> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Water Wash">Water Wash.</a></font></u>
+Filter large peaks (waterline) from spectrum <i>&lt;power></i> Filter is
+of the form cos^<i>&lt;power></i> <i>&lt;convolution width></i> 64 seems
+to be OK. <i>&lt;shift></i> Number of channels to shift peak to the middle
+of the spectrum.</ul>
+
+<hr>
+<h2>
+<a NAME="Windows (Filter Functions)"></a>Windows (Filter Functions)</h2>
+
+<ul>
+<h4>
+<a NAME="HM"></a>HM</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Hamming Window.">Hamming
+window</a></font></u>
+<h4>
+<a NAME="HN"></a>HN</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Hanning Window.">Hanning
+window</a></font></u>
+<h4>
+<a NAME="SN <shift>"></a>SN { &lt;shift> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Sine Bell">Sine bell</a></font></u><i>&lt;shift></i>
+Typical values: [3..10] for 2D NOE, 2D HOHAHA. [1000] pure sine, for absolute
+value COSY
+<h4>
+<a NAME="SQ <shift>"></a>SQ { &lt;shift> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Squared Sine Bell">Squared
+sine bell</a></font></u> <i>&lt;shift></i> typical values: [3..10] for
+2D NOE, 2D HOHAHA. [1000] pure sine, for absolute value COSY
+<h4>
+<a NAME="EM <line broadening>"></a>EM { &lt;line broadening> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Exponential Multiplication">Exponential
+multiplication</a></font></u> <i>&lt;line broadening></i> is the line broadening
+in Hz.
+<h4>
+<a NAME="GM <linewidth> <fraction>"></a>GM { &lt;linewidth> { &lt;fraction>
+} }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Lorentz Gauss Transformation">Lorentz-gauss
+transformation</a></font></u> <i>&lt;linewidth></i> the linewidth (in Hz).
+<i>&lt;fraction></i>
+fraction of the data size.
+<h4>
+<a NAME="CD <line broadening>"></a>CD { &lt;line broadening> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Convolution Difference">Convolution
+difference</a></font></u> <i>&lt;line broadening></i> is the line broadening
+in Hz.
+<h4>
+<a NAME="TM <number of points>"></a>TM { &lt;number of points> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.wpd#Trapezian Multiplication.">Trapezian
+multiplication</a></font></u>
+<h4>
+<a NAME="KS <theta>"></a>KS { &lt;theta> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Kaiser Window.">Kaiser window</a></font></u><i>&lt;theta></i>
+typical values: [1.5..3] If &lt;theta> is not supplied, a popup menu is
+activated that asks for &lt;theta>.
+<h4>
+<a NAME="WB"></a>WB</h4>
+Window from buffer. Use the window function that has been prepared in Buffer
+A.</ul>
+
+<hr>
+<h2>
+<a NAME="Fourier Transformation"></a>Fourier Transformation</h2>
+
+<ul>
+<h4>
+<a NAME="FT <zero fill>"></a>FT { &lt;zero fill> }</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#FT - Fourier transform">Fourier
+transformation</a></font></u>. &lt;zero fill> gives the number of zero
+fills before Fourier transformation. If &lt;zero fill> is not specified,
+<a href="#ZF">ZF</a>
+is assumed.
+<br>&nbsp;
+<h4>
+<a NAME="DFT"></a>DFT</h4>
+<a href="processing_1d.html#DFT - Discrete Fourier tranform">Discrete Fourier
+transform</a>. Data size does not have to be a power of two. See also <a href="#FZ <times zero fill">FZ</a>.
+<h4>
+<a NAME="IFT"></a>IFT</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#IF - Inverse Fourier transform">Inverse
+Fourier transformation</a></font></u>.</ul>
+
+<hr>
+<h2>
+<a NAME="Phase"></a>Phase</h2>
+
+<ul>
+<h4>
+<a NAME="PK { <phase0> { <phase1> { <i0> }}}"></a>PK &lt;phase0> &lt;phase1>
+&lt;i0></h4>
+Perform phase correction with <i>&lt;phase0></i>, <i>&lt;phase1></i> and
+<i>&lt;i0></i>.
+Previously defined parameters are used when not given with this command.
+<u><font color="#0000FF"><a href="processing_1d.html#Phase correction">Parameters
+can be determined interactively.</a></font></u> <i>&lt;phase0> </i>Frequency
+independent phase <i>&lt;phase1></i> Frequency dependent phase <i>&lt;i0></i>
+Frequency independent position
+<h4>
+<a NAME="PZ"></a>PZ</h4>
+Reset phase parameters. Phase0 = 0, phase1 = 0, and i0 = 1.
+<br>&nbsp;
+<h4>
+<a NAME="PN"></a>PN</h4>
+Normalize phase parameters. Recalculate the parameters with I0 set to 1.
+This results in parameters that are not dependent on the size of the spectrum.</ul>
+
+<hr>
+<h2>
+<a NAME="Hilbert Transformation"></a>Hilbert Transformation</h2>
+
+<ul>
+<h4>
+<a NAME="HT"></a>HT</h4>
+<u><font color="#0000FF"><a href="processing_1d.html#Hilbert transformation">Restore
+imaginary data</a></font></u> before doing a phase correction.</ul>
+
+<hr WIDTH="100%">
+<h2>
+<a NAME="Baseline correction"></a>Baseline correction</h2>
+
+<ul>
+<h4>
+<a NAME="BC"></a>BC</h4>
+Do baseline correction with current parameters.</ul>
+
+<hr WIDTH="100%">
+<h2>
+<a NAME="Water fit"></a>Water fit</h2>
+
+<blockquote>
+<h4>
+<a NAME="WATERFIT { <position> { , <width> } }"></a>WATERFIT { &lt;position>
+{ , &lt;width> } }</h4>
+<a href="processing_1d.html#Water Fit">Waterline fit.</a></blockquote>
+
+<p><br>
+<hr>
+<h2>
+<a NAME="Set Axis Units"></a>Set Axis Units</h2>
+
+<ul><u><font color="#0000FF"><a href="display.html#Display Units">Set axis
+units</a></font></u> to Channels, PPM, Herz or Seconds. Set x-axis units
+for 1D files or x- and y-axis units for 2D files.
+<h4>
+<a NAME="CHAN"></a>CHAN</h4>
+Set axis units to channels.
+<h4>
+<a NAME="PPM"></a>PPM</h4>
+Set axis unist to ppm.
+<h4>
+<a NAME="HZ"></a>HZ</h4>
+Set axis units to Herz.
+<h4>
+<a NAME="SEC"></a>SEC</h4>
+Set axis units to seconds.</ul>
+
+<hr WIDTH="100%">
+<h2>
+<a NAME="Show data arrays"></a>Show data arrays</h2>
+
+<ul>Toggle the <u><font color="#0000FF"><a href="display.html#Display Arrays">display
+of data</a></font></u> arrays on or off.
+<h4>
+<a NAME="RE"></a>RE</h4>
+Toggle real data on/off.
+<h4>
+<a NAME="IM"></a>IM</h4>
+Toggle imaginary data on/off.
+<h4>
+<a NAME="BA"></a>BA</h4>
+Toggle buffer A on/off.
+<h4>
+<a NAME="BB"></a>BB</h4>
+Toggle buffer B on/off.
+<h4>
+<a NAME="WD"></a>WD</h4>
+Toggle window data on/off.
+<h4>
+<a NAME="BL"></a>BL</h4>
+Toggle baseline on/off.</ul>
+
+<h4>
+
+<hr WIDTH="100%"></h4>
+
+<h2>
+<a NAME="Select Block"></a>Select Block</h2>
+
+<ul>Switch to block by typing its block number <b>1, 2, 3</b> or <b>4.</b></ul>
+
+<h2>
+
+<hr WIDTH="100%"></h2>
+
+<h2>
+<a NAME="Move data arrays"></a>Move data arrays</h2>
+
+<blockquote>
+<h4>
+<a NAME="MV"></a>MV</h4>
+Move (=Copy) array to another array in the same block.
+<h4>
+<a NAME="WR"></a>WR</h4>
+Write array to disk.
+<h4>
+<a NAME="RD"></a>RD</h4>
+Read array from disk (but not the parameters).</blockquote>
+
+<hr>
+<h2>
+<a NAME="Fill data arrays"></a>Fill data arrays</h2>
+
+<ul>
+<h4>
+<a NAME="ZE"></a>ZE</h4>
+Set real + imaginary data arrays to zero.
+<h4>
+<a NAME="ZR <value>"></a>ZR &lt;value></h4>
+Set real array to value
+<h4>
+<a NAME="ZI <value>"></a>ZI &lt;value></h4>
+Set imaginar array to value
+<h4>
+<a NAME="ZA <value>"></a>ZA &lt;value></h4>
+Set buffer A to value
+<h4>
+<a NAME="ZB <value>"></a>ZB &lt;value></h4>
+Set buffer B to value
+<h4>
+<a NAME="ZW <value>"></a>ZW &lt;value></h4>
+Set window buffer to value
+<h4>
+<a NAME="ZL <value>"></a>ZL &lt;value></h4>
+Set baseline buffer to value</ul>
+
+<hr>
+<h2>
+<a NAME="Shift data in arrays"></a>Shift data in arrays</h2>
+
+<blockquote>
+<h4>
+<a NAME="IC <clip start> <clip stop>"></a>IC &lt;clip start> &lt;clip stop></h4>
+Clip real and imaginary data arrays from &lt;clip start> to (and including)
+&lt;clip stop>. Unit is channels.
+<h4>
+<a NAME="LS  { <number of points> }"></a>LS&nbsp; &lt;number of points></h4>
+Left shift. All elements in the real and imaginary data arrays are shifted
+&lt;number of points> positions to the left. Array elements shifted outside
+array boundaries are lost. Array elements shifted from outside array boundaries
+are substituted by 0.0. If&nbsp; &lt;number of points> is not supplied,
+it is set to 1. See also, in scripts: <a href="psnd_script_operators.html#Left shift operator <<">Left
+shift operator "&lt;&lt;"</a>
+<h4>
+<a NAME="RS { <number of points> }"></a>RS &lt;number of points></h4>
+Right shift. All elements in the real and imaginary data arrays are shifted
+&lt;number of points> positions to the right. Array elements shifted outside
+array boundaries are lost. Array elements shifted from outside array boundaries
+are substituted by 0.0. If&nbsp; &lt;number of points> is not supplied,
+it is set to 1. See also, in scripts: <a href="psnd_script_operators.html#Right shift operator">Right
+shift operator ">>"</a>
+<h4>
+<a NAME="ROL { <number of points> }"></a>ROL &lt;number of points></h4>
+Rotate left. All elements in the real and imaginary data arrays are circular
+shifted &lt;number of points> positions to the left. Elements that are
+shifted below the first position are added from the right. If&nbsp; &lt;number
+of points> is not supplied, it is set to 1. See also, in scripts: <a href="/psnd_script_operators.html#Rotate Left operator |<">Rotate
+Left operator "|&lt;"</a>
+<h4>
+<a NAME="ROR { <number of points> }"></a>ROR &lt;number of points></h4>
+Rotate right. All elements in the real and imaginary data arrays are circular
+shifted &lt;number of points> positions to the right. Elements that are
+shifted past the last position are added from the left. If&nbsp; &lt;number
+of points> is not supplied, it is set to 1. See also, in scripts: <a href="psnd_script_operators.html#Rotate Right operator">Rotate
+Right operator ">|"</a>
+<br>&nbsp;
+<h4>
+<a NAME="RV"></a>RV</h4>
+Reverse real and imaginary data arrays. First point becomes last point,
+etc.
+<h4>
+<a NAME="NM"></a>NM</h4>
+Negate real and imaginary data arrays. Positive becomes negative and vice
+versa.</blockquote>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="RUN { <scriptname> { <arguments> } }"></a>RUN { &lt;scriptname>
+{ &lt;arguments> } }</h4>
+
+<ul>Run a script. If RUN is used without arguments, the script that is
+currently in the editor is used. &lt;scriptname> The name of the script
+to run. &lt;arguments> Arguments to the script to run. Example:
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; run dophase.au 123.4 44.1 102</pre>
+</ul>
+
+<pre>
+<hr WIDTH="100%"></pre>
+
+</body>
+</html>

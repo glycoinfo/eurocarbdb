@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 1.0 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xml:lang="en">
+
+<head>
+
+
+  <title>GlycoPeakfinder</title>
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://www.eurocarbdb.org/globals/favicon.ico" />
+  <link rel="shortcut icon" />
+  <link rel="copyright" title="Copyright"
+        href="http://www.eurocarbdb.org/copyright" />
+
+  <!-- /End related links -->
+
+  <!-- Begin stylesheets -->
+<!--  <link rel="stylesheet" type="text/css" media="all"
+    tal:attributes="href here/frontend-uu.css/absolute_url | nothing" />
+-->    
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://www.eurocarbdb.org/table-less.css" />
+  <link rel="stylesheet" type="text/css" 
+        href="../glycopeakfinder.css" />
+  
+  <!-- /End stylesheets -->
+
+  <!-- Begin script slot -->
+  <script src="./glycopeakfinder.js" type="text/javascript"></script>
+  <!-- End script slot -->
+
+</head>
+
+<body class="page">
+
+<p>
+<center>
+<div style="  background: #ffe; align: center;  border-style: outset;  border-width: 2px;  border-color:#000096;  width : 600px;  max-width : 60em;  width:auto;  margin-right: 0px;  margin-left: 0px;  padding: 10px;">
+
+
+<form method="POST" action="./GlycoPeakfinder.action" name="values" enctype="multipart/form-data">
+
+<table border="0" cellpadding="0" cellspacing="0" width="702">
+<tr><TD class="gpf_heading" colspan="3">Glyco-Peakfinder Helpfile</TD></tr>
+<tr>
+    <TD colspan="3" height="15">
+        <input type="text" class="gpf_information" height="1" name="pageTo" value="">
+        <input type="text" class="gpf_information" height="1" name="pageFrom" value="mass">
+    </TD></tr>
+<TR>
+    <TD colspan="3" height="10"/>
+</TR>
+<TR>
+    <TD class="gpf_table_top_left"/>
+    <td>
+        <table border="0" cellpadding="0" cellspacing="0" width="700">
+            <TD class="gpf_table_menu_left"/>
+            <TD class="gpf_table_menu_button">
+				<img border="0" src="../images/about_unselect.jpg" id='menu_info' width="100%">              
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+				<a href="./GlycoPeakfinder_mass_help.html">
+					<img border="0" src="../images/mass_unselect.jpg" onclick="js:clearFileSettings('true');switchToPage('mass');" onmouseover="getElementById('menu_mass').src='../images/mass_over.jpg'" onmouseout="getElementById('menu_mass').src='../images/mass_unselect.jpg'" id='menu_mass' width="100%">              
+				</a>
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+            	<a href="./GlycoPeakfinder_res_help.html">
+	                <img border="0" src="../images/residue_unselect.jpg" onclick="js:clearFileSettings('true');switchToPage('resi');" onmouseover="getElementById('menu_resi').src='../images/residue_over.jpg'" onmouseout="getElementById('menu_resi').src='../images/residue_unselect.jpg'" id='menu_resi' width="100%">              
+		        </a>
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+				<img border="0" src="../images/ion_select.jpg" width="100%">
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+            	<a href="./GlycoPeakfinder_mod_help.html">
+            	    <img border="0" src="../images/modifications_unselect.jpg" onclick="js:clearFileSettings('true');switchToPage('modi');" onmouseover="getElementById('menu_modi').src='../images/modifications_over.jpg'" onmouseout="getElementById('menu_modi').src='../images/modifications_unselect.jpg'" id='menu_modi' width="100%">              
+			    </a>
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+                <img border="0" src="../images/contact_unselect.jpg" id='menu_cont' width="100%">              
+            </TD>
+            <TD class="gpf_table_menu_right"/>
+        </table>
+    </td>
+    <TD class="gpf_table_top_right"/>
+</TR>
+<TR>
+    <TD class="gpf_table_left"/>
+    <td bgcolor="#cddcec" width="700">
+        <table cellpadding="0" cellpadding="0" border="0" width="700">
+<!-- Start of data areal -->
+
+<div>
+  <map name="mass">
+    <area shape="rect" coords="0,0,175,40" href="#1" alt="Annotate Peaks: Calculation for all mass values from the peak list below is started using all parameters already set on the pages mass, residue, ion/charge and "modifications.">
+    <area shape="rect" coords="175,0,350,40" href="#2" alt="Reset all settings: All settings manually performed on the pages mass, residue, ion/charge and modifications are cleared and default settings are set.">
+    <area shape="rect" coords="350,0,525,40" href="#3" alt="Reset form: All settings manually perforemd on this form are cleared and default settings are set.">
+    <area shape="rect" coords="525,0,675,40" href="#4" alt="Help: Starts Glyco-Peakfinder help files.">
+    <area shape="rect" coords="0,40,325,100" href="#5" alt="Specify charge-states and select ions: In different categories settings can be made to specify charge-state and the ions responsible for the charge. All sections allow multiple selection by pressing 'strg' and clicking mouse button simultaneously.">
+    <area shape="rect" coords="0,100,350,200" href="#6" alt="Increment mass: Can be calculated from the mass of the residue by substracting one water molecule.">
+    <area shape="rect" coords="0,220,350,280" href="#7" alt="Abbreviation: Will be used for the representation of the calculation results.">
+    <area shape="rect" coords="0,280,350,390" href="#8" alt="Occurence (min / max): Each residue will be taken into account within the specified range given by min and max occurence.">
+    <area shape="rect" coords="0,390,350,450" href="#9" alt="Calculation of A/X fragments: For some residues an A/X fragmentation can be allowed. Therefore the checkbox has to be activated. Because of the hugh number of those fragments, they can be selected seperately for each residue (press button, will be implemented soon).">
+    <area shape="rect" coords="400,40,650,100" href="#10" alt="Other residues: to allow residues other than the presetted up to three new residues can be specied. Additionally an increment mass and an abbreviation has to be given. Please keep in mind, that in case of persubstituted structures the mass of the modified residues has to be entered.">
+    <area shape="rect" coords="350,100,670,210" href="#11" alt="Other residues: to allow residues other than the presetted up to three new residues can be specied. Additionally an increment mass and an abbreviation has to be given. Please keep in mind, that in case of persubstituted structures the mass of the modified residues has to be entered.">
+    <area shape="rect" coords="350,210,670,300" href="#12" alt="Other residues: to allow residues other than the presetted up to three new residues can be specied. Additionally an increment mass and an abbreviation has to be given. Please keep in mind, that in case of persubstituted structures the mass of the modified residues has to be entered.">
+    <area shape="rect" coords="0,860,175,910" href="#1" alt="Annotate Peaks: Calculation for all mass values from the peaklist below is started using all parameters already set on the pages mass, resdiue, ion/charge and modifications.">
+    <area shape="rect" coords="175,860,350,910" href="#2" alt="Reset all settings: All settings manually done on the pages mass, resdiue, ion/charge and modifications are cleared and default settings are set.">
+    <area shape="rect" coords="350,860,525,910" href="#3" alt="Reset form: All settings manually done on this form are cleared and default settings are set.">
+    <area shape="rect" coords="525,860,675,910" href="#4" alt="Help: Starts Glyco-Peakfinder helpfiles.">
+  </map>
+</div>
+
+
+
+	<TR>
+    		<td colspan="4" align="center">
+			<img src="ion_help.jpg" usemap="#mass" border=2>
+		</td>
+        </TR>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="1.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="1"></a>
+			<div class="gpf_contens_b_left">
+				Annotate Peaks:<br></div>
+			<div class="gpf_contens_justify">
+				Calculation for all mass values from the peak list below is started using all parameters already set on the pages "mass", "residue", "ion/charge" and "modifications".
+			</div>
+		</td>
+    		<TD width="30" > </td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="2.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="2"></a>
+			<div class="gpf_contens_b_left">
+				Reset all settings:<br></div>
+			<div class="gpf_contens_justify">
+				All settings manually performed on the pages "mass", "residue", "ion/charge" and "modifications" are cleared and default settings are set.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="3.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="3"></a>
+			<div class="gpf_contens_b_left">
+				Reset form:<br></div>
+			<div class="gpf_contens_justify">
+				All settings manually performed on this form are cleared and default settings are set.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="4.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="4"></a>
+			<div class="gpf_contens_b_left">
+				Help:<br></div>
+			<div class="gpf_contens_justify">
+				Starts Glyco-Peakfinder help files.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="5.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="5"></a>
+			<div class="gpf_contens_b_left">
+				Specify charge-states and select ions:<br></div>
+			<div class="gpf_contens_justify">
+				In different categories settings can be made to specify charge-state and the ions responsible for the charge. All sections allow multiple selection by pressing 'strg' and clicking mouse button simultaneously. 
+			</div>
+		</td>
+    		<TD width="30" > </td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="6.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="6"></a>
+			<div class="gpf_contens_b_left">
+				Charge states to be calculated:<br></div>
+			<div class="gpf_contens_justify">
+				The possible charge-states for the calculation can be specified. Multiple selection is allowed (press 'strg' and mouse button simultaneously).  
+			</div>
+		</td>
+    		<TD width="30" > </td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="7.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="7"></a>
+			<div class="gpf_contens_b_left">
+				No of ion exchanges to be calculated:<br></div>
+			<div class="gpf_contens_justify">
+				The number of allowed neutral ion exchanges (e. g. H<sup>+</sup> / Na<sup>+</sup> etc.) can be selected. Exchanges will be calculated for each of the selected ions (see 8).   
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="8.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="8"></a>
+			<div class="gpf_contens_b_left">
+				Select charged ions:<br></div>
+			<div class="gpf_contens_justify">
+				All ions that can occur, can be selected. In case of allowing multiple charges, all combinations of the selected ions will be calculated (e.g. H<sup>+</sup>, H<sup>+</sup> / H<sup>+</sup>, Na<sup>+</sup> / H<sup>+</sup>, K<sup>+</sup> / Na<sup>+</sup>, Na<sup>+</sup> / Na<sup>+</sup>, K<sup>+</sup> / K<sup>+</sup>, K<sup>+</sup>)
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="9.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="9"></a>
+			<div class="gpf_contens_b_left">
+				Add charged ions and enter mass:<br></div>
+			<div class="gpf_contens_justify">
+				Any other singly charged ion can be specified. For calculation the mass of the ion (monoisotopic / average, see page mass) has to be entered. 
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="10.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="10"></a>
+			<div class="gpf_contens_b_left">
+				Specify fragmentation options:<br></div>
+			<div class="gpf_contens_justify">
+				For calculation of fragments more parameters have to be specified. The fragment type(s) and the number of fragmentations can be selected.    
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="11.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="11"></a>
+			<div class="gpf_contens_b_left">
+				Fragmentation types to be calculated:<br></div>
+			<div class="gpf_contens_justify">
+				All series of ions can be selected to be calculated in parallel.   
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="12.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="12"></a>
+			<div class="gpf_contens_b_left">
+				No of fragmentations to be calculated:<br></div>
+			<div class="gpf_contens_justify">
+				To find internal fragments or multiply-cleaved structures more than one cleavages can be allowed. Multiple selections are possible.  
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<tr>
+            <TD colspan="4" align="right">
+	            		<input class="peakfinder_button" type="button" onClick="js:self.close();" value="Close help file">
+            </TD>
+    	    <TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	</table>
+    </td>
+        <TD class="gpf_table_right"/>
+</TR>
+<TR>
+    <TD class="gpf_table_bottom_left"/>
+
+    <TD class="gpf_table_bottom"/>
+    <TD class="gpf_table_bottom_right"/>
+</TR>
+<tr><TD colspan="5" height="10"></TD></tr>    </td>
+</TR>
+<tr><TD colspan="4" height="10"></TD></tr>
+</table>
+</form>
+
+  <!-- footer -->
+  <p class="border_bottom">
+  EuroCarbDB is a Research Infrastructure Design Study 
+  Funded by the 6th Research Framework Program of the European Union <br /> 
+  (Contract: RIDS Contract number 011952)</p>
+</div>
+</center>
+<p>
+</body>
+
+</html>

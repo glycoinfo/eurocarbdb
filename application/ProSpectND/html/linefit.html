@@ -1,0 +1,223 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (X11; U; Linux 2.2.14-5.0 i686) [Netscape]">
+   <meta name="Author" content="Albert van Kuik">
+   <meta name="Description" content="Line fitting routine">
+   <title>Line Fit</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<h1>
+<a NAME="Line Fit"></a>Line Fit</h1>
+&nbsp;
+<ul>
+<li>
+<a href="#Setup Parameters">Setup Parameters</a></li>
+
+<li>
+<a href="#Line">Line</a></li>
+
+<li>
+<a href="#Fit on">Fit on</a></li>
+
+<li>
+<a href="#Optimize Multiline">Optimize Multiline</a></li>
+
+<li>
+<a href="#Show All Fitted Peaks">Show All Fitted Peaks</a></li>
+
+<li>
+<a href="#Remove All Lines">Remove All Lines</a></li>
+
+<li>
+<a href="#Difference Spectrum">Difference Spectrum</a></li>
+
+<li>
+<a href="#Grab Mouse button 1">Grab Mouse button 1</a></li>
+</ul>
+
+<hr WIDTH="100%">
+<ul>This routine performs automatic curve fitting of overlapping lines.
+It uses a Levenberg-Marquardt fitting routine. The fit function can be
+Lorentzian, Gaussian or Mixed Lorentzian and Gaussian. Use <b>Options->Line
+Fit</b> to activate the line fitting procedure. First,&nbsp; one is asked
+to select a new block to hold the calculated lines. For example, if the
+spectrum is displayed in block 1, chose block 2 (must be a block with a
+higher number).
+<p><img SRC="linefit_block.gif" height=115 width=159>
+<p>After that, the following popup menu shows up.
+<p><img SRC="linefit_popup.gif" ALT="Linefit popup menu." height=279 width=152>
+<p>The experimental spectrum will now be displayed in block 1 and the calculated
+peaks in block 2. The optional difference spectrum will also be displayed
+in block 2 (in the imaginary data array).
+<p><a NAME="Fitted Peaks"></a>
+<p><img SRC="linefit_spec1.gif" ALT="Fitted peaks." height=220 width=337>
+<br>Example 1. Experimental (red) and fitted (blue) spectrum superimposed
+(default settings). The separate peaks (green) are made visible by the
+<b>Show
+All Fitted Peaks</b> button.
+<br>&nbsp;
+<p><img SRC="linefit_spec3.gif" ALT="Fitted peaks and spectrum" height=221 width=339>
+<br>Example 2. Experimental and fitted spectrum displayed separately (<a href="display.html#Display">adjust
+scaling</a>). The red line is the original spectrum, the blue line is the
+fitted spectrum, which is the sum of all the green lines.
+<p><img SRC="linefit_diff.gif" ALT="Difference spectrum." height=221 width=338>
+<br>Example 3. Also the difference spectrum is displayed (green line).
+<br>&nbsp;
+<br>&nbsp;</ul>
+
+<h2>
+<a NAME="Setup Parameters"></a>Setup Parameters</h2>
+
+<ul>This option activates a popup menu&nbsp; with the current parameters.
+<p><img SRC="linefit_parameters.gif" ALT="Linefit parameter setup." height=320 width=179>
+<br>&nbsp;
+<h4>
+Max Calculations</h4>
+Maximum number of calculations for the simplex line fitting procedure.
+<h4>
+Footprint</h4>
+This defines the footprint of the peaks.&nbsp; For example, a precision
+of 20 defines the width of the peak at the baseline at 20 times the width
+at half height.
+<h4>
+Integration scale</h4>
+Scaling factor used by the <a href="#LineList">Line->List</a> procedure.
+All integrals are divided by this number.
+<br>&nbsp;
+<h4>
+Fit Range (Channels)</h4>
+&nbsp;The range used for the line fitting procedure. Usually this is equal
+to that of the experimental spectrum.
+<h4>
+Lineshape</h4>
+The line shape of the peaks can be defined as Lorentzian, Gaussian, or
+Mixed Lorentzian/Gaussian. If the Mixed option is chosen, the distribution
+Lorentzian/Gaussian is determined automatically per peak by the fitting
+algorithm.</ul>
+
+<h2>
+<a NAME="Line"></a>Line</h2>
+
+<ul>
+<h4>
+Add/Edit</h4>
+The best way to add a line is to use the mouse. Define mouse button 1 as
+<b>Assign
+Line Fit</b>&nbsp;<img SRC="mouse_select.gif" ALT="Select with Mouse Button" height=24 width=26 align=ABSCENTER>.
+Now set the mouse cursor on the desired line and press button 1.&nbsp;
+The user is only prompted for the estimated line width (at half height).
+The line height and position are taken from the experimental spectrum.&nbsp;
+The line is drawn immediately.
+<p>Alternatively, one can use the <b>Add/Edit</b> option to add a new line
+or to edit an old one.&nbsp; First select a line number. Then edit the
+position, width and height of the line.
+<p><img SRC="linefit_edit.gif" height=160 width=134>
+<br>&nbsp;
+<h4>
+Delete</h4>
+Delete an existing line. The line is not really deleted, but only hidden.
+To restore the line, use the <b>Add/Edit</b> option.
+<h4>
+Adjust</h4>
+Adjust a line interactively.&nbsp; Shift a line or adjust its width or
+height. The result is calculated and displayed immediately.&nbsp; Use the
+<b>Fraction
+Change</b> options to define the sensitivity of the adjust buttons.
+<p><img SRC="linefit_adjust.gif" height=315 width=150>
+<h4>
+<a NAME="LineList"></a>List</h4>
+List all lines with some properties. For example:
+<p><tt>&nbsp;line&nbsp;&nbsp;&nbsp;&nbsp; pos.(hz)&nbsp;&nbsp; pos.(ppm)&nbsp;&nbsp;&nbsp;
+width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height&nbsp;&nbsp;&nbsp;&nbsp; integr.</tt>
+<br><tt>&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2344.012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.687&nbsp;&nbsp;&nbsp;&nbsp; 13.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9.85e+06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.7</tt>
+<br><tt>&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2363.678&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.726&nbsp;&nbsp;&nbsp;&nbsp; 11.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.9e+06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.89</tt>
+<p>If Lineshape is set to Mixed, the Lorentzian/Gaussian fraction is also
+displayed, expressed in the fraction of Lorentzian shape. For Example:
+<p>&nbsp;<tt>line&nbsp;&nbsp;&nbsp;&nbsp; pos.(hz)&nbsp;&nbsp; pos.(ppm)&nbsp;&nbsp;&nbsp;
+width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height&nbsp;&nbsp;&nbsp;&nbsp; integr.&nbsp;
+mix(L)</tt>
+<br><tt>&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1887.144&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.773&nbsp;&nbsp;&nbsp;&nbsp; 1.04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.84e+06&nbsp;&nbsp;&nbsp;&nbsp;
+0.425&nbsp; 0.00338</tt>
+<br><tt>&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1885.120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.769&nbsp;&nbsp;&nbsp;&nbsp; 1.82&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.89e+06&nbsp;&nbsp;&nbsp;&nbsp;
+0.472&nbsp;&nbsp;&nbsp; 0.671</tt>
+<br><tt>&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1881.407&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.762&nbsp;&nbsp;&nbsp;&nbsp; 1.23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.99e+06&nbsp;&nbsp;&nbsp;&nbsp;
+0.787&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</tt>
+<br><tt>&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1876.186&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.751&nbsp;&nbsp;&nbsp;&nbsp; 1.27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.16e+06&nbsp;&nbsp;&nbsp;&nbsp;
+0.157&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</tt>
+<br><tt>&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1875.046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.749&nbsp;&nbsp;&nbsp;&nbsp; 1.78&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.66e+06&nbsp;&nbsp;&nbsp;&nbsp;
+0.719&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1</tt>
+<p>In this example, line 3 is fully Gaussian and line 5 is 100% Lorentzian.
+Line 2 is 67.1 % Lorentzian.</ul>
+
+<h2>
+<a NAME="Fit on"></a>Fit on ...</h2>
+
+<ul>
+<h4>
+Set</h4>
+This option sets the parameters that will be iterated. The parameters for
+each peak are its position, width and height.&nbsp; Usually, all options
+are turned <b>on</b>. For example, it one wants a peak to keep its position
+during the line fitting procedure, set its <b>Position</b> to <b>off</b>.
+<p><img SRC="linefit_options.gif" height=93 width=211>
+<h4>
+List</h4>
+List the current settings.&nbsp; For example:
+<p><tt>line no. position width height</tt>
+<br><tt>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+on&nbsp;&nbsp;&nbsp; on</tt>
+<br><tt>2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+on&nbsp;&nbsp;&nbsp; on</tt>
+<br>&nbsp;
+<h4>
+Reset</h4>
+Set all iteration parameters to <b>on</b>.</ul>
+
+<h2>
+<a NAME="Optimize Multiline"></a>Optimize Multiline</h2>
+
+<ul>Fit the user defined lines with the measured spectrum, using a simplex
+procedure.</ul>
+
+<h2>
+<a NAME="Show All Fitted Peaks"></a>Show All Fitted Peaks</h2>
+
+<ul>Show all the <a href="#Fitted Peaks">separate peaks</a> that form the
+fitted spectrum.</ul>
+
+<h2>
+<a NAME="Remove All Lines"></a>Remove All Lines</h2>
+
+<ul>Remove all previously defined lines. This is a real reset, in contrast
+to the <b>Line->Delete</b> option, that simply hides some lines.</ul>
+
+<h2>
+<a NAME="Difference Spectrum"></a>Difference Spectrum</h2>
+
+<ul>Calculate and show the difference spectrum of the measured spectrum
+and the calculated lines.</ul>
+
+<h2>
+<a NAME="Grab Mouse button 1"></a>Grab Mouse button 1</h2>
+
+<ul>Set the second mouse button to peak selection.</ul>
+
+<hr WIDTH="100%">
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

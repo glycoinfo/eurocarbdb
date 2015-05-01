@@ -1,0 +1,1529 @@
+<?xml version='1.0'?>
+<trivialname_templates>
+
+<!-- sialic acids: -->
+
+<template>
+	<longname>Neuraminic acid</longname>
+	<notation_set name="neu">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<notation_set name="Neu">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="N">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0021122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>5</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Ketodeoxynonulonic acid</longname>
+	<notation_set name="kdn">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Kdn">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="K">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0021122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Ketodeoxyoctulosonic acid</longname>
+	<notation_set name="kdo">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Kdo">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="W">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>8</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>001122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Ketooctonic acid</longname>
+	<notation_set name="Ko">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>8</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>011122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Pseudaminic acid</longname>
+	<notation_set name="Pse">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0011222</stereocode>
+	<default_configuration compulsory="true">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>9</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>5</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>amino</type>
+			<position1>7</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Legionaminic acid</longname>
+	<notation_set name="Leg">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0021122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>9</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>5</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>amino</type>
+			<position1>7</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>4-epi Legionaminic acid</longname>
+	<notation_set name="4eLeg">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0011122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>9</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>5</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>amino</type>
+			<position1>7</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>8-epi Legionaminic acid</longname>
+	<notation_set name="8eLeg">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0021121</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>9</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>5</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>amino</type>
+			<position1>7</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<!-- deoxy sugars: -->
+
+<template>
+	<longname>Fucose</longname>
+	<notation_set name="fuc">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<notation_set name="Fuc">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="F">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2112</stereocode>
+	<default_configuration compulsory="false">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Rhamnose</longname>
+	<notation_set name="rha">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<notation_set name="Rha">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="H">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1122</stereocode>
+	<default_configuration compulsory="false">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Quinovose</longname>
+	<notation_set name="qui">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Qui">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration></default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Abequose</longname>
+	<notation_set name="abe">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Abe">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="Q">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2012</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Colitose</longname>
+	<notation_set name="col">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Col">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2012</stereocode>
+	<default_configuration compulsory="true">L</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Paratose</longname>
+	<notation_set name="par">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Par">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2022</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Tyvelose</longname>
+		<notation_set name="tyv">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Tyv">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1022</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Ascarilose</longname>
+	<notation_set name="asc">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Asc">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1022</stereocode>
+	<default_configuration compulsory="true">L</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Boivinose</longname>
+	<notation_set name="boi">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>0212</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Amicetose</longname>
+	<notation_set name="ami">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Ami">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>0022</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Rhodinose</longname>
+	<notation_set name="rho">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Rho">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>0012</stereocode>
+	<default_configuration compulsory="true">L</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Oleandrose</longname>
+	<notation_set name="ole">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>0122</stereocode>
+	<default_configuration compulsory="true">L</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>methyl</type>
+			<position1>3</position1>
+			<linkagetype1>H_AT_OH</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Bacillosamine</longname>
+	<notation_set name="bac">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>n-acetyl</type>
+			<position1>2</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>n-acetyl</type>
+			<position1>4</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>purpurosamine C</longname>
+	<notation_set name="PurC">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2002</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>4</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>2</position1>
+			<linkagetype1>deoxy</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>amino</type>
+			<position1>6</position1>
+			<linkagetype1>deoxy</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>acosamine</longname>
+	<notation_set name="AcoN">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>0212</stereocode>
+	<default_configuration compulsory="true">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>3</position1>
+			<linkagetype1>deoxy</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>daunosamine</longname>
+	<notation_set name="DauN">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>0112</stereocode>
+	<default_configuration compulsory="true">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>deoxy</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>3</position1>
+			<linkagetype1>deoxy</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<!-- ketoses: -->
+
+<template>
+	<longname>Fructose</longname>
+	<notation_set name="fru">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<notation_set name="Fru">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="E">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>f</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Psicose</longname>
+	<notation_set name="psi">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0222</stereocode>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Sorbose</longname>
+	<notation_set name="sor">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0212</stereocode>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Tagatose</longname>
+	<notation_set name="tag">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<notation_set name="Tag">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="T">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0112</stereocode>
+	<default_configuration>D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Ribulose</longname>
+	<notation_set name="rul">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<notation_set name="Rul">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>5</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>022</stereocode>
+	<default_configuration></default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Xylulose</longname>
+	<notation_set name="xul">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<notation_set name="Xul">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<notation_set name="D">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>5</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>012</stereocode>
+	<default_configuration></default_configuration>
+	<default_ringtype>f</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Erythrulose</longname>
+	<notation_set name="eru">
+		<namescheme primary="true">iupac</namescheme>
+		<namescheme primary="true">glycosciences</namescheme>
+		<namescheme primary="true">carbbank</namescheme>
+		<namescheme primary="true">glycoworkbench</namescheme>
+		<namescheme primary="true">sweet2</namescheme>
+	</notation_set>
+	<size>4</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>02</stereocode>
+	<default_configuration></default_configuration>
+	<default_ringtype>f</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>sedoheptulose</longname>
+	<notation_set name="sed">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Sed">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>7</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>01222</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<!-- other: -->
+
+<template>
+	<longname>Muramic acid</longname>
+	<notation_set name="mur">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+		<namescheme primary="false">glycoworkbench</namescheme>
+	</notation_set>
+	<notation_set name="Mur">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype></default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>2</position1>
+			<linkagetype1>deoxy</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>(r)-lactate</type>
+			<position1>3</position1>
+			<linkagetype1>H_AT_OH</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Isomuramic acid</longname>
+	<notation_set name="iMur">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype></default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>2</position1>
+			<linkagetype1>deoxy</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+		<substitution>
+			<type>(s)-lactate</type>
+			<position1>3</position1>
+			<linkagetype1>H_AT_OH</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>threose</longname>
+	<notation_set name="Thrs">
+		<namescheme primary="false">bcsdb</namescheme>
+	</notation_set>
+	<size>4</size>
+	<carbonyl_position>-1</carbonyl_position>
+	<stereocode>12</stereocode>
+	<default_configuration compulsory=""></default_configuration>
+	<default_ringtype>o</default_ringtype>
+</template>
+
+<!-- ############################################################################
+#
+#   CFG specific templates: 
+#
+############################################################################## -->
+
+<template>
+	<longname>Glc</longname>
+	<notation_set name="G">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<longname>GlcNAc</longname>
+	<notation_set name="GN">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>n-acetyl</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>GlcN</longname>
+	<notation_set name="GQ">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>GlcGc</longname>
+	<notation_set name="GJ">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>n-glycolyl</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Gal</longname>
+	<notation_set name="A">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2112</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<longname>GalNAc</longname>
+	<notation_set name="AN">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2112</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>n-acetyl</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>GalN</longname>
+	<notation_set name="AQ">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2112</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>GalGc</longname>
+	<notation_set name="AJ">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2112</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>n-glycolyl</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Man</longname>
+	<notation_set name="M">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<longname>ManNAc</longname>
+	<notation_set name="MN">
+	<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>n-acetyl</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>ManN</longname>
+	<notation_set name="MQ">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>amino</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>ManGc</longname>
+	<notation_set name="MJ">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<substitution_list>
+		<substitution>
+			<type>n-glycolyl</type>
+			<position1>2</position1>
+			<linkagetype1>d</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>GlcA</longname>
+	<notation_set name="U">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2122</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>GalA</longname>
+	<notation_set name="L">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2112</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>IdoA</longname>
+	<notation_set name="I">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1212</stereocode>
+	<default_configuration compulsory="false">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>6</position1>
+		</modification>
+	</coremodification_list>
+</template>
+
+<template>
+	<longname>Neu5Ac</longname>
+	<notation_set name="NN">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0021122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>n-acetyl</type>
+			<position1>5</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Neu5Gc</longname>
+	<notation_set name="NJ">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>9</size>
+	<carbonyl_position>2</carbonyl_position>
+	<stereocode>0021122</stereocode>
+	<default_configuration compulsory="true">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type>acid</type>
+			<position1>1</position1>
+		</modification>
+		<modification>
+			<type>keto</type>
+			<position1>2</position1>
+		</modification>
+		<modification>
+			<type>deoxy</type>
+			<position1>3</position1>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type>n-glycolyl</type>
+			<position1>5</position1>
+			<linkagetype1>DEOXY</linkagetype1>
+			<substituent_position1>1</substituent_position1>
+		</substitution>
+	</substitution_list>
+</template>
+
+<template>
+	<longname>Xyl</longname>
+	<notation_set name="X">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>212</stereocode>
+	<default_configuration compulsory="">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<longname>Rib</longname>
+	<notation_set name="B">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>222</stereocode>
+	<default_configuration compulsory="">D</default_configuration>
+	<default_ringtype>f</default_ringtype>
+</template>
+
+<template>
+	<longname>Ara</longname>
+	<notation_set name="R">
+	<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>5</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>122</stereocode>
+	<default_configuration compulsory="">L</default_configuration>
+	<default_ringtype>f</default_ringtype>
+</template>
+
+<template>
+	<longname>Gul</longname>
+	<notation_set name="Y">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2212</stereocode>
+	<default_configuration compulsory="false">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<longname>Alt</longname>
+	<notation_set name="S">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1222</stereocode>
+	<default_configuration compulsory="false">L</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<longname>All</longname>
+	<notation_set name="O">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>2222</stereocode>
+	<default_configuration compulsory="false">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<template>
+	<longname>Tal</longname>
+	<notation_set name="V">
+		<namescheme primary="true">cfg</namescheme>
+	</notation_set>
+	<size>6</size>
+	<carbonyl_position>1</carbonyl_position>
+	<stereocode>1112</stereocode>
+	<default_configuration compulsory="">D</default_configuration>
+	<default_ringtype>p</default_ringtype>
+</template>
+
+<!-- empty template:
+<template>
+	<longname></longname>
+	<notation_set name="">
+		<namescheme primary="false">iupac</namescheme>
+		<namescheme primary="false">glycosciences</namescheme>
+		<namescheme primary="false">carbbank</namescheme>
+	</notation_set>
+	<notation_set name="">
+		<namescheme primary="true">bcsdb</namescheme>
+	</notation_set>
+	<size></size>
+	<carbonyl_position></carbonyl_position>
+	<stereocode></stereocode>
+	<default_configuration compulsory=""></default_configuration>
+	<default_ringtype></default_ringtype>
+	<coremodification_list>
+		<modification>
+			<type></type>
+			<position1></position1>
+			<position2></position2>
+		</modification>
+	</coremodification_list>
+	<substitution_list>
+		<substitution>
+			<type></type>
+			<position1></position1>
+			<linkagetype1></linkagetype1>
+			<substituent_position1></substituent_position1>
+			<position2></position2>
+			<linkagetype2></linkagetype2>
+			<substituent_position2></substituent_position2>
+		</substitution>
+	</substitution_list>
+</template>
+-->
+</trivialname_templates>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.template">
+    <class name="SubstituentTemplate" table="substituent" mutable="false" lazy="false">
+        <id name="name" column="name">
+            <generator class="assigned"/>
+        </id>
+        <property name="minValence" column="min_valence"/>
+        <property name="maxValence" column="max_valence"/>
+        <property name="monoMass" column="mono_mass"/>
+        <property name="avgMass" column="avg_mass"/>
+        <property name="formula" column="formula"/>
+        <bag name="atoms">
+        	<key column="substituent_name" not-null="true"/>
+        	<one-to-many entity-name="SubstituentAtom"/>
+        </bag>
+        <bag name="aliasList">
+        	<key column="substituent_name" not-null="true"/>
+        	<one-to-many class="org.eurocarbdb.resourcesdb.monosaccharide.SubstituentAlias"/>
+        </bag>
+        <bag name="validLinkingPositions">
+        	<key column="substituent_name" not-null="true"/>
+        	<one-to-many entity-name="ValidSubstituentLinkage"/>
+        </bag>
+   </class>
+</hibernate-mapping>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!-- ======================================================================
+     30.11.2005
+
+     GlycosiencesJavaLibs
+
+		To get it running edit the paths in EDIT PATHS section some lines below
+		and start ant.		
+
+     rene
+     ====================================================================== -->
+<project name="project" default="Main-Build" basedir=".">
+
+	<!-- EDIT PATHS -->
+	<property name="install_path" location="/srv/www-own/tomcat_webpages/GlycoPeakfinderWebwork/"/>	
+	<property name="jar_libs_path" location="./WEB-INF/lib/"/>		
+	<property name="tomcat_path" location="/usr/local/tomcat/"/>		
+	
+	<!-- APPLIC PROPERTIES -->
+	<property name="bin" location="bin"/>
+	<property name="src" location="WEB-INF/src"/>
+	<property name="lib" location="WEB-INF/lib"/>
+	<property name="web" location="${install_path}/WEB-INF/"/>
+	<property name="templates" location="templates"/>
+	<property name="gplib" location="../GlycoPeakfinderLib/"/>
+
+   <!-- ================================= 
+         target: Main-Build              
+          
+         Complete Build the project. Delete old files, compile, create jar and deploy
+        ================================= -->
+	<target name="Main-Build" depends="Init, Compile, Deploy"/>
+
+   <!-- ================================= 
+         target: Init              
+        ================================= -->
+	<target name="Init">
+		<delete dir="${bin}"/>
+		<delete dir="${web}/lib"/>
+		<delete dir="${web}/classes"/>
+		<delete dir="${web}/images"/>
+		<delete dir="${web}/help"/>
+	    <delete dir="${web}/templates"/>
+    	<delete file="${web}/web.xml"/>
+	    <delete file="${web}/index.html"/>
+    	<delete file="${install_path}/glycopeakfinder.css"/>
+		<delete file="${lib}/glycopeakfinder_calculation.jar"/>
+		<delete file="${install_path}/table-less.css"/>
+		<delete file="${install_path}/glycopeakfinder.js"/>
+		<mkdir dir="${bin}"/>
+		<mkdir dir="${web}/classes"/>
+		<mkdir dir="${install_path}/images"/>
+    	<mkdir dir="${install_path}/templates"/>
+		<mkdir dir="${web}/help"/>
+		<copy file="${gplib}/glycopeakfinder_calculation.jar" tofile="${lib}/glycopeakfinder_calculation.jar"/>
+	</target>
+
+   <!-- ================================= 
+         target: Compile              
+        ================================= -->
+	<target name="Compile">
+		<javac srcdir="${src}" destdir="${bin}" debug="off">
+			<classpath>
+   				<pathelement path="${jar_libs_path}/xwork-1.2.1.jar" />
+   				<pathelement path="${jar_libs_path}/rife-continuations.jar" />
+ 	   			<pathelement path="${jar_libs_path}/jdom-1.0.jar" />				
+ 	   			<pathelement path="${jar_libs_path}/webwork-2.2.4.jar" />
+				<pathelement path="${jar_libs_path}/jxl.jar" />
+ 	   			<pathelement path="${jar_libs_path}/commons-logging.jar" />								
+				<pathelement path="${jar_libs_path}/glycopeakfinder_calculation.jar" />
+ 	   			<pathelement path="${tomcat_path}/common/lib/servlet-api.jar" />												
+			</classpath>
+		</javac>
+	</target>
+
+   <!-- ================================= 
+         target: Deploy              
+        ================================= -->
+	<target name="Deploy">
+		<copy todir="${web}/classes">
+    		<fileset dir="${bin}"/>
+   		</copy>		
+		<copy todir="${install_path}/templates">
+   			<fileset dir="${templates}"/>
+    	</copy>		
+		<copy todir="${install_path}/images">
+   			<fileset dir="images"/>
+    	</copy>		
+		<copy todir="${install_path}/help">
+   			<fileset dir="help"/>
+    	</copy>		
+		<copy todir="${web}/lib">
+   			<fileset dir="${lib}"/>
+    	</copy>		
+		<copy file="glycopeakfinder.css" tofile="${install_path}/glycopeakfinder.css"/>		
+		<copy file="table-less.css" tofile="${install_path}/table-less.css"/>				
+		<copy file="glycopeakfinder.js" tofile="${install_path}/glycopeakfinder.js"/>		
+		<copy file="Introduction.action" tofile="${install_path}/Introduction.action"/>
+		<copy file="index.strato.html" tofile="${install_path}/index.html"/>				
+		<copy file="WEB-INF/web.xml" tofile="${web}/web.xml"/>
+		<copy file="WEB-INF/xwork.xml" tofile="${web}/classes/xwork.xml"/>
+		<copy file="WEB-INF/configuration.strato.xml" tofile="${web}/classes/configuration.xml"/>
+	</target>
+</project>

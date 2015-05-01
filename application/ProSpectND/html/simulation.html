@@ -1,0 +1,430 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+        
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+        
+  <meta name="GENERATOR"
+ content="Mozilla/4.51 [en] (X11; I; Linux 2.2.5-15 i686) [Netscape]">
+  <title>Simulation</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff"
+ alink="#ff0000">
+    
+<h1> <a name="Simulation"></a>Simulation</h1>
+    
+<hr>  
+<h2> Getting started</h2>
+    
+<ul>
+ The simulation module is based on the popular Laocoon program for the analysis 
+of isotropic NMR spectra for spin 1/2 systems (L. Cassidei and O. Sciacovelli). 
+To get it started, use <b>Options-&gt;Simulation</b>. First, one is asked 
+for a block number, to display the simulated spectrum. If the simulated spectrum 
+is to be compared with a reference spectrum (which is assumed to be present 
+in block 1) chose block 2. If block 1 is not in use and a spectrum is simulated 
+without a reference spectrum, chose block 1.    
+  <p><img src="new_block.gif" height="49" width="175" align="bottom">
+  </p>
+   
+  <p>Next, the simulation popup menu is displayed. Keep this popup menu present
+ during the whole simulation, otherwise parameters will get lost. If a previous
+ run has been saved, parameters and settings can be restored from disk with
+   <u><font color="#0000ff"><a href="#Read/Write%20Parameters">Read Parameters</a></font></u>.&nbsp; 
+The program can display the combined result of 12 independent spin systems. 
+Each spin system can contain up to 10 spin groups.&nbsp; A spin group contains 
+one or more equivalent nuclei. Spin system can only be manipulated one at 
+a time. </p>
+   
+  <p><img src="simulation_popup.gif" alt="simulation popup menu"
+ height="597" width="172" align="middle">
+  <br>
+ &nbsp;</p>
+ 
+</ul>
+    
+<h4>   
+<hr width="100%">General Parameters</h4>
+    
+<ul>
+ If no experimental spectrum is present, use <b>General Parameters</b> to 
+modify the characteristics of the simulated spectrum. The parameters reflect 
+the settings of the spectrum in block 1. Make sure that this spectrum is properly
+calibrated, before starting the simulation.    
+  <p><img src="simulation_parameters.gif" height="498" width="201"
+ alt="Simulation parameters popup menu" align="middle">
+  <br>
+ &nbsp; </p>
+   
+  <ul>
+ &nbsp;   
+  </ul>
+   
+</ul>
+    
+<h4> <a name="Units"></a>Units</h4>
+    
+<ul>
+ Use PPM or Hertz for the chemical shifts. PPM is only valid to define shifts 
+and for some output options. All the work is done in Hertz. 
+</ul>
+    
+<h2>   
+<hr width="100%">Spin Systems</h2>
+    
+<h4> Number of spin systems</h4>
+    
+<blockquote>In many case, only one spin system will be simulated (the default).
+ If more spin systems are required, set the total number here.    
+  <p><img src="simulation_num_spinsys.gif"
+ alt="Set number of spin systems" height="55" width="222">
+   </p>
+ </blockquote>
+    
+<h4> Select</h4>
+    
+<blockquote>Select the active spin system. That is the spin system that can 
+be manipulated.    
+  <p><img src="simulation_select_spinsys.gif"
+ alt="Set visibility of spin systems" height="58" width="205">
+   </p>
+ </blockquote>
+    
+<h4> Visisble</h4>
+    
+<blockquote>Select which spin systems are visible.    
+  <p><img src="simulation_visible_spinsys.gif"
+ alt="Set visibility of spin systems" height="127" width="137">
+   </p>
+ </blockquote>
+    
+<h4> Scale</h4>
+    
+<blockquote>Set a scalings factor for each spin system. Normally, these factors 
+are all 1.000. For a simulation of a mixture, different scaling factors can 
+be applied. For example: if the spectrum of a reducing monosaccharide is simulated.
+The simullation of the alpha component is loaded in spin system 1, and the
+beta component in spin system 2. The scaling factors for 1 and 2 can be set
+to the apha/beta ratio.    
+  <p><img src="simulation_scale_spinsys.gif"
+ alt="Set visibility of spin systems" height="168" width="151">
+  <br>
+ &nbsp;</p>
+ </blockquote>
+    
+<h2>   
+<hr width="100%">Set up Spin System</h2>
+    
+<h4> Number of Spin Groups</h4>
+    
+<ul>
+ With N<b>umber of Spin Groups</b>, the number of spins (or spin groups)
+is selected. This number ranges from 2 to 10. A Spin Group is either single
+spin or a set of equivalent spins, like the protons in CH<sub>3</sub>.  
+ 
+  <p><img src="simulation_number_of_spins.gif" height="50" width="232"
+ align="bottom">
+   </p>
+ 
+</ul>
+    
+<h4> Spins and Couplings</h4>
+    
+<ul>
+ Now with <b>Spins and Couplings</b>, add the proper values. In our example 
+we have two spins, and one coupling. If there are more spins, all possible 
+coupling can be edited, although some obviously should be kept 0. Note that 
+shifts are added in Hertz, not PPM, if <u><font color="#0000ff"><a
+ href="#Units">Units</a></font></u> is set to Hertz. Select an item and press 
+  <b>Shifts and Couplings</b> to change its value.    
+  <p><img src="simulation_edit_shift_2.gif" height="56" width="149"
+ align="middle" alt="Edit chemical shift number 2">
+  <br>
+ &nbsp; </p>
+   
+  <p>Use <b>Set Number of Spins for Shift</b> to set the number of spins
+in a spin group, for example 3 for CH<sub>3</sub>. Use <b>Set Isotope Number
+ for Spin(s)</b> to set the isotope identifier. For example, use 1 for protons
+ and 2 for Carbon. The value of the isotope identifiers do not matter as
+long as different isotopes have unique identifiers. </p>
+   
+  <p><img src="simulation_edit_spins.gif" height="280" width="209"
+ align="middle" alt="Edit spins and couplings popup">
+  </p>
+   
+  <p>Finally press the <b>Plot</b> button to calculate and display the spectrum.
+ Remember to use <b>Plot</b> whenever a change to the simulated spectrum
+has taken place and the spectrum should be refreshed. <br>
+ &nbsp;</p>
+ 
+</ul>
+    
+<h2>   
+<hr width="100%">Set up Iteration</h2>
+    
+<h4> <a name="Transitions"></a>Transitions</h4>
+    
+<ul>
+   
+  <p>Select a peak in the simulated spectrum and press the left mouse button. 
+A popup window shows the selected transition(s) and the corresponding frequency. 
+This frequency can be changed to a value that corresponds with a peak in the
+recorded spectrum. Check the frequencies that should be updated. Repeat this
+for all transitions that should be shifted to a different position. </p>
+   
+  <p><img src="simulation_set_transition_box.gif" height="105"
+ width="222">
+   </p>
+ 
+</ul>
+    
+<ul>
+ New transitions can be added, and transitions can be changed with the <b>Transitions
+ option. </b>Also use this option to remove a transition or to clear all
+transitions.    
+  <p><img src="simulation_assign_transition.gif" height="276"
+ width="129" align="bottom">
+   </p>
+ 
+</ul>
+    
+<h4> <a name="Iteration Parameters"></a>Iteration Parameters</h4>
+    
+<ul>
+ It is often not a good idea to iterate all parameters at the same time.
+With   <b>Iteration Parameters</b>, one can select the shifts and couplings
+that should be iterated. In our example, both shifts and their couplings
+in a two spin system are marked for iteration.    
+  <p><img src="simulation_iteration_params.gif" height="66" width="128"
+ align="bottom">
+   </p>
+ 
+</ul>
+    
+<ul>
+ &nbsp; 
+</ul>
+    
+<h2>   
+<hr width="100%"><a name="Read/Write Parameters"></a>Parameter I/O</h2>
+    
+<ul>
+ Read or write the current simulated spectrum (spin system) with all parameters. 
+Example of a simulation parameter file:    
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # SIMULATION PARAMETERS</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =======================</tt>
+   </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Number of spin groups</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NG&nbsp; 3</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Spectrometer frequency</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SF&nbsp; 500.137</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Number of data points</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SI&nbsp; 16384</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Sweep Width</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SW&nbsp; 4000.0</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Reference channel</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REF&nbsp; 14536</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Line width</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LW&nbsp; 0.700</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Chemical shifts</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PPM</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D&nbsp;&nbsp; 1&nbsp; 4.76</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D&nbsp;&nbsp; 2&nbsp; 3.93</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D&nbsp;&nbsp; 3&nbsp; 3.76</tt>
+   </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Chemical shift: equivalent
+ nuclei per spin group</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S&nbsp;&nbsp; 1&nbsp; 1</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S&nbsp;&nbsp; 2&nbsp; 1</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S&nbsp;&nbsp; 3&nbsp; 1</tt>
+   </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Chemical shift: isotope
+ identifier</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I&nbsp;&nbsp; 1&nbsp; 1</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I&nbsp;&nbsp; 2&nbsp; 1</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I&nbsp;&nbsp; 3&nbsp; 1</tt>
+   </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Coupling constants</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; J&nbsp;&nbsp; 1&nbsp; 2&nbsp; 
+1.80</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; J&nbsp;&nbsp; 2&nbsp; 3&nbsp; 
+3.50</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Assigned Transitions</tt>
+   </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Iteration Parameters</tt>
+   </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # LSQ stuff</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ===========================</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Number of iterations</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NI&nbsp; 2</tt> <br>
+ &nbsp; </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Genetic algorithm stuff</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ===========================</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Number of function calls</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NFC&nbsp; 1000</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Number of populations</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NP&nbsp; 1</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Population size</tt>
+   <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POP 50</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Boundaries for step
+ sizes (percentage)</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STEP 5.0 %</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # No of children per
+parent to select from</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CHILD 6</tt> </p>
+   
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Neighborhood radius
+ to select from</tt> <br>
+   <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RADIUS 5</tt></p>
+ 
+</ul>
+    
+<hr width="100%">  
+<h2> Show</h2>
+    
+<h4> Iterated Parameters</h4>
+    
+<ul>
+ Show all chemical shift and couplings, together with applied corrections
+and errors.    
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Iterated parameters:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Isotope&nbsp;&nbsp;&nbsp;&nbsp; Chemical shifts&nbsp;&nbsp;&nbsp; Correction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Errors<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; w(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.760 ppm not iterated<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; w(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.917 ppm&nbsp;&nbsp;&nbsp; -0.013 ppm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.001 ppm<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; w(3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.777 ppm&nbsp;&nbsp;&nbsp;&nbsp; 0.017 ppm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.001 ppm<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Coupling constants&nbsp;&nbsp;&nbsp; Correction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Errors<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j(1,2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.800 hz&nbsp;&nbsp;&nbsp;&nbsp; not iterated<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j(1,3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.000 hz&nbsp;&nbsp;&nbsp;&nbsp; not iterated<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j(2,3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.500 hz&nbsp;&nbsp;&nbsp;&nbsp; not iterated</pre>
+   
+</ul>
+    
+<h4> Iterated/All Transitions</h4>
+    
+<ul>
+ Show calculated and experimental transitions.    
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fitted spectrum<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line&nbsp; trans.&nbsp;&nbsp;&nbsp;&nbsp; frequency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; error&nbsp; int.&nbsp; origin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no.&nbsp;&nbsp;&nbsp;&nbsp; calc.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exp.&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp; 14&nbsp;&nbsp; 1950.000&nbsp;&nbsp; 1952.000&nbsp;&nbsp; 2.000&nbsp; 0.95&nbsp; e( 6) - e( 8)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp; 12&nbsp;&nbsp; 1943.346&nbsp;&nbsp; 1943.346&nbsp;&nbsp; 0.000&nbsp; 0.91&nbsp; e( 4) - e( 7)</pre>
+   
+</ul>
+    
+<h4> <a name="Iteration/All Dependencies"></a>Iteration/All Dependencies</h4>
+    
+<ul>
+ This command shows all the transitions with intensities and the dependence
+ of each transition on the iteration parameters. The transitions that are
+assigned by the user to another frequency (experimental frequencies), are
+marked with a star.    
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dependence of the transition frequency on nmr parameters<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (* denotes transitions assigned for the iterative computation)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; trans.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int.&nbsp;&nbsp; frequency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parameters<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; calc.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j(1,2)&nbsp; w(2)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j(2,3)&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =======================================================<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.98&nbsp;&nbsp; 2384.009&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -0.51&nbsp;&nbsp;&nbsp; 0.00&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.98&nbsp;&nbsp; 2384.000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -0.51&nbsp;&nbsp;&nbsp; 0.00&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.02&nbsp;&nbsp; 2377.354&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.49&nbsp;&nbsp; -0.00&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.02&nbsp;&nbsp; 2377.346&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.49&nbsp;&nbsp;&nbsp; 0.00&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.95&nbsp;&nbsp; 1950.000 *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -0.49&nbsp;&nbsp;&nbsp; 0.47&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.08&nbsp;&nbsp; 1945.579&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -0.49&nbsp;&nbsp;&nbsp; 1.47&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.91&nbsp;&nbsp; 1943.346 *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.51&nbsp;&nbsp;&nbsp; 0.46&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.06&nbsp;&nbsp; 1938.925&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.51&nbsp;&nbsp;&nbsp; 1.46&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.07&nbsp;&nbsp; 1882.653&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -0.00&nbsp;&nbsp; -0.47&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.07&nbsp;&nbsp; 1882.645&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00&nbsp;&nbsp; -0.46&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.93&nbsp;&nbsp; 1878.232&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -0.00&nbsp;&nbsp;&nbsp; 0.53&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.93&nbsp;&nbsp; 1878.224&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00&nbsp;&nbsp;&nbsp; 0.54</pre>
+   
+</ul>
+    
+<hr width="100%">  
+<h2> Iterate</h2>
+    
+<ul>
+ Usually, the simulated spectrum will not completely match the recorded one. 
+To improve the match, one can use iteration. The first thing to do is to 
+ <a href="#Transitions">assign transitions</a> to a frequency. This can be
+done interactively with the mouse, or with a popup menu. The next thing is
+to <a href="#Iteration%20Parameters">select chemical shifts and couplings</a> 
+that can be iterated. Its is very important to select only those shifts and 
+couplings, that are dependent on the selected transitions. Otherwise, the 
+iteration algorithm will change these values randomly. Use <a
+ href="#Iteration/All%20Dependencies">show dependencies</a>, to check if the
+iteration parameters are chosen well. 
+</ul>
+    
+<h4> Least squares fit</h4>
+    
+<ul>
+ Use least squares to fit calculated and defined transitions. Works fast
+if the iteration parameters are relatively independent (see also parameter
+dependencies). If both shifts and couplings are fitted, output can be terrible.
+In that case use different algorithm.    
+  <p><img src="simulation_iterate_lsq.gif" height="134" width="206"
+ align="bottom">
+  <br>
+ &nbsp;</p>
+ 
+</ul>
+    
+<h4> Simplex routine</h4>
+    
+<ul>
+ Use simplex routine for spectral refinement. Slower than least squares fit, 
+but uses full eigenvalue calculations for the fit. Both shifts and couplings 
+can be fitted concurrently.    
+  <p><img src="simulation_iterate_simpex.gif" height="136" width="205">
+   </p>
+ 
+</ul>
+    
+<ul>
+  <h4> Trace:</h4>
+  Set the amount of output. <b>NO </b>= show no results, <b>Lowest</b> =
+show if result is better, <b>All</b> = show all results. <br>
+ &nbsp;    
+  <h4> Re-assign transitions:</h4>
+  When two transitions swap positions, their numbers change. If this option
+ is set to YES, this change is included in the current iteration set. 
+</ul>
+    
+<h4> Undo/Redo Iteration</h4>
+    
+<ul>
+ If the success of an iteration cycle is not obvious, use these buttons to 
+toggle between the different spectra. 
+</ul>
+    
+<hr width="100%">  
+<h2> Calc/Plot spectrum</h2>
+    
+<ul>
+ Use this option to update the simulated spectrum. In the example below,
+the simulated spectrum is displayed in the upper lane (in block 2) and the
+measured spectrum is displayed in the lower lane (in block 1). The relative
+scale and position of both spectra can be modified with the <u><font
+ color="#0000ff"><a href="display.html#Display%20Adjust">display adjust</a></font></u> 
+option.    
+  <p><img src="simulation_dual_display.gif" height="196" width="207"
+ align="bottom">
+   </p>
+ 
+</ul>
+    
+<hr width="100%"> <br>
+ &nbsp; <br>
+ <br>
+</body>
+</html>

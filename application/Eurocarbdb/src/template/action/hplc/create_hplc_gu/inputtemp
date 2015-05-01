@@ -1,0 +1,7 @@
+<#assign title>Create Instrument</#assign>
+<#include "/template/common/header.ftl" />
+
+<h1>test</h1>
+
+<#include "/template/common/footer.ftl" />
+

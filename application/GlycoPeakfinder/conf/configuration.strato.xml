@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration 
+	database_name="glycopeakfinder"
+	database_ip="127.0.0.1"
+	database_port="5432"
+	database_user="glycopeakfinder"
+	database_pw="peakfinder"
+	schema_name="glycopeakfinder"
+	base_url="http://www.glyco-peakfinder.org"	>
+</configuration>

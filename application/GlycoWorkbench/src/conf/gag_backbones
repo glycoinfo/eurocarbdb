@@ -1,0 +1,7 @@
+% family	motif				unit_size	acetyl pos	opt ac pos	sulfate pos	description
+heparin		4b1D-GlcN,p--4a1D-IdoA,p	2		-		0#N		0#3,0#6,0#N,1#2	heparin
+heparan		4b1D-GlcN,p--4a1D-HexA,p	2		0#N		-		0#6,0#N,1#2	heparan sulphate
+dermatan	4b1D-GalNAc,p--3b1D-IdoA,p	2		-		-		0#4		dermatan sulphate
+chondroitinA	4b1D-GalNAc,p--3b1D-GlcA,p	2		-		-		0#4		chondroitin sulphate A
+chondroitinC	4b1D-GalNAc,p--3b1D-GlcA,p	2		-		-		0#6		chondroitin sulphate C
+chondroitinD	4b1D-GalNAc,p--3b1D-GlcA,p	2		-		-		0#6,1#2		chondroitin sulphate D

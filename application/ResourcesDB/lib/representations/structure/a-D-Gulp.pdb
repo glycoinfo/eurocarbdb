@@ -1,0 +1,52 @@
+HEADER
+COMPND
+SOURCE
+HETATM    1  C     1     1       1.283  -0.808   0.160
+HETATM    2  C     1     1       0.623  -0.660   1.551
+HETATM    3  C     1     1      -0.899  -0.893   1.529
+HETATM    4  C     1     1      -1.526  -0.012   0.434
+HETATM    5  C     1     1      -0.806  -0.235  -0.918
+HETATM    6  C     1     1      -1.303   0.674  -2.061
+HETATM    7  O     6     1       1.188  -1.591   2.465
+HETATM    8  O     6     1       0.596  -0.005  -0.789
+HETATM    9  O     6     1      -1.017   2.032  -1.774
+HETATM   10  H    21     1       2.118  -1.423   2.535
+HETATM   11  H    21     1      -0.080   2.083  -1.625
+HETATM   12  O     6     1       1.257  -2.134  -0.332
+HETATM   13  O     6     1      -1.142  -2.251   1.192
+HETATM   14  O     6     1      -1.384   1.334   0.867
+HETATM   15  H    21     1       0.444  -2.543  -0.057
+HETATM   16  H    21     1      -0.762  -2.767   1.895
+HETATM   17  H    21     1      -1.659   1.906   0.160
+HETATM   18  H     5     1      -0.983  -1.287  -1.244
+HETATM   19  H     5     1      -0.823   0.389  -3.026
+HETATM   20  H     5     1      -2.401   0.556  -2.198
+HETATM   21  H     5     1       2.344  -0.468   0.214
+HETATM   22  H     5     1       0.815   0.375   1.925
+HETATM   23  H     5     1      -1.352  -0.658   2.521
+HETATM   24  H     5     1      -2.611  -0.256   0.330
+CONECT    1    2    8   12   21
+CONECT    2    1    3    7   22
+CONECT    3    2    4   13   23
+CONECT    4    3    5   14   24
+CONECT    5    4    6    8   18
+CONECT    6    5    9   19   20
+CONECT    7    2   10
+CONECT    8    1    5
+CONECT    9    6   11
+CONECT   10    7
+CONECT   11    9
+CONECT   12    1   15
+CONECT   13    3   16
+CONECT   14    4   17
+CONECT   15   12
+CONECT   16   13
+CONECT   17   14
+CONECT   18    5
+CONECT   19    6
+CONECT   20    6
+CONECT   21    1
+CONECT   22    2
+CONECT   23    3
+CONECT   24    4
+END

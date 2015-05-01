@@ -1,0 +1,238 @@
+# Hudson's rules of isorotation as
+# applied to furanosides, and the conformations
+# of methyl aldofuranosides
+# S.J. Angyal
+# (proton data)
+set ref 'Carbohydr. Res. 77 (1979) 37-50
+set h_corr 0
+
+# Carbon-13 Chemical Shifts of Furanosides and
+# Cyclopentanols. Configurational and Conformational
+# Influences
+# R.G.S. Ritchie, N. Cyr, B. Korsch, H.J. Koch,
+# A.S. Perlin
+# (13C-data)
+set ref ref+'Can. J. Chem. 53 (1975) 1424-1433
+# this is not certain yet and has to be checked!
+set c_corr 2.25
+
+residue aDEryfOMe TetfOMe {
+carbbank 'a-D-Eryf-(1-1)-Methyl
+config D
+shift 103.6 4.88
+shift  72.8 4.10
+shift  69.9 4.22
+shift  73.6 3.85 4.11
+shift  56.7 3.38
+info 'Methyl a-D-erythrofuranoside'
+correct $c_corr $h_corr
+}
+
+residue aDRibfOMe PenfOMe {
+carbbank 'a-D-Ribf-(1-1)-Methyl
+config D
+shift 103.1 4.98
+shift  71.1 4.10
+shift  69.8 4.03
+shift  84.6 4.09
+shift  61.9 3.66 3.72
+shift  55.5 3.42
+info 'Methyl a-D-ribofuranoside'
+correct $c_corr $h_corr
+}
+
+residue aDAllfOMe HexfOMe {
+carbbank 'a-D-Allf-(1-1)-Methyl
+config D
+shift 103.8 4.96
+shift  72.3 4.07
+shift  69.9 4.13
+shift  85.9 4.04
+shift  72.7 3.79
+shift  63.5 3.59 3.69
+shift  56.6 3.41
+info 'Methyl a-D-allofuranoside'
+correct $c_corr $h_corr
+}
+
+residue bDEryfOMe TetfOMe {
+carbbank 'b-D-Eryf-(1-1)-Methyl
+config D
+shift 109.6 4.91
+shift  76.4 4.04
+shift  71.4 4.36
+shift  72.6 3.18 4.12
+shift  56.6 3.39
+info 'Methyl b-D-erythrofuranoside'
+correct $c_corr $h_corr
+}
+
+residue bDRibfOMe PenfOMe {
+carbbank 'b-D-Ribf-(1-1)-Methyl
+config D
+shift 108.0 4.89
+shift  74.3 4.02
+shift  70.9 4.14
+shift  83.0 4.00
+shift  62.9 3.59 3.78
+shift  55.3 3.39
+info 'Methyl b-D-ribofuranoside'
+correct $c_corr $h_corr
+}
+
+residue bDAllfOMe HexfOMe {
+carbbank 'b-D-Allf-(1-1)-Methyl
+config D
+shift 109.0 4.87
+shift  75.6 4.04
+shift  72.7 4.35
+shift  83.4 3.90
+shift  73.8 (3.75)
+shift  63.9 (3.75) (3.75)
+shift  56.4 3.38
+info 'Methyl b-D-allofuranoside'
+correct $c_corr $h_corr
+}
+
+residue aDLyxfOMe PenfOMe {
+carbbank 'a-D-Lyxf-(1-1)-Methyl'
+config D
+shift 109.2 4.94
+shift  77.0 4.11
+shift  72.2 4.32
+shift  81.4 4.24
+shift  61.5 3.73 3.80
+shift  56.9 3.43
+info 'Methyl a-D-lyxofuranoside'
+correct $c_corr $h_corr
+}
+
+#residue aDManfOMe HexfOMe {
+#config D
+#shift 109.7 4.93
+#shift  77.9 4.12
+#shift  72.5 4.31
+#shift  80.5 3.97
+#shift  70.6 -
+#shift  64.5 - -
+#shift  57.2 3.43
+#correct $c_corr $h_corr
+#}
+
+residue bDLyxfOMe PenfOMe {
+carbbank 'b-D-Lyxf-(1-1)-Methyl'
+config D
+shift 103.3 4.90
+shift  73.2 4.19
+shift  71.0 4.24
+shift  82.1 4.17
+shift  62.7 3.71 3.83
+shift  56.7 3.39
+info 'Methyl b-D-lyxofuranoside'
+correct $c_corr $h_corr
+}
+
+#residue bDManfOMe HexfOMe {
+#config D
+#shift 103.6 4.87
+#shift  73.1 4.20
+#shift  71.2 4.28
+#shift  80.7 3.98
+#shift  71.0 -
+#shift  64.4 3.68 -
+#shift  56.8 3.37
+#correct $c_corr $h_corr
+#}
+
+residue aLArafOMe PenfOMe {
+carbbank 'a-L-Araf-(1-1)-Methyl'
+config L
+shift 109.2 4.91
+shift  81.8 4.04
+shift  77.5 3.93
+shift  84.9 4.03
+shift  62.4 3.68 3.80
+shift  56.0 3.40
+info 'Methyl a-L-arabinofuranoside'
+correct $c_corr $h_corr
+}
+
+residue bDGalfOMe HexfOMe {
+carbbank 'b-D-Galf-(1-1)-Methyl'
+config D
+shift 109.9 4.89
+shift  81.3 (4.03)
+shift  78.4 (4.03)
+shift  84.7 3.93
+shift  71.7 3.80
+shift  63.6 3.63 3.69
+shift  55.6 3.39
+info 'Methyl b-D-galactofuranoside'
+correct $c_corr $h_corr
+}
+
+#residue aDGalfOMe HexfOMe {
+#config D
+#shift 103.8 4.86
+#shift  78.2 4.07-4.14
+#shift  76.2 4.07-4.14
+#shift  83.1 4.07-4.14
+#shift  74.5 3.66-3.79
+#shift  64.1 3.66-3.79 3.58
+#shift  57.2 3.41
+#correct $c_corr $h_corr
+#}
+
+residue aDXylfOMe PenfOMe {
+carbbank 'a-D-Xylf-(1-1)-Methyl'
+config D
+shift 103.0 4.99
+shift  77.8 4.14
+shift  76.2 4.29
+shift  79.3 4.25
+shift  61.6 3.69 3.76
+shift  56.7 3.44
+info 'Methyl a-D-xylofuranoside'
+correct $c_corr $h_corr
+}
+
+residue aDGlcfOMe HexfOMe {
+carbbank 'a-D-Glcf-(1-1)-Methyl'
+config D
+shift 104.0 5.06
+shift  77.7 4.15
+shift  76.6 4.28
+shift  78.8 4.08
+shift  70.7 3.86
+shift  64.2 3.64 3.78
+shift  57.0 3.44
+info 'Methyl a-D-glucofuranoside'
+correct $c_corr $h_corr
+}
+
+residue bDXylfOMe PenfOMe {
+carbbank 'b-D-Xylf-(1-1)-Methyl'
+config D
+shift 109.7 4.89
+shift  81.0 4.11
+shift  76.0 4.21
+shift  83.6 4.33
+shift  62.2 3.73 3.84
+shift  56.4 3.39
+info 'Methyl b-D-xylofuranoside'
+correct $c_corr $h_corr
+}
+
+residue bDGlcfOMe HexfOMe {
+carbbank 'b-D-Glcf-(1-1)-Methyl'
+config D
+shift 110.0 4.87
+shift  80.6 4.13
+shift  75.8 4.23
+shift  82.3 4.17
+shift  70.7 3.94
+shift  64.7 3.69 3.85
+shift  56.3 3.35
+info 'Methyl b-D-glucofuranoside'
+correct $c_corr $h_corr
+}

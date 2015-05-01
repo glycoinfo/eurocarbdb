@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<defaults>
+<residues>
+<residue>
+	<name>N-Acetylneuraminic acid</name>
+	<abbr>neu5ac</abbr>
+	<pos>7</pos>
+	<pm>7</pm>
+	<pac>5</pac>
+	<mass_mono>309.1059804</mass_mono>
+	<mass_avg>309.271163</mass_avg>
+	<mass_pm_mono>407.2155304</mass_pm_mono>
+	<mass_pm_avg>407.457881</mass_pm_avg>
+	<mass_pdm_mono>428.3473432</mass_pdm_mono>
+	<mass_pdm_avg>428.5871318</mass_pdm_avg>
+	<mass_pac_mono>519.1588034</mass_pac_mono>
+	<mass_pac_avg>519.455583</mass_pac_avg>
+	<mass_pdac_mono>534.2529554</mass_pdac_mono>
+	<mass_pdac_avg>534.547905</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>Hexuronic acid</name>
+	<abbr>hexa</abbr>
+	<pos>5</pos>
+	<pm>5</pm>
+	<pac>4</pac>
+	<mass_mono>194.0426522</mass_mono>
+	<mass_avg>194.14016</mass_avg>
+	<mass_pm_mono>264.1209022</mass_pm_mono>
+	<mass_pm_avg>264.27353</mass_pm_avg>
+	<mass_pdm_mono>279.2150542</mass_pdm_mono>
+	<mass_pdm_avg>279.365852</mass_pdm_avg>
+	<mass_pac_mono>362.0849106</mass_pac_mono>
+	<mass_pac_avg>362.287696</mass_pac_avg>
+	<mass_pdac_mono>374.1602322</mass_pdac_mono>
+	<mass_pdac_avg>374.3615536</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>Muramic acid</name>
+	<abbr>mur</abbr>
+	<pos>5</pos>
+	<pm>5</pm>
+	<pac>3</pac>
+	<mass_mono>293.1110658</mass_mono>
+	<mass_avg>293.271733</mass_avg>
+	<mass_pm_mono>363.1893158</mass_pm_mono>
+	<mass_pm_avg>363.405103</mass_pm_avg>
+	<mass_pdm_mono>378.2834678</mass_pdm_mono>
+	<mass_pdm_avg>378.497425</mass_pdm_avg>
+	<mass_pac_mono>419.1427596</mass_pac_mono>
+	<mass_pac_avg>419.382385</mass_pac_avg>
+	<mass_pdac_mono>428.1992508</mass_pdac_mono>
+	<mass_pdac_avg>428.4377782</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>KDO</name>
+	<abbr>kdo</abbr>
+	<pos>6</pos>
+	<pm>6</pm>
+	<pac>5</pac>
+	<mass_mono>238.0688668</mass_mono>
+	<mass_avg>238.192938</mass_avg>
+	<mass_pm_mono>322.1627668</mass_pm_mono>
+	<mass_pm_avg>322.352982</mass_pm_avg>
+	<mass_pdm_mono>340.2757492</mass_pdm_mono>
+	<mass_pdm_avg>340.4637684</mass_pdm_avg>
+	<mass_pac_mono>448.1216898</mass_pac_mono>
+	<mass_pac_avg>448.377358</mass_pac_avg>
+	<mass_pdac_mono>463.2158418</mass_pdac_mono>
+	<mass_pdac_avg>463.46968</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>KDN</name>
+	<abbr>kdn</abbr>
+	<pos>7</pos>
+	<pm>7</pm>
+	<pac>6</pac>
+	<mass_mono>268.0794314</mass_mono>
+	<mass_avg>268.219042</mass_avg>
+	<mass_pm_mono>366.1889814</mass_pm_mono>
+	<mass_pm_avg>366.40576</mass_pm_avg>
+	<mass_pdm_mono>387.3207942</mass_pdm_mono>
+	<mass_pdm_avg>387.5350108</mass_pdm_avg>
+	<mass_pac_mono>520.142819</mass_pac_mono>
+	<mass_pac_avg>520.440346</mass_pac_avg>
+	<mass_pdac_mono>538.2558014</mass_pdac_mono>
+	<mass_pdac_avg>538.5511324</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>2-N-Acetylhexosamine</name>
+	<abbr>hexnac</abbr>
+	<pos>5</pos>
+	<pm>5</pm>
+	<pac>4</pac>
+	<mass_mono>221.0899366</mass_mono>
+	<mass_avg>221.208745</mass_avg>
+	<mass_pm_mono>291.1681866</mass_pm_mono>
+	<mass_pm_avg>291.342115</mass_pm_avg>
+	<mass_pdm_mono>306.2623386</mass_pdm_mono>
+	<mass_pdm_avg>306.434437</mass_pdm_avg>
+	<mass_pac_mono>389.132195</mass_pac_mono>
+	<mass_pac_avg>389.356281</mass_pac_avg>
+	<mass_pdac_mono>401.2075166</mass_pdac_mono>
+	<mass_pdac_avg>401.4301386</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>2-Hexosamine</name>
+	<abbr>hexn</abbr>
+	<pos>5</pos>
+	<pm>6</pm>
+	<pac>5</pac>
+	<mass_mono>179.079372</mass_mono>
+	<mass_avg>179.171861</mass_avg>
+	<mass_pm_mono>263.173272</mass_pm_mono>
+	<mass_pm_avg>263.331905</mass_pm_avg>
+	<mass_pdm_mono>281.2862544</mass_pdm_mono>
+	<mass_pdm_avg>281.4426914</mass_pdm_avg>
+	<mass_pac_mono>389.132195</mass_pac_mono>
+	<mass_pac_avg>389.356281</mass_pac_avg>
+	<mass_pdac_mono>404.226347</mass_pdac_mono>
+	<mass_pdac_avg>404.448603</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>4-O-Methylhexose</name>
+	<abbr>(4mehex)</abbr>
+	<pos>4</pos>
+	<pm>4</pm>
+	<pac>4</pac>
+	<mass_mono>194.0790376</mass_mono>
+	<mass_avg>194.183298</mass_avg>
+	<mass_pm_mono>250.1416376</mass_pm_mono>
+	<mass_pm_avg>250.289994</mass_pm_avg>
+	<mass_pdm_mono>262.2169592</mass_pdm_mono>
+	<mass_pdm_avg>262.3638516</mass_pdm_avg>
+	<mass_pac_mono>362.121296</mass_pac_mono>
+	<mass_pac_avg>362.330834</mass_pac_avg>
+	<mass_pdac_mono>374.1966176</mass_pdac_mono>
+	<mass_pdac_avg>374.4046916</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>5-Deoxypentose</name>
+	<abbr>dpen</abbr>
+	<pos>3</pos>
+	<pm>3</pm>
+	<pac>3</pac>
+	<mass_mono>134.0579084</mass_mono>
+	<mass_avg>134.13109</mass_avg>
+	<mass_pm_mono>176.1048584</mass_pm_mono>
+	<mass_pm_avg>176.211112</mass_pm_avg>
+	<mass_pdm_mono>185.1613496</mass_pdm_mono>
+	<mass_pdm_avg>185.2665052</mass_pdm_avg>
+	<mass_pac_mono>260.0896022</mass_pac_mono>
+	<mass_pac_avg>260.241742</mass_pac_avg>
+	<mass_pdac_mono>269.1460934</mass_pdac_mono>
+	<mass_pdac_avg>269.2971352</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>6-Deoxyhexose</name>
+	<abbr>dhex</abbr>
+	<pos>4</pos>
+	<pm>4</pm>
+	<pac>4</pac>
+	<mass_mono>164.068473</mass_mono>
+	<mass_avg>164.157194</mass_avg>
+	<mass_pm_mono>220.131073</mass_pm_mono>
+	<mass_pm_avg>220.26389</mass_pm_avg>
+	<mass_pdm_mono>232.2063946</mass_pdm_mono>
+	<mass_pdm_avg>232.3377476</mass_pdm_avg>
+	<mass_pac_mono>332.1107314</mass_pac_mono>
+	<mass_pac_avg>332.30473</mass_pac_avg>
+	<mass_pdac_mono>344.186053</mass_pdac_mono>
+	<mass_pdac_avg>344.3785876</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>Heptose</name>
+	<abbr>hep</abbr>
+	<pos>6</pos>
+	<pm>6</pm>
+	<pac>6</pac>
+	<mass_mono>210.0739522</mass_mono>
+	<mass_avg>210.182728</mass_avg>
+	<mass_pm_mono>294.1678522</mass_pm_mono>
+	<mass_pm_avg>294.342772</mass_pm_avg>
+	<mass_pdm_mono>312.2808346</mass_pdm_mono>
+	<mass_pdm_avg>312.4535584</mass_pdm_avg>
+	<mass_pac_mono>462.1373398</mass_pac_mono>
+	<mass_pac_avg>462.404032</mass_pac_avg>
+	<mass_pdac_mono>480.2503222</mass_pdac_mono>
+	<mass_pdac_avg>480.5148184</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>Pentose</name>
+	<abbr>pen</abbr>
+	<pos>4</pos>
+	<pm>4</pm>
+	<pac>4</pac>
+	<mass_mono>150.052823</mass_mono>
+	<mass_avg>150.13052</mass_avg>
+	<mass_pm_mono>206.115423</mass_pm_mono>
+	<mass_pm_avg>206.237216</mass_pm_avg>
+	<mass_pdm_mono>218.1907446</mass_pdm_mono>
+	<mass_pdm_avg>218.3110736</mass_pdm_avg>
+	<mass_pac_mono>318.0950814</mass_pac_mono>
+	<mass_pac_avg>318.278056</mass_pac_avg>
+	<mass_pdac_mono>330.170403</mass_pdac_mono>
+	<mass_pdac_avg>330.3519136</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>Hexose</name>
+	<abbr>hex</abbr>
+	<pos>5</pos>
+	<pm>5</pm>
+	<pac>5</pac>
+	<mass_mono>180.0633876</mass_mono>
+	<mass_avg>180.156624</mass_avg>
+	<mass_pm_mono>250.1416376</mass_pm_mono>
+	<mass_pm_avg>250.289994</mass_pm_avg>
+	<mass_pdm_mono>265.2357896</mass_pdm_mono>
+	<mass_pdm_avg>265.382316</mass_pdm_avg>
+	<mass_pac_mono>390.1162106</mass_pac_mono>
+	<mass_pac_avg>390.341044</mass_pac_avg>
+	<mass_pdac_mono>405.2103626</mass_pdac_mono>
+	<mass_pdac_avg>405.433366</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>Sulphate</name>
+	<abbr>s</abbr>
+	<pos>1</pos>
+	<pm>0</pm>
+	<pac>0</pac>
+	<mass_mono>79.9568145</mass_mono>
+	<mass_avg>80.06379</mass_avg>
+	<mass_pm_mono>65.9411645</mass_pm_mono>
+	<mass_pm_avg>66.037116</mass_pm_avg>
+	<mass_pdm_mono>62.9223341</mass_pdm_mono>
+	<mass_pdm_avg>63.0186516</mass_pdm_avg>
+	<mass_pac_mono>37.9462499</mass_pac_mono>
+	<mass_pac_avg>38.026906</mass_pac_avg>
+	<mass_pdac_mono>34.9274195</mass_pdac_mono>
+	<mass_pdac_avg>35.0084416</mass_pdac_avg>
+	<increment>1</increment>
+</residue>
+<residue>
+	<name>Phosphate</name>
+	<abbr>p</abbr>
+	<pos>2</pos>
+	<pm>2</pm>
+	<pac>0</pac>
+	<mass_mono>79.9663298</mass_mono>
+	<mass_avg>79.9799982</mass_avg>
+	<mass_pm_mono>93.9819798</mass_pm_mono>
+	<mass_pm_avg>94.0066722</mass_pm_avg>
+	<mass_pdm_mono>97.0008102</mass_pdm_mono>
+	<mass_pdm_avg>97.0251366</mass_pdm_avg>
+	<mass_pac_mono>37.9557652</mass_pac_mono>
+	<mass_pac_avg>37.9431142</mass_pac_avg>
+	<mass_pdac_mono>34.9369348</mass_pdac_mono>
+	<mass_pdac_avg>34.9246498</mass_pdac_avg>
+	<increment>1</increment>
+</residue>
+<residue>
+	<name>Phosphocholine</name>
+	<abbr>pc</abbr>
+	<pos>1</pos>
+	<pm>1</pm>
+	<pac>0</pac>
+	<mass_mono>165.0554788</mass_mono>
+	<mass_avg>165.1280352</mass_avg>
+	<mass_pm_mono>165.0554788</mass_pm_mono>
+	<mass_pm_avg>165.1280352</mass_pm_avg>
+	<mass_pdm_mono>165.0554788</mass_pdm_mono>
+	<mass_pdm_avg>165.1280352</mass_pdm_avg>
+	<mass_pac_mono>123.0449142</mass_pac_mono>
+	<mass_pac_avg>123.0911512</mass_pac_avg>
+	<mass_pdac_mono>120.0260838</mass_pdac_mono>
+	<mass_pdac_avg>120.0726868</mass_pdac_avg>
+	<increment>1</increment>
+</residue>
+<residue>
+	<name>Pyruvate</name>
+	<abbr>pyr</abbr>
+	<pos>0</pos>
+	<pm>0</pm>
+	<pac>0</pac>
+	<mass_mono>70.0054792</mass_mono>
+	<mass_avg>70.047094</mass_avg>
+	<mass_pm_mono>55.9898292</mass_pm_mono>
+	<mass_pm_avg>56.02042</mass_pm_avg>
+	<mass_pdm_mono>52.9709988</mass_pdm_mono>
+	<mass_pdm_avg>53.0019556</mass_pdm_avg>
+	<mass_pac_mono>-14.01565</mass_pac_mono>
+	<mass_pac_avg>-14.026674</mass_pac_avg>
+	<mass_pdac_mono>-20.0533108</mass_pdac_mono>
+	<mass_pdac_avg>-20.0636028</mass_pdac_avg>
+	<increment>1</increment>
+</residue>
+<residue>
+	<name>Acetate</name>
+	<abbr>ac</abbr>
+	<pos>0</pos>
+	<pm>0</pm>
+	<pac>0</pac>
+	<mass_mono>42.0105646</mass_mono>
+	<mass_avg>42.036884</mass_avg>
+	<mass_pm_mono>-27.9949146</mass_pm_mono>
+	<mass_pm_avg>-28.01021</mass_pm_avg>
+	<mass_pdm_mono>-24.9760842</mass_pdm_mono>
+	<mass_pdm_avg>-24.9917456</mass_pdm_avg>
+	<mass_pac_mono>0</mass_pac_mono>
+	<mass_pac_avg>0</mass_pac_avg>
+	<mass_pdac_mono>-3.0188304</mass_pdac_mono>
+	<mass_pdac_avg>-3.0184644</mass_pdac_avg>
+	<increment>1</increment>
+</residue>
+<residue>
+	<name>N-Glycolylneuraminic acid</name>
+	<abbr>neu5gc</abbr>
+	<pos>8</pos>
+	<pm>8</pm>
+	<pac>6</pac>
+	<mass_mono>325.100895</mass_mono>
+	<mass_avg>325.270593</mass_avg>
+	<mass_pm_mono>437.226095</mass_pm_mono>
+	<mass_pm_avg>437.483985</mass_pm_avg>
+	<mass_pdm_mono>461.3767382</mass_pdm_mono>
+	<mass_pdm_avg>461.6317002</mass_pdm_avg>
+	<mass_pac_mono>577.1642826</mass_pac_mono>
+	<mass_pac_avg>577.491897</mass_pac_avg>
+	<mass_pdac_mono>595.277265</mass_pdac_mono>
+	<mass_pdac_avg>595.6026834</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>4,6-Dideoxyhexose</name>
+	<abbr>ddhex</abbr>
+	<pos>3</pos>
+	<pm>3</pm>
+	<pac>3</pac>
+	<mass_mono>148.0735584</mass_mono>
+	<mass_avg>148.157764</mass_avg>
+	<mass_pm_mono>190.1205084</mass_pm_mono>
+	<mass_pm_avg>190.237786</mass_pm_avg>
+	<mass_pdm_mono>199.1769996</mass_pdm_mono>
+	<mass_pdm_avg>199.2931792</mass_pdm_avg>
+	<mass_pac_mono>274.1052522</mass_pac_mono>
+	<mass_pac_avg>274.268416</mass_pac_avg>
+	<mass_pdac_mono>283.1617434</mass_pdac_mono>
+	<mass_pdac_avg>283.3238092</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>3-O-Methylhexose</name>
+	<abbr>(3mehex)</abbr>
+	<pos>3</pos>
+	<pm>3</pm>
+	<pac>3</pac>
+	<mass_mono>194.0790376</mass_mono>
+	<mass_avg>194.183298</mass_avg>
+	<mass_pm_mono>250.1416376</mass_pm_mono>
+	<mass_pm_avg>250.289994</mass_pm_avg>
+	<mass_pdm_mono>262.2169592</mass_pdm_mono>
+	<mass_pdm_avg>262.3638516</mass_pdm_avg>
+	<mass_pac_mono>362.121296</mass_pac_mono>
+	<mass_pac_avg>362.330834</mass_pac_avg>
+	<mass_pdac_mono>374.1966176</mass_pdac_mono>
+	<mass_pdac_avg>374.4046916</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>N-Acetylneuraminic acid (lactonised)</name>
+	<abbr>neu5ac-lac</abbr>
+	<pos>5</pos>
+	<pm>5</pm>
+	<pac>4</pac>
+	<mass_mono>291.0954158</mass_mono>
+	<mass_avg>291.255839</mass_avg>
+	<mass_pm_mono>361.1736658</mass_pm_mono>
+	<mass_pm_avg>361.389209</mass_pm_avg>
+	<mass_pdm_mono>376.2678178</mass_pdm_mono>
+	<mass_pdm_avg>376.481531</mass_pdm_avg>
+	<mass_pac_mono>459.1376742</mass_pac_mono>
+	<mass_pac_avg>459.403375</mass_pac_avg>
+	<mass_pdac_mono>471.2129958</mass_pdac_mono>
+	<mass_pdac_avg>471.4772326</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>N-Glycolylneuraminic acid (lactonised)</name>
+	<abbr>neu5gc-lac</abbr>
+	<pos>6</pos>
+	<pm>6</pm>
+	<pac>5</pac>
+	<mass_mono>307.0903304</mass_mono>
+	<mass_avg>307.255269</mass_avg>
+	<mass_pm_mono>391.1842304</mass_pm_mono>
+	<mass_pm_avg>391.415313</mass_pm_avg>
+	<mass_pdm_mono>409.2972128</mass_pdm_mono>
+	<mass_pdm_avg>409.5260994</mass_pdm_avg>
+	<mass_pac_mono>517.1431534</mass_pac_mono>
+	<mass_pac_avg>517.439689</mass_pac_avg>
+	<mass_pdac_mono>532.2373054</mass_pdac_mono>
+	<mass_pdac_avg>532.532011</mass_pdac_avg>
+	<increment>0</increment>
+</residue>
+<residue>
+	<name>Dehydro-hexuronic acid</name>
+	<abbr>dhexa</abbr>
+	<pos>4</pos>
+	<pm>4</pm>
+	<pac>3</pac>
+	<mass_mono>176.0320876</mass_mono>
+	<mass_avg>176.124836</mass_avg>
+	<mass_pm_mono>232.0946876</mass_pm_mono>
+	<mass_pm_avg>232.231532</mass_pm_avg>
+	<mass_pdm_mono>244.1700092</mass_pdm_mono>
+	<mass_pdm_avg>244.3053896</mass_pdm_avg>
+	<mass_pac_mono>302.0637814</mass_pac_mono>
+	<mass_pac_avg>302.235488</mass_pac_avg>
+	<mass_pdac_mono>311.1202726</mass_pdac_mono>
+	<mass_pdac_avg>311.2908812</mass_pdac_avg>
+	<increment>0</increment>
+    </residue>
+</residues>
+
+<persubstitutions>
+	<persubstitution>
+		<name>none</name>
+		<mono>0</mono>
+		<avg>0</avg>
+		<ergaenzung_nonred_mono>1.007825</ergaenzung_nonred_mono>
+		<ergaenzung_nonred_avg>1.007947</ergaenzung_nonred_avg>
+		<ergaenzung_red_mono>17.0027396</ergaenzung_red_mono>
+		<ergaenzung_red_avg>17.007377</ergaenzung_red_avg>
+		<increment_mono>18.0106646</increment_mono>
+		<increment_avg>18.015324</increment_avg>
+	</persubstitution>
+	<persubstitution>
+		<name>pm</name>
+		<mono>14.01565</mono>
+		<avg>14.026674</avg>
+		<ergaenzung_nonred_mono>15.023475</ergaenzung_nonred_mono>
+		<ergaenzung_nonred_avg>15.034621</ergaenzung_nonred_avg>
+		<ergaenzung_red_mono>31.0183896</ergaenzung_red_mono>
+		<ergaenzung_red_avg>31.034051</ergaenzung_red_avg>
+		<increment_mono>46.0418646</increment_mono>
+		<increment_avg>46.068672</increment_avg>
+	</persubstitution>
+	<persubstitution>
+		<name>pdm</name>
+		<mono>17.0360286</mono>
+		<avg>17.0469306</avg>
+		<ergaenzung_nonred_mono>18.0423054</ergaenzung_nonred_mono>
+		<ergaenzung_nonred_avg>18.0530854</ergaenzung_nonred_avg>
+		<ergaenzung_red_mono>34.03722</ergaenzung_red_mono>
+		<ergaenzung_red_avg>34.0525154</ergaenzung_red_avg>
+		<increment_mono>52.0795254</increment_mono>
+		<increment_avg>52.1056008</increment_avg>
+	</persubstitution>
+	<persubstitution>
+		<name>pac</name>
+		<mono>42.0105646</mono>
+		<avg>42.036884</avg>
+		<ergaenzung_nonred_mono>43.0183896</ergaenzung_nonred_mono>
+		<ergaenzung_nonred_avg>43.044831</ergaenzung_nonred_avg>
+		<ergaenzung_red_mono>59.0133042</ergaenzung_red_mono>
+		<ergaenzung_red_avg>59.044261</ergaenzung_red_avg>
+		<increment_mono>102.0316938</increment_mono>
+		<increment_avg>102.089092</increment_avg>
+	</persubstitution>
+	<persubstitution>
+		<name>pdac</name>
+		<mono>45.029395</mono>
+		<avg>45.0553484</avg>
+		<ergaenzung_nonred_mono>46.03722</ergaenzung_nonred_mono>
+		<ergaenzung_nonred_avg>46.0632954</ergaenzung_nonred_avg>
+		<ergaenzung_red_mono>62.0321346</ergaenzung_red_mono>
+		<ergaenzung_red_avg>62.0627254</ergaenzung_red_avg>
+		<increment_mono>108.0693546</increment_mono>
+		<increment_avg>108.1260208</increment_avg>
+	</persubstitution>
+</persubstitutions>
+
+<ions>
+<ion>
+	<name>Sodium</name>
+	<formula>na</formula>
+	<mass_mono>22.98976967</mass_mono>
+	<mass_avg>22.98976967</mass_avg>
+	<charge>1</charge>
+</ion>
+<ion>
+	<name>Potassium</name>
+	<formula>k</formula>
+	<mass_mono>38.9637069</mass_mono>
+	<mass_avg>39.098301</mass_avg>
+	<charge>1</charge>
+</ion>
+<ion>
+	<name>Lithium</name>
+	<formula>li</formula>
+	<mass_mono>6.0151223</mass_mono>
+	<mass_avg>6.940037</mass_avg>
+	<charge>1</charge>
+</ion>
+<ion>
+	<name>Hydrogen</name>
+	<formula>h</formula>
+	<mass_mono>1.007825032</mass_mono>
+	<mass_avg>1.007941</mass_avg>
+	<charge>1</charge>
+</ion>
+<ion>
+	<name>Hydrogen</name>
+	<formula>-h</formula>
+	<mass_mono>-1.007825032</mass_mono>
+	<mass_avg>-1.007941</mass_avg>
+	<charge>1</charge>
+    </ion>
+</ions>
+<dericatisation>
+    <derivate name="2-amino pyridine" abbr="PA">
+        <mass_mono>78.0581834</mass_mono>
+        <mass_avg>78.115592</mass_avg>
+        <mass_pm_mono>92.0738334</mass_pm_mono>
+        <mass_pm_avg>92.142266</mass_pm_avg>
+        <mass_pdm_mono>95.0926638</mass_pdm_mono>
+        <mass_pdm_avg>95.1607304</mass_pdm_avg>
+        <mass_pac_mono>78.0581834</mass_pac_mono>
+        <mass_pac_avg>78.115592</mass_pac_avg>
+        <mass_pdac_mono>78.0581834</mass_pdac_mono>
+        <mass_pdac_avg>78.115592</mass_pdac_avg>
+    </derivate>
+    <derivate name="2-amino benzamide" abbr="2AB">
+        <mass_mono>120.068748</mass_mono>
+        <mass_avg>120.152476</mass_avg>
+        <mass_pm_mono>162.115698</mass_pm_mono>
+        <mass_pm_avg>162.199426</mass_pm_avg>
+        <mass_pdm_mono>171.1721892</mass_pdm_mono>
+        <mass_pdm_avg>171.2559172</mass_pdm_avg>
+        <mass_pac_mono>120.068748</mass_pac_mono>
+        <mass_pac_avg>120.152476</mass_pac_avg>
+        <mass_pdac_mono>120.068748</mass_pdac_mono>
+        <mass_pdac_avg>120.152476</mass_pdac_avg>
+    </derivate>
+    <derivate name="anthranilic acid" abbr="AA">
+        <mass_mono>121.0527636</mass_mono>
+        <mass_avg>121.137239</mass_avg>
+        <mass_pm_mono>149.0840636</mass_pm_mono>
+        <mass_pm_avg>149.190587</mass_pm_avg>
+        <mass_pdm_mono>155.1217244</mass_pdm_mono>
+        <mass_pdm_avg>155.2061998</mass_pdm_avg>
+        <mass_pac_mono>121.0527636</mass_pac_mono>
+        <mass_pac_avg>121.137239</mass_pac_avg>
+        <mass_pdac_mono>121.0527636</mass_pdac_mono>
+        <mass_pdac_avg>121.137239</mass_pdac_avg>
+    </derivate>
+    <derivate name="reduced" abbr="redEnd">
+        <mass_mono>2.01565</mass_mono>
+        <mass_avg>2.015894</mass_avg>
+        <mass_pm_mono>16.0313</mass_pm_mono>
+        <mass_pm_avg>16.042568</mass_pm_avg>
+        <mass_pdm_mono>19.0501304</mass_pdm_mono>
+        <mass_pdm_avg>19.0610324</mass_pdm_avg>
+        <mass_pac_mono>44.0262146</mass_pac_mono>
+        <mass_pac_avg>44.052778</mass_pac_avg>
+        <mass_pdac_mono>47.045045</mass_pdac_mono>
+        <mass_pdac_avg>47.0712424</mass_pdac_avg>
+    </derivate>
+    <derivate name="Phenylhydrazin" abbr="PHN">
+        <mass_mono>92.0738334</mass_mono>
+        <mass_avg>92.142266</mass_avg>
+        <mass_pm_mono>120.1051334</mass_pm_mono>
+        <mass_pm_avg>120.195614</mass_pm_avg>
+        <mass_pdm_mono>126.1427942</mass_pdm_mono>
+        <mass_pdm_avg>126.2325428</mass_pdm_avg>
+        <mass_pac_mono>92.0738334</mass_pac_mono>
+        <mass_pac_avg>92.142266</mass_pac_avg>
+        <mass_pdac_mono>92.0738334</mass_pdac_mono>
+        <mass_pdac_avg>92.142266</mass_pdac_avg>
+    </derivate>
+    <derivate name="none" abbr="freeEnd">
+        <mass_mono>0</mass_mono>
+        <mass_avg>0</mass_avg>
+        <mass_pm_mono>0</mass_pm_mono>
+        <mass_pm_avg>0</mass_pm_avg>
+        <mass_pdm_mono>0</mass_pdm_mono>
+        <mass_pdm_avg>0</mass_pdm_avg>
+        <mass_pac_mono>0</mass_pac_mono>
+        <mass_pac_avg>0</mass_pac_avg>
+        <mass_pdac_mono>0</mass_pdac_mono>
+        <mass_pdac_avg>0</mass_pdac_avg>
+    </derivate>
+</dericatisation>
+<molecules>
+    <small_molecules>
+        <name>h2o</name>
+        <mass_mono>18.0105646</mass_mono>
+        <mass_avg>18.015324</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>co</name>
+        <mass_mono>27.9949146</mass_mono>
+        <mass_avg>28.01021</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>co2</name>
+        <mass_mono>43.9898292</mass_mono>
+        <mass_avg>44.00964</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>nh3</name>
+        <mass_mono>17.026549</mass_mono>
+        <mass_avg>17.030561</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>ch2co</name>
+        <mass_mono>42.0105646</mass_mono>
+        <mass_avg>42.036884</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>cd2co</name>
+        <mass_mono>44.0231182</mass_mono>
+        <mass_avg>44.0491936</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>ch3cooh</name>
+        <mass_mono>60.0211292</mass_mono>
+        <mass_avg>60.052208</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>cd3cooh</name>
+        <mass_mono>63.0399596</mass_mono>
+        <mass_avg>63.0706724</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>ch3oh</name>
+        <mass_mono>32.0262146</mass_mono>
+        <mass_avg>32.041998</mass_avg>
+    </small_molecules>
+    <small_molecules>
+        <name>cd3oh</name>
+        <mass_mono>35.045045</mass_mono>
+        <mass_avg>35.0604624</mass_avg>
+    </small_molecules>
+</molecules>
+</defaults>

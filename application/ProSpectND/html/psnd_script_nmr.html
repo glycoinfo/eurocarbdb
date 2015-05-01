@@ -1,0 +1,1670 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+            
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+            
+  <meta name="GENERATOR"
+ content="Mozilla/4.72 [en] (X11; U; Linux 2.2.14-5.0 i686) [Netscape]">
+  <title>Script Processing of NMR Commands</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff"
+ alink="#ff0000">
+      
+<h1> <a name="Script Processing"></a>Script Processing of NMR commands</h1>
+      
+<h4> <u><font color="#0000ff"><a href="#NMR%20Processing%20commands">NMR
+Processing commands</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a
+ href="#TP%20-%20Transfer%20parameters">TP - Transfer parameters</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#SW%20-%20Spectral%20width">SW 
+- Spectral width</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#SF%20-%20Spectrometer%20frequency">SF - Spectrometer frequency</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#XR%20-%20reference%20channel">XR  - Reference channel</a></font></u></li>
+   <li><a href="#AREF">AREF - Reference channel</a></li>
+   <li><a href="#BREF">BREF - Reference channel</a><br>
+   </li>
+    <li> <u><font color="#0000ff"><a href="#TD%20-%20time%20domain">TD -
+Time  domain</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#SI%20-%20Data%20size">SI - Data
+ size</a></font></u></li>
+   <li><a href="#SIZEN">SIZEN - Data size</a><br>
+   </li>
+    <li> <u><font color="#0000ff"><a href="#DIM%20-%20Dimension">DIM - Dimension</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#SM%20-%20Store%20mode">SM - Store
+ mode</a></font></u></li>
+    <li> <a href="#DSPSHIFT">DSPSHIFT - Correction for Bruker DMX spectra</a></li>
+    <li> <a href="#ISSPEC%20-%20FID/Spectrum%20flag">ISSPEC - FID/Spectrum
+ flag</a></li>
+     
+</ul>
+      
+<h4> <u><font color="#0000ff"><a
+ href="#Read%20and%20write%20NMR%20files">Read and write NMR files</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a
+ href="#Ropen%20-%20Open%20NMR%20input%20file">ROPEN - Open NMR input file</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#RN%20-%20Read%20new%20record">RN  - Read new record</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#RTR%20-%20Return%20record">RTR
+ - Return record</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#RCLOSE%20-%20Close%20NMR%20input%20file">RCLOSE - Close NMR input
+ file</a></font></u></li>
+    <li> <a
+ href="#OTRUNC%20-%20Compress%20data%20in%20new%20output%20file">OTRUNC -
+ Compress data in new output file</a></li>
+    <li> <a
+ href="#WOPEN,%20WREOPEN%20-%20Open%20NMR%20output%20file%20to%20write%20processed%20data">WOPEN, 
+ WREOPEN - Open NMR output file to write processed data</a></li>
+    <li> <a
+ href="#CREATE%20-%20Create%20a%20new%20NMR%20file%20from%20Bruker%20or%20Varian%20data">CREATE 
+ - Create a new NMR file from Bruker or Varian data</a></li>
+    <li> <u><font color="#0000ff"><a href="#RW%20-%20Record%20Write">RW - 
+Record Write</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#Wclose-%20Close%20NMR%20output%20file">WCLOSE - Close NMR output
+file</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#Rd%20-%20Read%20Array">RD - Read
+ Array</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#WR%20-%20Write%20Array">WR -
+Write  Array</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#DR%20-%20set%20direction">DR
+-  Set direction</a></font></u></li>
+     
+</ul>
+      
+<h4> <u><font color="#0000ff"><a href="#Linear%20Prediction">Linear Prediction</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a
+ href="#LPC%20-%20Linear%20Prediction">LPC  - Linear Prediction</a></font></u></li>
+     
+</ul>
+      
+<h4> <u><font color="#0000ff"><a
+ href="#Windows%20%28Filter%20Functions%29">Windows (filter functions)</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a
+ href="#EM%20-%20Exponential%20multiplication">EM - Exponential multiplication</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#CD%20-%20Convolution%20difference">CD - Convolution difference</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#SN%20-%20Sine%20bell">SN - Sine
+ bell</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#SQ%20-%20Squared%20sine%20bell">SQ - Squared sine bell</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#HN%20-%20Hanning%20window">HN 
+- Hanning window</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#HM%20-%20Hamming%20window">HM 
+- Hamming window</a></font></u></li>
+    <li> <u><font color="#0000ff"><a href="#KS%20-%20Kaiser%20window">KS
+-  Kaiser window</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#GM%20-%20Lorentz-gauss%20transformation">GM - Lorentz-gauss transformation</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#TM%20-%20Trapezian%20multiplication">TM - Trapezian multiplication</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#WB%20-%20Window%20from%20buffer">WB - Window from buffer</a></font></u></li>
+     
+</ul>
+      
+<h4> <u><font color="#0000ff"><a href="#Water%20Wash">Water Wash</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a href="#WATWA%20-%20Water%20Wash">WATWA
+ - Water Wash</a></font></u></li>
+     
+</ul>
+      
+<h4> <u><font color="#0000ff"><a href="#Fourier%20Transformation">Fourier
+ Transformation</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a href="#FT%20-%20Fourier%20transform">FT
+ - Fast Fourier transform</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#DFT%20-%20Discrete%20Fourier%20transform">DFT - Discrete Fourier
+transform</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#IF%20-%20Inverse%20Fourier%20transform">IFT - Inverse Fourier transform</a></font></u></li>
+    <li> <a href="#FTSCALE%20-%20Scale%20first%20data%20point">FTSCALE -
+Scale  first data point</a></li>
+     
+</ul>
+      
+<h4> <u><font color="#0000ff"><a href="#Phase">Phase</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a href="#PK%20-%20Phase-correction">PK
+-  Phase-correction</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#PA%20-%20Frequency%20independent%20phase">PA - Frequency independent
+ phase</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#PB%20-%20Frequency%20dependent%20phase">PB - Frequency dependent
+phase</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#I0%20-%20Frequency%20independent%20position">I0 - Frequency independent
+ position</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#PZ%20-%20Reset%20phase%20parameters">PZ - Reset phase parameters</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#PN%20-%20Normalize%20phase%20parameters">PN - Normalize phase parameters</a></font></u></li>
+     
+</ul>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a
+ href="#HT%20-%20Hilbert%20Transformation">HT - Hilbert Transformation</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#AV%20-%20Calculate%20absolut%20value%20spec">AV - Calculate absolute
+ value spec</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#PS%20-%20Calculate%20power%20spectrum">PS - Calculate power spectrum</a></font></u></li>
+     
+</ul>
+      
+<h4> <u><font color="#0000ff"><a href="#Baseline">Baseline</a></font></u></h4>
+      
+<ul>
+   <li> <u><font color="#0000ff"><a
+ href="#BC%20-%20baseline%20correction">BC - baseline correction</a></font></u></li>
+    <li> <u><font color="#0000ff"><a
+ href="#SPLINE%20-%20Spline%20baseline%20correction">SPLINE - Spline baseline
+ correction</a></font></u></li>
+     
+</ul>
+      
+<h4> <a
+ href="#Waterfit%20-%20Remove%20big%20peak%20in%20frequency%20domain">Waterfit</a></h4>
+      
+<ul>
+   <li> <a
+ href="#Waterfit%20-%20Remove%20big%20peak%20in%20frequency%20domain">Waterfit
+ - Remove big peak in frequency domain</a></li>
+     
+</ul>
+      
+<h4> <a href="#Bruker%20DISNMR%20conversions">Bruker DISNMR conversions</a></h4>
+      
+<ul>
+   <li> <a href="#UNPACK4">UNPACK4 - unpack 4bit ascii</a></li>
+    <li> <a href="#UNPACK6">UNPACK6 - unpack 6bit ascii</a></li>
+    <li> <a href="#UNPACK8">UNPACK8 - unpack 8bit ascii</a></li>
+    <li> <a href="#UNPACKI">UNPACKI - unpack 3-byte integer</a></li>
+    <li> <a href="#UNPACKF">UNPACKF - unpack 2 x 3-byte float</a></li>
+    <li> <a href="#UNPACKB">UNPACKB - get one byte from 4-byte word</a></li>
+    <li> <a href="#NEGSTEP">NEGSTEP - negate some elements of array</a></li>
+     
+</ul>
+   <a href="#Analysis">Analysis</a>   
+<ul>
+   <li> <a
+ href="#INTEGRAL%20-%20Integrate%20part%20of%201D%20or%202D%20spectrum">INTEGRAL
+ - Integrate part of 1D or 2D spectrum</a></li>
+    <li> <a
+ href="#RMSNOISE%20-%20Calculate%20the%20rms%20noise%20for%20a%20part%20of%201D%20or%202D%20spect">RMSNOISE 
+ - Calculate the rms noise for a part of 1D or 2D spectrum</a></li>
+    <li> <a
+ href="#PEAKPICK%20%20-%20Simple%201D%20peak%20pick%20routine">PEAKPICK&nbsp;
+ - Simple 1D peak pick routine</a></li>
+    <li> <a href="#UCONV%20-%20Convert%20NMR%20units">UCONV - Convert NMR 
+units</a></li>
+     
+</ul>
+   That part of the scripting language that directly handles nmr data <br>
+     
+<hr width="100%">   
+<h2> <a name="NMR Processing commands"></a>NMR Processing commands</h2>
+   <a name="TP - Transfer parameters"></a>   
+<h4> TP - Transfer parameters</h4>
+      
+<ul>
+    <b>TP </b><i>&lt;from block&gt;, &lt;to block&gt;</i>       
+  <p>Copy current parameters from one block to another one. block is <b>block1</b>, 
+   <b>block2</b>, <b>block3</b> or <b>block4</b>. <i>&lt;from block&gt;</i>
+ Source of data. <i>&lt;to block&gt;</i> Destination of data.</p>
+   
+</ul>
+   <a name="SW - Spectral width"></a>   
+<h4> SW - Spectral width</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>SW</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;value&gt;</i> 
+      
+  <p>Set spectral width. <i>&lt;value&gt;</i> Spectral width in Hz. <i>&lt;block&gt;</i> 
+ Set the spectral width for this block. <i>&lt;dimension&gt;</i> For multi 
+ dimensional files: set the spectral width for this dimension. </p>
+       
+  <p>Example 1: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SW:2 5000</pre>
+   Set the spectral width in dimension 2 to 5000 Example 2:       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BLOCK2:SW 2500</pre>
+   Set the spectral width in block 2 for the current dimension to 2500  
+   
+  <p><b>?</b> {<i>&lt;block&gt;</i>:}<b>SW</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Return the current value of <b>SW</b> <br>
+  &nbsp;</p>
+   
+</ul>
+   <a name="SF - Spectrometer frequency"></a>   
+<h4> SF - Spectrometer frequency</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>SF</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;value&gt;</i> 
+      
+  <p>Set spectrometer frequency <i>&lt;value&gt;</i> Spectrometer frequency 
+ in MHz. <i>&lt;block&gt;</i> Set for this block. <i>&lt;dimension&gt;</i>
+ For multi dimensional files: set for this dimension. </p>
+       
+  <p><b>?</b> {<i>&lt;block&gt;</i>:}<b>SW</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Return the spectrometer frequency </p>
+       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $frequency = ? SF</pre>
+     
+</ul>
+   <a name="XR - reference channel"></a>  
+<h4>XR - Reference channel</h4>
+      
+<blockquote>   
+  <p>Reference channel at 0 ppm = <b>xr</b> * <b>aref</b> + <b>bref </b>-
+     1 </p>
+   
+  <p>Where <b>aref </b>= spectrum_size/<b>td</b> and <b>bref </b>= store_start
+     of a previous write operation. </p>
+ </blockquote>
+            
+<ul>
+   <br>
+ {<i>&lt;block&gt;</i>:}<b>XR</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;channel&gt;</i>
+      
+  <p>Set reference channel number for ppm calibration. <i>&lt;channel&gt;</i> 
+ The channel number that has ppm value 0. <i>&lt;block&gt;</i> Set for this 
+ block. <i>&lt;dimension&gt;</i> For multi dimensional files: set for this 
+ dimension.</p>
+ 
+</ul>
+ 
+<ul>
+       
+  <p>{<i>&lt;block&gt;</i>:}<b>XR</b>{:<i>&lt;dimension&gt;</i>} </p>
+       
+  <p>Return the current reference channel.</p>
+   
+</ul>
+     
+<h4><a name="AREF"></a> AREF - Reference channel</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>AREF</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;value&gt;</i>
+      
+  <p>Set reference <b>AREF</b> for ppm calibration. <i>&lt;value&gt;</i>
+  <b>AREF</b> value.   <i>&lt;block&gt;</i> Set for this  block. <i>&lt;dimension&gt;</i>
+For multi dimensional files: set for this  dimension. </p>
+       
+  <p>{<i>&lt;block&gt;</i>:}<b>AREF</b>{:<i>&lt;dimension&gt;</i>} </p>
+       
+  <p>Return the current value of <b>AREF</b>.</p>
+ 
+</ul>
+ 
+<h4> BREF - Reference channel</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>BREF</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;value&gt;</i>
+      
+  <p>Set reference <b>BREF </b>for ppm calibration. <i>&lt;value&gt;</i>
+  <b>BREF</b> value.   <i>&lt;block&gt;</i> Set for this  block. <i>&lt;dimension&gt;</i>
+For multi dimensional files: set for this  dimension. </p>
+       
+  <p>{<i>&lt;block&gt;</i>:}<b>BREF</b>{:<i>&lt;dimension&gt;</i>} </p>
+       
+  <p>Return the current value of <b>BREF</b>.</p>
+   
+</ul>
+   <a name="TD - time domain"></a>   
+<h4> TD - time domain</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>TD</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;size&gt;</i> 
+      
+  <p>Set size of time domain <i>&lt;size&gt;</i> The size in data points.
+   <i>&lt;block&gt;</i> Set for this block. <i>&lt;dimension&gt;</i> For
+multi  dimensional files: set for this dimension. </p>
+       
+  <p><b>?</b>{<i>&lt;block&gt;</i>:}<b>TD</b>{:<i>&lt;dimension&gt;</i>} 
+ </p>
+       
+  <p>Return size of time domain</p>
+   
+</ul>
+   <a name="SI - Data size"></a>   
+<h4> SI - Data size</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>SI</b> <i>&lt;size&gt;</i>       
+  <p>Set array size. For one block, the size for all arrays is the same. 
+ <i>&lt;size&gt;</i>  The size in data points. <i>&lt;block&gt;</i> Set for
+this block. </p>
+       
+  <p><b>? </b>{<i>&lt;block&gt;</i>:}<b>SI</b> </p>
+       
+  <p>Get current array size</p>
+ 
+</ul>
+ 
+<h4><a name="SIZEN"></a> SIZEN - Data size of the current 2D file on disk</h4>
+       
+<ul>
+   {<i>&lt;block&gt;</i>:}<b>SIZEN</b><i>&lt;size&gt;</i>   
+  <p>Set data size. This is the original size, not modified by processing 
+operations. <i>&lt;size&gt;</i>  The size in data points. <i>&lt;block&gt;</i> 
+Set for this block. </p>
+   
+  <p><b>? </b>{<i>&lt;block&gt;</i>:}<b>SIZEN</b> </p>
+   
+  <p>Get current data size</p>
+ 
+</ul>
+       
+<ul>
+   
+</ul>
+      
+<h4> <a name="DIM - Dimension"></a>DIM - Dimension</h4>
+      
+<ul>
+    <b>? </b>{<i>&lt;block&gt;</i>:}<b>DIM</b>       
+  <p>Get the number of dimensions of the currently open file.<i>&lt;block&gt;</i> 
+ Get for this block.</p>
+   
+</ul>
+   <a name="SM - Store mode"></a>   
+<h4> SM - Store mode</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>SM</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;mode&gt;</i> 
+      
+  <p>Set store mode for new file. <i>&lt;mode&gt;</i> can be <b>1</b> for
+ real mode or <b>2</b> for complex mode. If mode is real, only the real data 
+ are written to disk, if mode is complex both real and imaginary data are 
+written.   <i>&lt;block&gt;</i> Set for this block. <i>&lt;dimension&gt;</i> 
+For multi dimensional files: set for this dimension. </p>
+       
+  <p><b>?</b>{<i>&lt;block&gt;</i>:}<b>SM</b>{:<i>&lt;dimension&gt;</i>} 
+ </p>
+       
+  <p>Return store mode. <br>
+  &nbsp;</p>
+   
+</ul>
+      
+<h4> <a name="DSPSHIFT"></a>DSPSHIFT - Correction for Bruker DMX&nbsp; spectra</h4>
+      
+<ul>
+  &nbsp;{<i>&lt;block&gt;</i>:}<b>DSPSHIFT</b>{:<i>&lt;dimension&gt;</i>} 
+  <i>&lt;correction&gt;</i>       
+  <p>Set the number of <a href="process_1d.html#DSP%20Correction">dsp-related 
+ prepended points</a> to <i>&lt;correction&gt;</i> for a Bruker DMX spectrum. 
+   <i>&lt;block&gt;</i> Set for this block. <i>&lt;dimension&gt;</i> For multi
+dimensional files: set for this dimension. </p>
+       
+  <p><b>?</b>{<i>&lt;block&gt;</i>:}<b>DSPSHIFT</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Return dsp shift. <br>
+  &nbsp;</p>
+   
+</ul>
+      
+<h4> <a name="ISSPEC - FID/Spectrum flag"></a>ISSPEC - FID/Spectrum flag</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>ISSPEC</b>{:<i>&lt;dimension&gt;</i>}<i>&lt;mode&gt;</i> 
+      
+  <p>Set isspec flag. <i>&lt;mode&gt;</i> can be <b>0</b> for FID or <b>1
+   </b>for spectrum. Usually for a new file this parameter is 0. When a Fourier
+ transform is applied, this value changes to 1. This flag is used to set
+the  correct unit with the axis for 1D/2D plots. <i>&lt;block&gt;</i> Set
+for this block. <i>&lt;dimension&gt;</i> For multi dimensional files: set
+for this dimension. </p>
+       
+  <p><b>?</b>{<i>&lt;block&gt;</i>:}<b>ISSPEC</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Return isspec flag.</p>
+   
+</ul>
+      
+<hr>   
+<h2> <a name="Read and write NMR files"></a>Read and write NMR files</h2>
+   For each block, only one file can be open for reading, and another one 
+for writing, at the same time. When a file is opened for reading with <b>ROPEN</b>, 
+ its parameters are also read, and the data display is adjusted accordingly. 
+ For example, the record size is adjusted, and the axis labels are modified 
+ according the the current sweep width and spectrometer frequency. To read 
+ data from another file, without disturbing the current parameters, use the
+ command <b>RD</b>. <br>
+  &nbsp; <br>
+  &nbsp;   
+<h4> <a name="Ropen - Open NMR input file"></a>ROPEN - Open NMR input file</h4>
+      
+<ul>
+    <b>ropen</b> <i>&lt;filename</i>&gt;       
+  <p>Open and load parameters from NMR input file</p>
+   
+</ul>
+      
+<h4> <a name="RN - Read new record"></a>RN - Read new record</h4>
+      
+<ul>
+  Read a record from the file that was opened with <b>ROPEN</b>       
+  <p><b>RN</b> { <i>&lt;record number&gt;</i> } {, <i>&lt;record number&gt;</i> 
+ } {, <i>&lt;range&gt;</i> } </p>
+       
+  <p><b>RN</b> without parameters reads the current record. The order of the
+record numbers (or offsets) correspond to the directions set with the   <b>dr</b>
+ command. Record numbers rnage from 1..file_size_in_that_direction. If <i>&lt;range&gt;</i>
+ is used, it defines which data points are read from the file. </p>
+       
+  <p>For example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RN [41..100]</pre>
+   reads elements 41..100 form the input file. The elements are stored in 
+positions 1..60 of the real/complex array(s).       
+  <p>Example 2: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>DR 2, 3, 1</tt> <br>
+      <tt>RN 5, 6, [1..128]</tt>      
+  </ul>
+   In a 3D file set data access to direction 2, direction3, direction 1.
+Read  the first 128 data elements in direction 2 with offset 5 in direction
+3, and offset 6 in direction 1.  
+</ul>
+      
+<h4> <a name="RTR - Return record"></a>RTR - Return record</h4>
+      
+<blockquote><b>RTR</b></blockquote>
+      
+<ul>
+  Return the current record to the input file. This is different from <b>RW</b> 
+ (Record Write) because this last command writes records to a newly created 
+ output file. <b>RTR</b> can be used to make small modifications to the current
+ file, without the overhead of creating a new file.       
+  <p>Example 1: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>RN 12</tt> <br>
+      <tt>WATERFIT 1024, 0</tt> <br>
+      <tt>RT</tt>      
+  </ul>
+     
+</ul>
+      
+<h4> <a name="RCLOSE - Close NMR input file"></a>RCLOSE - Close NMR input
+ file</h4>
+      
+<ul>
+    <b>rclose</b>       
+  <p>Close the current NMR input file. This is done automatically when a new
+file is opened.</p>
+   
+</ul>
+      
+<h4> <a name="OTRUNC - Compress data in new output file"></a>OTRUNC - Compress 
+ data in new output file</h4>
+      
+<blockquote><b>otrunc</b> { <i>&lt;float_type&gt;</i> , } { <i>&lt;tresh_high&gt; 
+ , &lt;tresh_level&gt; , &lt;tresh_low&gt;</i> }       
+  <p>Data reduction is useful for large 3D files. Two types of data reduction 
+ can be used. The first uses floats with less than 4 bytes and the second 
+removes all data below a certain treshold. The command <b>otrunc</b> should 
+be used just before a new output file will be opened. </p>
+       
+  <p><b>Float reduction:</b> </p>
+       
+  <p>The change of <i>&lt;float_type&gt;</i> can reduce the float size from 
+ the normal 4 bytes to 3 bytes ( <b>float3</b> ) or 2 bytes ( <b>float2</b> 
+ ).&nbsp; In practice, this gives only a very small error in each data point. 
+   </p>
+       
+  <p>Example 1: </p>
+       
+  <blockquote><tt>otrunc float2</tt> <br>
+      <tt>wopen "ladidafile"</tt></blockquote>
+   <b>Low intensity data removal:</b>       
+  <p>The baseline noise can be replaced by zero's, and only the number of 
+ zero's (and not the zero's themselves) are stored in the file. In this case
+   <i>&lt;tresh_high&gt;</i> gives the positive treshold level, that is,
+the  lowest positive level that still is saved. Data with positive intensities 
+ below this line are thrown away. In the same manner, <i>&lt;tresh_low&gt;</i> 
+ marks the treshold for the negative levels.&nbsp; The parameter <i>&lt;tresh_level&gt;</i> 
+ gives an optional offset, which is used when data are restored. Usually, 
+this value is 0. </p>
+       
+  <p>Example 2: </p>
+       
+  <blockquote><tt>otrunc 2e3, 0, -2e3</tt></blockquote>
+   Both methods can be combined. <br>
+  Example 3:       
+  <blockquote><tt>otrunc float2, 3e4, 100.0, -4e4</tt></blockquote>
+   <img src="screen_1d_trunc_level.gif"
+ alt="Example of truncation levels." height="187" width="540">
+  </blockquote>
+      
+<h4> <a
+ name="WOPEN, WREOPEN - Open NMR output file to write processed data"></a>WOPEN, 
+ WREOPEN - Open NMR output file to write processed data</h4>
+      
+<ul>
+    <b>wopen</b> <i>&lt;filename&gt;</i> { , <i>&lt;range1&gt;</i> { , <i>&lt;range2&gt;</i> 
+ {<i> , &lt;...&gt;</i> }}} <br>
+  or <br>
+    <b>wreopen</b> <i>&lt;filename&gt;</i>       
+  <p>Open NMR outputfile for writing.<b> Wopen</b> means open a new file and
+delete any file with the same name that already exists. <b>Wopen</b> is used
+when the results of a processing step are written to disk. An open input
+file must be present. When no ranges are given, it is assumed that the sizes
+of the outputfile correspond to those of the currently open inputfile. The
+ranges are set accordingly. <b>Wreopen</b> means reopen an existing NMR file
+for writing. <b>Wreopen</b> is used when records have to be modified in an
+existing file. Ranges are taken from the existing ouput file, and can not
+be modified. <i>&lt;range1&gt;</i> corresponds to direction 1, etc. , and
+are independent from the access order set with the <b>dr </b>command.   </p>
+       
+  <p>Example 1: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dr 1, 2&nbsp; # set direction to 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wopen "myfilename", [..], [7]</pre>
+   The file "myfilename" is opened as a new file with default size in direction 
+ 1, and a size of 1 in direction 2. This corresponds to record 7 written as
+a 1D file.       
+  <p>Example 2: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dr 2, 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wopen "myfilename", [1..256]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in sorted [..] do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rn $i<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sn 2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ft 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done</pre>
+   Suppose that this is a 2D file with size 512 (complex) in direction 1
+and  size is 1024 in direction 2. The <b>wopen</b> command sets the size
+in direction  1 of the output file to 256 (complex). This means that the
+  <b>sorted</b> modifier lets $i loop from 1..256 and from 513..768 (real
++ imaginary).       
+  <p><a name="Note"></a>Note that the write command <b>rw</b> is given without 
+ arguments. This is done to write the records from 1..512. If the command 
+  <b>rw  $i</b> should have been used, records would have been written from 
+1.256 and from 513..768. <br>
+  &nbsp;</p>
+   
+</ul>
+      
+<h4> <a name="CREATE - Create a new NMR file from Bruker or Varian data"></a>CREATE 
+ - Create a new NMR file from Bruker or Varian data</h4>
+      
+<ul>
+    <b>create</b> <i>&lt;filename&gt;</i> {, &lt;acquistion filename&gt;
+,&nbsp;  { &lt;...&gt; ,&nbsp; }} <i>&lt;range1&gt;</i> {, <i>&lt;range2&gt;</i> 
+{<i> , &lt;...&gt;</i> }}       
+  <p>Open NMR outputfile <i>&lt;filename&gt;</i> for writing.&nbsp; <b>Create</b> 
+ opens a new file and initializes the parameters. <b>Create</b> is used when
+ a new file is prepared from a Bruker or Varian file. The optional parameter
+ (s) <i>&lt;acquisition filename&gt;</i> define one or more file(s) with
+ASCII  acquisition parameters, for example a Bruker acqu file. These parameters 
+can be listed later with the <b>AQ</b> command. Ranges need to be specified. 
+  </p>
+       
+  <p>Example 1: </p>
+       
+  <ul>
+             
+    <pre><tt>dr 1, 2&nbsp; # set direction to 1<br>wopen "myfilename", [1..512], [1..1024]</tt></pre>
+         
+  </ul>
+   The file "myfilename" is opened as a new file with size 512 in direction 
+ 1, and size of 1024 in direction 2.       
+  <p>Example 2: </p>
+       
+  <ul>
+      <tt>create "myfilename", "1/acqus", [1..512], [1..1024]</tt>      
+  </ul>
+   The same as above, only now the file 'acqus' is stored in the acquisition 
+ parameter sector.       
+  <p>Example, create a 4D file <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>%fname = "4dtest"</tt> <br>
+      <tt>#define all the sizes</tt> <br>
+      <tt>$si4 = 64</tt> <br>
+      <tt>$si3 = 128</tt> <br>
+      <tt>$si2 = 128</tt> <br>
+      <tt>$si1 = 1024</tt> <br>
+      <tt>#define real/complex for all directions</tt> <br>
+      <tt>sm:1 1</tt> <br>
+      <tt>sm:2 1</tt> <br>
+      <tt>sm:3 1</tt> <br>
+      <tt>sm:4 2</tt> <br>
+      <tt>#create the file</tt> <br>
+      <tt>create %fname, [1..$si1], [1..$si2],\</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ [1..$si3], [1..$si4]</tt> <br>
+      <tt>#set the current access mode</tt> <br>
+      <tt>dr 4,3,2,1</tt> <br>
+      <tt>#set the current size for direction 4</tt> <br>
+      <tt>si $si4</tt> <br>
+      <tt>#loop through all records</tt> <br>
+      <tt>for $i in [1..$si3] do</tt> <br>
+      <tt>&nbsp; for $j in [1..$si2] do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; for $k in [1..$si1] do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #create here some data</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r = .............</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @i = .............</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #write the data in direction 4 3 
+2 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw $i, $j, $k</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; done</tt> <br>
+      <tt>&nbsp; done</tt> <br>
+      <tt>done</tt> <br>
+      <tt>#close the file</tt> <br>
+      <tt>wclose</tt>      
+  </ul>
+     
+</ul>
+   <a name="RW - Record Write"></a>   
+<h4> RW - Record Write</h4>
+      
+<ul>
+    <b>rw</b> { <i>&lt;key1&gt;</i> { , <i>&lt;key2&gt;</i> { , .. }}}  
+   
+  <p>Write the current record to the file that was opened with<b> wopen, wreopen,
+create</b>. If &lt;key1&gt; and &lt;key2&gt; are not given, the record is
+written to the default position in the output file. Use the keys only to
+store the record deliberately at a different position in the output file.
+See, <a href="#Note">note.</a></p>
+   
+</ul>
+   <a name="Wclose- Close NMR output file"></a>   
+<h4> WCLOSE - Close NMR output file</h4>
+      
+<ul>
+    <b>wclose</b>       
+  <p>Close the current NMR output file&nbsp; Do not forget this, or not all 
+ data will be saved. <br>
+  &nbsp;</p>
+   
+</ul>
+   <a name="Rd - Read Array"></a>   
+<h4> RD - Read Array</h4>
+      
+<ul>
+    <b>RD</b> <i>&lt;array&gt;, &lt;filename&gt;</i>       
+  <p>Read <i>&lt;array&gt;</i> from the file <i>&lt;filename&gt;</i>. The
+   <b>RD</b> an <b>WR</b> commands are intended to store data temporarily
+on disk. When data is read with <b>RD</b>, <b>no</b> parameters are read,
+and the record size is <b>not</b> updated. Thus this function is useful only
+to read data into an already open file.&nbsp; With this single command, the
+file is opened, the data read, and the file is closed again. </p>
+       
+  <p>Example 1: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RD @B[20..200], "fileondisk"</pre>
+   Read the file "fileondisk" in Buffer B. Start reading at element 20 and 
+stop reading at element 200, and store the data at the corresponding positions 
+ in Buffer B.       
+  <p>Example 2: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RD @C, "fileondisk"</pre>
+   Read the file "fileondisk". If the file contains complex data, the real 
+data are stored in array @R and the imaginary data are stored in array @I. 
+If the file contains only real data, these data are read and the array @I 
+is not modified. All full arrays stored on disk are read, no matter wat the
+ current array size of @C is.  
+</ul>
+      
+<h4> <a name="WR - Write Array"></a>WR - Write Array</h4>
+      
+<ul>
+    <b>WR</b> <i>&lt;array&gt;, &lt;filename&gt;</i>       
+  <p>Write <i>&lt;array&gt;</i> to the file <i>&lt;filename&gt;</i>.&nbsp;
+ One option is to store an array temporarily on disk. Can also be used to
+save one record from a 2D or 3D file. </p>
+       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WR @A[20..200], "fileondisk"</pre>
+   Write Buffer A to he file "fileondisk". Start reading at element 20 and 
+stop reading at element 200. The data is stored from 1..181 in the file.
+ 
+</ul>
+   <a name="DR - set direction"></a>   
+<h4> DR - Set direction</h4>
+      
+<ul>
+    <b>DR</b> <i>&lt;direction x&gt; </i>{, <i>&lt;direction y&gt;</i> {, 
+  <i>&lt;direction  &gt;</i>&nbsp; {, .. }}}       
+  <p>Set the directions (=access) for a multi dimensional NMR experiment. 
+ The first direction gives the processing direction, and this is also the 
+direction that will be plotted along the x axis in a 2D plot. The second direction
+will be plotted along the y axis. The third direction gives the plane offset
+and the fourth the cube offset., etc. It is not necessary to specify the
+last direction, as this can be easily calculated from the dimension of the
+file. <br>
+  &nbsp; </p>
+       
+  <p>Example for a 3D file: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>DR 3, 1, 2</tt>      
+  </ul>
+   Select planes in the 3 1 direction, with direction 3 the processing direction, 
+ and with plane offset in direction 2.       
+  <p>The example above is equivalent to: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>DR 3, 1</tt>      
+  </ul>
+     
+</ul>
+      
+<hr>   
+<h2> <a name="Linear Prediction"></a>Linear Prediction</h2>
+   <a name="LPC - Linear Prediction"></a>   
+<h4> LPC/HSVD - <u><font color="#0000ff"><a
+ href="process_1d.html#Linear%20Prediction">Linear Prediction</a></font></u></h4>
+      
+<ul>
+    <b>LPC/HSVD</b> <i>&lt;mode&gt;, &lt;num roots&gt;</i>, <i>&lt;future 
+size&gt;  / &lt;gap range&gt;</i> { , &lt;<i>range&gt;</i> } <i>&lt;mode&gt;</i> 
+      
+  <p>Mode can consists of one,two or three characters. The first can be <b>F</b> 
+ (forward prediction), <b>B</b> (backward prediction) or <b>G</b> (gap prediction). 
+ The others can be <b>M</b>, and in that case the toggle 'move roots' is set
+to true, and/or <b>R</b> which stands for replace spectrum when HSVD is used.
+  <i>&lt;num roots&gt;</i> The number of roots (frequencies) to predict.
+  <i>&lt;future  size&gt;</i> The number of data points to predict. For forward
+prediction,  this size is added to the data. For backward prediction, the
+new data are  written inside the old data. For gap prediction, use instead. 
+  <i>&lt;gap range&gt;</i> Only for gap prediction. The first and the last 
+point of the gap in the original data. <i>&lt;range&gt;</i> The total number 
+of points used for the prediction.    </p>
+       
+  <p>Example 1: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HSVD "FMR", 32, 128</pre>
+   Do HSVD forward prediction with 32 roots, and predict 128 data points. 
+Reflect roots and replace spectrum by predited data.       
+  <p>Example 2: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LPC "B", 24, 8, [5..]</pre>
+   Do backward prediction with 24 roots. Start at point 5 and predict 8 points 
+ (5..12). The prediction is started from point 13.       
+  <p>Example 3: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LPC "G", 12, [15..16]</pre>
+   Predict the points 15 and 16 Example 4:       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LPC "G", 12, [15..16], [1..1024]</pre>
+   Predict the points 15 and 16, and use only the points inside [1..1024] 
+for this prediction.  
+</ul>
+      
+<hr><a name="Windows (Filter Functions)"></a>   
+<h2> Windows (Filter Functions)</h2>
+   Filters that operate on the FID. The filters operate on the data from
+the  first data point till the end of the FID. However, the range of the
+filter  can be set by the user.   
+<h4> <a name="HM - Hamming window"></a>HM - Hamming window</h4>
+      
+<ul>
+    <b>HM</b> { <i>&lt;range&gt;</i> }       
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#Hamming%20Window.">Hamming window.</a></font></u>
+  <i>&lt;range&gt;</i> defines which data elements are modified.</p>
+   
+</ul>
+      
+<h4> <a name="HN - Hanning window"></a>HN - Hanning window</h4>
+      
+<ul>
+    <b>HN</b> { <i>&lt;range&gt;</i> }       
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#Hanning%20Window.">Hanning window.</a></font></u>
+  <i>&lt;range&gt;</i> defines which data elements are modified.</p>
+   
+</ul>
+   <a name="SN - Sine bell"></a>   
+<h4> SN - Sine bell</h4>
+      
+<ul>
+    <b>SN</b> <i>&lt;shift&gt;</i> {, <i>&lt;range&gt;</i> }       
+  <p><u><font color="#0000ff"><a href="process_1d.html#Sine%20Bell">Sine
+Bell.</a></font></u><i>&lt;shift&gt;</i> Typical values: [3..10] for 2D NOE,
+2D HOHAHA. [1000] pure sine, for absolute value COSY <i>&lt;range&gt;</i>
+defines which data elements are modified.</p>
+   
+</ul>
+      
+<h4> <a name="SQ - Squared sine bell"></a>SQ - Squared sine bell</h4>
+      
+<ul>
+    <b>SQ</b> <i>&lt;shift&gt;</i> { ,<i>&lt;range&gt;</i> }       
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#Squared%20Sine%20Bell">Squared sine bell</a></font></u>
+   <i>&lt;shift&gt;</i> typical values: [3..10] for 2D NOE, 2D HOHAHA. [1000]
+ pure sine, for absolute value COSY <i>&lt;range&gt;</i> defines which data
+ elements are modified.</p>
+   
+</ul>
+   <a name="EM - Exponential multiplication"></a>   
+<h4> EM - Exponential multiplication</h4>
+      
+<ul>
+    <b>EM</b> <i>&lt;line broadening&gt;</i> {, <i>&lt;range&gt;</i> }  
+   
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#Exponential%20Multiplication">Eponential multiplication</a></font></u>
+   <i>&lt;line broadening&gt;</i> is the line broadening in Hz. <i>&lt;range&gt;</i>
+ defines which data elements are modified.Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EM 2, [1..2048]</pre>
+     
+</ul>
+   <a name="CD - Convolution difference"></a>   
+<h4> CD - Convolution difference</h4>
+      
+<ul>
+    <b>CD</b> <i>&lt;line broadening&gt;</i> {, <i>&lt;range&gt;</i> }  
+   
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#Convolution%20Difference">Convolution difference</a></font></u>
+   <i>&lt;line broadening&gt;</i> is the line broadening in Hz. <i>&lt;range&gt;</i>
+ defines which data elements are modified. <br>
+  &nbsp;</p>
+   
+</ul>
+   <a name="KS - Kaiser window"></a>   
+<h4> KS - Kaiser window</h4>
+      
+<ul>
+    <b>KS</b> &lt;<i>theta&gt;</i> {, <i>&lt;range&gt;</i> }       
+  <p><u><font color="#0000ff"><a href="process_1d.html#Kaiser%20Window.">Kaiser 
+ window.</a></font></u> <i>&lt;theta&gt;</i> typical values: [1.5..3] <i>&lt;range&gt;</i> 
+ defines which data elements are modified. <br>
+  &nbsp;</p>
+   
+</ul>
+   <a name="GM - Lorentz-gauss transformation"></a>   
+<h4> GM - Lorentz-gauss transformation</h4>
+      
+<ul>
+    <b>GM</b> <i>&lt;linewidth&gt;, &lt;fraction&gt;</i> {, <i>&lt;range&gt;</i> 
+ }       
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#Lorentz%20Gauss%20Transformation">Lorentz-gauss transformation</a></font></u><i>&lt;linewidth&gt;</i>
+ the linewidth (in Hz). Sw is the spectral width in Hz. <i>&lt;fraction&gt;</i>
+ fraction of the data size. <i>&lt;range&gt;</i> defines which data elements
+ are modified.</p>
+   
+</ul>
+      
+<h4> <a name="TM - Trapezian multiplication"></a>TM - Trapezian multiplication</h4>
+      
+<ul>
+    <b>TM</b> <i>&lt;number of points&gt;</i> {, <i>&lt;range&gt;</i> } 
+     
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#Trapezian%20Multiplication.">Trapezian multiplication</a></font></u>
+ This window function has the form: <i>&lt;range&gt;</i> defines which data
+ elements are modified.</p>
+   
+</ul>
+      
+<h4> <a name="WB - Window from buffer"></a>WB - Window from buffer</h4>
+      
+<ul>
+    <b>WB </b>{ <i>&lt;range&gt;</i> }       
+  <p>Use the window function that has been prepared in the window buffer. 
+   <i>&lt;range&gt;</i> defines which data elements are modified.Example: 
+  </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # This is the equivalent of using the HN command<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # of course it is MUCH slower<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $pi = acos(-1.0)&nbsp; # Get the value of pi<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $isize = ?si&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get the array size<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in [1..$isize] do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @w[$i] = 0.5 + 0.5 * cos($pi * $i / $isize)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Do window with buffer</pre>
+     
+</ul>
+      
+<h2>    
+<hr><a name="Water Wash"></a>Water Wash</h2>
+   <a name="WATWA - Water Wash"></a>   
+<h4> WATWA - Water Wash</h4>
+      
+<ul>
+    <b>WATWA</b> <i>&lt;power&gt;, &lt;convolution width&gt; </i>{, <i>&lt;shift&gt;</i> 
+ } <br>
+    <u><font color="#0000ff"><a href="process_1d.html#Water%20Wash">Water 
+Wash.</a></font></u>       
+  <p>Filter large peaks (waterline) from spectrum <i>&lt;power&gt;</i> Filter 
+ is of the form cos^<i>&lt;power&gt;</i> <i>&lt;convolution width&gt;</i>
+ 64 seems to be OK. <i>&lt;shift&gt;</i> Number of channels to shift peak
+to the middle of the spectrum.</p>
+   
+</ul>
+      
+<h2>    
+<hr></h2>
+      
+<h2> <a name="Fourier Transformation"></a>Fourier Transformation</h2>
+   <a name="FT - Fourier transform"></a>   
+<h4> FT - Fast Fourier transform</h4>
+      
+<ul>
+    <b>FT</b> &lt;<i>zerofill&gt;</i> {, <i>&lt;mode&gt;</i> }       
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#FT%20-%20Fourier%20transform">Do Fourier transformation</a></font></u>
+ &lt;zerofill&gt;. Zerofill gives the number of zerofill operations performed
+ on the FID before Fourier transformation. The default value is 0. <i>&lt;mode&gt;</i>
+ is <b>@R</b> (do on real data), <b>@I</b> (do on imaginary data) or <b>@C</b>
+ (do on complex data) <br>
+  &nbsp; <br>
+  &nbsp;</p>
+   
+</ul>
+      
+<h4> <a name="DFT - Discrete Fourier transform"></a>DFT - Discrete Fourier
+ transform</h4>
+      
+<ul>
+    <b>DFT </b>{ <i>&lt;mode&gt;</i> }       
+  <p>Do a <a
+ href="process_1d.html#DFT%20-%20Discrete%20Fourier%20tranform">discrete Fourier
+transform</a> (if the data size is not a power of two). <i>&lt;mode&gt;</i> 
+ is <b>@R</b> (do on real data), <b>@I</b> (do on imaginary data) or <b>@C</b> 
+ (do on complex data) <br>
+  &nbsp;</p>
+   
+</ul>
+      
+<h4> <a name="IF - Inverse Fourier transform"></a>IFT - Inverse Fourier transform</h4>
+      
+<ul>
+    <b>IFT </b>{ <i>&lt;mode&gt;</i> }       
+  <p><u><font color="#0000ff"><a
+ href="process_1d.html#IF%20-%20Inverse%20Fourier%20transform">Do inverse
+ Fourier transformation</a></font></u>. <i>&lt;mode&gt;</i> is <b>@R</b>
+(do  on real data), <b>@I</b> (do on imaginary data) or <b>@C</b> (do on
+complex  data) <br>
+  &nbsp;</p>
+   
+</ul>
+      
+<h4> <a name="FTSCALE - Scale first data point"></a>FTSCALE - Scale first
+ data point</h4>
+      
+<blockquote><i>{&lt;block&gt;}</i><b>FTSCALE</b><i>{:&lt;dimension&gt;}</i>
+   <i>&lt;factor&gt;</i>       
+  <p>Scale first data point before a Fourier processing step. <i>&lt;factor&gt;</i> 
+ is the value by which the first data point is multiplied. <i>&lt;dimension&gt;</i> 
+ Processing dimension. <i>&lt;block&gt;</i> Set for this block. </p>
+       
+  <p>For example: </p>
+       
+  <p><tt>FTSCALE 0.5</tt> </p>
+       
+  <p><b>?</b> {<i>&lt;block&gt;</i>:}<b>FTSCALE</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Returns the value of <b>FTSCALE</b></p>
+  </blockquote>
+      
+<hr>   
+<h2> <a name="Phase"></a>Phase</h2>
+   <a name="PK - Phase-correction"></a>   
+<h4> PK - Phase-correction</h4>
+      
+<ul>
+    <b>PK</b> <i>{ &lt;phase0&gt; {, &lt;phase1&gt; {, &lt;i0&gt; }}}</i> 
+      
+  <p>Perform phase correction with <i>&lt;phase0&gt;</i>, <i>&lt;phase1&gt;</i> 
+ and <i>&lt;i0&gt;</i>. Previously defined parameters are used when not given 
+ with this command. <u><font color="#0000ff"><a
+ href="process_1d.html#Phase%20correction">Parameters can be determined interactively.</a></font></u>
+   <i>&lt;phase0&gt; </i>Frequency independent phase <i>&lt;phase1&gt;</i>
+ Frequency dependent phase <i>&lt;i0&gt;</i> Frequency independent position</p>
+   
+</ul>
+   <a name="PA - Frequency independent phase"></a>   
+<h4> PA - Frequency independent phase</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>PA</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;phase0&gt;</i> 
+      
+  <p>Set the frequecy independent phase. <i>&lt;phase0&gt;</i> is the value 
+ of the frequecy independent phase. <i>&lt;dimension&gt;</i> Processing dimension. 
+   <i>&lt;block&gt;</i> Set for this block. </p>
+       
+  <p><b>?</b> {<i>&lt;block&gt;</i>:}<b>PA</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Returns the value of <b>PA</b></p>
+   
+</ul>
+      
+<h4> <a name="PB - Frequency dependent phase"></a>PB - Frequency dependent
+ phase</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>PB</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;phase1&gt;</i> 
+      
+  <p>Set the frequecy dependent phase. <i>&lt;phase1&gt;</i> is the value
+ of the frequecy dependent phase. <i>&lt;dimension&gt;</i> Processing dimension. 
+   <i>&lt;block&gt;</i> Set for this block. </p>
+       
+  <p><b>?</b> {<i>&lt;block&gt;</i>:}<b>PB</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Returns the value of <b>PB</b></p>
+   
+</ul>
+   <a name="I0 - Frequency independent position"></a>   
+<h4> I0 - Frequency independent position</h4>
+      
+<ul>
+  {<i>&lt;block&gt;</i>:}<b>I0</b>{:<i>&lt;dimension&gt;</i>} <i>&lt;i0&gt;</i> 
+      
+  <p>Set the frequency independent position. <i>&lt;i0&gt;</i> is the frequency 
+ independent position in channel numbers. <i>&lt;dimension&gt;</i> Processing 
+ dimension. <i>&lt;block&gt;</i> Set for this block. </p>
+       
+  <p><b>?</b> {<i>&lt;block&gt;</i>:}<b>I0</b>{:<i>&lt;dimension&gt;</i>} 
+   </p>
+       
+  <p>Returns the value of <b>I0</b></p>
+   
+</ul>
+   <a name="PZ - Reset phase parameters"></a>   
+<h4> PZ - Reset phase parameters</h4>
+      
+<ul>
+    <b>PZ</b>       
+  <p>Reset phase parameters. Phase0 = 0, phase1 = 0, and i0 = 1.</p>
+   
+</ul>
+      
+<h4> <a name="PN - Normalize phase parameters"></a>PN - Normalize phase parameters</h4>
+      
+<ul>
+    <b>PN</b> { <i>&lt;i0&gt;</i> }       
+  <p>Normalize phase parameters. Recalculate the parameters with I0 set to 
+   <i>&lt;i0&gt;</i>. If <i>&lt;i0&gt;</i> is not specified, a value of 1
+ is assumed. This results in parameters that are not dependent on the size
+ of the spectrum. Not that the phase parameters are automatically normalized
+ when a script is created from the parameters. <br>
+  &nbsp;</p>
+   
+</ul>
+   <a name="HT - Hilbert Transformation"></a>   
+<h4> HT - Hilbert Transformation</h4>
+      
+<ul>
+    <b>HT</b>       
+  <p>In frequency domain, <u><font color="#0000ff"><a
+ href="process_1d.html#Hilbert%20transformation">restore imaginary data</a></font></u>
+ form real data.</p>
+   
+</ul>
+   <a name="AV - Calculate absolut value spec"></a>   
+<h4> AV - Calculate absolute value spectrum</h4>
+      
+<ul>
+    <b>AV</b>       
+  <p>The real data are replaced by the absolute value according to (magnitude 
+ calculation) <br>
+  &nbsp; </p>
+       
+  <pre>AV(i) = sqrt(real(i)**2 + imaginary(i)**2)</pre>
+     
+</ul>
+   <a name="PS - Calculate power spectrum"></a>   
+<h4> PS - Calculate power spectrum</h4>
+      
+<ul>
+    <b>PS</b>       
+  <p>The real part of the spectrum is replaced by <br>
+  &nbsp; </p>
+       
+  <pre>PS(i) = real(i)**2 + imaginary(i)**2</pre>
+   All values are scaled, by multiplication of the reciprocal square root 
+of the biggest peak.  
+</ul>
+      
+<hr>   
+<h2> <a name="Baseline"></a>Baseline</h2>
+   <a name="BC - baseline correction"></a>   
+<ul>
+         
+  <h4> BC - baseline correction</h4>
+   <b>BC</b> <i>&lt;mode&gt;</i> {, <i>&lt;terms&gt;</i> {, <i>&lt;terms2&gt;</i>
+ } } {, <i>&lt;range&gt;</i> { <i>&lt;range2&gt;</i> } }       
+  <p>Perform a baseline correction on the current spectrum. The most likely 
+ baseline of the current spectrum is determined and a baseline correction 
+function is fitted to this baseline. This fitted function is then subtracted 
+from the spectrum. A number of functions can be used for this fit. If a windowed
+ fit is used, only the regions that are defined in this 'window' are used
+to determine the baseline. However, the correction is applied on the whole
+spectrum. The window must be defined in buffer A. All non-zero elements of
+this buffer define positions that should be fitted. <i>&lt;mode&gt;</i> gives
+the <a href="process_1d.html#Baseline%20type">type of baseline correction
+ function</a>. It can have the following values: <br>
+    <b>poly</b> - polynomial <br>
+    <b>polyw</b> - windowed polynomial <br>
+    <b>sine</b> - sine <br>
+    <b>sinew</b> - windowed sine <br>
+    <b>cosine</b> - cosine <br>
+    <b>cosinew</b> - windowed cosine <br>
+    <b>sincos</b> - sine + cosine <br>
+    <b>sincosw</b> - windowed sine + cosine <br>
+    <b>tabl</b> - table fit <br>
+    <b>tablw</b> - windowed table fit <br>
+    <b>spline</b> - automatic spline <br>
+    <b>splinew</b> - windowed automatic spline </p>
+       
+  <p>When <i>&lt;mode&gt;</i> is <b>tabl</b> or <b>tablw</b>, a function
+defined in buffer B is used for the fit. <i>&lt;terms&gt;</i> sets the number
+of polynomial terms if <i>&lt;mode&gt;</i> = <b>poly</b> or <b>polyw</b>.
+Usually 4 or 5. <i>&lt;terms&gt;</i> sets the maximum sine or cosine frequency,
+if &lt;mode&gt; = <b>sine</b>, <b>sinew</b>, <b>cosine</b>, <b>cosinew, sincos
+   </b>or <b>sincosw</b>. For these functions, the argument <i>&lt;terms2&gt;</i> 
+ can also be used. In this case <i>&lt;terms&gt;</i> = the minimum and <i>&lt;terms2&gt;</i> 
+ the maximum frequency. When <i>&lt;mode&gt;</i> is <b>spline</b> or <b>splinew</b>, 
+   <i>&lt;terms&gt;</i> set the number of control points to <i>&lt;terms&gt;</i>+1.
+ If <i>&lt;range&gt;</i> is defined the correction is only applied on this
+ region. If <i>&lt;range2&gt;</i> is defined, the baseline is fitted in two
+ parts <a href="process_1d.html#Waterline">(see baseline correction, waterline).&nbsp;</a>&nbsp;
+ In this case <i>&lt;range&gt;</i> is baseline_start..waterline-width/2 and
+   <i>&lt;range2&gt;</i> is composed of waterline+width/2..baseline_end.
+  </p>
+       
+  <p>Example: </p>
+       
+  <p><tt>BC spline, 20</tt> </p>
+       
+  <p>Example: </p>
+       
+  <p><tt>BC poly, 5, [1..4070], [4080..]</tt> <br>
+  &nbsp;</p>
+   
+</ul>
+      
+<hr><a name="SPLINE - Spline baseline correction"></a>   
+<h4> SPLINE - Spline baseline correction</h4>
+      
+<ul>
+    <b>spline read</b>, <i>&lt;filename&gt;</i> ; <b>spline calc</b>     
+ 
+  <p>Read spline control points from the file <i>&lt;filename&gt;</i>, calculate 
+ a trigonometric spline function through these points and store the result 
+ in buffer B. The file contains points that are interactively generated with
+ the Spline module, and that are considered baseline points. By subtracting 
+ buffer B from the real data, a baseline correction is performed. Example 
+of a file with spline points: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPLINE_START<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPLINE_EXTERPOLATING<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 134450.500000&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 134450.500000&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 134450.500000&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 134450.500000&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 201&nbsp;&nbsp;&nbsp;&nbsp; 85581.890625&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 803&nbsp;&nbsp;&nbsp;&nbsp; -4811.260254&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1471&nbsp;&nbsp; -100758.687500&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1952&nbsp;&nbsp; -120265.203125&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2139&nbsp;&nbsp; -101299.953125&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2460&nbsp;&nbsp; -106488.789062&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3181&nbsp;&nbsp;&nbsp; -17112.298828&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5199&nbsp;&nbsp;&nbsp;&nbsp; 33165.476562&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5787&nbsp;&nbsp;&nbsp; -66912.101562&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6535&nbsp;&nbsp; -168316.046875&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7163&nbsp;&nbsp; -165597.078125&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7925&nbsp;&nbsp;&nbsp; 127876.718750&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8192&nbsp;&nbsp;&nbsp; 228702.140625&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8192&nbsp;&nbsp;&nbsp; 228702.140625&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8192&nbsp;&nbsp;&nbsp; 228702.140625&nbsp; 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPLINE_STOP</pre>
+   Example of a spline baseline correction:       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spline read, "spoints.spn"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in sorted [..] do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rn $i<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spline calc<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r -= @b<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done</pre>
+   Also a table fit can be used for the spline baseline correction Example: 
+      
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spline read "spoints.spn"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; spline calc<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bc tabl</pre>
+     
+</ul>
+      
+<hr width="100%"><a
+ name="Waterfit - Remove big peak in frequency domain"></a>   
+<h2> Waterfit - Remove big peak in frequency domain</h2>
+      
+<blockquote><b>waterfit</b> <i>&lt;position&gt;</i> , <i>&lt;width&gt;</i> 
+      
+  <p>Remove peak from spectrum: <i>&lt;position&gt;</i> gives the position
+ of the peak in points, and <i>&lt;width&gt;</i> gives the optional peak-width 
+ (also in points). </p>
+       
+  <p>Example: </p>
+       
+  <blockquote><tt>waterfit 512, 0</tt></blockquote>
+   </blockquote>
+      
+<hr width="100%">   
+<h2> <a name="Bruker DISNMR conversions"></a>Bruker DISNMR conversions</h2>
+   Functions used to read old <a
+ href="psnd_script_disnmr.html#Bruker%20FTQNMR%20and%20DISNMR%20file%20format">Bruker 
+ FTQNMR and DISNMR</a> files. <br>
+  &nbsp;   
+<h4> <a name="UNPACK4"></a>UNPACK4 - unpack 4bit ascii</h4>
+      
+<ul>
+    <i>&lt;string&gt;</i> = <b>unpack4</b>( <i>&lt;word&gt;</i> )       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %dum = unpack4(@b[11])<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "Date " + %dum[1..2] + "-" + %dum[3..4] + "-19" +<br>%dum[5..6]</pre>
+     
+</ul>
+      
+<h4> <a name="UNPACK6"></a>UNPACK6 - unpack 6bit ascii</h4>
+      
+<ul>
+    <i>&lt;string&gt;</i> = <b>unpack6</b>( <i>&lt;word&gt;</i> )       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %fname = unpack6(@b[2])+unpack6(@b[3])+unpack6(@b[4])<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "Filename: " + trim(%fname[1..8]) + "." +<br>trim(%fname[9..12])</pre>
+     
+</ul>
+      
+<h4> <a name="UNPACK8"></a>UNPACK8 - unpack 8bit ascii</h4>
+      
+<ul>
+    <i>&lt;string&gt;</i> = <b>unpack8</b>( <i>&lt;word&gt;</i> )       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print "Comment:&nbsp; "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in [17..40] do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print %unpack8(@b[$i])&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println ""</pre>
+     
+</ul>
+      
+<h4> <a name="UNPACKI"></a>UNPACKI - unpack 3-byte integer</h4>
+      
+<ul>
+    <i>&lt;value&gt;</i> = <b>unpacki</b>( <i>&lt;word&gt;</i>)       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Get size of 1 record<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $nsize = unpacki(@b[41])</pre>
+     
+</ul>
+      
+<h4> <a name="UNPACKF"></a>UNPACKF - unpack 2 x 3-byte float</h4>
+      
+<ul>
+    <i>&lt;value&gt;</i> = <b>unpackf</b>( <i>&lt;word1&gt;, &lt;word2&gt;</i>
+ )       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $specf = unpackf(@b[78],@b[79])<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "SF&nbsp;&nbsp; " + %specf</pre>
+     
+</ul>
+      
+<h4> <a name="UNPACKB"></a>UNPACKB - get one byte from 4-byte word</h4>
+      
+<ul>
+    <i>&lt;value&gt;</i> = <b>unpackb</b>( <i>&lt;word&gt;, &lt;bytenumber&gt;</i> 
+ )       
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # the filetype is in the 1th byte of integer 12<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $filetype = unpackb(@b[12],1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if $filetype == 7 then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "Filetype: FTQNMR"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if $filetype == 8 then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "Filetype: DISNxx"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif</pre>
+     
+</ul>
+      
+<h4> <a name="NEGSTEP"></a>NEGSTEP - negate some elements of array</h4>
+      
+<ul>
+    <b>negstep</b> <i>&lt;array&gt; , &lt;index&gt; , &lt;number of elements&gt;</i> 
+      
+  <p>Example: </p>
+       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; unpacki @r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Convert 3-byte integers to floats<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; negstep @r, 4, 2 # At every index '4' negate last '2' data</pre>
+   In this example, the array with the elements 1,2,3,4,5,6,7,8 is transferred 
+ to 1,2,-3,-4,5,6,-7,-8  
+</ul>
+      
+<h4> <a name="UNPACK0123, UNPACK3210, UNPACK0321, UNPACK1230"></a>UNPACK0123, 
+ UNPACK3210, UNPACK0321, UNPACK1230 - 3-bytes to 4-bytes</h4>
+      
+<ul>
+    <b>unpack</b>nnnn <i>&lt;input array&gt; , &lt;output array&gt;</i> 
+     
+  <p>Convert 3-byte integer to 4-byte integer. The 4th byte is a zero.&nbsp; 
+ The number of integers that are converted is determined by the sizes of the
+input- and output arrays. </p>
+       
+  <p>unpack0123: 123 -&gt; 0123 <br>
+  unpack3210: 123 -&gt; 3210 <br>
+  unpack0321: 123 -&gt; 0321 <br>
+  unpack1230: 123 -&gt; 1230 </p>
+       
+  <p>Example: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>if ?byteorder == 0 then</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; unpack3210 @i, @r</tt> <br>
+      <tt>else</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; unpack0123 @i, @r</tt> <br>
+      <tt>endif</tt>      
+  </ul>
+   Example 2, convert array a to 40 integers in array r: <br>
+  &nbsp;       
+  <ul>
+      <tt>unpack0123 @a[1..30], @r</tt>      
+  </ul>
+   Example 3, the same result as above: <br>
+  &nbsp;       
+  <ul>
+      <tt>unpack0123 @a, @r[1..40]</tt>      
+  </ul>
+   Example 4, when sizes do not match, the smallest size is taken. Only 40 
+integers are converted in the next example: <br>
+  &nbsp;       
+  <ul>
+      <tt>unpack0123 @a[4..400], @r[1..40]</tt>      
+  </ul>
+     
+</ul>
+      
+<hr width="100%">   
+<h2> <a name="Analysis"></a>Analysis</h2>
+      
+<h4> <a name="INTEGRAL - Integrate part of 1D or 2D spectrum"></a>INTEGRAL
+ - Integrate part of 1D or 2D spectrum</h4>
+      
+<ul>
+    <i>&lt;result&gt;</i> = <b>integral</b> ( <i>&lt;left&gt;</i> , <i>&lt;right&gt;</i> 
+ { , <i>&lt;bottom&gt;</i> , <i>&lt;top&gt;</i> } )  
+</ul>
+      
+<ul>
+  Integrate&nbsp; part of 1D or 2D array.&nbsp; For an 1D spectrum, it is 
+assumed that the spectrum is present in array <b>@r</b>.&nbsp; The arguments 
+  <i>&lt;left&gt;</i>  and <i>&lt;right&gt;</i> define the first and last 
+point of that part of the array that should be integrated. Integration means 
+summation of all points  (and including) left to right.&nbsp; For 2D files, 
+the area defined by &lt;left&gt;, &lt;right&gt;, &lt;bottom&gt; and &lt;top&gt; 
+is integrated (No special options are used, e.g. floodfill). This part of 
+the spectrum is read from disk.       
+  <p>Example: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>$i = integral( 4000, 5000 )</tt> <br>
+      <tt>println "The integral is " + %i</tt>      
+  </ul>
+   To use a different unit base, e.g. ppm, use the function <b><a
+ href="#UCONV%20-%20Convert%20NMR%20units">uconv</a></b> to convert units
+ to channel numbers. Example: <br>
+  &nbsp;       
+  <ul>
+      <tt>%i = integral( uconv(4.2, "pc"), uconv(4.4, "pc"))</tt>      
+  </ul>
+   Example: <br>
+  &nbsp;       
+  <ul>
+      <tt>%i = integral(4000, 4200, 3030, 3800)</tt>      
+  </ul>
+          
+  <p><br>
+    <b>integral offset</b> <i>&lt;mode&gt;</i> </p>
+       
+  <p>Set the integral offset correction mode for 2D integration. If <i>&lt;mode&gt;</i> 
+ is <b>1</b>, offset correction will be used. In this case, the intensities 
+ of the border of the integration box will be used as offset, and subtracted 
+ from the integral. If <i>&lt;mode&gt;</i> is <b>0</b>, offset correction
+ will not be applied. </p>
+       
+  <p>Example: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>integral offset 1</tt>      
+  </ul>
+          
+  <p><i>&lt;numpeaks&gt;</i> = <b>integral</b> ( <i>&lt;filename&gt;</i>
+)   </p>
+       
+  <p>Read a file with peak definitions into the current spectrum. <i>&lt;numpeaks&gt;</i> 
+ gives the number of peaks that have been successfully loaded. <br>
+  &nbsp; </p>
+       
+  <p><i>&lt;result&gt;</i> = <b>integral</b> ( <i>&lt;peaknumber&gt;</i>
+)   </p>
+       
+  <p>Integrate the peak with <i>&lt;peaknumber&gt; .</i> </p>
+       
+  <p>Example: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>#</tt> <br>
+      <tt># Script to calculate peak-integrals for 'buildup' fitting</tt> 
+    <br>
+      <tt>#</tt> <br>
+      <tt>%filenames&nbsp;&nbsp;&nbsp; = "abc1.ff;abc2.ff;abc3.ff"</tt> <br>
+      <tt>%peakfile&nbsp;&nbsp;&nbsp;&nbsp; = "peaks.int"</tt> <br>
+      <tt>%resultfile&nbsp;&nbsp; = "myfile"</tt> <br>
+      <tt>$method&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1</tt>          
+    <p><tt># First, read and calculate all peaks</tt> </p>
+           
+    <p><tt>#</tt> <br>
+      <tt># the first filename from the list</tt> <br>
+      <tt>#</tt> <br>
+      <tt>%file = token %filenames, ";"</tt> <br>
+      <tt>$numfiles = 0</tt> <br>
+      <tt>while %file != "" do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; ropen %file</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; dr 2, 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; co 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; if $numfiles == 0 then</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # read peaks</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $numpeaks = integral( 
+%peakfile )</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if $numpeaks == 0 then</tt> 
+     <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ exit 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "numpeaks =
+"  + %numpeaks</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; endif</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $i = 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $j = $numfiles * $numpeaks + $i</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; # store peak integrals in array @a</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; while $i &lt;= $numpeaks do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @a[$j] = integral&nbsp; 
+ ($i)</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println %numfiles +
+"  " + %i + " " + %(@a[$j])</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $i += 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $j += 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; done</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; rclose</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $numfiles += 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; # next filename</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; %file = token ";"</tt> <br>
+      <tt>done</tt> </p>
+           
+    <p><tt>#</tt> <br>
+      <tt># produce output in various formats</tt> <br>
+      <tt>#</tt> </p>
+           
+    <p><tt>$outfile = open %resultfile, "w"</tt> </p>
+           
+    <p><tt># For example write peaknumber +</tt> <br>
+      <tt># accending integrals</tt> </p>
+           
+    <p><tt>if $method == 1 then</tt> </p>
+           
+    <p><tt>$i = 1</tt> <br>
+      <tt>while $i &lt;= $numpeaks do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $n = 0</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; # peak number</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; fprintf $outfile, "%4d ", $i</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; # write integrals from first to last file</tt> 
+     <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; while $n &lt; $numfiles do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $j = $n * $numpeaks
++  $i</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fprintf $outfile, "%10.5e 
+ ", @a[$j]</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $n += 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; done</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; fprintf $outfile, "%s", "\n"</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $i += 1</tt> <br>
+      <tt>done</tt> </p>
+           
+    <p><tt>else</tt> </p>
+           
+    <p><tt># ... or write filenumber +</tt> <br>
+      <tt># all its peak integrals</tt> </p>
+           
+    <p><tt>$n = 0</tt> <br>
+      <tt>while $n &lt; $numfiles do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; # file number</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; #</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; fprintf $outfile, "%4d ", $n+1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $i = 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; while $i &lt;= $numpeaks do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $j = $n * $numpeaks
++  $i</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fprintf $outfile,&nbsp; 
+ "%10.5e ", @a[$j] * ($n+1)</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $i += 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; done</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; fprintf $outfile, "%s", "\n"</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $n += 1</tt> <br>
+      <tt>done</tt> </p>
+           
+    <p><tt>endif</tt> </p>
+           
+    <p><tt>close $outfile</tt> <br>
+  &nbsp;</p>
+       
+  </ul>
+     
+</ul>
+      
+<h4> <a
+ name="RMSNOISE - Calculate the rms noise for a part of 1D or 2D spect"></a>RMSNOISE 
+ - Calculate the rms noise for a part of 1D or 2D spectrum</h4>
+      
+<ul>
+  &nbsp;<i>&lt;result&gt;</i> = <b>rmsnoise</b> ( <i>&lt;left&gt;</i> , <i>&lt;right&gt;</i> 
+ { , <i>&lt;bottom&gt;</i> , <i>&lt;top&gt;</i> } )  
+</ul>
+      
+<ul>
+  Calculate rms noise for&nbsp; part of 1D or 2D array.&nbsp; The rms noise
+ is defined as:       
+  <p><img src="equation_rmsnoise.gif" height="94" width="242">
+   </p>
+       
+  <p>For an 1D spectrum, it is assumed that the spectrum is present in array 
+   <b>@r</b>.&nbsp; The arguments <i>&lt;left&gt;</i> and <i>&lt;right&gt;</i>
+ define the first and last point of that part of the array.&nbsp; For 2D
+files,  the area defined by <i>&lt;left&gt;, &lt;right&gt;, &lt;bottom&gt;</i>
+and    <i>&lt;top&gt;</i>. This part of the spectrum is read from disk. </p>
+       
+  <p>Example: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>$i = rmsnoise( 4000, 5000 )</tt> <br>
+      <tt>println "The rms noise is " + %i</tt>      
+  </ul>
+     
+</ul>
+      
+<h4> <a name="PEAKPICK  - Simple 1D peak pick routine"></a>PEAKPICK&nbsp;
+ - Simple 1D peak pick routine</h4>
+      
+<ul>
+  &nbsp;<i>&lt;npeaks&gt;</i> = <b>peakpick</b> ( <i>&lt;left&gt;</i> , <i>&lt;right&gt; 
+   </i>, <i>&lt;height&gt;</i> , <i>&lt;result&gt;</i> )       
+  <p><i>&lt;npeaks&gt;</i> = The number of peaks found between &lt;left&gt;
+ and &lt;right&gt; <br>
+    <i>&lt;left&gt;</i> = pick from left <br>
+    <i>&lt;right&gt;</i> = to right (in channel numbers) <br>
+    <i>&lt;height&gt;</i> = peak pick threshold <br>
+    <i>&lt;result&gt;</i> = array to store result </p>
+       
+  <p>Example: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>$num = peakpick ( 200, 400, 6e5, @a )</tt> <br>
+      <tt>$i = 1</tt> <br>
+      <tt>while $i &lt;= $num do</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; # Print peaks, convert channel numbers to ppm</tt> 
+     <br>
+      <tt>&nbsp;&nbsp;&nbsp; println "Peak at " + uconv( @a[$i], "cp") +
+"  ppm"</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp; $i += 1</tt> <br>
+      <tt>done</tt>      
+  </ul>
+   The number of peaks is limited to the size of the array. In the following 
+ example, a maximum of 3 peaks is selected: <br>
+  &nbsp;       
+  <ul>
+      <tt>$num = peakpick ( 200, 400, 6e5, @a[4..6] )</tt>      
+  </ul>
+     
+</ul>
+      
+<h4> <a name="UCONV - Convert NMR units"></a>UCONV - Convert NMR units</h4>
+      
+<ul>
+    <i>&lt;newunit&gt;</i> = <b>uconv</b> ( <i>&lt;unit&gt;</i> , <i>&lt;conversion 
+ type&gt;</i> { , <i>&lt;dimension&gt;</i> } )       
+  <p>Convert values from one unit&nbsp; (ppm, hertz, channel numbers, seconds) 
+ into another. On error, the value is simply returned. </p>
+       
+  <p><i>&lt;unit&gt;</i> is the value that should be converted. </p>
+       
+  <p>&nbsp;<i>&lt;conversion type&gt;</i> is&nbsp; a string of two characters. 
+ The first character describes the current unit and the second character describes
+the converted unit. Valid units are 'p' = ppm, 'h' = hertz, 'c' = channel
+number and 's' = second. For example "pc" means: convert form ppm to channel
+numbers. </p>
+       
+  <p>The optional argument <i>&lt;dimension&gt;</i> uses the parameters from 
+ that dimension for the conversion. The default is to use the parameters of
+the current dimension. </p>
+       
+  <p>Example, convert ppm to hertz: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>$hval = uconv( $pval, "ph" )</tt>      
+  </ul>
+          
+  <p><br>
+  Example, convert channel numbers to ppm for dimension 2: <br>
+  &nbsp; </p>
+       
+  <ul>
+      <tt>$pval = uconv( $cval, "cp", 2)</tt>      
+  </ul>
+     
+</ul>
+      
+<hr width="100%"> <br>
+  &nbsp; <br>
+   <br>
+</body>
+</html>

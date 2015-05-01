@@ -1,0 +1,22 @@
+# Combined NMR, grid search/MM3 and Metropolis
+# Monte Carlo/GEGOP studies of two L-fucose
+# containing disaccharides:
+# a-L-Fuc-(1,4)-b-DGlcNAcOMe and
+# a-L-Fuc-(1,6)-b-D-GlcNAcOMe
+# J. Mol. Struct. Theochem 395-396 (1997) 297-311
+
+set ref ' J. Mol. Struct. Theochem 395-396 (1997) 297-311'
+dimer 'aLFuc(1->4)bDGlcNAcOMe' {
+shift 103.4 4.96; 71.9 3.81; 73.2 3.85; 75.6 3.82; 70.8 4.35; 19.0 1.17
+shift 105.7 4.46; 59.7 3.72; 76.6 3.66; 81.3 3.57; 79.0 3.57; 63.9 3.85 4.02
+shift 26.0 2.05; CO?
+shift 60.9 3.52
+}
+
+dimer 'aLFuc(1->6)bDGlcNAcOMe' {
+shift 103.2 4.94; 72.0 3.79; 73.3 3.92; 75.6 3.82; 70.6 4.14; 19.1 1.24
+shift 105.8 4.46; 59.2 3.71; 73.7 3.54; 77.7 3.54; 78.7 3.60; 71.0 3.80 4.01
+shift 26.0 2.04; CO?
+shift 60.9 3.51
+}
+

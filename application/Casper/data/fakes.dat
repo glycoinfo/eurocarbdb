@@ -1,0 +1,376 @@
+# fakes
+
+residue aDQui '6dHex' {
+ info '* a-D-Quinovose'
+ priority 'quinovo Da'
+ ctname 'a-dglc'
+ error 0.5
+ config D
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-D-Quip'
+ jhh medium
+ jch large
+ copy aDGlc
+ add aLRha
+ sub aDMan
+}
+enantiomer aDQui aLQui
+
+residue bDQui '6dHex' {
+ info '* b-D-Quinovose'
+ priority 'quinovo Db'
+ ctname 'b-dglc'
+ error 0.5
+ config D
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'b-D-Quip'
+ jhh medium
+ jch large
+ copy bDGlc
+ add bLRha
+ sub bDMan
+}
+enantiomer bDQui bLQui
+
+# 2-acetamido-2,6-dideoxy
+residue aDQuiNAc '6dHexNAc' {
+ info '* 2-Acetamido-2,6-dideoxy-a-D-glucose'
+ priority 'quinovo Da 2acetamido'
+ ctname 'a-dglc'
+ error 0.5
+ config D
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-D-QuipNAc'
+ jhh medium
+ jch large
+ copy aDGlcNAc
+ add aLRha
+ sub aDMan
+}
+
+residue bDQuiNAc '6dHexNAc' {
+ info '* 2-Acetamido-2,6-dideoxy-b-D-glucose'
+ priority 'quinovo Db 2acetamido'
+ ctname 'b-dglc'
+ error 0.5
+ config D
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'b-D-QuipNAc'
+ jhh large
+ jch small
+ copy bDGlcNAc
+ add bLRha
+ sub bDMan
+}
+
+residue aLFucNAc '6dHexNAc' {
+ info '* 2-Acetamido-2,6-dideoxy-a-L-galactose'
+ priority 'fuco La 2acetamido'
+ ctname 'a-lgal'
+ error 0.5
+ config L
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 ax; 0 0; 0 0
+ carbbank 'a-L-FucpNAc'
+ jhh medium
+ jch large
+ copy aLFuc
+ add aDGalNAc
+ sub aDGal
+}
+enantiomer aLFucNAc aDFucNAc
+residue aDFucNAc {
+ ctname 'a-dgal'
+ carbbank 'a-D-FucpNAc'
+ priority 'fuco Da 2acetamido'
+}
+
+residue bLFucNAc '6dHexNAc' {
+ info '* 2-Acetamido-2,6-dideoxy-b-L-galactose'
+ priority 'fuco Lb 2acetamido'
+ ctname 'b-lgal'
+ config L
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 ax; 0 0; 0 0
+ carbbank 'b-L-FucpNAc'
+ error 0.5
+ jhh large
+ jch small
+ copy bLFuc
+ add bDGalNAc
+ sub bDGal
+}
+enantiomer bLFucNAc bDFucNAc
+residue bDFucNAc {
+ ctname 'b-dgal'
+ carbbank 'b-D-FucpNAc'
+ priority 'fuco Db 2acetamido'
+}
+
+
+residue aLRhaNAc '6dHexNAc' {
+ info '* 2-Acetamido-2,6-dideoxy-a-L-mannose'
+ priority 'rhamno La 2acetamido'
+ ctname 'a-lman'
+ config L
+ shift 0 0 ax; 0 0 ax; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-L-RhapNAc'
+ error 0.5
+ jhh small
+ jch large
+ copy aLRha
+ add aDManNAc
+ sub aDMan
+}
+
+enantiomer aLRhaNAc aDRhaNAc
+residue aDRhaNAc {
+ ctname 'a-dman'
+ carbbank 'a-D-RhapNAc'
+ priority 'rhamno Da 2-acetamido'
+}
+
+residue bLRhaNAc '6dHexNAc' {
+ info '* 2-Acetamido-2,6-dideoxy-b-L-mannose'
+ priority 'rhamno Lb 2acetamido'
+ ctname 'b-lman'
+ config L
+ shift 0 0 eq; 0 0 ax; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'b-L-RhapNAc'
+ error 0.5
+ jhh small
+ jch small
+ copy bLRha
+ add bDManNAc
+ sub bDMan
+}
+
+enantiomer bLRhaNAc bDRhaNAc
+residue bDRhaNAc {
+ ctname 'b-dman'
+ carbbank 'b-D-RhapNAc'
+ priority 'rhamno Db 2-acetamido'
+}
+
+# 2-acetamido-2-deoxy- -uronate
+
+residue aDGalANAc 'HexANAc' {
+ info '* 2-Acetamido-2-deoxy-a-D-galacturonic acid'
+ priority 'galactouronic Da 2acetamido'
+ ctname 'a-dgal'
+ config L
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 ax; 0 0; 0 0
+ carbbank 'a-D-GalpANAc'
+ error 0.5
+ jhh medium
+ jch large
+ copy aDGalNAc
+ add aDGalA
+ sub aDGal
+}
+
+residue bDGalANAc 'HexANAc' {
+ info '* 2-Acetamido-2-deoxy-b-D-galacturonic acid'
+ priority 'galactouronic Db 2acetamido'
+ ctname 'b-dgal'
+ config L
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 ax; 0 0; 0 0
+ carbbank 'b-D-GalpANAc'
+ error 0.5
+ jhh large
+ jch small
+ copy bDGalNAc
+ add bDGalA
+ sub bDGal
+}
+
+residue aDGlcANAc 'HexANAc' {
+ info '* 2-Acetamido-2-deoxy-a-D-glucuronic acid'
+ priority 'glucouronic Da 2acetamido'
+ ctname 'a-dglc'
+ config L
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-D-GlcpANAc'
+ error 0.5
+ jhh medium
+ jch large
+ copy aDGlcNAc
+ add aDGlcA
+ sub aDGlc
+}
+
+residue bDGlcANAc 'HexANAc' {
+ info '* 2-Acetamido-2-deoxy-b-D-glucuronic acid'
+ priority 'glucouronic Db 2acetamido'
+ ctname 'b-dglc'
+ config L
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 ax; 0 0; 0 0
+ carbbank 'b-D-GlcpANAc'
+ error 0.5
+ jhh large
+ jch small
+ copy bDGlcNAc
+ add bDGlcA
+ sub bDGlc
+}
+
+residue aDManANAc 'HexANAc' {
+ info '* 2-Acetamido-2-deoxy-a-D-mannuronic acid'
+ priority 'mannouronic Da 2acetamido'
+ ctname 'a-dman'
+ config L
+ shift 0 0 ax; 0 0 ax; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-D-ManpANAc'
+ error 0.5
+ jhh small
+ jch large
+ copy aDManNAc
+ add aDManA
+ sub aDMan
+}
+
+residue bDManANAc 'HexANAc' {
+ info '* 2-Acetamido-2-deoxy-b-D-mannuronic acid'
+ priority 'mannouronic Db 2acetamido'
+ ctname 'b-dman'
+ config L
+ shift 0 0 eq; 0 0 ax; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'b-D-ManpANAc'
+ error 0.5
+ jhh small
+ jch small
+ copy bDManNAc
+ add bDManA
+ sub bDMan
+}
+
+# glycosides
+
+residue aDQuiOMe '6dHexOMe' {
+ info '* Methyl 6-deoxy-a-D-glycopyranoside'
+ priority 'Z'
+ ctname 'a-dglc'
+ config 'D'
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-D-QuipOMe'
+ error 0.5
+ jhh small
+ jch large
+ copy aLFucOMe
+ add aDQui
+ sub aLFuc
+}
+
+residue bDQuiOMe '6dHexOMe' {
+ info '* Methyl 6-deoxy-b-D-glycopyranoside'
+ priority 'Z'
+ ctname 'b-dglc'
+ carbbank 'b-D-Quip-(1-1)-Methyl'
+ config 'D'
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ error 0.5
+ jhh large
+ jch small
+ copy bLFucOMe
+ add bDQui
+ sub bLFuc
+}
+
+residue aLFucNAcOMe '6dHexNAcOMe' {
+ info '* Methyl 2-acetamido-2-deoxy-a-L-fucopyranoside'
+ priority 'Z'
+ ctname 'a-lgal'
+ config 'L'
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 ax; 0 0; 0 0
+ carbbank 'a-L-FucpNAc-(1-1)-Methyl'
+ error 0.5
+ jhh small
+ jch large
+ copy aDGalNAcOMe
+ add aLFuc
+ sub aDGal
+}
+
+
+residue bLFucNAcOMe '6dHexNAcOMe' {
+ info '* Methyl 2-acetamido-2-deoxy-b-L-fucopyranoside'
+ priority 'Z'
+ ctname 'b-lgal'
+ config 'L'
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 ax; 0 0; 0 0
+ carbbank 'b-L-FucpNAc-(1-1)-Methyl'
+ error 0.5
+ jhh medium
+ jch large
+ copy bDGalNAcOMe
+ add bLFuc
+ sub bDGal
+}
+
+residue aLRhaNAcOMe '6dHexNAcOMe' {
+ info '* Methyl 2-acetamido-2-deoxy-a-L-rhamnopyranoside'
+ priority 'Z'
+ ctname 'a-lman'
+ config 'L'
+ shift 0 0 ax; 0 0 ax; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-L-RhapNAc-(1-1)-Methyl'
+ error 0.5
+ jhh small
+ jch large
+ copy aDManNAcOMe
+ add aLRha
+ sub aDMan
+}
+
+residue bLRhaNAcOMe '6dHexNAcOMe' {
+ info '* Methyl 2-acetamido-2-deoxy-b-L-rhamnopyranoside'
+ priority 'Z'
+ ctname 'b-lman'
+ config 'L'
+ shift 0 0 eq; 0 0 ax; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'b-L-RhapNAc-(1-1)-Methyl'
+ error 0.5
+ jhh small
+ jch large
+ copy bDManNAcOMe
+ add bLRha
+ sub bDMan
+}
+
+residue aDQuiNAcOMe '6dHexNAcOMe' {
+ info '* Methyl 2-acetamido-2-deoxy-a-D-quinovopyranoside'
+ priority 'Z'
+ ctname 'a-dglc'
+ config 'D'
+ shift 0 0 ax; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ carbbank 'a-D-QuipNAc-(1-1)-Methyl'
+ error 0.5
+ jhh small
+ jch large
+ copy aDGlcNAcOMe
+ add aLRha
+ sub aDMan
+}
+
+residue bDQuiNAcOMe '6dHexNAcOMe' {
+ info '* Methyl 2-acetamido-2-deoxy-b-D-quinovopyranoside'
+ priority 'Z'
+ ctname 'b-dglc'
+ carbbank 'b-D-QuipNAc-(1-1)-Methyl'
+ config 'D'
+ shift 0 0 eq; 0 0 eq; 0 0 eq; 0 0 eq; 0 0; 0 0
+ error 0.5
+ jhh large
+ jch small
+ copy bDGlcNAcOMe
+ add bLRha
+ sub bDMan
+}
+
+
+
+end
+
+3-deoxy
+6-deoxy
+3,6-dideoxy
+2-deoxy
+4-deoxy

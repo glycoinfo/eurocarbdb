@@ -1,0 +1,13 @@
+#
+# Reads the '-4 name' flag and fills 'file_4' with 'name'
+#
+if argv($argi) == "-4" then
+   if argc>$argi && argv($argi+1)[1] != "-" then
+      $argi += 1
+      %file_4=argv($argi)
+      $argv_i = 1
+   else
+      println "Syntax: -4 file_or_directory_name"
+      exit
+   endif
+endif

@@ -1,0 +1,278 @@
+<?xml version='1.0'?>
+<aglycon_templates>
+
+<!-- #### small molecules: ########################################################################### -->
+
+<aglycon>
+	<name>anthranilic acid</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula></formula>
+	<class>small molecule</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='C' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='aa' />
+		<secondary_alias namescheme='glycosciences' name='anthranilic acid' />
+	</synonyms>
+</aglycon>
+
+<aglycon>
+	<name>2-aminopiridine</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula>C5H6N2</formula>
+	<class>small molecule</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='C' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='2ap' />
+		<secondary_alias namescheme='glycosciences' name='pa' />
+	</synonyms>
+</aglycon>
+
+<aglycon>
+	<name>2-aminobenzoic acid</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula></formula>
+	<class>small molecule</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='C' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='2ab' />
+		<secondary_alias namescheme='glycosciences' name='2-aminobenzoic acid' />
+	</synonyms>
+</aglycon>
+
+<aglycon>
+	<name>methyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula>CH3</formula>
+	<class>small molecule</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='CM' element='C' />
+		<atom id='2' name='HMa' element='H' />
+		<atom id='3' name='HMb' element='H' />
+		<atom id='4' name='HMc' element='H' />
+		<atom id='5' name='HMd' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='1' to='5' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='5' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='methyl' />
+		<secondary_alias namescheme='glycosciences' name='Me' />
+	</synonyms>
+</aglycon>
+
+<aglycon>
+	<name>hexyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula>C6H13</formula>
+	<class>small molecule</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='C1' element='C' />
+		<atom id='2' name='C2' element='C' />
+		<atom id='3' name='C3' element='C' />
+		<atom id='4' name='C4' element='C' />
+		<atom id='5' name='C5' element='C' />
+		<atom id='6' name='C6' element='C' />
+		<atom id='7' name='H1a' element='H' />
+		<atom id='8' name='H1b' element='H' />
+		<atom id='9' name='H2a' element='H' />
+		<atom id='10' name='H2b' element='H' />
+		<atom id='11' name='H3a' element='H' />
+		<atom id='12' name='H3b' element='H' />
+		<atom id='13' name='H4a' element='H' />
+		<atom id='14' name='H4b' element='H' />
+		<atom id='15' name='H5a' element='H' />
+		<atom id='16' name='H5b' element='H' />
+		<atom id='17' name='H6a' element='H' />
+		<atom id='18' name='H6b' element='H' />
+		<atom id='19' name='H6c' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='7' bond_order='1' />
+		<connection from='1' to='8' bond_order='1' />
+		<connection from='2' to='3' bond_order='1' />
+		<connection from='2' to='9' bond_order='1' />
+		<connection from='2' to='10' bond_order='1' />
+		<connection from='3' to='4' bond_order='1' />
+		<connection from='3' to='11' bond_order='1' />
+		<connection from='3' to='12' bond_order='1' />
+		<connection from='4' to='5' bond_order='1' />
+		<connection from='4' to='13' bond_order='1' />
+		<connection from='4' to='14' bond_order='1' />
+		<connection from='5' to='6' bond_order='1' />
+		<connection from='5' to='15' bond_order='1' />
+		<connection from='5' to='16' bond_order='1' />
+		<connection from='6' to='17' bond_order='1' />
+		<connection from='6' to='18' bond_order='1' />
+		<connection from='6' to='19' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='hexyl' />
+	</synonyms>
+</aglycon>
+
+<!-- #### amino acids: ########################################################################### -->
+
+<aglycon>
+	<name>L-Asn</name>
+	<valence>1</valence>
+	<default_linking_position1>4</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula></formula>
+	<class>amino acid</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='ND2' element='N' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='4' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='Asn' />
+		<secondary_alias namescheme='glycosciences' name='L-Asn' />
+		<primary_alias namescheme='bcsdb' name='xLAsn?' />
+	</synonyms>
+</aglycon>
+
+<aglycon>
+	<name>L-Ser</name>
+	<valence>1</valence>
+	<default_linking_position1>3</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula></formula>
+	<class>amino acid</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='O' element='O' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='3' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='Ser' />
+		<secondary_alias namescheme='glycosciences' name='L-Ser' />
+		<primary_alias namescheme='bcsdb' name='xLSer?' />
+	</synonyms>
+</aglycon>
+
+<aglycon>
+	<name>L-Thr</name>
+	<valence>1</valence>
+	<default_linking_position1>3</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula></formula>
+	<class>amino acid</class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='1' name='O' element='O' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='3' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='glycosciences' name='Thr' />
+		<secondary_alias namescheme='glycosciences' name='L-Thr' />
+		<primary_alias namescheme='bcsdb' name='xLThr?' />
+	</synonyms>
+</aglycon>
+
+<!-- empty template: 
+<aglycon>
+	<name></name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<formula></formula>
+	<class></class>
+	<mono_mass></mono_mass>
+	<avg_mass></avg_mass>
+	<smiles></smiles>
+	<inchi></inchi>
+	<comments></comments>
+	<atoms>
+		<atom id='' name='' element='' />
+	</atoms>
+	<atom_connections>
+		<connection from='' to='' bond_order='' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='' name='' />
+		<secondary_alias namescheme='' name='' />
+	</synonyms>
+</aglycon>
+-->
+</aglycon_templates>

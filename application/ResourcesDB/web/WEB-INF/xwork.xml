@@ -1,0 +1,235 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+
+    <!-- Include webwork defaults (from WebWork JAR). -->
+    <include file="webwork-default.xml" />
+
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="webwork-default">
+
+    <!--====== interceptors ====== 
+    Here we declare sets (or 'stacks') of interceptors that we want to use. 
+    Interceptors are chunks of reusable code that, when configured with an action,
+    are run before and/or after an action is performed.
+    See also: http://www.opensymphony.com/webwork/wikidocs/Understanding%20interceptors.html
+    -->
+    <!-- <interceptors>
+ 		<interceptor name="gpf_pagefrom_interceptor" class="org.eurocarbdb.applications.ms.glycopeakfinder.interceptor.PageFromParameterInterceptor"/>
+ 		<interceptor name="gpf_hashparam" class="org.eurocarbdb.applications.ms.glycopeakfinder.interceptor.HashParameterInterceptor"/>
+    </interceptors> -->
+    
+    <!--====== actions ======-->
+
+    <action name="start" class="org.eurocarbdb.resourcesdb.action.MsdbDefaultAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/msdb_start.ftl</result>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="notation" class="org.eurocarbdb.resourcesdb.action.NotationAction">
+		<interceptor-ref name="static-params">
+			<param name="parse">true</param>
+		</interceptor-ref>
+		<param name="subMenu">notation</param>
+		<interceptor-ref name="params"/>
+        <result name="start" type="freemarker" >templates/notation/notation_start.ftl</result>
+        <result name="monosacc" type="freemarker" >templates/notation/notation_monosacc.ftl</result>
+		<result name="basetype" type="freemarker" >templates/notation/notation_basetype.ftl</result>
+		<result name="subst" type="freemarker" >templates/notation/notation_subst.ftl</result>
+        <result name="aglyca" type="freemarker" >templates/notation/notation_aglyca.ftl</result>
+        <result name="schemes" type="freemarker" >templates/notation/notation_schemes.ftl</result>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="contact" class="org.eurocarbdb.resourcesdb.action.MsdbDefaultAction">
+		<interceptor-ref name="static-params">
+			<param name="parse">true</param>
+		</interceptor-ref>
+		<param name="subMenu">HOME_CONTACT</param>
+		<param name="subTitle">Contact</param>
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/contact.ftl</result>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="about" class="org.eurocarbdb.resourcesdb.action.MsdbDefaultAction">
+		<interceptor-ref name="static-params">
+			<param name="parse">true</param>
+		</interceptor-ref>
+		<param name="subMenu">HOME_ABOUT</param>
+		<param name="subTitle">About</param>
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/about.ftl</result>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <!-- ############################################################
+    #
+    #    Entry display actions:
+    #
+    ############################################################# -->
+
+    <action name="display_monosaccharide" class="org.eurocarbdb.resourcesdb.action.ShowMonosaccharideAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/show_monosaccharide.ftl</result>
+   		<result name="input" type="freemarker" >templates/queries/query_monosacch_start.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="help_display_monosaccharide" class="org.eurocarbdb.resourcesdb.action.ShowMonosaccharideHelpAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/help/show_monosaccharide_help.ftl</result>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="show_element" class="org.eurocarbdb.resourcesdb.action.ShowElementAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/show_element.ftl</result>
+   		<result name="input" type="freemarker" >templates/queries/query_element_start.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="show_substituent" class="org.eurocarbdb.resourcesdb.action.ShowSubstituentAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/show_substituent.ftl</result>
+   		<result name="input" type="freemarker" >templates/todo.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <!-- ############################################################
+    #
+    #    Query actions:
+    #
+    ############################################################# -->
+
+     <action name="query" class="org.eurocarbdb.resourcesdb.action.QueryStartAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/queries/query_start.ftl</result>
+        <result name="success_monosaccharide" type="freemarker" >templates/queries/query_monosacch_start.ftl</result> 
+        <result name="success_substituent" type="freemarker" >templates/queries/query_subst_start.ftl</result> 
+        <result name="success_aglycon" type="freemarker" >templates/queries/query_aglyc_start.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+    
+    <action name="query_monosaccharide_by_properties" class="org.eurocarbdb.resourcesdb.action.QueryMonosaccharideByPropertiesAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/results/list_monosaccharides.ftl</result>
+   		<result name="input" type="freemarker" >templates/queries/query_monosacch_properties_form.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="query_monosaccharide_by_name" class="org.eurocarbdb.resourcesdb.action.QueryMonosaccharideByNameAction">
+        <interceptor-ref name="params"/>
+        <result name="success_single" type="freemarker">templates/show_monosaccharide.ftl</result>
+        <result name="success_multiple" type="freemarker" >templates/results/list_monosaccharides.ftl</result>
+        <result name="success" type="freemarker" >templates/results/list_monosaccharides.ftl</result>
+   		<result name="input" type="freemarker" >templates/queries/query_monosacch_start.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="build_monosaccharide_by_groups" class="org.eurocarbdb.resourcesdb.action.BuilderByGroupAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/show_monosaccharide.ftl</result>
+   		<result name="input" type="freemarker" >templates/builder_form_atomgroups.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+    
+    <action name="list_elements" class="org.eurocarbdb.resourcesdb.action.QueryElementsAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/results/list_elements.ftl</result>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="query_element" class="org.eurocarbdb.resourcesdb.action.QueryElementsAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/results/list_elements.ftl</result>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <!--<action name="query_substituent" class="org.eurocarbdb.resourcesdb.action.QuerySubstituentAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/results/list_subst.ftl</result>
+   		<result name="input" type="freemarker" >templates/queries/query_subst_form.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+
+    <action name="query_aglycon" class="org.eurocarbdb.resourcesdb.action.QueryAglyconAction">
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/results/list_aglyc.ftl</result>
+   		<result name="input" type="freemarker" >templates/queries/query_aglyc_form.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action> -->
+    
+    <!-- ############################################################
+    #
+    # Representation related actions:
+    #
+    ############################################################# -->
+
+    <action name="upload_representation" class="org.eurocarbdb.resourcesdb.action.admin.UploadRepresentationAction">
+        <interceptor-ref name="fileUpload"/>
+        <interceptor-ref name="params"/>
+        <result name="success" type="freemarker" >templates/admin/upload_representation_success.ftl</result>
+   		<result name="input1" type="freemarker" >templates/admin/upload_representation_step1.ftl</result> 
+   		<result name="input2" type="freemarker" >templates/admin/upload_representation_step2.ftl</result> 
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+    </action>
+    
+    <action name="get_ms_representation" class="org.eurocarbdb.resourcesdb.action.GetMsRepresentationAction">
+        <interceptor-ref name="params"/>
+   		<result name="error" type="freemarker" >templates/msdb_error.ftl</result>  		
+        <result name="success_png" type="stream">
+			<!-- the mime-type -->
+			<param name="contentType">image/png</param>
+			<!-- the method/property called on the action class to get the stream -->
+			<param name="inputName">pngStream</param>
+			<!-- (optional) the default name of the file when saved by the user  -->
+			<param name="contentDisposition">filename="monosaccharide.png"</param>
+        </result>
+        <result name="success_jpg" type="stream">
+			<!-- the mime-type -->
+			<param name="contentType">image/jpg</param>
+			<!-- the method/property called on the action class to get the stream -->
+			<param name="inputName">jpgStream</param>
+			<!-- (optional) the default name of the file when saved by the user  -->
+			<param name="contentDisposition">filename="monosaccharide.jpg"</param>
+        </result>
+        <result name="success_svg" type="stream">
+			<!-- the mime-type -->
+			<param name="contentType">image/svg</param>
+			<!-- the method/property called on the action class to get the stream -->
+			<param name="inputName">svgStream</param>
+			<!-- (optional) the default name of the file when saved by the user  -->
+			<param name="contentDisposition">filename="monosaccharide.svg"</param>
+        </result>
+        <result name="success_pdb" type="stream">
+			<!-- the mime-type -->
+			<param name="contentType">chemical/x-pdb</param>
+			<!-- the method/property called on the action class to get the stream -->
+			<param name="inputName">pdbStream</param>
+			<!-- (optional) the default name of the file when saved by the user  -->
+			<param name="contentDisposition">filename="monosaccharide.pdb"</param>
+        </result>
+        <result name="success_mol2" type="stream">
+			<!-- the mime-type -->
+			<param name="contentType">chemical/mol2</param>
+			<!-- the method/property called on the action class to get the stream -->
+			<param name="inputName">mol2Stream</param>
+			<!-- (optional) the default name of the file when saved by the user  -->
+			<param name="contentDisposition">filename="monosaccharide.mol2"</param>
+        </result>
+        <result name="success_chemcomp" type="stream">
+			<!-- the mime-type -->
+			<param name="contentType">chemical/chemcomp</param>
+			<!-- the method/property called on the action class to get the stream -->
+			<param name="inputName">chemCompStream</param>
+			<!-- (optional) the default name of the file when saved by the user  -->
+			<param name="contentDisposition">filename="monosaccharide.ccpn"</param>
+        </result>
+    </action>
+    
+    </package>
+
+</xwork>

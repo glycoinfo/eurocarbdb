@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <display-name>EUROCarbDB</display-name>
+    
+    <filter>
+        <filter-name>webwork</filter-name>
+        <filter-class>com.opensymphony.webwork.dispatcher.FilterDispatcher</filter-class>
+    </filter>
+    
+    <filter>
+        <filter-name>ecdb-hibernatesessionrequest</filter-name>
+        <filter-class>org.eurocarbdb.servlet.filter.HibernateSessionRequestFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>ecdb-hibernatesessionrequest</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>webwork</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    
+    <!-- Define application events listeners -->
+    <listener>
+        <listener-class>org.eurocarbdb.servlet.init.EurocarbApplicationContextHandler</listener-class>
+    </listener>
+    
+    <!-- 
+    Add in the headless parameter to the general context of the 
+    web application to allow the AWT drawing routines to work
+    -->
+    <context-param>
+        <param-name>java.awt.headless</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <taglib>
+        <taglib-uri>/webwork</taglib-uri>
+        <taglib-location>/WEB-INF/lib/webwork.jar</taglib-location>
+    </taglib>
+
+    <welcome-file-list>
+        <welcome-file>home.action</welcome-file>
+    </welcome-file-list>
+
+    
+</web-app>

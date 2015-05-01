@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<_StorageUnit release="2.0.a3" originator="CCPN Python XmlIO" packageGuid="www.ccpn.ac.uk_Fogh_2006-08-16-14:22:55_00005" time="Thu Nov  6 16:17:38 2008">
+
+<CCCO.ChemCompCoord _ID="_1" ccpCode="dglc-hex-1-5:C1_OMe:C2_NAc" createdBy="ccpnRef" guid="chemComp_ccpnRef_2008-11-06-16-17-38-608_00001" isModifiable="true" molType="carbohydrate">
+  <CCCO.ChemCompCoord.sourceName>
+    <IMPL.Line>euroCarbDb</IMPL.Line>
+  </CCCO.ChemCompCoord.sourceName>
+  <IMPL.DataObject.applicationData>
+    <IMPL.AppDataString>
+      <IMPL.ApplicationData.application>
+        <IMPL.Line>ccpNmr</IMPL.Line>
+      </IMPL.ApplicationData.application>
+      <IMPL.ApplicationData.keyword>
+        <IMPL.Line>origin</IMPL.Line>
+      </IMPL.ApplicationData.keyword>
+      <IMPL.AppDataString.value>
+        <IMPL.String>makeFullSugar.py</IMPL.String>
+      </IMPL.AppDataString.value>
+    </IMPL.AppDataString>
+    <IMPL.AppDataString>
+      <IMPL.ApplicationData.application>
+        <IMPL.Line>ccpNmr</IMPL.Line>
+      </IMPL.ApplicationData.application>
+      <IMPL.ApplicationData.keyword>
+        <IMPL.Line>origin</IMPL.Line>
+      </IMPL.ApplicationData.keyword>
+      <IMPL.AppDataString.value>
+        <IMPL.String>makeFullSugar.py</IMPL.String>
+      </IMPL.AppDataString.value>
+    </IMPL.AppDataString>
+  </IMPL.DataObject.applicationData>
+  <CCCO.ChemCompCoord.chemAtomCoords>
+    <CCCO.ChemAtomCoord _ID="_2" name="C4" serial="1" subType="1" x="0.53000000000000003" y="0.36699999999999999" z="0.36899999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_11" name="C2" serial="2" subType="1" x="-1.9530000000000001" y="0.12" z="0.497">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_12" name="H3O" serial="3" subType="1" x="-0.46700000000000003" y="-1.861" z="1.1220000000000001">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_13" name="H2" serial="4" subType="1" x="-1.885" y="-0.001" z="1.579">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_14" name="H3" serial="6" subType="1" x="-0.74399999999999999" y="-0.29199999999999998" z="-1.238">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_15" name="O5" serial="7" subType="1" x="1.96" y="-1.5509999999999999" z="0.031">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_16" name="H4" serial="8" subType="1" x="0.59799999999999998" y="0.246" z="1.45">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_17" name="C3" serial="9" subType="1" x="-0.67700000000000005" y="-0.41299999999999998" z="-0.157">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_18" name="C1" serial="10" subType="1" x="-3.141" y="-0.64800000000000002" z="-0.02">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_19" name="H1" serial="11" subType="1" x="-3.202" y="-1.716" z="0.13">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_20" name="C6" serial="12" subType="1" x="3.0129999999999999" y="0.61399999999999999" z="0.24099999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_21" name="H5" serial="14" subType="1" x="1.738" y="-0.044999999999999998" z="-1.3660000000000001">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_22" name="H62" serial="15" subType="1" x="3.133" y="0.42199999999999999" z="1.3069999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_23" name="H61" serial="16" subType="1" x="2.855" y="1.6799999999999999" z="0.080000000000000002">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_24" name="C5" serial="18" subType="1" x="1.806" y="-0.16600000000000001" z="-0.28499999999999998">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_25" name="O6" serial="19" subType="1" x="4.1900000000000004" y="0.19700000000000001" z="-0.45400000000000001">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_26" name="O3" serial="20" subType="1" x="-0.52300000000000002" y="-1.798" z="0.159">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_27" name="O4" serial="21" subType="1" x="0.376" y="1.752" z="0.053999999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _5 _6 _7 _8 _9 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_28" name="H4O" serial="22" subType="1" x="0.32000000000000001" y="1.8149999999999999" z="-0.90900000000000003">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _7 _4 _5 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_29" name="H6O" serial="23" subType="1" x="4.9249999999999998" y="0.71099999999999997" z="-0.092999999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _9 _4 _6 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_30" name="C1" serial="24" subType="2" x="-3.141" y="-0.64800000000000002" z="-0.02">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_39" name="H3" serial="25" subType="1" x="-0.74399999999999999" y="-0.29199999999999998" z="-1.238">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_40" name="H6O" serial="27" subType="1" x="4.9249999999999998" y="0.71099999999999997" z="-0.092999999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _36 _32 _38 _33</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_41" name="C3" serial="28" subType="1" x="-0.67700000000000005" y="-0.41299999999999998" z="-0.157">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_42" name="H62" serial="29" subType="1" x="3.133" y="0.42199999999999999" z="1.3069999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_43" name="H2" serial="30" subType="1" x="-1.885" y="-0.001" z="1.579">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_44" name="H4" serial="31" subType="1" x="0.59799999999999998" y="0.246" z="1.45">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_45" name="H61" serial="32" subType="1" x="2.855" y="1.6799999999999999" z="0.080000000000000002">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_46" name="C4" serial="33" subType="1" x="0.53000000000000003" y="0.36699999999999999" z="0.36899999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_47" name="C5" serial="34" subType="1" x="1.806" y="-0.16600000000000001" z="-0.28499999999999998">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_48" name="C2" serial="35" subType="1" x="-1.9530000000000001" y="0.12" z="0.497">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_49" name="H5" serial="36" subType="1" x="1.738" y="-0.044999999999999998" z="-1.3660000000000001">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_50" name="O6" serial="37" subType="1" x="4.1900000000000004" y="0.19700000000000001" z="-0.45400000000000001">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_51" name="O4" serial="38" subType="1" x="0.376" y="1.752" z="0.053999999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_52" name="H3O" serial="39" subType="1" x="-0.46700000000000003" y="-1.861" z="1.1220000000000001">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _34 _37 _38 _32</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_53" name="O5" serial="40" subType="1" x="1.96" y="-1.5509999999999999" z="0.031">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_54" name="H1" serial="41" subType="1" x="-3.202" y="-1.716" z="0.13">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_55" name="O3" serial="42" subType="1" x="-0.52300000000000002" y="-1.798" z="0.159">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_56" name="C6" serial="43" subType="1" x="3.0129999999999999" y="0.61399999999999999" z="0.24099999999999999">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _32 _33 _34 _35 _36 _37 _38</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_57" name="H4O" serial="46" subType="1" x="0.32000000000000001" y="1.8149999999999999" z="-0.90900000000000003">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _31 _37 _38 _33</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_58" name="O1" serial="47" subType="1" x="-3.851902907558344" y="-0.18447209067986337" z="-0.48432847565747694">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _7 _3 _32 _4 _5 _35 _6 _36 _37 _31 _34 _8 _9 _33 _38 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_59" name="CM_1" serial="48" subType="1" x="-3.2527942419051916" y="0.92896809403789382" z="-1.1506983142568739">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _7 _3 _32 _4 _5 _35 _6 _36 _37 _31 _34 _8 _9 _33 _38 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_60" name="HM1_1" serial="49" subType="1" x="-2.5014260496715051" y="0.57019240070284927" z="-1.8538845211547625">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _7 _3 _32 _4 _5 _35 _6 _36 _37 _31 _34 _8 _9 _33 _38 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_61" name="HM2_1" serial="50" subType="1" x="-4.0201474435244027" y="1.4837163806157596" z="-1.6901613829684101">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _7 _3 _32 _4 _5 _35 _6 _36 _37 _31 _34 _8 _9 _33 _38 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_62" name="HM3_1" serial="51" subType="1" x="-2.7813058332222025" y="1.5813529012810559" z="-0.41596180110682979">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _7 _3 _32 _4 _5 _35 _6 _36 _37 _31 _34 _8 _9 _33 _38 _10</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_63" name="N_2" serial="52" subType="1" x="-2.0575592443604762" y="1.0610331992442812" z="0.28312881835357262">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_64" name="CM_2" serial="53" subType="1" x="-3.6224567928894693" y="0.39593362172282054" z="-1.5134165372076849">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_65" name="CO_2" serial="54" subType="1" x="-2.8732981769514176" y="1.4367927663259379" z="-0.72215260572726547">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_66" name="HM1_2" serial="55" subType="1" x="-3.3798549197025434" y="-0.59584965114542354" z="-1.1306499362810256">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_67" name="HM2_2" serial="56" subType="1" x="-4.6945258699720664" y="0.56918497681016955" z="-1.4190933591247474">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_68" name="HM3_2" serial="57" subType="1" x="-3.3344629034352709" y="0.46070607745461301" z="-2.5622740340181505">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_69" name="HN_2" serial="58" subType="1" x="-1.5723024108715036" y="1.7307310732041481" z="0.7898630318875417">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+    <CCCO.ChemAtomCoord _ID="_70" name="OC_2" serial="59" subType="1" x="-3.0036983902440921" y="2.6119618970816885" z="-0.98902954083406669">
+      <CCCO.ChemAtomCoord.chemCompVarCoords> _3 _4 _31 _35 _5 _9 _7 _34 _38 _32 _6 _10 _33 _8 _36 _37</CCCO.ChemAtomCoord.chemCompVarCoords>
+    </CCCO.ChemAtomCoord>
+  </CCCO.ChemCompCoord.chemAtomCoords>
+  <CCCO.ChemCompCoord.chemCompVarCoords>
+    <CCCO.ChemCompVarCoord _ID="_10" linking="link:O3">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _67 _28 _63 _65 _16 _11 _15 _61 _27 _21 _60 _25 _66 _23 _22 _26 _69 _17 _64 _59 _24 _19 _68 _29 _62 _14 _20 _13 _2 _70 _18</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_33" linking="link:O3">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _55 _43 _67 _54 _65 _63 _53 _47 _45 _68 _60 _66 _30 _69 _61 _39 _59 _64 _40 _42 _44 _48 _57 _56 _46 _41 _62 _51 _70 _49 _50</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_9" linking="link:O3,O4">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _67 _63 _65 _11 _15 _61 _27 _13 _21 _60 _66 _16 _22 _26 _69 _64 _17 _29 _59 _24 _19 _68 _23 _25 _62 _14 _20 _58 _2 _70 _18</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_36" linking="link:O3,O4">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _43 _42 _51 _54 _65 _53 _47 _45 _60 _66 _41 _69 _61 _39 _46 _30 _59 _64 _40 _63 _44 _48 _68 _56 _55 _62 _67 _58 _70 _49 _50</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_8" linking="link:O3,O4,O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _67 _25 _65 _16 _11 _15 _61 _27 _13 _60 _66 _21 _22 _63 _26 _69 _17 _64 _24 _19 _68 _23 _59 _62 _20 _14 _2 _70 _18</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_35" linking="link:O3,O4,O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _55 _43 _42 _54 _65 _63 _53 _47 _45 _60 _66 _30 _69 _61 _39 _50 _64 _59 _44 _48 _68 _56 _46 _41 _62 _67 _58 _70 _49 _51</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_7" linking="link:O3,O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _67 _28 _25 _65 _16 _15 _61 _27 _13 _60 _66 _21 _22 _63 _26 _69 _17 _64 _24 _19 _68 _23 _59 _62 _14 _20 _11 _2 _70 _18</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_31" linking="link:O3,O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _55 _43 _67 _54 _65 _63 _53 _47 _45 _68 _60 _66 _41 _69 _61 _39 _30 _64 _59 _42 _44 _48 _57 _56 _46 _62 _50 _70 _49 _51</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_6" linking="link:O4">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _67 _63 _65 _16 _11 _15 _61 _27 _12 _21 _60 _25 _66 _23 _22 _26 _69 _17 _64 _59 _24 _19 _68 _29 _62 _14 _20 _13 _2 _70 _18</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_32" linking="link:O4">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _55 _67 _54 _65 _63 _53 _47 _43 _45 _68 _60 _66 _30 _69 _61 _39 _59 _64 _40 _42 _44 _48 _52 _56 _46 _41 _62 _50 _70 _49 _51</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_3" linking="link:O4,O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _67 _25 _65 _16 _15 _61 _27 _13 _21 _60 _66 _12 _22 _63 _26 _69 _17 _64 _24 _19 _68 _23 _59 _62 _14 _20 _11 _2 _70 _18</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_34" linking="link:O4,O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _55 _43 _42 _46 _65 _54 _53 _47 _45 _68 _60 _66 _41 _69 _61 _39 _50 _30 _64 _63 _44 _48 _52 _56 _59 _62 _67 _58 _70 _49 _51</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_5" linking="link:O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _67 _28 _63 _65 _16 _11 _15 _61 _27 _12 _24 _21 _60 _66 _23 _22 _26 _69 _13 _17 _64 _59 _18 _68 _25 _62 _14 _20 _19 _2 _70</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_37" linking="link:O6">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _55 _67 _54 _65 _63 _53 _47 _43 _45 _68 _60 _66 _52 _30 _69 _61 _39 _50 _64 _59 _42 _44 _48 _57 _46 _41 _62 _56 _70 _49 _51</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_4" linking="none">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_1:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _67 _28 _63 _65 _16 _11 _15 _61 _27 _12 _21 _60 _25 _66 _23 _22 _26 _69 _17 _64 _59 _24 _19 _68 _29 _62 _14 _20 _13 _2 _70 _18</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+    <CCCO.ChemCompVarCoord _ID="_38" linking="none">
+      <CCCO.ChemCompVarCoord.descriptor>
+        <IMPL.Line>stereo_2:C1</IMPL.Line>
+      </CCCO.ChemCompVarCoord.descriptor>
+      <CCCO.ChemCompVarCoord.chemAtomCoords> _58 _55 _43 _67 _54 _65 _63 _53 _47 _45 _68 _60 _66 _52 _30 _69 _61 _39 _59 _64 _40 _42 _44 _48 _57 _56 _46 _41 _62 _50 _70 _49 _51</CCCO.ChemCompVarCoord.chemAtomCoords>
+    </CCCO.ChemCompVarCoord>
+  </CCCO.ChemCompCoord.chemCompVarCoords>
+</CCCO.ChemCompCoord>
+
+</_StorageUnit>
+<!--End of Memops Data-->

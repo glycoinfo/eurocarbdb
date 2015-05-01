@@ -1,0 +1,60 @@
+#
+
+type OMe {
+info 'O-methyl'
+atom 'O' 1 link methyl free
+}
+
+residue OMe OMe {
+info 'Methanol'
+shift 49.72 3.5
+}
+
+dimer 'aDGlc(1->O)OMe' {
+info 'Methyl a-D-glucopyranoside'
+shift 100.19 4.81; 72.23 3.56; 74.10 3.68; 70.68 3.41; 72.52 3.64; 61.67 3.76 3.87
+shift  55.93 3.43
+extract
+}
+
+dimer 'bDGlc(1->O)OMe' {
+info 'Methyl b-D-glucopyranoside'
+shift 104.13 4.37; 73.99 3.28; 76.78 3.50; 70.69 3.40; 76.78 3.46; 61.82 3.74 3.92
+shift  57.88 3.58
+extract
+}
+
+dimer 'aDGal(1->O)OMe' {
+info 'Methyl a-D-galactopyranoside'
+shift 100.35 4.85; 69.17 3.84; 70.46 3.81; 70.19 3.99; 71.54 3.89; 62.06 3.76 3.76
+shift  55.96 3.43
+extract
+}
+
+dimer 'bDGal(1->O)OMe' {
+info 'Methyl b-D-galactopyranoside'
+shift 104.72 4.3; 71.64 3.52; 73.79 3.64; 69.62 3.93; 75.92 3.68; 61.84 3.78 3.78
+shift  57.88 3.58
+extract
+}
+
+dimer 'aDMan(1->O)OMe' {
+info 'Methyl a-D-mannopyranoside'
+shift 101.75 4.77; 70.85 3.94; 71.56 3.77; 67.79 3.67; 73.45 3.61; 61.92 3.78 3.90
+shift  55.55 3.42
+extract
+}
+
+dimer 'aLRha(1->O)OMe' {
+info 'Methyl a-L-rhamnopyranoside'
+shift 101.74 4.69; 70.94 3.93; 71.30 3.72; 73.01 3.45; 69.23 3.66; 17.46 1.30
+shift  55.54 3.40
+extract
+}
+
+dimer 'aLFuc(1->O)OMe' {
+info 'Methyl a-L-Fucopyranoside'
+shift 100.35 4.85; 69.17 3.84; 70.46 3.81; 70.19 3.99; 71.54 3.89; 17.00 1.30
+shift  55.96 3.43
+extract
+}

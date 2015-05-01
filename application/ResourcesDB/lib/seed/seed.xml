@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<seed namescheme="glycosciences">
+<!-- a seed file with the most frequent residues in the glycosciences.de database -->
+<monosaccharide>
+	<name>B-D-GLCPNAC</name><count>27587</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">NAG</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP</name><count>21156</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Gal.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Gal.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">GLB</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP</name><count>19049</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Man.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Man.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">MAN</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP</name><count>8915</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Glc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Glc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">BGC</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANP</name><count>6808</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Man.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Man.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">BMA</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP5AC</name><count>5986</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-NeuAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-NeuAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">SIA</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-FUCP</name><count>5791</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Fuc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Fuc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">AFL</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP</name><count>5063</count>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Glc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Glc.png</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">AGC</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP</name><count>3374</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALP</name><count>2528</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Gal.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Gal.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">GLA</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLP</name><count>1990</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALPNAC</name><count>1845</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">NGA</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPA</name><count>1528</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcA.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcA.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPNAC</name><count>1313</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLCNAC-OL</name><count>1270</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPNAC</name><count>1090</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPN</name><count>941</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcN.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcN.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GALNAC-OL</name><count>748</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPN</name><count>533</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcN.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcN.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FRUF</name><count>520</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-ARAP</name><count>508</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-IDOPA</name><count>478</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-IdoA.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-IdoA.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCP</name><count>459</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Fuc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Fuc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">FCA</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-XYLP</name><count>448</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-ARAF</name><count>446</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP5GC</name><count>420</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-KDOP</name><count>377</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLC-OL</name><count>363</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Glc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Glc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALF</name><count>336</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Gal.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Gal.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>L-GRO-A-D-MANHEPP</name><count>323</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPA</name><count>304</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalA.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalA.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-Fucp</name><count>285</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Fuc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Fuc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">FCB</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-4-EN-4deoxy-THRHEXPA</name><count>242</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPA</name><count>197</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcA.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcA.svg</representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP3ME</name><count>189</count>
+	<representation type="coordinates" format="pdb"></representation>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-FUCP</name><count>177</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Fuc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Fuc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">FUL</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCP</name><count>174</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-RHAP</name><count>171</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-RIBHEXP</name><count>152</count>
+	<representation type="coordinates" format="pdb"></representation>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-RHAP</name><count>145</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GAL-OL</name><count>131</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Gal.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Gal.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP3ME</name><count>116</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-RIBHEXP3ME</name><count>107</count>
+	<representation type="coordinates" format="pdb"></representation>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GRO-A-D-3-DEOXY-GALNON-2-ULOP-ONIC</name><count>104</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-RIBF</name><count>101</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide skip="true">
+	<name>D-2,5-ANHYDRO-MAN-OL</name><count>97</count>
+</monosaccharide>
+<monosaccharide skip="true">
+	<name>B-D-APIF</name><count>92</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-ARAF</name><count>84</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-MAN-OL</name><count>81</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Man.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Man.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP</name><count>80</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPA6ME</name><count>77</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3,6-DEOXY-XYLHEXP</name><count>76</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-RHAP4NFORMYL</name><count>65</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-Glcp6Ac</name><count>62</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-3,6-ANHYDRO-GALP</name><count>61</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALF</name><count>59</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Gal.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Gal.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANPNAC</name><count>57</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-ManNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-ManNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-FUCP2ME</name><count>56</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-Araf</name><count>53</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-RIB-OL</name><count>51</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-ARAHEXP3ME</name><count>50</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>2,6-DEOXY-B-D-RIBHEXP3ME</name><count>49</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP5AC9AC</name><count>49</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP6N</name><count>47</count>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-FUCPNAC</name><count>46</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPA4ME</name><count>45</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-GALP</name><count>45</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Gal.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Gal.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALPA</name><count>44</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalA.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalA.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-KDOP</name><count>42</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANPANAC3NAC</name><count>42</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-Glcp2Ac3Ac4Ac6Ac</name><count>42</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-RHAP4NAC</name><count>42</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP3ME</name><count>40</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP6AC</name><count>39</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-ARAP</name><count>38</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>2,6-DEOXY-B-D-ARAHEXP3ME</name><count>38</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCPNAC</name><count>38</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-RHAP</name><count>37</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-2,6-DEOXY-RIBHEXP3ME</name><count>37</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FUCP3ME</name><count>37</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP4,6PY</name><count>37</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-2,6-DEOXY-RIBHEXP3ME</name><count>36</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-RIBHEXP3AC</name><count>36</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-XYL-OL</name><count>36</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANPA</name><count>35</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-ManA.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-ManA.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-4EN-4deoxy-THRHEXPA</name><count>35</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLC-ONIC</name><count>34</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>2,5-ANHYDRO-D-MAN-OL</name><count>33</count>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPNSO36SO3</name><count>32</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>a-D-Glcp6Me</name><count>31</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-GULPA</name><count>31</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP4,6PY</name><count>30</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3,6-DEOXY-ARAHEXP</name><count>30</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP2AC</name><count>29</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPN</name><count>29</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalN.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalN.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-ARAP</name><count>28</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3,6-ANHYDRO-GLCP</name><count>28</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-1,6-ANHYDRO-GLCP</name><count>28</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>3,6-ANHYDRO-A-L-GALP</name><count>28</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-IDOPASO3</name><count>27</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-6-DEOXY-GLCPNAC</name><count>27</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-ALLP3ME</name><count>27</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP4AC</name><count>26</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP4AC5AC</name><count>26</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-NEUP5AC</name><count>26</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-NeuAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-NeuAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-RIBP</name><count>25</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCPNAC</name><count>24</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-2,6-DEOXY-LYXHEXP</name><count>24</count>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-MANPANAC</name><count>24</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-ARAHEXP3NAC</name><count>24</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP3ME4ME</name><count>24</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-XYLF</name><count>23</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPNAC6SO3</name><count>23</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>L-GRO-D-MANHEP</name><count>23</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP2AC</name><count>22</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP3ME</name><count>22</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPN6AC</name><count>22</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-3,6-DEOXY-ARAHEXP</name><count>22</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-RIBHEXP3AC4AC</name><count>22</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FRUF</name><count>21</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-ARAP</name><count>21</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-MANPA6ME</name><count>21</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FUCPNAC</name><count>21</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP4AC</name><count>21</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>3,6-ANHYDRO-A-D-GLCP</name><count>21</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-2,3-ANHYDRO-MANP</name><count>20</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-ARAF</name><count>20</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP3AC</name><count>20</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-RIBF</name><count>20</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-ARAHEXP</name><count>19</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP3N</name><count>19</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-2-DEOXY-ARAHEXP</name><count>19</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPA4ME</name><count>19</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-3,6-DEOXY-XYLHEXP</name><count>19</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP6AC</name><count>18</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-Rhap2Me</name><count>18</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>2,6-DEOXY-B-D-RIBHEXP</name><count>18</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPANAC</name><count>18</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP2AC3AC6AC</name><count>18</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP2AC3AC4AC6AC</name><count>18</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3,6-ANHYDRO-GALP</name><count>17</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-Rhap2Me3Me</name><count>17</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP6ME</name><count>17</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCPN6N</name><count>17</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-GLCN-OL</name><count>16</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GlcN.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GlcN.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-4-EN-4-deoxy-THRHEXPA</name><count>16</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-XYLP</name><count>16</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>L-RHA-OL</name><count>16</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANPNAC</name><count>16</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-ManNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-ManNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP2ME</name><count>16</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-3,6-DEOXY-RIBHEXP</name><count>15</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-4-DEOXY-XYLHEXP</name><count>15</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP4AC6AC</name><count>15</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-FUCPNAM</name><count>15</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-2,6-DEOXY-ARAHEXP3ME</name><count>15</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALPN</name><count>14</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalN.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalN.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALNAC</name><count>14</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-GalNAc.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-GalNAc.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP3AC4AC6AC</name><count>14</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-LYXHEXP</name><count>14</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-Glcp3Me6Me</name><count>14</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-MANP</name><count>14</count>
+	<representation type="cfg_symbol" format="png">/representations/cfg-symbols/cfg-Man.png</representation>
+	<representation type="cfg_symbol" format="svg">/representations/cfg-symbols/cfg-Man.svg</representation>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-2,6-DEOXY-LYXHEXP3ME</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-MANP4ME</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-6-DEOXY-GLCP</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">G6D</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP2AC4AC</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP4ME</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPNAC6GC</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-6-DEOXY-GLCP4N</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-6-DEOXY-ALTP</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCP3NAC</name><count>13</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-IDOPA</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-3-DEOXY-XYLHEXP</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>L-GRO-A-L-3,9-DEOXY-MANNON-2-ULOP5NAC7NFORMYL-ONIC</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-RHAP2AC3AC4AC</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>b-D-Xylp2Me</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FUCP4AC</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-4-DEOXY-LYXHEXP</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-FUCP4NAC</name><count>12</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-L-6-DEOXY-TALP</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPNAC6AC</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2-DEOXY-ARAHEXP</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-2,6-DEOXY-ARAHEXP</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP3,4PY</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>D-ARA-OL</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-6-DEOXY-GLCP3ME</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>a-L-6-deoxy-Glcp3Me</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCP2AC</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-6-DEOXY-GLCPNAC</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2,6-DEOXY-LYXHEXP3ME</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-6-DEOXY-TALP</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP6SH</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-3,6-ANHYDRO-GALP2ME</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-GULPANAC3NAC</name><count>11</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-L-IDOP</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALF2AC</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-TALP</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-2-DEOXY-LYXHEXP</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALPNAC4SO3</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GALPANAC3AC6N</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-FUCPNAC4N</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2ME6ME</name><count>10</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP4ME</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>b-L-6-deoxy-Glcp3NAc</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP5GC8ME</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-XYLF</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true">XYZ</alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP5NAC</name><count>9</count>
+</monosaccharide>
+<monosaccharide>
+	<name>D-FUCNAC-OL</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-NEUP9AC</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>A-D-GLCP2AC3AC6AC</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP6AC</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-ALLPNAC</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GALP6N</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+<monosaccharide>
+	<name>B-D-GLCPNAC3AC6AC</name><count>9</count>
+	<representation type="coordinates" format="pdb"></representation>
+	<representation type="" format=""></representation>
+	<alias scheme="PDB" primary="true"></alias>
+</monosaccharide>
+</seed>

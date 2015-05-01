@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<project name="eurocarbdb-resourcesdb" default="build" basedir=".">
+
+    <!--
+    !   this import defines the following:
+    !
+    !   1) 'project.*' properties  
+    !   2) 'project.classpath' path, containing all external and eurocarb-compiled jars.
+    !   3) 'build-XXX' tasks, where 'XXX' is the name of a sub-project                
+    !
+    -->
+    <import file="../../build.common.xml" />
+    
+    <!--===================== PROPERTIES =========================-->
+
+    <property name="java.source.dir" value="${basedir}/src" />
+    <property name="java.build.dir" value="${basedir}/build" />
+    <property name="java.resources.dir" value="${basedir}/lib" />
+    <property name="java.dist.dir" value="${project.java.lib.dir}" />
+
+    
+    <!--======================= TARGETS  =========================-->
+    <!--            (in alphabetical order please)                -->
+
+    
+    <!-- TARGET: build ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds local source, resolving dependencies if any.
+    -->
+    <target name="build" 
+        depends=""
+        description="Compiles all source files" 
+    >
+        <mkdir dir="${java.build.dir}" />
+        
+        <javac srcdir="${java.source.dir}" 
+               destdir="${java.build.dir}" 
+               deprecation="true"
+               debug="true" 
+               >
+            <!-- enable line below for all javac warnings -->
+            <!--<compilerarg value="-Xlint" />--> 
+            <compilerarg value="-Xlint:deprecation" />
+            <classpath>
+                <path refid="project.classpath"/>
+            </classpath>        
+        </javac>
+    </target>
+    
+    
+    <!-- TARGET: clean ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Removes locally-compiled source only.
+    -->
+    <target name="clean" description="Removes compiled .class files">
+        <echo>Cleaning ${ant.project.name}</echo>
+        <mkdir dir="${java.build.dir}" />
+        <delete includeemptydirs="true">
+            <fileset dir="${java.build.dir}" includes="**/*"/>
+        </delete>
+    </target>
+    
+    
+    <!-- TARGET: dist ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Creates library jar.
+    -->
+    <target name="dist" depends="build" >
+        <jar 
+            destfile="${java.dist.dir}/${project.resourcesdb.jar}" 
+            basedir="${java.build.dir}" 
+            update="true" 
+        >
+          <fileset dir="${java.resources.dir}"/>
+        </jar>
+    </target>
+    
+    
+	
+</project>

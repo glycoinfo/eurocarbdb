@@ -1,0 +1,69 @@
+# Synthesis and Structural Studies of "Branched" 2-Linked Trisaccharides
+# Related to H-Type 2 Blood Group Determinants
+# J. Duus, N. Nifant'ev, A. Shashkov, E. Khatuntseva, K. Bock
+set ref 'Isr. J. Chem. 40 (2000) 223-239
+set h_corr -0.05
+set c_corr 0.04
+
+
+#1
+#NAc CO is fake
+trimer aLFuc '1' '2' bDGlcNAcOMe '4' '1' bDGal {
+shift 100.2 5.310; 69.1 3.795; 70.4 3.820; 72.5 3.820; 67.7 4.228; 16.1 1.233
+shift 102.7 4.456; 56.0 3.743; 73.2 3.670; 77.2 3.768; 76.1 3.474; 61.0 3.991 3.809; 22.7 2.040; 174.0; 57.9 3.508
+shift 101.1 4.537; 77.2 3.678; 74.4 3.876; 69.9 3.906; 76.1 3.704; 61.8 3.794 3.736
+correct $c_corr $h_corr
+extract:info $ref
+error 0.2
+}
+
+#2
+#NAc CO is fake
+trimer bLFuc '1' '2' bDGlcNAcOMe '4' '1' bDGal {
+shift 103.0 4.569; 71.7 3.521; 73.8 3.651; 72.1 3.756; 71.7 3.799; 16.1 1.274
+shift 102.6 4.469; 56.0 3.738; 73.1 3.724; 77.8 3.781; 75.7 3.606; 61.1 4.027 3.908; 23.0 2.040; 175.0 ; 57.8 3.511
+shift 101.8 4.668; 79.1 3.773; 72.4 3.740; 69.0 3.990; 75.9 3.715; 61.8 3.784 3.737
+correct $c_corr $h_corr
+extract:info $ref
+error 0.1
+}
+
+#3
+trimer aLFuc '1' '2' bDQuiOMe '4' '1' bDGal {
+shift 100.0 5.297; 68.9 3.815; 70.3 3.816; 72.3 3.819; 67.5 4.266; 15.8 1.224
+shift 103.7 4.346; 73.7 3.319; 74.8 3.523; 81.7 3.479; 71.8 3.519; 17.3 1.389; 57.7 3.548
+shift 101.1 4.611; 77.1 3.675; 74.2 3.875; 69.8 3.905; 75.8 3.693; 61.7 3.741 3.802
+correct $c_corr $h_corr
+extract:info $ref
+error 0.1
+}
+
+#4
+trimer bLFuc '1' '2' bDQuiOMe '4' '1' bDGal {
+shift 102.8 4.587; 71.5 3.521; 73.5 3.655; 71.9 3.758; 71.4 3.798; 15.9 1.276
+shift 103.6 4.370; 73.8 3.315; 74.7 3.591; 82.5 3.479; 71.8 3.652; 17.7 1.419; 57.8 3.558
+shift 101.7 4.716; 78.6 3.786; 72.3 3.732; 68.9 3.991; 75.7 3.710; 61.6 3.760 3.812
+correct $c_corr $h_corr
+extract:info $ref
+error 0.1
+}
+
+#5
+trimer aLFuc '1' '2' bDXylOMe '4' '1' bDGal {
+shift 100.1 5.246; 69.0 3.794; 70.2 3.829; 72.4 3.819; 67.5 4.259; 15.8 1.232
+shift 104.6 4.319; 73.4 3.306; 74.8 3.562; 76.7 3.876; 63.5 3.329 4.148; 57.6 3.542
+shift 100.4 4.592; 77.4 3.627; 74.2 3.850; 69.5 3.906; 75.7 3.696; 61.6 3.748 3.803
+correct $c_corr $h_corr
+extract:info $ref
+error 0.1
+}
+
+#6
+trimer bLFuc '1' '2' bDXylOMe '4' '1' bDGal {
+shift 102.8 4.593; 71.4 3.502; 73.4 3.659; 71.9 3.747; 71.3 3.782; 16.0 1.264
+shift 104.4 4.342; 73.4 3.299; 74.7 3.616; 77.4 3.856; 63.6 3.452 4.162; 57.7 3.546
+shift 101.5 4.660; 78.3 3.724; 72.2 3.722; 68.8 3.981; 75.7 3.708; 61.6 3.758 3.808
+correct $c_corr $h_corr
+extract:info $ref
+error 0.1
+}

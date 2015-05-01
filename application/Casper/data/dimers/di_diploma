@@ -1,0 +1,10 @@
+# Syntes, NMR & konformationsanalys av en disackarid
+# Diploma work by Lena Nurmeksela
+# Supervisors: Per-Erik Jansson, Herbert Baumann
+set ref 'Diploma work by Lena Nurmeksela -89'
+
+dimer 'aDGlc(1->4)aDGlcAOMe' {
+shift 99.26 5.43; 72.70 3.52; 73.86 3.71; 70.51 3.39; 72.75 3.77; 61.43 3.78 3.78
+shift 100.15 4.81; 72.05 3.65; 74.37 3.92; 78.32 2.78; 73.26 3.99; 176.26; 56.05 3.44
+extract: info $ref
+}

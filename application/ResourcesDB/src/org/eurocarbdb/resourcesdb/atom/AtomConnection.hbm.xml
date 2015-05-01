@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.atom">
+
+    <class name="AtomConnection" entity-name="MonosaccharideAtomConnection" table="monosaccharide_atom_connection" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">monosaccharide_atom_connection_id_seq</param>
+            </generator>
+        </id>
+		<property name="bondOrder" column="bond_order"/>
+		<many-to-one name="toAtom" entity-name="MonosaccharideAtom" column="to_atom" not-null="true"/>
+    </class>
+    
+    <class name="AtomConnection" entity-name="BasetypeAtomConnection" table="basetype_atom_connection" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">basetype_atom_connection_id_seq</param>
+            </generator>
+        </id>
+		<property name="bondOrder" column="bond_order"/>
+		<many-to-one name="toAtom" entity-name="BasetypeAtom" column="to_atom" not-null="true"/>
+    </class>
+    
+    <class name="AtomConnection" entity-name="SubstituentAtomConnection" table="substituent_atom_connection" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">substituent_atom_connection_id_seq</param>
+            </generator>
+        </id>
+		<property name="bondOrder" column="bond_order"/>
+		<many-to-one name="toAtom" entity-name="SubstituentAtom" column="to_atom" not-null="true"/>
+    </class>
+    
+    <class name="AtomConnection" entity-name="AminoAcidAtomConnection" table="amino_acid_atom_connection" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">amino_acid_atom_connection_id_seq</param>
+            </generator>
+        </id>
+		<property name="bondOrder" column="bond_order"/>
+		<many-to-one name="toAtom" entity-name="AminoAcidAtom" column="to_atom" not-null="true"/>
+    </class>
+    
+    <class name="AtomConnection" entity-name="AglyconAtomConnection" table="aglycon_atom_connection" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">aglycon_atom_connection_id_seq</param>
+            </generator>
+        </id>
+		<property name="bondOrder" column="bond_order"/>
+		<many-to-one name="toAtom" entity-name="AglyconAtom" column="to_atom" not-null="true"/>
+    </class>
+    
+</hibernate-mapping>

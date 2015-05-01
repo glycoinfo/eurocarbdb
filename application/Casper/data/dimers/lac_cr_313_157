@@ -1,0 +1,59 @@
+# Synthesis and NMR studies of methyl 3-O-[(R)-
+# and (S)-1-carboxyethyl]-a-D-gluco-, galacto-
+# and manno pyranosides
+# L. Andersson, L. Kenne
+set ref 'Carbohydr. Res. 313 (1998) 157-164'
+
+dimer 'RLac(2->3)aDGlcOMe' {
+shift 182.70; 79.62 4.26; 19.58 1.40
+shift 99.62 4.83; 71.46 3.63; 82.79 3.52; 70.56 3.48; 72.54 3.62; 61.24 3.75 3.86
+shift 55.64 3.41
+extract: info $ref
+}
+
+dimer 'SLac(2->3)aDGlcOMe' {
+shift 183.00; 79.48 4.23; 19.55 1.39
+shift 100.29 4.79; 72.31 3.64; 82.66 3.52; 69.54 3.46; 72.65 3.64; 61.42 3.73 3.85
+shift 55.85 3.41
+extract: info $ref
+}
+
+dimer 'RLac(2->3)aDGalOMe' {
+shift 182.41; 76.42 4.11; 19.70 1.37
+shift 99.79 4.87; 67.96 3.92; 78.06 3.60; 67.30 4.12; 71.47 3.85; 62.09 3.74 3.75
+shift 55.66 3.40
+extract: info $ref
+}
+
+dimer 'SLac(2->3)aDGalOMe' {
+shift 182.79; 77.45 4.06; 19.40 1.37
+shift 100.18 4.84; 68.12 3.91; 78.95 3.63; 67.62 4.04; 71.09 3.89; 62.14 3.74 3.74
+shift 55.79 3.41
+extract: info $ref
+}
+
+dimer 'RLac(2->3)aDManOMe' {
+shift 182.52; 77.61 4.08; 19.35 1.38
+shift 101.21 4.79; 68.50 4.01; 79.97 3.58; 66.70 3.71; 73.26 3.63; 61.83 3.76 3.90
+shift 55.51 3.40
+extract: info $ref
+}
+
+dimer 'SLac(2->3)aDManOMe' {
+shift 182.22; 76.39 4.10; 19.64 1.38
+shift 101.57 4.78; 67.97 4.05; 79.40 3.54; 66.34 3.73;73.61 3.61; 61.80 3.74 3.88
+shift 55.49 3.39
+extract: info $ref
+}
+
+end
+
+# various kludges
+
+dimer 'SLac(2->3)aLManOMe' {
+copy 'RLac(2->3)aDManOMe'
+}
+
+dimer 'RLac(2->3)aLManOMe' {
+copy 'SLac(2->3)aDManOMe'
+}

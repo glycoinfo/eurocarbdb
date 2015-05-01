@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AnnotatedPeakList>
+<Annotations>
+<Glycan structure="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd"/>
+<PeakAnnotationCollection>
+<PeakAnnotation>
+<Peak mz_ratio="73.06742095947266" intensity="86.17646789550781"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="73.42292785644531" intensity="80.84967041015625"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="147.3783416748047" intensity="45.84967041015625"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="148.0809326171875" intensity="51.43791198730469"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="189.5174560546875" intensity="34.70588302612305"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="222.9337921142578" intensity="43.72549057006836"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="376.1011047363281" intensity="36.17647171020508"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_2--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{0,2}A_{GlcNAc}Y" mass="352.17340839999997" mz_ratio="375.16262946999996" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_1_3--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{1,3}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_2_4--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="BY" mass="449.22622" mz_ratio="472.21544107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Man,p/#bcleavage--?a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="BY" mass="449.22622" mz_ratio="472.21544107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_1_3--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{1,3}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_2_4--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="BY" mass="449.22622" mz_ratio="472.21544107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Man,p/#bcleavage--?a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="BY" mass="449.22622" mz_ratio="472.21544107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_2_4$MONO,perMe,Na,0,freeEnd" name="B^{2,4}X_{NeuAc}" mass="450.21023219999995" mz_ratio="473.19945326999994" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="486.2221374511719" intensity="38.49673080444336"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p$MONO,perMe,Na,0,freeEnd" name="B" mass="463.24189" mz_ratio="486.23111107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="486.615234375" intensity="35.032684326171875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p$MONO,perMe,Na,0,freeEnd" name="B" mass="463.24189" mz_ratio="486.23111107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="847.3062744140625" intensity="47.48366165161133"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="B" mass="824.41564" mz_ratio="847.40486107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="847.9630737304688" intensity="49.41176223754883"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="B" mass="824.41564" mz_ratio="847.40486107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1145.6368408203125" intensity="38.85620880126953"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1606.83642578125" intensity="36.372554779052734"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_2_4--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{GlcNAc}Y" mass="1584.7886692" mz_ratio="1607.77789027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1766.875244140625" intensity="41.47058868408203"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="YY" mass="1743.8782700000002" mz_ratio="1766.8674910700001" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1779.0477294921875" intensity="57.54901885986328"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_3_5--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{3,5}A_{GlcNAc}Y" mass="1755.8782592" mz_ratio="1778.86748027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1779.0477294921875" intensity="57.54901885986328"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_3_5--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{3,5}A_{GlcNAc}Y" mass="1755.8782592000002" mz_ratio="1778.8674802700002" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1779.0477294921875" intensity="57.54901885986328"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="BY" mass="1755.8782800000001" mz_ratio="1778.8675010700001" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1779.0477294921875" intensity="57.54901885986328"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_2_4$MONO,perMe,Na,0,freeEnd" name="B^{2,4}X_{NeuAc}" mass="1756.8622922000002" mz_ratio="1779.8515132700002" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1780.799560546875" intensity="98.43136596679688"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_2_4$MONO,perMe,Na,0,freeEnd" name="B^{2,4}X_{NeuAc}" mass="1756.8622922000002" mz_ratio="1779.8515132700002" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1780.799560546875" intensity="98.43136596679688"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="Y" mass="1757.8939400000002" mz_ratio="1780.8831610700001" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1969.172607421875" intensity="34.803924560546875"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#xcleavage_1_4$MONO,perMe,Na,0,freeEnd" name="Y^{1,4}X_{Fuc}" mass="1986.9889992000003" mz_ratio="2009.9782202700003" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#xcleavage_0_2$MONO,perMe,Na,0,freeEnd" name="Y^{0,2}X_{Fuc}" mass="1986.9890192000003" mz_ratio="2009.9782402700002" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p/#xcleavage_2_5)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,5}X_{Man}" mass="1986.9890338000002" mz_ratio="2009.9782548700002" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_1_4$MONO,perMe,Na,0,freeEnd" name="B^{1,4}X_{NeuAc}" mass="1987.9730522" mz_ratio="2010.96227327" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2056.076416015625" intensity="24.640525817871094"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_2--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{0,2}A_{GlcNAc}" mass="2034.0148884" mz_ratio="2057.00410947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2058.140869140625" intensity="24.3137264251709"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2100.51953125" intensity="30.03268051147461"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_2(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,2}A_{GlcNAc}Y" mass="2078.0411184" mz_ratio="2101.03033947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_2_5)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{2,5}X_{NeuAc}Y" mass="2119.0313183999997" mz_ratio="2142.0205394699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="Y" mass="2119.0676900000003" mz_ratio="2142.0569110700003" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p/#xcleavage_1_3$MONO,perMe,Na,0,freeEnd" name="Y^{1,3}X_{Fuc}" mass="2119.0677038" mz_ratio="2142.05692487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p/#xcleavage_2_4$MONO,perMe,Na,0,freeEnd" name="Y^{2,4}X_{Fuc}" mass="2119.0677038" mz_ratio="2142.05692487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_1_3)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{1,3}X_{Gal}Y" mass="2119.0677184" mz_ratio="2142.05693947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_2_4)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}X_{Gal}Y" mass="2119.0677184" mz_ratio="2142.05693947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p/#xcleavage_0_3$MONO,perMe,Na,0,freeEnd" name="Y^{0,3}X_{Fuc}" mass="2119.0677238" mz_ratio="2142.05694487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2143.41357421875" intensity="98.7254867553711"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2215.904541015625" intensity="37.48366165161133"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2216.8662109375" intensity="46.79738235473633"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2227.1240234375" intensity="67.64705657958984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#xcleavage_1_5$MONO,perMe,Na,0,freeEnd" name="Y^{1,5}X_{Fuc}" mass="2204.0841091999996" mz_ratio="2227.0733302699996" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2227.1240234375" intensity="67.64705657958984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_1_5)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{1,5}X_{Gal}Y" mass="2204.0841091999996" mz_ratio="2227.0733302699996" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2227.1240234375" intensity="67.64705657958984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#xcleavage_1_4)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{1,4}X_{GlcNAc}" mass="2205.1044938" mz_ratio="2228.09371487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2230.091064453125" intensity="72.71241760253906"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="Y" mass="2207.12016" mz_ratio="2230.10938107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2231.130126953125" intensity="79.47713470458984"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2328.194091796875" intensity="30.947715759277344"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_1_3)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{1,3}X_{Gal}Y" mass="2306.1522284" mz_ratio="2329.1414494699998" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2328.194091796875" intensity="30.947715759277344"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_2_4)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{2,4}X_{Gal}Y" mass="2306.1522284" mz_ratio="2329.1414494699998" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2328.194091796875" intensity="30.947715759277344"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_1_3)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="Y^{1,3}X_{NeuAc}" mass="2306.1522357999997" mz_ratio="2329.1414568699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2388.51953125" intensity="41.895423889160156"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2391.172119140625" intensity="41.53594970703125"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2402.3369140625" intensity="47.64706039428711"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_2_4(--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{GlcNAc}" mass="2379.1937392" mz_ratio="2402.18296027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2404.53466796875" intensity="52.418296813964844"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2418.863525390625" intensity="70.52287292480469"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2431.72314453125" intensity="62.09149932861328"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2433.0810546875" intensity="58.431373596191406"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2516.16552734375" intensity="35.032684326171875"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2568.78662109375" intensity="30.49019432067871"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2571.300537109375" intensity="30.16339874267578"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2592.1396484375" intensity="66.69935607910156"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2604.09814453125" intensity="185.88235473632812"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+</PeakAnnotationCollection>
+</Annotations>
+<Annotations>
+<Glycan structure="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd"/>
+<PeakAnnotationCollection>
+<PeakAnnotation>
+<Peak mz_ratio="73.06742095947266" intensity="86.17646789550781"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="73.42292785644531" intensity="80.84967041015625"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="147.3783416748047" intensity="45.84967041015625"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="148.0809326171875" intensity="51.43791198730469"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="189.5174560546875" intensity="34.70588302612305"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="222.9337921142578" intensity="43.72549057006836"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="376.1011047363281" intensity="36.17647171020508"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p/#xcleavage_2_4$MONO,perMe,Na,0,freeEnd" name="^{2,4}X_{GlcNAc}" mass="448.24222740000005" mz_ratio="471.23144847000003" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_1_3--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{1,3}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_2_4--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="471.84185791015625" intensity="28.52941131591797"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Man,p/#bcleavage--?a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="BY" mass="449.22622" mz_ratio="472.21544107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_1_3--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{1,3}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Gal,p/#acleavage_2_4--3a2D-NeuAc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{Gal}" mass="449.2262192" mz_ratio="472.21544027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Man,p/#bcleavage--?a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="BY" mass="449.22622" mz_ratio="472.21544107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="472.36370849609375" intensity="36.437904357910156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_2_4$MONO,perMe,Na,0,freeEnd" name="B^{2,4}X_{NeuAc}" mass="450.21023219999995" mz_ratio="473.19945326999994" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="486.2221374511719" intensity="38.49673080444336"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_1_5--4b1D-GlcNAc,p--4b1D-Man,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{1,5}A_{GlcNAc}Y" mass="462.2578774" mz_ratio="485.24709846999997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="486.2221374511719" intensity="38.49673080444336"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p$MONO,perMe,Na,0,freeEnd" name="B" mass="463.24189" mz_ratio="486.23111107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="486.615234375" intensity="35.032684326171875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="a1D-Man,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Gal,p$MONO,perMe,Na,0,freeEnd" name="B" mass="463.24189" mz_ratio="486.23111107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="847.3062744140625" intensity="47.48366165161133"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="847.9630737304688" intensity="49.41176223754883"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1145.6368408203125" intensity="38.85620880126953"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1606.83642578125" intensity="36.372554779052734"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="Y" mass="1583.8047000000001" mz_ratio="1606.7939210700001" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1606.83642578125" intensity="36.372554779052734"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_3--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,3}A_{GlcNAc}Y" mass="1584.7886637999998" mz_ratio="1607.7778848699998" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1766.875244140625" intensity="41.47058868408203"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="YY" mass="1743.87827" mz_ratio="1766.86749107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1766.875244140625" intensity="41.47058868408203"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_2--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,2}A_{GlcNAc}Y" mass="1744.8622384" mz_ratio="1767.85145947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1779.0477294921875" intensity="57.54901885986328"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_1_4--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{1,4}A_{GlcNAc}Y" mass="1755.8782228" mz_ratio="1778.86744387" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1780.799560546875" intensity="98.43136596679688"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1969.172607421875" intensity="34.803924560546875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_3--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,3}A_{GlcNAc}Y" mass="1945.9624137999997" mz_ratio="1968.9516348699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1969.172607421875" intensity="34.803924560546875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_3--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,3}A_{GlcNAc}Y" mass="1945.9624138" mz_ratio="1968.95163487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1969.172607421875" intensity="34.803924560546875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_2_4--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{GlcNAc}Y" mass="1945.9624192" mz_ratio="1968.95164027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#xcleavage_1_4$MONO,perMe,Na,0,freeEnd" name="Y^{1,4}X_{Fuc}" mass="1986.9889992" mz_ratio="2009.97822027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#xcleavage_0_2$MONO,perMe,Na,0,freeEnd" name="Y^{0,2}X_{Fuc}" mass="1986.9890192" mz_ratio="2009.97824027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p/#xcleavage_2_5)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,5}X_{Man}" mass="1986.9890338" mz_ratio="2009.97825487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#xcleavage_3_5$MONO,perMe,Na,0,freeEnd" name="B^{3,5}X_{Fuc}" mass="1987.9730084" mz_ratio="2010.96222947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2010.2904052734375" intensity="27.124183654785156"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-Man,p/#acleavage_2_5(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,5}A_{Man}" mass="1988.0094037999997" mz_ratio="2010.9986248699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2056.076416015625" intensity="24.640525817871094"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_3--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,3}A_{GlcNAc}Y" mass="2034.0148838" mz_ratio="2057.00410487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2058.140869140625" intensity="24.3137264251709"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2100.51953125" intensity="30.03268051147461"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_2--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,2}A_{GlcNAc}Y" mass="2078.0411184" mz_ratio="2101.03033947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_2_5)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{2,5}X_{NeuAc}Y" mass="2119.0313183999997" mz_ratio="2142.0205394699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="Y" mass="2119.06769" mz_ratio="2142.05691107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p/#xcleavage_1_3$MONO,perMe,Na,0,freeEnd" name="Y^{1,3}X_{Fuc}" mass="2119.0677038" mz_ratio="2142.05692487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p/#xcleavage_2_4$MONO,perMe,Na,0,freeEnd" name="Y^{2,4}X_{Fuc}" mass="2119.0677038" mz_ratio="2142.05692487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_1_3)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{1,3}X_{Gal}Y" mass="2119.0677183999996" mz_ratio="2142.0569394699996" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_2_4)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}X_{Gal}Y" mass="2119.0677183999996" mz_ratio="2142.0569394699996" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2142.068603515625" intensity="95.686279296875"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p/#xcleavage_0_3$MONO,perMe,Na,0,freeEnd" name="Y^{0,3}X_{Fuc}" mass="2119.0677238" mz_ratio="2142.05694487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2143.41357421875" intensity="98.7254867553711"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2215.904541015625" intensity="37.48366165161133"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_2_5--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,5}A_{GlcNAc}" mass="2192.1092138" mz_ratio="2215.09843487" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2216.8662109375" intensity="46.79738235473633"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2227.1240234375" intensity="67.64705657958984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#xcleavage_1_5$MONO,perMe,Na,0,freeEnd" name="Y^{1,5}X_{Fuc}" mass="2204.0841091999996" mz_ratio="2227.0733302699996" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2227.1240234375" intensity="67.64705657958984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_1_5)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{1,5}X_{Gal}Y" mass="2204.0841092" mz_ratio="2227.07333027" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2227.1240234375" intensity="67.64705657958984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_3_5--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{3,5}A_{GlcNAc}Y" mass="2205.1044792" mz_ratio="2228.0937002699998" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2227.1240234375" intensity="67.64705657958984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p/#xcleavage_1_4)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{1,4}X_{GlcNAc}" mass="2205.1044937999995" mz_ratio="2228.0937148699995" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2230.091064453125" intensity="72.71241760253906"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#ycleavage)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="Y" mass="2207.12016" mz_ratio="2230.10938107" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2231.130126953125" intensity="79.47713470458984"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_2--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,2}A_{GlcNAc}" mass="2208.1041284" mz_ratio="2231.09334947" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2328.194091796875" intensity="30.947715759277344"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#bcleavage--?b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="B" mass="2305.1569399999994" mz_ratio="2328.1461610699994" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2328.194091796875" intensity="30.947715759277344"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_1_3)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{1,3}X_{Gal}Y" mass="2306.1522284" mz_ratio="2329.1414494699998" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2328.194091796875" intensity="30.947715759277344"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#xcleavage_2_4)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p/#ycleavage$MONO,perMe,Na,0,freeEnd" name="^{2,4}X_{Gal}Y" mass="2306.1522284" mz_ratio="2329.1414494699998" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2328.194091796875" intensity="30.947715759277344"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="freeEnd--?b1D-GlcNAc,p--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p/#ycleavage)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p/#xcleavage_1_3)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="Y^{1,3}X_{NeuAc}" mass="2306.1522357999997" mz_ratio="2329.1414568699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2388.51953125" intensity="41.895423889160156"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2391.172119140625" intensity="41.53594970703125"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2402.3369140625" intensity="47.64706039428711"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_2_4--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{2,4}A_{GlcNAc}" mass="2379.1937391999995" mz_ratio="2402.1829602699995" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2404.53466796875" intensity="52.418296813964844"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2418.863525390625" intensity="70.52287292480469"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2431.72314453125" intensity="62.09149932861328"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_3--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,3}A_{GlcNAc}" mass="2409.2043037999997" mz_ratio="2432.1935248699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2433.0810546875" intensity="58.431373596191406"/>
+<Annotation ions="Na" neutralExchanges="0">
+<FragmentEntry fragment="b1D-GlcNAc,p/#acleavage_0_3--4b1D-GlcNAc,p--4b1D-Man,p(--6a1D-Man,p--4b1D-GlcNAc,p--4b1D-Gal,p)--3a1D-Man,p--4b1D-GlcNAc,p(--4b1D-Gal,p--3a2D-NeuAc,p)--3a1L-Fuc,p$MONO,perMe,Na,0,freeEnd" name="^{0,3}A_{GlcNAc}" mass="2409.2043037999997" mz_ratio="2432.1935248699997" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2516.16552734375" intensity="35.032684326171875"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2568.78662109375" intensity="30.49019432067871"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2571.300537109375" intensity="30.16339874267578"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2592.1396484375" intensity="66.69935607910156"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="2604.09814453125" intensity="185.88235473632812"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+</PeakAnnotationCollection>
+</Annotations>
+</AnnotatedPeakList>

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: org.eurocarbdb.application.glycanbuilder.GlycanBuilderApplet
+Class-Path: Libs/jh.jar Libs/HelpBuilder.jar Libs/jdesktop.jar
+

@@ -1,0 +1,53 @@
+# dideoxy
+
+residue aPar {
+default '1' aDGlc 0.1, aDGal 0.1
+default '2' aDGlc 0.5, aDGlcOMe 0.6, aDGal 1.0, aDGalOMe 1.0
+default '4' aDGlc 0.75, aDGlcOMe 0.75, bDGlc 0.75, bDGlcOMe 0.75, aDMan 0.75, aDManOMe 0.75, bDMan 0.75, bDManOMe 0.75
+}
+
+residue bPar {
+convertalldefaults aPar
+}
+
+residue aAbe {
+default '1' aDMan 0.1, aDRha 0.1, bLRha 0.5, aDGlc 1
+default '2' aDMan 0.5, aDManOMe 0.6, aDRha 0.5, aDRhaOMe 0.6
+default '4' aDMan 0.75, bDMan 0.75, aDManOMe 0.75, bDManOMe 0.75, aDRha 0.5, bDRha 0.5, aDRhaOMe 0.5, bDRhaOMe 0.5
+default '4' aDGlc 1.0, bDGlc 1.0, aDGlcOMe 1.0, bDGlcOMe 1.0
+}
+
+residue bAbe {
+convertalldefaults aAbe
+}
+
+residue aAsc {
+default '1' aLRha 0.1, aLMan 0.1, aLFuc 0.1, bDMan 0.5
+default '2' aLRha 0.5, aLRhaOMe 0.6, aLMan 0.5, aLManOMe 0.6, bLManOMe 1.0 , bLRha 1.0
+default '4' aLRha 0.5, bLRha 0.5, aLRhaOMe 0.5, bLRhaOMe 0.5, aLMan 0.75, bLMan 0.75, aLManOMe 0.75, bLManOMe 0.75
+default '4' aLGlc 1.0, bLGlc 1.0, aLGlcOMe 1.0, bLGlcOMe 1.0
+}
+
+residue bAsc {
+convertalldefaults aAsc
+}
+
+residue aTyv {
+default '1' aDGal 0.1, aDGlc 0.1
+default '2' aDGal 0.5, aDGalOMe 0.6, aDGlc 1.0, aDGlcOMe 1.0
+default '4' aDGal 0.75, aDGalOMe 0.75, bDGalOMe 0.75, aDGlc 2.5, bDGlc 2.5, aDGlcOMe 2.5, bDGlcOMe 2.5
+}
+
+residue bTyv {
+convertalldefaults aTyv
+}
+
+residue aCol {
+default '1' aLFuc 0.1, aLGlc 0.1, aLGal 0.1
+default '2' aLFuc 0.5, aLGlc 1.0, aLGlcOMe 1.0, bLGlc 1.5, bLGlcOMe 1.5, aLGal 0.5, bLGal 1.0, aLGalOMe 0.6, bLGalOMe 1.0
+default '4' aLFuc 0.5, bLFuc 0.5, aLGal 0.75, bLGal 0.75, aLGalOMe 0.75, bLGalOMe 0.75, aLGlc 2.5, aLGlcOMe 2.5, bLGlc 2.5, bLGlcOMe 2.5
+}
+
+residue bCol {
+convertalldefaults aCol
+}

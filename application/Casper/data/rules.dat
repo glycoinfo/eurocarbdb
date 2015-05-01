@@ -1,0 +1,48 @@
+rule 'n glycan' {
+pattern 'aDMan(1->3)[aDMan(1->6)]bDMan(1->4)bDGlcNAc(1->4)bDGlcNAc(1->4)Asn$'
+pattern 'aDMan(1->3)[aDMan(1->6)]bDMan(1->4)bDGlcNAc(1->4).DGlcNAc$'
+pattern 'aDMan(1->3)[aDMan(1->6)]bDMan(1->4).DGlcNAc$'
+residue 'Asn'
+residue 'aDGlcNAc'
+residue 'bDGlcNAc'
+residue 'aDMan'
+residue 'bDMan'
+residue 'aDGal'
+residue 'bDGal'
+residue 'aLGal'
+residue 'bLGal'
+residue 'aDGlc'
+residue 'bDGlc'
+residue 'aDGalNAc'
+residue 'bDGalNAc'
+residue 'aLFuc'
+residue 'bLFuc'
+residue 'aNeu5Ac'
+residue 'bNeu5Ac'
+}
+rule 'o glycan' {
+pattern '.DGal(1->3).DGalNAc$'
+pattern '.DGal(1->3)aDGalNAc(1->3)Thr$'
+pattern '.DGal(1->3)aDGalNAc(1->3)Ser$'
+pattern 'bDGlcNAc(1->3).DGalNAc$'
+pattern 'bDGlcNAc(1->3)aDGalNAc(1->3)Thr$'
+pattern 'bDGlcNAc(1->3)aDGalNAc(1->3)Ser$'
+pattern 'aDGalNAc(1->3).DGalNAc$'
+pattern 'aDGalNAc(1->3)aDGalNAc(1->3)Thr$'
+pattern 'aDGalNAc(1->3)aDGalNAc(1->3)Ser$'
+pattern '[bDGlcNAc(1->6)].DGalNAc$'
+pattern '[bDGlcNAc(1->6)]aDGalNAc(1->3)Thr$'
+pattern '[bDGlcNAc(1->6)]aDGalNAc(1->3)Ser$'
+pattern '[aDGalNAc(1->6)].DGalNAc$'
+pattern '[aDGalNAc(1->6)]aDGalNAc(1->3)Thr$'
+pattern '[aDGalNAc(1->6)]aDGalNAc(1->3)Ser$'
+}
+rule 'WecA repeating unit' {
+pattern '3).DGlcNAc(1->$'
+pattern '4).DGlcNAc(1->$'
+pattern '3).DGalNAc(1->$'
+pattern '4).DGalNAc(1->$'
+}
+rule 'Shigella flexneri' {
+pattern '->2)aLRha(1->2)aLRha(1->3)aLRha(1->3)bDGlcNAc(1->$'
+}

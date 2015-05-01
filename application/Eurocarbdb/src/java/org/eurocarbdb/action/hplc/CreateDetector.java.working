@@ -1,0 +1,76 @@
+
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.Detector;
+import org.eurocarbdb.dataaccess.hibernate.*;
+
+import org.hibernate.*;
+import org.hibernate.criterion.*;
+import java.util.*;
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.Preparable;
+
+
+public class CreateDetector extends EurocarbAction {
+
+    private Detector detector = null;
+    
+    public String execute() throws Exception {
+        if ( detector  == null ) 
+            return INPUT;
+
+	Detector db_detector = findDetector(detector.getManufacturer());
+	Detector db_detectorx = findDetector(detector.getModel());
+	if( db_detector==null && db_detector==null )
+            Eurocarb.getEntityManager().store(detector);
+        else
+            detector = db_detector;
+
+
+	
+	/*try {  
+            Eurocarb.getEntityManager().store(acquisition);  
+        }
+        catch ( Exception e ) {
+            addActionError( e.getMessage() );
+            return ERROR;  
+	    }*/
+	Eurocarb.getEntityManager().store(detector);  
+        return SUCCESS;
+    }      
+
+
+    public Detector findDetector(String detector) {
+        Criteria crit = HibernateUtil.getSession().createCriteria(Detector.class).add(Restrictions.eq("manufacturer", detector));
+
+        Collection<Detector> list = crit.list();
+        if( list==null || list.size()==0 )
+            return null;
+        return list.iterator().next();
+    }
+
+
+    public Collection<Detector> getDetectors() {
+        Criteria crit = HibernateUtil.getSession().createCriteria(Detector.class);
+        return crit.list();
+    }
+
+
+
+
+
+
+
+    public Detector getDetector() {
+        return detector;
+    }
+
+   
+
+    public void setDetector (Detector detector) {
+        this.detector = detector;
+    }
+
+}

@@ -1,0 +1,207 @@
+
+- write API documentation
+
+- copy profile comparison data to clipboard
+
+- set chemical composition for "other residues"
+
+- out of memory on large images (use JAI?)
+
+- compute isotopic distributions
+ - fit curve to all peaks not just the first one
+    - use centroiding algorithm to derive the peak intensities
+ 
+- compute average masses
+  - update masses in Canvas and Panels
+    - MassOptions listener?
+
+- show anomeric carbon option
+
+- make videos
+  - write manuals
+
+- residue properties of multiple residues
+
+- spectra filtering
+  - deconvolution
+    - use JAce to import GSL library to java
+   - deisotoping  	  
+    - composition search
+    - average isotope distribution
+    - remove isotopes 
+  
+- Organisation of the workspace:
+  - add two types of nodes Chromatography, Scan    
+    - scan and chromatography are two experimental techniques
+    - redo the workspace events
+    - fix workspace panel
+    - a Chromatography contains all the ScanData and PeakData in a Chromatogram document
+      - support for lc-ms/ms data, add multiple chromatograms as children of the MS chromatogram
+            - the children scan are internally organized in a hierarchy
+      - when clicking or accumulating the corresponding Scan are generated    
+      	- accumulate on subscans as well
+      - create chromatogram panel
+	- double click on a peak show the corresponding spectra in the SpectraPanel
+	- zoom/move
+	- select a range of peaks 
+	- combine selected peaks in a new spectra 
+    - a SpectraDocument has only one ScanData and PeakData
+      - redo spectra panel
+    - upload of xml with more than one spectra, automatic sorting to tree in workspace
+     - add new scan objects to the workspace for each LC or MS or MS/MS
+
+- integration with HPLC
+  - acquisition techniques can have parent techniques	
+    - experimental technique has a modification strategy (fragmentation or enzymatic digestion)
+    - a chromatography has two children
+	- HPLC profile (GU value, area)
+	  - load save from TXT file
+	- HPLC annotated profile (GU value, db GU value, name of structure, glycan structure)	
+
+- fix rendering
+  - asymmetrical structures
+  - very long lateral edges
+  - fix placement of start repetition on 90/-90
+
+- improve annotation
+  - score cleavages, allow the user to define ranking between cleavages
+    - create a "digg" style interface for the fragments
+    - annotate only with the highest ranking
+  - compute the number of visible linkage pairs (B/Y...) / groups (multiple cleavages)
+  - compute a measure of the structure coverage
+
+- add charge state to Peak
+  - change annotation plugin
+  - change annotation panels
+
+- improve undo/redo (store single actions)
+
+- create a database of n-glycan structures and common fragments
+
+- fix issues found by findBugs
+
+- MSDB
+	- performance
+	- export to InChi
+
+- Annotation
+	- compute mass values for repeating units when profiling
+	- try all possible linkages when placing an antenna
+
+- bacterial monosaccharides
+  - enlarged CFG notation
+
+- create a component that analyze the fragmentation to derive the probability of each S and NAc position
+	- match fragments with backbone
+	- assign one point for each detected S or NAc
+	- remove one point for each nondetected NAc
+	- consider the fact that a fragment can come from many possible place (weight score for this factor)	
+	- display using hiren's approach
+
+- automatically check in the fragment editor if a peak is matched
+	- highlight mass value with different color
+	- add the fragment to annotation
+
+- add multiple parents in the Antenna
+	- the antenna residue can have multiple parents other than the bracket
+		- you have getParent() and getPossibleParents();
+	- when writing
+		- collect a map with all the parents for each antenna
+		- write a #n as a child of all the possible parents
+		- write a #n as a parent of the antenna (always even if there are no parents)
+	- when reading 
+		- if #n is a child of a residue add it to the map of antenna/parents
+		- if #n is a parent of a residue add all the collected parents  
+	- create action for changing the parents of an antenna
+		- use the ResidueSelectorDialog
+	- import/export to GlycoCT	
+
+- special units
+	- choice units (round parenthesis)
+
+- structural features
+	- implement deoxygenated sugars
+	- type of linkage OH/H
+	- reducing end markers
+		- glycolypids
+	- specify which reducing ends transform the ring type to "open"	
+	- fix the anomeric position if the stereochemistry is specified
+	- addition of further residues (tyvelose, 4-methyl-hexose, etc.)
+
+- glycopeptides
+	- data from Ion Trap (Manfred Wuhrer)
+	- data from ms/ms
+		- composition analyis of the peptide fragments, glycan fragments and intact peptide + glycan fragment
+
+
+- define attachment positions for testing uncertain residues 
+  	- add bracket to reduced set of termini
+	  - probabilistic connections
+	- test possible fragmentations
+
+- annotation
+	- fragmentation
+		- selection for cross-rings (which of them should be / should not be calculated)
+		- Additional "cross-rings" (up to now we only calculate homolytical cleaved rings,  but there are a lot of additional cleavages mentioned in the literature (like add. loss of water, oxidation (-H2), reduction (+H2)) needs investigation from me, the xmls have to be enlarged
+		- e/f/g/h fragments
+	- activate loss/gain of moieties (H20, NH3, CO2) (on request)
+		- specify which positions can loose which molecule
+	
+- annotation of polysialic structure
+	- double linkages		
+		- pyruvate substituent
+		- define preferred double bond in the residue type
+	- define a suitable plugin for the annotation of this structures
+
+- support for spectra files trough ProteomCommons libraries
+	- support for other types	
+		- test thermo-finnigan raw spectra
+		- test wiff
+
+- user expandable list of residues 
+	- specify ResidueType
+	- specify ResidueStyle
+	- specify CrossRingFragmentType
+
+- glyco-peptides and glyco-lipids	
+	- specify a suitable reducing end for attachment to glycoconjugates
+	- create a protein tool for specifying protein sequence and digestions
+		- show protein sequence with digested peptides and possible glycosylation sites
+		- load from fasta
+	- annotated glycopeptides
+		- compute fragments + add peptide
+		- compute glycopeptides fragmentations
+
+- filter residues for biological context
+	- residue toolbar for different tasks
+
+- residue properties
+	- show ring size and chirality in front of the residue		
+	- show anomeric center only if it's different from default
+	- show changes from default configuration using a star in front
+	  of the residue
+	- remove "number of linkage positions" from config file
+	- check for conflicting linkages
+
+- import sugar properties from XML
+
+- check consistency of residues names (Monosaccharide DB) and topology (rules, GTs-DBs) 
+
+- support non-stoichiometric and 'uncommon' (cyclic?) topologies 
+
+- automatic checking of structure
+
+- deploy the application as a Java Web Start 
+	- check if exporting libraries are present
+
+- the interface should allow to input all types monosaccharide structures, which will be deposited in EUROCarbDB
+	- substitutions ( replace H at Cx with ..., replace OH at Cx with ...,unknown x )
+	- substitutions with more than one connection to a residue (anhydro-,en,...)
+	- gain and loss in stereochemisty
+	- reduction and oxidation of atoms
+	- isotopic modifications of a monosaccharide
+
+- the interface should allow to input fuzzy / probabilistic descriptions of glycan topologies, which will be deposited in EUROCarbDB
+	- Statistical distribution of a substitution
+
+- add cleavages like residues

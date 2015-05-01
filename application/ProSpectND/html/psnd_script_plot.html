@@ -1,0 +1,451 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (X11; I; Linux 2.0.34 i686) [Netscape]">
+   <META NAME="Author" CONTENT="Albert van Kuik">
+   <TITLE>Plotting from script</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EF" VLINK="#51188E" ALINK="#FF0000">
+
+<H1>
+<A NAME="Plotting"></A>Plotting</H1>
+
+<UL>
+<LI>
+<A HREF="#PL - Plot 1D file">PL - Plot 1D file</A></LI>
+
+<LI>
+<A HREF="#CO - Set contour mode">CO - Set/get contour mode</A></LI>
+
+<LI>
+<A HREF="#CP - Contour plot">CP - Contour plot</A></LI>
+
+<LI>
+<A HREF="#PLOTPAR - Set plot parameters">PLOTPAR - Set plot parameters</A></LI>
+
+<LI>
+<A HREF="#RPLOTPAR - Read plot parameters">RPLOTPAR - Read plot parameters</A></LI>
+
+<LI>
+<A HREF="#WPLOTPAR - Write plot parameters">WPLOTPAR - Write plot parameters</A></LI>
+</UL>
+
+<HR WIDTH="100%">
+<H4>
+<A NAME="PL - Plot 1D file"></A>PL - Plot 1D file</H4>
+
+<UL><B>PL</B> { <I>&lt;left></I> , <I>&lt;right></I> { , <I>&lt;bottom></I>
+, <I>&lt; top></I> } , }&nbsp; { <I>&lt;plotfile> }</I>
+<P>Plot 1D file or a track of a 2D file. First one has to define the plot
+settings with plotpar or rplotpar. Also, the appropriate spectrum has to
+be loaded. The arguments <I>&lt;left></I> and <I>&lt;right></I> define
+which part of the spectrum will be plotted, and are in the current unit.
+Thus if the current unit is PPM, <I>&lt;left></I> and <I>&lt;right></I>
+will be interpreted as ppm values. The arguments <I>&lt;bottom></I> and
+<I>&lt;top></I>
+set the Y value of the plot, and <I>&lt;plotfile></I> gives the name of
+the plot output file. If <I>&lt;plotfile></I> is not given, the record
+is plotted to the screen.
+<P>Example 1:
+<UL><TT>ropen "1dtest.ff"</TT>
+<BR><TT>rn 1</TT>
+<BR><TT>rplotpar "parameters.plp"</TT>
+<BR><TT>pl "aaa.ps"</TT></UL>
+
+<P><BR>Example 2:
+<UL><TT>ropen "1dtest.ff"</TT>
+<BR><TT>rn 1</TT>
+<BR><TT>pl 5.0, 4.2</TT></UL>
+</UL>
+
+<H4>
+<A NAME="CO - Set contour mode"></A>CO - Set/get contour mode</H4>
+
+<UL><B>CO</B> <I>&lt;onoff></I>
+<P>Go in/out 2D <B>paper</B> contour mode. Use this command <B>BEFORE</B>
+reading the 2D plot parameters. The argument <I>&lt;onoff></I> is <B>1</B>
+for on and
+<B>0</B> for off.
+<P><B>? CO</B>
+<P>Return the current <B>screen</B> contour mode, <B>1</B> for 2D mode
+and <B>0</B> for 1D mode.</UL>
+
+<H4>
+<A NAME="CP - Contour plot"></A>CP - Contour plot</H4>
+
+<UL><B>CP</B> { <I>&lt;left></I> , <I>&lt;right></I>&nbsp; , <I>&lt;bottom></I>
+, <I>&lt; top></I>&nbsp; , } { <I>&lt;plotfile> }</I>
+<P>Plot contour file. First go into contour mode and read/set the appropriate
+plot parameters. The part of the spectrum that will be plotted can also
+be define by the CP command. If <I>&lt;plotfile></I> is not defined, the
+spectrum is plotted to the screen.
+<P>Example:
+<BR>&nbsp;
+<UL><TT>ropen "ts.ff"</TT>
+<BR><TT>dr 1</TT>
+<BR><TT>rn 1, 1</TT>
+<BR><TT>co 1</TT>
+<BR><TT>rplotpar "param2d.plp"</TT>
+<BR><TT>cp "plotfile.ps"</TT></UL>
+
+<P><BR>Example 2:
+<BR>&nbsp;
+<UL><TT>ropen "ts.ff"</TT>
+<BR><TT>dr 2</TT>
+<BR><TT>rn 1, 1</TT>
+<BR><TT>co 1</TT>
+<BR><TT>rplotpar "param2d.plp"</TT>
+<BR><TT>cp 4.0, 3.3, 4.0, 3.3, "plotfile.ps"</TT></UL>
+</UL>
+
+<H4>
+<A NAME="PLOTPAR - Set plot parameters"></A>PLOTPAR - Set plot parameters</H4>
+
+<UL><B>PLOTPAR</B> <I>&lt;command></I>
+<P>With this option one can set one specific plot command from a script,
+instead of reading it from file.
+<P>Example:
+<UL><TT>plotpar "peakpick off"</TT></UL>
+Remember to use extra quote marks when defining a title.
+<P>Example:
+<UL><TT>plotpar "XAXIS TEXT&nbsp;&nbsp; \"500 Mhz spectrum\""</TT></UL>
+</UL>
+
+<H4>
+<A NAME="RPLOTPAR - Read plot parameters"></A>RPLOTPAR - Read plot parameters</H4>
+
+<UL><B>RPLOTPAR</B> <I>&lt;filename></I>
+<P>Read <A HREF="plot.html#Plot Parameters">plot parameters</A> from disk.&nbsp;
+Plot parameters for <A HREF="#Example 1D plot parameters:">1D</A> and <A HREF="#Example 2D plot parameters:">2D</A>
+plotting are somewhat different. Be certain to be in the right mode before
+reading parameters.
+<P><A NAME="Example 1D plot parameters:"></A>Example <A HREF="plot.html#Plot 1D">1D
+plot parameters</A>:
+<P><TT>#</TT>
+<BR><TT># ==== 1D PLOT PARAMETERS ====</TT>
+<BR><TT>#</TT>
+<BR><TT>#</TT>
+<BR><TT># Language: HPGL, Postscript, Postscript color</TT>
+<BR><TT>#</TT>
+<BR><TT>LANGUAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POSTSCRIPT</TT>
+<BR><TT>#</TT>
+<BR><TT># Paper type: A4, A3 or user</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER TYPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A4</TT>
+<BR><TT>#</TT>
+<BR><TT># Paper orientation: landscape or portrait</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER ORIENTATION&nbsp; LANDSCAPE</TT>
+<BR><TT>#</TT>
+<BR><TT># Paper size in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER WIDTH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 29.70</TT>
+<BR><TT>PAPER HEIGHT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Clip region of paper in cm</TT>
+<BR><TT># For Landscape width > height</TT>
+<BR><TT># For Portrait&nbsp; width &lt; height</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER CLIP XOFFSET&nbsp; 1.30</TT>
+<BR><TT>PAPER CLIP WIDTH&nbsp;&nbsp;&nbsp; 27.20</TT>
+<BR><TT>PAPER CLIP YOFFSET&nbsp; 1.30</TT>
+<BR><TT>PAPER CLIP HEIGHT&nbsp;&nbsp; 18.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Enclose HPGL in PCL5 code</TT>
+<BR><TT>#</TT>
+<BR><TT>#PAPER PCL5CODE&nbsp;&nbsp; OFF</TT>
+<BR><TT>#</TT>
+<BR><TT># Include (PostScript) paper definition</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER DEFINITION ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Plot offset x axis from PAPER CLIP YOFFSET in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>PLOT YOFFSET&nbsp; 1.50</TT>
+<BR><TT>#</TT>
+<BR><TT># Part of the spectrum that will be plotted</TT>
+<BR><TT># units: ppm, hertz, seconds, channels</TT>
+<BR><TT>#</TT>
+<BR><TT>XUNITS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PPM</TT>
+<BR><TT>REGION LEFT&nbsp;&nbsp; 5.4</TT>
+<BR><TT>REGION RIGHT&nbsp; 3.6</TT>
+<BR><TT>REGION BOTTOM -3.14096e+06</TT>
+<BR><TT>REGION TOP&nbsp;&nbsp;&nbsp; 6.04967e+07</TT>
+<BR><TT>#</TT>
+<BR><TT># Plot scale settings: auto, fixed, fill</TT>
+<BR><TT>#</TT>
+<BR><TT>SCALE PLOT&nbsp;&nbsp; AUTO</TT>
+<BR><TT>#</TT>
+<BR><TT># Only used if plot scale settings is fixed</TT>
+<BR><TT>#</TT>
+<BR><TT>XSCALE HZ/CM 50.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Show title: on or off</TT>
+<BR><TT>#</TT>
+<BR><TT>TITLE SHOW&nbsp;&nbsp; OFF</TT>
+<BR><TT>#</TT>
+<BR><TT># Text of title</TT>
+<BR><TT>#</TT>
+<BR><TT>TITLE TEXT&nbsp;&nbsp; "Roesy at 300K"</TT>
+<BR><TT>#</TT>
+<BR><TT># Text below X axis</TT>
+<BR><TT>#</TT>
+<BR><TT>#XAXIS TEXT&nbsp;&nbsp; "PPM"</TT>
+<BR><TT>#</TT>
+<BR><TT># Show X axis: on or off</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS SHOW&nbsp;&nbsp; ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Automatically place tick marks and labels: on or off</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS AUTO&nbsp;&nbsp; ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Tickmarks(labels)/unit (ppm,hz..)</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS LABELS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</TT>
+<BR><TT>XAXIS TICKS SHORT&nbsp; 10.00</TT>
+<BR><TT>XAXIS TICKS MEDIUM 2.00</TT>
+<BR><TT>XAXIS TICKS LONG&nbsp;&nbsp; 1.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Tickmark length in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS TICKLENGTH SHORT&nbsp; 0.15</TT>
+<BR><TT>XAXIS TICKLENGTH MEDIUM 0.22</TT>
+<BR><TT>XAXIS TICKLENGTH LONG&nbsp;&nbsp; 0.30</TT>
+<BR><TT>#</TT>
+<BR><TT># Offsets in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS OFFSET AXIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.20</TT>
+<BR><TT>XAXIS OFFSET LABELS&nbsp;&nbsp;&nbsp;&nbsp; 0.80</TT>
+<BR><TT>XAXIS OFFSET TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.30</TT>
+<BR><TT>XAXIS START&nbsp; TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Peak picking for 1D plots</TT>
+<BR><TT>#</TT>
+<BR><TT>PEAKPICK ON</TT>
+<BR><TT>#</TT>
+<BR><TT># threshold: for negative peaks, this value is negated</TT>
+<BR><TT>#</TT>
+<BR><TT>PEAKPICK THRESHOLD 1e+07</TT>
+<BR><TT>#</TT>
+<BR><TT># sign: negative, both, positive</TT>
+<BR><TT>#</TT>
+<BR><TT>PEAKPICK SIGN BOTH</TT>
+<P><A NAME="Example 2D plot parameters:"></A>Example <A HREF="plot.html#Plot 2D">2D
+plot parameters</A>:
+<P><TT>#</TT>
+<BR><TT># ==== 2D PLOT PARAMETERS ====</TT>
+<BR><TT>#</TT>
+<BR><TT>#</TT>
+<BR><TT># Language: HPGL, Postscript, Postscript color</TT>
+<BR><TT>#</TT>
+<BR><TT>LANGUAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POSTSCRIPT</TT>
+<BR><TT>#</TT>
+<BR><TT># Paper type: A4, A3 or user</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER TYPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A4</TT>
+<BR><TT>#</TT>
+<BR><TT># Paper orientation: landscape or portrait</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER ORIENTATION&nbsp; LANDSCAPE</TT>
+<BR><TT>#</TT>
+<BR><TT># Paper size in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER WIDTH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 29.70</TT>
+<BR><TT>PAPER HEIGHT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Clip region of paper in cm</TT>
+<BR><TT># For Landscape width > height</TT>
+<BR><TT># For Portrait&nbsp; width &lt; height</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER CLIP XOFFSET&nbsp; 1.30</TT>
+<BR><TT>PAPER CLIP WIDTH&nbsp;&nbsp;&nbsp; 27.20</TT>
+<BR><TT>PAPER CLIP YOFFSET&nbsp; 1.30</TT>
+<BR><TT>PAPER CLIP HEIGHT&nbsp;&nbsp; 18.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Enclose HPGL in PCL5 code</TT>
+<BR><TT>#</TT>
+<BR><TT>#PAPER PCL5CODE&nbsp;&nbsp; OFF</TT>
+<BR><TT>#</TT>
+<BR><TT># Include (PostScript) paper definition</TT>
+<BR><TT>#</TT>
+<BR><TT>PAPER DEFINITION ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Plot offset x axis from PAPER CLIP YOFFSET in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>PLOT YOFFSET&nbsp; 1.50</TT>
+<BR><TT>#</TT>
+<BR><TT># Plot offset y axis from PAPER CLIP XOFFSET in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>PLOT XOFFSET&nbsp; 1.50</TT>
+<BR><TT>#</TT>
+<BR><TT># Part of the spectrum that will be plotted</TT>
+<BR><TT># units: ppm, hertz, seconds, channels</TT>
+<BR><TT>#</TT>
+<BR><TT>XUNITS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PPM</TT>
+<BR><TT>REGION LEFT&nbsp;&nbsp; 4.4</TT>
+<BR><TT>REGION RIGHT&nbsp; 3.0</TT>
+<BR><TT>YUNITS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PPM</TT>
+<BR><TT>REGION BOTTOM 4.4</TT>
+<BR><TT>REGION TOP&nbsp;&nbsp;&nbsp; 3.0</TT>
+<BR><TT>#</TT>
+<BR><TT># Plot scale settings: auto, fixed, fill</TT>
+<BR><TT>#</TT>
+<BR><TT>SCALE PLOT&nbsp;&nbsp; AUTO</TT>
+<BR><TT>#</TT>
+<BR><TT># Only used if plot scale settings is fixed</TT>
+<BR><TT>#</TT>
+<BR><TT>XSCALE HZ/CM 50.00</TT>
+<BR><TT>YSCALE HZ/CM 50.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Text below X axis</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS TEXT&nbsp;&nbsp; "PPM"</TT>
+<BR><TT>#</TT>
+<BR><TT># Show X axis: on or off</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS SHOW&nbsp;&nbsp; ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Automatically place tick marks and labels: on or off</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS AUTO&nbsp;&nbsp; ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Tickmarks(labels)/unit (ppm,hz..)</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS LABELS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</TT>
+<BR><TT>XAXIS TICKS SHORT&nbsp; 10.00</TT>
+<BR><TT>XAXIS TICKS MEDIUM 2.00</TT>
+<BR><TT>XAXIS TICKS LONG&nbsp;&nbsp; 1.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Tickmark length in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS TICKLENGTH SHORT&nbsp; 0.15</TT>
+<BR><TT>XAXIS TICKLENGTH MEDIUM 0.22</TT>
+<BR><TT>XAXIS TICKLENGTH LONG&nbsp;&nbsp; 0.30</TT>
+<BR><TT>#</TT>
+<BR><TT># Offsets in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>XAXIS OFFSET AXIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.20</TT>
+<BR><TT>XAXIS OFFSET LABELS&nbsp;&nbsp;&nbsp;&nbsp; 0.80</TT>
+<BR><TT>XAXIS OFFSET TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.30</TT>
+<BR><TT>XAXIS START&nbsp; TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Text below Y axis</TT>
+<BR><TT>#</TT>
+<BR><TT>YAXIS TEXT&nbsp;&nbsp; "PPM"</TT>
+<BR><TT>#</TT>
+<BR><TT># Show Y axis: on or off</TT>
+<BR><TT>#</TT>
+<BR><TT>YAXIS SHOW&nbsp;&nbsp; ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Automatically place tick marks and labels: on or off</TT>
+<BR><TT>#</TT>
+<BR><TT>YAXIS AUTO&nbsp;&nbsp; ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Tickmarks(labels)/unit (ppm,hz..)</TT>
+<BR><TT>#</TT>
+<BR><TT>YAXIS LABELS 1.00</TT>
+<BR><TT>YAXIS TICKS SHORT&nbsp; 10.00</TT>
+<BR><TT>YAXIS TICKS MEDIUM 2.00</TT>
+<BR><TT>YAXIS TICKS LONG&nbsp;&nbsp; 1.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Tickmark length in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>YAXIS TICKLENGTH SHORT&nbsp; 0.15</TT>
+<BR><TT>YAXIS TICKLENGTH MEDIUM 0.22</TT>
+<BR><TT>YAXIS TICKLENGTH LONG&nbsp;&nbsp; 0.30</TT>
+<BR><TT>#</TT>
+<BR><TT># Offsets in cm</TT>
+<BR><TT>#</TT>
+<BR><TT>YAXIS OFFSET AXIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.20</TT>
+<BR><TT>YAXIS OFFSET LABELS&nbsp;&nbsp;&nbsp;&nbsp; 0.40</TT>
+<BR><TT>YAXIS OFFSET TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</TT>
+<BR><TT>YAXIS START&nbsp; TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</TT>
+<BR><TT>#</TT>
+<BR><TT># Box for 2D plots: off, on</TT>
+<BR><TT>#</TT>
+<BR><TT>BOX&nbsp; SHOW&nbsp;&nbsp; ON</TT>
+<BR><TT>#</TT>
+<BR><TT># Grid for 2D plots: off, on, auto</TT>
+<BR><TT>#</TT>
+<BR><TT>GRID SHOW&nbsp;&nbsp; AUTO</TT>
+<BR><TT>#</TT>
+<BR><TT># Lines/unit (ppm, hz, ..)</TT>
+<BR><TT>#</TT>
+<BR><TT>GRID XLINES 2.00</TT>
+<BR><TT>GRID YLINES 2.00</TT>
+<BR><TT>#</TT>
+<BR><TT># ==== CONTOUR PARAMETERS ====</TT>
+<BR><TT># Lowest contour level</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR LOWEST&nbsp;&nbsp;&nbsp; 46764.73</TT>
+<BR><TT>#</TT>
+<BR><TT># Number of levels (max = 32)</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR NUMLEVELS 16</TT>
+<BR><TT>#</TT>
+<BR><TT># Level sign: negative, both, positive</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR SIGN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POSITIVE</TT>
+<BR><TT>#</TT>
+<BR><TT># Level mode: explicit, factor, equidistant, logrange</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR MODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FACTOR</TT>
+<BR><TT>#</TT>
+<BR><TT># Factor for 'Use factor' mode</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR FACTOR&nbsp;&nbsp;&nbsp; 1.50</TT>
+<BR><TT>#</TT>
+<BR><TT># Distance for 'Equidistant' mode</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR DISTANCE&nbsp; 100000</TT>
+<BR><TT>#</TT>
+<BR><TT># Highest level for 'Logrange' mode</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR HIGHEST&nbsp;&nbsp; 1e+06</TT>
+<P>If <B>contour mode</B> is <B>explicit</B> then the contour levels can
+be defined in the following manner:
+<P><TT>#</TT>
+<BR><TT># Levels for 'Explicit' mode</TT>
+<BR><TT>#</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;
+46764.7</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;
+70147.1</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;
+105221</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;
+157831</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;
+236746</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp;&nbsp;
+355120</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp;&nbsp;
+532680</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 8&nbsp;&nbsp;&nbsp;&nbsp;
+799019</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 9&nbsp;&nbsp;&nbsp;&nbsp;
+1.19853e+06</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp;&nbsp;&nbsp; 1.79779e+06</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 11&nbsp;&nbsp;&nbsp; 2.69669e+06</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 12&nbsp;&nbsp;&nbsp; 4.04504e+06</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 13&nbsp;&nbsp;&nbsp; 6.06755e+06</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 14&nbsp;&nbsp;&nbsp; 9.10133e+06</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 15&nbsp;&nbsp;&nbsp; 1.3652e+07</TT>
+<BR><TT>CONTOUR LEVEL&nbsp;&nbsp;&nbsp;&nbsp; 16&nbsp;&nbsp;&nbsp; 2.0478e+07</TT>
+<BR>&nbsp;</UL>
+
+<H4>
+<A NAME="WPLOTPAR - Write plot parameters"></A>WPLOTPAR - Write plot parameters</H4>
+
+<UL><B>WPLOTPAR</B> <I>&lt;filename></I>
+<P>Write the current plot parameters to &lt;filename></UL>
+
+<HR WIDTH="100%">
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

@@ -1,0 +1,114 @@
+# these are residues that are computed rather than measured
+
+# 3,6-dideoxy-sugars
+residue 'aPar' '3,6dHex' {
+ info '** a-Paratose (3,6-Dideoxy-D-ribo-hexose)'
+ priority 'paratose a'
+ ctname 'a-drib'
+ config 'D'
+ shift 0 0 ax; 0 0 eq; 0 0 0; 0 0 eq; 0 0; 0 0
+ jhh medium
+ jch large
+ copy aParOMe
+ sub aDGlcOMe
+ add aDGlc
+ error 0.05
+}
+
+residue 'bPar' '3,6dHex' {
+ info '** b-Paratose (3,6-Dideoxy-D-ribo-hexose)'
+ priority 'paratose b'
+ ctname 'b-drib'
+ config 'D'
+ shift 0 0 eq; 0 0 eq; 0 0 0; 0 0 eq; 0 0; 0 0
+ jhh large
+ jch small
+ copy aParOMe
+ sub aDGlcOMe
+ add bDGlc
+ error 0.1
+}
+
+residue aAbe '3,6dHex' {
+ info '** a-Abequose (3,6-Dideoxy-D-xylo-hexose)'
+ priority 'abequose a'
+ ctname 'a-dxyl'
+ config 'D'
+ shift 0 0 ax; 0 0 ax; 0 0 0; 0 0 eq; 0 0; 0 0
+ jhh small
+ jch large
+ copy aAbeOMe
+ sub aDManOMe
+ add aDMan
+ error 0.1
+}
+
+residue bAbe '3,6dHex' {
+ info '** b-Abequose (3,6-Dideoxy-D-xylo-hexose)'
+ priority 'abequose b'
+ ctname 'b-dxyl'
+ config 'D'
+ shift 0 0 eq; 0 0 ax; 0 0 0; 0 0 eq; 0 0; 0 0
+ jhh small
+ jch small
+ copy aAbeOMe
+ sub aDManOMe
+ add bDMan
+ error 0.15
+}
+
+enantiomer 'aAbe' 'aCol'
+residue 'aCol' {
+ info '** a-Colitose (3,6-Dideoxy-L-xylo-hexose)'
+ priority 'colitose a'
+ ctname 'a-lxyl'
+}
+
+enantiomer 'bAbe' 'bCol'
+residue 'bCol' {
+ info '** b-Colitose (3,6-Dideoxy-L-xylo-hexose)'
+ priority 'colitose b'
+ ctname 'b-lxyl'
+}
+
+residue 'aTyv' '3,6dHex' {
+ info '** a-Tyvelose (3,6-Dideoxy-D-arabino-hexose)'
+ priority 'tyvelose a'
+ ctname 'a-dara'
+ config 'D'
+ shift 0 0 ax; 0 0 eq; 0 0 0; 0 0 ax; 0 0; 0 0
+ jhh medium
+ jch large
+ copy aTyvOMe
+ sub aDGalOMe
+ add aDGal
+ error 0.05
+}
+
+residue 'bTyv' '3,6dHex' {
+ info '** b-Tyvelose (3,6-Dideoxy-D-arabino-hexose)'
+ priority 'tyvelose b'
+ ctname 'b-dara'
+ config 'D'
+ shift 0 0 eq; 0 0 eq; 0 0 0; 0 0 ax; 0 0; 0 0
+ jhh large
+ jch small
+ copy bTyvOMe
+ sub bDGalOMe
+ add bDGal
+ error 0.05
+}
+
+enantiomer 'aTyv' 'aAsc'
+residue 'aAsc' {
+ info '** a-Ascarylose (3,6-Dideoxy-L-arabino-hexose)'
+ priority 'ascarylose a'
+ ctname 'a-lara'
+}
+
+enantiomer 'bTyv' 'bAsc'
+residue 'bAsc' {
+ info '** b-Ascarylose (3,6-Dideoxy-L-arabino-hexose)'
+ priority 'ascarylose b'
+ ctname 'b-lara'
+}

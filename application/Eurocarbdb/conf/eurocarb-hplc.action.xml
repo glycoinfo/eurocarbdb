@@ -1,0 +1,405 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+
+<xwork>
+
+<package name="eurocarb-hplc" extends="eurocarb-core">
+	<!-- HPLC actions go here; pls arrange in alphabetical order! -->
+
+ 	<action name="core_integration" class="org.eurocarbdb.action.hplc.coreIntegration">
+		<result name="success" type="freemarker">/template/action/hplc/core_integration/success.ftl</result>
+ 	</action>
+
+
+ 	<action name="create_column" class="org.eurocarbdb.action.hplc.UserCreateColumn">
+		<result name="success" type="redirect-action">select_column</result>
+	 	<!-- <result name="success" type="freemarker">/template/action/hplc/create_column/success.ftl</result>-->
+        <result name="input" type="freemarker">/template/action/hplc/create_column/input.ftl</result>
+        <result name="error" type="freemarker">/template/action/hplc/create_column/error.ftl</result>   
+	</action>
+
+<!-- mjh: commenting out cause class(es) not in repository, causing exceptions ~~~~~~~~~~~	
+	<action name="create_contributor_glycobase" class="org.eurocarbdb.action.hplc.CreateContributorGlycobase">
+        	<result name="input" type="freemarker">/template/action/hplc/create_contributor_glycobase/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/create_contributor_glycobase/success.ftl</result>
+		<result name="error__already_logged_in" type="freemarker">/template/action/user/error__already_logged_in.ftl</result>
+	</action>
+-->
+
+	<action name="create_detector" class="org.eurocarbdb.action.hplc.UserCreateDetector">
+		<result name="success" type="redirect-action">select_detector</result>
+	<!--<result name="success" type="freemarker">/template/action/hplc/create_detector/success.ftl</result>-->
+        	<result name="input" type="freemarker">/template/action/hplc/create_detector/input.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/create_detector/error.ftl</result>
+	</action>
+
+	<action name="create_new_detector" class="org.eurocarbdb.action.hplc.CreateDetector">
+		<!--	<interceptor-ref name="scope">
+		<param name="session">instrument</param>
+		<param name="key">new_detector</param>
+		<param name="autoCreateSession">true</param>
+		</interceptor-ref>
+		<interceptor-ref name="validationWorkflowStack" /> -->
+ 
+		<!--<result name="success" type="redirect-action">select_detector</result>-->
+		<result name="success" type="freemarker">/template/action/hplc/create_new_detector/success.ftl</result>
+		<result name="input" type="freemarker">/template/action/hplc/create_new_detector/input.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/create_new_detector/error.ftl</result>
+	</action>
+
+	<action name="create_hplc_bc" class="org.eurocarbdb.action.hplc.CreateHplcBiologicalContext">
+	  	<interceptor-ref name="scope">
+		<param name="session">biologicalContext</param>
+		<param name="type">start</param>
+		<param name="key">contribute_bc</param>
+		</interceptor-ref>
+		<interceptor-ref name="ecdb_default_stack" />
+	
+	 	<result name="cancel" type="redirect-action">contribute</result>
+		<result name="input" type="freemarker">/template/action/hplc/create_hplc_createbc/select.ftl</result>
+		<!-- <result name="success" type="redirect-action">create_hplc_createref?bc=${biologicalContext.getBiologicalContextId()?c}</result> -->
+		<result name="skip" type="redirect-action">doUpload?profileId=${profileId}</result>
+		<result name="success" type="redirect-action">doUpload?profileId=${profileId}</result>
+	</action>
+	
+<!-- mjh: commenting out cause class(es) not in repository, causing exceptions ~~~~~~~~~~~	
+	<action name="create_hplc_createref" class="org.eurocarbdb.action.hplc.CreateHplcReferences">
+		<interceptor-ref name="scope">
+	        <param name="session">biologicalContext</param>
+	        <param name="type">start</param>
+	        <param name="key">contribute_bc</param>
+		</interceptor-ref>
+		<interceptor-ref name="ecdb_default_stack" />
+		<result name="cancel" type="redirect-action">contribute</result>
+		<result name="input" type="freemarker">/template/action/hplc/create_references/select.ftl</result>
+		<result name="success" type="redirect-action">create_acquisition</result>
+	</action>
+-->
+	
+	<action name="create_taxonomy_content" class="org.eurocarbdb.action.hplc.CreateContent">
+		<result name="input" type="freemarker">/template/action/hplc/create_taxonomy_content/input.ftl</result>
+		<result name="success" type="redirect-action">create_tissue_taxonomy_content?profileId=${profileId}</result>
+	</action>
+	
+	<action name="create_tissue_taxonomy_content" class="org.eurocarbdb.action.hplc.CreateTissueContent">
+		<result name="input" type="freemarker">/template/action/hplc/create_tissue_taxonomy_content/input.ftl</result>
+		<result name="success" type="redirect-action">create_disease_content?profileId=${profileId}</result>
+	</action>
+	
+	<action name="create_disease_content" class="org.eurocarbdb.action.hplc.CreateDiseaseContent">
+		<result name="input" type="freemarker">/template/action/hplc/create_disease_content/input.ftl</result>
+		<result name="success" type="redirect-action">doUpload.action?profileId=${profile.profileId}</result>
+	</action>
+	
+
+	<action name="create_instrument" class="org.eurocarbdb.action.hplc.CreateInstrument">
+		<result name="success" type="redirect-action">select_instrument</result>
+		<!--<result name="success" type="freemarker">/template/action/hplc/select_instrument/input.ftl</result>-->
+		<result name="input" type="freemarker">/template/action/hplc/create_instrument/input.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/create_instrument/error.ftl</result>
+	</action>
+
+	<action name="create_gu" class="org.eurocarbdb.action.hplc.CreateGu">
+        	<result name="input" type="freemarker">/template/action/hplc/create_gu/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/create_gu/success.ftl</result>
+	</action>
+
+	<action name="create_hplc_gu" class="org.eurocarbdb.action.hplc.CreateHplcGu">
+		<result name="input" type="freemarker">/template/action/hplc/create_hplc_gu/input.ftl</result>
+	</action>
+
+ 	<action name="create_parent" class="org.eurocarbdb.action.hplc.CreateParent">
+	 	<!--	<interceptor-ref name="scope">
+		<param name="session">instrument</param>
+		<param name="key">select_instrument</param>
+		-->
+		<!-- old <param name="key">select_detector</param>-->
+		<!-- <param name="key">new_detector</param>
+		<param name="key">new_parent</param>
+		<param name="key">new_column</param>
+		-->
+		<!-- old <param name="autoCreateSession">true</param>
+		<param name="type">end</param>-->
+		<!--  </interceptor-ref>
+		<interceptor-ref name="ecdb_default_stack" />
+		-->
+		<result name="input" type="freemarker">/template/action/hplc/create_parent/input.ftl</result>
+		<!--	<result name="success" type="redirect-action">upload_profile?profileId=${profile.profileId}</result> -->
+
+		<!--<result name="success" type="redirect-action">doUpload?profileId=${profile.profileId}</result>-->
+		<result name="success" type="redirect-action">create_method?profileId=${profile.profileId}</result>
+		<result name="error" type="freemarker">/template/action/hplc/create_parent/error.ftl</result>
+	</action>
+
+
+ 	<action name="create_method" class="org.eurocarbdb.action.hplc.CreateMethod">
+	   	 <result name="success" type="redirect-action">create_hplc_bc?profileId=${profileId}</result>
+		<!-- ><result name="success" type="redirect-action">create_taxonomy_content?profileId=${profileId}</result> -->
+		<!--><result name="success" type="redirect-action">doUpload?profileId=${profileId}</result>-->
+		<result name="input" type="freemarker">/template/action/hplc/create_method/input.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/create_method/error.ftl</result>
+	</action>
+
+  	<action name="select_detector" class="org.eurocarbdb.action.hplc.SelectDetector">
+		<interceptor-ref name="scope">
+		<param name="session">instrument</param>
+		<param name="key">select_detector</param>
+		  <param name="key">select_instrument</param>
+		  <param name="autoCreateSession">true</param>
+		  </interceptor-ref>
+		  <interceptor-ref name="ecdb_default_stack" />
+		  <!-- <result name="success" type="redirect-action">create_parent?detectorId=${detector.detectorId}&amp;instrumentId=${instrument.instrumentId}&amp;columnId=${columnId}</result> -->
+		  <result name="success" type="redirect-action">select_column?detectorId=${detector.detectorId}&amp;instrumentId=${instrument.instrumentId}</result>
+		  <result name="input" type="freemarker">/template/action/hplc/select_detector/input.ftl</result>
+		  <result name="error" type="freemarker">/template/action/hplc/select_detector/error.ftl</result>
+	</action>
+
+
+	<action name="select_column" class="org.eurocarbdb.action.hplc.SelectColumn">
+        	<result name="success" type="redirect-action">create_parent?columnId=${columnId}&amp;instrumentId=${instrumentId}&amp;detectorId=${detectorId}</result>
+		<result name="input" type="freemarker">/template/action/hplc/select_column/input.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/select_column/error.ftl</result>
+	</action>
+
+	<action name="select_settings" class="org.eurocarbdb.action.hplc.SelectSettings">
+	     <!--<result name="success" type="freemarker">/template/action/hplc/select_settings/success.ftl</result> -->
+		<result name="success" type="redirect-action">create_parent?columnId=${columnId}&amp;instrumentId=${instrumentId}&amp;detectorId=${detectorId}</result> 
+		<result name="input" type="freemarker">/template/action/hplc/select_settings/input.ftl</result>
+	</action>
+     
+	
+	<action name="select_instrument" class="org.eurocarbdb.action.hplc.SelectInstrument">
+		<interceptor-ref name="scope">
+		<param name="session">instrument</param>
+		<param name="key">select_instrument</param>
+		<param name="autoCreateSession">true</param>
+		<param name="type">start</param>
+		</interceptor-ref>
+		<interceptor-ref name="ecdb_default_stack" />
+        <!-- <result name="success" type="redirect-action">temp_col?instrumentId=${instrument.instrumentId}</result>-->
+        	<result name="success" type="redirect-action">select_detector?instrumentId=${instrument.instrumentId}</result>
+		<result name="input" type="freemarker">/template/action/hplc/select_instrument/input.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/select_instrument/error.ftl</result>
+	</action>
+
+
+	<action name="show_digest" class="org.eurocarbdb.action.hplc.ShowDigest">
+        	<result name="input" type="freemarker">/template/action/hplc/show_digest/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_digest/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_digest/error.ftl</result>
+	</action>
+
+	<action name="show_instrument" class="org.eurocarbdb.action.hplc.ShowDetector">
+       		<result name="input" type="freemarker">/template/action/hplc/show_detector/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_detector/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_detector/error.ftl</result>
+	</action>
+
+
+
+  	<action name="show_column" class="org.eurocarbdb.action.hplc.ShowColumn">
+        	<result name="input" type="freemarker">/template/action/hplc/show_column/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_column/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_column/error.ftl</result>
+	</action>
+
+
+
+
+<!--
+<action name="show_digestpaths" class="org.eurocarbdb.action.hplc.ShowDigestPaths" >
+        <result name="input" type="freemarker">/template/action/hplc/show_digestpaths/input.ftl</result>
+        <result name="success" type="freemarker">/template/action/hplc/show_digestpaths/success.ftl</result>
+        <result name="error" type="freemarker">/template/action/hplc/show_digestpaths/error.ftl</result>
+     </action>
+-->
+
+
+    	<action name="show_glycanEntry" class="org.eurocarbdb.action.hplc.ShowGlycan" >
+		<result name="input" type="freemarker">/template/action/hplc/show_glycanEntry/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_glycanEntry/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_glycanEntry/error.ftl</result>
+	</action>
+   
+      
+	<action name="show_glycobase" class="org.eurocarbdb.action.hplc.ShowGlycobase">
+      		<result name="input" type="freemarker">/template/action/hplc/show_glycobase/input.ftl</result>
+	  	<result name="success" type="freemarker">/template/action/hplc/show_glycobase/success.ftl</result>
+  	</action>
+
+<!-- mjh: commenting out cause class(es) not in repository, causing exceptions ~~~~~~~~~~~	
+    <action name="show_glycobase_contract" class="org.eurocarbdb.action.hplc.ShowGlycobaseContract">
+    		<result name="input" type="freemarker">/template/action/hplc/show_glycobase_contract/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_glycobase_contract/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_glycobase_contract/error.ftl</result>
+	</action>
+-->
+
+ 	<action name="show_hplc" class="org.eurocarbdb.action.hplc.ShowHplc">
+		<result name="success" type="freemarker">/template/action/hplc/show_hplc/success.ftl</result>
+	</action>
+
+
+   	<action name="show_summary" class="org.eurocarbdb.action.hplc.ShowSummary" >
+        	<result name="input" type="freemarker">/template/action/hplc/show_summary/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_summary/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_summary/error.ftl</result>
+   	</action>
+
+
+
+   	<action name="show_prelimAssign" class="org.eurocarbdb.action.hplc.ShowPrelimAssign" >
+        	<result name="input" type="freemarker">/template/action/hplc/show_prelimAssign/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_prelimAssign/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_prelimAssign/error.ftl</result>
+  	</action>
+
+<!-- mjh: commenting out cause class(es) not in repository, causing exceptions ~~~~~~~~~~~
+	<action name="show_report" class="org.eurocarbdb.action.hplc.ShowReport" >
+		<result name="success" type="freemarker">/template/action/hplc/show_report/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_report/error.ftl</result>
+	</action>
+
+	<action name="show_report_structures" class="org.eurocarbdb.action.hplc.ShowReportDetails">
+		<result name="success" type="freemarker">/template/action/hplc/show_report_structures/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_report_structures/error.ftl</result>
+	</action>
+-->
+    
+ 	<action name="show_summaryDigests" class="org.eurocarbdb.action.hplc.ShowSummaryDigests" >
+       		<result name="input" type="freemarker">/template/action/hplc/show_summaryDigests/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_summaryDigests/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_summaryDigests/error.ftl</result>
+	</action>
+
+
+ 	<action name="show_digestsAssign" class="org.eurocarbdb.action.hplc.ShowDigestAssign" >
+        	<result name="input" type="freemarker">/template/action/hplc/show_digestsAssign/input.ftl</result>
+	</action>
+
+
+
+  	<action name="upload_profile" class="org.eurocarbdb.action.hplc.ProfileAnnotated">
+		<interceptor-ref name="scope">
+		<param name="session">instrument</param>
+		<param name="key">select_detector</param>
+		<param name="key">select_instrument</param>
+		<param name="key">new_parent</param>
+		</interceptor-ref>
+		<interceptor-ref name="ecdb_default_stack" />
+
+		<result name="input" type="freemarker">/template/action/hplc/upload_profile/input.ftl</result>
+	</action>
+
+  	<action name="meeting" class="org.eurocarbdb.action.hplc.meeting">
+       		<result name="input" type="freemarker">/template/action/hplc/meeting/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/meeting/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/meeting/error.ftl</result>
+	</action>
+
+
+	<action name="doUpload" class="org.eurocarbdb.action.hplc.UploadAction"> 
+		<!--  <action name="doUpload" class="org.eurocarbdb.action.hplc.ProfileAnnotated"> -->
+		<interceptor-ref name="fileUpload"/>
+		<!--<param name="maximumSize">625000</param> -->
+		<!--  	<interceptor-ref name="scope">
+		<param name="session">instrument</param>
+		<param name="key">new_parent</param>
+		</interceptor-ref>
+		-->   
+		<interceptor-ref name="ecdb_default_stack"/> 
+		<result name="input" type="freemarker">/template/action/hplc/doUpload/input.ftl</result>
+		<!-- <result name="success" type="redirect-action">pre_assign</result> --> 
+		<result name="success" type="redirect-action">create_prelimAssign?profileId=${profileId}</result>
+	</action>
+
+	<action name="create_prelimAssign" class="org.eurocarbdb.action.hplc.preAssign">
+		<!-- <interceptor-ref name="scope">
+		<param name="session">instrument</param>
+		<param name="key">new_parent</param>
+		</interceptor-ref>
+		<interceptor-ref name="ecdb_default_stack"/>
+		-->
+ 		<result name="input" type="freemarker">/template/action/hplc/create_prelimAssign/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/create_prelimAssign/success.ftl</result> 
+ 	</action>
+
+	<action name="show_digestionAnalysis" class="org.eurocarbdb.action.hplc.digestUpload">
+        	<interceptor-ref name="fileUpload"/>
+		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="input" type="freemarker">/template/action/hplc/show_digestionAnalysis/input.ftl</result>
+		<result name="success" type="redirect-action">digest_assign?profileId=${profileId}&amp;digestId=${digestId}&amp;sequentialDigest=${enzymeName}</result>
+	</action>
+
+
+	<action name="digest_assign" class="org.eurocarbdb.action.hplc.digestAssign">
+      		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="input" type="freemarker">/template/action/hplc/digest_assign/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/digest_assign/success.ftl</result>
+ 	</action>
+
+
+	<action name="hplc_reference" class="org.eurocarbdb.action.hplc.ReferenceUpload">
+		<result name="success" type="freemarker">/template/action/hplc/upload_reference/success.ftl</result>
+	</action>
+
+	<action name="refine" class="org.eurocarbdb.action.hplc.refine">
+    		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="input" type="freemarker">/template/action/hplc/refine/input.ftl</result>
+		<!--     <result name="success" type="freemarker">/template/action/hplc/refine/success.ftl</result>
+		-->
+		<result name="success" type="redirect-action">update?profileId=${profile.profileId}</result>
+	</action>
+
+
+  	<action name="update" class="org.eurocarbdb.action.hplc.update">
+    		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="input" type="freemarker">/template/action/hplc/update/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_refinement/success.ftl</result>
+	</action>
+
+<!-- temp area -->
+
+  	<action name="show_prelimRefine" class="org.eurocarbdb.action.hplc.showPrelimRefine">
+      		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="input" type="freemarker">/template/action/hplc/show_prelimRefine/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/show_prelimRefine/success.ftl</result>
+
+  	</action>
+
+	<action name="show_glycobaseRefine" class="org.eurocarbdb.action.hplc.showGlycobaseRefine">
+        	<interceptor-ref name="ecdb_default_stack"/>
+		<result name="success" type="freemarker">/template/action/hplc/show_glycobaseRefine/success.ftl</result>
+		<result name="error" type="freemarker">/template/action/hplc/show_glycobaseRefine/error.ftl</result>
+  	</action>
+
+<!-- demo -->
+   	<action name="show_tax" class="org.eurocarbdb.action.hplc.showTax">
+    		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="success" type="freemarker">/template/action/hplc/show_tax/success.ftl</result>
+	</action>
+
+
+	<action name="create_glycoct" class="org.eurocarbdb.action.hplc.ogbiTranslator">
+		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="success" type="freemarker">/template/action/hplc/create_glycoct/success.ftl</result>
+	</action>
+
+	<action name="create_glycoct_contract" class="org.eurocarbdb.action.hplc.contractStructuresCT">
+		<interceptor-ref name="ecdb_default_stack"/>
+		<result name="success" type="freemarker">/template/action/hplc/create_glycoct_contract/success.ftl</result>
+	</action>
+
+
+
+	<action name="search_glycobase" class="org.eurocarbdb.action.hplc.searchGlycobase">
+        	<interceptor-ref name="ecdb_default_stack"/>
+		<result name="input" type="freemarker">/template/action/hplc/search_glycobase/input.ftl</result>
+		<result name="success" type="freemarker">/template/action/hplc/search_glycobase/success.ftl</result>
+	<!--<result name="success" type="redirect-action">search_glycobase.action?searchGlycanGu=7</result>-->
+	</action>
+	
+</package>
+
+</xwork>

@@ -1,0 +1,14 @@
+#
+# Reads the '-o name' flag and fills 'outfile' with 'name'
+#
+if argv($argi) == "-o" then
+  if argc>$argi && argv($argi+1)[1] != "-" then
+     $argi += 1
+     %outfile=argv($argi)
+     println "Outfile: " + %outfile
+  else
+     println "Syntax: -o output_file"
+     exit
+  endif
+endif
+

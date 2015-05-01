@@ -1,0 +1,125 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<!--===== examples only =====-->
+
+<xwork>
+
+<package name="examples" extends="eurocarb-base">
+
+	<action name="echo" class="org.eurocarbdb.action.Echo">
+		<result type="freemarker">/template/action/echo.ftl</result>
+	</action>
+
+ 	<!--
+	action: example_monolithic_wizard
+	author: mjh
+	desc:  An example of how a wizard-like action might be implemented in an all-in-one fashion.
+	       Relies on the use of the ScopeInterceptor (http://www.opensymphony.com/webwork/api/com/opensymphony/webwork/interceptor/ScopeInterceptor.html) 
+	       which manages temporary data in the session hash provided by the java servlet API.
+	       The downside to this implementation is that data saved to the session is not
+	       cleared at any point; it seems a separate action with the line '<param name="type">start</param>'
+	       in the '<interceptor-ref name="scope">' section is required. The non-monolithic strategy
+	       does not suffer from this drawback.
+	-->
+    <action name="example_monolithic_wizard" class="org.eurocarbdb.action.examples.ExampleWizard">
+        <interceptor-ref name="scope">
+            <param name="session">string,array,number</param>
+            <param name="autoCreateSession">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="ecdb_default_stack" />
+        
+		<result name="input_string_view" type="freemarker" >/template/action/examples/example_wizard/input_string.ftl</result>
+		<result name="input_array_view" type="freemarker"  >/template/action/examples/example_wizard/input_array.ftl</result>
+		<result name="input_number_view" type="freemarker" >/template/action/examples/example_wizard/input_number.ftl</result>
+		<result name="success" type="freemarker"           >/template/action/examples/example_wizard/summary.ftl</result>
+    </action>
+     
+     
+ 	<!--
+	action: example_wizard
+	author: mjh
+	desc:  An example of how a wizard-like action might be implemented using multiple discrete
+	       actions, using the webwork-supplied ScopeInterceptor 
+	       (http://www.opensymphony.com/webwork/api/com/opensymphony/webwork/interceptor/ScopeInterceptor.html). 
+	       This interceptor transparently manages action data in the Session provided 
+	       by the servlet container. It may be configured to clear the session of data 
+	       on a per-action basis: 'type="start"' clears the session before execution, 
+	       and 'type="end"' clears the session after action execution. The Action class
+	       itself is unaware that its data is being session-managed.
+	       
+	       Note that this implementation uses the exact same Action class and templates 
+	       as the alternative "monolithic action" version above.
+	-->
+    <action name="example_wizard" class="org.eurocarbdb.action.examples.ExampleWizard">
+        <interceptor-ref name="scope">
+            <param name="session">string,array,number</param>
+            <param name="autoCreateSession">true</param>
+            <param name="type">start</param>
+        </interceptor-ref>
+        <interceptor-ref name="ecdb_default_stack" />
+        
+        <result name="input_string_view" type="freemarker" >/template/action/examples/example_wizard/input_string.ftl</result>
+		<result name="input_array_view" type="redirect"    >example_wizard_p2</result>
+		<result name="input_number_view" type="redirect"   >example_wizard_p3</result>
+		<result name="success" type="redirect"             >example_wizard_summary</result>
+    </action>
+     
+ 	<!--
+	action: example_wizard_p2
+	author: mjh
+	desc:  Follows example_wizard.
+	-->
+    <action name="example_wizard_p2" class="org.eurocarbdb.action.examples.ExampleWizard">
+        <interceptor-ref name="scope">
+            <param name="session">string,array,number</param>
+            <param name="autoCreateSession">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="ecdb_default_stack" />
+        
+        <result name="input_string_view" type="redirect"   >example_wizard</result>
+		<result name="input_array_view" type="freemarker"  >/template/action/examples/example_wizard/input_array.ftl</result>
+		<result name="input_number_view" type="redirect"   >example_wizard_p3</result>
+		<result name="success" type="redirect"             >example_wizard_summary</result>
+    </action>
+           
+ 	<!--
+	action: example_wizard_p3
+	author: mjh
+	desc:  Follows example_wizard_p2.
+	-->
+    <action name="example_wizard_p3" class="org.eurocarbdb.action.examples.ExampleWizard">
+        <interceptor-ref name="scope">
+            <param name="session">string,array,number</param>
+            <param name="autoCreateSession">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="ecdb_default_stack" />
+        
+        <result name="input_string_view" type="redirect"   >example_wizard</result>
+		<result name="input_array_view" type="redirect"    >example_wizard_p2</result>
+		<result name="input_number_view" type="freemarker" >/template/action/examples/example_wizard/input_number.ftl</result>
+		<result name="success" type="redirect"             >example_wizard_summary</result>
+    </action>
+           
+ 	<!--
+	action: example_wizard_summary
+	author: mjh
+	desc:  Summarises all information entered to this point. Follows example_wizard_p3.
+	-->
+     <action name="example_wizard_summary" class="org.eurocarbdb.action.examples.ExampleWizard">
+        <interceptor-ref name="scope">
+            <param name="session">string,array,number</param>
+            <param name="autoCreateSession">true</param>
+            <param name="type">end</param>
+        </interceptor-ref>
+        <interceptor-ref name="ecdb_default_stack" />
+        
+        <result name="input_string_view" type="redirect"   >example_wizard</result>
+		<result name="input_array_view" type="redirect"    >example_wizard_p2</result>
+		<result name="input_number_view" type="redirect"   >example_wizard_p3</result>
+		<result name="success" type="freemarker"           >/template/action/examples/example_wizard/summary.ftl</result>
+    </action>
+          
+</package>
+
+</xwork>

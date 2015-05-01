@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<project name="eurocarb-molecularframework" default="build" basedir=".">
+
+    <!--
+    !   this import defines the following:
+    !
+    !   1) 'project.*' properties  
+    !   2) 'project.classpath' path, containing all external and eurocarb-compiled jars.
+    !   3) 'build-XXX' tasks, where 'XXX' is the name of a sub-project                
+    !
+    -->
+    <import file="../../build.common.xml" />
+
+    <!--===================== PROPERTIES =========================-->
+    
+    <property name="java.source.dir" value="${basedir}/src" />
+    <property name="java.build.dir" value="${basedir}/build" />
+    <property name="java.dist.dir" value="${project.java.lib.dir}" />
+
+    
+    <!--======================= TARGETS  =========================-->
+    <!--            (in alphabetical order please)                -->
+    
+    
+    <!-- TARGET: build ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds local source, resolving dependencies if any.
+    -->
+	<target name="build" depends="">
+        <mkdir dir="${java.build.dir}" />
+		<javac srcdir="${java.source.dir}" destdir="${java.build.dir}" debug="on">
+			<classpath refid="project.classpath" />
+        </javac>
+	</target>
+
+    
+    <!-- TARGET: clean ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Removes locally-compiled source only.
+    -->
+    <target name="clean" depends="">
+        <echo>Cleaning ${ant.project.name}</echo>
+        <delete includeemptydirs="true">
+            <fileset dir="${java.build.dir}" includes="**/*"/>
+        </delete>	        
+    </target>
+
+    
+    <!-- TARGET: dist ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Creates library jar.
+    -->
+	<target name="dist" depends="build">
+		<jar 
+            destfile="${java.dist.dir}/${project.molframework.jar}" 
+            basedir="${java.build.dir}" 
+            update="true"
+        />
+	</target>
+    
+</project>

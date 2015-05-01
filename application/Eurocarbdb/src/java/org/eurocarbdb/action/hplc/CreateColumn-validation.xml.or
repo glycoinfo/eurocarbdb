@@ -1,0 +1,8 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+<validator type="expression">
+      <param name="expression">(manufacturer != null)</param>
+      <message>Taxonomy name or NCBI Id must be specified</message>
+</validator>
+</validators>

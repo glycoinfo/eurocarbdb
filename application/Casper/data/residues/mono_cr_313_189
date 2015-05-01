@@ -1,0 +1,79 @@
+# Synthesis, separation and NMR spectral
+# analysis of methyl apiofuranosides
+
+# T. Ishii, M. Yanagisawa
+set ref 'Carbohdr. Res. 313 (1998) 189-192'
+
+# Structure needs a link position somewhere.
+
+
+type ApiOMe {
+info 'Methyl 3-C-(hydroxymethyl)-tetrofuranoside'
+atom '1' 1 furan
+atom '2' 1 furan free
+atom '3' 0 furan free
+atom '4' 2 furan
+atom '3\'' 2 primary free
+atom 'OMe' 1 methyl
+connect '1' '2' '3' '4'; '3' '3\''
+connect '1' 'OMe'
+}
+
+residue aDApiOMe ApiOMe {
+info 'Methyl 3-C-(hydroxymethyl)-a-D-erythrofuranoside'
+shift 103.96 5.01 #d
+shift  72.53 4.02 #d
+shift  77.65 #d
+shift  74.38 3.91 4.06
+shift  65.15 3.62 3.62 
+shift  56.21 3.45
+}
+
+residue bDApiOMe ApiOMe {
+info 'Methyl 3-C-(hydroxymethyl)-b-D-erythrofuranoside'
+shift 110.21 4.99 #u
+shift  77.31 3.95 #d
+shift  80.09 #d
+shift  74.32 3.91 4.06
+shift  64.25 3.66 3.66
+shift  56.78 3.46
+}
+
+# Check the structure of these!
+residue 'threo-aDApiOMe' ApiOMe {
+info 'Methyl 3-C-(hydroxymethyl)-b-L-threofuranoside'
+shift 105.38 5.20 #d
+shift  77.66 4.13 #d
+shift  81.89 #u 
+shift  73.70 3.77 4.00
+shift  63.56 3.71 3.77
+shift  56.78 3.48
+}
+
+residue 'threo-bDApiOMe' ApiOMe {
+info 'Methyl 3-C-(hydroxymethyl)-a-L-threofuranoside'
+shift 111.15 4.97 #u
+shift  80.68 4.08 #d
+shift  81.85 #u
+shift  75.34 3.90 4.03
+shift  63.12 3.70 3.83
+shift  56.10 3.43
+}
+
+
+end
+
+# ---------------------
+5.01 4.02 3.62 3.62 3.91 4.06 3.45
+4.99 3.95 3.66 3.66 3.91 4.06 3.46
+5.20 4.13 3.71 3.77 3.77 4.00 3.48
+4.97 4.08 3.70 3.83 3.9 4.03 3.43
+
+103.96 72.53 77.65 65.15 74.38 56.21
+110.21 77.31 80.09 64.25 74.32 56.78
+105.38 77.66 81.89 63.56 73.70 56.78
+111.15 80.68 81.85 63.12 75.34 56.10
+4 Methyl 3-C-(hydroxymethyl)-a-L-threofuranoside
+1 Methyl 3-C-(hydroxymethyl)-a-D-erythrofuranoside
+3 Methyl 3-C-(hydroxymethyl)-b-L-threofuranoside
+2 Methyl 3-C-(hydroxymethyl)-b-D-erythrofuranoside

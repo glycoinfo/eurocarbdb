@@ -1,0 +1,116 @@
+# Names used for experiments
+#
+# General setup in this file is:
+#
+# <name>.<atom dimension order> (eg hsqc_C13.hc)
+#
+#
+# Lowercase atoms are transfer ones.
+#
+
+
+#########################
+# EXPERIMENT NAMES LIST #
+#########################
+
+#
+# Plain 1D experiments
+# --------------------
+
+# TOD: are currently not handled yet!!!
+
+#spec.h  # 1D proton
+#spec.c  # 1D 13C
+#spec.n  # 1D 15N
+
+#
+# 2 dimensional HSQC type experiments
+# -----------------------------------
+
+hsqc_HC.hc		# Include both non-ct and ct experiments in this name?
+hsqc_HN.hn
+
+# Tocsy spectra
+# -------------
+
+tocsy.hh		# Plain homonuclear 2D proton tocsy
+tocsy_HcCh.hc	# Heteronuclear 2D proton/carbon tocsy
+tocsy_HCCH.hhc	# Heteronuclear 3D proton/carbon/proton tocsy.
+				# Can be both HC(C)H or H(C)CH
+				# (dims will have to be switched during processing in former case to relate to C13 HSQC-NOESY!)
+
+tocsy_CccoNH.hcn # Is C(CCO)NH-TOCSY. From sc C of preceding res to NH.
+tocsy_CcconH.hc # Same as tocsy_CccoNH.3D, but only 2D H/C plane.
+
+tocsy_CcNH.hcn   # Is C(C)NH-TOCSY. From sc C of res to NH (DANIEL: DOES THIS EXIST?)
+
+tocsy_HccoNH.hhn # Is H(CCO)NH-TOCSY. from sc H of preceding res to NH.
+
+tocsy_HcNH.hhn   # Is H(C)NH-TOCSY. from sc H of res to NH.
+                 # TODO: is this really a tocsy_hsqc_HNH.hhn??!
+
+# Cosy spectra
+# ------------
+
+cosy.hh         # Plain homonuclear 2D proton COSY
+
+# Backbone (including beta) assignment spectra. Grouped by complement
+# SP is info about same or previous residue, P is previous residue only
+# ---------------------------------------------------------------------
+
+HNCO.hcn		# SP.
+HNcaCO.hcn      # P. Is HN(CA)CO
+
+HnCO.hc		    # SP. Same as HNCO.3D, but only 2D H/C plane.
+trosy_HnCO.hc   # SP. Same as above, but TROSY version.
+HncaCO.hc		# P. Same as HNcaCO.3D, but only 2D H/C plane.
+trosy_HncaCO.hc # P. Same as above, but TROSY version.
+
+HNCA.hcn		# SP.
+haCANH.hcn		# SP. Is (HA)CANH. Info same as above, but starting at ha
+HNcoCA.hcn      # P. Is HN(CO)CA
+haCAcoNH.hcn	# P. Is (HA)CA(CO)NH. Info same as above, but starting at ha
+
+HnCA.hc  		# SP. Same as HNCA.3D, but only 2D H/C plane.
+trosy_HnCA.hc   # SP. Same as above, but TROSY version.
+HncoCA.hc       # P. Same as HNcoCA.3D, but only 2D H/C plane.
+trosy_HncoCA.hc # P. Same as above, but TROSY version.
+
+HNCACB.hcn      # SP. This one is OK.
+hbCBCANH.hcn	# SP. Is (HB)CBCANH. Info same as above, but starting at hb
+HNcoCACB.hcn	# P. Is HN(CO)CACB
+hbCBCAcoNH.hcn	# P. Is (HB)CBCA(CO)NH. Info same as above, but starting at hb
+
+HnCACB.hc       # SP. Same as HNCACB.3D, but only 2D H/C plane.
+trosy_HnCACB.hc # SP. Same as above, but TROSY version.
+HncoCACB.hc     # P. Same as HNcoCACB.3D, but only 2D H/C plane.
+trosy_HncoCACB.hc # P. Same as above, but TROSY version.
+
+HNcaCB.hcn      # SP. Is HN(CA)CB. Similar to HNCACB.3D, but different delays (only CB visible).
+HNcocaCB.hcn    # P. Is HN(COCA)CB. Similar to HNcoCACB.3D, but different delays (only CB visible).
+
+HncaCB.hc		# SP. Same as HNcaCB.3D, only 2D H/C plane.
+trosy_HncaCB.hc # SP. Same as above, but TROSY version.
+HncocaCB.hc		# P. Same as HNcocaCB.3D, only 2D H/C plane.
+trosy_HncocaCB.hc # P. Same as above, but TROSY version.
+
+HAcaNH.hhn      # SP. Gives proton info.
+HAcacoNH.hhn      # P. Gives proton info.
+
+# Sidechain assignment spectra
+# ----------------------------
+
+# Noesy spectra
+# -------------
+#
+# The type is also added: can be hsqc, hmqc, hsfqc.
+
+noesy.hh		    # Plain homonuclear 2D proton noesy
+noesy_hsqc_HNH.hhn  # Heteronuclear 3D 15N hsqc noesy
+noesy_hsqc_HCH.hhc	# Heteronuclear 3D 13C hsqc noesy
+noesy_hsqc_HXH.hhx  # Combined heteronuclear 3D 15N/13C hsqc noesy
+
+noesy_hsqc_HNNH.hhnn # Heteronuclear 4D 15N hsqc noesy
+noesy_hsqc_HCCH.hhcc # Heteronuclear 4D 13C hsqc noesy
+noesy_hsqc_HCNH.hhcn # Heteronuclear 4D 13C/15N hsqc noesy
+noesy_hsqc_HNCH.hhnc # Heteronuclear 4D 15N/13C hsqc noesy

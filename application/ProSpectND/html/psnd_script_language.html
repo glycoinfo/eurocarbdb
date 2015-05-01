@@ -1,0 +1,600 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (X11; I; Linux 2.0.34 i686) [Netscape]">
+   <TITLE>Script Language</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF00FF" ALINK="#FF0000">
+
+<H1>
+<A NAME="Script Processing"></A>Script Processing</H1>
+
+<UL>
+<H1>
+<U><FONT COLOR="#0000FF"><A HREF="#The au scripting language">The au scripting
+language</A></FONT></U></H1>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#Variables">Variables</A></FONT></U></H4>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#Comment">Comment</A></FONT></U></H4>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#Numeric functions">Numeric Functions</A></FONT></U></H4>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#If statement">If statement</A></FONT></U></H4>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#While loop">While loop</A></FONT></U></H4>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#For loop">For loop</A></FONT></U></H4>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#Shell Interaction">Shell interaction</A></FONT></U></H4>
+
+<UL>
+<LI>
+<A HREF="#ARGV and ARGC">argv and argc</A></LI>
+
+<LI>
+<A HREF="#EXEC">exec</A></LI>
+
+<LI>
+<A HREF="#PUTENV">putenv</A></LI>
+
+<LI>
+<A HREF="#GETENV">getenv</A></LI>
+
+<LI>
+<A HREF="#BIGENDIAN - Test byte order">bigendian</A></LI>
+</UL>
+
+<H4>
+<U><FONT COLOR="#0000FF"><A HREF="#Examples">Examples</A></FONT></U></H4>
+</UL>
+
+<HR>
+<H1>
+<A NAME="The au scripting language"></A>The au scripting language</H1>
+
+<UL>NMR processing commands can be put into a script. Scripts can be run
+via the <U><FONT COLOR="#0000FF"><A HREF="process_2d.html#Processing">'Scrip'
+button</A></FONT></U>, via the <U><FONT COLOR="#0000FF"><A HREF="commandline.html#RUN { <scriptname> { <arguments> } }">command
+line</A></FONT></U> with 'run scriptname' and in batchmode via 'prospectnd
+-b scriptname'.
+<P>Example:
+<PRE>%file1 = "ts.p"
+%file2 = "aaa.b"
+ropen %file1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Open input file
+dr 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set processing direction
+rn 1
+wopen %file2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Open output file
+for $i in sorted [..] do
+&nbsp;&nbsp;&nbsp; println "Processing record " + $i
+&nbsp;&nbsp;&nbsp; rn $i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Read record
+&nbsp;&nbsp;&nbsp; sn 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Use a shifted sine window
+&nbsp;&nbsp;&nbsp; ft 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Fourier transformation
+&nbsp;&nbsp;&nbsp; rw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Write result
+done
+wclose&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Close output file
+ropen %file2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Reopen the output file for reading
+dr 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set direction
+rn 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Read first record</PRE>
+Every au-script consists of a series of statements. Each statement must
+be terminated by a newline or a semicolon. Multiple lines can be glued
+together with the '\' character. Thus</UL>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $total = 4 + 6 + 7 + 8</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println %total</TT>
+<BR>&nbsp;
+<BLOCKQUOTE>is equivalent with</BLOCKQUOTE>
+
+<P><BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $total = 4 + 6 +
+7 + 8; println %total</TT>
+<UL>and with</UL>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $total = 4 + 6 + \</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7 + 8; println %total</TT>
+<UL>The language has two singular data structures, numbers and strings,
+that can be converted from one form to the other. The language is not case
+sensitive.
+<P>Example, convert numbers to string:
+<BR>&nbsp;
+<UL><TT>%var = % ( 6+13+9 )</TT>
+<BR><TT>println %var</TT></UL>
+
+<P><BR>prints 28
+<P>Example, convert string to number:
+<BR>&nbsp;
+<UL><TT>$var = $ ( "12" + "6" )</TT>
+<BR><TT>println %var</TT></UL>
+
+<P><BR>prints 126
+<P>Other shell scripts can be included. Example
+<P><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # file test1.au</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %name = "homedir"</TT>
+<P><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # file test2.au</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; include "test1.au"</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println %name</TT></UL>
+
+<HR>
+<H2>
+<A NAME="Variables"></A>Variables</H2>
+
+<UL>Variables have a dual string/number personality. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %newname = "This is a string"</PRE>
+The variable newname now contains the string "This is a string" and the
+number 0. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newnumber = 4.44e5</PRE>
+The variable newnumber now contains the string "4.44e5" and the number
+4.44e5. The number is stored separately. The string value of newnumber
+can be referenced by placing the '%' operator before its name. For example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println %newnumber</PRE>
+The number in newnumber can be referenced by placing the '$' operator before
+the variable. For example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12.3 * 17 + $newnumber</PRE>
+Variables must have been initialized ( = must have been assigned a value)
+before they can be used in an expression. In the example above it would
+have been an error if this was the first occurrence of newnumber in the
+script.</UL>
+
+<HR>
+<H2>
+<A NAME="Comment"></A>Comment</H2>
+
+<UL>Comment is anything starting with "#". For example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # This is comment</PRE>
+or
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ft 2 # do Fourier transformation</PRE>
+</UL>
+
+<HR WIDTH="100%">
+<H2>
+<A NAME="Numeric functions"></A>Numeric functions</H2>
+
+<UL>The following numeric functions are implemented.</UL>
+
+<UL><B>sin(x)</B> returns the sine of x in the range of -1 and 1, where
+x is given in radians.
+<P><B>cos(x)</B> returns the cosine of x in the range of -1 and 1, where
+x is given in radians.
+<P><B>tan(x)</B> returns the tangent of x, where x is given in radians.
+<P><B>asin(x)</B> returns the arc sine of x in the range between -pi/2
+and pi/2. x must be in the range of -1 .. 1.
+<P><B>acos(x)</B> returns the arc cosine of x in the range between 0 and
+pi. x must be in the range of -1 .. 1.
+<P><B>atan(x)</B> returns the arc tangent of x in the range between -pi/2
+and pi/2.
+<P><B>atan2(x,y)</B> returns the arctangent of y/x in the range -pi to
+pi.
+<P><B>abs(x)</B> returns the absolute value of x.
+<P><B>exp(x)</B> returns the value of e raised to the power of x.
+<P><B>ln(x)</B> returns the natural logarithm of x.
+<P><B>log(x</B>) returns the base-10 logarithm of x.
+<P><B>sqrt(x)</B> returns the square root of x. x must be positive.
+<P><B>floor(x)</B> returns x rounded down to the preceding integer.
+<P><B>ceil(x)</B> returns x rounded up to the next integer.
+<P><B>round(x)</B> returns x rounded to the nearest integer.
+<P><B>trunc(x)</B> returns x truncated to an integer.
+<P><B>mod(x,y)</B> returns x modulus y.
+<P><B>fract(x)</B> returns the fractional part of x.
+<P><B>max(x1, x2, .... , xn)</B> returns the maximum value of x1..xn.<B></B>
+<P><B>min(x1, x2, .... , xn)</B> returns the minimum value of x1..xn.
+<BR>&nbsp;
+<BR>&nbsp;</UL>
+
+<HR WIDTH="100%">
+<H2>
+<A NAME="If statement"></A>If statement</H2>
+
+<UL>This statement can have the forms <B>if</B> <I>&lt;expression></I>
+<B>then</B>;
+<I>&lt;statements></I>;
+<B>endif</B>
+<P>Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if $i > 10 &amp;&amp; $j &lt; 5 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println %i
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif</PRE>
+<B>if</B> <I>&lt;expression></I> <B>then</B>; <I>&lt;statements></I>; <B>else</B>;
+<I>&lt;statements></I>;
+<B>endif</B>
+<P>Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if %myname >= "filename" then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println %myname
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif</PRE>
+<B>if</B> <I>&lt;expression></I> <B>then</B>; <I>&lt;statements></I>; <B>elseif</B>
+<I>&lt;expression></I>
+<B>then</B>;
+<I>&lt;statements></I>; <B>endif</B>
+<P>Example 3:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if $i == 12 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "12"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elseif $i == 16 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "16"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elseif $i == 18 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "18"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "oops"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif</PRE>
+</UL>
+
+<PRE>
+<HR WIDTH="100%"></PRE>
+
+<H2>
+<A NAME="While loop"></A>While loop</H2>
+
+<UL><B>while</B> <I>&lt;expression></I> <B>do</B>; <I>&lt;statements></I>;
+<B>done</B>
+<BR>or
+<BR><B>do</B> ; <I>&lt;statements></I> ; <B>while</B> <I>&lt;expression></I>
+<BR>&nbsp;
+<P>This compound statement has the form <B>while</B> <I>&lt;expression></I>
+<B>do</B>;
+<I>&lt;statements></I>;
+<B>done</B> or the form&nbsp; <B>do</B> ; <I>&lt;statements></I> ; <B>while</B>
+<I>&lt;expression>. </I>As in the C language, the statements
+<B>break</B>
+and <B>continue</B> can be used to break out of the loop, or to skip the
+rest of the loop and continue with the next test.
+<P>Example:
+<BR>&nbsp;
+<UL><TT>$i = 10</TT>
+<BR><TT>while $i &lt; 100 do</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; $i += 10</TT>
+<BR><TT>done</TT></UL>
+Example:
+<BR>&nbsp;
+<UL><TT>$i = 1</TT>
+<BR><TT>do</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; $i += 1</TT>
+<BR><TT>while $i &lt; 10</TT></UL>
+</UL>
+
+<PRE>
+<HR WIDTH="100%"></PRE>
+
+<H2>
+<A NAME="For loop"></A>For loop</H2>
+
+<UL>The for loop has the general form of
+<P><B>for $</B> <I>&lt;variable> </I><B>in</B><I> &lt;range list> </I><B>do</B>
+; <I>&lt;statements></I>;<B> done</B>
+<P>or
+<P><B>for $</B> <I>&lt;variable> {,</I> <B>$</B> <I>&lt;variable> }</I>
+<B>in</B>
+
+<B>sorted</B>&nbsp;<I> &lt;range list> {, &lt;range list> }</I> <B>do</B>
+; <I>&lt;statements></I>;<B> done</B>
+<P>Where <I>&lt;range list></I> is a range of values like [1..400] or a
+list of ranges like [1..200,300,350..360,400]
+<P>Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in [1..400] do
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;statements>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done</PRE>
+The variable i is incremented in steps of one.
+<P>Example 2, use a range-list
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in [1..400,600..800] do
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;statements>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done</PRE>
+For reading and processing records, a still simpler command is sufficient.
+<P>Example 3:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ropen "filename"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wopen "outname"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in [..] do
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rn $i
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sn 2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ft 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw $i
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wclose</PRE>
+In this example, range [..]&nbsp; means all records in infile.
+<P>For the processing of all records in a file, the keyword <B>sorted</B>
+can be used. Example 4:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in sorted [..] do</PRE>
+Here the word <B>sorted</B> means, sort the records in the most efficient
+way, one sub-cube at at time.
+<P>With the keyword <B>sorted</B>, more variables can be combined in one
+<B>for</B>
+loop. The variables i and j are increased in the most efficient way, i/o
+wise. Example 5:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i, $j in sorted [..], [..] do</PRE>
+The same for a 3d file. Example 6:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i, $j in sorted [..], [1] do</PRE>
+The same for one plane of the 3d file</UL>
+
+<P><BR>
+<HR>
+<H2>
+<A NAME="Shell Interaction"></A>Shell Interaction</H2>
+
+<H4>
+<A NAME="ARGV and ARGC"></A>ARGV and ARGC</H4>
+
+<UL>If prospectnd is run in batch mode, command line arguments can be accessed
+by the script. The number of arguments is stored in the read-only variable
+<B>argc</B>.
+The arguments can be accessed with the function <B>argv</B>(<I>&lt;number></I>).
+Arguments are just passed from prospectnd to the script, and start with argument
+0, which is the name of the script.. Example, the script "test.au":
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $i = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while $i &lt; argc do
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println argv($i)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $i += 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done</PRE>
+If this script is run with: "prospectnd -b test.au myfile 88" , it will produce
+the output
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; test.au
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myfile
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 88</PRE>
+</UL>
+
+<H4>
+<A NAME="EXEC"></A>EXEC</H4>
+
+<UL><B>exec</B> ( <I>&lt;string></I> )
+<P>Executes a shell command. Example
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exec("mkdir datadir")</PRE>
+</UL>
+
+<H4>
+<A NAME="PUTENV"></A>PUTENV</H4>
+
+<UL><B>putenv</B>( <I>&lt;string></I> )
+<P>Sets an environment variable. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; putenv("INSPDIR=/home/insp")</PRE>
+</UL>
+
+<H4>
+<A NAME="GETENV"></A>GETENV</H4>
+
+<UL><B>getenv</B>( <I>&lt;string></I> }
+<P>Get an environment variable. Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %test = getenv("PWD")
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printeln %test</PRE>
+prints the current working directory</UL>
+<A NAME="BIGENDIAN - Test byte order"></A>
+<H4>
+BYTEORDER - Test byte order</H4>
+
+<UL><B>? byteorder</B>
+<P>Returns the byte order of the computer. Returns 1 (=true) for big-endian
+(SGI) or 0 (=false) for little-endian (Intel). Use <B>swap4</B> to change
+the byte order if the byte order of the computer does not match the byte
+order of the NMR data files.</UL>
+
+<H2>
+
+<HR><A NAME="Examples"></A>Examples</H2>
+
+<H4>
+Prepa scripts - convert</H4>
+
+<PRE>#
+# Prepa script for Bruker 1d/2d data
+# Albert van Kuik, 1998
+#
+
+#
+# Defined by user
+#</PRE>
+
+<PRE>#
+# Name of directory that contains the files
+#&nbsp;&nbsp;&nbsp;&nbsp; acqus + fid
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
+#&nbsp;&nbsp;&nbsp;&nbsp; acqus + acqu2s + ser
+#
+# Name must end with /
+#
+%directory&nbsp; = "data/2/"
+
+#
+# Name of the output file
+#
+%outputfile = "2dout.p"
+
+
+#
+# In most cases you don't have to modify anything
+# below this line
+###########################################################
+
+%acqufile&nbsp;&nbsp; = %directory + "acqus"
+%acqu2file&nbsp; = %directory + "acqu2s"
+%fidfile&nbsp;&nbsp;&nbsp; = %directory + "fid"
+%serfile&nbsp;&nbsp;&nbsp; = %directory + "ser"
+
+
+
+#
+# Read parameters from acqus file
+#
+$file1 = open %acqufile ,"r"
+if $file1 == 0 then
+&nbsp;&nbsp;&nbsp; println "Can not open " + %acqufile
+&nbsp;&nbsp;&nbsp; exit
+endif
+%sfd&nbsp;&nbsp;&nbsp; = scan $file1, "##$SFO1= %s"&nbsp;&nbsp;&nbsp;&nbsp; # spectrometer frequecy
+%swd&nbsp;&nbsp;&nbsp; = scan $file1, "##$SW_h= %s"&nbsp;&nbsp;&nbsp;&nbsp; # sweep width in hz
+%max&nbsp;&nbsp;&nbsp; = scan $file1, "##$TD= %s"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # time domain size
+%aqm&nbsp;&nbsp;&nbsp; = scan $file1, "##$AQ_mod= %s"&nbsp;&nbsp; # acquisition mode
+%endian = scan $file1, "##$BYTORDA= %s"&nbsp; # byte order
+%dsp&nbsp;&nbsp;&nbsp; = scan $file1, "##$DSPFVS= %s"&nbsp;&nbsp; # ??
+close $file1
+
+# For now do ......
+$decipoint = 0
+if $dsp == 12 then
+&nbsp;&nbsp;&nbsp; $decipoint = 144
+endif
+if $dsp == 10 then
+&nbsp;&nbsp;&nbsp; $decipoint = 118
+endif
+
+# Determine the size in the aquisition domain
+if $aqm == 1 || $aqm == 3 then
+&nbsp;&nbsp;&nbsp; $nsize = ($max - $decipoint)/2&nbsp;&nbsp;&nbsp; # Complex data
+else
+&nbsp;&nbsp;&nbsp; if $aqm == 2 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $nsize = $max - $decipoint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Real data
+&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "AQMOD " + %aqm + " not implemented"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit
+&nbsp;&nbsp;&nbsp; endif
+endif
+
+#
+# Open fid/ser file
+#
+# First try file with name "fid" (1d file)
+#
+$file3 = open %fidfile, "r"
+
+if $file3 != 0 then
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; # On success, it is a 1d file
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; $dimension = 1
+&nbsp;&nbsp;&nbsp; sf&nbsp; $sfd
+&nbsp;&nbsp;&nbsp; sw&nbsp; $swd
+&nbsp;&nbsp;&nbsp; $qnrec = 1
+&nbsp;&nbsp;&nbsp; $nsizeb = 1
+&nbsp;&nbsp;&nbsp; if $aqm == 1 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sm 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set store mode to complex
+&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sm 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # set store mode to real
+&nbsp;&nbsp;&nbsp; endif
+else
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; # On failure, try file with name "ser" (2d file)
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; $file3 = open serfile ,"r"
+&nbsp;&nbsp;&nbsp; if $file3 == 0 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "Can not open " + %serfile
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; # Try to read acqu2s file
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; file2 = open acqu2file ,"r"
+&nbsp;&nbsp;&nbsp; if $file2 == 0 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "Can not open " + acqu2file
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close file3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; $dimension = 2
+&nbsp;&nbsp;&nbsp; sf:2 $sfd
+&nbsp;&nbsp;&nbsp; sw:2 $swd
+&nbsp;&nbsp;&nbsp; if $aqm == 1 || $aqm == 3 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sm:2 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set store mode to complex
+&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sm:2 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set store mode to real
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; %nrec&nbsp;&nbsp; = scan $file2, "##$TD= %s"
+&nbsp;&nbsp;&nbsp; %sfd_b&nbsp; = scan $file2, "##$SFO1= %s"
+&nbsp;&nbsp;&nbsp; %swd_b&nbsp; = scan $file2, "##$SW_h= %s"
+&nbsp;&nbsp;&nbsp; %aqm_b&nbsp; = scan $file2, "##$AQ_mod= %s"
+&nbsp;&nbsp;&nbsp; close $file2
+&nbsp;&nbsp;&nbsp; sf:1 $sfd_b
+&nbsp;&nbsp;&nbsp; sw:1 $swd_b
+&nbsp;&nbsp;&nbsp; if $aqm == 3 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $aqm_b = 1
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; if $aqm_b == 1 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sm:1 2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $nsize_b = $nrec/2
+&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if $aqm_b == 2 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sm:1 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $nsize_b = $nrec
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "ACQMOD = " + aqm_b + " in direction 1" + \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ", not implemented"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; endif
+endif
+
+
+#
+# Open output file
+#
+if $dimension == 2 then
+&nbsp;&nbsp;&nbsp; create %outputfile, [1..$nsize_b], [1..$nsize]
+else
+&nbsp;&nbsp;&nbsp; create %outputfile, [1..$nsize]
+endif
+
+println "\nRead: " + %nrec + " record(s) of size " + %max
+
+for $i in [1..$nrec] do
+&nbsp;&nbsp;&nbsp; if mod($i,16) != 1 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print " " + %i
+&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print "\nRec: " + %i
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; si $max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set data size for reading
+&nbsp;&nbsp;&nbsp; @r[1..$max] = read $file3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Read one record
+&nbsp;&nbsp;&nbsp; if $endian != ? byteorder then&nbsp; # If byte order of file and
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; swap4 @r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #&nbsp;&nbsp;&nbsp; program differ, swap bytes
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; i2f @r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Convert integers into floats
+&nbsp;&nbsp;&nbsp; if $dsp > 0 then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Digital mode, remove lead points
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r &lt;&lt; $decipoint
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; # If complex in direction 1, write alternating
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; if $aqm_b == 1 then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Complex in direction 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if mod($i,2) == 1 then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Write alternating
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $j = ($i +1 ) / 2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $j = $nsize_b + $i/2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; else&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Real in direction 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $j = $i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Write linear
+&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; # Interleaved aquisition:
+&nbsp;&nbsp;&nbsp; # PN storage (2 records/FID)
+&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp; if $aqm == 3 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if mod($i,2) == 1 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c2ri @r, @a, @b&nbsp;&nbsp;&nbsp; # Convert complex into real + imaginary
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $j1 = $j
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c2ri @r, block2:@a, block2:@b&nbsp;&nbsp; # complex to real + imag
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; si $nsize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set correct data size
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r&nbsp; = @a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # mix acording to :
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r += block2:@a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # r1=ra + rb; i1=ia + ib
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @i&nbsp; = @b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # r2=ib - ia; i2=ra - rb
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @i += block2:@b
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw $j1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r&nbsp; = block2:@b
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r -= @b
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @i&nbsp; = @a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @i -= block2:@a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw $j
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Normal aquisition
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c2ri @r, @r, @i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Convert complex into real + imaginary
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; si $nsize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set correct data size
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw $j&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Write result
+&nbsp;&nbsp;&nbsp; endif
+done
+
+wclose
+close $file3
+
+println "\nDone"</PRE>
+
+<HR>
+</BODY>
+</HTML>

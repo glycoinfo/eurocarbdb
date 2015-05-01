@@ -1,0 +1,82 @@
+# Synthesis and 13C NMR spectra of 2,3-di-O-glycosyl
+# derivatives of methyl a-L-rhamnopyranoside
+# and methyl a-D-mannopyranoside
+# N.E. Nifant'ev, A.S. Shashkov, G.M. Lipkind,
+# N.K. Kochetkov
+
+set ref 'Carbohydr. Res. 237 (1992) 95-113'
+set c_corr -0.55
+set h_corr -0.03
+# 1H of OMe is fake
+
+trimer aLRha '1' '2' aDGlc '1' '3' aLRhaOMe {
+shift 102.9 5.10; 71.5 4.05; 71.5 3.81; 73.4 3.45; 70.3 3.74; 18.1 1.28
+shift  96.4 5.06; 72.5 3.60; 74.2 3.77; 70.9 3.46; 73.1 3.91; 61.9 3.76 3.84
+shift 101.0 4.80; 75.3 4.14; 76.8 3.88; 72.0 3.60; 69.9 3.71; 17.9 1.33; 56.1 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer aDGlc '1' '2' aLRha '1' '3' aLRhaOMe {
+shift  98.6 5.05; 72.5 3.53; 73.7 3.77; 70.7 3.48; 73.4 3.86; 61.7 3.77 3.84
+shift 102.9 5.15; 71.2 4.06; 71.4 3.74; 73.3 3.46; 70.3 3.76; 17.8 1.30
+shift 99.1 4.86; 76.4 4.01; 76.2 3.93; 73.4 3.68; 70.3 3.75; 17.6 1.32; 56.1 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer aLRha '1' '2' bDGlc '1' '3' aLRhaOMe {
+shift 102.7 5.14; 71.4 4.05; 71.5 3.79; 73.4 3.43; 69.8 3.72; 18.0 1.27
+shift 105.1 4.62; 74.9 3.33; 77.1 3.49; 70.9 3.44; 77.1 3.46; 62.2 3.74 3.90
+shift 101.1 4.73; 78.0 4.21; 81.3 3.91; 72.5 3.61; 70.3 3.73; 17.9 1.32; 56.1 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer aLRha '1' '2' bLFuc '1' '3' aLRhaOMe {
+shift 103.2 5.07; 71.4 4.05; 71.4 3.79; 73.4 3.44; 70.5 3.73; 18.1 1.28
+shift 102.0 4.46; 71.8 3.51; 74.5 3.65; 72.7 3.76; 72.3 3.78; 16.7 1.25
+shift 101.0 4.79; 76.5 4.11; 78.8 3.99; 72.0 3.57; 70.0 3.71; 18.0 1.33; 56.2 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer bDGlc '1' '2' bDGal '1' '3' aLRhaOMe {
+shift 104.6 4.78; 74.8 3.35; 77.1 3.52; 71.0 3.42; 77.1 3.45; 62.2 3.72 3.90
+shift 105.8 4.62; 72.5 3.60; 74.0 3.69; 70.0 3.95; 76.4 3.73; 61.7 3.66 3.71
+shift 101.4 4.93; 79.5 4.32; 80.9 3.97; 72.5 3.69; 70.5 3.76; 17.9 1.34; 56.1 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer aLRha '1' '2' aDGlc '1' '3' aDManOMe {
+shift  99.4 4.93; 71.7 3.97; 71.1 3.88; 73.6 3.45; 70.3 3.97; 18.7 1.32
+shift 101.6 5.32; 72.9 3.54; 74.1 3.70; 70.8 3.45; 73.6 3.73; 61.8 3.77 3.89
+shift 99.1 4.88; 76.3 4.03; 77.0 3.97; 68.2 3.95; 74.4 3.64; 61.9 3.77 3.89; 56.2 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer aDMan '1' '2' aDGlc '1' '3' aDManOMe {
+shift 102.5 5.13; 71.2 4.04; 71.5 3.86; 67.9 3.62; 74.3 3.75; 62.1 3.77 3.89
+shift 101.7 5.22; 71.7 3.56; 74.0 3.68; 70.7 3.43; 73.8 3.71; 61.9 3.76 3.84
+shift 100.5 4.98; 78.4 4.11; 79.3 3.99; 67.7 3.91; 73.9 3.65; 61.7 3.79 3.90; 55.9 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer bLFuc '1' '2' bLFuc '1' '3' aDManOMe {
+shift 104.6 4.73; 72.3 3.49; 74.2 3.66; 72.6 3.73; 72.0 3.76; 16.7 1.26
+shift 105.8 4.54; 72.3 3.52; 74.2 3.65; 72.6 3.72; 72.0 3.78; 16.6 1.24
+shift 101.4 4.90; 78.4 4.31; 81.5 3.95; 67.1 3.90; 73.8 3.67; 62.1 3.79 3.89; 56.2 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}
+
+trimer aLFuc '1' '2' bLFuc '1' '3' aDManOMe {
+shift  99.3 4.97; 69.4 3.76; 70.5 3.95; 73.2 3.85; 68.3 4.45; 16.7 1.23
+shift 105.6 4.63; 72.4 3.53; 74.3 3.65; 72.6 3.74; 72.1 3.76; 16.6 1.26
+shift  99.9 4.85; 77.5 4.08; 79.1 4.00; 67.6 3.97; 74.0 3.65; 61.5 3.79 3.90; 56.1 3.41
+correct $c_corr $h_corr:error 0.2
+extract: info $ref
+}

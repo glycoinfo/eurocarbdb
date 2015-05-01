@@ -1,0 +1,13 @@
+# NMR and Molecular Modeling Studies of the Interaction between Wheat Germ
+# Agglutinin and the B-D-GlcpNAc-(1->6>-a-D-Manp Epitope Present in
+# Glycoproteins of Tumor Cells
+# K. Lycknert, M. Edblad, A. Imberty, G. Widmalm
+set ref 'Biochem. 43 (2004) 9647-9654
+
+dimer 'bDGlcNAc(1->6)aDManOMe' {
+shift 102.6 4.57; 56.4 3.744; 74.7 3.57; 70.8 3.46; 76.8 3.48; 61.6 3.766 3.95; 23.1 2.04; 175.5
+shift 101.8 4.74; 70.7 3.93; 71.4 3.750; 67.6 3.61; 72.2 3.721; 70.0 3.758 4.20; 55.5 3.39
+extract
+info $ref
+error 0.1
+}

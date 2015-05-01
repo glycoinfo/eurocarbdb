@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg heigth="50" width="50" stroke-dasharray="none" shape-rendering="auto" xmlns="http://www.w3.org/2000/svg" font-family="&apos;Dialog&apos;" text-rendering="auto" fill-opacity="1" contentScriptType="text/ecmascript" color-rendering="auto" color-interpolation="auto" preserveAspectRatio="xMidYMid meet" font-size="12" fill="black" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="black" image-rendering="auto" stroke-miterlimit="10" zoomAndPan="magnify" version="1.0" stroke-linecap="square" stroke-linejoin="miter" contentStyleType="text/css" font-style="normal" stroke-width="1" stroke-dashoffset="0" font-weight="normal" stroke-opacity="1">
+  <!-- Provided by MonosaccharideDB (www.monosaccharidedb.org) -->
+  <defs id="genericDefs" />
+  <g>
+  	<polygon points="0,25,25,0,50,25,25,50" style="stroke:black;fill:rgb(233,255,255)"/>
+  </g>
+</svg>

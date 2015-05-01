@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.atom">
+
+    <!-- see http://www.hibernate.org/272.html for info on using mapped enums -->
+    <typedef name="enum_periodic" class="org.eurocarbdb.resourcesdb.io.HibernateGenericEnumUserType">
+        <param name="enumClassName">org.eurocarbdb.resourcesdb.atom.Periodic</param>
+    </typedef>
+
+    <class name="Atom" entity-name="MonosaccharideAtom" table="monosaccharide_atom" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">monosaccharide_atom_id_seq</param>
+            </generator>
+        </id>
+		<property name="element" column="element" type="enum_periodic" not-null="true"/>
+        <property name="name" column="name"/>
+        <property name="charge" column="charge"/>
+        <bag name="connections">
+        	<key column="from_atom" not-null="true"/>
+        	<one-to-many entity-name="MonosaccharideAtomConnection"/>
+        </bag>
+    </class>
+    
+    <class name="Atom" entity-name="BasetypeAtom" table="basetype_atom" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">basetype_atom_id_seq</param>
+            </generator>
+        </id>
+		<property name="elementSymbol" column="element" type="string" not-null="true"/>
+        <property name="name" column="name"/>
+        <property name="charge" column="charge"/>
+        <bag name="connections">
+        	<key column="from_atom" not-null="true"/>
+        	<one-to-many entity-name="BasetypeAtomConnection"/>
+        </bag>
+    </class>
+    
+    <class name="Atom" entity-name="SubstituentAtom" table="substituent_atom" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">substituent_atom_id_seq</param>
+            </generator>
+        </id>
+		<property name="elementSymbol" column="element" type="string" not-null="true"/>
+        <property name="name" column="name"/>
+        <property name="charge" column="charge"/>
+        <bag name="connections">
+        	<key column="from_atom" not-null="true"/>
+        	<one-to-many entity-name="SubstituentAtomConnection"/>
+        </bag>
+    </class>
+    
+    <class name="Atom" entity-name="AminoAcidAtom" table="amino_acid_atom" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">amino_acid_atom_id_seq</param>
+            </generator>
+        </id>
+		<property name="elementSymbol" column="element" type="string" not-null="true"/>
+        <property name="name" column="name"/>
+        <property name="charge" column="charge"/>
+        <bag name="connections">
+        	<key column="from_atom" not-null="true"/>
+        	<one-to-many entity-name="AminoAcidAtomConnection"/>
+        </bag>
+    </class>
+    
+    <class name="Atom" entity-name="AglyconAtom" table="aglycon_atom" mutable="false">
+        <id name="dbId" column="id">
+            <generator class="native">
+                <param name="sequence">aglycon_atom_id_seq</param>
+            </generator>
+        </id>
+		<property name="elementSymbol" column="element" type="string" not-null="true"/>
+        <property name="name" column="name"/>
+        <property name="charge" column="charge"/>
+        <bag name="connections">
+        	<key column="from_atom" not-null="true"/>
+        	<one-to-many entity-name="AglyconAtomConnection"/>
+        </bag>
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+if ~$silent{echo 'Loading enantiomers'}
+
+enantiomer aDGlcOMe aLGlcOMe
+enantiomer bDGlcOMe bLGlcOMe
+enantiomer aDGalOMe aLGalOMe
+enantiomer bDGalOMe bLGalOMe
+enantiomer aDManOMe aLManOMe
+enantiomer bDManOMe bLManOMe
+enantiomer aLRhaOMe aDRhaOMe
+enantiomer bLRhaOMe bDRhaOMe
+enantiomer aLFucOMe aDFucOMe
+enantiomer aDGalNAcOMe aLGalNAcOMe
+enantiomer bDGlcNAcOMe bLGlcNAcOMe
+
+enantiomer aDGlc aLGlc
+enantiomer bDGlc bLGlc
+enantiomer aDGlcA aLGlcA
+enantiomer bDGlcA bLGlcA 
+enantiomer aDGlcNAc aLGlcNAc
+enantiomer bDGlcNAc bLGlcNAc
+enantiomer aDGal aLGal
+enantiomer bDGal bLGal
+enantiomer aDGalA aLGalA
+enantiomer bDGalA bLGalA
+enantiomer aDGalNAc aLGalNAc
+enantiomer bDGalNAc bLGalNAc
+enantiomer aDMan aLMan
+enantiomer bDMan bLMan
+enantiomer aDManA aLManA
+enantiomer bDManA bLManA
+enantiomer aDManNAc aLManNAc
+enantiomer bDManNAc bLManNAc
+enantiomer aLFuc aDFuc
+enantiomer bLFuc bDFuc
+enantiomer aLRha aDRha
+enantiomer bLRha bDRha
+enantiomer bLFucOMe bDFucOMe
+

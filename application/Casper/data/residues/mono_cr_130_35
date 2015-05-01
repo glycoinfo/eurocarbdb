@@ -1,0 +1,59 @@
+# The Conformation of Salmonella O-antigenic
+# oligosaccharides of serogroups A, B, and D1
+# inferred from 1H- and 13C-nuclear magnetic
+# resonance spectroscopy
+# K. Bock, M. Meldal, D.R. Bundle, T. Iversen,
+# B.M. Pinto, P.J. Garegg, I. Kvanström,
+# T. Norberg, A.A. Lindberg, S.B. Svenson
+set ref 'Carbohydr. Res. 130 (1984) 35-53'
+# false OMe
+set c_corr 0.4
+set h_corr 0
+
+# 3,6-dideoxy-D-ribo-hexose
+residue aParOMe '3,6dHexOMe' {
+info 'Paratose, methyl glycoside'
+config D
+jhh medium
+jch large
+shift 99.1 4.65 ax
+shift 67.4 3.82 eq
+shift 35.4 1.67 2.12
+shift 70.6 3.36 eq
+shift 69.2 3.58
+shift 17.3 1.24
+correct $c_corr $h_corr
+shift  55.55 3.42
+}
+
+# 3,6-dideoxy-D-xylo-hexose
+residue aAbeOMe '3,6dHexOMe' {
+info 'Abequose, methyl glycoside'
+config D
+jhh small
+jch large
+shift 99.9 4.69 ax
+shift 63.9 4.01 ax
+shift 33.9 1.92 1.92
+shift 69.2 3.84 eq
+shift 67.0 3.94
+shift 16.2 1.17
+correct $c_corr $h_corr
+shift  55.55 3.42
+}
+
+end
+
+# have better data for aDTyvOMe
+# 3,6-dideoxy-D-arabino-hexose
+residue aDTyvOMe '3,6dHexOMe' {
+info 'Tyvelose, methyl glycoside'
+shift 100.8 4.50 ax
+shift 68.4 3.92 eq
+shift 34.6 1.77 2.04
+shift 68.0 3.59 ax
+shift 70.7 3.67
+shift 17.9 1.27
+correct $c_corr $h_corr
+shift  55.55 3.42
+}

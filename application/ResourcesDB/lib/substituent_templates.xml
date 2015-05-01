@@ -1,0 +1,1866 @@
+<?xml version='1.0'?>
+<substituent_templates>
+
+<template>
+	<name>amino</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>true</can_replace_ring_oxygen>
+	<is_linkable>true</is_linkable>
+	<haworth_name>NH2</haworth_name>
+	<mirrored_haworth_name>H2N</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>NH2</formula>
+	<atoms>
+		<atom id='1' name='N' element='N' />
+		<atom id='2' name='HNa' element='H' />
+		<atom id='3' name='HNb' element='H' />
+		<atom id='4' name='HNc' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='4' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' residue_included='N' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='Am' />
+		<primary_alias namescheme='kegg' linkage_type='DEOXY' residue_included='N' />
+		<primary_alias namescheme='iupac' linkage_type='H_LOSE' residue_included='C-amino' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_LOSE' residue_included='C-amino' />
+		<primary_alias namescheme='carbbank' linkage_type='H_LOSE' residue_included='C-amino' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='N' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NH2' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NH2' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NH2' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='amino' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='amino' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='amino' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-acetyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NHAc</haworth_name>
+	<mirrored_haworth_name>AcHN</mirrored_haworth_name>
+	<olinked_equivalent>acetyl</olinked_equivalent>
+	<formula>NHCOCH3</formula>
+	<atoms>
+		<atom id='1' name='N' element='N' />
+		<atom id='2' name='HN' element='H' />
+		<atom id='3' name='HNb' element='H' />
+		<atom id='4' name='C' element='C' />
+		<atom id='5' name='OC' element='O' />
+		<atom id='6' name='CM' element='C' />
+		<atom id='7' name='HMa' element='H' />
+		<atom id='8' name='HMb' element='H' />
+		<atom id='9' name='HMc' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='4' to='5' bond_order='2' />
+		<connection from='4' to='6' bond_order='1' />
+		<connection from='6' to='7' bond_order='1' />
+		<connection from='6' to='8' bond_order='1' />
+		<connection from='6' to='9' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='3' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NAc' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NAc' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NAc' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' residue_included='NAc' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NAc' />
+		<primary_alias namescheme='kegg' linkage_type='DEOXY' residue_included='NAc' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='N' separate_display='Ac' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='n-acetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='nacetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='n-acetyle' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='nacetyle' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='acetamido' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='n-acetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='nacetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='n-acetyle' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='nacetyle' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='acetamido' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='n-acetyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='nacetyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='n-acetyle' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='nacetyle' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='acetamido' />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='acetyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>acetyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>Ac</haworth_name>
+	<mirrored_haworth_name>Ac</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>COCH3</formula>
+	<atoms>
+		<atom id='1' name='C' element='C' />
+		<atom id='2' name='OC' element='O' />
+		<atom id='3' name='CM' element='C' />
+		<atom id='4' name='HMa' element='H' />
+		<atom id='5' name='HMb' element='H' />
+		<atom id='6' name='HMc' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='2' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='1' />
+		<connection from='3' to='5' bond_order='1' />
+		<connection from='3' to='6' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH'/>
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OAc' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='Ac' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OAc' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' separate_display='OAc' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='Ac' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='Ac' />
+		<primary_alias namescheme='kegg' linkage_type='H_AT_OH' residue_included='Ac' />
+		<primary_alias namescheme='cfg' linkage_type='H_AT_OH' residue_included='T' />
+		<primary_alias namescheme='iupac' linkage_type='H_LOSE' residue_included='C-Ac' />
+		<primary_alias namescheme='carbbank' linkage_type='H_LOSE' residue_included='C-Ac' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_LOSE' residue_included='C-Ac' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='o-acetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='oacetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='acetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='o-acetyle' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='oacetyle' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='acetyle' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='o-ac' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='ac' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='o-acetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='oacetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='acetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='o-acetyle' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='oacetyle' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='acetyle' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='oacetate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='o-ac' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='oac' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='o-acetyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='oacetyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='acetyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='o-acetyle' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='oacetyle' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='acetyle' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='o-ac' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='ac' />
+		<secondary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' residue_included='ac' />
+	</synonyms>
+</template>
+
+<template>
+	<name>glycolyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>Gc</haworth_name>
+	<mirrored_haworth_name>Gc</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>COCH2OH</formula>
+	<atoms>
+		<atom id='1' name='C1' element='C' />
+		<atom id='2' name='OC1' element='O' />
+		<atom id='3' name='C2' element='C' />
+		<atom id='4' name='H2a' element='H' />
+		<atom id='5' name='H2b' element='H' />
+		<atom id='6' name='O2' element='O' />
+		<atom id='7' name='HO2' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='2' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='1' />
+		<connection from='3' to='5' bond_order='1' />
+		<connection from='3' to='6' bond_order='1' />
+		<connection from='6' to='7' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OGc' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='Gc' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OGc' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' separate_display='OGc' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='Glycol' />
+		<primary_alias namescheme='kegg' linkage_type='H_AT_OH' residue_included='Gc' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='Gc' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-Gc' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-Gc' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-Gc' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='Gc' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='OGc' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='Gc' />
+		<secondary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' residue_included='Gc' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='glycolyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='glycolyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='glycolyl' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='o-glycolyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='o-glycolyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='o-glycolyl' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-glycolyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NHGc</haworth_name>
+	<mirrored_haworth_name>GcHN</mirrored_haworth_name>
+	<olinked_equivalent>glycolyl</olinked_equivalent>
+	<formula>NCOCH2OH</formula>
+	<atoms>
+		<atom id='1' name='N1' element='N' />
+		<atom id='2' name='HN1' element='H' />
+		<atom id='3' name='C2' element='C' />
+		<atom id='4' name='OC2' element='O' />
+		<atom id='5' name='C3' element='C' />
+		<atom id='6' name='H3a' element='H' />
+		<atom id='7' name='H3b' element='H' />
+		<atom id='8' name='O3' element='O' />
+		<atom id='9' name='HO3' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='2' />
+		<connection from='3' to='5' bond_order='1' />
+		<connection from='5' to='6' bond_order='1' />
+		<connection from='5' to='7' bond_order='1' />
+		<connection from='5' to='8' bond_order='1' />
+		<connection from='8' to='9' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NGc' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NGc' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NGc' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' residue_included='NGc' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NGlycol' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='N' separate_display='Gc' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-Gc' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-Gc' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-Gc' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-glycolyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-glycolyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-glycolyl' />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='glycolyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>bromo</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>Br</haworth_name>
+	<mirrored_haworth_name>Br</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>Br</formula>
+	<atoms>
+		<atom id='1' name='Br' element='Br' />
+	</atoms>
+	<atom_connections>
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='bromo' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='Br' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='Br' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' separate_display='Br' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='Br' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='Br' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='Br' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='bromo' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='bromo' />
+	</synonyms>
+</template>
+
+<template>
+	<name>chloro</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>Cl</haworth_name>
+	<mirrored_haworth_name>Cl</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>Cl</formula>
+	<atoms>
+		<atom id='1' name='Cl' element='Cl' />
+	</atoms>
+	<atom_connections>
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='chloro' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='Cl' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='Cl' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' separate_display='Cl' />
+		<primary_alias namescheme='kegg' linkage_type='DEOXY' residue_included='Chloro' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='Cl' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='Cl' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='Cl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='chloro' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='chloro' />
+	</synonyms>
+</template>
+
+<template>
+	<name>iodo</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>I</haworth_name>
+	<mirrored_haworth_name>I</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>I</formula>
+	<atoms>
+		<atom id='1' name='I' element='I' />
+	</atoms>
+	<atom_connections>
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='iodo' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='I' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='I' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' separate_display='I' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='Im' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='I' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='I' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='iodo' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='iodo' />
+	</synonyms>
+</template>
+
+<template>
+	<name>fluoro</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>F</haworth_name>
+	<mirrored_haworth_name>F</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>F</formula>
+	<atoms>
+		<atom id='1' name='F' element='F' />
+	</atoms>
+	<atom_connections>
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='fluoro' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='F' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='F' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' separate_display='F' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='F' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='F' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='F' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='fluoro' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='fluoro' />
+	</synonyms>
+</template>
+
+<template>
+	<name>ethyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>Et</haworth_name>
+	<mirrored_haworth_name>Et</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH2CH3</formula>
+	<atoms>
+		<atom id='1' name='C1' element='C' />
+		<atom id='2' name='H1a' element='H' />
+		<atom id='3' name='H1b' element='H' />
+		<atom id='4' name='C2' element='C' />
+		<atom id='5' name='H2a' element='H' />
+		<atom id='6' name='H2b' element='H' />
+		<atom id='7' name='H2c' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='4' to='5' bond_order='1' />
+		<connection from='4' to='6' bond_order='1' />
+		<connection from='4' to='7' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='Ethyl'  />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='Ethyl'  />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='Ethyl' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' separate_display='Et' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='Eth'  />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='Et'  />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-ethyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>N-Et</haworth_name>
+	<mirrored_haworth_name>Et-N</mirrored_haworth_name>
+	<olinked_equivalent>ethyl</olinked_equivalent>
+	<formula>NHCH2CH3</formula>
+	<atoms>
+		<atom id='1' name='N1' element='N' />
+		<atom id='2' name='H1N' element='H' />
+		<atom id='3' name='C2' element='C' />
+		<atom id='4' name='H2a' element='H' />
+		<atom id='5' name='H2b' element='H' />
+		<atom id='6' name='C3' element='C' />
+		<atom id='7' name='H3a' element='H' />
+		<atom id='8' name='H3b' element='H' />
+		<atom id='9' name='H3c' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='1' />
+		<connection from='3' to='5' bond_order='1' />
+		<connection from='3' to='6' bond_order='1' />
+		<connection from='6' to='7' bond_order='1' />
+		<connection from='6' to='8' bond_order='1' />
+		<connection from='6' to='9' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NEthyl'  />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NEthyl'  />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NEthyl' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' separate_display='NEt' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='N' separate_display='Et' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-Et'  />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-Ethyl'  />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='ethylamine'  />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='ethylamino'  />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='ethyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>ethanolamine</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>N-EtOH</haworth_name>
+	<mirrored_haworth_name>EtOH-N</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>NHCH2CH2OH</formula>
+	<atoms>
+		<atom id='1' name='N1' element='N' />
+		<atom id='2' name='HN1' element='H' />
+		<atom id='3' name='C2' element='C' />
+		<atom id='4' name='H2a' element='H' />
+		<atom id='5' name='H2b' element='H' />
+		<atom id='6' name='C3' element='C' />
+		<atom id='7' name='H3a' element='H' />
+		<atom id='8' name='H3b' element='H' />
+		<atom id='9' name='OH3' element='O' />
+		<atom id='10' name='HO3' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='1' />
+		<connection from='3' to='5' bond_order='1' />
+		<connection from='3' to='6' bond_order='1' />
+		<connection from='4' to='7' bond_order='1' />
+		<connection from='4' to='8' bond_order='1' />
+		<connection from='4' to='9' bond_order='1' />
+		<connection from='9' to='10' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-EtOH' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-EtOH' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-EtOH' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='EtOAm' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' separate_display='xXEtN' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' separate_display='ethanolamine' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' separate_display='ethanolamine' />
+	</synonyms>
+</template>
+
+<template>
+	<name>imino</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NH</haworth_name>
+	<mirrored_haworth_name>HN</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>NH</formula>
+	<atoms>
+		<atom id='1' name='N' element='N' />
+		<atom id='2' name='HN' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='2' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='imino' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='imino' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='imino' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NH' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NH' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NH' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NH' />
+	</synonyms>
+</template>
+
+<template>
+	<name>methyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>Me</haworth_name>
+	<mirrored_haworth_name>Me</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH3</formula>
+	<atoms>
+		<atom id='1' name='CM' element='C' />
+		<atom id='2' name='HMa' element='H' />
+		<atom id='3' name='HMb' element='H' />
+		<atom id='4' name='HMc' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OMe' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='Me' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OMe' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' separate_display='OMe' />
+		<primary_alias namescheme='kegg' linkage_type='H_AT_OH' residue_included='Me' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='Me' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='Me' />
+		<primary_alias namescheme='iupac' linkage_type='H_LOSE' residue_included='CMe' />
+		<primary_alias namescheme='carbbank' linkage_type='H_LOSE' residue_included='CMe' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_LOSE' residue_included='CMe' />
+		<primary_alias namescheme='kegg' linkage_type='H_LOSE' residue_included='C-methyl' />
+		<primary_alias namescheme='cfg' linkage_type='H_AT_OH' residue_included='ME' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='Me' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_LOSE' residue_included='CMe' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-Me' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-Me' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-Me' />
+		<secondary_alias namescheme='iupac' linkage_type='H_LOSE' residue_included='C-Me' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_LOSE' residue_included='C-Me' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_LOSE' residue_included='C-Me' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='Me' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='OMe' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='Me' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='methyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='methyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='methyl' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-methyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-methyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-methyl' />
+		<secondary_alias namescheme='iupac' linkage_type='H_LOSE' residue_included='C-methyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_LOSE' residue_included='C-methyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_LOSE' residue_included='C-methyl' />
+		<secondary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='Methyl' />
+		<secondary_alias namescheme='bcsdb' linkage_type='H_LOSE' separate_display='C-Me' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-methyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<haworth_name>NMe</haworth_name>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<mirrored_haworth_name>MeN</mirrored_haworth_name>
+	<olinked_equivalent>methyl</olinked_equivalent>
+	<formula>NHCH3</formula>
+	<atoms>
+		<atom id='1' name='N' element='N' />
+		<atom id='2' name='HN' element='H' />
+		<atom id='3' name='CM' element='C' />
+		<atom id='4' name='HMa' element='H' />
+		<atom id='5' name='HMb' element='H' />
+		<atom id='6' name='HMc' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='1' />
+		<connection from='3' to='5' bond_order='1' />
+		<connection from='3' to='6' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NMe' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NMe' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NMe' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' residue_included='N' separate_display='Me' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NMe' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='N' separate_display='Me' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-Me' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-Me' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-Me' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-Methyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-Methyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-Methyl' />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='methyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>s-methyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<haworth_name>SMe</haworth_name>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<mirrored_haworth_name>MeS</mirrored_haworth_name>
+	<olinked_equivalent>methyl</olinked_equivalent>
+	<formula>SCH3</formula>
+	<atoms>
+		<atom id='1' name='S' element='N' />
+		<atom id='2' name='CM' element='C' />
+		<atom id='3' name='HMa' element='H' />
+		<atom id='4' name='HMb' element='H' />
+		<atom id='5' name='HMc' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='2' to='3' bond_order='1' />
+		<connection from='2' to='4' bond_order='1' />
+		<connection from='2' to='5' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='SMe' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='SMe' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='SMe' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='S-Me' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='S-Me' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='S-Me' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='S-Methyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='S-Methyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='S-Methyl' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='thiomethyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='thiomethyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='thiomethyl' />
+	</synonyms>
+	<substituent_part name='thio'>
+		<substituent_part name='methyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>hydroxymethyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>MeOH</haworth_name>
+	<mirrored_haworth_name>HOMe</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH2OH</formula>
+	<atoms>
+		<atom id='1' name='C1' element='C' />
+		<atom id='2' name='H1a' element='H' />
+		<atom id='3' name='H1b' element='H' />
+		<atom id='4' name='O1' element='O' />
+		<atom id='5' name='HO1' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='4' to='5' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OMeOH' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='OMeOH' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OMeOH' />
+		<primary_alias namescheme='iupac' linkage_type='H_LOSE' residue_included='CMeOH' />
+		<primary_alias namescheme='carbbank' linkage_type='H_LOSE' residue_included='CMeOH' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_LOSE' residue_included='CMeOH' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='MeOH' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-MeOH' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-MeOH' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-MeOH' />
+		<secondary_alias namescheme='iupac' linkage_type='H_LOSE' residue_included='C-MeOH' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_LOSE' residue_included='C-MeOH' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_LOSE' residue_included='C-MeOH' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='MeOH' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='MeOH' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='MeOH' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-dimethyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NDiMe</haworth_name>
+	<mirrored_haworth_name>DiMeN</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>N(CH3)2</formula>
+	<atoms>
+		<atom id='1' name='N' element='N' />
+		<atom id='2' name='CM1' element='C' />
+		<atom id='3' name='HM1a' element='H' />
+		<atom id='4' name='HM1b' element='H' />
+		<atom id='5' name='HM1c' element='H' />
+		<atom id='6' name='CM2' element='C' />
+		<atom id='7' name='HM2a' element='H' />
+		<atom id='8' name='HM2b' element='H' />
+		<atom id='9' name='HM2c' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='6' bond_order='1' />
+		<connection from='2' to='3' bond_order='1' />
+		<connection from='2' to='4' bond_order='1' />
+		<connection from='2' to='5' bond_order='1' />
+		<connection from='6' to='7' bond_order='1' />
+		<connection from='6' to='8' bond_order='1' />
+		<connection from='6' to='9' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-DiMe' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-DiMe' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-DiMe' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NMe2' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NDiMe' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NDiMe' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NDiMe' />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='methyl' />
+		<substituent_part name='methyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>sulfate</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>true</is_linkable>
+	<haworth_name>SO3</haworth_name>
+	<mirrored_haworth_name>O3S</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>SO3H</formula>
+	<atoms>
+		<atom id='1' name='S' element='S' />
+		<atom id='2' name='O1' element='O' />
+		<atom id='3' name='O2' element='O' />
+		<atom id='4' name='OH' element='O' />
+		<atom id='5' name='HO' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='2' />
+		<connection from='1' to='3' bond_order='2' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='4' to='5' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' separate_display='sulfate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' separate_display='sulfate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OSO3' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' separate_display='S' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='Sulf' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='S' />
+		<primary_alias namescheme='cfg' linkage_type='H_AT_OH' residue_included='S' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OSO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='OSO3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='SO3' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-SO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-SO3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-SO3' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='sulfate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='SO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='sulfate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='o-sulfate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='sulfate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='osulfate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' separate_display='osulfate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='osulfate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' separate_display='osulfate' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-sulfate</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>true</is_linkable>
+	<haworth_name>NSO3</haworth_name>
+	<mirrored_haworth_name>O3SN</mirrored_haworth_name>
+	<olinked_equivalent>sulfate</olinked_equivalent>
+	<formula>NHSO3H</formula>
+	<atoms>
+		<atom id='1' name='N' element='N' />
+		<atom id='2' name='HN' element='H' />
+		<atom id='3' name='S' element='S' />
+		<atom id='4' name='O1' element='O' />
+		<atom id='5' name='O2' element='O' />
+		<atom id='6' name='OH' element='O' />
+		<atom id='7' name='HO' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='2' />
+		<connection from='3' to='5' bond_order='2' />
+		<connection from='3' to='6' bond_order='1' />
+		<connection from='6' to='7' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N' separate_display='sulfate' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N' separate_display='sulfate' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NSO3' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' residue_included='N' separate_display='S' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NSulf' />
+		<primary_alias namescheme='bcsdb' linkage_type='DEOXY' residue_included='N' separate_display='S' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-SO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-SO3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-SO3' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-sulfate' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-sulfate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-sulfate' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='Nsulfate' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='Nsulfate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='Nsulfate' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N' separate_display='SO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N' separate_display='SO3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N' separate_display='SO3' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NSO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NSO3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N' separate_display='sulfate' />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='sulfate' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>thio</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>true</can_replace_ring_oxygen>
+	<is_linkable>true</is_linkable>
+	<haworth_name>SH</haworth_name>
+	<mirrored_haworth_name>HS</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>SH</formula>
+	<atoms>
+		<atom id='1' name='S' element='S' />
+		<atom id='2' name='HS' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='SH' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='SH' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='SH' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='DEOXY' residue_included='SH' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='S' />
+		<primary_alias namescheme='kegg' linkage_type='DEOXY' residue_included='SH' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='S' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='S' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='S' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='thio' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='thio' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='thio' />
+	</synonyms>
+</template>
+
+<template>
+	<name>seleno</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>true</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>SeH</haworth_name>
+	<mirrored_haworth_name>HSe</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>SeH</formula>
+	<atoms>
+		<atom id='1' name='SeH' element='Se' />
+		<atom id='2' name='HSe' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='SeH' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='SeH' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='SeH' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='Se' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='Se' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='Se' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='seleno' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='seleno' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='seleno' />
+	</synonyms>
+</template>
+
+<template>
+	<name>telluro</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<bondorder1>1</bondorder1>
+	<bondorder2></bondorder2>
+	<can_replace_ring_oxygen>true</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>TeH</haworth_name>
+	<mirrored_haworth_name>HTe</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>TeH</formula>
+	<atoms>
+		<atom id='1' name='TeH' element='Te' />
+		<atom id='2' name='HTe' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='TeH' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='TeH' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='TeH' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='Te' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='Te' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='Te' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='telluro' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='telluro' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='telluro' />
+	</synonyms>
+</template>
+
+<template>
+	<name>phosphate</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>true</is_linkable>
+	<haworth_name>PO3</haworth_name>
+	<mirrored_haworth_name>O3P</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>PO3H2</formula>
+	<atoms>
+		<atom id='1' name='P' element='P' />
+		<atom id='2' name='O1' element='O' />
+		<atom id='3' name='OH2' element='O' />
+		<atom id='4' name='OH3' element='O' />
+		<atom id='5' name='HO2' element='H' />
+		<atom id='6' name='HO3' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='2' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='5' to='5' bond_order='1' />
+		<connection from='4' to='6' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' separate_display='PO3' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' separate_display='P' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' separate_display='P' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='P' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='P' />
+		<primary_alias namescheme='kegg' linkage_type='H_AT_OH' separate_display='P' />
+		<primary_alias namescheme='cfg' linkage_type='H_AT_OH' residue_included='P' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='H_AT_OH' residue_included='P' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' separate_display='phosphate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' separate_display='phosphate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' separate_display='phosphate' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='phosphate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='phosphate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='phosphate' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OPO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='OPO3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OPO3' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='P' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='PO3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='PO3' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='PO4' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='PO4' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' separate_display='OOP' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' separate_display='OP' />
+	</synonyms>
+</template>
+
+<!--<template>
+	<name>pyruvate</name>
+	<valence>1</valence>
+	<default_linking_position1></default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>Pv</haworth_name>
+	<mirrored_haworth_name>Pv</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>COCOCH3</formula>
+	<atoms>
+		<atom id='1' name='' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='pyruvate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='pyruvate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='pyruvate' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='Pyr' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='x?Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='Pv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-Pv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OPv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='OPv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OPv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='OPyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='OPyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='OPyr' />
+	</synonyms>
+</template> -->
+
+<template>
+	<name>(r)-pyruvate</name>
+	<valence>
+		<min>2</min>
+		<max>2</max>
+	</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2>1</default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2>H_AT_OH</default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name></haworth_name>
+	<mirrored_haworth_name></mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH2CCOOH</formula>
+	<atoms>
+		<atom id='1' name='' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)-pyruvate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)-pyruvate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)-pyruvate' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='R-Pyr' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='xRPyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)-Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)-Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)-Pv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)-Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)-Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)-Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)Pyruvate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)Pyruvate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)Pyruvate' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)Pv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)Py' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)Py' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)Py' />
+	</synonyms>
+</template>
+
+<template>
+	<name>(s)-pyruvate</name>
+	<valence>
+		<min>2</min>
+		<max>2</max>
+	</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2>1</default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2>H_AT_OH</default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name></haworth_name>
+	<mirrored_haworth_name></mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH2CCOOH</formula>
+	<atoms>
+		<atom id='1' name='' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)-pyruvate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)-pyruvate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)-pyruvate' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='S-Pyr' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='xSPyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)-Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)-Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)-Pv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)-Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)-Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)-Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)Pyruvate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)Pyruvate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)Pyruvate' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)Pv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)Py' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)Py' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)Py' />
+	</synonyms>
+</template>
+
+<template>
+	<name>(x)-pyruvate</name>
+	<valence>
+		<min>2</min>
+		<max>2</max>
+	</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2>1</default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2>H_AT_OH</default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name></haworth_name>
+	<mirrored_haworth_name></mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH2CCOOH</formula>
+	<atoms>
+		<atom id='1' name='' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>true</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(?)-pyruvate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(?)-pyruvate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(?)-pyruvate' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='Py' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='Py' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='Py' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(?)-Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(?)-Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(?)-Pv' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(?)-Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(?)-Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(?)-Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(?)Pyr' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(?)Pyr' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(?)Pyr' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(?)Pyruvate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(?)Pyruvate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(?)Pyruvate' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(?)Pv' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(?)Pv' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(?)Pv' />
+	</synonyms>
+</template>
+
+<template>
+	<name>(r)-lactate</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<is_linkable>false</is_linkable>
+	<haworth_name></haworth_name>
+	<mirrored_haworth_name></mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH3CHCOOH</formula>
+	<atoms>
+		<atom id='1' name='CM' element='C' />
+		<atom id='2' name='HMa' element='H' />
+		<atom id='3' name='HMb' element='H' />
+		<atom id='4' name='HMc' element='H' />
+		<atom id='5' name='C2' element='C' />
+		<atom id='6' name='H2' element='H' />
+		<atom id='7' name='C3' element='C' />
+		<atom id='8' name='OC3' element='O' />
+		<atom id='9' name='OH3' element='O' />
+		<atom id='10' name='HO3' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='1' to='5' bond_order='1' />
+		<connection from='5' to='6' bond_order='1' />
+		<connection from='5' to='7' bond_order='1' />
+		<connection from='7' to='8' bond_order='1' />
+		<connection from='7' to='9' bond_order='1' />
+		<connection from='9' to='10' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='5' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(r)-lactate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(r)-lactate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(r)-lactate' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='R-Lac' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='lRLac' />
+		<secondary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='(r)-carboxyethyl' />
+	</synonyms>
+</template>
+
+<template>
+	<name>(s)-lactate</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name></haworth_name>
+	<mirrored_haworth_name></mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH3CHCOOH</formula>
+	<atoms>
+		<atom id='1' name='CM' element='C' />
+		<atom id='2' name='HMa' element='H' />
+		<atom id='3' name='HMb' element='H' />
+		<atom id='4' name='HMc' element='H' />
+		<atom id='5' name='C2' element='C' />
+		<atom id='6' name='H2' element='H' />
+		<atom id='7' name='C3' element='C' />
+		<atom id='8' name='OC3' element='O' />
+		<atom id='9' name='OH3' element='O' />
+		<atom id='10' name='HO3' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='1' to='5' bond_order='1' />
+		<connection from='5' to='6' bond_order='1' />
+		<connection from='5' to='7' bond_order='1' />
+		<connection from='7' to='8' bond_order='1' />
+		<connection from='7' to='9' bond_order='1' />
+		<connection from='9' to='10' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='5' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(s)-lactate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(s)-lactate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(s)-lactate' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='S-Lac' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='lSLac' />
+	</synonyms>
+</template>
+
+<template>
+	<name>(x)-lactate</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name></haworth_name>
+	<mirrored_haworth_name></mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CH3CHCOOH</formula>
+	<atoms>
+		<atom id='1' name='CM' element='C' />
+		<atom id='2' name='HMa' element='H' />
+		<atom id='3' name='HMb' element='H' />
+		<atom id='4' name='HMc' element='H' />
+		<atom id='5' name='C2' element='C' />
+		<atom id='6' name='H2' element='H' />
+		<atom id='7' name='C3' element='C' />
+		<atom id='8' name='OC3' element='O' />
+		<atom id='9' name='OH3' element='O' />
+		<atom id='10' name='HO3' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='1' to='4' bond_order='1' />
+		<connection from='1' to='5' bond_order='1' />
+		<connection from='5' to='6' bond_order='1' />
+		<connection from='5' to='7' bond_order='1' />
+		<connection from='7' to='8' bond_order='1' />
+		<connection from='7' to='9' bond_order='1' />
+		<connection from='9' to='10' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='5' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>true</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='(?)-lactate' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='(?)-lactate' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='(?)-lactate' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='l?Lac' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='lactate' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='lactate' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='lactate' />
+		<secondary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='lXbLac' />
+		<secondary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='lLLac' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-succinate</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NSuc</haworth_name>
+	<mirrored_haworth_name>SucN</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>NCOCH2CH2COOH</formula>
+	<atoms>
+		<atom id='1' name='' element='N' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N' separate_display='succinate' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N' separate_display='succinate' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N' separate_display='succinate' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NSuc' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-trifluoroacetyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NAcF3</haworth_name>
+	<mirrored_haworth_name>F3AcN</mirrored_haworth_name>
+	<olinked_equivalent>trifluoroacetyl</olinked_equivalent>
+	<formula>NHCOCF3</formula>
+	<atoms>
+		<atom id='1' name='' element='N' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N' separate_display='trifluoroacetate' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N' separate_display='trifluoroacetate' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N' separate_display='trifluoroacetate' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NAcF3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-trifluoroacetyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='Ntrifluoroacetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-trifluoroacetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='Ntrifluoroacetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-trifluoroacetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='Ntrifluoroacetyl' />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='trifluoroacetyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>trifluoroacetyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>AcF3</haworth_name>
+	<mirrored_haworth_name>F3Ac</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>COCF3</formula>
+	<atoms>
+		<atom id='1' name='' element='C' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' separate_display='trifluoroacetate' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' separate_display='trifluoroacetate' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' separate_display='trifluoroacetate' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='AcF3' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='trifluoroacetyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='trifluoroacetyl' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='trifluoroacetyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='trifluoroacetate' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='trifluoroacetate' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='trifluoroacetate' />
+	</synonyms>
+</template>
+
+<template>
+	<name>formyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>H_AT_OH</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>CHO</haworth_name>
+	<mirrored_haworth_name>OHC</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>CHO</formula>
+	<atoms>
+		<atom id='1' name='C' element='C' />
+		<atom id='2' name='OC' element='O' />
+		<atom id='3' name='H' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='2' />
+		<connection from='1' to='3' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='H_AT_OH' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='formyl' />
+		<primary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='formyl' />
+		<primary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-formyl' />
+		<primary_alias namescheme='kegg' linkage_type='H_AT_OH' residue_included='Formyl' />
+		<primary_alias namescheme='ccpn' linkage_type='H_AT_OH' residue_included='for' />
+		<primary_alias namescheme='bcsdb' linkage_type='H_AT_OH' separate_display='Fo' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-formyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-formyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='formyl' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='CHO' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='CHO' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='CHO' />
+		<secondary_alias namescheme='iupac' linkage_type='H_AT_OH' residue_included='O-CHO' />
+		<secondary_alias namescheme='carbbank' linkage_type='H_AT_OH' residue_included='O-CHO' />
+		<secondary_alias namescheme='glycosciences' linkage_type='H_AT_OH' residue_included='O-CHO' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-formyl</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NHCHO</haworth_name>
+	<mirrored_haworth_name>OHCHN</mirrored_haworth_name>
+	<olinked_equivalent>formyl</olinked_equivalent>
+	<formula>NHCHO</formula>
+	<atoms>
+		<atom id='1' name='N' element='N' />
+		<atom id='2' name='HN' element='H' />
+		<atom id='3' name='C' element='C' />
+		<atom id='4' name='OC' element='O' />
+		<atom id='5' name='HC' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='2' />
+		<connection from='3' to='5' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-formyl' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-formyl' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-formyl' />
+		<primary_alias namescheme='kegg' linkage_type='DEOXY' residue_included='NFormyl' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NFor' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NCHO' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NCHO' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NCHO' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-CHO' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-CHO' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-CHO' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NFormyl' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NFormyl' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NFormyl' />
+	</synonyms>
+	<substituent_part name='amino'>
+		<substituent_part name='formyl' />
+	</substituent_part>
+</template>
+
+<template>
+	<name>nitrat</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NO2</haworth_name>
+	<mirrored_haworth_name>O2N</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>NO2</formula>
+	<atoms>
+		<atom id='1' name='' element='N' />
+	</atoms>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='nitrat' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='nitrat' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='nitrat' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='NO2' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='NO2' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='NO2' />
+	</synonyms>
+</template>
+
+<template>
+	<name>n-alanine</name>
+	<valence>1</valence>
+	<default_linking_position1>1</default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1>DEOXY</default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name>NAla</haworth_name>
+	<mirrored_haworth_name>AlaN</mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula>NHCOCHNH2CH3</formula>
+	<atoms>
+		<atom id='1' name='N1' element='N' />
+		<atom id='2' name='HN1' element='H' />
+		<atom id='3' name='C' element='C' />
+		<atom id='4' name='O' element='O' />
+		<atom id='5' name='CA' element='C' />
+		<atom id='6' name='HA' element='H' />
+		<atom id='7' name='N' element='N' />
+		<atom id='8' name='HNa' element='H' />
+		<atom id='9' name='HNb' element='H' />
+		<atom id='10' name='CB' element='C' />
+		<atom id='11' name='HBa' element='H' />
+		<atom id='12' name='HBb' element='H' />
+		<atom id='13' name='HBc' element='H' />
+	</atoms>
+	<atom_connections>
+		<connection from='1' to='2' bond_order='1' />
+		<connection from='1' to='3' bond_order='1' />
+		<connection from='3' to='4' bond_order='1' />
+		<connection from='4' to='5' bond_order='1' />
+		<connection from='5' to='6' bond_order='1' />
+		<connection from='5' to='7' bond_order='1' />
+		<connection from='5' to='10' bond_order='1' />
+		<connection from='7' to='8' bond_order='1' />
+		<connection from='7' to='9' bond_order='1' />
+		<connection from='10' to='11' bond_order='1' />
+		<connection from='10' to='12' bond_order='1' />
+		<connection from='10' to='13' bond_order='1' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='1' atom_id='1' replaced_atom_id='' bond_order='1' default_linkage_type='DEOXY' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N' separate_display='Ala' />
+		<primary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N' separate_display='Ala' />
+		<primary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-Ala' />
+		<primary_alias namescheme='ccpn' linkage_type='DEOXY' residue_included='NAla' />
+		<secondary_alias namescheme='iupac' linkage_type='DEOXY' residue_included='N-Alanine' />
+		<secondary_alias namescheme='carbbank' linkage_type='DEOXY' residue_included='N-Alanine' />
+		<secondary_alias namescheme='glycosciences' linkage_type='DEOXY' residue_included='N-Alanine' />
+	</synonyms>
+</template>
+
+<!-- empty template:
+<template>
+	<name></name>
+	<valence>
+		<min></min>
+		<max></max>
+	</valence>
+	<default_linking_position1></default_linking_position1>
+	<default_linking_position2></default_linking_position2>
+	<default_linkage_type1></default_linkage_type1>
+	<default_linkage_type2></default_linkage_type2>
+	<can_replace_ring_oxygen>false</can_replace_ring_oxygen>
+	<is_linkable>false</is_linkable>
+	<haworth_name></haworth_name>
+	<mirrored_haworth_name></mirrored_haworth_name>
+	<olinked_equivalent></olinked_equivalent>
+	<formula></formula>
+	<atoms>
+		<atom id='' name='' element='' />
+	</atoms>
+	<atom_connections>
+		<connection from='' to='' bond_order='' />
+	</atom_connections>
+	<valid_linking_positions>
+		<position id='' atom_id='' replaced_atom_id='' bond_order='1' default_linkage_type='' />
+	</valid_linking_positions>
+	<fuzzy>false</fuzzy>
+	<synonyms>
+		<primary_alias namescheme='iupac' linkage_type='' residue_included='' separate_display='' />
+		<primary_alias namescheme='carbbank' linkage_type='' residue_included='' separate_display='' />
+		<primary_alias namescheme='glycosciences' linkage_type='' residue_included='' separate_display='' />
+		<primary_alias namescheme='glycoworkbench' linkage_type='' residue_included='' separate_display='' />
+		<primary_alias namescheme='bcsdb' linkage_type='' residue_included='' separate_display='' />
+		<primary_alias namescheme='ccpn' linkage_type='' residue_included='' separate_display='' />
+		<secondary_alias namescheme='iupac' linkage_type='' residue_included='' separate_display='' />
+		<secondary_alias namescheme='carbbank' linkage_type='' residue_included='' separate_display='' />
+		<secondary_alias namescheme='glycosciences' linkage_type='' residue_included='' separate_display='' />
+		<secondary_alias namescheme='glycoworkbench' linkage_type='' residue_included='' separate_display='' />
+	</synonyms>
+	<substituent_part name=''>
+		<substituent_part name='' />
+	</substituent_part>
+</template>
+-->
+
+</substituent_templates>

@@ -1,0 +1,83 @@
+# Anomalous Binding Profile of Phenylboronic Acid
+# with N-Acetylneuraminic Acid (Neu5Ac) in Aqueous
+# Solution with Varying pH
+# H. Otsuka, E. Uchimura, H. Koshino, T. Okano, K. Kataoka
+# J. Am. Chem. Soc. 125 (2003) 3493-3502
+
+set ccorr -2.1
+set hcorr 0
+
+# in D2O
+residue bNeu5Ac 'Neu5Ac' {
+info '5-N-acetyl-b-neuraminic acid'
+carbbank 'b-D-Neup5Ac'
+ctname 'b-dgro-dgal'
+shift 179.53
+shift 99.32 ax
+shift 42.30 1.82 2.21
+shift 70.22 4.02 eq
+shift 55.19 3.91
+shift 73.16 3.98
+shift 71.48 3.50
+shift 73.24 3.75
+shift 66.22 3.60 3.83
+shift 177.69
+shift 25.04 2.04
+correct $ccorr $hcorr 
+}
+
+
+residue aNeu5Ac 'Neu5Ac' {
+info '5-N-acetyl-a-neuraminic acid'
+carbbank 'a-D-Neup5Ac'
+ctname 'a-dgro-dgal'
+shift (179)
+shift (100.32) eq
+shift 43.58 1.62 2.73
+shift 71.06 3.80 eq
+shift 54.80 (3.91)
+shift 75.51 3.53
+shift 71.48 (3.50)
+shift 74.39 3.86
+shift 65.73 (3.60) (3.83)
+shift 178.0
+shift 24.97 (2.04)
+correct $ccorr $hcorr
+}
+
+end
+
+in DMSO-d6
+
+residue bNeu5Ac {
+info '5-N-acetyl-b-neuraminic acid'
+shift 171.35
+shift 94.69 ax
+shift 39.85 1.68 1.97
+shift 65.74 3.81 eq
+shift 53.05 3.49
+shift 70.36 3.72
+shift 69.16 3.16
+shift 69.83 3.48
+shift 63.62 3.27 3.59
+shift 171.86
+shift 22.62 1.87
+correct 
+}
+
+
+residue aNeu5Ac {
+info '5-N-acetyl-a-neuraminic acid'
+shift 171.76
+shift 95.69 eq
+shift 41.82 1.48 2.48
+shift 66.68 3.59 eq
+shift 52.37 3.46
+shift 73.50 3.16
+shift 68.39 3.27
+shift 71.53 3.58
+shift 63.08 3.35 3.58
+shift 172.14
+shift 22.57 1.86
+correct
+}

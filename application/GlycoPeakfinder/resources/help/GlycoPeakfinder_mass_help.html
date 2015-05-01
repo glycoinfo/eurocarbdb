@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 1.0 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xml:lang="en">
+
+<head>
+
+
+  <title>GlycoPeakfinder</title>
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://www.eurocarbdb.org/globals/favicon.ico" />
+  <link rel="shortcut icon" />
+  <link rel="copyright" title="Copyright"
+        href="http://www.eurocarbdb.org/copyright" />
+
+  <!-- /End related links -->
+
+  <!-- Begin stylesheets -->
+<!--  <link rel="stylesheet" type="text/css" media="all"
+    tal:attributes="href here/frontend-uu.css/absolute_url | nothing" />
+-->    
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://www.eurocarbdb.org/table-less.css" />
+  <link rel="stylesheet" type="text/css" 
+        href="../glycopeakfinder.css" />
+  
+  <!-- /End stylesheets -->
+
+  <!-- Begin script slot -->
+  <script src="./glycopeakfinder.js" type="text/javascript"></script>
+  <!-- End script slot -->
+
+</head>
+
+<body class="page">
+<p>
+<center>
+<div style="  background: #ffe; align: center;  border-style: outset;  border-width: 2px;  border-color:#000096;  width : 600px;  max-width : 60em;  width:auto;  margin-right: 0px;  margin-left: 0px;  padding: 10px;">
+
+<form method="POST" action="./GlycoPeakfinder.action" name="values" enctype="multipart/form-data">
+
+<table border="0" cellpadding="0" cellspacing="0" width="702">
+<tr><TD class="gpf_heading" colspan="3">Glyco-Peakfinder Help File</TD></tr>
+<tr>
+    <TD colspan="3" height="15">
+        <input type="text" class="gpf_information" height="1" name="pageTo" value="">
+        <input type="text" class="gpf_information" height="1" name="pageFrom" value="mass">
+    </TD></tr>
+<TR>
+    <TD colspan="3" height="10"/>
+</TR>
+<TR>
+    <TD class="gpf_table_top_left"/>
+    <td>
+        <table border="0" cellpadding="0" cellspacing="0" width="700">
+            <TD class="gpf_table_menu_left"/>
+            <TD class="gpf_table_menu_button">
+				<img border="0" src="../images/about_unselect.jpg" id='menu_info' width="100%">              
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+				<img border="0" src="../images/mass_select.jpg" width="100%">
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+            	<a href="./GlycoPeakfinder_res_help.html">
+  	              <img border="0" src="../images/residue_unselect.jpg" onclick="js:clearFileSettings('true');switchToPage('resi');" onmouseover="getElementById('menu_resi').src='../images/residue_over.jpg'" onmouseout="getElementById('menu_resi').src='../images/residue_unselect.jpg'" id='menu_resi' width="100%">              
+				</a>
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+	            <a href="./GlycoPeakfinder_ion_help.html">
+    	            <img border="0" src="../images/ion_unselect.jpg" onclick="js:clearFileSettings('true');switchToPage('ions');" onmouseover="getElementById('menu_ions').src='../images/ion_over.jpg'" onmouseout="getElementById('menu_ions').src='../images/ion_unselect.jpg'" id='menu_ions' width="100%">              
+				</a>
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+        		<a href="./GlycoPeakfinder_mod_help.html">
+	                <img border="0" src="../images/modifications_unselect.jpg" onclick="js:clearFileSettings('true');switchToPage('modi');" onmouseover="getElementById('menu_modi').src='../images/modifications_over.jpg'" onmouseout="getElementById('menu_modi').src='../images/modifications_unselect.jpg'" id='menu_modi' width="100%">              
+	            </a>
+            </TD>
+            <TD class="gpf_table_menu_space"/>
+            <TD class="gpf_table_menu_button">
+                <img border="0" src="../images/contact_unselect.jpg" id='menu_cont' width="100%">              
+            </TD>
+            <TD class="gpf_table_menu_right"/>
+        </table>
+    </td>
+    <TD class="gpf_table_top_right"/>
+</TR>
+<TR>
+    <TD class="gpf_table_left"/>
+    <td bgcolor="#cddcec" width="700">
+        <table cellpadding="0" cellpadding="0" border="0" width="700">
+<!-- Start of data areal -->
+
+<div>
+  <map name="mass">
+    <area shape="rect" coords="10,2,160,70" href="#1" alt="Annotate Peaks: Calculation for all mass values from the peak list below is started using all parameters already set on the pages mass, residue, ion/charge and "modifications.">
+    <area shape="rect" coords="175,2,320,70" href="#2" alt="Reset all settings: All settings manually performed on the pages mass, residue, ion/charge and modifications are cleared and default settings are set.">
+    <area shape="rect" coords="350,2,500,70" href="#3" alt="Reset form: All settings manually performed on this form are cleared and default settings are set.">
+    <area shape="rect" coords="525,2,665,70" href="#4" alt="Help: Starts Glyco-Peakfinder help files.">
+    <area shape="rect" coords="50,90,500,130" href="#5" alt="Specify spectrum type: spectrum type can be chosen between glycan profile and fragment spectrum. In case of glycan profile only entire structures can be calculated. All other options like modification at reducing end or persubstitution can be selected.  ">
+    <area shape="rect" coords="50,140,500,180" href="#6" alt="Accuracy of entered masses: Depending on the acquisition method an accuracy level for the given mass list should be specified. You can choose between a relative accuracy level im ppm (parts per milion) or an absolute value for the entire spectrum.">
+    <area shape="rect" coords="50,190,500,240" href="#7" alt="Select mass values for calculation: Depending on the resolution of the instrument used, the accuracy of the mass values can be selected.">
+    <area shape="rect" coords="50,290,500,320" href="#8" alt="Select file from file system: Select file from your local file system, that has the selected file format (see 9).">
+    <area shape="rect" coords="50,290,500,360" href="#9" alt="Specify file type and upload file: The selected file type can be a simple ascii file or a more specific vendor-defined format.">
+    <area shape="rect" coords="50,360,500,530" href="#10" alt="Enter peak list manually: m/z values and corresponding intensity values can be entered manually or input by copy/paste from another programme. The given intensity value is not mandatory and has no influence on the calculated results. m/z and intensity have to be separated by a single space.">
+    <area shape="rect" coords="10,530,160,575" href="#1" alt="Annotate Peaks: Calculation for all mass values from the peaklist below is started using all parameters already set on the pages mass, resdiue, ion/charge and modifications.">
+    <area shape="rect" coords="175,530,320,575" href="#2" alt="Reset all settings: All settings manually done on the pages mass, resdiue, ion/charge and modifications are cleared and default settings are set.">
+    <area shape="rect" coords="350,530,500,575" href="#3" alt="Reset form: All settings manually done on this form are cleared and default settings are set.">
+    <area shape="rect" coords="525,530,665,575" href="#4" alt="Help: Starts Glyco-Peakfinder help files.">
+  </map>
+</div>
+
+
+
+	<TR>
+    		<td colspan="4" align="center">
+			<img src="mass_help.jpg" usemap="#mass" border=2>
+		</td>
+        </TR>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="1.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="1"></a>
+			<div class="gpf_contens_b_left">
+				Annotate Peaks:<br></div>
+			<div class="gpf_contens_justify">
+				Calculation for all mass values from the peak list below is started using all parameters already set on the pages "mass", "residue", "ion/charge" and "modifications".
+			</div>
+		</td>
+    		<TD width="30" > </td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="2.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="2"></a>
+			<div class="gpf_contens_b_left">
+				Reset all settings:<br></div>
+			<div class="gpf_contens_justify">
+				All settings manually performed on the pages "mass", "residue", "ion/charge" and "modifications" are cleared and default settings are set.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="3.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="3"></a>
+			<div class="gpf_contens_b_left">
+				Reset form:<br></div>
+			<div class="gpf_contens_justify">
+				All settings manually performed on this form are cleared and default settings are set.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="4.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="4"></a>
+			<div class="gpf_contens_b_left">
+				Help:<br></div>
+			<div class="gpf_contens_justify">
+				Starts Glyco-Peakfinder help files.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="5.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600" ><a name="5"></a>
+			<div class="gpf_contens_b_left">
+				Specify spectrum type:<br></div>
+			<div class="gpf_contens_justify">
+				spectrum type can be chosen between "glycan profile" and "fragment spectrum". In case of glycan profile only entire structures can be calculated. All other options like modification at reducing end or persubstitution can be selected.  
+			</div>
+		</td>
+    		<TD width="30" > </td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="6.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="6"></a>
+			<div class="gpf_contens_b_left">
+				Accuracy of the entered masses:<br></div>
+			<div class="gpf_contens_justify">
+				Depending on the acquisition method an accuracy level for the given mass list should be specified. You can choose between a relative accuracy level im ppm (parts per milion) or an absolute value for the entire spectrum.
+			</div>
+		</td>
+    		<TD width="30" > </td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="7.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="7"></a>
+			<div class="gpf_contens_b_left">
+				Select mass values for calculation:<br></div>
+			<div class="gpf_contens_justify">
+				Depending on the resolution of the instrument used, the accuracy of the mass values can be selected.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="8.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="8"></a>
+			<div class="gpf_contens_b_left">
+				Select file from file system:<br></div>
+			<div class="gpf_contens_justify">
+				Select file from your local file system, that has the selected file format (see 9).
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="9.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="92"></a>
+			<div class="gpf_contens_b_left">
+				Specify file type and upload file:<br></div>
+			<div class="gpf_contens_justify">
+				The selected file type can be a simple ascii file or a more specific vendor-defined format.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<TR>
+    		<TD width="10"></td>
+    		<TD width="30" ><img src="10.jpg"></td>
+    		<TD width="10" ></td>
+    		<TD width="600"><a name="10"></a>
+			<div class="gpf_contens_b_left">
+				Enter peak list manually:<br></div>
+			<div class="gpf_contens_justify">
+				m/z values and corresponding intensity values can be entered manually or input by copy/paste from another programme. The given intensity value is not mandatory and has no influence on the calculated results. m/z and intensity have to be separated by a single space.
+			</div>
+		</td>
+    		<TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	<tr>
+            <TD colspan="4" align="right">
+	            		<input class="peakfinder_button" type="button" onClick="js:self.close();" value="Close help file">
+            </TD>
+    	    <TD width="30" ></td>
+	</tr>
+	<tr><TD colspan="4" height="10"></TD></tr>
+	</table>
+    </td>
+        <TD class="gpf_table_right"/>
+</TR>
+<TR>
+    <TD class="gpf_table_bottom_left"/>
+
+    <TD class="gpf_table_bottom"/>
+    <TD class="gpf_table_bottom_right"/>
+</TR>
+<tr><TD colspan="5" height="10"></TD></tr>    </td>
+</TR>
+<tr><TD colspan="4" height="10"></TD></tr>
+</table>
+</form>
+
+  <!-- footer -->
+  <p class="border_bottom">
+  EuroCarbDB is a Research Infrastructure Design Study 
+  Funded by the 6th Research Framework Program of the European Union <br /> 
+  (Contract: RIDS Contract number 011952)</p>
+</div>
+</center>
+<p>
+</body>
+
+</html>

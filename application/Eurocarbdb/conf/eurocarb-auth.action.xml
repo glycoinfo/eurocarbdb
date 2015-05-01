@@ -1,0 +1,174 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+
+<xwork>
+
+    <package name="authentication" extends="eurocarb-base">
+
+        <!--
+    action: changePassword
+    author: srikalyan
+    desc:   action for changing user's password.
+    -->
+        <action name="changePassword" class="org.eurocarbdb.action.user.ChangePassword" method="changePassword">
+            <result name="input" type="freemarker"  >/template/action/user/changePassword.ftl</result>
+            <result name="change_password_success" type="freemarker"  >/template/action/user/changePasswordSuccess.ftl</result>
+        </action>
+
+        <!--
+    action: login
+    author: mjh
+    desc:   Typical login-type action
+    -->
+        <action name="login" class="org.eurocarbdb.action.user.UserManager" method="login">
+            <result name="login_first_time" type="redirect-action">changePassword</result>
+            <result name="input" type="freemarker"  >/template/action/user/login.ftl</result>
+            <result name="login_success" type="freemarker">/template/action/user/login_success.ftl</result>
+            <result name="logout_success" type="freemarker">/template/action/user/success.ftl</result>
+            <result name="error__already_logged_in" type="freemarker">/template/action/user/error__already_logged_in.ftl</result>
+            <result name="error__username_doesnt_exist" type="freemarker">/template/action/user/error__username_doesnt_exist.ftl</result>
+        </action>
+
+        <!--
+    action: registration
+    author: srikalyan
+    desc:   action for registration
+    -->
+        <action name="registration" class="org.eurocarbdb.action.user.UserRegistration" method="validateRegistration">
+            <result name="registration_none" type="freemarker"  >/template/action/user/registration.ftl</result>
+            <result name="registration_success" type="freemarker">/template/action/user/registration_success.ftl</result>
+            <result name="registration_failure" type="freemarker">/template/action/user/registration.ftl</result>
+        </action>
+
+        <!--
+    action: reset password
+    author: srikalyan
+    desc:   action for resetPassword
+    -->
+        <action name="resetPassword" class="org.eurocarbdb.action.user.ResetPassword" method="validateReset">
+            <result name="reset_none" type="freemarker"  >/template/action/user/resetPassword.ftl</result>
+            <result name="reset_return" type="freemarker">/template/action/user/reset_status.ftl</result>
+        </action>
+
+        <!--
+    action: showRequests
+    author: srikalyan
+    desc:   action for showing requests.
+    -->
+        <action name="showRequests" class="org.eurocarbdb.action.user.UserManipulation" method="showRequests">
+            <result name="display" type="freemarker"  >/template/action/user/showRequests.ftl</result>
+        </action>
+
+        <!--
+    action: activate
+    author: srikalyan
+    desc:   action for activation
+    -->
+        <action name="activate" class="org.eurocarbdb.action.user.UserManipulation" method="activate">
+            <result name="activate_status" type="freemarker"  >/template/action/user/status.ftl</result>
+        </action>
+
+        <!--
+    action: deactivate
+    author: srikalyan
+    desc:   action for not activating the account and removing the user details.
+    -->
+        <action name="deactivate" class="org.eurocarbdb.action.user.UserManipulation" method="deactivate">
+            <result name="deactivate_status" type="freemarker"  >/template/action/user/status.ftl</result>
+        </action>
+
+        <!--
+    action: showPromotableContributors
+    author: srikalyan
+    desc:   action for showing promotable contributors.
+    -->
+        <action name="showPromotableContributors" class="org.eurocarbdb.action.user.UserManipulation" method="showPromotableContributors">
+            <result name="display" type="freemarker"  >/template/action/user/showPromotableContributors.ftl</result>
+        </action>
+
+        <!--
+    action: promote
+    author: srikalyan
+    desc:   action for promoting an user
+    -->
+        <action name="promote" class="org.eurocarbdb.action.user.UserManipulation" method="promote">
+            <result name="promote_status" type="freemarker"  >/template/action/user/status.ftl</result>
+        </action>
+
+        <!--
+    action: showDemotableContributors
+    author: srikalyan
+    desc:   action for showing demotable contributors.
+    -->
+        <action name="showDemotableContributors" class="org.eurocarbdb.action.user.UserManipulation" method="showDemotableContributors">
+            <result name="display" type="freemarker"  >/template/action/user/showdemotableContributors.ftl</result>
+        </action>
+
+        <!--
+    action: demote
+    author: srikalyan
+    desc:   action for demoting an user
+    -->
+        <action name="demote" class="org.eurocarbdb.action.user.UserManipulation" method="demote">
+            <result name="demote_status" type="freemarker"  >/template/action/user/status.ftl</result>
+        </action>
+
+        <!--
+    action: showUnblockedContributors
+    author: srikalyan
+    desc:   action for showing unblocked contributors.
+    -->
+        <action name="showUnblockedContributors" class="org.eurocarbdb.action.user.UserManipulation" method="showUnblockedContributors">
+
+            <result name="display" type="freemarker"  >/template/action/user/showUnblockedContributors.ftl</result>
+        </action>
+
+        <!--
+    action: block
+    author: srikalyan
+    desc:   action for blocking an user
+    -->
+        <action name="block" class="org.eurocarbdb.action.user.UserManipulation" method="block">
+            <result name="block_status" type="freemarker"  >/template/action/user/status.ftl</result>
+        </action>
+
+        <!--
+    action: showBlockedContributors
+    author: srikalyan
+    desc:   action for showing blocked contributors.
+    -->
+        <action name="showBlockedContributors" class="org.eurocarbdb.action.user.UserManipulation" method="showBlockedContributors">
+            <result name="display" type="freemarker"  >/template/action/user/showBlockedContributors.ftl</result>
+        </action>
+
+        <!--
+    action: unblock
+    author: srikalyan 
+    desc:   action for unblocking an user
+    -->
+        <action name="unblock" class="org.eurocarbdb.action.user.UserManipulation" method="unblock">
+            <result name="unblock_status" type="freemarker"  >/template/action/user/status.ftl</result>
+        </action>
+
+        <!--
+    action: logout
+    author: mjh
+    desc:   Typical logout-type action
+    -->
+        <action name="logout" class="org.eurocarbdb.action.user.UserManager" method="logout">
+            <result name="logout_success" type="freemarker">/template/action/user/logout_success.ftl</result>
+            <result name="error__not_logged_in" type="freemarker">/template/action/user/error__not_logged_in.ftl</result>
+        </action>	
+	<!--
+    action: logoutforward
+    author: Ki Tae Myoung
+    desc:   logout-type action forwarded to login page.
+    -->
+	<action name="logoutforward" class="org.eurocarbdb.action.user.UserManager" method="logout">
+            <result name="logout_success" type="freemarker">/template/action/user/firstChangePasswordSuccess.ftl</result> 
+        </action>
+
+    </package>
+
+</xwork>

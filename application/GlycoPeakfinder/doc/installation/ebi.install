@@ -1,0 +1,11 @@
+1. checkout svn
+2. make sure install_path,tomcat_path,gplib settings are correct in the build.ebi.xml
+	install_path - installation directory of the webapplication
+	tomcat_path - root path of the tomcat (needed for ${tomcat_path}/common/lib/servlet-api.jar)
+	gplib - path the the glycopeakfinder lib from the svn
+3. compile glycopeakfinder lib  (http://www.dkfz.de/spec/EUROCarbDB/svn/main/trunk/eurocarbdb-libs/GlycoPeakfinderLib/ simply run ant in this dir)
+4. ant -f build.ebi.xml
+5. edit settings in the install_path/WEB-INF/classes/configuration.xml
+6. install database from the svn
+7. edit settings table in the glycopeakfinder schema 
+	change all smtp settings (beside smtp_to) to the eurocarb mail account 

@@ -1,0 +1,10 @@
+# Isolation of monosialylated oligosaccharides
+# from human milk and structural analysis of
+# three new compounds
+# G. Groenberg, P. Lipniunas, T. Lundgren,
+# K. Erlandsson, F. Lindh, B. Nilsson
+set ref 'Carbohydr. Res. 191 (1981) 261-278'
+
+dimer 'aDNeu5Ac(2->3)bDGal'
+{
+# extracted from Table IV - Casper sim

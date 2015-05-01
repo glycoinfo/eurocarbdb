@@ -1,0 +1,466 @@
+#navigations img {
+    float: left;
+    margin-right: 5px;
+}
+
+#gpf_tabs {
+    height: 2em;
+    position: relative;
+    margin-bottom: 0px;
+    clear: both;    
+    padding-bottom: 1px;
+    padding-top: 1px;
+    width: 702px;
+}
+
+#gpf_tabs div {
+    height: 2em;
+    width: 100%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+    
+
+#gpf_tabs ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#gpf_tabs li {
+   height: 2em;
+   margin: 0px;
+   border-top: 1px solid gray;
+   border-left: 1px solid gray;
+   border-bottom: 1px solid gray;
+   border-right: 1px solid gray;
+   padding: 0px 13px;
+   float: left;
+   background: #ccd;
+}
+
+#gpf_tabs .current {
+   background: #eef;
+   border-bottom: 1px solid #eef; 
+}
+
+#gpf_tabs a
+{
+   text-decoration: none;
+}
+
+
+.public table
+{
+    clear: both;    
+    margin: 0px;
+    padding: 0px;
+    background: #eef;
+    border-top: 0px solid gray;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.public table table
+{
+    clear: none;    
+    border: none;
+}
+/*
+.gpf_text_structure
+{
+    font-family         :   'Courier';
+    font-size           :   12px;
+    text-align          :   left;
+    color               :   #000000;
+    font-weight         :   bold;   
+}
+
+.gpf_contens_b_right
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   right;
+    font-weight         :   bold;   
+    color               :   #000000;
+}
+
+.gpf_contens_left
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   left;
+    color               :   #000000;
+}
+
+.kai_contens_justify_gray
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   justify;
+    color               :   #666666;
+}
+
+.kai_contens_justify
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   justify;
+    color               :   #000000;
+}
+
+.kai_contens_center_gray
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   center;
+    color               :   #666666;
+}
+
+.gpf_contens_b_left
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   left;
+    font-weight         :   bold;   
+    color               :   #000000;
+}
+
+.gpf_contens_bmiss_left
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   left;
+    font-weight         :   bold;   
+    color               :   #B50000;
+}
+
+.gpf_contens_b_center
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   center;
+    font-weight         :   bold;   
+    color               :   #000000;
+}
+
+.kai_contens_justify
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   justify;
+    color               :   #000000;
+}
+
+.gpf_peaklist
+{
+    text-align          :   left; 
+    font-family         :   'Arial';
+    font-size           :   12px;
+    color               :   #000000;
+}
+
+.gpf_contens_right
+{
+    text-align          :   right; 
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-decoration     :   none;
+    color               :   #000000;
+    vertical-align		:   top;
+    
+}
+*/
+
+.gpf_information
+{
+	height				: 	1px;
+	visibility			:   hidden;
+}
+
+/*
+.gpf_heading
+{
+	color 				: 	#d70044;
+	font-size 			: 	160%;
+}
+
+.gpf_table_top_left
+{
+    width               :   1px;
+    height              :   1px;
+    vertical-align      :   bottom;
+    background-image    :   url(./images/space_menu.jpg);  
+}
+
+.gpf_table_top
+{
+    height              :   1px;
+    vertical-align      :   bottom;
+    background-image    :   url(./images/base.jpg);  
+}
+
+.gpf_table_top_right
+{
+    width               :   1px;
+    height              :   1px;
+    vertical-align      :   bottom;
+    background-image    :   url(./images/space_menu.jpg);  
+}
+
+.gpf_table_left
+{
+    width               :   1px;
+    background-image    :   url(./images/base.jpg);  
+}
+
+.gpf_table_right
+{
+    width               :   1px;
+    background-image    :   url(./images/base.jpg);  
+}
+
+.gpf_table_bottom_left
+{
+    height              :   1px;
+    width               :   1px;
+    background-image    :   url(./images/base.jpg);  
+}
+
+.gpf_table_bottom
+{
+    height              :   1px;
+    background-image    :   url(./images/base.jpg);  
+}
+
+.gpf_table_bottom_right
+{
+    height              :   1px;
+    width               :   1px;
+    background-image    :   url(./images/base.jpg);  
+}
+
+.peakfinder_button
+{
+    color               :   #000000;
+    background-color    :   #cacaca;
+    width:  130px;
+}
+
+.peakfinder_stecial_button
+{
+    color               :   #000000;
+    background-color    :   #cacaca;
+}
+
+.peakfinder_button_ax
+{
+    color               :   #000000;
+    background-color    :   #cacaca;
+    width:  100px;
+}
+
+.gpf_table_menu_left
+{
+    width               :   15px;
+    vertical-align      :   bottom;
+    background-image    :   url(./images/space_menu.jpg);  
+}
+
+.gpf_table_menu_right
+{
+	width               :   15px;
+    vertical-align      :   bottom;
+    background-image    :   url(./images/space_menu.jpg);  
+}
+
+.gpf_table_menu_space
+{
+    vertical-align      :   bottom;
+    background-image    :   url(./images/space_menu.jpg);  
+}
+
+.gpf_table_menu_button
+{
+    width               :   95px;
+    vertical-align      :   bottom;
+}
+
+.peakfinder_table_headline
+{
+    font-family         :   'Arial';
+    font-size           :   14px;
+    text-align          :   center;
+    text-decoration     :   underline;
+    font-weight         :   bold;   
+    color               :   #000000;
+}
+
+.peakfinder_table_headline_left
+{
+    font-family         :   'Arial';
+    font-size           :   14px;
+    text-align          :   left;
+    text-decoration     :   underline;
+    font-weight         :   bold;   
+    color               :   #000000;
+}
+
+.peakfinder_table_norma_text
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   left;
+    text-decoration     :   none;
+    color               :   #000000;
+    vertical-align	:   top;
+}
+
+.peakfinder_table_bold_text
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   left;
+    text-decoration     :   none;
+    font-weight         :   bold;   
+    color               :   #000000;
+}
+
+.peakfinder_table_norma_text_center
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   center;
+    text-decoration     :   none;
+    color               :   #000000;
+}
+.peakfinder_eingabe
+{
+    text-align          :   right; 
+    font-family         :   'Arial';
+    font-size           :   12px;
+    color               :   #000000;
+}
+
+.peakfinder_table_contens_text
+{
+    text-align          :   right; 
+    font-family         :   'Arial';
+    font-size           :   12px;
+    color               :   #000000;
+    font-weight         :   bold;   
+}
+
+
+.peakfinder_table_contens_left
+{
+    text-align          :   left; 
+    font-family         :   'Arial';
+    font-size           :   12px;
+    color               :   #000000;
+    font-weight         :   bold;   
+    vertical-align      :   top;
+}
+
+.peakfinder_table_contens_left_under
+{
+    text-align          :   left; 
+    font-family         :   'Arial';
+    font-size           :   12px;
+    color               :   #000000;
+    font-weight         :   bold;   
+    vertical-align      :   top;
+    text-decoration     :   underline;
+}
+
+.peakfinder_table_contens_center
+{
+    text-align          :   center; 
+    font-family         :   'Arial';
+    font-size           :   12px;
+    color               :   #000000;
+    font-weight         :   bold;   
+}
+*/
+
+.gp-navigation-body 
+{
+	vertical-align		: 	top;
+	/*padding				: 	0px;*/
+}
+
+.gp-navigation-body li 
+{
+	list-style-type: none;
+}
+
+.gp-navigation-here li 
+{
+	list-style-type: none;
+}
+
+/*
+.gp-navigation-box 
+{
+	vertical-align		: 	top;
+	padding				: 	0px;
+	margin-top			: 	0px;
+	margin-left			: 	0px;
+	margin-right		: 	5px;
+	border-left-width	: 	1px;
+	border-right-width	: 	3px;
+	border-top-width	: 	1px;
+	border-bottom-width	: 	3px;
+	border-color		: 	#dbbd00;
+	border-color		: 	#d70044;
+	border-color		: 	#000096;
+	border-style		: 	outset;
+}
+
+.gp-navigation-here 
+{
+	background-color	:  	#fbf598;
+	vertical-align		: 	top;
+	color				:	#000000; 
+	padding				: 	0px;
+	border-left-width	: 	0px;
+	border-right-width	: 	4px;
+	border-top-width	: 	0px;
+	border-bottom-width	: 	0px;
+	border-color		: 	#006699;
+	border-color		: 	#69031d;
+	border-style		: 	dotted;
+}
+
+.navigation-disable
+{
+	vertical-align		: 	top;
+	text-decoration		:	none;
+   	font-weight			: 	normal;
+   	color				:	#777777;
+	background			:	transparent;
+}
+
+.gp_radio_check
+{
+	background			:	transparent;
+}
+
+.gpf_iupac_structure
+{
+	white-space			:	pre;
+}
+*/
+/*
+.peakfinder_table_max_anno
+{
+    font-family         :   'Arial';
+    font-size           :   12px;
+    text-align          :   center;
+    font-weight         :   bold;   
+    color               :   #FF0000;
+}
+*/

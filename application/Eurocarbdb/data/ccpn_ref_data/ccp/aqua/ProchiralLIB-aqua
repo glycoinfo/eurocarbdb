@@ -1,0 +1,61 @@
+$ Aqua Version 3.2 DATA: Stereo atom definitions AQUA format
+$ REMARK: 
+$ REMARK: Modification of StereoLIB-aqua file
+$ REMARK: not all 'stereo' atoms defined in there are prochiral
+$ REMARK: Wim Vranken 2002/11/22
+$ PROCHIRAL_COUNT: 52
+$ BEGIN_DATA:
+def ARG   * QB    1 HB2   HB3   
+def ARG   * QG    1 HG2   HG3   
+def ARG   * QD    1 HD2   HD3   
+def ARG+  * QB    1 HB2   HB3   
+def ARG+  * QG    1 HG2   HG3   
+def ARG+  * QD    1 HD2   HD3   
+def ASN   * QB    1 HB2   HB3   
+def ASP   * QB    1 HB2   HB3   
+def ASP-  * QB    1 HB2   HB3   
+def CYS   * QB    1 HB2   HB3
+def GLN   * QB    1 HB2   HB3   
+def GLN   * QG    1 HG2   HG3   
+def GLU   * QB    1 HB2   HB3   
+def GLU   * QG    1 HG2   HG3   
+def GLU-  * QB    1 HB2   HB3   
+def GLU-  * QG    1 HG2   HG3   
+def GLY   * QA    1 HA2   HA3   
+def HIS   * QB    1 HB2   HB3   
+def HIS+  * QB    1 HB2   HB3   
+def ILE   * QG    1 HG12  HG13  
+def LEU   * QB    1 HB2   HB3   
+def LEU   * QD    4 MD1   MD2  
+def LYS   * QB    1 HB2   HB3   
+def LYS   * QG    1 HG2   HG3   
+def LYS   * QD    1 HD2   HD3   
+def LYS   * QE    1 HE2   HE3   
+def LYS+  * QB    1 HB2   HB3   
+def LYS+  * QG    1 HG2   HG3   
+def LYS+  * QD    1 HD2   HD3   
+def LYS+  * QE    1 HE2   HE3   
+def MET   * QB    1 HB2   HB3   
+def MET   * QG    1 HG2   HG3   
+def PHE   * QB    1 HB2   HB3   
+def PRO   * QB    1 HB2   HB3   
+def PRO   * QG    1 HG2   HG3   
+def PRO   * QD    1 HD2   HD3   
+def SER   * QB    1 HB2   HB3   
+def TRP   * QB    1 HB2   HB3   
+def TYR   * QB    1 HB2   HB3   
+def VAL   * QG    4 MG1   MG2
+$ DNA and RNA
+def   A   * Q5'   1 H5'   H5''
+def   C   * Q5'   1 H5'   H5''
+def   G   * Q5'   1 H5'   H5''
+def   T   * Q5'   1 H5'   H5''
+def   U   * Q5'   1 H5'   H5''
+$ DNA
+def   A   * Q2'   1 H2'   H2''
+def   C   * Q2'   1 H2'   H2''
+def   G   * Q2'   1 H2'   H2''
+def   T   * Q2'   1 H2'   H2''
+def   U   * Q2'   1 H2'   H2''
+def   DUR * Q2'   1 H2'   H2''
+def   DUR * Q5'   1 H5'   H5''

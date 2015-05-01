@@ -1,0 +1,59 @@
+# defaults for pentoses
+
+residue aLAra {
+default '1' aDGal 0.05, aDGlc 0.05
+default '2' aDGal 0.05, aDGlc 0.05, aDGalOMe 0.05, aDGlcOMe 0.05
+default '3' aDGal 0.05, aDGalOMe 0.05, bDGal 0.05, bDGalOMe 0.05
+default '4' aDGal 0.05, aDGalOMe 0.05, bDGal 0.05, bDGalOMe 0.05
+}
+
+residue bLAra {
+default '1' bDGal 0.05, bDGlc 0.05
+default '2' bDGal 0.05, bDGlc 0.05, bDGalOMe 0.05, bDGlcOMe 0.05
+default '3' aDGal 0.05, aDGalOMe 0.05, bDGal 0.05, bDGalOMe 0.05
+default '4' aDGal 0.05, aDGalOMe 0.05, bDGal 0.05, bDGalOMe 0.05
+}
+
+residue aDLyx {
+default '1' aDMan 0.05, aDRha 0.05, aDGlc 1, aDGal 1
+default '2' aDMan 0.05, aDRha 0.05, aDManOMe 0.05, aDRhaOMe 0.05
+default '3' aDMan 0.05, aDRha 0.05, aDManOMe 0.05, aDRhaOMe 0.05
+default '3' bDMan 0.05, bDRha 0.05, bDManOMe 0.05, bDRhaOMe 0.05
+default '4' aDGlc 0.05, aDGlcOMe 0.05, bDGlc 0.05, bDGlcOMe 0.05
+default '4' aDMan 0.05, aDRha 0.05, aDManOMe 0.05, aDRhaOMe 0.05
+default '4' bDMan 0.05, bDRha 0.05, bDManOMe 0.05, bDRhaOMe 0.05
+}
+
+residue bDLyx {
+default '1' bDMan 0.05, bDRha 0.05, bDGlc 1, bDGal 1
+default '2' bDMan 0.05, bDRha 0.05, bDManOMe 0.05, bDRhaOMe 0.05
+default '3' aDMan 0.05, aDRha 0.05, aDManOMe 0.05, aDRhaOMe 0.05
+default '3' bDMan 0.05, bDRha 0.05, bDManOMe 0.05, bDRhaOMe 0.05
+default '4' aDGlc 0.05, aDGlcOMe 0.05, bDGlc 0.05, bDGlcOMe 0.05
+default '4' aDMan 0.05, aDRha 0.05, aDManOMe 0.05, aDRhaOMe 0.05
+default '4' bDMan 0.05, bDRha 0.05, bDManOMe 0.05, bDRhaOMe 0.05
+}
+
+# residue DRib<->LAlt
+
+residue aDXyl {
+default '1' aDGlc 0.05, aDGal 0.05
+default '2' aDGlcOMe 0.05, aDGalOMe 0.05, aDGal 0.05
+default '3' aDGlcOMe 0.05, bDGlcOMe 0.05, bDGlc 0.05
+default '4' aDGlcOMe 0.05, bDGlcOMe 0.05, bDGlc 0.05, aDMan 0.05, bDMan 0.05
+}
+
+residue bDXyl {
+default '1' bDGlc 0.05, bDGal 0.05
+default '2' bDGlcOMe 0.05, bDGalOMe 0.05, bDGal 0.05
+default '3' bDGlcOMe 0.05, aDGlcOMe 0.05, aDGlc 0.05
+default '4' bDGlcOMe 0.05, aDGlcOMe 0.05, aDGlc 0.05, aDMan 0.05, bDMan 0.05
+}
+
+residue aLXyl {
+default '1' aLFuc 0.05, aLRha 0.5
+}
+
+residue bLXyl {
+default '1' bLFuc 0.05, bLRha 0.5
+}

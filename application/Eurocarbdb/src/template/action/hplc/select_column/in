@@ -1,0 +1,22 @@
+<#assign title>User home</#assign>
+<#include "/template/ui/user/header.ftl" />
+
+<h1>Detector Entry</h1>
+
+<h2>Detector</h2>
+
+<form>
+
+<@ww.select label="Manufacturer" name="detector.manufacturer" list="detectors"  listKey="manufacturer" listValue="manufacturer"/><br>
+
+<@ww.select label="Model" name="detector.model" list="detectors"  listKey="model" listValue="model"/><br>
+
+
+<@ww.submit name="submit"/>
+
+
+</form>
+
+
+
+<#include "/template/common/footer.ftl" />

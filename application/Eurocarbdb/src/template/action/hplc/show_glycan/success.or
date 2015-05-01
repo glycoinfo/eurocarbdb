@@ -1,0 +1,40 @@
+<#assign title>Detector Entry</#assign>
+<#include "/template/common/header.ftl" />
+
+<h1>Detector Attributes</h1>
+<h2>Search a selection of glycan structures</h2>
+<h3>Only a small set of structures from GlycoBase available</h3>   
+    <div>
+      <ul>
+	<li>id = ${glycanId}</li>
+	<li>Name = ${glycan.name}</li>
+        <li>GU = ${glycan.gu}</li>
+	<li>Standard Dev. = ${glycan.std}</li>
+	<li>MS = ${glycan.ms}</li>
+	<li>MS/MS = ${glycan.msMs}</li>
+	<li>Hex = ${glycan.hex}</li>
+	<li>HexNAc = ${glycan.hexnac}</li>
+	<li>NeuNAc = ${glycan.neunac}</li>
+	<li>Fucose = ${glycan.fucose}</li>
+	<li>Xylose = ${glycan.xylose}</li>
+	<li>NeuGc = ${glycan.neugc}</li>
+	<li>A1 = ${glycan.a1}</li>
+	<li>A2 = ${glycan.a2}</li>
+	<li>A3 = ${glycan.a3}</li>
+	<li>A4 = ${glycan.a4}</li>
+	<li>S = ${glycan.s}</li>
+	<li>Core Fucose = ${glycan.f6}</li>
+	<li>Bisect = ${glycan.b}</li>
+	<li>Beta Gal = ${glycan.bgal}</li>
+	<li>Alpha Gal = ${glycan.agal}</li>
+	<li>GalNAc = ${glycan.galnac}</li>
+	<li>Poly Lactosamine = ${glycan.polylac}</li>
+	<li>Fucose Outer Arm = ${glycan.fouterarm}</li>
+	<li>Hybrid = ${glycan.hybrid}</li>
+	<li>Mannose type = ${glycan.mannose}</li>
+      </ul>
+    </div>
+   
+<p>NIBRT groupings omitted here!</p> 
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="resources_db" package="org.eurocarbdb.resourcesdb.nonmonosaccharide">
+    <class name="AminoAcid" table="amino_acid" mutable="false" lazy="false">
+        <id name="abbreviation3" column="abbr_3">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" column="name"/>
+        <property name="abbreviation1" column="abbr_1"/>
+        <property name="monoMass" column="mono_mass"/>
+        <property name="avgMass" column="avg_mass"/>
+        <property name="monoIncr" column="mono_incr"/>
+        <property name="avgIncr" column="avg_incr"/>
+        <bag name="atoms">
+        	<key column="amino_acid_name" not-null="true"/>
+        	<one-to-many entity-name="AminoAcidAtom"/>
+        </bag>
+   </class>
+</hibernate-mapping>

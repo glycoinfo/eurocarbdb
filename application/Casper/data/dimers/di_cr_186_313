@@ -1,0 +1,20 @@
+# N.m.r. structure determination of
+# 3-O-(a-D-glucopyranosyluronic acid)-L-galactopyranose,
+# an aldobiouronic acid isolated from the unicellular red
+# alga Rhodella reticulata
+# M. Jaseja, A.S. Perlin, O. Dubinsky, D. Christiaen,
+# S. Arad, R. Glaser
+set ref 'Carbohydr. Res. 186 (1989) 313-319'
+
+# (from mono)
+dimer 'aDGlcA(1->3)aLGal' {
+shift 101.29 5.24; 72.23 3.63; 73.65 3.79; 72.81 3.47; 73.40 4.06; 177.11
+shift  93.17 5.27; 68.59 3.98; 78.63 3.88; 70.09 4.09; 71.48 (3.65);62.01 (3.64)(3.72)
+extract: info $ref
+}
+
+dimer 'aDGlcA(1->3)bLGal' {
+shift 101.29 5.24; 72.23 3.63; 73.65 3.79; 72.81 3.47; 73.40 4.06; 177.11
+shift  97.18 4.65; 72.47 3.61; 81.73 3.78; 69.46 4.01; 76.01 3.70; 61.86 3.63 3.63
+extract: info $ref
+}

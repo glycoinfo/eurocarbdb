@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+    <xs:element name="data_export">
+        <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+				<xs:element name="taxon_tree" type="taxonTreeType" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="error" type="errorType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="structure_list" type="structureListType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="database_list" type="databaseListType" minOccurs="1" maxOccurs="1"/>
+            </xs:choice>
+            <xs:attribute name="date" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+	<xs:complexType name="errorType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="code" type="xs:string" use="optional"/>
+        <xs:attribute name="title" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+    </xs:complexType>
+      
+	<xs:complexType name="structureListType">
+        <xs:sequence>
+			<xs:element name="structure" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="taxon" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="ncbi" type="xs:integer" use="required"/>
+							</xs:complexType>			
+						</xs:element>
+						<xs:element name="resource" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="db" type="xs:string" use="required"/>
+								<xs:attribute name="id" type="xs:string" use="optional"/>
+							</xs:complexType>			
+						</xs:element>
+						<xs:element name="deleted_mapping" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="id" type="xs:integer" use="required"/>
+							</xs:complexType>			
+						</xs:element>                        <xs:element name="sequence" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="format" type="xs:string" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+                    </xs:sequence>
+					<xs:attribute name="database" type="xs:string" use="required"/>
+					<xs:attribute name="id" type="xs:string" use="required"/>
+				</xs:complexType>			
+			</xs:element>
+		</xs:sequence>	
+		<xs:attribute name="count" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+	<xs:complexType name="databaseListType">
+        <xs:sequence>
+			<xs:element name="database" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required"/>
+					<xs:attribute name="identifier" type="xs:string" use="required"/>
+					<xs:attribute name="url" type="xs:string" use="optional"/>
+					<xs:attribute name="abbr" type="xs:string" use="required"/>
+					<xs:attribute name="count" type="xs:integer" use="required"/>
+					<xs:attribute name="countType" type="xs:string" use="required"/>
+				</xs:complexType>			
+			</xs:element>
+		</xs:sequence>	
+		<xs:attribute name="count" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+	<xs:complexType name="taxonTreeType">
+		<xs:sequence>
+			<xs:element name="taxon" minOccurs="0" maxOccurs="unbounded">
+			<xs:complexType>
+					<xs:sequence>
+						<xs:element name="parent" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="ncbi" type="xs:integer" use="required"/>
+							</xs:complexType>			
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="ncbi" type="xs:integer" use="required"/>
+					<xs:attribute name="name" type="xs:string" use="required"/>
+					<xs:attribute name="rank" type="xs:string" use="optional"/>
+			</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+        <xs:attribute name="count" type="xs:integer" use="required"/>
+    </xs:complexType>
+	
+</xs:schema>

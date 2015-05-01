@@ -1,0 +1,56 @@
+# Structural sytudies on 2-Acetamido-1-N-(4-L-aspartyl)-
+# 2-deoxy-b-D-glucopyranosylamine and 2-Acetamido-6-O-
+# (a-L-fucopyranosyl)-1-N-(4-L-aspartyl)-2-deoxy-
+# b-D-glucopyranosylamine by 360-MHz Proton-
+# Magnetic-Resonance Spectroscopy
+# L. Dorland, B.L. Schut, J.F.G. Vliegenthart,
+# G. Strecker, B. Fournet, G. Spik, J. Montreuil
+
+set ref 'Eur. J. Biochem. 73 (1977) 93-97'
+
+# 13C from
+# Natural-Abundance 13C-NMR Spectroscopy of Two
+# Glyco-asparagines Derived from the Core of
+# N-Glycosidic Carbohydrate Chains
+# B.W. Dijkstra, J.F.G. Vliegenthart, G. Strecker,
+# J. Montreuil
+# Eur. J. Biochem. 130 (1983) 111-115
+
+type Asn {
+info 'Asparagine'
+# Free position only set at position 4. 
+atom '1' 0 link # Carboxyl
+atom '2' 1 # 'N'
+atom '3' 2
+atom '4' 0 free # Amide 'N'
+connect '1' '2' '3' '4'
+ctclass 'aglycan'
+}
+
+# Assume no glycosylation shift!
+residue Asn Asn {
+info 'tentative!'
+carbbank 'Asn'
+shift 175.42
+shift 52.45 3.99
+shift 36.40 2.93 2.87
+shift 174.97
+ctname 'N'
+}
+
+dimer 'bDGlcNAc(1->4)Asn' {
+shift 79.48 5.09
+shift 55.44 3.83
+shift 75.60 3.62
+shift 70.81 3.48
+shift 78.94 3.53
+shift 61.84 3.89 3.75
+shift 23.40 2.02
+shift 173.93
+
+shift 175.42
+shift 52.45 3.99
+shift 36.40 2.93 2.87
+shift 174.97
+extract
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+            
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+            
+  <meta name="GENERATOR"
+ content="Mozilla/4.72 [en] (X11; U; Linux 2.2.14-5.0 i686) [Netscape]">
+  <title>Introduction</title>
+   
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff"
+ alink="#ff0000">
+      
+<h1> <a name="Introduction"></a>Introduction</h1>
+      
+<hr>   
+<ul>
+    <img src="fullwindow.gif" alt="Screenshot of program" height="355"
+ width="356">
+         
+  <p>ProSpectND is a processing package for 1/2/3/4/5D NMR data. The program 
+ has been used to process 1/2/3D NMR Bruker and Varian files. For larger dimensions,
+it has only been tested with computer generated 4/5D files. The program includes
+special features like, linear prediction, watwa water suppression, and Hilbert
+transform. Also, a simulation module, based on the LOACOON simulation program
+for isotropic nmr spectra of spin-1/2 systems, has been included. Most functions
+can be accessed from menu's as well as from the command line. The nD-processing
+part is handled by scripts for maximum flexibility. These scripts can be
+generated automatically by the program for standard nD processing. If needed,
+the scripts can be modified before execution.</p>
+   
+</ul>
+      
+<h2> Example of the <a href="processing_2d.html#Processing">processing of
+ a 2D NMR spectrum</a>.</h2>
+      
+<h4> Conversion of Bruker and Varian NMR files</h4>
+      
+<ul>
+  NMR data sets that have been recorded by Bruker or Varian Spectrometers 
+must be converted to the program's own file format, before they can be processed.
+ This conversion is handled by scripts what ensures maximum flexibility.
+These  scripts can be found in the default script directory (if the environment 
+variable PSNDSCRIPTDIR has been set). To prepare a file with scripts, a simple 
+setup utility ha been created that can handle the most common cases. Select 
+under the 'File' menu the option '<a name="Prepare_BrukerVarian_file"></a> 
+Prepare Bruker/Varian file'.       
+  <p><img src="prepa_script_popup.gif" alt="Prepa Script setup."
+ height="455" width="286" align="bottom">
+   <br>
+  &nbsp; <br>
+  &nbsp; </p>
+       
+  <h4> Data dir</h4>
+   The directory where the ser or fid file resides. It also should contain 
+parameters (acqus, acqu2s or procpar). It is ok to append 'ser' <br>
+  or 'fid' to this parameter.       
+  <h4> Output file Name</h4>
+   The output file name. If a full directory is specified, the program makes 
+ this the current working directory.       
+  <h4> Prepa script</h4>
+   prepa_bruker.au or prepa_varian.au       
+  <h4> Bruker modes</h4>
+   <a href="#brukermodes">States, TPPI, Echo-antiecho, States-TPPI</a>  
+   
+  <h4> Bruker 2D acq. order</h4>
+   For 3D files: acquisition order is 321 or 312       
+  <h4> Dimension NMR data</h4>
+   There are currently only prepa scripts for 1/2/3D data.       
+  <p>When OK is pressed, the script editor is displayed with the above values 
+ added to the 'Script arguments'.&nbsp; When OK is pressed here, a file conversion
+ takes place and the first record of the new file is loaded and displayed. 
+   </p>
+       
+  <p>Alternatively, press&nbsp;<img src="buttons_script_popup.gif"
+ height="27" width="43" align="middle" alt="Launch script editor">
+   This will display the Script Editor. Load the correct prepa script and 
+add the arguments by hand. </p>
+       
+  <p><img src="script_popup.gif" alt="Script editor." height="533"
+ width="305" align="bottom">
+   </p>
+       
+  <p>Use Read Script to select an appropriate processing script. Edit the 
+ names of the input and output files and press OK. </p>
+       
+  <p>The prepa Bruker script is called <b>prepa_bruker.au</b>, and can be 
+ initiated with some arguments. To view those arguments, use </p>
+       
+  <p><tt>prospectnd -b prepa_bruker.au -h</tt> </p>
+       
+  <p>This means, run the prospectnd program in the background mode (-b flag) 
+ with the script name prepa_bruker.au (this is a script available from the 
+ standard script directory) and with the argument help (-h).&nbsp; The output 
+ will be something like: </p>
+       
+  <p><tt>-i file_or_directory_name&nbsp;&nbsp; - Define input file or directory</tt> 
+   <br>
+    <tt>-o output_file&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - Define output file</tt> <br>
+    <tt>-d ndim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - Define the dimensionality of the file</tt> <br>
+    <tt>-m n mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - Define datatype in direction n (n=1,2,3,4)</tt> <br>
+    <tt>&nbsp;-m n 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - Set mode for tn from file (default) (n=1,2)</tt> <br>
+    <tt>&nbsp;-m n c or -m n s or -m n 1 - Set mode for tn to States (i.e. 
+complex)&nbsp; (n=1,2)</tt> <br>
+    <tt>&nbsp;-m n r or -m n t or -m n 2 - Set mode for tn to TPPI (i.e.
+real)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  (n=1,2)</tt> <br>
+    <tt>&nbsp;-m n e or -m n 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - Set mode for tn to echo-antiecho&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ (n=1,2)</tt> <br>
+    <tt>&nbsp;-m n z or -m n 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - Set mode for tn to States-TPPI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ (n=1,2)</tt> <br>
+    <tt>-s n size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - Define size in direction n (n=1,2,3,4)</tt> <br>
+    <tt>-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ - This help overview</tt> </p>
+       
+  <p>The actual output will depend on the current version of the script. Now
+one can prepare a file in batch mode with the following command: </p>
+       
+  <p><tt>prospectnd -b prepa_bruker.au -i data/2/ -o 2dfile.p -m 1 e -m 2 
+ c</tt> </p>
+       
+  <p>This means, convert the file that can be found in the directory data/2 
+ (ser + acqus files) into the output file 2dfile.p. The optional arguments 
+ with the -m flags specify that the spectrum was echo-antiecho in direction 
+ 1 and complex in direction 2. Of course, the same can be done by loading 
+the script in the script editor, an put the arguments in the <i>Script arguments</i>
+ text area. </p>
+       
+  <p><a name="brukermodes"></a><b>Conversions used by the prepa script. Examples 
+ are for the first 4 data points.</b> </p>
+       
+  <p>States - odd data points are written to the real data array and even 
+ data points to the imaginary data array. <br>
+    <tt>source 1 2 3 4 = real 1 3 + imaginary 2 4</tt> </p>
+       
+  <p>TPPI - data are copied to the real data array. <br>
+    <tt>source 1 2 3 4 = real 1 2 3 4</tt> </p>
+       
+  <p>Echo-antiecho - 4 data points are mixed and written to the real and imaginary
+data arrays. <br>
+    <tt>source 1 2 3 4 = real 1+3 4-2 + imaginary 2+4 1-3</tt> </p>
+       
+  <p>States-TPPI - Same as States, but every second real and imaginary data 
+ point is multiplied by -1. <br>
+    <tt>source 1 2 3 4 = real 1 -3 + imaginary 2 -4</tt></p>
+   
+</ul>
+      
+<h4> Read the NMR file</h4>
+      
+<blockquote>When a new file has been created with a 'prepa' script, the first
+ record of this file is loaded automatically. Otherwise,&nbsp; see <u><font
+ color="#0000ff"><a href="openfile.html#Open%20and%20Read%20Files">Open and
+ Read Files</a></font></u> on how to accomplish this. At this stage, all
+processing  parameters are disabled. The strategy is now to process the first
+record of the file. That is the one that is currently displayed. By doing
+so, the relevant parameters will be defined. From these parameters a script
+can be generated by the program that will process all records of the NMR
+data set in the current direction. The same principle can be applied for
+each dimension until all have been processed. Each processing step produces
+a new file.</blockquote>
+      
+<h4> Use a Window Filter</h4>
+      
+<blockquote><img src="sample_fid.gif" alt="Example of FID" height="218"
+ width="284">
+    <img src="sample_wn.gif" alt="Example FID after window" height="221"
+ width="283">
+  </blockquote>
+      
+<ul>
+  For all the options, see <u><font color="#0000ff"><a
+ href="processing_1d.html#Window">Window</a></font></u> . Use the Wn button
+ to select the window-type + parameters. When the Window popup menu appears
+ for the first time, the 'Window' option says 'No window'. After a window
+filter has been applied this changes to 'Do window', what means that the
+current settings have been stored and will be used for the creation of a
+processing script. You don't have to set this by hand. To remove the window
+filter from the chain of events, go to the 'Parameters' menu, select 'Window',
+set the option back to "no window', and press OK.  
+</ul>
+      
+<h4> Do a Fourier Transform</h4>
+      
+<ul>
+    <img src="sample_ft.gif" alt="Example of a FT" height="221"
+ width="285">
+         
+  <p>See <u><font color="#0000ff"><a
+ href="processing_1d.html#Fourier%20transform">Fourier Transform</a></font></u></p>
+   
+</ul>
+      
+<h4> Apply Phase Correction</h4>
+      
+<ul>
+    <img src="sample_phase.gif" alt="Example of a phase correction"
+ height="220" width="283">
+         
+  <p>See <u><font color="#0000ff"><a
+ href="processing_1d.html#Phase%20correction">Phase correction</a></font></u></p>
+   
+</ul>
+      
+<h4> Create 2D processing script</h4>
+      
+<ul>
+  Use again&nbsp;<img src="buttons_script_popup.gif" height="24"
+ width="39" align="middle" alt="Launch script editor">
+   the get the script editor. Use "Create script from Parameters" to produce 
+ something like the following script:       
+  <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Script generated by prospectnd<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; file1 = "/home/kuik/nmrdata/2dvar.p"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; file2 = "/home/kuik/nmrdata/2dvar.f2"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Open input file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ropen file1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set processing direction<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dr 2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set store mode to complex<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sm 2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Open output file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wopen file2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # For all records do ...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for $i in sorted [..] do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print "\rProcessing record " + i<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Read record<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rn $i<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Window<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sq 2.20, [1..2048]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Fourier transformation<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ft 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Phase correction<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pk 137.9, 6.2, 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Write result<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "\nDone"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Close output file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wclose<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Reopen the output file for reading<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ropen file2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Set direction<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dr 2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Read first record<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rn 1</pre>
+   Press OK to run this script.  
+</ul>
+      
+<h4> Process direction 1</h4>
+      
+<ul>
+  All records in direction 2 now have been processed and the first record 
+(in direction 2) of the new file has been loaded. One way to proceed is to 
+select a number of records in direction 1 to define new parameters. Get the 
+Row/Column select mode with&nbsp;<img src="mouse_rowcol.gif"
+ alt="Mouse row/column select button" height="25" width="30">
+  .       
+  <p><img src="sample_select_fid_d1.gif"
+ alt="Select 1D record from another direction" height="217" width="282">
+    <img src="sample_fid_d1.gif" alt="Example of FID in direction 1"
+ height="217" width="283">
+   </p>
+       
+  <p>One can use the bookmark option <img src="buttons_bookmarks.gif"
+ alt="Launch bookmarks popup button" width="45" height="28"
+ align="middle">
+  . Press 'Add Bookmark' to add the current record to the list. </p>
+       
+  <p><img src="bookmark_short.gif"
+ alt="Bookmarks to remember record numbers" height="287" width="140">
+   </p>
+       
+  <p>Now apply a window function, a Fourier transformation and a phase correction, 
+ in the same way as for direction 2. <br>
+  &nbsp; </p>
+       
+  <p><img src="sample_phase_d1.gif"
+ alt="Example of phase correction in direction 1" height="218"
+ width="282">
+    <img src="sample_phase_2_d1.gif"
+ alt="Example after phase correction in direction 1" height="219"
+ width="283">
+   </p>
+       
+  <p>Now go back to direction 2, by pressing the <img
+ src="buttons_undo_record_selection.gif"
+ alt="Undo last record selection button" width="46" height="28"
+ align="middle">
+  &nbsp; (= Undo record selection) button. </p>
+       
+  <p><img src="next_prev_undo_redo.gif"
+ alt="Next, prev, undo and redo buttons" height="30" width="179">
+   </p>
+       
+  <p>Select some other records from direction 1, so that we do not only have 
+ peaks at the right side of the spectrum. <font color="#ff0000">IMPORTANT</font>: 
+ use <b>AU</b> to repeat all processing steps for the newly selected record.
+ Next do some additional phase correction. Test all these processing steps
+ on yet another record. </p>
+       
+  <p><img src="sample_fid_2_d1.gif"
+ alt="Example of second FID in direction 1" height="220" width="283">
+    <img src="sample_fid_2_au_d1.gif"
+ alt="Example of second FID in direction 1 after AU command"
+ height="218" width="283">
+   </p>
+       
+  <p>There is also another way of doing a <a
+ href="processing_2d.html#Phase%20-%202D%20Phase">2D phase correction</a>&nbsp;
+ Finally one can end with a <a
+ href="processing_1d.html#Baseline%20correction">baseline correction</a>.
+ Again use "Create script from Parameters" to create a script and process
+the file.</p>
+   
+</ul>
+      
+<h4> Use 2D options to analyse the 2D spectrum</h4>
+      
+<ul>
+  See <u><font color="#0000ff"><a
+ href="processing_2d.html#The%202D%20buttons">2D options</a></font></u>  
+</ul>
+      
+<hr width="100%"> <br>
+  &nbsp; <br>
+  <br>
+ 
+</body>
+</html>

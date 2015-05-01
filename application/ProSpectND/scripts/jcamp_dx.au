@@ -1,0 +1,117 @@
+# Prepa script for JCAMP-DX data (spectrum)
+#
+# Examples
+# Script argument:
+#   -i infile -o outfile
+
+function set_file_names
+  #
+  #
+  if %infile == "" then
+    %jcampfile = "xxx.jdx"
+  else
+    %jcampfile = %infile
+  endif
+
+  #
+  # Name of the output file
+  #
+  if (%outfile == "") then
+    %outputfile = "1dout.p"
+  else
+    %outputfile = %outfile
+  endif
+
+end
+
+
+function init_argv_vars
+  %infile  = ""		# to be handled in "argv-i.aui"
+  %outfile = ""		# to be handled in "argv-o.aui"
+end
+
+function proc_argv
+  $argi = 0
+  while $argi < argc do
+
+    include "argv-i.aui"	# set variable 'infile'  with  input file name
+    include "argv-o.aui"	# set variable 'outfile' with output file name
+
+    $argi += 1
+  done
+end  
+
+$init_argv_vars()
+$proc_argv()
+$set_file_names()
+
+initparam
+
+$file1 = open %jcampfile ,"r"
+if $file1 == 0 then
+    println "Can not open " + %jcampfile
+    exit
+endif
+
+    %nsize     = scan $file1, "##NPOINTS = %s"       
+    %firstx    = scan $file1, "##FIRSTX = %s"      
+    %lastx     = scan $file1, "##LASTX = %s"       
+    %units     = scan $file1, "##XUNITS = %s" 
+    if %units == "ppm" then
+        isspec 1
+    endif
+
+$dx = abs($lastx - $firstx)
+
+close $file1
+
+$dimension = 1
+$field = 500
+$sweep = $field*$dx
+
+
+td $nsize
+si $nsize
+sf $field
+sw $sweep
+
+$ref_chan = 1
+$ref_ppm  = $lastx
+xr  $ref_chan - (1.0 - $nsize) * $ref_ppm * $field/$sweep
+
+
+
+$file1 = open %jcampfile ,"r"
+
+$i=0
+do 
+    %line = fgets($file1) 
+    if (%line[1..2] != "##") then
+          %xx = token %line, " \n\r" 
+          if %xx != "" then 
+              %yy = token " \n\r" 
+              @r[$i] = $yy
+              $i += 1
+              if $i > $nsize then
+                  break
+              endif
+          endif
+    endif
+while %line[1..6] != "##END=" 
+close $file1
+
+if ($lastx > $firstx) then
+    rv @r
+endif
+    
+wr @r, %outputfile
+
+ropen %outputfile
+dr  $dimension 
+rn 1, 1
+
+println "\nDone"
+
+
+
+

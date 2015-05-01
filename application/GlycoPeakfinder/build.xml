@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<project name="eurocarb-glycopeakfinder" default="build" basedir=".">
+
+    <!--
+    !   this import defines the following:
+    !
+    !   1) 'project.*' properties  
+    !   2) 'project.classpath' path, containing all external and eurocarb-compiled jars.
+    !   3) 'build-XXX' tasks, where 'XXX' is the name of a sub-project                
+    !
+    -->
+    <import file="../../build.common.xml" />
+
+    <!--===================== PROPERTIES =========================-->
+
+    <property name="conf.dir" value="${basedir}/conf" />
+    <property name="java.source.dir" value="${basedir}/src/java" />
+    <property name="java.build.dir" value="${basedir}/build" />
+    <property name="java.dist.dir" value="${project.java.lib.dir}" />
+    <property name="webapp.dist.dir" value="${project.webapp.dir}" />
+	<property name="freemarker.templates.dir" location="src/templates"/>
+    
+    
+    <!--======================== PATHS ===========================-->
+    
+    
+    
+    <!--======================= TARGETS  =========================-->
+    <!--            (in alphabetical order please)                -->
+    
+    
+    <!-- TARGET: build ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    - no internal dependencies
+    - no external dependencies
+    -->
+	<target name="build" depends="">
+        <mkdir dir="${java.build.dir}" />
+		<javac srcdir="${java.source.dir}" destdir="${java.build.dir}" debug="off" >
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+	
+    
+    <!-- TARGET: clean ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="clean" depends="">
+        <echo>Cleaning ${ant.project.name}</echo>
+        <mkdir dir="${java.build.dir}" />
+        <delete includeemptydirs="true">
+            <fileset dir="${java.build.dir}" includes="**/*"/>
+        </delete>	        
+    </target>
+
+
+    <!-- TARGET: dist ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Builds both the lib jar, and the webapp war.
+    -->
+    <target name="dist" depends="dist-lib, dist-application-lib" description="Deploys GPF application and library jars">
+    </target>
+    
+
+    <!-- TARGET: dist-application-lib ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="dist-application-lib" depends="dist-lib">
+        <jar destfile="${java.dist.dir}/${project.glycopeakfinder.app.jar}" >
+            <!-- all java classfiles except the calculate package -->
+            <fileset dir="${java.build.dir}" excludes="org/eurocarbdb/applications/ms/glycopeakfinder/calculation/**" />
+            
+            <!-- use integrated configuration -->
+            <fileset file="${conf.dir}/configuration.xml" />
+        </jar>            
+    </target>
+
+    
+    <!-- TARGET: dist-lib ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="dist-lib" depends="build">
+        <jar destfile="${java.dist.dir}/${project.glycopeakfinder.jar}" >
+            <!-- *only* the calculate package -->
+            <fileset dir="${java.build.dir}" includes="org/eurocarbdb/applications/ms/glycopeakfinder/calculation/**" />
+            
+            <!-- don't think configuration.xml is needed? -->
+            <!--<fileset file="${conf.dir}/configuration.xml" />-->
+        </jar>            
+	</target>
+
+    
+    <!-- TARGET: dist-standalone-webapp ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <target name="dist-standalone-webapp" depends="dist-lib, dist-application-lib">
+        <echo>TODO</echo>
+        <!--<war />-->
+    </target>
+
+</project>

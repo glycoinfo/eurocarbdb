@@ -1,0 +1,19 @@
+# 1H- and 13C-N.M.R. assignments and conformational
+# analysis of some monosaccharide and oligosaccharide
+# substrate-analogues of lysozyme
+# J. Boyd, R. Porteous, N. Soffe
+set ref 'Carbohydr. Res. 139 (1985) 35-46'
+# C81
+# false NAc!
+
+dimer 'bDGlcNAc(1->4)aDGlcNAc' {
+shift 102.70 4.59; 56.85 3.75; 74.73 3.58; 71.02 3.47; 77.14 3.50; 61.84 3.91 3.73; 22.87 2.06; 175.13
+shift  91.68 5.19; 54.84 3.86; 70.56 3.87; 81.19 3.62; 71.21 3.87; 61.35 3.78 3.66; 22.87 2.06; 175.13
+extract:info $ref
+}
+
+dimer 'bDGlcNAc(1->4)bDGlcNAc' {
+shift 102.70 4.59; 56.85 3.74; 74.73 3.57; 71.02 3.46; 77.14 3.49; 61.84 3.91 3.74; 23.10 2.06; 175.49
+shift  96.03 4.70; 57.36 3.68; 73.77 3.67; 80.75 3.61; 75.79 3.50; 61.35 3.82 3.64; 23.10 2.06; 175.49
+extract:info $ref
+}

@@ -1,0 +1,257 @@
+/**
+ * $Id: ShowGlycan.java 3604 2008-10-24 16:11:33Z mcampbell $
+ * Last changed $Author: mcampbell $
+ * EUROCarbDB Project
+ */
+
+package org.eurocarbdb.action.hplc;
+
+
+import java.util.*;
+
+import org.eurocarbdb.action.*;
+import org.eurocarbdb.dataaccess.*;
+import org.eurocarbdb.dataaccess.hplc.*;
+import org.eurocarbdb.dataaccess.core.*;
+
+import static org.eurocarbdb.dataaccess.Eurocarb.getEntityManager;
+import org.eurocarbdb.dataaccess.EntityManager;
+
+
+import org.apache.log4j.Logger;
+
+/**
+ * @author 		 	matthew	
+ * @rev				$Rev: 3604 $
+ */
+public class ShowGlycan extends BrowseAction<Glycan> {
+
+    protected static final Logger logger = Logger.getLogger( ShowGlycan.class.getName() );
+
+    private Glycan glycan= null;
+    private List<RefLink> stats;
+    private List<RefLink> displayStats;
+    private List<RefLink> refs;
+    private List<RefLink> displayRefs;
+    private List<DigestSingle> displayDigestSingle;
+    private List<DigestSingle> digestSingleMulti;
+    private List<DigestSingle> displayDigestSingleMulti;
+    private List<MultistructuresGlycoct> displayMultipleCt;
+    private List<MultistructuresGlycoct> multiDigests;
+    private List<MultistructuresGlycoct> displayMultiDigests;
+    private List<Multipleglycoct> multiDigestsProduct;
+    private List<Multipleglycoct> displayMultiDigestsProduct;
+    private int searchGlycanId = 0;
+    private int ctId = 0;
+    private String trueCT;
+    private String imageStyle;
+    private double reportValue;
+    private int reportId;
+    private List<Report> reportGu;
+    private List<Report> displayReportGu;
+
+ //   private String searchGlycanName = null;
+
+     public Glycan getGlycan() {
+        return glycan;
+    }
+    
+    public List<RefLink> getQuery() {
+	    return refs;
+    }
+    
+    public List getDisplayRefs()
+    {
+	    return displayRefs;
+    }
+
+    public List getDisplayDigestSingle()
+    {
+            return displayDigestSingle;
+    }
+
+     public List getDisplayDigestSingleMulti()
+    {
+            return displayDigestSingleMulti;
+    }
+
+    public List getDisplayStats()
+    {
+	    return displayStats;
+    }
+  
+    public List getDigestSingleMulti()
+    {
+            return digestSingleMulti;
+    }
+
+    public List getMultiDigests()
+    {
+            return multiDigests;
+    }
+
+    public List getDisplayMultiDigests()
+    {
+            return displayMultiDigests;
+    }
+
+
+     public List getMultiDigestsProduct()
+    {
+            return multiDigestsProduct;
+    }
+
+    public List getDisplayMultiDigestsProduct()
+    {
+            return displayMultiDigestsProduct;
+    }
+
+    public List getDisplayMultipleCt()
+    {
+	    return displayMultipleCt;
+    }
+
+//    public String getGlycanName() { return this.searchGlycanName: }
+  //  public void setGlycanName() ( String search_name) {this.searchGlycanName = search_glycan_name;}  
+ 
+    public int getGlycanId() { return this.searchGlycanId; }
+    public void setGlycanId( int search_glycan_id) {this.searchGlycanId = search_glycan_id; }
+ 
+    public String getImageStyle() { return this.imageStyle;}
+    public void setImageStyle( String pic_image_style) {this.imageStyle = pic_image_style;}
+
+    public int getCtId() { return this.ctId;}
+    public void setCtId( int pic_ct_id) {this.ctId = pic_ct_id;}
+
+    public String getTrueCT() { return this.trueCT;}
+    public void setTrueCT( String useCT) {this.trueCT = useCT;}
+    
+    public Double getReportValue() { return this.reportValue;}
+    public void setReportValue ( Double report_value) { this.reportValue = report_value;}
+
+    public int getReportId() { return this.reportId;}
+    public void setReportId ( int report_id) { this.reportId = report_id;}
+
+    public List getDisplayReportGu() {
+	    return displayReportGu;}
+
+      public String execute() {
+
+	    
+	    logger.info("the glycanId value is" + searchGlycanId + "fuck");
+	    
+         EntityManager em = getEntityManager();
+
+
+	if( searchGlycanId == 0 ) {
+	    this.addActionError( "Invalid");
+	    return INPUT;
+	}
+
+	if (reportValue >0 ) {
+	logger.info("the reportid" + reportId + "the glycan" + searchGlycanId);
+	reportGu =  Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Report.ALL_DATA")
+		    .setParameter("reportId", reportId)
+		    .setParameter("glycanId", searchGlycanId)
+		    .list();
+
+	displayReportGu = reportGu;
+	
+	}
+
+	logger.info("show stats");
+	//get average and td values for glycanId
+	stats = Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.RefLink.STATS")
+		.setParameter("glycanId", searchGlycanId)
+		.list();
+ 
+	displayStats = stats;
+
+
+	 glycan = Eurocarb.getEntityManager().lookup( Glycan.class, searchGlycanId );
+	 
+	 refs = Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.RefLink.PUBS")
+	 .setParameter("glycan_id", searchGlycanId)
+	 .list();
+	 
+	 displayRefs = refs;
+	 
+	 //lets try getting the publication from the core database
+	 //int coreReferenceId = refs.getCoreReferenceId();
+	 
+	 
+
+
+
+//find taxonomy and tissue info using ref_id
+
+/*	Iterator refIter = refs.iterator();
+	while (refIter.hasNext()) {
+				Object [] taxLookup = (Object []) refIter.next();
+				Integer lookupRefId = (Integer) tempLookup [7];
+	}
+*/
+       List<DigestSingle> digestSingle = (List<DigestSingle>)
+       Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.DigestSingle.GLYCAN_ENTRY_DIGESTS")
+       .setParameter("glycan_id", searchGlycanId)
+       .setParameter("glycan_id", searchGlycanId)
+       .list();
+
+       displayDigestSingle = digestSingle; 
+
+
+	 //List<DigestSingleMulti> digestSingleMulti = (List<DigestSingleMulti>)
+	//change in query due to translation changes
+       List digestSingleMulti =Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.DigestSingle.GLYCAN_ENTRY_DIGESTS_MULTIPLE")
+     //  .setParameter("glycan_id", searchGlycanId)
+	.setParameter("glycan_id", searchGlycanId)
+       .setParameter("glycan_id", searchGlycanId)
+       .list();
+
+       displayDigestSingleMulti = digestSingleMulti; 
+
+
+	//need to get all multiple ct entries due to ct support for multiple unknown groupings
+
+	//below change following translation changes
+	//List<Multipleglycoct> multipleCt = (List<Multipleglycoct>) Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Multipleglycoct.SELECT_ALL_MULTICT")
+	List<MultistructuresGlycoct> multipleCt = (List<MultistructuresGlycoct>) Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.MultistructuresGlycoct.SELECT_ALL_MULTICT")
+	.setParameter("glycan_id", searchGlycanId)
+	.list();
+
+	displayMultipleCt = multipleCt;
+	
+	
+         //List multiDigests = Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Multipleglycoct.SELECT_ALL_MULTICT_DIGESTS")
+	List<MultistructuresGlycoct> multiDigests = (List<MultistructuresGlycoct>) Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.MultistructuresGlycoct.SELECT_ALL_MULTICT_DIGESTS")
+	.setParameter("glycan_id", searchGlycanId)
+	.list();
+	int metest = multiDigests.size();
+	logger.info("listsizetest" + metest);
+	if ( metest > 0) {
+	displayMultiDigests = multiDigests;
+	}
+	if (metest <= 0) {
+	 //List multiDigestsProduct = Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.Multipleglycoct.SELECT_ALL_MULTICT_DIGESTS_PRODUCT")
+	List<MultistructuresGlycoct> multiDigestsProduct = (List<MultistructuresGlycoct>) Eurocarb.getEntityManager().getQuery("org.eurocarbdb.dataaccess.hplc.MultistructuresGlycoct.SELECT_ALL_MULTICT_DIGESTS_PRODUCT")
+	.setParameter("glycan_id", searchGlycanId)
+	.list();
+	 displayMultiDigests = multiDigestsProduct;
+	}
+	
+
+
+
+	
+
+	
+	if ( glycan == null ) {
+	    logger.info( "No glycan associated with id " );
+	    this.addActionError( "No glycan associated with id " );
+            return ERROR;	    
+	}
+	
+        return SUCCESS;
+    }
+
+}

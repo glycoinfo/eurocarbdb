@@ -1,0 +1,475 @@
+type Hex {
+info 'Hexopyranose'
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 2 primary free
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+}
+
+type Pen {
+info 'Pentopyranose'
+priority '5p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 2 pyran closing
+connect '1' '2' '3' '4' '5'
+ctclass 'pen'
+}
+
+type HexOMe {
+info 'Methyl Hexopyranoside'
+priority 'Z'
+atom '1' 1 link pyran
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 2 primary free
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+ctclass 'hex'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type PenOMe {
+info 'Methyl Pentopyranoside'
+priority 'Z'
+atom '1' 1 link pyran
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 2 pyran closing
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5'
+connect '1' 'M_1'
+ctclass 'pen'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type Hexul {
+atom '1' 2 primary free
+atom '2' 0 pyran link free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran free
+atom '6' 2 pyran closing
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+ctmod 'keto' 2
+}
+
+# Furanoses
+
+type Hexf {
+info 'Hexofuranose'
+priority '6f'
+atom '1' 1 link furan free
+atom '2' 1 furan free
+atom '3' 1 furan free
+atom '4' 1 furan closing
+atom '5' 1 secondary free
+atom '6' 2 primary free
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+}
+
+type Penf {
+info 'Pentofuranose'
+priority '5f'
+atom '1' 1 link furan free
+atom '2' 1 furan free
+atom '3' 1 furan free
+atom '4' 1 furan closing
+atom '5' 2 primary free
+connect '1' '2' '3' '4' '5'
+ctclass 'pen'
+}
+
+type HexfOMe {
+info 'Methyl Hexofuranoside'
+priority 'Z'
+atom '1' 1 link furan
+atom '2' 1 furan free
+atom '3' 1 furan free
+atom '4' 1 furan closing
+atom '5' 1 secondary free
+atom '6' 2 primary free
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+ctclass 'hex'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type PenfOMe {
+info 'Methyl Pentofuranoside'
+priority 'Z'
+atom '1' 1 link furan
+atom '2' 1 furan free
+atom '3' 1 furan free
+atom '4' 1 furan closing
+atom '5' 2 primary free
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5'
+connect '1' 'M_1'
+ctclass 'pen'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type TetfOMe {
+info 'Methyl Tetrofuranoside'
+priority 'Z'
+atom '1' 1 link furan
+atom '2' 1 furan free
+atom '3' 1 furan free
+atom '4' 2 furan closing
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4'
+connect '1' 'M_1'
+ctclass 'tet'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type Hexulf {
+atom '1' 2 primary free
+atom '2' 0 furan link free
+atom '3' 1 furan free
+atom '4' 1 furan free
+atom '5' 1 furan closing
+atom '6' 2 primary free
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+ctmod 'keto' 2
+}
+
+# Amino sugars
+type HexNAc {
+info '2-Acetamido-hexopyranose'
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 2 primary free
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+connect '1' '2' '3' '4' '5' '6'
+connect 'O_2' 'M_2'
+ctclass 'hex'
+ctsub 'n-acetyl' 2 1 'd'
+ccpsub 'C2_NAc'
+}
+
+type HexNAcOMe {
+info 'Methyl 2-acetamido-hexopyranoside'
+priority 'Z'
+atom '1' 1 link pyran
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 2 primary free
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect 'O_2' 'M_2'
+connect '1' 'M_1'
+ctclass 'hex'
+ctsub 'n-acetyl' 2 1 'd'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe:C2_NAc'
+}
+
+# Uronic acids
+
+type HexA {
+info 'Sodium hexopyranuronat'
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 0 primary
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+ctmod 'a' 6
+}
+
+type HexAOMe {
+info 'Sodium (methyl hexopyranoside)uronat'
+priority 'Z'
+atom '1' 1 link pyran
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 0 primary
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+ctclass 'hex'
+ctmod 'a' 6
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type HexANAc {
+info 'Sodium 2-acetamido-2-deoxy-hexuronate'
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 0 primary
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+connect '1' '2' '3' '4' '5' '6'
+connect 'O_2' 'M_2'
+ctclass 'hex'
+ctmod 'a' 6
+ctsub 'n-acetyl' 2 1 'd'
+ccpsub 'C2_NAc'
+}
+
+type HexANAcOMe {
+info 'Sodium methyl-2-acetamido-2-deoxy-hexuronate'
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 0 primary
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect 'O_2' 'M_2'
+connect '1' 'M_1'
+ctclass 'hex'
+ctmod 'a' 6
+ctsub 'n-acetyl' 2 1 'd'
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+ccpsub 'C2_NAc'
+}
+
+# Deoxy sugars
+
+type '6dHex' {
+info '6-Deoxy-hexopyranose'
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 1 primary
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+ctmod 'd' 6
+}
+
+type '6dHexOMe' {
+info 'Methyl 6-deoxy-hexopyranoside'
+priority 'Z'
+atom '1' 1 link pyran
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 1 primary
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+ctclass 'hex'
+ctmod 'd' 6
+#ctsub 'ome' 1 1
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type '6dHexNAc' {
+info '2-acetamido-2,6-dideoxy-hexopyranose'
+priority '6'
+atom '1' 1 link pyran free
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 1 primary
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+connect '1' '2' '3' '4' '5' '6'
+connect 'O_2' 'M_2'
+ctclass 'hex'
+ctmod 'd' 6
+#ctsub 'nac' 2 1
+ctsub 'n-acetyl' 2 1 'd'
+ccpsub 'C2_NAc'
+}
+
+type '6dHexNAcOMe' {
+info 'Methyl 2-acetamido-2,6-dideoxy-hexopyranoside'
+priority '6'
+atom '1' 1 link pyran
+atom '2' 1 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 1 primary
+atom 'M_2' 1 methyl
+atom 'O_2' 0
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+connect 'O_2' 'M_2'
+ctclass 'hex'
+ctmod 'd' 6
+ctsub 'methyl' 1 1 'o'
+ctsub 'n-acetyl' 2 1 'd'
+ccpsub 'C1_OMe:C2_NAc'
+}
+
+type '3,6dHex' {
+info '3,6-dideoxyhexopyranose'
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 1 pyran free
+atom '3' 2 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 1 primary
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+ctmod 'd' 3
+ctmod 'd' 6
+}
+
+type '3,6dHexOMe' {
+info 'methyl 3,6-dideoxyhexopyranoside'
+priority 'Z'
+atom '1' 1 link pyran
+atom '2' 1 pyran free
+atom '3' 2 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 1 primary
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+ctclass 'hex'
+ctmod 'd' 3
+ctmod 'd' 6
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type '2dHex' {
+priority '6p'
+atom '1' 1 link pyran free
+atom '2' 2 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 2 primary free
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+ctmod 'd' 2
+}
+
+type '2dHexOMe' {
+priority 'Z'
+atom '1' 1 pyran link
+atom '2' 2 pyran
+atom '3' 1 pyran free
+atom '4' 1 pyran free
+atom '5' 1 pyran closing
+atom '6' 2 primary free
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+ctclass 'hex'
+ctmod 'd' 2
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type '4dHexOMe' {
+info 'Methyl 4-deoxy-hexopyranoside'
+priority 'Z'
+atom '1' 1 pyran link
+atom '2' 1 pyran free
+atom '3' 1 pyran free
+atom '4' 2 pyran
+atom '5' 1 pyran closing
+atom '6' 2 primary free
+atom 'M_1' 1 methyl
+connect '1' '2' '3' '4' '5' '6'
+connect '1' 'M_1'
+ctclass 'hex'
+ctmod 'd' 4
+ctsub 'methyl' 1 1 'o'
+ccpsub 'C1_OMe'
+}
+
+type 'Neu5Ac' {
+atom '1' 0
+atom '2' 0 pyran link free
+atom '3' 2 pyran
+atom '4' 1 pyran free
+atom '5' 1 pyran
+atom '6' 1 pyran closing
+atom '7' 1 free
+atom '8' 1 free
+atom '9' 2 free
+atom 'O_5' 0
+atom 'M_5' 1 methyl
+connect '1' '2' '3' '4' '5' '6' '7' '8' '9'
+connect 'O_5' 'M_5'
+ctclass 'non'
+ctmod 'a' 1
+ctmod 'keto' 2
+ctmod 'd' 3
+ctsub 'n-acetyl' 5 1 'd'
+}
+
+type 'hexitol' {
+info 'Hexitol'
+atom '1' 2 primary free
+atom '2' 1 free
+atom '3' 1 free
+atom '4' 1 free
+atom '5' 1 free
+atom '6' 2 primary free
+connect '1' '2' '3' '4' '5' '6'
+ctclass 'hex'
+ctmod 'aldi' 1
+}
+
+type 'glycerol' {
+info 'Glycerol'
+atom '1' 2 primary free
+atom '2' 1 free
+atom '3' 2 primary free
+connect '1' '2' '3'
+ctclass 'tri'
+ctmod 'aldi' 1
+}

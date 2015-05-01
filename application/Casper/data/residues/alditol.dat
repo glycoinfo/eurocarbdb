@@ -1,0 +1,143 @@
+# Assignments of pro R and pro S protons must be checked
+# 13C/1H scale has to be fixed
+
+# The 13C-N.M.R. spectra of alditols
+# S.J. Angyal, R. LeFur
+# Carbohydr. Res. 84 (1980) 201-209
+
+# 1-13C Alditols: elimination of magnetic equivalence in 1H- and 13C-n.m.r.
+# spectra of symmetric compounds through 13C-substitution
+# E.C. Garrett, A.S. Serianni
+# Carbohydr. Res. 208 (1990) 23-35
+
+# 1H Nuclear Magnetic Resonance Spectra and Conformations of Alditols
+# in Deuterium Oxide
+# G.E. Hawkes, D. Lewis
+# J. Chem. Soc., Perkin Trans. II (1984) 2073-2078
+
+
+conversion Hex Hexitol {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+conversion HexOMe Hexitol {
+map '1' '1'; '2' '2'; '3' '3'; '4' '4'; '5' '5'; '6' '6'
+}
+
+residue Allol Hexitol {
+info 'meso-Allitol'
+shift 63.7 3.67 3.82
+shift 73.5 3.92
+shift 73.7 3.81
+shift 73.7 3.81
+shift 73.5 3.92
+shift 63.7 3.67 3.82
+}
+
+residue DAltol Hexitol {
+config D
+info 'D-Altritol'
+shift 64.4 3.66 3.66
+shift 71.8 3.94
+shift 72.2 3.66
+shift 73.0 3.79
+shift 74.0 3.92
+shift 63.4 3.67 3.80
+}
+
+enantiomer DAltol LAltol
+
+residue DManol Hexitol {
+info 'D-Mannitol'
+config D
+shift 64.6 3.67 3.86
+shift 72.2 3.75
+shift 70.7 3.79
+shift 70.7 3.79
+shift 72.2 3.75
+shift 64.6 3.67 3.86
+}
+
+enantiomer DManol LManol
+
+residue LIdool Hexitol {
+info 'L-Iditol'
+config L
+shift 64.1 3.63 3.70
+shift 73.1 3.83
+shift 72.5 3.71
+shift 72.5 3.71
+shift 73.1 3.83
+shift 64.1 3.63 3.70
+}
+
+residue Galol Hexitol {
+info 'meso-Galactitol'
+shift 64.5 3.71 3.71
+shift 71.5 3.99
+shift 70.7 3.69
+shift 70.7 3.69
+shift 71.5 3.99
+shift 64.5 3.71 3.71
+}
+
+residue Galol {
+default '2' aDGal, bDGal, aDGlc, bDGlc, aDGalOMe, bDGalOMe, aDGlcOMe, bDGlcOMe
+}
+end
+
+residue DAraol Penitol {
+info 'D-Arabinitol'
+config D
+shift 64.4 3.66 3.67
+shift 71.6 3.93
+shift 71.9 3.57
+shift 72.3 3.75
+shift 64.3 3.65 3.84
+}
+
+residue DLyxol Penitol {
+info 'D-lyxitol'
+config D
+shift 64.3 3.65 3.84
+shift 72.3 3.75
+shift 71.9 3.57
+shift 71.6 3.93
+shift 64.4 3.66 3.67
+}
+
+Residue Eryol Tetritol {
+info 'meso-Erythritol'
+shift 64.0 3.62 3.77
+shift 73.3 3.67
+shift 73.3 3.67
+shift 64.0 3.62 3.77
+}
+
+
+residue Ribol Penitol {
+info 'meso-Ribitol'
+shift 63.8 3.65 3.80	# Assignment?
+shift 73.5 3.82
+shift 63.8 3.69
+shift 73.5 3.82
+shift 63.8 3.65 3.80
+}
+
+residue LTreol Tetritol {
+info 'L-Threitol'
+config L
+shift 63.9 3.62 3.69
+shift 72.9 3.72
+shift 72.9 3.72
+shift 63.9 3.62 3.69
+}
+
+residue Xylol Pentitol {
+info 'meso-Xylitol'
+shift 63.9 3.64 3.72
+shift 73.2 3.80
+shift 72.0 3.64
+shift 73.2 3.80
+shift 63.9 3.64 3.72
+}

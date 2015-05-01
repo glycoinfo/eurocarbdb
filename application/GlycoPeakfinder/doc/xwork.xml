@@ -1,0 +1,123 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN"
+"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+
+    <!-- Include webwork defaults (from WebWork JAR). -->
+    <include file="webwork-default.xml" />
+
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="webwork-default">
+
+    <!--====== interceptors ====== 
+    Here we declare sets (or 'stacks') of interceptors that we want to use. 
+    Interceptors are chunks of reusable code that, when configured with an action,
+    are run before and/or after an action is performed.
+    See also: http://www.opensymphony.com/webwork/wikidocs/Understanding%20interceptors.html
+    -->
+    <interceptors>
+ 		<interceptor name="gpf_pagefrom_interceptor" class="org.eurocarbdb.applications.ms.glycopeakfinder.interceptor.PageFromParameterInterceptor"/>
+ 		<interceptor name="gpf_hashparam" class="org.eurocarbdb.applications.ms.glycopeakfinder.interceptor.HashParameterInterceptor"/>
+    </interceptors>
+    
+    <!--====== actions ======-->
+
+    <action name="GlycoPeakfinder" class="org.eurocarbdb.applications.ms.glycopeakfinder.action.DataCollectorAction">
+        <interceptor-ref name="gpf_pagefrom_interceptor" />            
+        <interceptor-ref name="scope">
+            <param name="session">settings</param>
+            <param name="key">GPF</param>            
+            <param name="autoCreateSession">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="prepare" />        
+        <interceptor-ref name="fileUpload"/>
+        <interceptor-ref name="params"/>
+        <interceptor-ref name="gpf_hashparam">
+		   <param name="executeMethode">residueHash</param>
+		   <param name="hashTag">myResidues</param>
+		</interceptor-ref>
+        <interceptor-ref name="gpf_hashparam">
+		   <param name="executeMethode">otherResidueHash</param>
+		   <param name="hashTag">myOtherResidues</param>
+		</interceptor-ref>
+   		<result name="page_info" type="freemarker" >templates/input/glycopeakfinder_info.ftl</result>
+   		<result name="page_error" type="freemarker" >templates/input/glycopeakfinder_error.ftl</result>   		
+   		<result name="page_mass" type="freemarker" >templates/input/glycopeakfinder_mass.ftl</result>
+   		<result name="page_ion" type="freemarker" >templates/input/glycopeakfinder_ion.ftl</result>   		
+		<result name="page_modi" type="freemarker" >templates/input/glycopeakfinder_modification.ftl</result>
+		<result name="page_resi" type="freemarker" >templates/input/glycopeakfinder_residue.ftl</result>		
+		<result name="page_cont" type="freemarker" >templates/input/glycopeakfinder_contact.ftl</result>		
+		<result name="start_calculation" type="redirect">./GlycoPeakfinderCalculation.action</result>
+    </action>
+
+    <action name="GlycoPeakfinderReset" class="org.eurocarbdb.applications.ms.glycopeakfinder.action.DataCollectorAction">
+        <interceptor-ref name="scope">
+            <param name="session">settings</param>
+            <param name="key">GPF</param>            
+            <param name="type">end</param>
+        </interceptor-ref>
+   		<result name="page_info" type="redirect">./GlycoPeakfinder.action?pageTo=mass</result>
+    </action>
+
+    <action name="GlycoPeakfinderCalculation" class="org.eurocarbdb.applications.ms.glycopeakfinder.action.CalculationAction">
+        <interceptor-ref name="scope">
+            <param name="session">settings,result</param>
+            <param name="key">GPF</param>            
+            <param name="autoCreateSession">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="params"/>
+		<result name="finished_calculation" type="redirect">./GlycoPeakfinderResult.action</result>
+    </action>
+
+    <action name="GlycoPeakfinderExample" class="org.eurocarbdb.applications.ms.glycopeakfinder.action.ExampleLoadAction">
+        <interceptor-ref name="scope">
+            <param name="session">settings</param>
+            <param name="key">GPF</param>            
+            <param name="autoCreateSession">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="params"/>
+   		<result name="page_error" type="redirect" >./GlycoPeakfinder.action</result>   		
+		<result name="go_start_page" type="redirect">./GlycoPeakfinder.action?pageTo=mass</result>
+    </action>
+
+    <action name="GlycoPeakfinderResult" class="org.eurocarbdb.applications.ms.glycopeakfinder.action.ResultAction">
+        <interceptor-ref name="scope">
+            <param name="session">settings,result</param>
+            <param name="key">GPF</param>            
+            <param name="autoCreateSession">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="params"/>
+   		<result name="page_info" type="freemarker" >templates/output/glycopeakfinder_info.ftl</result>
+   		<result name="page_error" type="freemarker" >templates/output/glycopeakfinder_error.ftl</result>   		
+		<result name="page_cont" type="freemarker" >templates/output/glycopeakfinder_contact.ftl</result>				
+		<result name="page_frag" type="freemarker" >templates/output/glycopeakfinder_fragments.ftl</result>
+		<result name="page_resu" type="freemarker" >templates/output/glycopeakfinder_result.ftl</result>
+		<result name="page_sett" type="freemarker" >templates/output/glycopeakfinder_settings.ftl</result>
+		<result name="page_stru" type="freemarker" >templates/output/glycopeakfinder_structure.ftl</result>
+		<result name="go_start_page" type="redirect" >./GlycoPeakfinder.action</result>
+    </action>
+
+ 	<action name="GetSugarCode" class="org.eurocarbdb.applications.ms.glycopeakfinder.action.GetSugarCodeAction">
+        <interceptor-ref name="params"/>
+		<!-- result type for the image stream -->
+       	<result name="success_iupac" type="stream">
+        	<!-- the mime-type -->
+        	<param name="contentType">download/code</param>
+            <!-- the method/property called on the action class to get the stream -->
+            <param name="inputName">iupacStream</param>
+            <!-- (optional) the default name of the file when saved by the user  -->
+            <param name="contentDisposition">filename="iupac.txt"</param>          
+        </result>
+        <result name="success_linucs" type="stream">
+        	<!-- the mime-type -->
+        	<param name="contentType">download/code</param>
+            <!-- the method/property called on the action class to get the stream -->
+            <param name="inputName">linucsStream</param>
+            <!-- (optional) the default name of the file when saved by the user  -->
+            <param name="contentDisposition">filename="linucs.txt"</param>          
+        </result>
+	</action>
+
+    </package>
+
+</xwork>

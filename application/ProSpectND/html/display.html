@@ -1,0 +1,250 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+        
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+        
+  <meta name="GENERATOR"
+ content="Mozilla/4.72 [en] (X11; U; Linux 2.2.14-5.0 i686) [Netscape]">
+        
+  <meta name="Author" content="Albert van Kuik">
+        
+  <meta name="Description" content="Describe Display Options">
+  <title>Display</title>
+   
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff"
+ alink="#ff0000">
+    
+<h1> <a name="Display"></a>Display</h1>
+    
+<ul>
+  <li> <u><font color="#0000ff"><a href="#Zoom">Zoom</a></font></u></li>
+   <li> <u><font color="#0000ff"><a href="#Display%20Units">Axis Units</a></font></u></li>
+   <li> <u><font color="#0000ff"><a href="#Display%20Arrays">Show data</a></font></u></li>
+   <li> <u><font color="#0000ff"><a href="#Link%20Viewports">Link Scaling</a></font></u></li>
+   <li> <u><font color="#0000ff"><a href="#Display%20Adjust">Adjust Scaling</a></font></u></li>
+   <li> <u><font color="#0000ff"><a href="#Edit%20colormap">Edit colormap</a></font></u></li>
+   
+</ul>
+    
+<hr>  
+<h2> <a name="Zoom"></a>Zoom</h2>
+    
+<blockquote>
+  <p>The following options&nbsp;<img
+ src="file:///home/kuik/prosp/html/mouse_zoom_xy_x_y.gif"
+ alt="Zoom xy,x and y Mouse Buttons" height="29" width="81"
+ align="middle">
+  define if <b>zoom</b> is set in both directions (XY), only in the X direction,
+ or only in the Y direction. </p>
+    Now select with the mouse one position in the spectrum, press  the left
+button, select a second position, and release the left mouse button.  The
+selected area will now fill the whole viewport.    
+  <p><img src="zoom_xy.gif" height="109" width="316" align="bottom">
+  </p>
+   
+  <p>Zoom XY </p>
+   
+  <h4>Use these buttons to change the zoom settings: </h4>
+    <img src="buttons_zoom_x.gif" alt="Zoom x button" width="43"
+ height="25" align="middle">
+ Zoom 2x in, X direction.   <br>
+  <br>
+  <img src="buttons_unzoom_x.gif" alt="Unzoom x button" width="43"
+ height="25" align="middle">
+ Zoom 2x out, X direction    <br>
+  <br>
+  <img src="buttons_zoom_y.gif" alt="Zoom y button" width="40"
+ height="24" align="middle">
+ Zoom 2x in, Y direction.   <br>
+  <br>
+  <img src="buttons_unzoom_y.gif" alt="Unzoom y button" width="41"
+ height="25" align="middle">
+ Zoom 2x out, Y direction.    <br>
+  <br>
+  <img src="buttons_unzoom_xy.gif" alt="unzoom xy button" width="41"
+ height="22" align="middle">
+ Display whole spectrum (undo all zoom actions)   <b><br>
+   <br>
+  <img src="buttons_zoom_undo.gif" height="27" width="42"
+ alt="zomm undo button" align="middle">
+  </b> Undo last zoom action.  <br>
+   <br>
+   <img src="buttons_zoom_undo.gif" alt="Zoom undo button" width="42"
+ height="27" align="middle">
+  Redo last zoom action.     
+  <h4> Mouse button 3: scrolling and panning</h4>
+  <img src="handcursor.gif" height="157" width="615">
+     
+  <p>When part of the spectrum has been selected with the zoom option, the
+ scroll bars can be used to scroll through the spectrum. Alternatively, one 
+can use the right mouse button. This option shows a 'hand cursor' that grabs 
+the spectrum and moves it around.</p>
+ </blockquote>
+    
+<hr width="100%">  
+<h2> <a name="Display Units"></a>Axis Units</h2>
+    
+<ul>
+   <u><font color="#0000ff"><a
+ href="commandline.html#Set%20Axis%20Units">Command  line: Set Axis Units</a></font></u>
+   
+  <p>Chose what units (if any) will be used for the x- and y-axis. Use <b>Display-&gt;Axis
+ Units</b> to get the following popup menu: </p>
+   
+  <p><img src="display_units.gif" height="294" width="132"
+ align="bottom">
+  </p>
+   
+  <p>For 1D and 2D spectra, one can chose <b>None, Channels</b> (or points),
+   <b>Hertz, PPM</b>, or <b>Seconds</b> for the x-axis. If this option is 
+set to <b>Automatic, Seconds</b> will be selected if the program decides that
+a FID is displayed, and <b>PPM</b> otherwise. This decision, however, is
+not always reliable, and manual intervention can be required. For 1D spectra, 
+the options for the y-axis are <b>None</b> and <b>Unit</b>. For 2D spectra, 
+the y-axis options are identical to those of the x-axis. The <b>Draw Box</b> 
+option toggles the display of the box around the spectrum.</p>
+ 
+</ul>
+    
+<hr>  
+<h2> <a name="Display Arrays"></a>Show Data</h2>
+    
+<ul>
+   <u><font color="#0000ff"><a
+ href="commandline.html#Show%20data%20arrays">Command line: Show data arrays</a></font></u>
+   
+  <p>Use <b>Display-&gt;Show Data</b> to get the following popup menu: </p>
+   
+  <p><img src="display_blocks.gif" height="234" width="170"
+ align="middle" alt="Display blocks visibility popup">
+  </p>
+   
+  <p>Set the visibility of data.With this menu, which is only valid when
+1D files are presented, all  data arrays in all blocks can be displayed or
+hidden. In the example above,  only the real data of block 1 are displayed.
+This is the default.</p>
+ 
+</ul>
+    
+<hr width="100%">  
+<h2> &nbsp;<a name="Link Viewports"></a>Link Scaling</h2>
+    
+<ul>
+ When the auto scale option is enabled (when&nbsp;<img
+ src="buttons_scale.gif" height="25" width="43" align="middle">
+ &nbsp; is pressed), all data is scaled separately in such a way that each 
+data array fully fills its viewport.&nbsp; It can be advantageous to use the
+same scaling for some data types, e.g. real and imaginary data, or real  data
+from different blocks. Use <b>Display-&gt;Link Scaling</b> to show the  Link
+Scaling popup menu. Two types of&nbsp; linking can be defined.&nbsp;  Linking
+to the scaling of the real data of the same block, and linking of the scaling
+of all data in a block to the corresponding scaling in block 1. 
+</ul>
+    
+<ul>
+   <img src="display_link_viewports.gif" height="262" width="188"
+ alt="Link data scaling in blocks" align="middle">
+  <br>
+ &nbsp;The Link Viewport popup menu.    
+  <p>To link the scaling of the imaginary data to the corresponding real
+data,&nbsp; check I<b>maginary</b> </p>
+   
+  <p><img src="display_link_imaginary.gif" height="206" width="102">
+  <br>
+ &nbsp; </p>
+   
+  <p>Example: <br>
+   <img src="display_link_example.gif" height="171" width="412">
+  <br>
+ The result of linking the scaling of the Imaginary data (green) to the scaling 
+of the Real data (blue). </p>
+   
+  <p>To link the scaling of Block 2 to Block 1, check&nbsp; <b>Whole Block</b>.
+   </p>
+   
+  <p><img src="display_link_block.gif" height="207" width="114">
+   </p>
+ 
+</ul>
+    
+<hr width="100%">  
+<h2> <a name="Display Adjust"></a>Adjust Scaling</h2>
+    
+<ul>
+ With this option, 1D spectra (and other types of 1D data) can be shifted
+or scaled relative to each other. Use <b>Display-&gt;Adjust Scaling</b> to
+get the following popup menu: 
+</ul>
+    
+<blockquote><img src="display_adjust.gif" height="583" width="186"
+ alt="Adjust data scaling" align="middle">
+     
+  <h4> Mouse</h4>
+  <p>  </p>
+   
+  <p>Grab mouse button 1 will select this button <img
+ src="mouse_updown.gif" alt="Adjust scaling/position with mouse"
+ width="27" height="28" align="middle">
+. The Sensitivity of the mouse can be set to Low, Medium and High. Select
+Move or Scale to do that operation with the mouse. </p>
+   
+  <h4> Select</h4>
+  Select&nbsp; the data that should be adjusted.&nbsp; Select a block and
+an array, e.g. Real for a normal 1D spectrum. Select x or y to move or scale.<br>
+    
+  <h4> Scale, Move</h4>
+  If the mouse is not used, these sliders can be used instead. When <b>X</b>
+has been selected, <b>Scale</b>  scales the selected data array in the x
+direction, <b>Move </b>moves the array to the left or to the right, etc.
+The current value of the slider is displayed in the text box at its bottom.
+One can type a value in this box and press <b>Set</b> to activate it. Press
+  <b>Reset</b> to set the slider at its default position. The <b>Scale</b>
+slider has logarithmic scale that ranges from 0.01x to 100x the current scale.
+The <b>Move </b>slider has a linear scale and can move 1x to the left or
+to the right.</blockquote>
+    
+<ul>
+     
+  <h4> Reset X and Y, Move and Scale</h4>
+  Reset all scale and move values, for the currently active array. <br>
+ &nbsp;    
+  <h4> Disable 'Adjust Scaling' for 2D</h4>
+  When this option is set to <b>Yes</b>, the <b>Adjust Scaling</b> options
+ do NOT work in the 2D mode, when a 1D spectrum is displayed on top of the
+ 2D spectrum. 
+</ul>
+    
+<hr>  
+<h2> <a name="Edit colormap"></a>Edit colormap</h2>
+    
+<blockquote>Select new colors for some of the items. Items can be real or 
+imaginary data, or axis or grid. All the available colors are displayed in 
+a grid. To change the color of an item, select the block and the item and 
+select a new color by pressing the left mouse button in one of the colored 
+squares. The bar at the top of the window will display the item that has been
+selected, with the new color as background. After a new plot command, the
+new color will be visible in the main window.</blockquote>
+    
+<blockquote><img src="colormap.gif" alt="Color editor." height="297"
+ width="350">
+ </blockquote>
+    
+<ul>
+     
+  <h4> Quit</h4>
+  Close the color map.    
+  <h4> Reset</h4>
+  Reset the color of items to their default values.    
+  <h4> Block</h4>
+  Select a block.    
+  <h4> Item</h4>
+  The object that has been associated with a color. 
+</ul>
+    
+<hr width="100%"> <br>
+ 
+</body>
+</html>

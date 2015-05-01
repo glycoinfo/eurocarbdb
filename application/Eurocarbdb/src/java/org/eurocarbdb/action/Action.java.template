@@ -1,0 +1,59 @@
+/*
+Action.java.template  --  A template for Eurocarb Actions.
+author: mjh <matt@ebi.ac.uk>
+
+Instructions: fill in the blanks ;-)
+*/
+
+package org.eurocarbdb.action.___SUB_PACKAGE___;
+
+//  stdlib imports
+import java.util.Map;
+import java.util.List;
+import java.util.Iterator;
+
+//  3rd party imports
+import org.apache.log4j.Logger;
+
+//  eurocarb imports
+import org.eurocarbdb.action.EurocarbAction;
+import org.eurocarbdb.dataaccess.EntityManager;
+
+//  static imports
+import static org.eurocarbdb.dataaccess.Eurocarb.getEntityManager;
+
+
+/*  class ___ACTION_NAME___  *//*************************************
+*
+*   // some doco here...
+*
+*   @author   ___YOUR_NAME___
+*   @version  $Rev: 1549 $
+*/
+public class ___ACTION_NAME___ extends EurocarbAction
+{
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~ FIELDS ~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+    /** Logging handle. */
+    static final Logger log = Logger.getLogger( ___ACTION_NAME___.class.getName() );
+    
+    
+    // action object fields here, either one per CGI param,
+    // or can use a Map of parameters, see the ParamAware 
+    // interceptor (http://www.opensymphony.com/webwork/api/com/opensymphony/webwork/interceptor/ParameterAware.html)
+
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~//    
+    
+
+    /*  execute  *//*************************************************
+    *
+    */
+    public String execute()
+    {
+        // do stuff...
+    }
+
+} // end class
+

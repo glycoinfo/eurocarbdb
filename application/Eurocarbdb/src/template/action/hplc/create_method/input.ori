@@ -1,0 +1,27 @@
+<#assign title>User home</#assign>
+<#include "/template/ui/user/header.ftl" />
+
+
+
+<div class="hplc_create_form">
+<h1>Create Method</h1>
+<p></p>
+</div>
+ <p>id: ${profileId}
+
+<@ww.form>
+<@ww.hidden label="Profile Id" name="profileId"/>
+<tr><td><@ww.textfield label="Temperature" name="temperature"/></td><td>Celcius</tr>
+
+<@ww.textfield label="Solvent A" name="solventA"/>
+<@ww.textfield label="Solvent B" name="solventB"/>
+<@ww.textfield label="Solvent C" name="solventC"/>
+<@ww.textfield label="Solvent D" name="solventD"/>
+<tr><td><@ww.textfield label="Flow Rate" name="flowRate"/></td><td>ml/min</td></tr>
+<tr><td><@ww.textfield label="Flow Gradient" name="flowGradient"/></td><td>% change over x mins</td></tr>
+	
+
+<@ww.submit name="submit"/>
+</@ww.form>
+<#include "/template/common/footer.ftl" />
+

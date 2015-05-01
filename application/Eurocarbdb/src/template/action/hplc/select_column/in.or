@@ -1,0 +1,24 @@
+<#assign title>Scan Page</#assign>
+<#include "/template/ui/user/header.ftl" />
+
+<html>
+  <head>
+    <title>Device Creation</title>
+  </head>
+
+  <body>
+    <h1>Input Device Details</h1>
+    <@ww.form>
+      Manufacturer:
+      <select id="man_list">
+        <option value="---"/>
+         <#list detectors as d>
+        <option>${d.detector_id}</option>
+        </#list>
+      </select>
+
+ <@ww.submit value="Next" name="submit" />
+</@ww.form>
+
+<#include "/template/common/footer.ftl" />
+

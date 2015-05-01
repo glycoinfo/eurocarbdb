@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration 
+	database_name="glycopeakfinder"
+	database_ip="193.174.61.146"
+	database_port="5432"
+	database_user="postgres"
+	database_pw="postgres"
+	schema_name="glycopeakfinder"
+	base_url="http://www.dkfz.de/spec/EuroCarbDB/applications/ms-tools/GlycoPeakfinder"	>
+</configuration>

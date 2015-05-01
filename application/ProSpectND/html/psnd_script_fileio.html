@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (X11; I; Linux 2.0.34 i686) [Netscape]">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EF" VLINK="#51188E" ALINK="#FF0000">
+
+<H1>
+<A NAME="File input/output"></A>File input/output</H1>
+
+<UL>
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#CHDIR - Change working directory">CHDIR
+- Change working directory</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#GETCWD - Get current directory">GETCWD
+- Get current directory</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#OPEN - Open file">OPEN - Open file</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#CLOSE - Close file">CLOSE - Close file</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#STAT - Get file size">STAT - Get file
+size</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#TELL - Get current file position.">TELL
+- Get current file position.</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#SEEK - Find position in file">SEEK -
+Find position in file</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#READ - Read from file">READ - Read from
+file</A></FONT></U></LI>
+
+<LI>
+<A HREF="#FGETS - Read line of text from file">FGETS - Read line of text
+from file</A></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#WRITE - Write to file">WRITE - Write
+to file</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#SCAN - Read text item from file">SCAN
+- Read text item from file</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#SCANEXP - Read text item from file">SCANEXP
+- Read text item from file</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#SCANBIN - Read item from binary Bruker">SCANBIN
+- Read item from binary Bruker acqu file</A></FONT></U></LI>
+
+<LI>
+<U><FONT COLOR="#0000FF"><A HREF="#PRINT - Print and println">PRINT - Print
+and println</A></FONT></U></LI>
+
+<LI>
+<A HREF="#PRINTF, FPRINTF, SPRINTF - Print formatted">PRINTF, FPRINTF,
+SPRINTF - Print formatted</A></LI>
+</UL>
+
+<UL>NON-NMR specific filie input/output.</UL>
+
+<HR WIDTH="100%">
+<H4>
+<A NAME="CHDIR - Change working directory"></A>CHDIR - Change working directory</H4>
+
+<BLOCKQUOTE><B>chdir</B> <I>&lt;directory></I>
+<P>Change the current working directory to <I>&lt;directory></I>
+<P>Example:
+<BLOCKQUOTE><TT>chdir "/home/nmr/data"</TT></BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<H4>
+<A NAME="GETCWD - Get current directory"></A>GETCWD - Get current directory</H4>
+
+<BLOCKQUOTE><I>&lt;directory></I> = <B>getcwd</B>
+<P>Get the name of the current working directory.
+<P>Example:
+<BLOCKQUOTE><TT>%name = getcwd</TT>
+<BR><TT>println %name</TT></BLOCKQUOTE>
+</BLOCKQUOTE>
+<A NAME="OPEN - Open file"></A>
+<H4>
+OPEN - Open file</H4>
+
+<UL><I>&lt;file></I> <B>= open</B> <I>&lt;name>, &lt;mode></I>
+<P>Open a general purpose file. <I>&lt;file></I> is the file handle, <I>&lt;name></I>
+is the filename and <I>&lt;mode></I> is the C-style open mode. If the file
+can not be opened, the file handle is set to 0.
+<P>Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newfile = open "myfile", "w"</PRE>
+Opens the new file "myfile" for writing, and
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newfile = open "myfile", "r"</PRE>
+opens the same file for reading.
+<P>Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newfile = open "myfile", "r"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @r = read $newfile&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close $newfile</PRE>
+Read data from newfile into real array.
+<P>Example 3:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %filename = "mydir/myfile"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newfile&nbsp; = open %filename, "r"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if $newfile == 0 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "Error opening file " + %filename
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif</PRE>
+Test if file is opened.</UL>
+<A NAME="CLOSE - Close file"></A>
+<H4>
+CLOSE - Close file</H4>
+
+<UL><B>close</B> <I>&lt;file></I>
+<P>Closes the file, thas was opened with the previous open command. <I>&lt;file></I>
+is the file handle of this file.
+<P>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close $newfile</PRE>
+</UL>
+
+<H4>
+<A NAME="STAT - Get file size"></A>STAT - Get file size</H4>
+
+<UL><I>&lt;size></I> = <B>stat</B> <I>&lt;filename></I>
+<P>Returns the file size in bytes. Returns <B>-1</B> if file does not exist.
+<P>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $filesize = stat "myfile"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println %filesize</PRE>
+</UL>
+<A NAME="TELL - Get current file position."></A>
+<H4>
+TELL - Get current file position.</H4>
+
+<UL><I>&lt;position></I> <B>= tell</B> <I>&lt;file></I>
+<P>Get the current access position in the file.
+<BR>&nbsp;</UL>
+<A NAME="SEEK - Find position in file"></A>
+<H4>
+SEEK - Find position in file</H4>
+
+<UL><B>seek</B> <I>&lt;file>, &lt;position></I>
+<P>Set the access position in the file. <I>&lt;file></I> is the file handle
+and <I>&lt;position></I> is the new file position.
+<P>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; seek $newfile, 0</PRE>
+positions the read/write position at the beginning of the file.</UL>
+<A NAME="READ - Read from file"></A>
+<H4>
+READ - Read from file</H4>
+
+<UL><I>&lt;array></I> <B>= read</B> <I>&lt;file></I> or <I>&lt;variable></I>
+<B>=
+read</B> <I>&lt;file></I>
+<P>Read data from <I>&lt;file></I> into <I>&lt;array></I> or into &lt;<I>variable></I>.
+The number of data read when <I>&lt;array></I> is used, is determined by
+the size of the array.
+<P>Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @A[11..20] = read $filehandle</PRE>
+Reads 10 data elements into buffer A, stored at positions 11..20.
+<P>Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @B = read $filehandle</PRE>
+Reads data into buffer B. The number of data is equal to the size of buffer
+B, which is can be accessed by the commands <B>@#B</B> or <B>?SI</B>.
+<P>Example 3:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newnumber = read $filehandle</PRE>
+Read one element from <I>&lt;file></I> into newnumber.</UL>
+
+<H4>
+<A NAME="FGETS - Read line of text from file"></A>FGETS - Read line of
+text from file</H4>
+
+<UL><B>fgets</B> ( <I>&lt;file></I> )
+<P>Read a line of text from a file, up to and including the '\n' character.&nbsp;
+Similar to the C function with the same name.&nbsp; Returns an empty string
+on error or end of file.
+<BR>&nbsp;
+<P>&nbsp;Example:
+<BR>&nbsp;
+<UL><TT>$textfile = open "xx.au", "r"</TT>
+<BR><TT>do</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; %line = fgets($textfile)</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; print %line</TT>
+<BR><TT>while %line != ""</TT>
+<BR><TT>close $textfile</TT></UL>
+</UL>
+<A NAME="WRITE - Write to file"></A>
+<H4>
+WRITE - Write to file</H4>
+
+<UL><B>write</B> <I>&lt;file>, &lt;array></I> or&nbsp; <B>write</B> <I>&lt;file>,
+&lt;number></I>
+<P>Write data from <I>&lt;array></I> to <I>&lt;file></I> or write <I>&lt;number></I>
+to the file. The number of data written when <I>&lt;array></I> is used,
+is equal to the size of the array.
+<P>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write $filehandle, @c</PRE>
+Write all real and imaginary data to the file. The real data is stored
+before the imaginary data, and the number of data written is the size of
+<B>@C</B>
+* 2.</UL>
+<A NAME="SCAN - Read text item from file"></A>
+<H4>
+SCAN - Read text item from file</H4>
+
+<UL><I>&lt;value></I> <B>= scan</B> <I>&lt;file>, { &lt;identifier string>,
+&lt;line number>, } &lt;identifier string></I>
+<P>Read one item (=text) from the text file <I>&lt;file></I> into the variable
+<I>&lt;value></I>.
+The <I>&lt;identifier string></I> is a text format string with one C-style
+scanf '%s'. If <I>&lt;line number></I> is defined, The first <I>&lt;identifier
+string></I> is first look for, and the second one is looked for <I>&lt;line
+number></I> lines below the first one.
+<P>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $file1 = open "data/1/acqu", "r"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %sweep = scan file1, "##$SW_h= %s"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close $file1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "SW = " + %sweep</PRE>
+</UL>
+
+<H4>
+<A NAME="SCANEXP - Read text item from file"></A>SCANEXP - Read text item
+from file</H4>
+
+<UL><I>&lt;value></I> <B>= scanexp</B> <I>&lt;file>, { &lt;format string>,
+&lt;line number>, } &lt;format string></I>
+<P>Read one item (=text) from the text file <I>&lt;file></I> into the variable
+<I>&lt;value></I>.
+The <I>&lt;identifier string></I> is a regular expression format string
+with one C-style scanf '%s'. If <I>&lt;line number></I> is defined, The
+first <I>&lt;identifier string></I> is first looked for, and the second
+one is looked for <I>&lt;line number></I> lines below the first one.
+<P>Regular Expressions:
+<P>The regular_expression defines the pattern to search for. The GREP-like
+wildcards include:</UL>
+
+<UL>
+<LI>
+x An ordinary character (not mentioned below) matches that character.</LI>
+
+<LI>
+\ The backslash quotes any character. "\$" matches a dollar-sign.</LI>
+
+<LI>
+^ A circumflex at the beginning of an expression matches the beginning
+of a line.</LI>
+
+<LI>
+$ A dollar-sign at the end of an expression matches the end of a line.</LI>
+
+<LI>
+. A period matches any character except "new-line".</LI>
+
+<LI>
+: A colon matches a class of characters described by the following character.</LI>
+
+<UL>
+<LI>
+":a" matches any alphabetic,</LI>
+
+<LI>
+":d" matches digits,</LI>
+
+<LI>
+":n" matches alphanumerics,</LI>
+
+<LI>
+": " matches spaces, tabs, and other control characters, such as new-line.</LI>
+</UL>
+
+<LI>
+* An expression followed by an asterisk matches zero or more occurrances
+of that expression: "fo*" matches "f", "fo", "foo", etc.</LI>
+
+<LI>
++ An expression followed by a plus sign matches one or more occurrances
+of that expression: "fo+" matches "fo", etc.</LI>
+
+<LI>
+- An expression followed by a minus sign optionally matches the expression.</LI>
+
+<LI>
+[ ] A string enclosed in square brackets matches any character in that
+string, but no others. For example [bot] matches b, o, or t.</LI>
+
+<UL>
+<LI>
+[^] A circumflex at the start of the string in brackets means NOT. The
+expression matches any character except "new-line" and the characters in
+the string. For example, "[^xyz]" matches "abc" but not "axb".</LI>
+
+<LI>
+[-] A range of characters may be specified by two characters separated
+by "-". Note that, [a-z] matches alphabetics, while [z-a] never matches.</LI>
+</UL>
+</UL>
+
+<UL>The concatenation of regular expressions is a regular expression.
+<P>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $file1 = open "data/procpar", "r"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %sfd&nbsp;&nbsp; = scanexp $file1, "^sfrq",&nbsp; 1, ":n %s"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close $file1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "SF = " + %sfd</PRE>
+</UL>
+
+<H4>
+<A NAME="SCANBIN - Read item from binary Bruker"></A>SCANBIN - Read item
+from binary Bruker acqu file</H4>
+
+<UL><I>&lt;value></I> <B>= scanbin</B> <I>&lt;file>, &lt;identifier string></I>
+<P>Read one item (=text) from <B>binary</B> Bruker acqu file <I>&lt;file></I>
+into the variable <I>&lt;value></I>. The <I>&lt;identifier string></I>
+is a text string.
+<P>Example:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $file1 = open "data/1/acqu", "r"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Test for binary file, first 4 bytes shoul be A000
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $test = read $file1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if f2ascii($test) == "A000" then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %sweep = scanbin $file1, "SW_h"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "SW = " + %sweep
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close $file1</PRE>
+</UL>
+<A NAME="PRINT - Print and println"></A>
+<H4>
+PRINT - Print and println</H4>
+
+<UL><B>print</B> { <I>&lt;file></I> , } <I>&lt;string></I> or <B>println</B>
+{ <I>&lt;file></I> , } <I>&lt;string></I>
+<P>The <B>print</B> command prints the string <I>&lt;string></I>, and <B>println</B>
+does the same and adds a newline. Without the <I>&lt;file></I> argument,
+<B>print</B>
+uses the current output stream. <I>&lt;file></I> can be a filehandle or
+the modifiers <B>stdout</B> or <B>stderr</B>, as in the C language.
+<P>Example 1:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println "This is" + " an example"</PRE>
+Example 2:
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; println stdout, "The value of var = " + %var</PRE>
+</UL>
+
+<H4>
+<A NAME="PRINTF, FPRINTF, SPRINTF - Print formatted"></A>PRINTF, FPRINTF,
+SPRINTF - Print formatted</H4>
+
+<UL><B>printf</B> <I>&lt;fornat></I> , <I>&lt;arguments></I>
+<BR><B>fprintf</B><I> &lt;file> , &lt;fornat></I> , <I>&lt;arguments></I>
+<BR><B>sprintf</B>&nbsp; (<I> &lt;fornat></I> , <I>&lt;arguments> </I>)
+<P>The <B>printf </B>command prints formatted output, much like in C.&nbsp;
+The argument <I>&lt;format></I> is a C-type format string, and <I>&lt;arguments></I>
+is a list of numbers and strings, separated by comma's. However, the <B>printf</B>
+command is somewhat more flexible, as it can convert arguments that are
+of the wrong type. If there is not a sufficient number of arguments, the
+surplus of format specifies is skipped. The <B>fprintf</B> command is the
+same as the <B>printf </B>command, but prints its output to a file. Just
+as in C, <B>sprintf</B> prints to a string.
+<P>Example 1:
+<BR>&nbsp;
+<UL><TT>printf "Test %2.0f is %s\n", 12, "done"</TT></UL>
+
+<P><BR>Example 2:
+<BR>&nbsp;
+<UL><TT>printf "Use conversion: %d %f %s",&nbsp; 12, "12.5", 1.4e5</TT></UL>
+
+<P><BR>Example 3:
+<BR>&nbsp;
+<UL><TT>$newfile = open "myfile", "w"</TT>
+<BR><TT>fprintf $newfile, "Write to a file the character G: %c\n", "G"</TT>
+<BR><TT>close $newfile</TT></UL>
+
+<P><BR>Example 4:
+<BR>&nbsp;
+<UL><TT>%test = sprintf("Testing %4d %4d %4d", 1, 2, 3)</TT></UL>
+</UL>
+
+<HR WIDTH="100%">
+</BODY>
+</HTML>

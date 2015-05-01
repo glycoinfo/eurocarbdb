@@ -1,0 +1,67 @@
+/**
+ * $Id: BeginHplc.java 828 2007-02-08 10:22:13Z hirenj $
+ * Last changed $Author: hirenj $
+ * EUROCarbDB Project
+ */
+package org.eurocarbdb.action.hplc;
+
+import org.eurocarbdb.action.EurocarbAction;
+import org.eurocarbdb.dataaccess.core.Reference;
+
+//3rd party imports
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory; 
+
+/**
+ * @author 			hirenj
+ * @rev				$Rev: 828 $
+ */
+public class Example extends EurocarbAction {
+    
+
+    /** Logging handle. */
+    protected static final Log log = LogFactory.getLog( BeginHplc.class );
+    
+    private Reference ref;
+    private Long detectorId;
+    private String manufacturer;
+    private String model;
+    private String excitation;
+    private String emission;
+    private float bandwidth;
+    private String samplingRate;
+    
+        
+    public String execute() {
+
+        if (this.getManufacturer().equals("hello")) {
+            return this.SUCCESS;
+        } else {
+            return this.INPUT;
+        }
+    }
+
+    public String getManufacturer() {
+        return manufacturer == null ? "no_man" : manufacturer;
+    }
+
+/* The use of a conditional operator in java ? :  The condition, (a > b), is tested. If it is true the first value, a, is returned. If it is false, the second value, b, is returned. Whichever value is returned is dependent on the conditional test, a > b. 
+*no_manufacturer is returned if manu == null
+* */
+  
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public Reference getRef() {
+        return ref;
+    }
+
+    public void setRef(Reference ref) {
+        this.ref = ref;
+    }
+
+
+
+}

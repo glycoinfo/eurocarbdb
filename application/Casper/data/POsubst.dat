@@ -1,0 +1,185 @@
+# Synthesis, NMR, and conformational studies of methyl a-D-mannopyranoside 2-,
+# 3-, 4- and 6-monophosphates
+# C. Bernlind, S. Oscarson, G. Widmalm
+set ref 'Carb. Res. 263 (1994) 173-180'
+
+type 'PO3' {
+info 'phosphate substituent'
+priority 'Z'
+atom 'P' 0 silent link free
+atom 'O' 0 silent free
+connect 'P' 'O'
+ctclass 'subst'
+}
+
+#residue 'PO3' 'PO3' {
+#info 'Disodium phospate'
+#}
+
+#residue 'PO3H2' 'PO3' {
+#info 'Dihydrogen phosphate'
+#}
+
+residue 'P' 'PO3' {
+info 'Phosphate'
+}
+
+dimer 'P(P->2)aDManOMe' {
+info $ref
+shift -;-
+shift 101.33 4.89; 73.23 4.33; 71.78 3.71; 68.55 3.74; 73.67 3.58; 61.88 3.78 3.88; 55.58 3.43
+extract
+}
+
+dimer 'P(P->3)aDManOMe' {
+info $ref
+shift -;-
+shift 101.58 4.77; 70.56 4.08; 74.52 4.17; 67.88 3.78; 73.50 3.65; 62.03 3.75 3.89; 55.57 3.43
+extract
+}
+
+dimer 'P(P->4)aDManOMe' {
+info $ref
+shift -;-
+shift 101.53 4.77; 70.41 3.94; 71.80 3.89; 70.24 4.12; 72.77 3.63; 61.80 3.85 3.85; 55.64 3.42
+extract
+}
+
+dimer 'P(P->6)aDManOMe' {
+info $ref
+shift -;-
+shift 101.95 4.76; 70.89 3.92; 71.16 3.78; 67.25 3.87; 72.99 3.64; 63.67 4.07 3.96; 55.66 3.42
+extract
+}
+
+# a- and b-Glycopyranosyl Phosphates and 1,2-Phosphates
+# Assignments of Conformations in Solution by 13C and 1H NMR
+# J.V. O'Connor, H.A. Nunez, R. Barker
+set ref 'Biochemistry 18 (1979) 500-507'
+set h_corr 0.00
+set c_corr 0.68
+
+dimer 'aLFuc(1->O)P' {
+shift 95.2 5.41; 70.4 3.69; 71.4 3.91; 73.5 3.80; 68.3 4.26; 17.0 1.19
+shift - ; -
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'bLFuc(1->O)P' {
+shift 98.9 4.84; 73.6 3.53; 74.4 3.70; 72.9 3.75; 72.6 3.83; 17.1 1.26
+shift - ; -
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'aDGal(1->O)P' {
+shift 95.3 5.48; 70.5 3.74; 71.1 3.90; 71.0 3.98; 72.6 4.18; 62.9 3.70 3.72
+shift - ; -
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'bDGal(1->O)P' {
+shift 99.0 4.86; 73.6 3.56; 74.1 3.71; 70.7 3.92; 77.1 3.73; 63.0 3.73 3.81
+shift - ; -
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'aDGlc(1->O)P' {
+shift 95.0 5.44; 73.7 3.46; 74.7 3.78; 71.2 3.38; 73.5 3.92; 62.2 3.73 3.87
+shift - ; -
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+dimer 'bDGlc(1->O)P' {
+shift 98.6 4.89; 76.0 3.30; 77.2 3.53; 71.5 3.32; 77.8 3.52; 62.8 3.66 3.91
+shift - ; -
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+#dimer 'aDMan(1->O)P' {
+#shift 96.5 5.32; 72.6 3.95; 71.7 3.94; 68.6 3.58; 74.5 3.88; 62.8 3.70 3.89
+#shift - ; -
+#correct $c_corr $h_corr
+#extract: info $ref
+#}
+
+dimer 'bDMan(1->O)P' {
+shift 96.3 5.10; 72.9 4.02; 74.3 3.71; 68.3 3.53; 78.0 3.44; 62.8 3.70 3.94
+shift - ; -
+correct $c_corr $h_corr
+extract: info $ref
+}
+
+# Phosphorylation and metabolism of sucrose and
+# its five linkage-isomeric a-D-glucosyl-D-fructoses
+# by Klebsiella pneumoniae
+# J. Thompson, S.A. Robrish, A. Pikis, A. Brust,
+# F.W. Lichtenthaler
+# Carbohydr. Res. 331 (2001) 149-161
+set ref 'Carbohydr. Res. 331 (2001) 149-161'
+
+dimer 'P(P->6)aDGlc' {
+info $ref
+shift -;-
+shift 0.2 0.0; 0.90 0.03; -0.1 0.01; -0.2 0.10; -0.2 0.06; 2.8 0.24 0.19
+}
+
+dimer 'P(P->6)bDFruf' {
+info $ref
+shift -;-
+shift 2.1 0.06 0.02; 1.7; 1.9 0.02; 2.0 0.14; 1.1 0.05; 4.1 0.26 0.14
+}
+
+dimer 'P(P->1)bDFru' {
+info $ref
+shift -;-
+shift 4.5 0.25 0.11; 1.7; 2.4 0.01; 1.7 -0.04; 1.9 0.01; 2.1 0.01 0.02
+}
+
+# Synthesis of B-(1->2)-Linked Oligomannosides
+# M. Poláková, M.U. Roslund, F.S. Ekholm, T. Saloranta, R. Leino
+# Eur. J. Org. Chem. (2009) 870-888
+set ref 'Eur. J. Org. Chem. (2009) 870-888'
+set h_corr -0.10
+set c_corr 1.07
+
+dimer 'aDMan(1->O)P' {
+shift 96.6 5.32; 71.0 3.87; 70.4 3.80; 67.0 3.57; 74.1 3.72; 61.4 3.66 3.77
+shift - ; -
+correct $c_corr $h_corr
+# Run in MeOH at 25C
+error 1.0
+extract: info $ref
+}
+
+# bDMan(1->2)aDManP
+trimer bDMan '1' '2' P 'O' '1' aDMan {
+shift 98.6 4.70; 70.7 3.93; 72.7 3.53; 66.6 3.44; 76.3 3.27; 60.9 3.60 3.790
+shift - ; -
+shift 93.8 5.41; 77.6 4.06; 69.3 3.793; 66.6 3.61; 73.6 3.69; 60.4 3.67 3.73
+correct $c_corr $h_corr
+# Run in MeOH at 25C
+error 1.0
+extract: info $ref
+}
+
+# Excretion of a Phosphorus-Containing Carbohydrate by Streptomyces sp. A50
+# Dafna Ben-Bashat, Yael Meller, Yair Aharonowitz, David Gutnick,
+# Shmuel Carmeli, and Gil Navon
+set ref 'J. Nat. Prod. 2001, 64, 1538-1540'
+
+# aDGlcNAcP(1->6)aDGlcNacOMe
+trimer aDGlcNAc '1' 'O' aDGlcNAcOMe '6' 'P' P {
+info $ref
+shift 92.6 5.55; 52.4 4.04; 69.6 3.86; 67.9 3.76; 63.8 3.77; 70.4 4.10 4.10; 20.6 2.20; 173.1
+shift 95.8 5.00; 52.2 4.04; 69.3 3.86; 68.1 3.63; 69.5 3.94; 63.0 4.17 4.17; 20.6 2.20; 173.1; 57.9 3.79
+shift -;-
+error 0.2
+extract
+}
+

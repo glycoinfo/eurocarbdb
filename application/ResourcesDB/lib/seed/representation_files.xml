@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<seed namescheme="glycosciences">
+<!-- a seed file pointing to coordinate files on a local file system -->
+<monosaccharide name="a-D-Allf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Allf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Allp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Allp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Altf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Altf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Altp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Altp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Araf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Araf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Arap">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Arap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Fruf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Fruf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Frup">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Frup.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Fucp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Fucp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Galf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Galf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-GalpNAc">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-GalpNAc.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Galp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Galp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-GlcpNAc">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-GlcpNAc.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-GlcpN">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-GlcpN.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Glcp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Glcp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Gulf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Gulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Gulp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Gulp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Idof">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Idof.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Idop">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Idop.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Lyxf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Lyxf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Lyxp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Lyxp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Manf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Manf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Manp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Manp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Neup5Ac">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Neup5Ac.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Neup">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Neup.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Psif">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Psif.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Psip">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Psip.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Quip">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Quip.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Rhap">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Rhap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Ribf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Ribf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Ribp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Ribp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Sorf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Sorf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Sorp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Sorp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Tagf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Tagf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Tagp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Tagp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Talf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Talf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Talp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Talp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Xulf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Xulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Xylf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Xylf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-D-Xylp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-D-Xylp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Allf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Allf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Allp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Allp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Altf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Altf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Altp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Altp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Araf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Araf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Arap">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Arap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Fruf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Fruf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Frup">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Frup.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Fucp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Fucp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Galf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Galf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-GalpNAc">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-GalpNAc.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Galp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Galp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Glcf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Glcf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Gulf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Gulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Gulp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Gulp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Idof">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Idof.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Idop">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Idop.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Lyxf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Lyxf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Lyxp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Lyxp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Manf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Manf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Manp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Manp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Psif">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Psif.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Rhap">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Rhap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Ribf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Ribf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Ribp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Ribp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Sorf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Sorf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Sorp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Sorp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Tagf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Tagf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Tagp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Tagp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Talf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Talf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Talp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Talp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Xulf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Xulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Xylf">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Xylf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="a-L-Xylp">
+	<representation type="coordinates" format="pdb">/representations/structure/a-L-Xylp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Allf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Allf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Allp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Allp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Altf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Altf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Altp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Altp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Araf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Araf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Arap">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Arap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Fruf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Fruf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Frup">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Frup.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Fucp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Fucp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Galf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Galf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-GalpNAc">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-GalpNAc.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Galp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Galp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Glcf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Glcf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-GlcpNAc">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-GlcpNAc.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-GlcpN">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-GlcpN.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Glcp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Glcp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Gulf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Gulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Gulp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Gulp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Idof">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Idof.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Idop">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Idop.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Lyxf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Lyxf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Lyxp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Lyxp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Manf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Manf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Manp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Manp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Psif">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Psif.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Psip">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Psip.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Quip">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Quip.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Rhap">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Rhap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Ribf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Ribf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Ribp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Ribp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Sorf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Sorf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Sorp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Sorp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Tagf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Tagf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Tagp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Tagp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Talf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Talf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Talp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Talp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Xulf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Xulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Xylf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Xylf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-D-Xylp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-D-Xylp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Allf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Allf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Allp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Allp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Altf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Altf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Altp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Altp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Araf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Araf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Arap">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Arap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Fruf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Fruf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Frup">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Frup.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Fucp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Fucp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Galf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Galf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-GalpNAc">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-GalpNAc.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Galp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Galp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-GlcpNAc">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-GlcpNAc.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-GlcpN">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-GlcpN.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Glcp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Glcp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Gulf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Gulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Gulp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Gulp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Idof">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Idof.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Idop">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Idop.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Lyxf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Lyxf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Lyxp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Lyxp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Manf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Manf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Manp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Manp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Psif">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Psif.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Psip">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Psip.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Quip">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Quip.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Rhap">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Rhap.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Ribf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Ribf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Ribp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Ribp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Sorf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Sorf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Sorp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Sorp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Tagf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Tagf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Tagp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Tagp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Talf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Talf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Talp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Talp.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Xulf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Xulf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Xylf">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Xylf.pdb</representation>
+</monosaccharide>
+<monosaccharide name="b-L-Xylp">
+	<representation type="coordinates" format="pdb">/representations/structure/b-L-Xylp.pdb</representation>
+</monosaccharide>
+</seed>

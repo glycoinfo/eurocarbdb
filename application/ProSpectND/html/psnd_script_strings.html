@@ -1,0 +1,269 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (X11; I; Linux 2.2.5-15 i686) [Netscape]">
+   <meta name="Author" content="Albert van Kuik">
+   <title>Script processing: strings</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+&nbsp;
+<h1>
+<a NAME="Strings"></a>Strings</h1>
+
+<ul>
+<li>
+<u><font color="#0000FF"><a href="#STRING">STRING</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#SUB-STRINGS">SUB-STRINGS</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#INDEX">INDEX</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#LASTINDEX">LASTINDEX</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#UPCASE">UPCASE</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#LOWCASE">LOWCASE</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#SIZEOF string">SIZEOF</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#TRIM">TRIM</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#F2ASCII">F2ASCII</a></font></u></li>
+
+<li>
+<u><font color="#0000FF"><a href="#TOKEN">TOKEN</a></font></u></li>
+
+<br>&nbsp;
+<p>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>Strings are delimited by double quotes, as in "string". For example:
+<br>&nbsp;
+<ul><tt>"This is a string"</tt></ul>
+
+<p><br>Strings can be concatenated with the '+' operator. For example:
+<br>&nbsp;
+<ul><tt>%name = "my" + "file" + "name"</tt></ul>
+
+<p><br>stores "myfilename" in the variable name, and
+<br>&nbsp;
+<ul><tt>%newname = %name + "." + %(112)</tt></ul>
+
+<p><br>stores "myfilename.112" in newname Special characters are <tt>\n</tt>
+for newline, <tt>\t</tt> for tab, <tt>\\ </tt>for <tt>\,</tt> and <tt>\"</tt>
+for <tt>"</tt>.</ul>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="STRING"></a>STRING</h4>
+
+<ul><b>% </b>( <i>&lt;expression></i> )
+<p>The operator <b>%</b> converts braced <i>&lt;expression></i> into a
+string. Example:
+<br>&nbsp;
+<ul><tt>println %( 1+4-2 )</tt></ul>
+
+<p><br>prints 3.</ul>
+
+<h4>
+<a NAME="SUB-STRINGS"></a>SUB-STRINGS</h4>
+
+<ul>sub-strings are created by given the string + range
+<p>Example 1:
+<br>&nbsp;
+<ul><tt>%test = "123456789"</tt>
+<br><tt>println %test[3..8]</tt></ul>
+
+<p><br>prints: 345678
+<p>Example 2:
+<br>&nbsp;
+<ul><tt>%test = "123456789"</tt>
+<br><tt>println %test [2..4,6,8..9]</tt></ul>
+
+<p><br>prints 234689
+<p><b>Copy a (sub)-string into a sub-string</b>
+<p>Example 3:
+<br>&nbsp;
+<ul><tt>%test = "123456789"</tt>
+<br><tt>%test[2] = "a"</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints 1a3456789
+<p>Example 4:
+<br>&nbsp;
+<ul><tt>%test = "123456789"</tt>
+<br><tt>%test[2..4] = "abcdefgh"</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints 1abc56789
+<p>Example 5:
+<br>&nbsp;
+<ul><tt>%test = "123456789"</tt>
+<br><tt>%test[2..] = "abcd"</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints 1abcd6789
+<p>Example 6:
+<br>&nbsp;
+<ul><tt>%test = "123456789"</tt>
+<br><tt>%test[2..] = "abcdefghijklm"</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints 1abcdefghijklm
+<p>Example 7:
+<br>&nbsp;
+<ul><tt>%test = "123456789"</tt>
+<br><tt>%test[12] = "a"</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints 123456789&nbsp; a
+<p>Example 8:
+<br>&nbsp;
+<ul><tt># test is not defined before</tt>
+<br><tt>%test[12] = "a"</tt>
+<br><tt>println "1" + %test</tt></ul>
+
+<p><br>prints 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a
+<br>&nbsp;</ul>
+
+<h4>
+<a NAME="INDEX"></a>INDEX</h4>
+
+<ul><b>index</b>( &lt;string> , &lt;sub-string> )
+<p>The function <b>index</b> gives the first starting position of the sub-string
+<i>&lt;sub-string></i>
+in the string <i>&lt;string></i>. If <i>&lt;sub-string></i> does not match
+any part of <i>&lt;string></i>, -1 is returned.Example:
+<br>&nbsp;
+<ul><tt>$i = index("abcdef","cd")</tt></ul>
+
+<p><br>returns 3 into the variable i</ul>
+
+<h4>
+<a NAME="LASTINDEX"></a>LASTINDEX</h4>
+
+<ul><b>lastindex</b>( &lt;string> , &lt;sub-string> )
+<p>The function <b>lastindex</b> gives the last starting position of the
+sub-string <i>&lt;sub-string></i> in the string <i>&lt;string></i>. If
+<i>&lt;sub-string></i>
+does not match any part of <i>&lt;string></i>, -1 is returned.Example:
+<br>&nbsp;
+<ul><tt>%name = "/usr/local/myfile"</tt>
+<br><tt>$i = lastindex(%name,"/")</tt>
+<br><tt>if $i != -1 then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; %name = %name[$i+1 ..]</tt>
+<br><tt>endif</tt></ul>
+
+<p><br>returns "myfile" into the variable "name"</ul>
+
+<h4>
+<a NAME="UPCASE"></a>UPCASE</h4>
+
+<ul><b>upcase</b> ( <i>&lt;string></i> )
+<p>The function <b>upcase</b> converts the string <i>&lt;string></i> in
+upper case characters. Example:
+<br>&nbsp;
+<ul><tt>%test = upcase("abcde")</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints: ABCDE</ul>
+
+<h4>
+<a NAME="LOWCASE"></a>LOWCASE</h4>
+
+<ul><b>lowcase</b> ( <i>&lt;string></i> )
+<p>The function <b>lowcase</b> converts the string <i>&lt;string></i> in
+lower case characters. Example:
+<ul><tt>%test = lowcase("abCDE")</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints: abcde</ul>
+
+<h4>
+<a NAME="SIZEOF string"></a>SIZEOF</h4>
+
+<ul><b>sizeof</b>( <i>&lt;string></i> )
+<p>Returns the number of characters in <i>&lt;string></i>.</ul>
+
+<h4>
+<a NAME="TRIM"></a>TRIM</h4>
+
+<ul><b>trim</b> ( <i>&lt;string></i> )
+<p>The function <b>trim</b> removes white space ( \n \r \t and ' ' ) at
+the end of the string <i>&lt;string></i>. Example:
+<br>&nbsp;
+<ul><tt>%test = trim("abcde&nbsp; ") + "fg"</tt>
+<br><tt>println %test</tt></ul>
+
+<p><br>prints: abcdefg</ul>
+
+<h4>
+<a NAME="F2ASCII"></a>F2ASCII</h4>
+
+<ul><b>f2ascii</b> ( <i>&lt;array></i> )&nbsp; or <b>f2ascii</b> ( <i>&lt;value></i>
+)
+<p>The function <b>f2ascii</b> converts a float or array ( of floats )
+into an ascii string. All bytes of the float(s) are returned as characters
+in the string if they represent a printable 7bits ascii character. Otherwise
+they are replaced by spaces. Each float produces a 4-character string-part.
+<p>Example 1:
+<br>&nbsp;
+<ul><tt># open binary acqu file</tt>
+<br><tt>$fn = open "acqus", "r"</tt>
+<br><tt># read 1 float = 4 bytes</tt>
+<br><tt>$test = read $fn</tt>
+<br><tt># convert</tt>
+<br><tt>println f2ascii($test)</tt></ul>
+
+<p><br>prints A000 Example 2:
+<br>&nbsp;
+<ul><tt># open new_style text acqu file</tt>
+<br><tt>$fn = open "acqus", "r"</tt>
+<br><tt># read 2 floats = 8 bytes</tt>
+<br><tt>@a[1..2] = read $fn</tt>
+<br><tt># convert</tt>
+<br><tt>println f2ascii(@a[1..2])</tt></ul>
+
+<p><br>prints ##TITLE=</ul>
+
+<h4>
+<a NAME="TOKEN"></a>TOKEN</h4>
+
+<blockquote><i>&lt;value> </i>= <b>token</b> { <i>&lt;inputstring> </i>
+, } <i>&lt;delimiter></i>
+<p>This is an implementation of C's strtok(), that can parse <i>&lt;inputstring></i>
+into tokens.&nbsp; The first call to <b>token</b> is with two arguments, an input
+string and a delimiter, and the first token is returned in <i>&lt;value> </i>. 
+For all further calls only one argument is used, the delimiter, and the next token is returned.
+The delimiter may be different for each call. If no more tokens are available, an empty string
+is returned. Unlike in C, the input string is not destroyed.
+<p>Example 1:
+<blockquote><tt>%line = " abc 1234; ok;twelve eleven;1.99"</tt><tt></tt>
+<p><tt>%bla = token %line, " ;"</tt>
+<br><tt>while %bla != "" do</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; println %bla</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; %bla = token " ;"</tt>
+<br><tt>done</tt></blockquote>
+prints
+<blockquote>abc
+<br>1234
+<br>ok
+<br>twelve
+<br>eleven
+<br>1.99</blockquote>
+</blockquote>
+<hr>
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,34 @@
+# Synthesis, NMR and conformational studies of fucoidan
+# fragments 1: Desulfated 2,3- and 3,4-branched trisaccharide
+# fragments and constituting disaccharides
+# J. Carb. Chem. 19 (2000) 1151-1173
+# are OiPr in original
+set ref 'J. Carb. Chem. 19 (2000) 1151-1173'
+set c_corr -0.55
+set h_corr -0.03
+# ref on acetone=31.45/2.225 according to paper
+
+# dimer 'aLFuc(1->2)aLFucOMe' {
+# shift 97.1 5.04; 69.2 3.76; 70.6 3.95; 73.0 3.81; 68.2 4.25; 16.4 1.21
+# shift 96.6 5.10; 73.3 3.85; 69.2 3.96; 73.1 3.84; 67.7 4.09; 16.5 1.22
+# shift  55.96-$c_corr 3.41-$h_corr
+# extract: info $ref
+# correct $c_corr $h_corr:error 0.2
+# }
+
+dimer 'aLFuc(1->3)aLFucOMe' {
+shift 96.4  5.07; 69.2 3.81; 70.7 3.95; 73.1 3.82; 68.1 4.28; 16.5 1.21
+shift 99.45 4.91; 67.6 3.91; 75.8 3.91; 69.3 4.02; 67.5 4.08; 16.5 1.27
+shift  55.96-$c_corr 3.41-$h_corr
+extract: info $ref
+correct $c_corr $h_corr:error 0.2
+}
+
+# dimer 'aLFuc(1->4)aLFucOMe' {
+# shift 101.9 4.96; 69.9 3.80; 70.7 3.93; 73.2 3.83; 68.2 4.51; 16.6 1.18
+# shift  99.6 4.93; 69.4 3.83; 70.4 3.95; 81.4 3.84; 68.3 4.13; 16.5 1.31
+# shift  55.96-$c_corr 3.41-$h_corr
+# extract: info $ref
+# correct $c_corr $h_corr:error 0.2
+# }
+

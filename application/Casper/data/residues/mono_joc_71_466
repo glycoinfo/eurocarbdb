@@ -1,0 +1,45 @@
+#Approximated systematic 13C error: -0.47
+#Approximated systematic 1H error: 0.02
+#Systematic error correction applied
+
+set ref 'J. Org. Chem. 71 (2006) 466-479'
+
+
+residue aDGulNAcOMe HexNAcOMe {
+ info $ref
+ priority 'gulo Db 2acetamido'
+ config D
+ carbbank 'a-D-GulpNAc-(1-1)-Methyl'
+ ctname 'a-dgul'
+ error 1.0
+ shift 99.05 4.819
+ shift 47.24 4.302
+ shift 69.82 3.924
+ shift 69.52 3.860
+ shift 67.19 4.157
+ shift 62.19 3.801 3.816
+ shift 22.79 2.095
+ shift 174.94 
+ shift 56.37 3.435
+ correct -0.47 0.02
+}
+
+residue aDTalNAcOMe HexNAcOMe {
+ info $ref
+ priority 'talo Db 2acetamido'
+ config D
+ carbbank 'a-D-TalpNAc-(1-1)-Methyl'
+ ctname 'a-dtal'
+ error 1.0
+ shift 100.21 4.776
+ shift 51.61 4.151
+ shift 63.85 4.064
+ shift 68.48 4.011
+ shift 71.16 3.919
+ shift 61.57 3.797 3.852
+ shift 22.49 2.075
+ shift 174.28 
+ shift 54.88 3.430
+ correct -0.47 0.02
+}
+

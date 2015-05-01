@@ -1,0 +1,183 @@
+
+set silent 'true'
+
+# set mode tv2
+set mode t2
+
+set a_mode 'accurate'
+
+set prompt off
+
+set datadir '../data/'
+
+load $datadir+'types.dat'
+load $datadir+'conv.dat'
+
+set monodir $datadir+'residues/'
+
+load $datadir+'reducing.dat'
+load $datadir+'nonred.dat'
+
+load $datadir+'enantiomers.dat'
+load $datadir+'fakes.dat'
+
+# pentoses
+load $monodir+'mono_cr_258_27'
+
+# 1,6-anhydro
+# No linkage position
+# load $monodir+'anh_ann_718_224'
+
+# furanoses
+load $monodir+'mono_cr_77_37'
+load $monodir+'mono_cr_331_149'
+
+# No linkage position
+# load $monodir+'mono_cr_313_189'
+load $monodir+'mono_cr_166_85'
+load $monodir+'mono_ejb_246_565'
+load $monodir+'mono_biochem_31_4081'
+
+# deoxy
+load $monodir+'mono_cr_288_25'
+load $monodir+'mono_cr_130_35'
+load $monodir+'mono_cr_296_149'
+load $monodir+'mono_cr_228_1'
+load $monodir+'mono_cr_300_143'
+
+# muramic acid
+load $monodir+'mono_cr_297_289'
+
+# pyruvate & lactyl
+load $monodir+'mono_acs_47_711.dat
+load $monodir+'res_lactyl'
+
+load $monodir+'mono_joc_51_2694'
+# fake residues
+load $monodir+'computed'
+
+# GulNAc and TalNAc
+load $monodir+'mono_joc_71_466'
+
+# non-2-ulosonic acids
+load $monodir+'mono_cr_335_221'
+
+# defaults
+load $datadir+'default.dat'
+load $datadir+'default_pen.dat'
+load $datadir+'default_dide.dat'
+
+set didir $datadir+'dimers/'
+# --- new dimer files ---
+load $didir+'di_cr_257_163'
+load $didir+'di_perk2_1992_1085'
+load $didir+'di_perk1_1988_209'
+load $didir+'di_perk1_1988_2729'
+load $didir+'di_perk1_1988_889'
+load $didir+'di_perk1_1989_2153'
+load $didir+'di_perk1_1990_1383'
+load $didir+'di_perk1_1990_2011'
+load $didir+'di_perk1_1990_591'
+load $didir+'di_perk1_1991_2229'
+load $didir+'di_cr_235_69'
+load $didir+'di_cr_188_169'
+load $didir+'di_acta_45_517'
+
+load $didir+'di_bioorg_14_205'
+#load $didir+'di_perk2_1982_59'
+load $didir+'di_canj_68_1238'
+load $didir+'di_cr_237_95'
+# verkar OK 'di_cr_257_35'
+load $didir+'di_cr_257_35'
+load $didir+'di_cr_319_184'
+load $didir+'di_cr_228_1'
+
+# Måste kanske kontrolleras
+load $didir+'di_cr_296_149'
+
+load $didir+'di_cr_288_25'
+load $didir+'di_cr_273_11'
+load $didir+'di_cr_139_35'
+load $didir+'di_cr_186_313'
+load $didir+'di_cr_186_39'
+load $didir+'di_jcc_19_1151'
+
+load $didir+'di_perk2_1996_33'
+
+load $didir+'di_biochem_2004_9647'
+
+load $didir+'di_cr_277_171'
+
+load $didir+'di_isr_j_chem_40_223'
+
+load $didir+'di_eur_j_org_chem_2009_870'
+
+# Only 13C - 1H is approximated. Needs to be checked.
+load $didir+'di_bioorg_khim_15_1366'
+
+# Approximation for aDGlc(1->1)bDGlc and bDGlc(1->1)bDGlc from Sugabase
+load $didir+'di_adv_accb_42_193'
+
+set tridir $datadir+'trimers/'
+# --- new trimer files ---
+load $tridir+'tri_perk1_1989_2153'
+load $tridir+'tri_perk1_1989_2167'
+load $tridir+'tri_perk2_1991_963'
+load $tridir+'tri_perk2_1998_639'
+load $tridir+'tri_cr_235_69'
+
+load $tridir+'tri_canj_68_1238'
+load $tridir+'tri_cr_221_145'
+load $tridir+'tri_cr_237_95'
+# flagged? assignments wrong???
+# load $tridir+'tri_perk2_1982_59'
+load $tridir+'tri_cr_288_25'
+
+load $tridir+'tri_cr_130_35'
+load $tridir+'tri_joc_59_6735'
+load $tridir+'tri_jcc_19_1151'
+
+load $tridir+'tri_perk2_1996_33'
+
+load $tridir+'tri_isr_j_chem_40_223'
+
+load $tridir+'tri_eur_j_org_chem_2009_870'
+
+# lactyl sugars
+load $didir+'lac_cr_254_35'
+load $didir+'lac_cr_297_289'
+load $didir+'lac_cr_313_157'
+load $didir+'lac_jacs_115_1114'
+
+# EuroCarbDB
+load $monodir+'mono_jacs_125_3493'
+load $didir+'di_cr_218_27'
+load $didir+'di_abb_278_297'
+
+# N-linked
+load $datadir+'N-linked/ejb_73_93'
+
+# O-linked
+load $datadir+'O-linked/cr_230_299'
+
+# --- extracted - highly uncertain!
+load $datadir+'extracted.dat'
+
+# Substituents
+load $datadir+'OAcsubst.dat'
+load $datadir+'POsubst.dat'
+load $datadir+'OMesubst.dat'
+
+# Biological rules
+load $datadir+'rules.dat'
+
+clear va ref
+clear va c_corr
+clear va ccorr
+clear va h_corr
+clear va hcorr
+
+
+load '-'
+
+end

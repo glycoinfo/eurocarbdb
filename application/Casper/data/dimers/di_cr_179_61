@@ -1,0 +1,10 @@
+# Synthesis of a di-, tri-, and tetrasaccharide unit of the
+# group B streptococcal common antigen
+# V. Pozsgay, H.J. Jennings
+set ref 'Carbohydr. Res. 179 (1988) 61-75'
+
+dimer 'bDGlcNAc(1->4)aLRhaOMe' {
+shift 102.32 4.76; 56.68 3.67; 74.73 3.54; 70.61 3.45; 76.44 3.42; 61.39 3.75 3.91; 23.08 2.03; 175.46
+shift 101.37 4.66; 70.97 3.86; 71.18 3.78; 80.92 3.58; 67.58 3.70; 17.78 1.33; 55.57 3.37
+extract:info $ref
+}
